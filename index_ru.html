@@ -71,6 +71,9 @@
   .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
     border-top:1px solid #dadce0;padding-top:10px}
   img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
   .hero{border-bottom:0 !important}
   .showband{margin:30px auto;text-align:center;border:0;background:transparent;
     max-width:760px}
@@ -90,6 +93,7 @@
     .lic td,.lic th{border:0;padding:5px 8px}
   }
 </style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
 <meta name="description" content="Полноценная офлайн-система управления юридическими делами для Windows и Android со встроенным ИИ, который знает ваши дела: клиенты, дела, доказательства, сроки, e-mail.">
 <meta name="keywords" content="управление юридическими делами, юридическое ПО, юридический ИИ, гражданское право, юридическое ПО Windows, юридическое приложение Android, офлайн юридическое ПО, OSINT, контроль сроков, автоматизация документов">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">

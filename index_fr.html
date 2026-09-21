@@ -71,6 +71,9 @@
   .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
     border-top:1px solid #dadce0;padding-top:10px}
   img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
   .hero{border-bottom:0 !important}
   .showband{margin:30px auto;text-align:center;border:0;background:transparent;
     max-width:760px}
@@ -90,6 +93,7 @@
     .lic td,.lic th{border:0;padding:5px 8px}
   }
 </style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
 <meta name="description" content="Système complet de gestion de dossiers juridiques, offline-first, pour Windows et Android, avec une IA intégrée qui connaît vos dossiers : clients, affaires, preuves, délais.">
 <meta name="keywords" content="gestion de dossiers juridiques, logiciel juridique, IA juridique, droit civil, logiciel avocat Windows, application juridique Android, logiciel juridique hors ligne, OSINT, gestion des délais, automatisation de documents">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
