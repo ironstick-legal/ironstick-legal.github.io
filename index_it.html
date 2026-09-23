@@ -221,6 +221,8 @@ IRONSTICK risponde con l'architettura. La tua IA desktop lavora sul tuo
 fascicolo attraverso <b>150 strumenti costruiti su misura</b>, e ogni percorso
 verso un documento in uscita passa per gate deterministici: pura logica,
 nessuna IA che controlla un'altra IA.</p>
+<div class="showband"><img src="img/50_two_windows.png" alt="Guardare l'IA al lavoro — in diretta"></div>
+
 <ul>
 <li><b>Prova di lettura.</b> Il sistema registra, riga per riga, ciò che l'IA
 ha effettivamente letto del tuo fascicolo. Gli intervalli non letti le vengono
@@ -253,6 +255,22 @@ letto dalla biblioteca in questa sessione, fonda una citazione; e ogni risposta
 su un caso reca il vero oggetto del caso dai tuoi documenti, così che un
 contesto inventato da un altro caso si smentisce all'istante.</li>
 </ul>
+<div class="box"><b>E non sei mai vincolato a un unico fornitore di IA.</b> L'IA
+integrata funziona su <b>Gemini, Qwen, Kimi, ChatGPT e Claude</b> — cinque
+sezioni gemelle nel configuratore. Gemini non ha bisogno di alcuna chiave API:
+un accesso con il tuo account Google e funziona sul tuo piano Google AI
+(Windows). <b>E IRONSTICK ti fa risparmiare da solo:</b> ogni fornitore che hai
+configurato viene usato automaticamente, prima il più economico — Gemini, poi
+Qwen, Kimi, ChatGPT, Claude. Ad ogni avvio il programma controlla quali di essi
+rispondono; se una quota o un credito si esaurisce durante la giornata, prosegue
+in silenzio con il successivo e ricontrolla il giorno dopo. Nessun selettore,
+nessuna interruzione, nessun lavoro perso. Il lato desktop offre Claude, ChatGPT,
+Qwen e Kimi. Se un fornitore delude su prezzo, policy o prestazioni, ti basta
+rimuovere la sua chiave — i gate, e quindi lo standard consegnato, restano
+identici.</div>
+<h3>La via IRONSTICK</h3>
+<div class="showband"><img src="img/58_mcp_bridge.png" alt="Il server MCP collega il fornitore di IA all'app client"></div>
+
 <div class="box"><b>Cosa significa questo per la tua scelta dell'IA:</b> con
 questi gate attivi diventa quasi irrilevante quanto sia potente il modello
 collegato — un modello più debole ha semplicemente bisogno di più round di
@@ -268,26 +286,16 @@ di IRONSTICK è un compilatore, non un suggerimento: dieci gate deterministici,
 un verdetto bloccante, un'attestazione vincolata all'esatto stato del fascicolo
 — ogni modifica la annulla — e nessun documento formale esce senza di essa. Gli
 altri annotano; IRONSTICK impone.</div>
-<div class="showband"><img src="img/58_mcp_bridge.png" alt="Il server MCP collega il fornitore di IA all'app client"></div>
 <p>Per quanto ci risulta, nessun software giuridico al mondo impone questa
 combinazione. Gli strumenti di osservabilità registrano a posteriori, i sandbox
 recintano l'accesso — IRONSTICK dimostra il lavoro, all'unica interfaccia che
 l'IA possiede.</p>
-<div class="box"><b>E non sei mai vincolato a un unico fornitore di IA.</b> L'IA
-integrata funziona su <b>Gemini, Qwen, Kimi, ChatGPT e Claude</b> — cinque
-sezioni gemelle nel configuratore. Gemini non ha bisogno di alcuna chiave API:
-un accesso con il tuo account Google e funziona sul tuo piano Google AI
-(Windows). <b>E IRONSTICK ti fa risparmiare da solo:</b> ogni fornitore che hai
-configurato viene usato automaticamente, prima il più economico — Gemini, poi
-Qwen, Kimi, ChatGPT, Claude. Ad ogni avvio il programma controlla quali di essi
-rispondono; se una quota o un credito si esaurisce durante la giornata, prosegue
-in silenzio con il successivo e ricontrolla il giorno dopo. Nessun selettore,
-nessuna interruzione, nessun lavoro perso. Il lato desktop offre Claude, ChatGPT,
-Qwen e Kimi. Se un fornitore delude su prezzo, policy o prestazioni, ti basta
-rimuovere la sua chiave — i gate, e quindi lo standard consegnato, restano
-identici.</div>
+<h3>La via classica</h3>
+<div class="showband"><img src="img/64_classic_way.png" alt="La via classica: IA senza accesso ai casi, solo file caricati"></div>
+<p>Ancora oggi gli assistenti di IA lavorano senza alcun collegamento alla banca dati con i tuoi casi e i dati dei clienti — l’unica via verso l'IA è il caricamento di file. Anche la maggior parte dei sistemi basati sul cloud funziona secondo questa via classica: nel migliore dei casi sposta file di testo in background — invisibili per l'utente. L'IA attinge quindi, nel migliore dei casi, solo alle informazioni contenute proprio in questi file caricati. Con un po' di fortuna non sono troppo grandi e l'IA tiene conto di tutto; altrimenti le allucinazioni sono programmate. L'IA non può accedere al caso stesso: lavora alla cieca e cerca di ottenere per l'utente il miglior risultato possibile. Questo può portare a valutazioni errate pericolose e ad affermazioni false.</p>
+<p>Skill e plug-in aggiuntivi non cambiano nulla. Nel peggiore dei casi aggravano persino il problema: le loro istruzioni corpose occupano una parte considerevole della finestra di contesto prima ancora che l'IA abbia letto il primo documento — e più questa finestra è piena, più l'IA tiene conto del suo contenuto in modo disomogeneo.</p>
 
-<div class="showband"><img src="img/50_two_windows.png" alt="Watch the AI work — live"></div>
+
 <h2 id="ch3">3. Perché IRONSTICK — e non un'IA giuridica in cloud</h2>
 <p><b>Il fascicolo resta tuo. L'IA viene ai tuoi dati — non i tuoi dati
 all'IA.</b> Questa singola frase separa IRONSTICK da ogni piattaforma di IA
@@ -403,7 +411,7 @@ ufficiale — portano un contrassegno 🔥 finché non si calmano.</li>
 un bravo collaboratore — solo che ha letto <i>tutto</i>, e risponde in pochi
 secondi:</p>
 <ul>
-<li>«Riassumi lo stato dei fatti nel 13303/271/2026.»</li>
+<li>«Riassumi lo stato dei fatti nel 1003/270/2026.»</li>
 <li>«Quali lettere sono arrivate <i>dalla</i> controparte, e abbiamo risposto
 all'ultima?»</li>
 <li>«Chi ha detto cosa sulla sostituzione del contatore — ci sono
@@ -531,12 +539,13 @@ modo ogni volta, senza lacune:</p>
 del nome su tutto l'inventario, tutti i clienti: per ogni caso i dieci risultati
 più recenti con posizione di paragrafo e carattere — e una nota su quanti altri
 ce ne siano.</li>
+<li><b>Il materiale di ricerca specifico del caso</b>, come visure camerali, visure catastali ecc., basta archiviarlo nel fascicolo e indicare all'LLM di tenerne conto.</li>
 <li><b>Poi internet, su una griglia fissa.</b> CV, Facebook, LinkedIn,
 Instagram, città, distretto, scandali, resoconti di stampa, dichiarazioni
 patrimoniali e di interessi, tasse, partecipazioni societarie — per le aziende
 il registro delle imprese e l'insolvenza. I termini di ricerca sono
 automaticamente nella lingua del paese del bersaglio: per la Romania
-&ldquo;declarație de avere&rdquo;, non &ldquo;dichiarazione patrimoniale&rdquo;.</li>
+&ldquo;declarație de avere&rdquo;, non &ldquo;dichiarazione patrimoniale&rdquo;. Tutto avviene in background tramite l'app client, in modo completamente automatizzato: l'LLM riceve un profilo OSINT completo da elaborare. È molto più preciso e molto più economico.</li>
 <li><b>Tre motori di ricerca in una volta.</b> Google, DuckDuckGo e Qwant
 percorrono la griglia in parallelo; i risultati arrivano come un'unica lista
 ripulita senza duplicati. Se un motore blocca, gli altri continuano a
@@ -642,13 +651,14 @@ pressione delle scadenze — poco prima che scada un termine per la domanda o pe
 la replica — una soluzione simile mette sul tavolo atti imponenti comprese tutte
 le prove come modello pronto per il deposito in tempi record.</li>
 </ul>
+<div class="showband"><img src="img/54_dossier_flow.png" alt="Un dossier prende forma — dall'inizio alla fine"></div>
+
 <div class="box"><b>Testato.</b> 3.000 pagine di atti, allegati misti testo e
 immagine, timbrati e paginati, in uscita un unico PDF da 700&nbsp;MB — in meno
 di 20&nbsp;minuti.</div>
 
 <p class="part pb">Parte III — IA a piena profondità</p>
 
-<div class="showband"><img src="img/54_dossier_flow.png" alt="Building a dossier, end to end"></div>
 <h2 id="ch10">10. La tua IA desktop, collegata direttamente al tuo fascicolo</h2>
 <p>Per il lavoro analitico profondo, IRONSTICK offre qualcosa che nessuna
 cartella di esportazione può dare: un <b>ponte dal vivo</b> tra la tua IA desktop

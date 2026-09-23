@@ -217,6 +217,8 @@ industry answers with prompts and disclaimers — IRONSTICK answers with
 architecture. Your desktop AI works on your file through <b>150
 purpose-built tools</b>, and every path to an outgoing document leads
 through deterministic gates: pure logic, no AI checking AI.</p>
+<div class="showband"><img src="img/50_two_windows.png" alt="Watch the AI work — live"></div>
+
 <ul>
 <li><b>Read proof.</b> The system records, line by line, what the AI
 actually read of your file. Unread ranges are held against it in every
@@ -248,6 +250,21 @@ citation; and every answer about a case carries the case's true subject
 from your records, so context invented from another case refutes itself
 on the spot.</li>
 </ul>
+<div class="box"><b>And you are never locked to one AI vendor.</b> The
+built-in AI runs on <b>Gemini, Qwen, Kimi, ChatGPT and Claude</b> — five
+look-alike sections in the configurator. Gemini needs no API key at all: one
+sign-in with your Google account and it runs on your Google AI plan (Windows).
+<b>And IRONSTICK saves your money by itself:</b> every provider you have set up
+is used automatically, cheapest first — Gemini, then Qwen, Kimi, ChatGPT,
+Claude. At every start the program checks which of them respond; if a quota or
+credit runs out during the day, it silently carries on with the next one and
+checks again the next day. No selector, no interruption, no lost work. The
+desktop side offers Claude, ChatGPT, Qwen and Kimi. If one provider disappoints
+on price, policy or performance, you simply remove its key — the gates, and
+therefore the delivered standard, stay identical.</div>
+<h3>The IRONSTICK way</h3>
+<div class="showband"><img src="img/58_mcp_bridge.png" alt="MCP server connects the AI provider to the client app"></div>
+
 <div class="box"><b>What this means for your choice of AI:</b> with these
 gates in place it becomes almost irrelevant how strong the connected model
 is — a weaker model simply needs more correction rounds. The difference
@@ -262,24 +279,15 @@ IRONSTICK's verification is a compiler, not a suggestion: ten
 deterministic gates, one blocking verdict, an attestation bound to the
 exact file state — every edit voids it — and no formal document leaves
 without it. Others annotate; IRONSTICK enforces.</div>
-<div class="showband"><img src="img/58_mcp_bridge.png" alt="MCP server connects the AI provider to the client app"></div>
 <p>To our knowledge, no legal software in the world enforces this
 combination. Observability tools log after the fact, sandboxes fence off
 access — IRONSTICK proves the work, at the only interface the AI has.</p>
-<div class="box"><b>And you are never locked to one AI vendor.</b> The
-built-in AI runs on <b>Gemini, Qwen, Kimi, ChatGPT and Claude</b> — five
-look-alike sections in the configurator. Gemini needs no API key at all: one
-sign-in with your Google account and it runs on your Google AI plan (Windows).
-<b>And IRONSTICK saves your money by itself:</b> every provider you have set up
-is used automatically, cheapest first — Gemini, then Qwen, Kimi, ChatGPT,
-Claude. At every start the program checks which of them respond; if a quota or
-credit runs out during the day, it silently carries on with the next one and
-checks again the next day. No selector, no interruption, no lost work. The
-desktop side offers Claude, ChatGPT, Qwen and Kimi. If one provider disappoints
-on price, policy or performance, you simply remove its key — the gates, and
-therefore the delivered standard, stay identical.</div>
+<h3>The classic way</h3>
+<div class="showband"><img src="img/64_classic_way.png" alt="The classic way: AI without access to cases, only uploaded files"></div>
+<p>To this day, AI assistants work without any connection to the database holding your cases and client data — the only way in is uploading files. Most cloud-based systems work this classic way too: at best they shuffle text files around in the background — invisible to the user. At best, then, the AI draws only on the information in exactly these uploaded files. With a little luck they are not too large and the AI takes everything into account; otherwise hallucinations are pre-programmed. The AI cannot access the case itself: it works blind and tries to get the best result for the user. That can lead to dangerous misjudgements and false statements.</p>
+<p>Additional skills and plug-ins change nothing about this. In the worst case they even make it worse: their extensive instructions take up a considerable part of the context window before the AI has read the first document — and the fuller that window is, the more unevenly the AI takes into account what is in it.</p>
 
-<div class="showband"><img src="img/50_two_windows.png" alt="Watch the AI work — live"></div>
+
 <h2 id="ch3">3. Why IRONSTICK — and not a cloud legal AI</h2>
 <p><b>The file stays yours. The AI comes to your data — not your data to the
 AI.</b> That single sentence separates IRONSTICK from every cloud legal-AI
@@ -388,7 +396,7 @@ imminent hearing, official post — carry a 🔥 marker until they calm down.</l
 associate would — except it has read <i>everything</i>, and it answers in
 seconds:</p>
 <ul>
-<li>“Summarize the state of play in 13303/271/2026.”</li>
+<li>“Summarize the state of play in 1003/270/2026.”</li>
 <li>“Which letters came <i>from</i> the opponent, and did we answer the last
 one?”</li>
 <li>“Who said what about the meter replacement — any contradictions?”</li>
@@ -506,12 +514,13 @@ way every time, without gaps:</p>
 <li><b>Your own files first.</b> A deterministic full-text search for the name
 across the entire inventory, all clients: per case the ten newest finds with
 paragraph and character position — and a note how many more there are.</li>
+<li><b>Case-specific research material</b> such as commercial register extracts, land register extracts and the like: simply file it in the case file and tell the LLM to take it into account as well.</li>
 <li><b>Then the internet, on a fixed grid.</b> CV, Facebook, LinkedIn,
 Instagram, city, district, scandals, press reports, declarations of assets and
 of interests, taxes, company holdings — for companies the commercial register
 and insolvency. The search terms are automatically in the language of the
 target's country: for Romania &ldquo;declarație de avere&rdquo;, not
-&ldquo;declaration of assets&rdquo;.</li>
+&ldquo;declaration of assets&rdquo;. This happens in the background via the client app, fully automated: the LLM receives a complete OSINT profile to work with. That is far more accurate and far cheaper.</li>
 <li><b>Three search engines at once.</b> Google, DuckDuckGo and Qwant work
 through the grid in parallel; the hits arrive as one cleaned list without
 duplicates. If one engine blocks, the others keep delivering.</li>
@@ -607,13 +616,14 @@ shortly before a claim or reply deadline expires — such a solution puts massiv
 pleadings including all evidence on the table as a submission-ready template in
 record time.</li>
 </ul>
+<div class="showband"><img src="img/54_dossier_flow.png" alt="Building a dossier, end to end"></div>
+
 <div class="box"><b>Tested.</b> 3,000 pages of pleadings, annexes mixed text and
 image, stamped and paginated, output one 700&nbsp;MB PDF — in under
 20&nbsp;minutes.</div>
 
 <p class="part pb">Part III — AI at full depth</p>
 
-<div class="showband"><img src="img/54_dossier_flow.png" alt="Building a dossier, end to end"></div>
 <h2 id="ch10">10. Your desktop AI, plugged straight into your file</h2>
 <p>For deep analytical work, IRONSTICK offers something no export folder can:
 a <b>live bridge</b> between your own desktop AI — <b>Claude Desktop, ChatGPT

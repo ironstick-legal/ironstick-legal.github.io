@@ -222,6 +222,8 @@ et des avertissements — IRONSTICK répond par l'architecture. Votre IA de bure
 travaille sur votre dossier via <b>150 outils sur mesure</b>, et tout chemin
 vers un document sortant passe par des portes déterministes : de la logique
 pure, aucune IA qui contrôle une IA.</p>
+<div class="showband"><img src="img/50_two_windows.png" alt="Regarder l'IA travailler — en direct"></div>
+
 <ul>
 <li><b>Preuve de lecture.</b> Le système consigne, ligne par ligne, ce que l'IA
 a réellement lu de votre dossier. Les plages non lues lui sont opposées dans
@@ -255,6 +257,23 @@ sur un dossier porte le véritable objet du dossier tiré de vos enregistrements
 si bien qu'un contexte inventé à partir d'un autre dossier se réfute de lui-même
 sur-le-champ.</li>
 </ul>
+<div class="box"><b>Et vous n'êtes jamais enfermé chez un seul fournisseur
+d'IA.</b> L'IA intégrée fonctionne avec <b>Gemini, Qwen, Kimi, ChatGPT et
+Claude</b> — cinq sections identiques dans le configurateur. Gemini n'a besoin
+d'aucune clé d'API : une seule connexion avec votre compte Google et il
+fonctionne sur votre offre Google AI (Windows). <b>Et IRONSTICK vous fait faire
+des économies tout seul :</b> chaque fournisseur que vous avez configuré est
+utilisé automatiquement, le moins cher d'abord — Gemini, puis Qwen, Kimi,
+ChatGPT, Claude. À chaque démarrage, le programme vérifie lesquels répondent ;
+si un quota ou un crédit s'épuise en cours de journée, il enchaîne silencieusement
+avec le suivant et vérifie de nouveau le lendemain. Aucun sélecteur, aucune
+interruption, aucun travail perdu. Côté bureau, on trouve Claude, ChatGPT, Qwen
+et Kimi. Si un fournisseur déçoit sur le prix, la politique ou la performance,
+il vous suffit d'en retirer la clé — les portes, et donc le standard remis,
+restent identiques.</div>
+<h3>La voie IRONSTICK</h3>
+<div class="showband"><img src="img/58_mcp_bridge.png" alt="Le serveur MCP relie le fournisseur d'IA à l'application client"></div>
+
 <div class="box"><b>Ce que cela signifie pour votre choix d'IA :</b> avec ces
 portes en place, il devient presque indifférent que le modèle connecté soit
 puissant — un modèle plus faible a simplement besoin de davantage de tours de
@@ -270,27 +289,16 @@ de l'avocat. La vérification d'IRONSTICK est un compilateur, pas une suggestion
 dix portes déterministes, un verdict bloquant, une attestation liée à l'état
 exact du dossier — toute modification l'annule — et aucun document formel ne
 sort sans elle. Les autres annotent ; IRONSTICK impose.</div>
-<div class="showband"><img src="img/58_mcp_bridge.png" alt="Le serveur MCP relie le fournisseur d'IA à l'application client"></div>
 <p>À notre connaissance, aucun logiciel juridique au monde n'impose cette
 combinaison. Les outils d'observabilité journalisent après coup, les bacs à
 sable cloisonnent l'accès — IRONSTICK prouve le travail, à la seule interface
 dont dispose l'IA.</p>
-<div class="box"><b>Et vous n'êtes jamais enfermé chez un seul fournisseur
-d'IA.</b> L'IA intégrée fonctionne avec <b>Gemini, Qwen, Kimi, ChatGPT et
-Claude</b> — cinq sections identiques dans le configurateur. Gemini n'a besoin
-d'aucune clé d'API : une seule connexion avec votre compte Google et il
-fonctionne sur votre offre Google AI (Windows). <b>Et IRONSTICK vous fait faire
-des économies tout seul :</b> chaque fournisseur que vous avez configuré est
-utilisé automatiquement, le moins cher d'abord — Gemini, puis Qwen, Kimi,
-ChatGPT, Claude. À chaque démarrage, le programme vérifie lesquels répondent ;
-si un quota ou un crédit s'épuise en cours de journée, il enchaîne silencieusement
-avec le suivant et vérifie de nouveau le lendemain. Aucun sélecteur, aucune
-interruption, aucun travail perdu. Côté bureau, on trouve Claude, ChatGPT, Qwen
-et Kimi. Si un fournisseur déçoit sur le prix, la politique ou la performance,
-il vous suffit d'en retirer la clé — les portes, et donc le standard remis,
-restent identiques.</div>
+<h3>La voie classique</h3>
+<div class="showband"><img src="img/64_classic_way.png" alt="La voie classique : une IA sans accès aux dossiers, uniquement des fichiers téléversés"></div>
+<p>Aujourd'hui encore, les assistants d'IA travaillent sans aucune connexion à la base de données de vos dossiers et des données de vos clients — le seul chemin vers l'IA est le téléversement de fichiers. La plupart des systèmes basés sur le cloud fonctionnent eux aussi selon cette voie classique : au mieux, ils déplacent des fichiers texte en arrière-plan — invisibles pour l'utilisateur. L'IA ne puise donc, au mieux, que dans les informations de ces seuls fichiers téléversés. Avec un peu de chance, ils ne sont pas trop volumineux et l'IA tient compte de tout ; sinon, les hallucinations sont programmées d'avance. L'IA ne peut pas accéder au dossier lui-même : elle travaille à l'aveugle et tente d'obtenir le meilleur résultat pour l'utilisateur. Cela peut conduire à des erreurs d'appréciation dangereuses et à des affirmations fausses.</p>
+<p>Des compétences (skills) et des plug-ins supplémentaires n’y changent rien. Dans le pire des cas, ils aggravent même le problème : leurs instructions volumineuses occupent une part considérable de la fenêtre de contexte avant même que l'IA n'ait lu le premier document — et plus cette fenêtre est pleine, plus l'IA tient compte de son contenu de façon inégale.</p>
 
-<div class="showband"><img src="img/50_two_windows.png" alt="Watch the AI work — live"></div>
+
 <h2 id="ch3">3. Pourquoi IRONSTICK — et non une IA juridique dans le cloud</h2>
 <p><b>Le dossier reste le vôtre. L'IA vient à vos données — pas vos données à
 l'IA.</b> Cette seule phrase sépare IRONSTICK de toutes les plateformes d'IA
@@ -406,7 +414,7 @@ officiel — portent un marqueur 🔥 jusqu'à ce qu'ils se calment.</li>
 un bon collaborateur — sauf qu'il a lu <i>tout</i>, et qu'il répond en quelques
 secondes :</p>
 <ul>
-<li>“Résume l'état des lieux dans le 13303/271/2026.”</li>
+<li>“Résume l'état des lieux dans le 1003/270/2026.”</li>
 <li>“Quelles lettres sont venues <i>de</i> la partie adverse, et avons-nous
 répondu à la dernière ?”</li>
 <li>“Qui a dit quoi au sujet du remplacement du compteur — y a-t-il des
@@ -534,13 +542,14 @@ de la même façon à chaque fois, sans lacune :</p>
 du nom dans tout l'inventaire, tous clients confondus : par dossier, les dix
 résultats les plus récents avec la position du paragraphe et du caractère — et
 une indication du nombre restant.</li>
+<li><b>Les documents de recherche propres au dossier</b>, comme les extraits du registre du commerce, les extraits cadastraux, etc. : il suffit de les classer dans le dossier et d'indiquer au LLM de les prendre également en compte.</li>
 <li><b>Puis internet, selon une grille fixe.</b> CV, Facebook, LinkedIn,
 Instagram, ville, arrondissement, scandales, articles de presse, déclarations de
 patrimoine et d'intérêts, impôts, participations dans des sociétés — pour les
 sociétés, le registre du commerce et les procédures d'insolvabilité. Les termes
 de recherche sont automatiquement dans la langue du pays de la cible : pour la
 Roumanie &ldquo;declarație de avere&rdquo;, et non &ldquo;declaration of
-assets&rdquo;.</li>
+assets&rdquo;. Tout cela se fait en arrière-plan, via l'application client, de façon entièrement automatisée : le LLM reçoit un profil OSINT complet à traiter. C'est nettement plus précis et bien moins coûteux.</li>
 <li><b>Trois moteurs de recherche à la fois.</b> Google, DuckDuckGo et Qwant
 parcourent la grille en parallèle ; les résultats arrivent en une seule liste
 nettoyée, sans doublons. Si un moteur bloque, les autres continuent de fournir.</li>
@@ -646,13 +655,14 @@ délai — juste avant l'expiration d'un délai de demande ou de réponse — un
 solution pose sur la table des écritures massives, preuves comprises, sous forme
 de modèle prêt à déposer en un temps record.</li>
 </ul>
+<div class="showband"><img src="img/54_dossier_flow.png" alt="Un dossier se constitue — du début à la fin"></div>
+
 <div class="box"><b>Testé.</b> 3,000 pages d'écritures, annexes mêlant texte et
 image, tamponnées et paginées, produisant un seul PDF de 700&nbsp;MB — en moins
 de 20&nbsp;minutes.</div>
 
 <p class="part pb">Partie III — L'IA en pleine profondeur</p>
 
-<div class="showband"><img src="img/54_dossier_flow.png" alt="Building a dossier, end to end"></div>
 <h2 id="ch10">10. Votre IA de bureau, branchée directement sur votre dossier</h2>
 <p>Pour le travail analytique en profondeur, IRONSTICK offre ce qu'aucun dossier
 d'export ne peut : un <b>pont en direct</b> entre votre propre IA de bureau —
