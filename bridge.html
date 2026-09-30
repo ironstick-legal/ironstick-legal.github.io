@@ -64,63 +64,6 @@ relates to the in-app chat, how to install it, how every access is displayed,
 what you can do with it — and the complete catalogue of the 175 tools
 IRONSTICK provides. Windows edition.</p>
 
-<div class="box">
-<p><b>Independent architecture assessment:</b></p>
-<p><i>&ldquo;Highly sophisticated / enterprise-grade. The bridge architecture
-strikes a rare balance in legal tech: it combines the generative power of
-commercial LLMs (Claude, ChatGPT, Qwen, Kimi) with the strict, uncompromising data
-and process integrity that the legal environment demands.&rdquo;</i></p>
-<p><b>Strengths (pros) highlighted by the assessment:</b></p>
-<ul>
-<li><b>Outstanding context economy:</b>
-  <ul>
-  <li><b>Tool aggregation:</b> reducing 134 individual tools to 27 entry
-  points (via toolsets) saves tokens massively (~10k tokens base load).</li>
-  <li><b>Scratch store &amp; spillover:</b> large data volumes never enter
-  the model context: every result above the connector limit (10,000
-  characters; 20,000 for Claude Desktop and ChatGPT Desktop) is written to a scratch file as a whole
-  and the AI receives only the file name — no preview.</li>
-  </ul>
-</li>
-<li><b>Architectural determinism gates:</b>
-  <ul>
-  <li>Instead of relying on the often unreliable instruction compliance of
-  LLMs, the bridge enforces rules structurally.</li>
-  <li><b>Date gate:</b> prevents stamping records with outdated
-  training-data dates through the 30-minute obligation to fetch the current
-  time.</li>
-  <li><b>Statute gate:</b> prevents hallucinated legal norms through the
-  enforced check against the local law library before any web search.</li>
-  <li><b>Navigation hard-block:</b> protection against data loss by blocking
-  screen changes while unsaved capture forms are open.</li>
-  </ul>
-</li>
-<li><b>Comprehensive data protection &amp; security:</b>
-  <ul>
-  <li><b>Loopback-only &amp; token authentication:</b> no external attack
-  surface.</li>
-  <li><b>Hiding of sensitive data:</b> secret and deleted flags exclude
-  records irrevocably at database level.</li>
-  </ul>
-</li>
-<li><b>Human-in-the-loop principle:</b>
-  <ul>
-  <li>Writes to master data, OCR healing, calendar entries and instruction
-  files are never performed autonomously — they are handed over as proposals
-  to confirmation dialogs of the application.</li>
-  </ul>
-</li>
-<li><b>Robust data processing:</b>
-  <ul>
-  <li>Diacritics and script folding (e.g. Turkish i, Cyrillic) for
-  error-free search across the 11 system languages.</li>
-  <li>An established four-stage OCR escalation path for ruined document
-  full texts.</li>
-  </ul>
-</li>
-</ul>
-</div>
-
 
 <h2>1. What the bridge is</h2>
 <p>The bridge connects <b>your own desktop AI</b> — Claude Desktop (or Claude
@@ -745,7 +688,7 @@ it. The AI can never work from silently outdated dumps.</p>
 
 
 <h2>7. Diligence guards — the bridge supervises the AI's work ethic</h2>
-<p>Since bridge v2.6.9, four <b>deterministic diligence guards</b> watch how
+<p>Four <b>deterministic diligence guards</b> watch how
 carefully the connected AI actually works. They are pure bookkeeping and
 string logic — no AI involved anywhere — so they cannot hallucinate, cost
 practically nothing, and cannot be talked out of anything:</p>
@@ -802,33 +745,6 @@ need a top-tier model. You decide; the AI keeps working.</li>
 <p>Since the same release, tool execution also runs in an isolated worker
 thread inside the application — even multi-second AI accesses to large case
 files never stall the IRONSTICK user interface anymore.</p>
-<div class="box">
-<p><b>Independent assessment of the diligence guards (Google Gemini,
-2026-09-03):</b></p>
-<p><i>&ldquo;The system has evolved precisely and uncompromisingly at exactly
-the right levers. It addresses the very phenomenon that regularly appears
-with highly developed LLMs in complex workflows: sloppiness in routine work
-(partial reads despite instructions) and forgotten output steps (revisions
-in the scratch store without re-delivery). The four new deterministic
-diligence guards make the bridge markedly more robust as an AI governance
-system.&rdquo;</i></p>
-<ul>
-<li><b>From &ldquo;hoping for compliance&rdquo; to a gapless reminder:</b>
-&ldquo;With extremely large files, LLMs often read only the passages they
-deem relevant and afterwards claim to have read everything. Because every
-successful tool call returns the exact unread line ranges until 100&nbsp;%
-coverage is reached, the model is stripped of the illusion of being
-finished — it has a mathematically provable termination criterion.&rdquo;</li>
-<li><b>No outdated drafts at the user's desk:</b> &ldquo;The bridge detects
-changes to already-delivered files via a local marker and reminds the AI to
-re-deliver on every edit; the day-protocol check additionally prevents
-working files from being clumsily forgotten in the scratch store.&rdquo;</li>
-<li><b>Deterministic instead of LLM-based:</b> &ldquo;That these guards are
-pure string and bookkeeping logic without an LLM of their own is
-architecturally brilliant. They consume almost no resources, never
-hallucinate, and are absolutely relentless.&rdquo;</li>
-</ul>
-</div>
 
 <h2>8. The pleading compiler — delivery only against proof</h2>
 <p>Pleadings and letters are written in dialogue with the desktop AI on the
@@ -845,7 +761,7 @@ every finding — the reviewer is not run a second time on an unchanged file,
 and the reviewer report reaches you together with those answers. The hand-over itself
 runs through IRONSTICK's export dialog, from where the draft goes into the
 word processor with one click.</p>
-<p>Since bridge v2.8.0 a formal pleading cannot leave the system on trust.
+<p>A formal pleading cannot leave the system on trust.
 <code>verify_pleading</code>, a deterministic scanner (no AI involved
 anywhere), checks the finished draft against your live records and the
 verified law library across <b>eight claim classes</b>:</p>
@@ -898,31 +814,6 @@ and notifies <b>you</b> directly in the application. And deliveries run
 exclusively through the application's own working store, so attestation,
 versioning and re-delivery tracking stay attached to every file — inline
 delivery and foreign paths are refused.</p>
-<div class="box">
-<p><b>Independent assessment of the verification loop (Google Gemini,
-2026-09-03; scope corrected by the manufacturer):</b></p>
-<p><i>&ldquo;What the market uses instead: observability tools (LangSmith,
-Traceloop &amp; co.) log after the fact what the LLM did and provide
-dashboards — they never interpose as an uncompromising blocker that
-refuses delivery when the read percentage of the source file is wrong.
-Agent sandboxes (E2B, Docker) check access rights — whether the LLM may
-touch file X — but never logical read coverage: whether it actually read
-file X to 100&nbsp;% before claiming a result. Normal AI architectures
-trust the prompt (&lsquo;read the file carefully!&rsquo;) to steer
-behaviour; here the opposite is built: zero trust in prompts, full
-control at the I/O interface. While the legal-tech industry tries to
-educate models with ever more prompts, this is an environment in which
-sloppiness, shortcuts and hallucinations fail deterministically at the
-I/O boundary. In this radical combination this simply does not exist on
-the market.&rdquo;</i></p>
-<p><b>Honest scope</b> (manufacturer's correction): this is an
-application-level audit layer at the tool boundary — not an operating-
-system kernel. That is exactly the right place: the bridge is the
-connected AI's <i>entire world</i> — every byte of case data exists for
-it only through these tools, so the tool gate covers its complete I/O
-horizon. And bypass attempts fail in the safe direction: reading outside
-the tools never counts toward coverage, so delivery stays blocked.</p>
-</div>
 
 <h2>9. Data note</h2>
 <div class="box warn">The bridge delivers <b>raw case data</b> into your desktop
@@ -944,9 +835,9 @@ version; tools may be added over time. Names shown are the technical tool names
 as the AI sees them.</p>
 
 <h2>Appendix — Complete technical description of the bridge</h2>
-<p>Status: 2026-09-02 · bridge protocol front-end v2.6.7 · 134 member tools · 20 toolsets · MCP protocol revision 2024-11-05. This document describes the bridge exhaustively — architecture, every functional layer, every gate, every limit and every redirection — in prose only.</p>
+<p>Status: 175 member tools · 20 toolsets · MCP protocol revision 2024-11-05. This document describes the bridge exhaustively — architecture, every functional layer, every gate, every limit and every redirection — in prose only.</p>
 <h3>1. Purpose and positioning</h3>
-<p>The bridge connects commercial desktop AI applications (Claude Desktop, ChatGPT Desktop, Qwen Desktop) to a running IRONSTICK legal case-management application on the same machine. The desktop AI receives a controlled, self-describing tool surface over the Model Context Protocol (MCP); every call is executed inside the IRONSTICK application against the live database, and every result is post-processed by the bridge before it reaches the model. The design goals are: minimal permanent context load on the model, structural enforcement of working rules that plain instruction text cannot guarantee, protection of unsaved user work, protection of the data against oversized or misdirected requests, and complete absence of readable configuration material in the installed product.</p>
+<p>The bridge connects commercial desktop AI applications (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) to a running IRONSTICK legal case-management application on the same machine. The desktop AI receives a controlled, self-describing tool surface over the Model Context Protocol (MCP); every call is executed inside the IRONSTICK application against the live database, and every result is post-processed by the bridge before it reaches the model. The design goals are: minimal permanent context load on the model, structural enforcement of working rules that plain instruction text cannot guarantee, protection of unsaved user work, protection of the data against oversized or misdirected requests, and complete absence of readable configuration material in the installed product.</p>
 <h3>2. Process topology</h3>
 <p>The bridge consists of two cooperating processes.</p>
 <p>The IRONSTICK application hosts an HTTP server bound exclusively to the loopback interface. Its port and a 48-character hexadecimal access token are defined in the application's configuration store; every request must present the token. This server owns the tool registry, executes all tool calls, applies all gates and post-processors, and is the single point of truth for what a connected model may see and do.</p>
@@ -965,10 +856,10 @@ as the AI sees them.</p>
 <p>The complete playbook — core plus all toolset rules plus the appendices (among them the daily-protocol file format) — can be re-read at any moment through the instruction-reading tool; the front-end reads the file live, so instruction changes reach a running session without reconnecting.</p>
 <p>Three of these rules are additionally enforced structurally rather than textually, by gates described in sections 3 and 7: the access lock, the date discipline and the statute-source discipline. The reading of the instructions itself is the last rule of the universal block: the way to unlock the connector is stated only after all preceding rules, so a model that reaches it has read them.</p>
 <h3>5. The tool surface and the toolset layer</h3>
-<p>A flat list of 134 tools measurably degrades tool selection in current desktop models. The bridge therefore exposes a reduced surface of twenty-eight entries: six core tools (current date and time; current GUI context; system language; case jurisdiction; instruction re-read; instruction confirmation), the delivery tool injected by the front-end, twenty toolset openers, the member-execution tool and the full-inventory tool. Everything else exists only as members inside toolsets.</p>
+<p>A flat list of 175 tools measurably degrades tool selection in current desktop models. The bridge therefore exposes a reduced surface of twenty-eight entries: six core tools (current date and time; current GUI context; system language; case jurisdiction; instruction re-read; instruction confirmation), the delivery tool injected by the front-end, twenty toolset openers, the member-execution tool and the full-inventory tool. Everything else exists only as members inside toolsets.</p>
 <p>Opening a toolset is an ordinary tool call without arguments. The answer delivers, in one shot: first, where the toolset has one, a deterministically pre-generated context block computed at the moment of opening (eight toolsets have such producers — the session-start protocol itself; the current scratch file inventory; the ten most recent memory entries as a preview; the first thirty statutes of the legal library; the list of hot cases; today's registered documents and incoming e-mails; today's daily protocol; the current deadline and appointment snapshot); second, the verbatim working rules of the area; third, the complete member-tool definitions with their full parameter schemas; fourth, a fallback line pointing to the full inventory. A failure inside a pre-generation producer never prevents the opening.</p>
 <p>Members are executed through the member-execution tool, which takes the exact member name and an argument object. Before execution a lightweight schema validation runs: required fields must be present and non-empty, and integer, number and boolean parameters must parse as such; a violation returns the expected schema instead of executing. An unknown member name returns the closest existing name by edit distance as a suggestion. The instruction layer caps correction attempts at three per failing call, after which the model must stop and report the exact error.</p>
-<p>Toolsets are not modal; all openers remain callable at all times, a tool may deliberately be a member of several toolsets, and opening payloads are never diverted to the scratch store (schemas in a file would be useless). Feature gates remove whole groups: when GUI navigation is not enabled by the user, the navigation toolset opener and all its members are absent from every list and every answer. The full-inventory tool lists every member with a one-line purpose and its owning toolset and exists only as an escape hatch; the toolset descriptions are the primary router. In total the twenty toolsets carry 215 member entries over the 134 distinct tools.</p>
+<p>Toolsets are not modal; all openers remain callable at all times, a tool may deliberately be a member of several toolsets, and opening payloads are never diverted to the scratch store (schemas in a file would be useless). Feature gates remove whole groups: when GUI navigation is not enabled by the user, the navigation toolset opener and all its members are absent from every list and every answer. The full-inventory tool lists every member with a one-line purpose and its owning toolset and exists only as an escape hatch; the toolset descriptions are the primary router. In total the twenty toolsets carry 280 member entries over the 175 distinct tools.</p>
 <p>The measured context cost of this arrangement: the initial configuration (core instruction plus reduced tool list) is roughly ten thousand tokens; a single toolset opening adds between roughly nine hundred and seven and a half thousand tokens depending on the toolset, before its variable pre-generation content.</p>
 <h3>6. Tool definition format and its production chain</h3>
 <p>Every tool definition consists of four parts. The description carries the tool's purpose, its behavioral mandates and its cross-references — and nothing else. The input schema carries every parameter with its own description, including defaults, formats, mutual-exclusivity notes and per-parameter mandates; parameter usage instructions live exclusively here. The output field describes, before any call, exactly what the call returns, including orderings, markers and error forms, so the model can judge suitability without trial calls. The home-toolset field names the toolset the tool primarily belongs to, with a reserved value marking core tools that are always in the top-level list; a member encountered inside a foreign toolset thereby advertises where more tools of its family live, and every toolset opening carries one explanatory line stating that the model is never locked into the opened toolset.</p>

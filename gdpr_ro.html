@@ -361,28 +361,28 @@ la fiecare instrument, ceea ce returnează aceste instrumente circulă înapoi �
 conversația IA, adică spre furnizorul de IA.</p>
 
 <h3>4.9 Puntea către o IA locală de desktop (Claude Desktop / Claude Code / ChatGPT
-Desktop / Qwen Desktop) — module suplimentare OPȚIONALE</h3>
+Desktop / Qwen Desktop / Kimi Desktop) — module suplimentare OPȚIONALE</h3>
 <p><b>Fiecare acces la o IA de desktop este un modul opțional, achiziționat
 separat.</b> Există numai acolo unde cabinetul a achiziționat și instalat modulul de
 punte respectiv; fără vreun modul, secțiunea conectorului rămâne blocată în
 configurație, punctul terminal local nu pornește niciodată și niciunul dintre
 fluxurile descrise în această secțiune nu poate avea loc. Același server MCP STDIO
 local poate fi înregistrat la <b>Claude Desktop/Claude Code</b>, <b>ChatGPT
-Desktop</b> și/sau <b>Qwen Desktop</b> — mecanismele de mai jos sunt identice pentru
+Desktop</b>, <b>Qwen Desktop</b> și/sau <b>Kimi Desktop</b> — mecanismele de mai jos sunt identice pentru
 toate; diferă doar furnizorul destinatar.</p>
 <div class="box crit"><b>Acest canal transmite date brute, nepseudonimizate, ale
 dosarului.</b> Acesta este scopul său: sesiunea de IA de desktop proprie a
 utilizatorului redactează forme gata pentru depunere și, prin urmare, are nevoie de
 nume și numere reale.</div>
 <ul>
-<li>IA de desktop (Claude Desktop/Code, ChatGPT Desktop sau Qwen Desktop) se conectează
+<li>IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop sau Kimi Desktop) se conectează
 printr-o punte locală la aplicația care rulează; punctul terminal HTTP se leagă numai
 la 127.0.0.1 (localhost este limita de acces; token-ul stocat nu este verificat
 suplimentar).</li>
 <li>La primul acces la date per execuție a programului, IRONSTICK afișează un modal
 de consimțământ blocant; refuzul blochează canalul timp de 10 minute. După aprobare,
 canalul este deschis pentru restul execuției programului.</li>
-<li>Peste 100 de instrumente de citire expun cronici, texte integrale, e-mailuri,
+<li>Peste 170 de instrumente — dintre care peste 100 de citire — expun cronici, texte integrale, e-mailuri,
 protocoale zilnice, termene, date de bază, dosare întregi (în părți) și formate de
 ieșire; documentele marcate ca secrete sunt excluse. Căile de scriere sunt
 condiționate de examinare (sugestiile de date de bază/relații ajung în monitorul de
@@ -441,10 +441,11 @@ greșite produce doar text cifrat.</li>
 utilizatorului și de acolo către <b>furnizorul său</b>: Anthropic pentru Claude (în
 cadrul abonamentului Claude al utilizatorului și al condițiilor Anthropic), OpenAI
 pentru ChatGPT (în cadrul abonamentului ChatGPT al utilizatorului și al condițiilor
-OpenAI) sau Alibaba Cloud/Qwen pentru Qwen Desktop (în cadrul contului Qwen al
-utilizatorului și al condițiilor Qwen). IRONSTICK nu scrie rânduri în jurnalul de
+OpenAI), Alibaba Cloud/Qwen pentru Qwen Desktop (în cadrul contului Qwen al
+utilizatorului și al condițiilor Qwen) sau Moonshot AI pentru Kimi Desktop (în cadrul
+contului Kimi al utilizatorului și al condițiilor Moonshot AI). IRONSTICK nu scrie rânduri în jurnalul de
 audit pentru traficul punții; bara de sus afișează câte un logo pulsant per IA activă
-(marca Claude, marca ChatGPT, marca Qwen) — accesul simultan este posibil și fiecare
+(marca Claude, marca ChatGPT, marca Qwen, marca Kimi) — accesul simultan este posibil și fiecare
 este semnalat separat. Puntea însăși păstrează un <b>jurnal de diagnosticare pur
 local</b> al apelurilor sale de instrumente — marcaj temporal, numele
 instrumentului, succes/eșec și dimensiunea răspunsului, <b>niciodată vreun
@@ -524,7 +525,7 @@ dosare de caz.</p>
 <tr><td>Corecție IA Fișier→Markdown</td><td>text convertit</td><td class="yes">da</td><td class="no">nu</td><td class="no">nu</td></tr>
 <tr><td>Detector IA de anonimizare</td><td>text deja anonimizat; răspunsurile conțin nume de terți în clar</td><td class="no">dezactivat — prin proiectare</td><td class="no">comutator = consimțământ</td><td class="yes">da</td></tr>
 <tr><td>Chat IA (extern)</td><td>prompt + context GUI + memorie + coadă 6k + rezumat 2k + rezultate de instrumente ≤10k/element</td><td class="yes">da</td><td>da — o dată per sesiune</td><td class="yes">da</td></tr>
-<tr><td>Puntea IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop)</td><td>rezultate brute de instrumente (date complete de dosar)</td><td class="no">nu — prin proiectare</td><td>da — o dată per execuție a programului, blocare 10 min la refuz</td><td class="no">nu (partea aplicației)</td></tr>
+<tr><td>Puntea IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>rezultate brute de instrumente (date complete de dosar)</td><td class="no">nu — prin proiectare</td><td>da — o dată per execuție a programului, blocare 10 min la refuz</td><td class="no">nu (partea aplicației)</td></tr>
 <tr><td>ZIP de instrucțiuni IA</td><td>export în text clar al cabinetului (încărcare inițiată de utilizator)</td><td class="no">nu</td><td>avertisment o dată per execuție a programului</td><td>nu se aplică</td></tr>
 </table>
 

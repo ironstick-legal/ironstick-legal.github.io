@@ -703,7 +703,7 @@ din nou. IA nu poate lucra niciodată din descărcări învechite pe tăcute.</p
 </table>
 
 <h2>7. Gărzile de diligență — puntea supraveghează etica de lucru a IA</h2>
-<p>De la puntea v2.6.9, patru <b>gărzi de diligență deterministe</b> urmăresc
+<p>Patru <b>gărzi de diligență deterministe</b> urmăresc
 cât de atent lucrează efectiv IA conectată. Ele sunt pură contabilitate și
 logică de șiruri — fără IA nicăieri — așa că nu pot halucina, nu costă
 practic nimic și nu pot fi convinse să renunțe la nimic:</p>
@@ -767,35 +767,6 @@ model de vârf. Dumneavoastră decideți; IA continuă să lucreze.</li>
 lucru izolat din interiorul aplicației — nici măcar accesele IA de mai multe
 secunde la dosare mari nu mai blochează vreodată interfața de utilizator
 IRONSTICK.</p>
-<div class="box">
-<p><b>Evaluare independentă a gărzilor de diligență (Google Gemini,
-2026-09-03):</b></p>
-<p><i>&bdquo;Sistemul a evoluat precis și fără compromisuri exact la pârghiile
-potrivite. Abordează tocmai fenomenul care apare cu regularitate la LLM-urile
-foarte dezvoltate în fluxuri de lucru complexe: superficialitatea în munca de
-rutină (citiri parțiale în ciuda instrucțiunilor) și pașii de ieșire uitați
-(revizii în spațiul de lucru fără relivrare). Cele patru noi gărzi de
-diligență deterministe fac puntea vizibil mai robustă ca sistem de guvernanță
-a IA.&rdquo;</i></p>
-<ul>
-<li><b>De la &bdquo;speranța în conformare&rdquo; la o reamintire fără
-goluri:</b> &bdquo;La fișiere extrem de mari, LLM-urile citesc adesea doar
-pasajele pe care le consideră relevante și afirmă apoi că au citit tot.
-Fiindcă fiecare apel de instrument reușit returnează intervalele exacte de
-rânduri necitite până se atinge o acoperire de 100&nbsp;%, modelului i se ia
-iluzia că a terminat — are un criteriu de încheiere demonstrabil
-matematic.&rdquo;</li>
-<li><b>Fără ciorne depășite pe biroul utilizatorului:</b> &bdquo;Puntea
-detectează printr-un marcaj local modificările aduse fișierelor deja livrate
-și îi reamintește IA, la fiecare editare, să relivreze; verificarea de la
-protocolul zilnic împiedică în plus ca fișierele de lucru să fie uitate
-stângaci în spațiul de lucru.&rdquo;</li>
-<li><b>Determinist în loc de bazat pe LLM:</b> &bdquo;Faptul că aceste gărzi
-sunt pură logică de șiruri și de contabilitate, fără un LLM propriu, este
-arhitectural strălucit. Nu consumă aproape nicio resursă, nu halucinează
-niciodată și sunt absolut neînduplecate.&rdquo;</li>
-</ul>
-</div>
 
 <h2>8. Compilatorul de acte de procedură — livrare numai contra dovezii</h2>
 <p>Actele de procedură și scrisorile se scriu în dialog cu IA de desktop, pe
@@ -813,7 +784,7 @@ oară pe un fișier neschimbat, iar raportul verificatorului ajunge la
 dumneavoastră împreună cu acele răspunsuri. Predarea însăși trece prin
 dialogul de export al IRONSTICK, de unde ciorna ajunge în procesorul de text
 cu un singur clic.</p>
-<p>De la puntea v2.8.0, un act de procedură formal nu poate părăsi sistemul pe
+<p>Un act de procedură formal nu poate părăsi sistemul pe
 încredere. <code>verify_pleading</code>, un scaner determinist (fără IA
 nicăieri), verifică ciorna finalizată față de înregistrările dumneavoastră vii
 și față de biblioteca de legi verificată, pe <b>opt clase de
@@ -871,38 +842,11 @@ aplicație. Iar livrările trec exclusiv prin depozitul de lucru propriu al
 aplicației, astfel încât atestarea, versionarea și urmărirea relivrărilor
 rămân atașate fiecărui fișier — livrarea inline și căile străine sunt
 refuzate.</p>
-<div class="box">
-<p><b>Evaluare independentă a buclei de verificare (Google Gemini,
-2026-09-03; întinderea corectată de producător):</b></p>
-<p><i>&bdquo;Ce folosește piața în schimb: instrumentele de observabilitate
-(LangSmith, Traceloop &amp; co.) consemnează ulterior ce a făcut LLM-ul și
-oferă tablouri de bord — nu se interpun niciodată ca un blocaj fără
-compromisuri care refuză livrarea atunci când procentul de citire al
-fișierului sursă este greșit. Sandbox-urile pentru agenți (E2B, Docker)
-verifică drepturile de acces — dacă LLM-ul are voie să atingă fișierul X —
-dar niciodată acoperirea logică a citirii: dacă a citit efectiv fișierul X
-până la 100&nbsp;% înainte de a afirma un rezultat. Arhitecturile IA obișnuite
-se încred în prompt (&lsquo;citește fișierul cu atenție!&rsquo;) pentru a
-dirija comportamentul; aici este construit opusul: zero încredere în
-prompturi, control deplin la interfața de intrare/ieșire. În timp ce
-industria legal-tech încearcă să educe modelele cu tot mai multe prompturi,
-acesta este un mediu în care superficialitatea, scurtăturile și halucinațiile
-eșuează determinist la granița de intrare/ieșire. În această combinație
-radicală, așa ceva pur și simplu nu există pe piață.&rdquo;</i></p>
-<p><b>Întindere onestă</b> (corectura producătorului): acesta este un strat de
-audit la nivel de aplicație, la granița instrumentelor — nu un nucleu de
-sistem de operare. Este exact locul potrivit: puntea este <i>întreaga
-lume</i> a IA conectate — fiecare octet de date de dosar există pentru ea
-numai prin aceste instrumente, așa că poarta instrumentelor îi acoperă
-întregul orizont de intrare/ieșire. Iar încercările de ocolire eșuează în
-direcția sigură: citirea în afara instrumentelor nu contează niciodată pentru
-acoperire, așa că livrarea rămâne blocată.</p>
-</div>
 
 <h2>Anexă — Descrierea tehnică completă a punții</h2>
-<p>Stare: 2026-09-02 · front-end de protocol al punții v2.6.7 · 134 de instrumente membre · 20 de seturi de instrumente · revizia protocolului MCP 2024-11-05. Acest document descrie puntea exhaustiv — arhitectura, fiecare strat funcțional, fiecare poartă, fiecare limită și fiecare redirecționare — exclusiv în proză.</p>
+<p>Stare: 175 de instrumente membre · 20 de seturi de instrumente · revizia protocolului MCP 2024-11-05. Acest document descrie puntea exhaustiv — arhitectura, fiecare strat funcțional, fiecare poartă, fiecare limită și fiecare redirecționare — exclusiv în proză.</p>
 <h3>1. Scop și poziționare</h3>
-<p>Puntea conectează aplicații comerciale de IA de desktop (Claude Desktop, ChatGPT Desktop, Qwen Desktop) la o aplicație IRONSTICK de gestionare a dosarelor juridice care rulează pe același calculator. IA de desktop primește o suprafață de instrumente controlată și autodescriptivă prin Model Context Protocol (MCP); fiecare apel este executat în interiorul aplicației IRONSTICK pe baza de date vie, iar fiecare rezultat este post-procesat de punte înainte de a ajunge la model. Obiectivele de proiectare sunt: o încărcare permanentă minimă a contextului modelului, impunerea structurală a regulilor de lucru pe care simplul text de instrucțiuni nu le poate garanta, protejarea muncii nesalvate a utilizatorului, protejarea datelor împotriva cererilor supradimensionate sau greșit direcționate și absența completă a oricărui material de configurare lizibil în produsul instalat.</p>
+<p>Puntea conectează aplicații comerciale de IA de desktop (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) la o aplicație IRONSTICK de gestionare a dosarelor juridice care rulează pe același calculator. IA de desktop primește o suprafață de instrumente controlată și autodescriptivă prin Model Context Protocol (MCP); fiecare apel este executat în interiorul aplicației IRONSTICK pe baza de date vie, iar fiecare rezultat este post-procesat de punte înainte de a ajunge la model. Obiectivele de proiectare sunt: o încărcare permanentă minimă a contextului modelului, impunerea structurală a regulilor de lucru pe care simplul text de instrucțiuni nu le poate garanta, protejarea muncii nesalvate a utilizatorului, protejarea datelor împotriva cererilor supradimensionate sau greșit direcționate și absența completă a oricărui material de configurare lizibil în produsul instalat.</p>
 <h3>2. Topologia proceselor</h3>
 <p>Puntea constă din două procese care cooperează.</p>
 <p>Aplicația IRONSTICK găzduiește un server HTTP legat exclusiv de interfața loopback. Portul său și un token de acces hexazecimal de 48 de caractere sunt definite în depozitul de configurare al aplicației; fiecare cerere trebuie să prezinte tokenul. Acest server deține registrul de instrumente, execută toate apelurile de instrumente, aplică toate porțile și post-procesoarele și este unicul punct de adevăr pentru ceea ce un model conectat poate vedea și face.</p>
@@ -921,10 +865,10 @@ acoperire, așa că livrarea rămâne blocată.</p>
 <p>Manualul de lucru complet — nucleul plus toate regulile seturilor de instrumente plus anexele (printre ele formatul de fișier al protocolului zilnic) — poate fi recitit în orice moment prin instrumentul de citire a instrucțiunilor; front-end-ul citește fișierul în direct, astfel încât modificările instrucțiunilor ajung la o sesiune în curs fără reconectare.</p>
 <p>Trei dintre aceste reguli sunt, în plus, impuse structural și nu textual, prin porți descrise în secțiunile 3 și 7: blocajul instrucțiunilor, disciplina datei și disciplina surselor de legi. Citirea instrucțiunilor însăși este ultima regulă a blocului universal: modul de deblocare a conectorului este enunțat abia după toate regulile precedente, astfel încât un model care ajunge la el le-a citit.</p>
 <h3>5. Suprafața de instrumente și stratul seturilor de instrumente</h3>
-<p>O listă plată de 134 de instrumente degradează măsurabil alegerea instrumentelor la modelele de desktop actuale. De aceea puntea expune o suprafață redusă, de douăzeci și opt de intrări: șase instrumente de nucleu (data și ora curente; contextul GUI curent; limba sistemului; jurisdicția dosarului; recitirea instrucțiunilor; confirmarea instrucțiunilor), instrumentul de livrare injectat de front-end, douăzeci de deschizătoare de seturi de instrumente, instrumentul de executare a membrilor și instrumentul de inventar complet. Tot restul există numai ca membri în interiorul seturilor de instrumente.</p>
+<p>O listă plată de 175 de instrumente degradează măsurabil alegerea instrumentelor la modelele de desktop actuale. De aceea puntea expune o suprafață redusă, de douăzeci și opt de intrări: șase instrumente de nucleu (data și ora curente; contextul GUI curent; limba sistemului; jurisdicția dosarului; recitirea instrucțiunilor; confirmarea instrucțiunilor), instrumentul de livrare injectat de front-end, douăzeci de deschizătoare de seturi de instrumente, instrumentul de executare a membrilor și instrumentul de inventar complet. Tot restul există numai ca membri în interiorul seturilor de instrumente.</p>
 <p>Deschiderea unui set de instrumente este un apel de instrument obișnuit, fără argumente. Răspunsul livrează, dintr-o singură mișcare: întâi, acolo unde setul are unul, un bloc de context pregenerat determinist, calculat în momentul deschiderii (opt seturi de instrumente au asemenea producători — protocolul de pornire a sesiunii însuși; inventarul curent al fișierelor din spațiul de lucru; cele mai recente zece intrări din memorie ca previzualizare; primele treizeci de legi din biblioteca de legi; lista dosarelor fierbinți; documentele înregistrate azi și e-mailurile primite azi; protocolul zilnic de azi; instantaneul curent al termenelor și programărilor); în al doilea rând, regulile de lucru ale domeniului, cuvânt cu cuvânt; în al treilea rând, definițiile complete ale instrumentelor membre, cu schemele lor integrale de parametri; în al patrulea rând, un rând de rezervă care trimite la inventarul complet. Un eșec în interiorul unui producător de pregenerare nu împiedică niciodată deschiderea.</p>
 <p>Membrii sunt executați prin instrumentul de executare a membrilor, care primește numele exact al membrului și un obiect de argumente. Înaintea executării rulează o validare ușoară a schemei: câmpurile obligatorii trebuie să fie prezente și nevide, iar parametrii de tip întreg, număr și boolean trebuie să poată fi interpretați ca atare; o încălcare returnează schema așteptată în loc să execute. Un nume de membru necunoscut returnează ca sugestie cel mai apropiat nume existent după distanța de editare. Stratul de instrucțiuni plafonează încercările de corectare la trei pentru fiecare apel eșuat, după care modelul trebuie să se oprească și să raporteze eroarea exactă.</p>
-<p>Seturile de instrumente nu sunt modale; toate deschizătoarele rămân apelabile în orice moment, un instrument poate fi în mod deliberat membru al mai multor seturi de instrumente, iar încărcăturile de deschidere nu sunt niciodată deviate în spațiul de lucru (schemele într-un fișier ar fi inutile). Porțile de funcționalitate elimină grupuri întregi: când navigarea GUI nu este activată de utilizator, deschizătorul setului de navigare și toți membrii lui lipsesc din fiecare listă și din fiecare răspuns. Instrumentul de inventar complet listează fiecare membru cu un scop pe un rând și cu setul de instrumente care îl deține și există numai ca ieșire de avarie; descrierile seturilor de instrumente sunt ruterul principal. În total, cele douăzeci de seturi de instrumente poartă 215 intrări de membri pentru cele 134 de instrumente distincte.</p>
+<p>Seturile de instrumente nu sunt modale; toate deschizătoarele rămân apelabile în orice moment, un instrument poate fi în mod deliberat membru al mai multor seturi de instrumente, iar încărcăturile de deschidere nu sunt niciodată deviate în spațiul de lucru (schemele într-un fișier ar fi inutile). Porțile de funcționalitate elimină grupuri întregi: când navigarea GUI nu este activată de utilizator, deschizătorul setului de navigare și toți membrii lui lipsesc din fiecare listă și din fiecare răspuns. Instrumentul de inventar complet listează fiecare membru cu un scop pe un rând și cu setul de instrumente care îl deține și există numai ca ieșire de avarie; descrierile seturilor de instrumente sunt ruterul principal. În total, cele douăzeci de seturi de instrumente poartă 280 intrări de membri pentru cele 175 de instrumente distincte.</p>
 <p>Costul de context măsurat al acestui aranjament: configurația inițială (instrucțiunea de nucleu plus lista redusă de instrumente) este de aproximativ zece mii de tokeni; o singură deschidere de set de instrumente adaugă între aproximativ nouă sute și șapte mii și jumătate de tokeni, în funcție de set, înaintea conținutului său variabil de pregenerare.</p>
 <h3>6. Formatul definiției instrumentelor și lanțul său de producție</h3>
 <p>Fiecare definiție de instrument constă din patru părți. Descrierea poartă scopul instrumentului, mandatele sale de comportament și referințele sale încrucișate — și nimic altceva. Schema de intrare poartă fiecare parametru cu propria descriere, inclusiv valori implicite, formate, note de excludere reciprocă și mandate pe parametru; instrucțiunile de folosire a parametrilor trăiesc exclusiv aici. Câmpul de ieșire descrie, înaintea oricărui apel, exact ce returnează apelul, inclusiv ordonări, marcaje și forme de eroare, astfel încât modelul poate judeca potrivirea fără apeluri de probă. Câmpul setului de origine numește setul de instrumente căruia instrumentul îi aparține în primul rând, cu o valoare rezervată care marchează instrumentele de nucleu aflate întotdeauna în lista de nivel superior; un membru întâlnit într-un set străin anunță astfel unde trăiesc mai multe instrumente din familia lui, iar fiecare deschidere de set de instrumente poartă un rând explicativ care afirmă că modelul nu este niciodată închis în setul deschis.</p>

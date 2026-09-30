@@ -691,7 +691,7 @@ nuovo. L'IA non può mai lavorare su dump silenziosamente obsoleti.</p>
 <tr><td><code>redeliver_file</code> <span class="gate">SOLO INVARIATO</span></td><td>Riapre la finestra di IRONSTICK per un file già consegnato e da allora invariato — quando l'utente chiede ancora una volta lo stesso file. Nessun gate, nessun revisore, nessuna nuova versione. Un file mai consegnato o modificato dopo la consegna viene rifiutato e conta come violazione delle regole: si tratta di una nuova consegna tramite <code>deliver_file</code>.</td></tr>
 </table>
 <h2>7. Guardiani della diligenza — il ponte sorveglia l'etica di lavoro dell'IA</h2>
-<p>Dalla versione v2.6.9 del ponte, quattro <b>guardiani deterministici della diligenza</b> sorvegliano con quanta
+<p>Quattro <b>guardiani deterministici della diligenza</b> sorvegliano con quanta
 cura l'IA collegata lavori effettivamente. Sono pura contabilità e
 logica di stringhe — nessuna IA coinvolta in alcun punto — perciò non possono allucinare, non costano
 praticamente nulla e non possono essere dissuasi da nulla:</p>
@@ -748,33 +748,6 @@ richiede un modello di punta. Decide Lei; l'IA continua a lavorare.</li>
 <p>Dalla stessa versione, anche l'esecuzione degli strumenti avviene in un thread di lavoro
 isolato all'interno dell'applicazione — nemmeno accessi dell'IA di diversi secondi a grandi
 fascicoli rallentano più l'interfaccia utente di IRONSTICK.</p>
-<div class="box">
-<p><b>Valutazione indipendente dei guardiani della diligenza (Google Gemini,
-2026-09-03):</b></p>
-<p><i>&ldquo;Il sistema si è evoluto con precisione e senza compromessi esattamente
-sulle leve giuste. Affronta proprio il fenomeno che si manifesta regolarmente
-con i LLM altamente sviluppati nei flussi di lavoro complessi: la sciatteria nel lavoro di routine
-(letture parziali nonostante le istruzioni) e i passaggi di output dimenticati (revisioni
-nell'archivio di scratch senza riconsegna). I quattro nuovi guardiani deterministici
-della diligenza rendono il ponte nettamente più robusto come sistema di governance
-dell'IA.&rdquo;</i></p>
-<ul>
-<li><b>Da &ldquo;sperare nel rispetto delle regole&rdquo; a un promemoria senza lacune:</b>
-&ldquo;Con file estremamente grandi, i LLM spesso leggono solo i passaggi che
-ritengono rilevanti e poi affermano di aver letto tutto. Poiché ogni
-chiamata di strumento riuscita restituisce gli esatti intervalli di righe non letti finché non si
-raggiunge il 100&nbsp;% di copertura, il modello viene privato dell'illusione di aver
-finito — ha un criterio di terminazione matematicamente dimostrabile.&rdquo;</li>
-<li><b>Nessuna bozza superata sulla scrivania dell'utente:</b> &ldquo;Il ponte rileva
-le modifiche ai file già consegnati tramite un marcatore locale e ricorda all'IA di
-riconsegnare a ogni modifica; il controllo del protocollo giornaliero impedisce inoltre
-che i file di lavoro vengano goffamente dimenticati nell'archivio di scratch.&rdquo;</li>
-<li><b>Deterministico invece che basato su LLM:</b> &ldquo;Che questi guardiani siano
-pura logica di stringhe e di contabilità, senza un LLM proprio, è
-architettonicamente brillante. Non consumano quasi risorse, non allucinano mai
-e sono assolutamente implacabili.&rdquo;</li>
-</ul>
-</div>
 <h2>8. Il compilatore degli atti — consegna solo dietro prova</h2>
 <p>Atti e lettere vengono scritti in dialogo con l'IA desktop sul
 fascicolo dal vivo — lo stesso livello di lavoro e gli stessi gate della chat propria di
@@ -790,7 +763,7 @@ ciascun rilievo — il revisore non viene eseguito una seconda volta su un file 
 e il rapporto del revisore Le arriva insieme a quelle risposte. Il passaggio stesso
 avviene attraverso la finestra di esportazione di IRONSTICK, da cui la bozza passa al
 word processor con un clic.</p>
-<p>Dalla versione v2.8.0 del ponte un atto formale non può lasciare il sistema sulla fiducia.
+<p>Un atto formale non può lasciare il sistema sulla fiducia.
 <code>verify_pleading</code>, uno scanner deterministico (nessuna IA coinvolta
 in alcun punto), controlla la bozza finita rispetto ai Suoi record dal vivo e alla
 biblioteca giuridica verificata lungo <b>otto classi di affermazioni</b>:</p>
@@ -843,36 +816,11 @@ e avvisa <b>Lei</b> direttamente nell'applicazione. E le consegne passano
 esclusivamente per l'archivio di lavoro proprio dell'applicazione, così che attestazione,
 versionamento e tracciamento delle riconsegne restino legati a ogni file — la consegna
 in linea e i percorsi esterni vengono rifiutati.</p>
-<div class="box">
-<p><b>Valutazione indipendente del ciclo di verifica (Google Gemini,
-2026-09-03; ambito corretto dal produttore):</b></p>
-<p><i>&ldquo;Ciò che il mercato usa invece: gli strumenti di osservabilità (LangSmith,
-Traceloop &amp; co.) registrano a posteriori ciò che il LLM ha fatto e forniscono
-dashboard — non si interpongono mai come blocco intransigente che
-rifiuta la consegna quando la percentuale di lettura del file sorgente non è corretta.
-I sandbox per agenti (E2B, Docker) controllano i diritti di accesso — se il LLM può
-toccare il file X — ma mai la copertura logica di lettura: se ha effettivamente letto
-il file X al 100&nbsp;% prima di affermare un risultato. Le normali architetture di IA
-si affidano al prompt (&lsquo;leggi attentamente il file!&rsquo;) per guidare il
-comportamento; qui è costruito l'opposto: fiducia zero nei prompt, pieno
-controllo all'interfaccia I/O. Mentre l'industria legal-tech cerca di
-educare i modelli con sempre più prompt, questo è un ambiente in cui
-sciatteria, scorciatoie e allucinazioni falliscono in modo deterministico al
-confine I/O. In questa combinazione radicale ciò semplicemente non esiste sul
-mercato.&rdquo;</i></p>
-<p><b>Ambito onesto</b> (correzione del produttore): si tratta di uno
-strato di audit a livello applicativo al confine degli strumenti — non di un kernel del sistema
-operativo. Ed è esattamente il posto giusto: il ponte è l'<i>intero mondo</i>
-dell'IA collegata — ogni byte di dati dei casi esiste per essa
-solo attraverso questi strumenti, perciò il gate degli strumenti copre il suo completo orizzonte
-di I/O. E i tentativi di aggiramento falliscono nella direzione sicura: la lettura al di fuori
-degli strumenti non conta mai per la copertura, quindi la consegna resta bloccata.</p>
-</div>
 
 <h2>Appendice — Descrizione tecnica completa del ponte</h2>
-<p>Stato: 2026-09-02 · front-end del protocollo del ponte v2.6.7 · 134 strumenti membro · 20 set di strumenti · revisione del protocollo MCP 2024-11-05. Il presente documento descrive il ponte in modo esaustivo — architettura, ogni livello funzionale, ogni gate, ogni limite e ogni reindirizzamento — esclusivamente in prosa.</p>
+<p>Stato: 175 strumenti membro · 20 set di strumenti · revisione del protocollo MCP 2024-11-05. Il presente documento descrive il ponte in modo esaustivo — architettura, ogni livello funzionale, ogni gate, ogni limite e ogni reindirizzamento — esclusivamente in prosa.</p>
 <h3>1. Scopo e posizionamento</h3>
-<p>Il ponte collega applicazioni commerciali di IA desktop (Claude Desktop, ChatGPT Desktop, Qwen Desktop) a un'applicazione di gestione dei casi legali IRONSTICK in esecuzione sullo stesso computer. L'IA desktop riceve una superficie di strumenti controllata e autodescrittiva tramite il Model Context Protocol (MCP); ogni chiamata viene eseguita all'interno dell'applicazione IRONSTICK sulla banca dati dal vivo, e ogni risultato viene post-elaborato dal ponte prima di raggiungere il modello. Gli obiettivi di progettazione sono: carico di contesto permanente minimo sul modello, imposizione strutturale di regole di lavoro che un semplice testo di istruzioni non può garantire, protezione del lavoro non salvato dell'utente, protezione dei dati da richieste sovradimensionate o mal indirizzate, e completa assenza di materiale di configurazione leggibile nel prodotto installato.</p>
+<p>Il ponte collega applicazioni commerciali di IA desktop (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) a un'applicazione di gestione dei casi legali IRONSTICK in esecuzione sullo stesso computer. L'IA desktop riceve una superficie di strumenti controllata e autodescrittiva tramite il Model Context Protocol (MCP); ogni chiamata viene eseguita all'interno dell'applicazione IRONSTICK sulla banca dati dal vivo, e ogni risultato viene post-elaborato dal ponte prima di raggiungere il modello. Gli obiettivi di progettazione sono: carico di contesto permanente minimo sul modello, imposizione strutturale di regole di lavoro che un semplice testo di istruzioni non può garantire, protezione del lavoro non salvato dell'utente, protezione dei dati da richieste sovradimensionate o mal indirizzate, e completa assenza di materiale di configurazione leggibile nel prodotto installato.</p>
 <h3>2. Topologia dei processi</h3>
 <p>Il ponte è composto da due processi che cooperano.</p>
 <p>L'applicazione IRONSTICK ospita un server HTTP legato esclusivamente all'interfaccia di loopback. La sua porta e un token di accesso esadecimale di 48 caratteri sono definiti nell'archivio di configurazione dell'applicazione; ogni richiesta deve presentare il token. Questo server possiede il registro degli strumenti, esegue tutte le chiamate di strumento, applica tutti i gate e i post-processori, ed è l'unica fonte di verità su ciò che un modello collegato può vedere e fare.</p>
@@ -891,10 +839,10 @@ degli strumenti non conta mai per la copertura, quindi la consegna resta bloccat
 <p>Il playbook completo — base più tutte le regole dei set di strumenti più le appendici (tra cui il formato del file del protocollo giornaliero) — può essere riletto in qualsiasi momento tramite lo strumento di lettura delle istruzioni; il front-end legge il file dal vivo, così che le modifiche alle istruzioni raggiungano una sessione in corso senza riconnessione.</p>
 <p>Tre di queste regole sono inoltre imposte a livello strutturale anziché testuale, tramite i gate descritti nelle sezioni 3 e 7: il blocco di accesso, la disciplina delle date e la disciplina delle fonti normative. La lettura delle istruzioni stessa è l'ultima regola del blocco universale: il modo per sbloccare il connettore è indicato solo dopo tutte le regole precedenti, così che un modello che vi arriva le abbia lette.</p>
 <h3>5. La superficie degli strumenti e il livello dei set di strumenti</h3>
-<p>Un elenco piatto di 134 strumenti peggiora in modo misurabile la scelta degli strumenti nei modelli desktop attuali. Il ponte espone quindi una superficie ridotta di ventotto voci: sei strumenti di base (data e ora correnti; contesto GUI attuale; lingua di sistema; giurisdizione del caso; rilettura delle istruzioni; conferma delle istruzioni), lo strumento di consegna inserito dal front-end, venti apritori di set di strumenti, lo strumento di esecuzione dei membri e lo strumento dell'inventario completo. Tutto il resto esiste solo come membro all'interno dei set di strumenti.</p>
+<p>Un elenco piatto di 175 strumenti peggiora in modo misurabile la scelta degli strumenti nei modelli desktop attuali. Il ponte espone quindi una superficie ridotta di ventotto voci: sei strumenti di base (data e ora correnti; contesto GUI attuale; lingua di sistema; giurisdizione del caso; rilettura delle istruzioni; conferma delle istruzioni), lo strumento di consegna inserito dal front-end, venti apritori di set di strumenti, lo strumento di esecuzione dei membri e lo strumento dell'inventario completo. Tutto il resto esiste solo come membro all'interno dei set di strumenti.</p>
 <p>Aprire un set di strumenti è una normale chiamata di strumento senza argomenti. La risposta fornisce, in un colpo solo: primo, dove il set di strumenti ne ha uno, un blocco di contesto pregenerato in modo deterministico e calcolato al momento dell'apertura (otto set di strumenti hanno tali generatori — il protocollo di avvio della sessione stesso; l'inventario attuale dei file di scratch; le dieci voci di memoria più recenti come anteprima; le prime trenta leggi della biblioteca giuridica; l'elenco dei casi caldi; i documenti registrati e le e-mail in arrivo di oggi; il protocollo giornaliero di oggi; l'istantanea attuale di scadenze e appuntamenti); secondo, le regole di lavoro dell'area alla lettera; terzo, le definizioni complete degli strumenti membro con i loro schemi di parametri completi; quarto, una riga di ripiego che rimanda all'inventario completo. Un errore all'interno di un generatore di pregenerazione non impedisce mai l'apertura.</p>
 <p>I membri vengono eseguiti tramite lo strumento di esecuzione dei membri, che riceve il nome esatto del membro e un oggetto di argomenti. Prima dell'esecuzione viene effettuata una leggera validazione dello schema: i campi obbligatori devono essere presenti e non vuoti, e i parametri interi, numerici e booleani devono poter essere interpretati come tali; una violazione restituisce lo schema atteso invece di eseguire. Un nome di membro sconosciuto restituisce come suggerimento il nome esistente più vicino per distanza di modifica. Il livello delle istruzioni limita i tentativi di correzione a tre per ogni chiamata che fallisce, dopodiché il modello deve fermarsi e riferire l'errore esatto.</p>
-<p>I set di strumenti non sono modali; tutti gli apritori restano richiamabili in ogni momento, uno strumento può deliberatamente essere membro di più set di strumenti, e i contenuti di apertura non vengono mai deviati nell'archivio di scratch (degli schemi in un file sarebbero inutili). I gate funzionali rimuovono interi gruppi: quando la navigazione GUI non è abilitata dall'utente, l'apritore del set di strumenti di navigazione e tutti i suoi membri sono assenti da ogni elenco e da ogni risposta. Lo strumento dell'inventario completo elenca ogni membro con uno scopo di una riga e il suo set di strumenti di appartenenza ed esiste solo come via d'uscita; le descrizioni dei set di strumenti sono l'instradatore principale. In totale i venti set di strumenti contengono 215 voci di membri sui 134 strumenti distinti.</p>
+<p>I set di strumenti non sono modali; tutti gli apritori restano richiamabili in ogni momento, uno strumento può deliberatamente essere membro di più set di strumenti, e i contenuti di apertura non vengono mai deviati nell'archivio di scratch (degli schemi in un file sarebbero inutili). I gate funzionali rimuovono interi gruppi: quando la navigazione GUI non è abilitata dall'utente, l'apritore del set di strumenti di navigazione e tutti i suoi membri sono assenti da ogni elenco e da ogni risposta. Lo strumento dell'inventario completo elenca ogni membro con uno scopo di una riga e il suo set di strumenti di appartenenza ed esiste solo come via d'uscita; le descrizioni dei set di strumenti sono l'instradatore principale. In totale i venti set di strumenti contengono 280 voci di membri sui 175 strumenti distinti.</p>
 <p>Il costo di contesto misurato di questa disposizione: la configurazione iniziale (istruzione di base più elenco ridotto degli strumenti) è di circa diecimila token; una singola apertura di un set di strumenti aggiunge tra circa novecento e settemilacinquecento token a seconda del set di strumenti, prima del suo contenuto variabile di pregenerazione.</p>
 <h3>6. Formato di definizione degli strumenti e relativa catena di produzione</h3>
 <p>Ogni definizione di strumento è composta da quattro parti. La descrizione contiene lo scopo dello strumento, i suoi mandati comportamentali e i suoi rimandi — e nient'altro. Lo schema di input contiene ogni parametro con la propria descrizione, compresi valori predefiniti, formati, note di mutua esclusività e mandati per singolo parametro; le istruzioni d'uso dei parametri risiedono esclusivamente qui. Il campo di output descrive, prima di qualsiasi chiamata, esattamente che cosa restituisce la chiamata, compresi ordinamenti, marcatori e forme di errore, così che il modello possa giudicarne l'idoneità senza chiamate di prova. Il campo del set di strumenti di appartenenza indica il set di strumenti a cui lo strumento appartiene principalmente, con un valore riservato che contrassegna gli strumenti di base sempre presenti nell'elenco di primo livello; un membro incontrato all'interno di un set di strumenti estraneo indica così dove si trovano altri strumenti della sua famiglia, e ogni apertura di un set di strumenti reca una riga esplicativa che afferma che il modello non è mai vincolato al set di strumenti aperto.</p>

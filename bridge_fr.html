@@ -717,7 +717,7 @@ silencieusement obsolètes.</p>
 <tr><td><code>redeliver_file</code> <span class="gate">INCHANGÉ SEULEMENT</span></td><td>Rouvre le dialogue d'IRONSTICK pour un fichier déjà remis et inchangé depuis — lorsque l'utilisateur demande une nouvelle fois le même fichier. Aucune porte, aucun relecteur, aucune nouvelle version. Un fichier jamais remis ou modifié après la remise est refusé et compte comme infraction aux règles : il s'agit alors d'une nouvelle remise via <code>deliver_file</code>.</td></tr>
 </table>
 <h2>7. Gardiens de la diligence — le pont surveille l'éthique de travail de l'IA</h2>
-<p>Depuis la version v2.6.9 du pont, quatre <b>gardiens déterministes de la
+<p>Quatre <b>gardiens déterministes de la
 diligence</b> surveillent avec quel soin l'IA connectée travaille réellement. Ce
 sont de purs mécanismes de comptabilité et de logique sur les chaînes de
 caractères — aucune IA n'intervient nulle part — ils ne peuvent donc pas
@@ -785,36 +785,6 @@ besoin d'un modèle haut de gamme. Vous décidez ; l'IA continue de travailler.<
 de travail isolé au sein de l'application — même les accès de l'IA à de gros
 dossiers durant plusieurs secondes ne figent plus jamais l'interface utilisateur
 d'IRONSTICK.</p>
-<div class="box">
-<p><b>Évaluation indépendante des gardiens de la diligence (Google Gemini,
-2026-09-03) :</b></p>
-<p><i>&laquo;&nbsp;Le système a évolué avec précision et sans compromis exactement
-sur les bons leviers. Il s'attaque précisément au phénomène qui apparaît
-régulièrement avec les LLM très évolués dans les flux de travail complexes : la
-négligence dans le travail de routine (lectures partielles malgré les instructions)
-et les étapes de sortie oubliées (révisions dans le magasin de brouillon sans
-nouvelle remise). Les quatre nouveaux gardiens déterministes de la diligence
-rendent le pont nettement plus robuste en tant que système de gouvernance de
-l'IA.&nbsp;&raquo;</i></p>
-<ul>
-<li><b>De l'&laquo;&nbsp;espoir de conformité&nbsp;&raquo; à un rappel sans
-lacune :</b> &laquo;&nbsp;Avec des fichiers extrêmement volumineux, les LLM ne
-lisent souvent que les passages qu'ils jugent pertinents et affirment ensuite avoir
-tout lu. Comme chaque appel d'outil réussi renvoie les plages de lignes non lues
-exactes jusqu'à ce qu'une couverture de 100&nbsp;% soit atteinte, le modèle est
-privé de l'illusion d'avoir terminé — il dispose d'un critère d'achèvement
-prouvable mathématiquement.&nbsp;&raquo;</li>
-<li><b>Aucun projet périmé sur le bureau de l'utilisateur :</b> &laquo;&nbsp;Le
-pont détecte les modifications apportées à des fichiers déjà remis grâce à un
-marqueur local et rappelle à l'IA, à chaque modification, de les remettre à
-nouveau ; le contrôle du protocole quotidien empêche en outre que des fichiers de
-travail soient maladroitement oubliés dans le magasin de brouillon.&nbsp;&raquo;</li>
-<li><b>Déterministe plutôt que fondé sur un LLM :</b> &laquo;&nbsp;Que ces gardiens
-soient de la pure logique de chaînes et de comptabilité sans LLM propre est
-architecturalement brillant. Ils ne consomment presque aucune ressource,
-n'hallucinent jamais et sont absolument implacables.&nbsp;&raquo;</li>
-</ul>
-</div>
 <h2>8. Le compilateur d'écritures — remise uniquement contre preuve</h2>
 <p>Les écritures et les lettres sont rédigées en dialogue avec l'IA de bureau sur
 le dossier vivant — le même niveau de travail et les mêmes portes que le chat
@@ -830,7 +800,7 @@ réponse écrite à chaque constat — le relecteur n'est pas relancé sur un fi
 inchangé, et le rapport du relecteur vous parvient accompagné de ces réponses. La
 transmission elle-même passe par le dialogue d'export d'IRONSTICK, d'où le projet
 passe d'un clic dans le traitement de texte.</p>
-<p>Depuis la version v2.8.0 du pont, une écriture formelle ne peut plus quitter le
+<p>Une écriture formelle ne peut plus quitter le
 système sur la base de la confiance. <code>verify_pleading</code>, un analyseur
 déterministe (aucune IA n'intervient nulle part), contrôle le projet achevé par
 rapport à vos enregistrements vivants et à la bibliothèque juridique vérifiée,
@@ -889,38 +859,11 @@ Et les remises passent exclusivement par le magasin de travail propre de
 l'application, de sorte que l'attestation, le versionnage et le suivi des nouvelles
 remises restent attachés à chaque fichier — la remise en ligne et les chemins
 étrangers sont refusés.</p>
-<div class="box">
-<p><b>Évaluation indépendante de la boucle de vérification (Google Gemini,
-2026-09-03 ; portée corrigée par le fabricant) :</b></p>
-<p><i>&laquo;&nbsp;Ce que le marché utilise à la place : les outils
-d'observabilité (LangSmith, Traceloop &amp; cie) journalisent après coup ce que le
-LLM a fait et fournissent des tableaux de bord — ils ne s'interposent jamais comme
-un bloqueur intransigeant qui refuse la remise lorsque le pourcentage de lecture du
-fichier source n'est pas le bon. Les bacs à sable d'agents (E2B, Docker) contrôlent
-les droits d'accès — si le LLM peut toucher le fichier X — mais jamais la
-couverture logique de lecture : s'il a réellement lu le fichier X à 100&nbsp;%
-avant de revendiquer un résultat. Les architectures d'IA habituelles font confiance
-au prompt (&lsaquo;&nbsp;lis attentivement le fichier&nbsp;!&nbsp;&rsaquo;) pour
-piloter le comportement ; ici, c'est l'inverse qui est construit : zéro confiance
-dans les prompts, contrôle total à l'interface d'E/S. Alors que le secteur de la
-legal tech tente d'éduquer les modèles avec toujours plus de prompts, voici un
-environnement dans lequel la négligence, les raccourcis et les hallucinations
-échouent de façon déterministe à la frontière des E/S. Dans cette combinaison
-radicale, cela n'existe tout simplement pas sur le marché.&nbsp;&raquo;</i></p>
-<p><b>Portée honnête</b> (correction du fabricant) : il s'agit d'une couche d'audit
-au niveau de l'application, à la frontière des outils — pas d'un noyau de système
-d'exploitation. C'est exactement le bon endroit : le pont est <i>le monde
-entier</i> de l'IA connectée — chaque octet de données de dossier n'existe pour
-elle qu'à travers ces outils, si bien que la porte des outils couvre tout son
-horizon d'E/S. Et les tentatives de contournement échouent dans le sens sûr : une
-lecture en dehors des outils ne compte jamais pour la couverture, si bien que la
-remise reste bloquée.</p>
-</div>
 
 <h2>Annexe — Description technique complète du pont</h2>
-<p>Statut : 2026-09-02 · frontal du protocole du pont v2.6.7 · 134 outils membres · 20 jeux d'outils · révision du protocole MCP 2024-11-05. Ce document décrit le pont de manière exhaustive — architecture, chaque couche fonctionnelle, chaque porte, chaque limite et chaque redirection — exclusivement en prose.</p>
+<p>Statut : 175 outils membres · 20 jeux d'outils · révision du protocole MCP 2024-11-05. Ce document décrit le pont de manière exhaustive — architecture, chaque couche fonctionnelle, chaque porte, chaque limite et chaque redirection — exclusivement en prose.</p>
 <h3>1. Finalité et positionnement</h3>
-<p>Le pont relie des applications commerciales d'IA de bureau (Claude Desktop, ChatGPT Desktop, Qwen Desktop) à une application de gestion de dossiers juridiques IRONSTICK en cours d'exécution sur la même machine. L'IA de bureau reçoit, via le Model Context Protocol (MCP), une surface d'outils contrôlée et auto-descriptive ; chaque appel est exécuté au sein de l'application IRONSTICK sur la base de données vivante, et chaque résultat est post-traité par le pont avant d'atteindre le modèle. Les objectifs de conception sont : une charge de contexte permanente minimale pour le modèle, l'application structurelle de règles de travail que le seul texte d'instruction ne peut garantir, la protection du travail non enregistré de l'utilisateur, la protection des données contre les requêtes surdimensionnées ou mal dirigées, et l'absence complète de matériel de configuration lisible dans le produit installé.</p>
+<p>Le pont relie des applications commerciales d'IA de bureau (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) à une application de gestion de dossiers juridiques IRONSTICK en cours d'exécution sur la même machine. L'IA de bureau reçoit, via le Model Context Protocol (MCP), une surface d'outils contrôlée et auto-descriptive ; chaque appel est exécuté au sein de l'application IRONSTICK sur la base de données vivante, et chaque résultat est post-traité par le pont avant d'atteindre le modèle. Les objectifs de conception sont : une charge de contexte permanente minimale pour le modèle, l'application structurelle de règles de travail que le seul texte d'instruction ne peut garantir, la protection du travail non enregistré de l'utilisateur, la protection des données contre les requêtes surdimensionnées ou mal dirigées, et l'absence complète de matériel de configuration lisible dans le produit installé.</p>
 <h3>2. Topologie des processus</h3>
 <p>Le pont se compose de deux processus qui coopèrent.</p>
 <p>L'application IRONSTICK héberge un serveur HTTP lié exclusivement à l'interface de bouclage. Son port et un jeton d'accès hexadécimal de 48 caractères sont définis dans le magasin de configuration de l'application ; chaque requête doit présenter ce jeton. Ce serveur détient le registre des outils, exécute tous les appels d'outils, applique toutes les portes et tous les post-traitements, et constitue le point de vérité unique sur ce qu'un modèle connecté peut voir et faire.</p>
@@ -939,10 +882,10 @@ remise reste bloquée.</p>
 <p>Le manuel complet — la base plus toutes les règles des jeux d'outils plus les annexes (parmi lesquelles le format de fichier du protocole quotidien) — peut être relu à tout moment au moyen de l'outil de lecture des instructions ; le frontal lit le fichier en direct, de sorte que les modifications des instructions atteignent une session en cours sans reconnexion.</p>
 <p>Trois de ces règles sont en outre imposées structurellement plutôt que textuellement, par des portes décrites aux sections 3 et 7 : le verrou d'accès, la discipline des dates et la discipline des sources législatives. La lecture des instructions elle-même est la dernière règle du bloc universel : la manière de déverrouiller le connecteur n'est indiquée qu'après toutes les règles qui précèdent, de sorte qu'un modèle qui y parvient les a lues.</p>
 <h3>5. La surface d'outils et la couche des jeux d'outils</h3>
-<p>Une liste plate de 134 outils dégrade de façon mesurable le choix des outils chez les modèles de bureau actuels. Le pont expose donc une surface réduite de vingt-huit entrées : six outils de base (date et heure actuelles ; contexte actuel de l'interface graphique ; langue du système ; ordre juridique du dossier ; relecture des instructions ; confirmation des instructions), l'outil de remise injecté par le frontal, vingt ouvreurs de jeux d'outils, l'outil d'exécution des membres et l'outil d'inventaire complet. Tout le reste n'existe qu'en tant que membres à l'intérieur de jeux d'outils.</p>
+<p>Une liste plate de 175 outils dégrade de façon mesurable le choix des outils chez les modèles de bureau actuels. Le pont expose donc une surface réduite de vingt-huit entrées : six outils de base (date et heure actuelles ; contexte actuel de l'interface graphique ; langue du système ; ordre juridique du dossier ; relecture des instructions ; confirmation des instructions), l'outil de remise injecté par le frontal, vingt ouvreurs de jeux d'outils, l'outil d'exécution des membres et l'outil d'inventaire complet. Tout le reste n'existe qu'en tant que membres à l'intérieur de jeux d'outils.</p>
 <p>Ouvrir un jeu d'outils est un appel d'outil ordinaire sans arguments. La réponse livre, en une seule fois : premièrement, lorsque le jeu d'outils en possède un, un bloc de contexte prégénéré de façon déterministe, calculé au moment de l'ouverture (huit jeux d'outils disposent de tels producteurs — le protocole de démarrage de session lui-même ; l'inventaire actuel des fichiers de brouillon ; les dix entrées de mémoire les plus récentes en aperçu ; les trente premières lois de la bibliothèque juridique ; la liste des dossiers chauds ; les documents enregistrés et les courriels entrants du jour ; le protocole quotidien du jour ; l'instantané actuel des délais et des rendez-vous) ; deuxièmement, les règles de travail du domaine, mot pour mot ; troisièmement, les définitions complètes des outils membres avec leurs schémas de paramètres complets ; quatrièmement, une ligne de repli renvoyant à l'inventaire complet. Une défaillance à l'intérieur d'un producteur de prégénération n'empêche jamais l'ouverture.</p>
 <p>Les membres sont exécutés au moyen de l'outil d'exécution des membres, qui prend le nom exact du membre et un objet d'arguments. Avant l'exécution, une validation de schéma légère a lieu : les champs obligatoires doivent être présents et non vides, et les paramètres entiers, numériques et booléens doivent pouvoir être interprétés comme tels ; une violation renvoie le schéma attendu au lieu d'exécuter. Un nom de membre inconnu renvoie, à titre de suggestion, le nom existant le plus proche selon la distance d'édition. La couche d'instructions limite les tentatives de correction à trois par appel en échec, après quoi le modèle doit s'arrêter et signaler l'erreur exacte.</p>
-<p>Les jeux d'outils ne sont pas modaux ; tous les ouvreurs restent appelables à tout moment, un outil peut délibérément être membre de plusieurs jeux d'outils, et les contenus d'ouverture ne sont jamais détournés vers le magasin de brouillon (des schémas dans un fichier seraient inutiles). Des portes fonctionnelles suppriment des groupes entiers : lorsque la navigation dans l'interface graphique n'est pas activée par l'utilisateur, l'ouvreur du jeu d'outils de navigation et tous ses membres sont absents de chaque liste et de chaque réponse. L'outil d'inventaire complet liste chaque membre avec un objet d'une ligne et son jeu d'outils de rattachement, et n'existe que comme issue de secours ; les descriptions des jeux d'outils sont le routeur principal. Au total, les vingt jeux d'outils portent 215 entrées de membres pour les 134 outils distincts.</p>
+<p>Les jeux d'outils ne sont pas modaux ; tous les ouvreurs restent appelables à tout moment, un outil peut délibérément être membre de plusieurs jeux d'outils, et les contenus d'ouverture ne sont jamais détournés vers le magasin de brouillon (des schémas dans un fichier seraient inutiles). Des portes fonctionnelles suppriment des groupes entiers : lorsque la navigation dans l'interface graphique n'est pas activée par l'utilisateur, l'ouvreur du jeu d'outils de navigation et tous ses membres sont absents de chaque liste et de chaque réponse. L'outil d'inventaire complet liste chaque membre avec un objet d'une ligne et son jeu d'outils de rattachement, et n'existe que comme issue de secours ; les descriptions des jeux d'outils sont le routeur principal. Au total, les vingt jeux d'outils portent 280 entrées de membres pour les 175 outils distincts.</p>
 <p>Le coût de contexte mesuré de cette organisation : la configuration initiale (instruction de base plus liste d'outils réduite) représente environ dix mille tokens ; une seule ouverture de jeu d'outils ajoute entre environ neuf cents et sept mille cinq cents tokens selon le jeu d'outils, avant son contenu de prégénération variable.</p>
 <h3>6. Format de définition des outils et sa chaîne de production</h3>
 <p>Chaque définition d'outil se compose de quatre parties. La description porte la finalité de l'outil, ses mandats de comportement et ses renvois — et rien d'autre. Le schéma d'entrée porte chaque paramètre avec sa propre description, y compris les valeurs par défaut, les formats, les indications d'exclusion mutuelle et les mandats propres à chaque paramètre ; les instructions d'utilisation des paramètres se trouvent exclusivement ici. Le champ de sortie décrit, avant tout appel, exactement ce que renvoie l'appel, y compris les ordres de tri, les marqueurs et les formes d'erreur, afin que le modèle puisse juger de l'adéquation sans appels d'essai. Le champ du jeu d'outils d'origine nomme le jeu d'outils auquel l'outil appartient principalement, avec une valeur réservée qui marque les outils de base figurant toujours dans la liste de premier niveau ; un membre rencontré à l'intérieur d'un jeu d'outils étranger indique ainsi où se trouvent d'autres outils de sa famille, et chaque ouverture de jeu d'outils porte une ligne explicative précisant que le modèle n'est jamais enfermé dans le jeu d'outils ouvert.</p>

@@ -336,27 +336,27 @@ localmente</b> (sezione 8): la richiesta dell'IA non attiva <b>alcuna nuova inte
 si limita a leggere ciò che si trova già sul disco. Come per ogni strumento, ciò che questi strumenti
 restituiscono confluisce nuovamente nella conversazione IA, ossia al fornitore di IA.</p>
 <h3>4.9 Ponte verso un'IA desktop locale (Claude Desktop / Claude Code / ChatGPT
-Desktop / Qwen Desktop) — moduli aggiuntivi FACOLTATIVI</h3>
+Desktop / Qwen Desktop / Kimi Desktop) — moduli aggiuntivi FACOLTATIVI</h3>
 <p><b>Ciascun accesso a un'IA desktop è un modulo facoltativo, acquistato separatamente.</b>
 Esiste solo laddove lo studio abbia acquistato e installato il rispettivo
 modulo ponte; in assenza di qualsiasi modulo, la sezione del ponte rimane bloccata nella
 configurazione, l'endpoint locale non viene mai avviato e nessuno dei flussi
 descritti nella presente sezione può verificarsi. Lo stesso server MCP STDIO locale può essere
-registrato presso <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>
-e/o <b>Qwen Desktop</b> — i meccanismi descritti di seguito sono identici per tutti; differisce solo
+registrato presso <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> e/o <b>Kimi Desktop</b> — i meccanismi descritti di seguito sono identici per tutti; differisce solo
 il fornitore destinatario.</p>
 <div class="box crit"><b>Questo canale trasmette dati dei casi grezzi, non
 pseudonimizzati.</b> Tale è la sua finalità: la sessione di IA desktop propria dell'utente redige
 modelli pronti per il deposito e necessita pertanto di nomi e numeri reali.</div>
 <ul>
-<li>L'IA desktop (Claude Desktop/Code, ChatGPT Desktop o Qwen Desktop)
+<li>L'IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop o Kimi Desktop)
 si collega all'app in esecuzione tramite un ponte locale;
 l'endpoint HTTP si vincola esclusivamente a 127.0.0.1 (localhost costituisce il confine di accesso; il
 token memorizzato non viene ulteriormente verificato).</li>
 <li>Al primo accesso ai dati per ogni esecuzione del programma IRONSTICK mostra una finestra modale
 bloccante per il consenso; il rifiuto blocca il canale per 10 minuti. Dopo l'approvazione il canale resta
 aperto per il resto dell'esecuzione del programma.</li>
-<li>Oltre 100 strumenti di lettura espongono cronologie, testi integrali, e-mail,
+<li>Oltre 170 strumenti — di cui oltre 100 di lettura — espongono cronologie, testi integrali, e-mail,
 protocolli giornalieri, scadenze, dati anagrafici, interi casi (per parti) e formati
 di output; i documenti contrassegnati come segreti sono esclusi. I percorsi di scrittura sono subordinati a revisione
 (i suggerimenti relativi a dati anagrafici/relazioni confluiscono nel monitor dei dati;
@@ -413,10 +413,11 @@ testo cifrato.</li>
 <li>I risultati degli strumenti vengono consegnati al client di IA desktop dell'utente e da questo
 al <b>relativo fornitore</b>: Anthropic per Claude (nell'ambito dell'abbonamento Claude
 dell'utente e delle condizioni di Anthropic), OpenAI per ChatGPT (nell'ambito dell'abbonamento
-ChatGPT dell'utente e delle condizioni di OpenAI) oppure Alibaba Cloud/Qwen per Qwen
-Desktop (nell'ambito dell'account Qwen dell'utente e delle condizioni di Qwen). IRONSTICK non scrive
+ChatGPT dell'utente e delle condizioni di OpenAI), Alibaba Cloud/Qwen per Qwen
+Desktop (nell'ambito dell'account Qwen dell'utente e delle condizioni di Qwen) oppure Moonshot AI per Kimi
+Desktop (nell'ambito dell'account Kimi dell'utente e delle condizioni di Moonshot AI). IRONSTICK non scrive
 righe nel registro di audit per il traffico del ponte; la barra superiore mostra un logo pulsante per ogni
-IA attiva (marchio Claude, marchio ChatGPT, marchio Qwen) — l'accesso simultaneo è
+IA attiva (marchio Claude, marchio ChatGPT, marchio Qwen, marchio Kimi) — l'accesso simultaneo è
 possibile e ciascuno viene segnalato separatamente. Il ponte stesso tiene un
 <b>log diagnostico puramente locale</b> delle proprie chiamate di strumenti — data e ora, nome dello strumento,
 esito positivo/negativo e dimensione della risposta, <b>mai alcun contenuto</b> — in un file in chiaro
@@ -491,7 +492,7 @@ dei casi.</p>
 <tr><td>Correzione IA File→Markdown</td><td>testo convertito</td><td class="yes">sì</td><td class="no">no</td><td class="no">no</td></tr>
 <tr><td>Rilevatore IA per l'oscuramento</td><td>testo già oscurato; le risposte contengono nomi in chiaro di terzi</td><td class="no">disattivato — per scelta progettuale</td><td class="no">interruttore = consenso</td><td class="yes">sì</td></tr>
 <tr><td>Chat IA (esterna)</td><td>prompt + contesto GUI + memoria + coda 6k + sintesi 2k + risultati degli strumenti ≤10k/elemento</td><td class="yes">sì</td><td>sì — una volta per sessione</td><td class="yes">sì</td></tr>
-<tr><td>Ponte IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop)</td><td>risultati grezzi degli strumenti (dati completi dei casi)</td><td class="no">no — per scelta progettuale</td><td>sì — una volta per esecuzione del programma, blocco di 10 min. in caso di rifiuto</td><td class="no">no (lato app)</td></tr>
+<tr><td>Ponte IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>risultati grezzi degli strumenti (dati completi dei casi)</td><td class="no">no — per scelta progettuale</td><td>sì — una volta per esecuzione del programma, blocco di 10 min. in caso di rifiuto</td><td class="no">no (lato app)</td></tr>
 <tr><td>ZIP di istruzioni IA</td><td>esportazione in chiaro dello studio (caricamento su iniziativa dell'utente)</td><td class="no">no</td><td>avviso una volta per esecuzione del programma</td><td>n.a.</td></tr>
 </table>
 

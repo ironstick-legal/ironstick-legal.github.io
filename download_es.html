@@ -157,7 +157,7 @@
 <h2>Conexión de la IA</h2>
 <img class="diagram" src="img/dl_client.png" alt="El puesto de trabajo Windows con una licencia IRONSTICK para el cliente y el servidor MCP, más, de forma externa, una clave API de IA o una aplicación de escritorio de IA con suscripción.">
 <div class="aisec">
-<p>La <b>clave API de IA</b> es necesaria para el funcionamiento de la aplicación cliente. Los importes para activar las claves API varían según el proveedor, pero oscilan entre una recarga mínima de 1 $ y 5 $ para la activación inicial. Se recomienda utilizar al menos <b>dos claves API</b> para aumentar la tolerancia a fallos. La facturación se realiza de todos modos según el uso; por lo tanto, las claves API no utilizadas no generan costes. La aplicación cliente está programada para evitar costes en la medida de lo posible y activar las claves API solo cuando sea necesario. Tras iniciar sesión, el usuario tiene acceso a través de la pantalla de configuración y puede solicitar allí las claves API directamente a los proveedores (los enlaces directos están incluidos).</p>
+<p>Con una <b>clave API de IA</b> están disponibles todas las funciones de IA de la aplicación cliente. Los importes para activar las claves API varían según el proveedor, pero oscilan entre una recarga mínima de 1 $ y 5 $ para la activación inicial. Se recomienda utilizar al menos <b>dos claves API</b> para aumentar la tolerancia a fallos. La facturación se realiza de todos modos según el uso; por lo tanto, las claves API no utilizadas no generan costes. La aplicación cliente está programada para evitar costes en la medida de lo posible y activar las claves API solo cuando sea necesario. Tras iniciar sesión, el usuario tiene acceso a través de la pantalla de configuración y puede solicitar allí las claves API directamente a los proveedores (los enlaces directos están incluidos).</p>
 <p>Las <b>aplicaciones de escritorio de IA</b> también pueden usarse para pruebas sin suscripción. Los costes mensuales de suscripción en los proveedores comienzan en unos 20 $ al mes. Si nota que su suscripción con un proveedor no es suficiente, los proveedores ofrecen ampliaciones. Si ya existe una suscripción, puede seguir utilizándose sin más con la configuración existente — el usuario no tiene que cambiar nada. Hay dos formas de usar aplicaciones de escritorio de IA existentes: a) exportando archivos de instrucciones de IA (con muchas pérdidas) o b) a través del puente (servidor MCP). Una vez que el usuario se ha acostumbrado a su aplicación de escritorio de IA, se recomienda, por motivos de tolerancia a fallos, instalar una segunda aplicación de escritorio de otro proveedor. Los enlaces de descarga están disponibles directamente en la pantalla de configuración.</p>
 </div>
 <h2>Servidor y puesto de escaneo</h2>
@@ -177,7 +177,7 @@
 </ol>
 <h2>Reglas de licencia</h2>
 <ul class="rules">
-<li>Todas las licencias deben estar a nombre de <b>un único usuario</b>.</li>
+<li>Cada licencia está a nombre de <b>un solo usuario</b> (una persona).</li>
 <li>No hay <b>licencia de Server</b> sin al menos <b>dos licencias de Client-App</b>.</li>
 <li>No hay <b>licencia de Scan-App</b> sin al menos <b>una licencia de Server</b>.</li>
 <li>No hay <b>licencia de Bridge</b> sin <b>licencia de Client-App</b>.</li>
@@ -206,8 +206,8 @@ Fecha de nacimiento (AAAA-MM-DD): [……]
 CNP (si procede): [……]
 
 Licencia(s) deseada(s):
-[ ] IRONSTICK Client-App   (Bridges incluidas en la clave)
-[ ] Bridge(s)              (solo con licencia de Client-App)
+[ ] IRONSTICK Client-App   (licencia base)
+[ ] Bridge(s)              (activadas en la clave de Client-App)
 [ ] IRONSTICK Server       (solo con mín. 2 licencias de Client-App)
 [ ] Central Scan-App       (solo con mín. 1 licencia de Server)
 

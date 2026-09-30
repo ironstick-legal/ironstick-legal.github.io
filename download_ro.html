@@ -157,7 +157,7 @@
 <h2>Conectarea IA</h2>
 <img class="diagram" src="img/dl_client.png" alt="Stația de lucru Windows cu o licență IRONSTICK pentru client și serverul MCP, plus, extern, fie o cheie API IA, fie o aplicație desktop IA cu abonament.">
 <div class="aisec">
-<p><b>Cheia API IA</b> este necesară pentru funcționarea aplicației client. Sumele pentru activarea cheilor API diferă de la un furnizor la altul, dar se situează între o reîncărcare minimă de 1 $ și 5 $ pentru activarea inițială. Se recomandă utilizarea a cel puțin <b>două chei API</b> pentru a crește siguranța în caz de defecțiune. Facturarea se face oricum pe bază de utilizare; prin urmare, cheile API neutilizate nu generează costuri. Aplicația client este programată astfel încât să evite pe cât posibil costurile și să activeze cheile API doar la nevoie. După autentificare, utilizatorul are acces prin ecranul de configurare și poate solicita cheile API direct de la furnizori (linkurile directe sunt incluse).</p>
+<p>Cu o <b>cheie API IA</b>, toate funcțiile IA ale aplicației client sunt disponibile. Sumele pentru activarea cheilor API diferă de la un furnizor la altul, dar se situează între o reîncărcare minimă de 1 $ și 5 $ pentru activarea inițială. Se recomandă utilizarea a cel puțin <b>două chei API</b> pentru a crește siguranța în caz de defecțiune. Facturarea se face oricum pe bază de utilizare; prin urmare, cheile API neutilizate nu generează costuri. Aplicația client este programată astfel încât să evite pe cât posibil costurile și să activeze cheile API doar la nevoie. După autentificare, utilizatorul are acces prin ecranul de configurare și poate solicita cheile API direct de la furnizori (linkurile directe sunt incluse).</p>
 <p><b>Aplicațiile desktop IA</b> pot fi folosite pentru testare și fără abonament. Costurile lunare de abonament la furnizori încep de la aproximativ 20 $ pe lună. Dacă observați că abonamentul la un furnizor nu vă ajunge, furnizorii oferă extinderi. Dacă există deja un abonament, acesta poate fi folosit în continuare cu configurația existentă — utilizatorul nu trebuie să schimbe nimic. Există două moduri de a folosi aplicațiile desktop IA existente: a) prin exportul fișierelor de instrucțiuni IA (cu pierderi mari) sau b) prin punte (server MCP). După ce utilizatorul s-a obișnuit cu aplicația sa desktop IA, se recomandă, din motive de siguranță, instalarea unei a doua aplicații desktop de la un alt furnizor. Linkurile de descărcare sunt disponibile direct în ecranul de configurare.</p>
 </div>
 <h2>Serverul și stația de scanare</h2>
@@ -177,7 +177,7 @@
 </ol>
 <h2>Reguli de licențiere</h2>
 <ul class="rules">
-<li>Toate licențele trebuie să fie emise pe <b>un singur utilizator</b>.</li>
+<li>Fiecare licență este emisă pe <b>exact un utilizator</b> (o persoană).</li>
 <li>O <b>licență Server</b> nu se acordă fără cel puțin <b>două licențe Client-App</b>.</li>
 <li>O <b>licență Scan-App</b> nu se acordă fără cel puțin <b>o licență Server</b>.</li>
 <li>O <b>licență Bridge</b> nu se acordă fără o <b>licență Client-App</b>.</li>
@@ -206,8 +206,8 @@ Data nașterii (AAAA-LL-ZZ): [……]
 CNP (dacă este cazul): [……]
 
 Licența/licențele dorite:
-[ ] IRONSTICK Client-App   (Bridges incluse în cheie)
-[ ] Bridge(s)              (doar cu licență Client-App)
+[ ] IRONSTICK Client-App   (licența de bază)
+[ ] Bridge(s)              (activate în cheia Client-App)
 [ ] IRONSTICK Server       (doar cu min. 2 licențe Client-App)
 [ ] Central Scan-App       (doar cu min. 1 licență Server)
 

@@ -373,14 +373,14 @@ consultation externe</b> — elle se contente de lire ce qui se trouve déjà su
 disque. Comme pour tout outil, ce que ces outils renvoient est réinjecté dans la
 conversation d'IA, c'est-à-dire transmis au fournisseur d'IA.</p>
 <h3>4.9 Passerelle vers une IA de bureau locale (Claude Desktop / Claude Code / ChatGPT
-Desktop / Qwen Desktop) — modules complémentaires FACULTATIFS</h3>
+Desktop / Qwen Desktop / Kimi Desktop) — modules complémentaires FACULTATIFS</h3>
 <p><b>Chaque accès à une IA de bureau constitue un module facultatif, acquis
 séparément.</b> Il n'existe que si le cabinet a acquis et installé le module de
 passerelle correspondant ; en l'absence de tout module, la section de la passerelle
 reste verrouillée dans la configuration, le point de terminaison local ne démarre
 jamais, et aucun des flux décrits dans la présente section ne peut avoir lieu. Le même
 serveur MCP STDIO local peut être enregistré auprès de <b>Claude Desktop/Claude
-Code</b>, de <b>ChatGPT Desktop</b> et/ou de <b>Qwen Desktop</b> — le fonctionnement
+Code</b>, de <b>ChatGPT Desktop</b>, de <b>Qwen Desktop</b> et/ou de <b>Kimi Desktop</b> — le fonctionnement
 décrit ci-dessous est identique pour tous ; seul le fournisseur destinataire
 diffère.</p>
 <div class="box crit"><b>Ce canal transmet des données de dossier brutes, non
@@ -388,7 +388,7 @@ pseudonymisées.</b> C'est sa finalité : la session d'IA de bureau propre de
 l'utilisateur rédige des modèles prêts à être déposés et a donc besoin des noms et
 numéros réels.</div>
 <ul>
-<li>L'IA de bureau (Claude Desktop/Code, ChatGPT Desktop ou Qwen Desktop) se connecte
+<li>L'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop ou Kimi Desktop) se connecte
 à l'application en cours d'exécution par l'intermédiaire d'une passerelle locale ;
 le point de terminaison HTTP est lié exclusivement à 127.0.0.1 (localhost constitue la
 limite d'accès ; le jeton enregistré n'est pas vérifié en sus).</li>
@@ -396,7 +396,7 @@ limite d'accès ; le jeton enregistré n'est pas vérifié en sus).</li>
 une fenêtre modale bloquante de consentement ; un refus bloque le canal pendant
 10 minutes. Après approbation, le canal reste ouvert pour le reste de l'exécution du
 programme.</li>
-<li>Plus de 100 outils de lecture donnent accès aux chroniques, textes intégraux,
+<li>Plus de 170 outils — dont plus de 100 outils de lecture — donnent accès aux chroniques, textes intégraux,
 courriels, journaux quotidiens, délais, données de base, dossiers complets (par
 parties) et formats de sortie ; les documents marqués comme secrets sont exclus. Les
 voies d'écriture sont soumises à une barrière de validation (les suggestions de
@@ -462,10 +462,11 @@ livre que du texte chiffré.</li>
 de là, à <b>son fournisseur</b> : Anthropic pour Claude (dans le cadre de
 l'abonnement Claude de l'utilisateur et des conditions d'Anthropic), OpenAI pour
 ChatGPT (dans le cadre de l'abonnement ChatGPT de l'utilisateur et des conditions
-d'OpenAI) ou Alibaba Cloud/Qwen pour Qwen Desktop (dans le cadre du compte Qwen de
-l'utilisateur et des conditions de Qwen). IRONSTICK n'inscrit aucune ligne dans le
+d'OpenAI), Alibaba Cloud/Qwen pour Qwen Desktop (dans le cadre du compte Qwen de
+l'utilisateur et des conditions de Qwen) ou Moonshot AI pour Kimi Desktop (dans le cadre
+du compte Kimi de l'utilisateur et des conditions de Moonshot AI). IRONSTICK n'inscrit aucune ligne dans le
 journal d'audit pour le trafic de la passerelle ; la barre supérieure affiche un logo
-clignotant par IA active (marque Claude, marque ChatGPT, marque Qwen) — un accès
+clignotant par IA active (marque Claude, marque ChatGPT, marque Qwen, marque Kimi) — un accès
 simultané est possible et chacun est signalé séparément. La passerelle elle-même tient
 un <b>journal de diagnostic purement local</b> de ses appels d'outils — horodatage,
 nom de l'outil, succès/échec et taille de la réponse, <b>jamais aucun contenu</b> —
@@ -546,7 +547,7 @@ et des dossiers d'affaires.</p>
 <tr><td>Correction par IA File→Markdown</td><td>texte converti</td><td class="yes">oui</td><td class="no">non</td><td class="no">non</td></tr>
 <tr><td>Outil d'IA de repérage pour le caviardage</td><td>texte déjà caviardé ; les réponses contiennent des noms en clair de tiers</td><td class="no">désactivée — par conception</td><td class="no">interrupteur = consentement</td><td class="yes">oui</td></tr>
 <tr><td>Chat IA (externe)</td><td>invite + contexte GUI + mémoire + fin de dialogue de 6k + résumé de 2k + résultats d'outils ≤10k/élément</td><td class="yes">oui</td><td>oui — une fois par session</td><td class="yes">oui</td></tr>
-<tr><td>Passerelle d'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop)</td><td>résultats d'outils bruts (données de dossier complètes)</td><td class="no">non — par conception</td><td>oui — une fois par exécution du programme, blocage de 10 min en cas de refus</td><td class="no">non (côté application)</td></tr>
+<tr><td>Passerelle d'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>résultats d'outils bruts (données de dossier complètes)</td><td class="no">non — par conception</td><td>oui — une fois par exécution du programme, blocage de 10 min en cas de refus</td><td class="no">non (côté application)</td></tr>
 <tr><td>ZIP d'instructions IA</td><td>exportation en clair du cabinet (téléversement à l'initiative de l'utilisateur)</td><td class="no">non</td><td>avertissement une fois par exécution du programme</td><td>s.o.</td></tr>
 </table>
 

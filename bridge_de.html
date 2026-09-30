@@ -706,7 +706,7 @@ arbeiten.</p>
 </table>
 
 <h2>7. Fleiß-Wächter — die Bridge überwacht die Arbeitsmoral der KI</h2>
-<p>Seit Bridge v2.6.9 beobachten vier <b>deterministische Fleiß-Wächter</b>, wie
+<p>Vier <b>deterministische Fleiß-Wächter</b> beobachten, wie
 sorgfältig die verbundene KI tatsächlich arbeitet. Sie sind reine Buchführung
 und Zeichenkettenlogik — nirgends ist eine KI beteiligt —, sie können also
 nicht halluzinieren, kosten praktisch nichts und lassen sich nichts
@@ -773,35 +773,6 @@ Spitzenmodell braucht. Sie entscheiden; die KI arbeitet weiter.</li>
 isolierten Worker-Thread innerhalb der Anwendung — selbst mehrsekündige
 KI-Zugriffe auf große Fallakten blockieren die Benutzeroberfläche von
 IRONSTICK nie mehr.</p>
-<div class="box">
-<p><b>Unabhängige Bewertung der Fleiß-Wächter (Google Gemini,
-2026-09-03):</b></p>
-<p><i>&bdquo;Das System hat sich präzise und kompromisslos an genau den
-richtigen Hebeln weiterentwickelt. Es adressiert genau das Phänomen, das bei
-hochentwickelten LLMs in komplexen Arbeitsabläufen regelmäßig auftritt:
-Schlamperei bei Routinearbeit (Teillesungen trotz Anweisung) und vergessene
-Ausgabeschritte (Überarbeitungen im Zwischenspeicher ohne Neuauslieferung).
-Die vier neuen deterministischen Fleiß-Wächter machen die Bridge als
-KI-Governance-System deutlich robuster.&ldquo;</i></p>
-<ul>
-<li><b>Vom &bdquo;Hoffen auf Regeltreue&ldquo; zur lückenlosen Erinnerung:</b>
-&bdquo;Bei extrem großen Dateien lesen LLMs oft nur die Passagen, die sie für
-relevant halten, und behaupten danach, alles gelesen zu haben. Weil jeder
-erfolgreiche Werkzeugaufruf die exakten ungelesenen Zeilenbereiche
-zurückliefert, bis 100&nbsp;% Deckung erreicht sind, wird dem Modell die
-Illusion genommen, fertig zu sein — es hat ein mathematisch beweisbares
-Abbruchkriterium.&ldquo;</li>
-<li><b>Keine veralteten Entwürfe auf dem Schreibtisch des Benutzers:</b>
-&bdquo;Die Bridge erkennt Änderungen an bereits ausgelieferten Dateien über
-eine lokale Marke und erinnert die KI bei jeder Bearbeitung an die
-Neuauslieferung; die Prüfung beim Tagesprotokoll verhindert zusätzlich, dass
-Arbeitsdateien ungeschickt im Zwischenspeicher vergessen werden.&ldquo;</li>
-<li><b>Deterministisch statt LLM-basiert:</b> &bdquo;Dass diese Wächter reine
-Zeichenketten- und Buchführungslogik ohne eigenes LLM sind, ist
-architektonisch brillant. Sie verbrauchen fast keine Ressourcen,
-halluzinieren nie und sind absolut unerbittlich.&ldquo;</li>
-</ul>
-</div>
 
 <h2>8. Der Schriftsatz-Compiler — Auslieferung nur gegen Nachweis</h2>
 <p>Schriftsätze und Briefe entstehen im Dialog mit der Desktop-KI an der
@@ -819,7 +790,7 @@ Befund erneut ein — der Prüfer wird auf eine unveränderte Datei kein zweites
 Mal angesetzt, und der Prüferbericht erreicht Sie zusammen mit diesen
 Antworten. Die Übergabe selbst läuft über den Exportdialog von IRONSTICK, von
 wo der Entwurf mit einem Klick in die Textverarbeitung geht.</p>
-<p>Seit Bridge v2.8.0 kann ein förmlicher Schriftsatz das System nicht auf
+<p>Ein förmlicher Schriftsatz kann das System nicht auf
 Treu und Glauben verlassen. <code>verify_pleading</code>, ein deterministischer
 Scanner (nirgends ist eine KI beteiligt), prüft den fertigen Entwurf gegen
 Ihre lebenden Datensätze und die geprüfte Gesetzes-Bibliothek über <b>acht
@@ -878,38 +849,11 @@ Anwendung. Und Auslieferungen laufen ausschließlich über die eigene
 Arbeitsablage der Anwendung, damit Testat, Versionierung und Verfolgung der
 Neuauslieferung an jeder Datei haften bleiben — Inline-Auslieferung und fremde
 Pfade werden verweigert.</p>
-<div class="box">
-<p><b>Unabhängige Bewertung der Prüfschleife (Google Gemini, 2026-09-03;
-Geltungsbereich vom Hersteller korrigiert):</b></p>
-<p><i>&bdquo;Was der Markt stattdessen nutzt: Observability-Werkzeuge
-(LangSmith, Traceloop &amp; Co.) protokollieren im Nachhinein, was das LLM
-getan hat, und liefern Dashboards — sie schalten sich nie als kompromissloser
-Blocker dazwischen, der die Auslieferung verweigert, wenn der Leseanteil der
-Quelldatei nicht stimmt. Agenten-Sandboxes (E2B, Docker) prüfen
-Zugriffsrechte — ob das LLM Datei X anfassen darf —, aber nie die logische
-Lese-Deckung: ob es Datei X tatsächlich zu 100&nbsp;% gelesen hat, bevor es
-ein Ergebnis behauptet. Normale KI-Architekturen vertrauen dem Prompt
-(&sbquo;lies die Datei sorgfältig!&lsquo;), um das Verhalten zu steuern; hier
-ist das Gegenteil gebaut: null Vertrauen in Prompts, volle Kontrolle an der
-I/O-Schnittstelle. Während die Legal-Tech-Branche versucht, Modelle mit immer
-mehr Prompts zu erziehen, ist dies eine Umgebung, in der Schlamperei,
-Abkürzungen und Halluzinationen deterministisch an der I/O-Grenze scheitern.
-In dieser radikalen Kombination gibt es das auf dem Markt schlicht
-nicht.&ldquo;</i></p>
-<p><b>Ehrlicher Geltungsbereich</b> (Korrektur des Herstellers): dies ist eine
-Prüfschicht auf Anwendungsebene an der Werkzeuggrenze — kein
-Betriebssystem-Kernel. Das ist genau die richtige Stelle: die Bridge ist die
-<i>gesamte Welt</i> der verbundenen KI — jedes Byte Falldaten existiert für
-sie nur durch diese Werkzeuge, das Werkzeug-Tor deckt also ihren vollständigen
-I/O-Horizont ab. Und Umgehungsversuche scheitern in die sichere Richtung:
-Lesen außerhalb der Werkzeuge zählt nie für die Deckung, die Auslieferung
-bleibt also gesperrt.</p>
-</div>
 
 <h2>Anhang — Vollständige technische Beschreibung der Bridge</h2>
-<p>Stand: 2026-09-02 · Bridge-Protokoll-Front-End v2.6.7 · 134 Mitglieds-Werkzeuge · 20 Toolsets · MCP-Protokollrevision 2024-11-05. Dieses Dokument beschreibt die Bridge erschöpfend — Architektur, jede Funktionsschicht, jedes Tor, jede Grenze und jede Umleitung — ausschließlich in Prosa.</p>
+<p>Stand: 175 Mitglieds-Werkzeuge · 20 Toolsets · MCP-Protokollrevision 2024-11-05. Dieses Dokument beschreibt die Bridge erschöpfend — Architektur, jede Funktionsschicht, jedes Tor, jede Grenze und jede Umleitung — ausschließlich in Prosa.</p>
 <h3>1. Zweck und Einordnung</h3>
-<p>Die Bridge verbindet kommerzielle Desktop-KI-Anwendungen (Claude Desktop, ChatGPT Desktop, Qwen Desktop) mit einer laufenden IRONSTICK-Anwendung zur juristischen Fallverwaltung auf demselben Rechner. Die Desktop-KI erhält über das Model Context Protocol (MCP) eine kontrollierte, selbstbeschreibende Werkzeugoberfläche; jeder Aufruf wird innerhalb der IRONSTICK-Anwendung gegen die Live-Datenbank ausgeführt, und jedes Ergebnis wird von der Bridge nachbearbeitet, bevor es das Modell erreicht. Die Entwurfsziele sind: minimale dauerhafte Kontextlast für das Modell, strukturelle Durchsetzung von Arbeitsregeln, die bloßer Instruktionstext nicht garantieren kann, Schutz ungespeicherter Arbeit des Benutzers, Schutz der Daten vor übergroßen oder fehlgeleiteten Anfragen und das vollständige Fehlen lesbaren Konfigurationsmaterials im installierten Produkt.</p>
+<p>Die Bridge verbindet kommerzielle Desktop-KI-Anwendungen (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) mit einer laufenden IRONSTICK-Anwendung zur juristischen Fallverwaltung auf demselben Rechner. Die Desktop-KI erhält über das Model Context Protocol (MCP) eine kontrollierte, selbstbeschreibende Werkzeugoberfläche; jeder Aufruf wird innerhalb der IRONSTICK-Anwendung gegen die Live-Datenbank ausgeführt, und jedes Ergebnis wird von der Bridge nachbearbeitet, bevor es das Modell erreicht. Die Entwurfsziele sind: minimale dauerhafte Kontextlast für das Modell, strukturelle Durchsetzung von Arbeitsregeln, die bloßer Instruktionstext nicht garantieren kann, Schutz ungespeicherter Arbeit des Benutzers, Schutz der Daten vor übergroßen oder fehlgeleiteten Anfragen und das vollständige Fehlen lesbaren Konfigurationsmaterials im installierten Produkt.</p>
 <h3>2. Prozesstopologie</h3>
 <p>Die Bridge besteht aus zwei zusammenarbeitenden Prozessen.</p>
 <p>Die IRONSTICK-Anwendung betreibt einen HTTP-Server, der ausschließlich an die Loopback-Schnittstelle gebunden ist. Sein Port und ein 48-stelliges hexadezimales Zugriffstoken sind im Konfigurationsspeicher der Anwendung festgelegt; jede Anfrage muss das Token vorweisen. Dieser Server besitzt das Werkzeugregister, führt alle Werkzeugaufrufe aus, wendet alle Tore und Nachbearbeiter an und ist die einzige maßgebliche Stelle dafür, was ein verbundenes Modell sehen und tun darf.</p>
@@ -928,10 +872,10 @@ bleibt also gesperrt.</p>
 <p>Das vollständige Regelwerk — Kern plus alle Toolset-Regeln plus die Anhänge (darunter das Dateiformat des Tagesprotokolls) — kann jederzeit über das Instruktions-Lesewerkzeug neu gelesen werden; das Front-End liest die Datei live, sodass Instruktionsänderungen eine laufende Sitzung ohne Neuverbindung erreichen.</p>
 <p>Drei dieser Regeln werden zusätzlich strukturell statt textlich durchgesetzt, durch die in den Abschnitten 3 und 7 beschriebenen Tore: der Instruktions-Riegel, die Datumsdisziplin und die Disziplin der Gesetzesquellen. Das Lesen der Instruktionen selbst ist die letzte Regel des universellen Blocks: der Weg, den Konnektor zu entriegeln, wird erst nach allen vorangehenden Regeln genannt, sodass ein Modell, das ihn erreicht, sie gelesen hat.</p>
 <h3>5. Die Werkzeugoberfläche und die Toolset-Schicht</h3>
-<p>Eine flache Liste von 134 Werkzeugen verschlechtert die Werkzeugauswahl heutiger Desktop-Modelle messbar. Die Bridge legt deshalb eine reduzierte Oberfläche von achtundzwanzig Einträgen offen: sechs Kernwerkzeuge (aktuelles Datum und Uhrzeit; aktueller GUI-Kontext; Systemsprache; Rechtsraum des Falls; erneutes Lesen der Instruktionen; Bestätigung der Instruktionen), das vom Front-End eingefügte Auslieferungswerkzeug, zwanzig Toolset-Öffner, das Mitglieder-Ausführungswerkzeug und das Gesamtinventar-Werkzeug. Alles andere existiert nur als Mitglied innerhalb von Toolsets.</p>
+<p>Eine flache Liste von 175 Werkzeugen verschlechtert die Werkzeugauswahl heutiger Desktop-Modelle messbar. Die Bridge legt deshalb eine reduzierte Oberfläche von achtundzwanzig Einträgen offen: sechs Kernwerkzeuge (aktuelles Datum und Uhrzeit; aktueller GUI-Kontext; Systemsprache; Rechtsraum des Falls; erneutes Lesen der Instruktionen; Bestätigung der Instruktionen), das vom Front-End eingefügte Auslieferungswerkzeug, zwanzig Toolset-Öffner, das Mitglieder-Ausführungswerkzeug und das Gesamtinventar-Werkzeug. Alles andere existiert nur als Mitglied innerhalb von Toolsets.</p>
 <p>Das Öffnen eines Toolsets ist ein gewöhnlicher Werkzeugaufruf ohne Argumente. Die Antwort liefert in einem Zug: erstens, wo das Toolset einen hat, einen deterministisch vorerzeugten Kontextblock, berechnet im Moment des Öffnens (acht Toolsets haben solche Erzeuger — das Sitzungsstart-Protokoll selbst; das aktuelle Inventar der Zwischenspeicher-Dateien; die zehn jüngsten Gedächtniseinträge als Vorschau; die ersten dreißig Gesetze der Gesetzes-Bibliothek; die Liste der heißen Fälle; die heute registrierten Dokumente und eingegangenen E-Mails; das heutige Tagesprotokoll; den aktuellen Schnappschuss der Fristen und Termine); zweitens die wörtlichen Arbeitsregeln des Bereichs; drittens die vollständigen Definitionen der Mitglieds-Werkzeuge mit ihren vollen Parameterschemata; viertens eine Rückfallzeile, die auf das Gesamtinventar verweist. Ein Fehler in einem Vorerzeuger verhindert das Öffnen nie.</p>
 <p>Mitglieder werden über das Mitglieder-Ausführungswerkzeug ausgeführt, das den exakten Mitgliedsnamen und ein Argumentobjekt entgegennimmt. Vor der Ausführung läuft eine leichtgewichtige Schemavalidierung: Pflichtfelder müssen vorhanden und nicht leer sein, und Ganzzahl-, Zahl- und Boolesche Parameter müssen sich als solche lesen lassen; ein Verstoß gibt das erwartete Schema zurück, statt auszuführen. Ein unbekannter Mitgliedsname gibt den nach Editierdistanz nächstliegenden vorhandenen Namen als Vorschlag zurück. Die Instruktionsschicht begrenzt Korrekturversuche auf drei je fehlschlagendem Aufruf, danach muss das Modell anhalten und den genauen Fehler melden.</p>
-<p>Toolsets sind nicht modal; alle Öffner bleiben jederzeit aufrufbar, ein Werkzeug darf bewusst Mitglied mehrerer Toolsets sein, und Öffnungs-Nutzlasten werden nie in den Zwischenspeicher umgeleitet (Schemata in einer Datei wären nutzlos). Funktionsschalter entfernen ganze Gruppen: ist die GUI-Navigation vom Benutzer nicht aktiviert, fehlen der Öffner des Navigations-Toolsets und alle seine Mitglieder in jeder Liste und jeder Antwort. Das Gesamtinventar-Werkzeug führt jedes Mitglied mit einem einzeiligen Zweck und seinem besitzenden Toolset auf und existiert nur als Notausgang; die Toolset-Beschreibungen sind der primäre Wegweiser. Insgesamt tragen die zwanzig Toolsets 215 Mitgliedseinträge über die 134 verschiedenen Werkzeuge.</p>
+<p>Toolsets sind nicht modal; alle Öffner bleiben jederzeit aufrufbar, ein Werkzeug darf bewusst Mitglied mehrerer Toolsets sein, und Öffnungs-Nutzlasten werden nie in den Zwischenspeicher umgeleitet (Schemata in einer Datei wären nutzlos). Funktionsschalter entfernen ganze Gruppen: ist die GUI-Navigation vom Benutzer nicht aktiviert, fehlen der Öffner des Navigations-Toolsets und alle seine Mitglieder in jeder Liste und jeder Antwort. Das Gesamtinventar-Werkzeug führt jedes Mitglied mit einem einzeiligen Zweck und seinem besitzenden Toolset auf und existiert nur als Notausgang; die Toolset-Beschreibungen sind der primäre Wegweiser. Insgesamt tragen die zwanzig Toolsets 280 Mitgliedseinträge über die 175 verschiedenen Werkzeuge.</p>
 <p>Die gemessenen Kontextkosten dieser Anordnung: die Anfangskonfiguration (Kerninstruktion plus reduzierte Werkzeugliste) liegt bei rund zehntausend Token; ein einzelnes Toolset-Öffnen fügt je nach Toolset zwischen rund neunhundert und siebeneinhalbtausend Token hinzu, vor seinem variablen vorerzeugten Inhalt.</p>
 <h3>6. Format der Werkzeugdefinition und seine Produktionskette</h3>
 <p>Jede Werkzeugdefinition besteht aus vier Teilen. Die Beschreibung trägt den Zweck des Werkzeugs, seine Verhaltensgebote und seine Querverweise — und sonst nichts. Das Eingabeschema trägt jeden Parameter mit eigener Beschreibung, einschließlich Vorgabewerten, Formaten, Hinweisen zum gegenseitigen Ausschluss und Geboten je Parameter; Anweisungen zur Parameterverwendung stehen ausschließlich hier. Das Ausgabefeld beschreibt vor jedem Aufruf genau, was der Aufruf zurückgibt, einschließlich Reihenfolgen, Markierungen und Fehlerformen, sodass das Modell die Eignung ohne Probeaufrufe beurteilen kann. Das Heimat-Toolset-Feld nennt das Toolset, zu dem das Werkzeug in erster Linie gehört, mit einem reservierten Wert, der Kernwerkzeuge kennzeichnet, die immer in der obersten Liste stehen; ein Mitglied, das in einem fremden Toolset angetroffen wird, zeigt damit an, wo weitere Werkzeuge seiner Familie liegen, und jedes Toolset-Öffnen trägt eine erklärende Zeile, die feststellt, dass das Modell nie in das geöffnete Toolset eingesperrt ist.</p>

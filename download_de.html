@@ -157,7 +157,7 @@
 <h2>KI-Anbindung</h2>
 <img class="diagram" src="img/dl_client.png" alt="Der Windows-Arbeitsplatz mit einer IRONSTICK-Lizenz für Client und MCP-Server, dazu extern entweder KI-API-Key oder KI-Desktop-App mit Abo.">
 <div class="aisec">
-<p>Der <b>KI-API-Key</b> ist für den Betrieb der Client-App nötig. Die Beträge zur Aktivierung von API-Keys unterscheiden sich bei den Anbietern, liegen aber zwischen 1 $ und 5 $ Minimumaufladung zur initialen Aktivierung. Es wird empfohlen, mindestens <b>zwei API-Keys</b> zu nutzen, um die Ausfallsicherheit zu erhöhen. Die Abrechnung geschieht ohnehin auf Nutzungsbasis; bei ungenutzten API-Keys fallen daher keine Kosten an. Die Client-App ist so programmiert, dass sie nach Möglichkeit Kosten vermeidet und die API-Keys nur im Bedarfsfall zuschaltet. Nach dem Login hat der Benutzer über den Konfigurations-Screen Zugriff und kann die API-Keys dort direkt bei den Anbietern beantragen (Direktlinks sind hinterlegt).</p>
+<p>Mit einem <b>KI-API-Key</b> stehen in der Client-App alle KI-Funktionen zur Verfügung. Die Beträge zur Aktivierung von API-Keys unterscheiden sich bei den Anbietern, liegen aber zwischen 1 $ und 5 $ Minimumaufladung zur initialen Aktivierung. Es wird empfohlen, mindestens <b>zwei API-Keys</b> zu nutzen, um die Ausfallsicherheit zu erhöhen. Die Abrechnung geschieht ohnehin auf Nutzungsbasis; bei ungenutzten API-Keys fallen daher keine Kosten an. Die Client-App ist so programmiert, dass sie nach Möglichkeit Kosten vermeidet und die API-Keys nur im Bedarfsfall zuschaltet. Nach dem Login hat der Benutzer über den Konfigurations-Screen Zugriff und kann die API-Keys dort direkt bei den Anbietern beantragen (Direktlinks sind hinterlegt).</p>
 <p>Die <b>KI-Desktop-Apps</b> können zum Testen auch ohne Abonnement genutzt werden. Die monatlichen Abonnementskosten bei den Anbietern beginnen bei ca. 20 $ pro Monat. Wenn Sie merken, dass Ihr Abonnement bei einem Anbieter nicht reicht, bieten die Anbieter Erweiterungen an. Besteht bereits ein Abonnement, kann dieses mit der bestehenden Konfiguration einfach weiter genutzt werden — der Benutzer muss dabei nichts ändern. Es gibt zwei Wege, bestehende KI-Desktop-Apps zu nutzen: a) durch Exportieren von KI-Instruktionsdateien (stark verlustbehaftet) oder b) über die Bridge (MCP-Server). Sobald sich der Benutzer an den Umgang mit seiner KI-Desktop-App gewöhnt hat, empfiehlt es sich aus Gründen der Ausfallsicherheit, eine zweite Desktop-App eines anderen Anbieters zu installieren. Die Download-Links sind im Konfigurations-Screen direkt verfügbar.</p>
 </div>
 <h2>Server und Scan-Arbeitsplatz</h2>
@@ -177,7 +177,7 @@
 </ol>
 <h2>Lizenzregeln</h2>
 <ul class="rules">
-<li>Alle Lizenzen müssen auf <b>einen einzigen Benutzer</b> laufen.</li>
+<li>Jede Lizenz läuft auf <b>genau einen Benutzer</b> (eine Person).</li>
 <li>Eine <b>Server-Lizenz</b> gibt es nicht ohne mindestens <b>zwei Client-App-Lizenzen</b>.</li>
 <li>Eine <b>Scan-App-Lizenz</b> gibt es nicht ohne mindestens <b>eine Server-Lizenz</b>.</li>
 <li>Eine <b>Bridge-Lizenz</b> gibt es nicht ohne <b>Client-App-Lizenz</b>.</li>
@@ -206,8 +206,8 @@ Geburtsdatum (JJJJ-MM-TT): [……]
 CNP (falls zutreffend): [……]
 
 Gewünschte Lizenz(en):
-[ ] IRONSTICK Client-App   (Bridges im Schlüssel enthalten)
-[ ] Bridge(s)              (nur mit Client-App-Lizenz)
+[ ] IRONSTICK Client-App   (Grundlizenz)
+[ ] Bridge(s)              (im Client-App-Schlüssel freigeschaltet)
 [ ] IRONSTICK Server       (nur mit mind. 2 Client-App-Lizenzen)
 [ ] Central Scan-App       (nur mit mind. 1 Server-Lizenz)
 

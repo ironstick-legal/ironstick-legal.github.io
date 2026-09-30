@@ -335,27 +335,27 @@ Sicherheits-Momentaufnahme (Abschnitt 8): Die Anfrage der KI löst <b>keine neue
 sie liest lediglich, was bereits auf dem Datenträger vorhanden ist. Wie bei jedem Werkzeug fließt das, was diese Werkzeuge
 zurückgeben, in die KI-Konversation zurück, d. h. an den KI-Anbieter.</p>
 <h3>4.9 Brücke zu einer lokalen Desktop-KI (Claude Desktop / Claude Code / ChatGPT
-Desktop / Qwen Desktop) — OPTIONALE Zusatzmodule</h3>
+Desktop / Qwen Desktop / Kimi Desktop) — OPTIONALE Zusatzmodule</h3>
 <p><b>Jeder Desktop-KI-Zugang ist ein optionales, gesondert erworbenes Modul.</b>
 Er besteht nur dort, wo die Kanzlei das jeweilige Brücken-Modul erworben und
 installiert hat; ohne jedes Modul bleibt der Brücken-Abschnitt in der
 Konfiguration gesperrt, der lokale Endpunkt startet nie, und keiner der in
 diesem Abschnitt beschriebenen Datenflüsse kann stattfinden. Derselbe lokale
-STDIO-MCP-Server kann bei <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>
-und/oder <b>Qwen Desktop</b> registriert werden — die nachfolgend beschriebene
+STDIO-MCP-Server kann bei <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> und/oder <b>Kimi Desktop</b> registriert werden — die nachfolgend beschriebene
 Funktionsweise ist für alle identisch; lediglich der empfangende Anbieter unterscheidet sich.</p>
 <div class="box crit"><b>Dieser Kanal überträgt unbearbeitete, nicht pseudonymisierte
 Falldaten.</b> Das ist sein Zweck: Die eigene Desktop-KI-Sitzung des Benutzers erstellt
 einreichungsfähige Vorlagen und benötigt daher echte Namen und Nummern.</div>
 <ul>
-<li>Die Desktop-KI (Claude Desktop/Code, ChatGPT Desktop oder Qwen Desktop)
+<li>Die Desktop-KI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop oder Kimi Desktop)
 verbindet sich über eine lokale Brücke mit der laufenden App;
 der HTTP-Endpunkt bindet ausschließlich an 127.0.0.1 (localhost ist die Zugriffsgrenze; der
 gespeicherte Token wird nicht zusätzlich geprüft).</li>
 <li>Beim ersten Datenzugriff je Programmlauf zeigt IRONSTICK ein blockierendes
 Zustimmungs-Modal an; eine Ablehnung sperrt den Kanal für 10 Minuten. Nach der Freigabe ist der Kanal
 für den Rest des Programmlaufs geöffnet.</li>
-<li>Mehr als 100 Lese-Werkzeuge stellen Chroniken, Volltexte, E-Mails,
+<li>Über 170 Werkzeuge — mehr als 100 davon Lese-Werkzeuge — stellen Chroniken, Volltexte, E-Mails,
 Tagesprotokolle, Fristen, Stammdaten, ganze Fälle (in Teilen) und Ausgabeformate
 bereit; als geheim markierte Dokumente sind ausgenommen. Schreibpfade unterliegen einem Prüf-Tor
 (Vorschläge zu Stammdaten/Beziehungen landen im Konsistenz-Monitor;
@@ -411,10 +411,11 @@ Chiffretext.</li>
 <li>Werkzeugergebnisse werden an den Desktop-KI-Client des Benutzers und von dort
 an <b>dessen Anbieter</b> übermittelt: Anthropic für Claude (im Rahmen des Claude-Abonnements
 des Benutzers und der Bedingungen von Anthropic), OpenAI für ChatGPT (im Rahmen des
-ChatGPT-Abonnements des Benutzers und der Bedingungen von OpenAI) oder Alibaba Cloud/Qwen für Qwen
-Desktop (im Rahmen des Qwen-Kontos des Benutzers und der Bedingungen von Qwen). IRONSTICK schreibt keine
+ChatGPT-Abonnements des Benutzers und der Bedingungen von OpenAI), Alibaba Cloud/Qwen für Qwen
+Desktop (im Rahmen des Qwen-Kontos des Benutzers und der Bedingungen von Qwen) oder Moonshot AI für Kimi
+Desktop (im Rahmen des Kimi-Kontos des Benutzers und der Bedingungen von Moonshot AI). IRONSTICK schreibt keine
 Audit-Protokoll-Zeilen für den Brücken-Verkehr; die obere Leiste zeigt je
-aktiver KI ein pulsierendes Logo (Claude-Zeichen, ChatGPT-Zeichen, Qwen-Zeichen) — gleichzeitiger Zugriff ist
+aktiver KI ein pulsierendes Logo (Claude-Zeichen, ChatGPT-Zeichen, Qwen-Zeichen, Kimi-Zeichen) — gleichzeitiger Zugriff ist
 möglich und wird jeweils gesondert signalisiert. Die Brücke selbst führt ein
 <b>rein lokales Diagnoseprotokoll</b> ihrer Werkzeugaufrufe — Zeitstempel, Werkzeugname,
 Erfolg/Fehlschlag und Antwortgröße, <b>niemals Inhalte</b> — in einer Klartextdatei
@@ -489,7 +490,7 @@ Fall-Dossiers ausgenommen.</p>
 <tr><td>KI-Korrektur Datei→Markdown</td><td>konvertierter Text</td><td class="yes">ja</td><td class="no">nein</td><td class="no">nein</td></tr>
 <tr><td>KI-Finder der Schwärzung</td><td>bereits geschwärzter Text; Antworten enthalten Klarnamen Dritter</td><td class="no">aus — konzeptionsbedingt</td><td class="no">Umschalter = Zustimmung</td><td class="yes">ja</td></tr>
 <tr><td>KI-Chat (extern)</td><td>Prompt + GUI-Kontext + Gedächtnis + 6k Verlaufsende + 2k Zusammenfassung + Werkzeugergebnisse ≤10k/Element</td><td class="yes">ja</td><td>ja — einmal pro Sitzung</td><td class="yes">ja</td></tr>
-<tr><td>Desktop-KI-Brücke (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop)</td><td>unverarbeitete Werkzeugergebnisse (vollständige Falldaten)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Programmlauf, 10-minütige Sperre bei Ablehnung</td><td class="no">nein (App-seitig)</td></tr>
+<tr><td>Desktop-KI-Brücke (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>unverarbeitete Werkzeugergebnisse (vollständige Falldaten)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Programmlauf, 10-minütige Sperre bei Ablehnung</td><td class="no">nein (App-seitig)</td></tr>
 <tr><td>KI-Instruktions-ZIP</td><td>Kanzleiexport im Klartext (vom Benutzer veranlasster Upload)</td><td class="no">nein</td><td>Warnung einmal pro Programmlauf</td><td>entfällt</td></tr>
 </table>
 

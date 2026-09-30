@@ -338,27 +338,27 @@ it only reads what is already on disk. As with every tool, what these tools
 return flows back into the AI conversation, i.e. to the AI provider.</p>
 
 <h3>4.9 Bridge to a local desktop AI (Claude Desktop / Claude Code / ChatGPT
-Desktop / Qwen Desktop) — OPTIONAL add-on modules</h3>
+Desktop / Qwen Desktop / Kimi Desktop) — OPTIONAL add-on modules</h3>
 <p><b>Each desktop-AI access is an optional module, purchased separately.</b>
 It exists only where the practice has acquired and installed the respective
 bridge module; without any module, the connector section stays locked in the
 configuration, the local endpoint never starts, and none of the flows
 described in this section can occur. The same local STDIO MCP server can be
-registered with <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>
-and/or <b>Qwen Desktop</b> — the mechanics below are identical for all; only
+registered with <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> and/or <b>Kimi Desktop</b> — the mechanics below are identical for all; only
 the receiving provider differs.</p>
 <div class="box crit"><b>This channel transmits raw, unpseudonymized case
 data.</b> That is its purpose: the user's own desktop-AI session drafts
 submission-ready templates and therefore needs real names and numbers.</div>
 <ul>
-<li>The desktop AI (Claude Desktop/Code, ChatGPT Desktop or Qwen Desktop)
+<li>The desktop AI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop or Kimi Desktop)
 connects through a local bridge to the running app;
 the HTTP endpoint binds to 127.0.0.1 only (localhost is the access boundary; the
 stored token is not additionally verified).</li>
 <li>On the first data access per program run IRONSTICK shows a blocking consent
 modal; refusal blocks the channel for 10 minutes. After approval the channel is
 open for the rest of the program run.</li>
-<li>More than 100 read tools expose chronicles, full texts, e-mails,
+<li>Over 170 tools — more than 100 of them read tools — expose chronicles, full texts, e-mails,
 daily protocols, deadlines, master data, whole cases (in parts) and output
 formats; documents marked secret are excluded. Write paths are review-gated
 (master-data/relationship suggestions land in the consistency monitor;
@@ -415,10 +415,11 @@ only.</li>
 <li>Tool results are delivered to the user's desktop-AI client and from there
 to <b>its provider</b>: Anthropic for Claude (under the user's Claude
 subscription and Anthropic's terms), OpenAI for ChatGPT (under the user's
-ChatGPT subscription and OpenAI's terms) or Alibaba Cloud/Qwen for Qwen
-Desktop (under the user's Qwen account and Qwen's terms). IRONSTICK writes no
+ChatGPT subscription and OpenAI's terms), Alibaba Cloud/Qwen for Qwen
+Desktop (under the user's Qwen account and Qwen's terms) or Moonshot AI for Kimi
+Desktop (under the user's Kimi account and Moonshot AI's terms). IRONSTICK writes no
 audit-log rows for bridge traffic; the top bar shows one pulsing logo per
-active AI (Claude mark, ChatGPT mark, Qwen mark) — simultaneous access is
+active AI (Claude mark, ChatGPT mark, Qwen mark, Kimi mark) — simultaneous access is
 possible and each is signalled separately. The bridge itself keeps a
 <b>purely local diagnostic log</b> of its tool calls — timestamp, tool name,
 success/failure and response size, <b>never any content</b> — in a plain file
@@ -494,7 +495,7 @@ dossiers.</p>
 <tr><td>File→Markdown AI correction</td><td>converted text</td><td class="yes">yes</td><td class="no">no</td><td class="no">no</td></tr>
 <tr><td>Redaction AI finder</td><td>already-redacted text; answers contain third-party clear names</td><td class="no">off — by design</td><td class="no">toggle = consent</td><td class="yes">yes</td></tr>
 <tr><td>AI chat (external)</td><td>prompt + GUI ctx + memory + 6k tail + 2k summary + tool results ≤10k/item</td><td class="yes">yes</td><td>yes — once per session</td><td class="yes">yes</td></tr>
-<tr><td>Desktop-AI bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop)</td><td>raw tool results (full case data)</td><td class="no">no — by design</td><td>yes — once per program run, 10-min block on refusal</td><td class="no">no (app side)</td></tr>
+<tr><td>Desktop-AI bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>raw tool results (full case data)</td><td class="no">no — by design</td><td>yes — once per program run, 10-min block on refusal</td><td class="no">no (app side)</td></tr>
 <tr><td>AI instruction ZIP</td><td>clear-text practice export (user-initiated upload)</td><td class="no">no</td><td>warning once per program run</td><td>n/a</td></tr>
 </table>
 

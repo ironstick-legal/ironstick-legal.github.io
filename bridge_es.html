@@ -719,7 +719,7 @@ obtenerlo. La IA nunca puede trabajar a partir de volcados silenciosamente obsol
 <tr><td><code>redeliver_file</code> <span class="gate">SOLO SIN CAMBIOS</span></td><td>Abre de nuevo el diálogo de IRONSTICK para un archivo que ya se entregó y que no ha cambiado desde entonces — cuando el usuario pide el mismo archivo una vez más. Sin compuertas, sin revisor, sin versión nueva. Un archivo nunca entregado o modificado tras la entrega se rechaza y cuenta como infracción de las reglas: eso es una entrega nueva a través de <code>deliver_file</code>.</td></tr>
 </table>
 <h2>7. Guardianes de diligencia — el puente supervisa la ética de trabajo de la IA</h2>
-<p>Desde el puente v2.6.9, cuatro <b>guardianes de diligencia deterministas</b>
+<p>Cuatro <b>guardianes de diligencia deterministas</b>
 vigilan con qué cuidado trabaja realmente la IA conectada. Son pura contabilidad y
 lógica de cadenas — sin ninguna IA en ningún punto — de modo que no pueden
 alucinar, no cuestan prácticamente nada y no se dejan convencer de nada:</p>
@@ -782,34 +782,6 @@ compuertas, no necesita un modelo de gama más alta. Usted decide; la IA sigue t
 <p>Desde esa misma versión, la ejecución de las herramientas discurre además en un
 hilo de trabajo aislado dentro de la aplicación — ni siquiera los accesos de la IA
 de varios segundos a expedientes grandes bloquean ya la interfaz de usuario de IRONSTICK.</p>
-<div class="box">
-<p><b>Valoración independiente de los guardianes de diligencia (Google Gemini,
-2026-09-03):</b></p>
-<p><i>&ldquo;El sistema ha evolucionado con precisión y sin concesiones
-exactamente en las palancas adecuadas. Aborda precisamente el fenómeno que aparece
-de forma habitual con los LLM muy desarrollados en flujos de trabajo complejos: la
-dejadez en el trabajo rutinario (lecturas parciales pese a las instrucciones) y los
-pasos de salida olvidados (revisiones en el almacén temporal sin reentrega). Los
-cuatro nuevos guardianes de diligencia deterministas hacen que el puente sea
-notablemente más robusto como sistema de gobernanza de
-IA.&rdquo;</i></p>
-<ul>
-<li><b>De &ldquo;esperar que se cumpla&rdquo; a un recordatorio sin fisuras:</b>
-&ldquo;Con archivos extremadamente grandes, los LLM suelen leer solo los pasajes
-que consideran relevantes y después afirman haberlo leído todo. Como cada llamada
-de herramienta con éxito devuelve los tramos de líneas exactos no leídos hasta
-alcanzar el 100&nbsp;% de cobertura, al modelo se le priva de la ilusión de haber
-terminado — dispone de un criterio de finalización matemáticamente demostrable.&rdquo;</li>
-<li><b>Ningún borrador obsoleto en la mesa del usuario:</b> &ldquo;El puente
-detecta los cambios en archivos ya entregados mediante un marcador local y recuerda
-a la IA, en cada edición, que debe reentregar; la comprobación del protocolo diario
-impide además que los archivos de trabajo queden torpemente olvidados en el almacén temporal.&rdquo;</li>
-<li><b>Determinista en lugar de basado en LLM:</b> &ldquo;Que estos guardianes sean
-pura lógica de cadenas y de contabilidad, sin un LLM propio, es arquitectónicamente
-brillante. Apenas consumen recursos, nunca alucinan y son absolutamente
-implacables.&rdquo;</li>
-</ul>
-</div>
 <h2>8. El compilador de escritos — entrega solo contra prueba</h2>
 <p>Los escritos y las cartas se redactan en diálogo con la IA de escritorio sobre
 el expediente en vivo — el mismo plano de trabajo y las mismas compuertas que el
@@ -826,7 +798,7 @@ por segunda vez sobre un archivo sin cambios, y el informe del revisor le llega 
 usted junto con esas respuestas. La entrega propiamente dicha discurre por el
 diálogo de exportación de IRONSTICK, desde donde el borrador pasa al procesador de
 textos con un clic.</p>
-<p>Desde el puente v2.8.0, un escrito formal no puede salir del sistema a base de
+<p>Un escrito formal no puede salir del sistema a base de
 confianza. <code>verify_pleading</code>, un escáner determinista (sin ninguna IA en
 ningún punto), coteja el borrador terminado con sus registros en vivo y con la
 biblioteca jurídica verificada a lo largo de <b>ocho clases de afirmaciones</b>:</p>
@@ -881,38 +853,11 @@ entregas discurren exclusivamente por el almacén de trabajo propio de la
 aplicación, de modo que la certificación, el versionado y el seguimiento de
 reentregas permanecen ligados a cada archivo — la entrega en línea y las rutas
 ajenas se rechazan.</p>
-<div class="box">
-<p><b>Valoración independiente del bucle de verificación (Google Gemini,
-2026-09-03; alcance corregido por el fabricante):</b></p>
-<p><i>&ldquo;Lo que el mercado utiliza en su lugar: las herramientas de
-observabilidad (LangSmith, Traceloop &amp; co.) registran a posteriori lo que hizo
-el LLM y ofrecen paneles — nunca se interponen como un bloqueador sin concesiones
-que rechace la entrega cuando el porcentaje de lectura del archivo fuente no es
-correcto. Los entornos aislados para agentes (E2B, Docker) comprueban los derechos
-de acceso — si el LLM puede tocar el archivo X — pero nunca la cobertura lógica de
-lectura: si realmente leyó el archivo X al 100&nbsp;% antes de afirmar un
-resultado. Las arquitecturas de IA normales confían en el prompt (&lsquo;¡lee el
-archivo con atención!&rsquo;) para orientar el comportamiento; aquí se ha
-construido lo contrario: confianza cero en los prompts, control total en la
-interfaz de E/S. Mientras el sector legal-tech intenta educar a los modelos con
-cada vez más prompts, este es un entorno en el que la dejadez, los atajos y las
-alucinaciones fracasan de forma determinista en la frontera de E/S. En esta
-combinación radical, esto sencillamente no existe en el
-mercado.&rdquo;</i></p>
-<p><b>Alcance honesto</b> (corrección del fabricante): se trata de una capa de
-auditoría a nivel de aplicación en la frontera de las herramientas — no de un
-núcleo de sistema operativo. Ese es exactamente el lugar adecuado: el puente es
-<i>todo el mundo</i> de la IA conectada — cada byte de datos de casos existe para
-ella únicamente a través de estas herramientas, de modo que la compuerta de
-herramientas cubre todo su horizonte de E/S. Y los intentos de elusión fracasan en
-la dirección segura: leer fuera de las herramientas nunca cuenta para la cobertura,
-por lo que la entrega permanece bloqueada.</p>
-</div>
 
 <h2>Anexo — Descripción técnica completa del puente</h2>
-<p>Estado: 2026-09-02 · front-end del protocolo del puente v2.6.7 · 134 herramientas miembro · 20 conjuntos de herramientas · revisión del protocolo MCP 2024-11-05. Este documento describe el puente de forma exhaustiva — arquitectura, cada capa funcional, cada compuerta, cada límite y cada redirección — únicamente en prosa.</p>
+<p>Estado: 175 herramientas miembro · 20 conjuntos de herramientas · revisión del protocolo MCP 2024-11-05. Este documento describe el puente de forma exhaustiva — arquitectura, cada capa funcional, cada compuerta, cada límite y cada redirección — únicamente en prosa.</p>
 <h3>1. Finalidad y posicionamiento</h3>
-<p>El puente conecta aplicaciones comerciales de IA de escritorio (Claude Desktop, ChatGPT Desktop, Qwen Desktop) con una aplicación de gestión de casos jurídicos IRONSTICK en ejecución en el mismo equipo. La IA de escritorio recibe una superficie de herramientas controlada y autodescriptiva a través del Model Context Protocol (MCP); cada llamada se ejecuta dentro de la aplicación IRONSTICK contra la base de datos en vivo, y cada resultado es posprocesado por el puente antes de llegar al modelo. Los objetivos de diseño son: una carga de contexto permanente mínima para el modelo, la imposición estructural de reglas de trabajo que el mero texto de instrucciones no puede garantizar, la protección del trabajo no guardado del usuario, la protección de los datos frente a solicitudes sobredimensionadas o mal dirigidas, y la ausencia total de material de configuración legible en el producto instalado.</p>
+<p>El puente conecta aplicaciones comerciales de IA de escritorio (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) con una aplicación de gestión de casos jurídicos IRONSTICK en ejecución en el mismo equipo. La IA de escritorio recibe una superficie de herramientas controlada y autodescriptiva a través del Model Context Protocol (MCP); cada llamada se ejecuta dentro de la aplicación IRONSTICK contra la base de datos en vivo, y cada resultado es posprocesado por el puente antes de llegar al modelo. Los objetivos de diseño son: una carga de contexto permanente mínima para el modelo, la imposición estructural de reglas de trabajo que el mero texto de instrucciones no puede garantizar, la protección del trabajo no guardado del usuario, la protección de los datos frente a solicitudes sobredimensionadas o mal dirigidas, y la ausencia total de material de configuración legible en el producto instalado.</p>
 <h3>2. Topología de procesos</h3>
 <p>El puente consta de dos procesos que cooperan.</p>
 <p>La aplicación IRONSTICK aloja un servidor HTTP enlazado exclusivamente a la interfaz de bucle local. Su puerto y un token de acceso hexadecimal de 48 caracteres están definidos en el almacén de configuración de la aplicación; toda solicitud debe presentar el token. Este servidor es dueño del registro de herramientas, ejecuta todas las llamadas a herramientas, aplica todas las compuertas y posprocesadores, y es el único punto de verdad sobre lo que un modelo conectado puede ver y hacer.</p>
@@ -931,10 +876,10 @@ por lo que la entrega permanece bloqueada.</p>
 <p>El manual de reglas completo — la instrucción básica más todas las reglas de los conjuntos de herramientas más los apéndices (entre ellos el formato de archivo del protocolo diario) — puede releerse en cualquier momento a través de la herramienta de lectura de instrucciones; el front-end lee el archivo en vivo, de modo que los cambios en las instrucciones llegan a una sesión en curso sin necesidad de reconectar.</p>
 <p>Tres de estas reglas se imponen además de forma estructural y no textual, mediante compuertas descritas en las secciones 3 y 7: el bloqueo de acceso, la disciplina de fechas y la disciplina de fuentes normativas. La propia lectura de las instrucciones es la última regla del bloque universal: la manera de desbloquear el conector solo se enuncia después de todas las reglas precedentes, de modo que un modelo que llega a ella las ha leído.</p>
 <h3>5. La superficie de herramientas y la capa de conjuntos de herramientas</h3>
-<p>Una lista plana de 134 herramientas degrada de forma medible la selección de herramientas en los modelos de escritorio actuales. Por eso el puente expone una superficie reducida de veintiocho entradas: seis herramientas básicas (fecha y hora actuales; contexto actual de la interfaz gráfica; idioma del sistema; ordenamiento jurídico del caso; relectura de instrucciones; confirmación de instrucciones), la herramienta de entrega inyectada por el front-end, veinte abridores de conjuntos de herramientas, la herramienta de ejecución de miembros y la herramienta de inventario completo. Todo lo demás existe únicamente como miembro dentro de los conjuntos de herramientas.</p>
+<p>Una lista plana de 175 herramientas degrada de forma medible la selección de herramientas en los modelos de escritorio actuales. Por eso el puente expone una superficie reducida de veintiocho entradas: seis herramientas básicas (fecha y hora actuales; contexto actual de la interfaz gráfica; idioma del sistema; ordenamiento jurídico del caso; relectura de instrucciones; confirmación de instrucciones), la herramienta de entrega inyectada por el front-end, veinte abridores de conjuntos de herramientas, la herramienta de ejecución de miembros y la herramienta de inventario completo. Todo lo demás existe únicamente como miembro dentro de los conjuntos de herramientas.</p>
 <p>Abrir un conjunto de herramientas es una llamada a herramienta ordinaria sin argumentos. La respuesta entrega, de una sola vez: primero, cuando el conjunto lo tiene, un bloque de contexto pregenerado de forma determinista y calculado en el momento de la apertura (ocho conjuntos de herramientas tienen tales productores — el propio protocolo de inicio de sesión; el inventario actual de archivos del almacén temporal; las diez entradas de memoria más recientes como vista previa; las treinta primeras leyes de la biblioteca jurídica; la lista de casos calientes; los documentos registrados hoy y los correos entrantes de hoy; el protocolo diario de hoy; la instantánea actual de plazos y citas); segundo, las reglas de trabajo literales del área; tercero, las definiciones completas de las herramientas miembro con sus esquemas de parámetros íntegros; cuarto, una línea de reserva que remite al inventario completo. Un fallo dentro de un productor de pregeneración nunca impide la apertura.</p>
 <p>Los miembros se ejecutan a través de la herramienta de ejecución de miembros, que recibe el nombre exacto del miembro y un objeto de argumentos. Antes de la ejecución se realiza una validación ligera del esquema: los campos obligatorios deben estar presentes y no vacíos, y los parámetros enteros, numéricos y booleanos deben poder interpretarse como tales; una infracción devuelve el esquema esperado en lugar de ejecutar. Un nombre de miembro desconocido devuelve como sugerencia el nombre existente más cercano por distancia de edición. La capa de instrucciones limita los intentos de corrección a tres por cada llamada que falla, tras lo cual el modelo debe detenerse y comunicar el error exacto.</p>
-<p>Los conjuntos de herramientas no son modales; todos los abridores siguen siendo invocables en todo momento, una herramienta puede ser deliberadamente miembro de varios conjuntos, y las cargas de apertura nunca se desvían al almacén temporal (unos esquemas en un archivo serían inútiles). Las compuertas de funcionalidad eliminan grupos enteros: cuando el usuario no ha habilitado la navegación por la interfaz gráfica, el abridor del conjunto de navegación y todos sus miembros están ausentes de toda lista y de toda respuesta. La herramienta de inventario completo enumera cada miembro con una finalidad de una línea y el conjunto al que pertenece, y existe únicamente como salida de emergencia; las descripciones de los conjuntos de herramientas son el enrutador principal. En total, los veinte conjuntos de herramientas contienen 215 entradas de miembro sobre las 134 herramientas distintas.</p>
+<p>Los conjuntos de herramientas no son modales; todos los abridores siguen siendo invocables en todo momento, una herramienta puede ser deliberadamente miembro de varios conjuntos, y las cargas de apertura nunca se desvían al almacén temporal (unos esquemas en un archivo serían inútiles). Las compuertas de funcionalidad eliminan grupos enteros: cuando el usuario no ha habilitado la navegación por la interfaz gráfica, el abridor del conjunto de navegación y todos sus miembros están ausentes de toda lista y de toda respuesta. La herramienta de inventario completo enumera cada miembro con una finalidad de una línea y el conjunto al que pertenece, y existe únicamente como salida de emergencia; las descripciones de los conjuntos de herramientas son el enrutador principal. En total, los veinte conjuntos de herramientas contienen 280 entradas de miembro sobre las 175 herramientas distintas.</p>
 <p>El coste de contexto medido de esta disposición: la configuración inicial (instrucción básica más lista reducida de herramientas) es de unos diez mil tokens; la apertura de un solo conjunto de herramientas añade entre unos novecientos y siete mil quinientos tokens según el conjunto, antes de su contenido variable de pregeneración.</p>
 <h3>6. Formato de definición de herramientas y su cadena de producción</h3>
 <p>Cada definición de herramienta consta de cuatro partes. La descripción contiene la finalidad de la herramienta, sus mandatos de comportamiento y sus referencias cruzadas — y nada más. El esquema de entrada contiene cada parámetro con su propia descripción, incluidos valores por defecto, formatos, notas de exclusión mutua y mandatos por parámetro; las instrucciones de uso de los parámetros residen exclusivamente aquí. El campo de salida describe, antes de cualquier llamada, exactamente lo que la llamada devuelve, incluidos ordenamientos, marcadores y formas de error, de modo que el modelo pueda juzgar la idoneidad sin llamadas de prueba. El campo de conjunto de origen nombra el conjunto de herramientas al que la herramienta pertenece principalmente, con un valor reservado que marca las herramientas básicas que están siempre en la lista de nivel superior; un miembro encontrado dentro de un conjunto ajeno anuncia así dónde viven más herramientas de su familia, y cada apertura de un conjunto lleva una línea explicativa que indica que el modelo nunca queda encerrado en el conjunto abierto.</p>
