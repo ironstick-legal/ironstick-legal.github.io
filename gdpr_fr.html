@@ -90,14 +90,14 @@ professionnelles exigent un contrat de sous-traitance pour chaque sous-traitant 
 devrait pas configurer Gemini — un fournisseur qui n'est pas configuré n'est jamais
 utilisé par la cascade.</div>
 <p>Trois niveaux de modèle configurables sont utilisés par fournisseur (petit / moyen /
-grand). Un canal distinct et facultatif est la
-<b>passerelle d'IA de bureau</b> (section 4.9) : dans ce cas, les données sont
+grand). Un canal distinct et facultatif est le
+<b>Bridge d'IA de bureau</b> (section 4.9) : dans ce cas, les données sont
 transmises à l'IA de bureau locale propre de l'utilisateur (Claude Desktop / Claude
 Code, ChatGPT Desktop, Qwen Desktop <b>ou</b> Kimi Desktop), c'est-à-dire au
 fournisseur de cette IA (Anthropic, OpenAI, Alibaba Cloud/Qwen ou Moonshot AI/Kimi),
 dans le cadre de l'abonnement/du compte propre de l'utilisateur auprès de ce
 fournisseur. Les
-passerelles peuvent fonctionner en parallèle — le même serveur MCP local peut être
+Bridges peuvent fonctionner en parallèle — le même serveur MCP local peut être
 enregistré simultanément auprès de Claude, ChatGPT, Qwen et Kimi, et ceux-ci peuvent
 travailler en même temps sur le même dossier. IRONSTICK n'exploite aucun serveur
 propre ; aucune donnée n'est jamais transmise à l'éditeur du logiciel. Le serveur LAN
@@ -112,10 +112,10 @@ configuration (pour Gemini : s'est connecté avec son compte Google).
 ne peut avoir lieu</b> — chacune des fonctionnalités décrites à la section 4 reste
 alors locale ou est tout simplement indisponible. Ce compte constitue un contrat
 direct entre l'utilisateur et le fournisseur ; IRONSTICK n'y est pas partie. Il en va
-de même pour la passerelle d'IA de bureau, qui requiert l'abonnement/le compte propre
+de même pour le Bridge d'IA de bureau, qui requiert l'abonnement/le compte propre
 de l'utilisateur auprès du fournisseur d'IA de bureau choisi (Anthropic, OpenAI,
 Alibaba Cloud/Qwen ou Moonshot AI/Kimi). Les documents marqués comme <b>secrets</b>
-sont exclus des outils de la passerelle et du chat, du paquet d'instructions IA et de
+sont exclus des outils du Bridge et du chat, du paquet d'instructions IA et de
 toute sortie générée (pièces jointes, dossiers, exports) ; leur traitement lors de la
 saisie suit le choix délibéré de l'utilisateur au moment de la saisie
 (section 4.1).</div>
@@ -171,7 +171,7 @@ localement et doit répondre en indiquant les noms en clair des <i>tiers inconnu
 qu'il trouve — la pseudonymisation est désactivée pour cette seule finalité.</li>
 <li><b>Prétraitement de la lecture à voix haute (TTS)</b> : voir 4.6 — les phrases sont
 transmises en clair.</li>
-<li><b>Passerelle d'IA de bureau</b> : données brutes par conception (section 4.9).</li>
+<li><b>Bridge d'IA de bureau</b> : données brutes par conception (section 4.9).</li>
 </ul>
 
 <h2>3. Moments de consentement et journal d'audit</h2>
@@ -292,7 +292,7 @@ analyseur <b>local</b> ; ce n'est que si aucun marqueur de format de journal n'e
 trouvé qu'une solution de repli par IA normalise le texte brut : le texte collé est
 envoyé intégralement (interruption au-delà de 200 000 caractères), petit niveau,
 soumis au consentement, pseudonymisé, audité. Les journaux enregistrés ne quittent la
-machine qu'en tant que résultats d'outils du chat/de la passerelle (extraits
+machine qu'en tant que résultats d'outils du chat/du Bridge (extraits
 plafonnés) ou au sein du paquet d'instructions IA (section 5).</p>
 
 <h3>4.5 Moniteur de données</h3>
@@ -332,8 +332,8 @@ dialogue de consentement distincte ni n'inscrit de lignes dans le journal d'audi
 <p>Deux autres flux API relèvent de la rédaction. <b>Red/Blue Team :</b> si
 l'utilisateur l'a activée pour le fournisseur actif (interrupteur à côté de la clé
 API ; une clé enregistrée est requise), chaque document formel remis via
-<code>deliver_file</code> — depuis le chat de l'application comme depuis la
-passerelle d'IA de bureau — est relu une fois de plus par le même fournisseur dans le
+<code>deliver_file</code> — depuis le chat de l'application comme depuis le
+Bridge d'IA de bureau — est relu une fois de plus par le même fournisseur dans le
 rôle de l'avocat adverse (niveau moyen). Sont transmis : le texte du projet, la date
 et la juridiction compétente du dossier ; pseudonymisé par le routeur et audité comme
 tout appel du routeur ; aucune boîte de dialogue distincte — l'interrupteur vaut
@@ -359,7 +359,7 @@ dans la conversation API — y compris les textes intégraux des documents (plaf
 10 000 caractères par élément ; les résultats plus volumineux sont écrits dans la
 mémoire de travail temporaire chiffrée et lus par portions), les corps de courriels et
 des extraits du journal quotidien. Depuis septembre 2026, le chat utilise la même
-couche d'outils et les mêmes barrières de remise que la passerelle d'IA de bureau
+couche d'outils et les mêmes barrières de remise que le Bridge d'IA de bureau
 (4.9) : vérification des actes de procédure, Red/Blue Team (4.7) et remise via la
 boîte de dialogue d'exportation — ce qui quitte le système est un modèle prêt à être
 déposé. La couche de chat locale répond aux demandes courantes sans aucune
@@ -373,11 +373,11 @@ localement</b> (section 8) : la demande de l'IA ne déclenche <b>aucune nouvelle
 consultation externe</b> — elle se contente de lire ce qui se trouve déjà sur le
 disque. Comme pour tout outil, ce que ces outils renvoient est réinjecté dans la
 conversation d'IA, c'est-à-dire transmis au fournisseur d'IA.</p>
-<h3>4.9 Passerelle vers une IA de bureau locale (Claude Desktop / Claude Code / ChatGPT
+<h3>4.9 Bridge vers une IA de bureau locale (Claude Desktop / Claude Code / ChatGPT
 Desktop / Qwen Desktop / Kimi Desktop) — modules complémentaires FACULTATIFS</h3>
 <p><b>Chaque accès à une IA de bureau constitue un module facultatif, acquis
-séparément.</b> Il n'existe que si le cabinet a acquis et installé le module de
-passerelle correspondant ; en l'absence de tout module, la section de la passerelle
+séparément.</b> Il n'existe que si le cabinet a acquis et installé le module
+Bridge correspondant ; en l'absence de tout module, la section du Bridge
 reste verrouillée dans la configuration, le point de terminaison local ne démarre
 jamais, et aucun des flux décrits dans la présente section ne peut avoir lieu. Le même
 serveur MCP STDIO local peut être enregistré auprès de <b>Claude Desktop/Claude
@@ -390,7 +390,7 @@ l'utilisateur rédige des modèles prêts à être déposés et a donc besoin de
 numéros réels.</div>
 <ul>
 <li>L'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop ou Kimi Desktop) se connecte
-à l'application en cours d'exécution par l'intermédiaire d'une passerelle locale ;
+à l'application en cours d'exécution par l'intermédiaire d'un Bridge local ;
 le point de terminaison HTTP est lié exclusivement à 127.0.0.1 (localhost constitue la
 limite d'accès ; le jeton enregistré n'est pas vérifié en sus).</li>
 <li>Lors du premier accès aux données par exécution du programme, IRONSTICK affiche
@@ -421,7 +421,7 @@ l'utilisateur choisit les pages, la nouvelle numérisation s'exécute <b>localem
 l'espace de travail temporaire local ; tout ce que l'IA en lit est transmis à son
 fournisseur comme tout autre résultat d'outil. En tout dernier recours — uniquement
 après une telle nouvelle numérisation et uniquement dans des limites strictes imposées
-par la passerelle (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 pages) —, l'IA peut demander à
+par le Bridge (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 pages) —, l'IA peut demander à
 l'utilisateur de lui remettre le <b>fichier PDF original</b> : IRONSTICK se contente
 d'ouvrir l'entrée ; l'utilisateur enregistre lui-même le PDF au moyen de l'icône en
 forme de trombone et le fait glisser dans le chat de l'IA de bureau. Le document est
@@ -466,12 +466,12 @@ ChatGPT (dans le cadre de l'abonnement ChatGPT de l'utilisateur et des condition
 d'OpenAI), Alibaba Cloud/Qwen pour Qwen Desktop (dans le cadre du compte Qwen de
 l'utilisateur et des conditions de Qwen) ou Moonshot AI pour Kimi Desktop (dans le cadre
 du compte Kimi de l'utilisateur et des conditions de Moonshot AI). IRONSTICK n'inscrit aucune ligne dans le
-journal d'audit pour le trafic de la passerelle ; la barre supérieure affiche un logo
+journal d'audit pour le trafic du Bridge ; la barre supérieure affiche un logo
 clignotant par IA active (marque Claude, marque ChatGPT, marque Qwen, marque Kimi) — un accès
-simultané est possible et chacun est signalé séparément. La passerelle elle-même tient
+simultané est possible et chacun est signalé séparément. Le Bridge lui-même tient
 un <b>journal de diagnostic purement local</b> de ses appels d'outils — horodatage,
 nom de l'outil, succès/échec et taille de la réponse, <b>jamais aucun contenu</b> —
-dans un fichier en clair situé à côté du programme de la passerelle. Ce journal n'est
+dans un fichier en clair situé à côté du programme du Bridge. Ce journal n'est
 transmis nulle part et sert uniquement au dépannage.</li>
 <li>La mémoire IA partagée enregistre localement des enseignements condensés
 (≤1 000 caractères chacun, liés à un client/dossier, à expiration automatique) ; son
@@ -548,7 +548,7 @@ et des dossiers d'affaires.</p>
 <tr><td>Correction par IA File→Markdown</td><td>texte converti</td><td class="yes">oui</td><td class="no">non</td><td class="no">non</td></tr>
 <tr><td>Outil d'IA de repérage pour le caviardage</td><td>texte déjà caviardé ; les réponses contiennent des noms en clair de tiers</td><td class="no">désactivée — par conception</td><td class="no">interrupteur = consentement</td><td class="yes">oui</td></tr>
 <tr><td>Chat IA (externe)</td><td>invite + contexte GUI + mémoire + fin de dialogue de 6k + résumé de 2k + résultats d'outils ≤10k/élément</td><td class="yes">oui</td><td>oui — une fois par session</td><td class="yes">oui</td></tr>
-<tr><td>Passerelle d'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>résultats d'outils bruts (données de dossier complètes)</td><td class="no">non — par conception</td><td>oui — une fois par exécution du programme, blocage de 10 min en cas de refus</td><td class="no">non (côté application)</td></tr>
+<tr><td>Bridge d'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>résultats d'outils bruts (données de dossier complètes)</td><td class="no">non — par conception</td><td>oui — une fois par exécution du programme, blocage de 10 min en cas de refus</td><td class="no">non (côté application)</td></tr>
 <tr><td>ZIP d'instructions IA</td><td>exportation en clair du cabinet (téléversement à l'initiative de l'utilisateur)</td><td class="no">non</td><td>avertissement une fois par exécution du programme</td><td>s.o.</td></tr>
 </table>
 
@@ -619,7 +619,7 @@ l'origine des codes est dérivé de la clé de licence au moment de l'exécution
 jamais écrit sur le disque ; seule une empreinte non secrète de la configuration
 confirmée est enregistrée, afin que le code QR soit de nouveau affiché après un
 changement de clé. Des codes erronés répétés déclenchent un délai d'attente croissant.
-Les passerelles d'IA de bureau ne reçoivent aucune donnée de dossier tant que
+Les Bridges d'IA de bureau ne reçoivent aucune donnée de dossier tant que
 l'application est verrouillée. La récupération s'effectue au moyen de la clé de
 licence, ce qui fait de la clé de licence l'identifiant maître de l'installation — sa
 garde relève de la responsabilité de l'exploitant. Le fichier de configuration (clés
@@ -817,7 +817,7 @@ ci-dessous ne couvre <b>pas</b> Gemini via un compte Google (service grand publi
 dépourvu d'un tel contrat, section 1) — si vous configurez cette voie, elle nécessite
 une formulation propre et, en règle générale, le consentement exprès du client.</li>
 <li>Ne conservez la phrase entre crochets relative à l'espace de travail de l'IA que si
-vous utilisez réellement la passerelle d'IA de bureau (Claude Desktop/Code, ChatGPT
+vous utilisez réellement le Bridge d'IA de bureau (Claude Desktop/Code, ChatGPT
 Desktop, Qwen Desktop ou Kimi Desktop) ; supprimez-la dans le cas contraire.</li>
 <li>La présente clause couvre les flux au sein de l'application décrits dans le
 présent document. Elle ne couvre <b>pas</b> le paquet d'instructions IA (section 5) —

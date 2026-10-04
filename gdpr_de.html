@@ -85,11 +85,11 @@ für jeden Auftragsverarbeiter einen Auftragsverarbeitungsvertrag verlangt, soll
 nicht einrichten — ein nicht eingerichteter Anbieter wird von der Kaskade niemals verwendet.</div>
 <p>Je Anbieter werden drei konfigurierbare Modellstufen verwendet (klein / mittel /
 groß). Ein separater, optionaler Kanal ist die
-<b>Desktop-KI-Brücke</b> (Abschnitt 4.9): Dort fließen Daten in die eigene
+<b>Desktop-KI-Bridge</b> (Abschnitt 4.9): Dort fließen Daten in die eigene
 lokale Desktop-KI des Benutzers (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
 Desktop <b>oder</b> Kimi Desktop), d. h. an den Anbieter dieser KI (Anthropic, OpenAI,
 Alibaba Cloud/Qwen oder Moonshot AI/Kimi) im Rahmen des eigenen Abonnements/Kontos des Benutzers bei diesem Anbieter. Die
-Brücken können parallel laufen — derselbe lokale MCP-Server kann gleichzeitig
+Bridges können parallel laufen — derselbe lokale MCP-Server kann gleichzeitig
 bei Claude, ChatGPT, Qwen und Kimi registriert sein, und sie können gleichzeitig an demselben Fall
 arbeiten. IRONSTICK betreibt keinen eigenen
 Server; zu keinem Zeitpunkt fließen Daten an den Softwarehersteller. Der optionale Kanzlei-LAN-Server
@@ -103,10 +103,10 @@ bei einem KI-Anbieter eröffnet und seinen eigenen Zugangsschlüssel in der Konf
 <b>Ohne eingerichteten Anbieter kann überhaupt kein externer KI-Aufruf innerhalb der App erfolgen</b> — jede
 in Abschnitt 4 beschriebene Funktion bleibt dann lokal oder ist schlicht nicht verfügbar. Dieses
 Konto ist ein unmittelbarer Vertrag zwischen dem Benutzer und dem Anbieter; IRONSTICK ist
-nicht Vertragspartei. Dasselbe gilt für die Desktop-KI-Brücke, die
+nicht Vertragspartei. Dasselbe gilt für die Desktop-KI-Bridge, die
 ein eigenes Abonnement/Konto des Benutzers beim gewählten Desktop-KI-Anbieter voraussetzt
 (Anthropic, OpenAI, Alibaba Cloud/Qwen oder Moonshot AI/Kimi). Als <b>geheim</b> markierte Dokumente sind
-von den Werkzeugen der Desktop-KI-Brücke und des Chats, vom
+von den Werkzeugen der Desktop-KI-Bridge und des Chats, vom
 KI-Instruktionspaket und von jeder erzeugten Ausgabe (Anlagen, Dossiers, Exporte) ausgeschlossen;
 ihre Verarbeitung während der Erfassung folgt der bewussten Entscheidung des Benutzers zum
 Zeitpunkt der Erfassung (Abschnitt 4.1).</div>
@@ -159,7 +159,7 @@ geschwärzt wurde, und muss mit den Klarnamen der von ihm gefundenen <i>unbekann
 antworten — die Pseudonymisierung ist für diesen einen Zweck ausgeschaltet.</li>
 <li><b>Vorverarbeitung der Vorlesefunktion (TTS)</b>: siehe 4.6 — Sätze gehen im Klartext
 hinaus.</li>
-<li><b>Desktop-KI-Brücke</b>: bewusst Rohdaten (Abschnitt 4.9).</li>
+<li><b>Desktop-KI-Bridge</b>: bewusst Rohdaten (Abschnitt 4.9).</li>
 </ul>
 
 <h2>3. Zeitpunkte der Zustimmung und das Audit-Protokoll</h2>
@@ -263,7 +263,7 @@ Benutzer ihn annimmt. Ausgewertet werden ausschließlich öffentlich zugänglich
 Parser; nur wenn keine Formatmarkierung eines Protokolls gefunden wird, normalisiert eine KI-Rückfallebene
 den Rohtext: Der eingefügte Text wird vollständig gesendet (Abbruch oberhalb von 200.000
 Zeichen), kleine Stufe, unter dem Vorbehalt der Zustimmung, pseudonymisiert, im Audit-Protokoll erfasst. Gespeicherte
-Protokolle verlassen den Rechner nur als Werkzeugergebnisse des Chats/der Desktop-KI-Brücke
+Protokolle verlassen den Rechner nur als Werkzeugergebnisse des Chats/der Desktop-KI-Bridge
 (begrenzte Auszüge) oder innerhalb des KI-Instruktionspakets (Abschnitt 5).</p>
 
 <h3>4.5 Datenmonitor</h3>
@@ -298,7 +298,7 @@ an oder schreibt Einträge in das Audit-Protokoll (Umgehung des Routers, siehe A
 <p>Zwei weitere API-Flüsse gehören zur Entwurfserstellung. <b>Red/Blue Team:</b> hat der Benutzer
 es für den aktiven Anbieter eingeschaltet (Schalter neben dem API-Schlüssel; ein gespeicherter
 Schlüssel ist erforderlich), wird jedes förmliche Dokument, das über
-<code>deliver_file</code> übergeben wird — aus dem In-App-Chat und aus der Desktop-KI-Brücke
+<code>deliver_file</code> übergeben wird — aus dem In-App-Chat und aus der Desktop-KI-Bridge
 gleichermaßen —, von demselben Anbieter ein weiteres Mal aus Sicht des gegnerischen Rechtsvertreters gelesen
 (mittlere Stufe). Übermittelt werden: der Entwurfstext, das Datum und der Rechtsraum
 des Falls; pseudonymisiert über den Router und im Audit-Protokoll erfasst wie jeder Router-Aufruf;
@@ -323,7 +323,7 @@ gibt sein Ergebnis in die API-Konversation zurück — einschließlich Dokument-
 (begrenzt auf 10.000 Zeichen je Element; größere Ergebnisse werden in den
 verschlüsselten Zwischenspeicher geschrieben und abschnittsweise gelesen), E-Mail-Nachrichtentexten und
 Auszügen aus dem Tagesprotokoll. Seit September 2026 verwendet der Chat dieselbe Werkzeugschicht
-und dieselben Auslieferungsprüfungen wie die Desktop-KI-Brücke (4.9): Prüfung von
+und dieselben Auslieferungsprüfungen wie die Desktop-KI-Bridge (4.9): Prüfung von
 Schriftsätzen, Red/Blue Team (4.7) und Übergabe über den Export-Dialog —
 was das System verlässt, ist eine einreichungsfähige Vorlage. Die lokale Chat-Schicht
 beantwortet Routineanfragen ohne jede Übermittlung.</p>
@@ -335,11 +335,11 @@ antwortet ausschließlich aus der <b>jüngsten lokal gespeicherten</b>
 Sicherheits-Momentaufnahme (Abschnitt 8): Die Anfrage der KI löst <b>keine neue externe Abfrage</b> aus —
 sie liest lediglich, was bereits auf dem Datenträger vorhanden ist. Wie bei jedem Werkzeug fließt das, was diese Werkzeuge
 zurückgeben, in die KI-Konversation zurück, d. h. an den KI-Anbieter.</p>
-<h3>4.9 Brücke zu einer lokalen Desktop-KI (Claude Desktop / Claude Code / ChatGPT
+<h3>4.9 Bridge zu einer lokalen Desktop-KI (Claude Desktop / Claude Code / ChatGPT
 Desktop / Qwen Desktop / Kimi Desktop) — OPTIONALE Zusatzmodule</h3>
 <p><b>Jeder Desktop-KI-Zugang ist ein optionales, gesondert erworbenes Modul.</b>
-Er besteht nur dort, wo die Kanzlei das jeweilige Brücken-Modul erworben und
-installiert hat; ohne jedes Modul bleibt der Brücken-Abschnitt in der
+Er besteht nur dort, wo die Kanzlei das jeweilige Bridge-Modul erworben und
+installiert hat; ohne jedes Modul bleibt der Bridge-Abschnitt in der
 Konfiguration gesperrt, der lokale Endpunkt startet nie, und keiner der in
 diesem Abschnitt beschriebenen Datenflüsse kann stattfinden. Derselbe lokale
 STDIO-MCP-Server kann bei <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
@@ -350,7 +350,7 @@ Falldaten.</b> Das ist sein Zweck: Die eigene Desktop-KI-Sitzung des Benutzers e
 einreichungsfähige Vorlagen und benötigt daher echte Namen und Nummern.</div>
 <ul>
 <li>Die Desktop-KI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop oder Kimi Desktop)
-verbindet sich über eine lokale Brücke mit der laufenden App;
+verbindet sich über eine lokale Bridge mit der laufenden App;
 der HTTP-Endpunkt bindet ausschließlich an 127.0.0.1 (localhost ist die Zugriffsgrenze; der
 gespeicherte Token wird nicht zusätzlich geprüft).</li>
 <li>Beim ersten Datenzugriff je Programmlauf zeigt IRONSTICK ein blockierendes
@@ -375,7 +375,7 @@ einen erneuten Scan anfordern: Der Benutzer wählt die Seiten aus, der Neuscan l
 (kein neuer externer Empfänger), und beide Textfassungen werden im lokalen
 Zwischenspeicher bereitgestellt; was die KI daraus liest, fließt wie jedes
 andere Werkzeugergebnis an ihren Anbieter. Als äußerstes letztes Mittel — nur nach einem solchen Neuscan und
-nur innerhalb harter, von der Brücke durchgesetzter Grenzen (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 Seiten) —
+nur innerhalb harter, von der Bridge durchgesetzter Grenzen (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 Seiten) —
 kann die KI den Benutzer bitten, ihr die <b>Original-PDF-Datei</b> zu übergeben: IRONSTICK
 öffnet lediglich den Eintrag; der Benutzer speichert die PDF selbst über das Büroklammer-Symbol
 und zieht sie in den Desktop-KI-Chat. Dadurch wird das Dokument
@@ -415,12 +415,12 @@ des Benutzers und der Bedingungen von Anthropic), OpenAI für ChatGPT (im Rahmen
 ChatGPT-Abonnements des Benutzers und der Bedingungen von OpenAI), Alibaba Cloud/Qwen für Qwen
 Desktop (im Rahmen des Qwen-Kontos des Benutzers und der Bedingungen von Qwen) oder Moonshot AI für Kimi
 Desktop (im Rahmen des Kimi-Kontos des Benutzers und der Bedingungen von Moonshot AI). IRONSTICK schreibt keine
-Audit-Protokoll-Zeilen für den Brücken-Verkehr; die obere Leiste zeigt je
+Audit-Protokoll-Zeilen für den Bridge-Verkehr; die obere Leiste zeigt je
 aktiver KI ein pulsierendes Logo (Claude-Zeichen, ChatGPT-Zeichen, Qwen-Zeichen, Kimi-Zeichen) — gleichzeitiger Zugriff ist
-möglich und wird jeweils gesondert signalisiert. Die Brücke selbst führt ein
+möglich und wird jeweils gesondert signalisiert. Die Bridge selbst führt ein
 <b>rein lokales Diagnoseprotokoll</b> ihrer Werkzeugaufrufe — Zeitstempel, Werkzeugname,
 Erfolg/Fehlschlag und Antwortgröße, <b>niemals Inhalte</b> — in einer Klartextdatei
-neben dem Brücken-Programm. Dieses Protokoll wird nirgendwohin übertragen und dient
+neben dem Bridge-Programm. Dieses Protokoll wird nirgendwohin übertragen und dient
 ausschließlich der Fehlerbehebung.</li>
 <li>Das gemeinsame KI-Gedächtnis speichert verdichtete Erkenntnisse (je ≤1.000 Zeichen,
 mandanten-/fallgebunden, automatisch ablaufend) lokal; sein Inhalt ist für jeden KI-Kanal
@@ -491,7 +491,7 @@ Fall-Dossiers ausgenommen.</p>
 <tr><td>KI-Korrektur Datei→Markdown</td><td>konvertierter Text</td><td class="yes">ja</td><td class="no">nein</td><td class="no">nein</td></tr>
 <tr><td>KI-Finder der Schwärzung</td><td>bereits geschwärzter Text; Antworten enthalten Klarnamen Dritter</td><td class="no">aus — konzeptionsbedingt</td><td class="no">Umschalter = Zustimmung</td><td class="yes">ja</td></tr>
 <tr><td>KI-Chat (extern)</td><td>Prompt + GUI-Kontext + Gedächtnis + 6k Verlaufsende + 2k Zusammenfassung + Werkzeugergebnisse ≤10k/Element</td><td class="yes">ja</td><td>ja — einmal pro Sitzung</td><td class="yes">ja</td></tr>
-<tr><td>Desktop-KI-Brücke (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>unverarbeitete Werkzeugergebnisse (vollständige Falldaten)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Programmlauf, 10-minütige Sperre bei Ablehnung</td><td class="no">nein (App-seitig)</td></tr>
+<tr><td>Desktop-KI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>unverarbeitete Werkzeugergebnisse (vollständige Falldaten)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Programmlauf, 10-minütige Sperre bei Ablehnung</td><td class="no">nein (App-seitig)</td></tr>
 <tr><td>KI-Instruktions-ZIP</td><td>Kanzleiexport im Klartext (vom Benutzer veranlasster Upload)</td><td class="no">nein</td><td>Warnung einmal pro Programmlauf</td><td>entfällt</td></tr>
 </table>
 
@@ -746,7 +746,7 @@ Die nachstehende Klausel deckt Gemini über ein Google-Konto <b>nicht</b> ab
 diesen Weg einrichten, bedarf es einer eigenen Formulierung und in der Regel der
 ausdrücklichen Zustimmung des Mandanten.</li>
 <li>Behalten Sie den in Klammern gesetzten Satz zum KI-Arbeitsbereich nur bei,
-wenn Sie die Desktop-KI-Brücke (Claude Desktop/Code, ChatGPT Desktop, Qwen
+wenn Sie die Desktop-KI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen
 Desktop oder Kimi Desktop) tatsächlich nutzen; andernfalls streichen Sie ihn.</li>
 <li>Diese Klausel deckt die in diesem Dokument beschriebenen Datenflüsse
 innerhalb der App ab. Sie deckt das KI-Instruktionspaket (Abschnitt 5)

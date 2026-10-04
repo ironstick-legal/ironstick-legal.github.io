@@ -85,11 +85,11 @@ professionali richiedono un accordo sul trattamento dei dati per ogni responsabi
 configurare Gemini — un fornitore non configurato non viene mai utilizzato dalla cascata.</div>
 <p>Per ciascun fornitore sono utilizzati tre livelli di modello configurabili (piccolo / medio /
 grande). Un canale separato e facoltativo è il
-<b>ponte IA desktop</b> (sezione 4.9): in questo caso i dati confluiscono nell'IA desktop locale
+<b>Bridge IA desktop</b> (sezione 4.9): in questo caso i dati confluiscono nell'IA desktop locale
 propria dell'utente (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
 Desktop <b>oppure</b> Kimi Desktop), ossia al fornitore di tale IA (Anthropic, OpenAI,
 Alibaba Cloud/Qwen o Moonshot AI/Kimi) nell'ambito dell'abbonamento/account proprio dell'utente presso tale fornitore. I
-ponti possono funzionare in parallelo — lo stesso server MCP locale può essere registrato
+Bridge possono funzionare in parallelo — lo stesso server MCP locale può essere registrato
 contemporaneamente presso Claude, ChatGPT, Qwen e Kimi, e questi possono lavorare simultaneamente sullo stesso
 caso. IRONSTICK non gestisce alcun server
 proprio; nessun dato confluisce mai al produttore del software. Il server LAN dello studio,
@@ -104,10 +104,10 @@ presso un fornitore di IA e ha inserito la propria chiave di accesso nella confi
 <b>Senza alcun fornitore configurato, nessuna chiamata IA esterna all'interno dell'app può aver luogo</b> — ogni
 funzione descritta nella sezione 4 rimane in tal caso locale oppure semplicemente non è disponibile. Tale
 account costituisce un contratto diretto tra l'utente e il fornitore; IRONSTICK non ne è
-parte. Lo stesso vale per il ponte IA desktop, che richiede
+parte. Lo stesso vale per il Bridge IA desktop, che richiede
 l'abbonamento/account proprio dell'utente presso il fornitore di IA desktop prescelto
 (Anthropic, OpenAI, Alibaba Cloud/Qwen o Moonshot AI/Kimi). I documenti contrassegnati come <b>segreti</b> sono esclusi
-dagli strumenti del ponte e della chat, dal pacchetto di istruzioni
+dagli strumenti del Bridge e della chat, dal pacchetto di istruzioni
 IA e da ogni output generato (allegati, dossier, esportazioni);
 il loro trattamento durante la registrazione dei documenti segue la scelta consapevole dell'utente al
 momento della registrazione (sezione 4.1).</div>
@@ -160,7 +160,7 @@ localmente e deve rispondere con i nomi in chiaro dei <i>terzi sconosciuti</i> c
 individua — la pseudonimizzazione è disattivata per questo solo scopo.</li>
 <li><b>Pre-elaborazione per la lettura ad alta voce (TTS)</b>: si veda 4.6 — le frasi escono in
 chiaro.</li>
-<li><b>Ponte IA desktop</b>: dati grezzi per scelta progettuale (sezione 4.9).</li>
+<li><b>Bridge IA desktop</b>: dati grezzi per scelta progettuale (sezione 4.9).</li>
 </ul>
 
 <h2>3. Momenti del consenso e registro di audit</h2>
@@ -264,7 +264,7 @@ l'utente la accetta. Vengono valutate esclusivamente fonti accessibili al pubbli
 parser <b>locale</b>; solo quando non viene rinvenuto alcun marcatore del formato di protocollo un ripiego IA
 normalizza il testo grezzo: il testo incollato viene inviato integralmente (interruzione oltre 200.000
 caratteri), livello piccolo, subordinato al consenso, pseudonimizzato, sottoposto ad audit. I protocolli
-memorizzati lasciano la macchina solo come risultati degli strumenti della chat/del ponte
+memorizzati lasciano la macchina solo come risultati degli strumenti della chat/del Bridge
 (estratti limitati) oppure all'interno del pacchetto di istruzioni IA (sezione 5).</p>
 
 <h3>4.5 Monitor dei dati</h3>
@@ -299,7 +299,7 @@ separata per il consenso né scrive righe nel registro di audit (aggiramento del
 <p>Due ulteriori flussi API riguardano la redazione. <b>Red/Blue Team:</b> se l'utente
 lo ha attivato per il fornitore attivo (interruttore accanto alla chiave API; è necessaria una
 chiave salvata), ogni documento formale consegnato tramite
-<code>deliver_file</code> — sia dalla chat all'interno dell'app sia dal ponte IA
+<code>deliver_file</code> — sia dalla chat all'interno dell'app sia dal Bridge IA
 desktop — viene letto ancora una volta dallo stesso fornitore nel ruolo di difensore della controparte
 (livello medio). Viene trasmesso: il testo della bozza, la data e la
 giurisdizione del caso; pseudonimizzato tramite il router e sottoposto ad audit come ogni chiamata
@@ -324,7 +324,7 @@ restituisce il proprio risultato nella conversazione API — compresi i testi in
 (limitati a 10.000 caratteri per elemento; i risultati più ampi vengono scritti nella
 memoria temporanea cifrata e letti a porzioni), i corpi delle e-mail e
 gli estratti del protocollo giornaliero. Da settembre 2026 la chat utilizza lo stesso livello
-di strumenti e gli stessi controlli di consegna del ponte IA desktop (4.9): verifica degli
+di strumenti e gli stessi controlli di consegna del Bridge IA desktop (4.9): verifica degli
 atti processuali, Red/Blue Team (4.7) e consegna tramite la finestra di dialogo di esportazione —
 ciò che lascia il sistema è un modello pronto per il deposito. Il livello di chat locale
 risponde alle richieste di routine senza alcuna trasmissione.</p>
@@ -336,11 +336,11 @@ risponde esclusivamente sulla base dell'<b>ultima istantanea di sicurezza memori
 localmente</b> (sezione 8): la richiesta dell'IA non attiva <b>alcuna nuova interrogazione esterna</b> —
 si limita a leggere ciò che si trova già sul disco. Come per ogni strumento, ciò che questi strumenti
 restituiscono confluisce nuovamente nella conversazione IA, ossia al fornitore di IA.</p>
-<h3>4.9 Ponte verso un'IA desktop locale (Claude Desktop / Claude Code / ChatGPT
+<h3>4.9 Bridge verso un'IA desktop locale (Claude Desktop / Claude Code / ChatGPT
 Desktop / Qwen Desktop / Kimi Desktop) — moduli aggiuntivi FACOLTATIVI</h3>
 <p><b>Ciascun accesso a un'IA desktop è un modulo facoltativo, acquistato separatamente.</b>
 Esiste solo laddove lo studio abbia acquistato e installato il rispettivo
-modulo ponte; in assenza di qualsiasi modulo, la sezione del ponte rimane bloccata nella
+modulo Bridge; in assenza di qualsiasi modulo, la sezione del Bridge rimane bloccata nella
 configurazione, l'endpoint locale non viene mai avviato e nessuno dei flussi
 descritti nella presente sezione può verificarsi. Lo stesso server MCP STDIO locale può essere
 registrato presso <b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
@@ -351,7 +351,7 @@ pseudonimizzati.</b> Tale è la sua finalità: la sessione di IA desktop propria
 modelli pronti per il deposito e necessita pertanto di nomi e numeri reali.</div>
 <ul>
 <li>L'IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop o Kimi Desktop)
-si collega all'app in esecuzione tramite un ponte locale;
+si collega all'app in esecuzione tramite un Bridge locale;
 l'endpoint HTTP si vincola esclusivamente a 127.0.0.1 (localhost costituisce il confine di accesso; il
 token memorizzato non viene ulteriormente verificato).</li>
 <li>Al primo accesso ai dati per ogni esecuzione del programma IRONSTICK mostra una finestra modale
@@ -376,7 +376,7 @@ richiedere una nuova scansione: l'utente sceglie le pagine, la nuova scansione v
 (nessun nuovo destinatario esterno) ed entrambe le versioni del testo vengono predisposte nello
 spazio temporaneo locale; ciò che l'IA legge da esse confluisce al suo fornitore come qualsiasi
 altro risultato di uno strumento. Come estrema e ultima risorsa — solo dopo una tale nuova scansione e
-solo entro limiti rigidi imposti dal ponte (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 pagine) —
+solo entro limiti rigidi imposti dal Bridge (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 pagine) —
 l'IA può chiedere all'utente di consegnarle il <b>file PDF originale</b>: IRONSTICK
 si limita ad aprire la voce; l'utente stesso salva il PDF tramite l'icona della graffetta
 e lo trascina nella chat dell'IA desktop. In tal modo il documento viene trasferito
@@ -417,12 +417,12 @@ dell'utente e delle condizioni di Anthropic), OpenAI per ChatGPT (nell'ambito de
 ChatGPT dell'utente e delle condizioni di OpenAI), Alibaba Cloud/Qwen per Qwen
 Desktop (nell'ambito dell'account Qwen dell'utente e delle condizioni di Qwen) oppure Moonshot AI per Kimi
 Desktop (nell'ambito dell'account Kimi dell'utente e delle condizioni di Moonshot AI). IRONSTICK non scrive
-righe nel registro di audit per il traffico del ponte; la barra superiore mostra un logo pulsante per ogni
+righe nel registro di audit per il traffico del Bridge; la barra superiore mostra un logo pulsante per ogni
 IA attiva (marchio Claude, marchio ChatGPT, marchio Qwen, marchio Kimi) — l'accesso simultaneo è
-possibile e ciascuno viene segnalato separatamente. Il ponte stesso tiene un
+possibile e ciascuno viene segnalato separatamente. Il Bridge stesso tiene un
 <b>log diagnostico puramente locale</b> delle proprie chiamate di strumenti — data e ora, nome dello strumento,
 esito positivo/negativo e dimensione della risposta, <b>mai alcun contenuto</b> — in un file in chiaro
-accanto al programma del ponte. Tale log non viene trasmesso da nessuna parte e serve
+accanto al programma del Bridge. Tale log non viene trasmesso da nessuna parte e serve
 esclusivamente alla risoluzione dei problemi.</li>
 <li>La memoria IA condivisa conserva localmente conoscenze distillate (≤1.000 caratteri ciascuna,
 legate al cliente/caso, a scadenza automatica); il suo contenuto è visibile a ogni canale
@@ -493,7 +493,7 @@ dei casi.</p>
 <tr><td>Correzione IA File→Markdown</td><td>testo convertito</td><td class="yes">sì</td><td class="no">no</td><td class="no">no</td></tr>
 <tr><td>Rilevatore IA per l'oscuramento</td><td>testo già oscurato; le risposte contengono nomi in chiaro di terzi</td><td class="no">disattivato — per scelta progettuale</td><td class="no">interruttore = consenso</td><td class="yes">sì</td></tr>
 <tr><td>Chat IA (esterna)</td><td>prompt + contesto GUI + memoria + coda 6k + sintesi 2k + risultati degli strumenti ≤10k/elemento</td><td class="yes">sì</td><td>sì — una volta per sessione</td><td class="yes">sì</td></tr>
-<tr><td>Ponte IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>risultati grezzi degli strumenti (dati completi dei casi)</td><td class="no">no — per scelta progettuale</td><td>sì — una volta per esecuzione del programma, blocco di 10 min. in caso di rifiuto</td><td class="no">no (lato app)</td></tr>
+<tr><td>Bridge IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>risultati grezzi degli strumenti (dati completi dei casi)</td><td class="no">no — per scelta progettuale</td><td>sì — una volta per esecuzione del programma, blocco di 10 min. in caso di rifiuto</td><td class="no">no (lato app)</td></tr>
 <tr><td>ZIP di istruzioni IA</td><td>esportazione in chiaro dello studio (caricamento su iniziativa dell'utente)</td><td class="no">no</td><td>avviso una volta per esecuzione del programma</td><td>n.a.</td></tr>
 </table>
 
@@ -558,7 +558,7 @@ un'app di autenticazione (RFC 6238). Il segreto alla base dei codici viene deriv
 chiave di licenza in fase di esecuzione e non viene mai scritto su disco; viene memorizzata solo
 un'impronta non segreta della configurazione confermata, affinché il codice QR venga
 mostrato nuovamente dopo un cambio di chiave. Codici errati ripetuti comportano un'attesa
-crescente. I ponti IA desktop non ricevono alcun dato dei casi mentre l'applicazione
+crescente. I Bridge IA desktop non ricevono alcun dato dei casi mentre l'applicazione
 è bloccata. Il ripristino avviene mediante la chiave di licenza, il che rende la chiave di licenza la
 credenziale principale dell'installazione — la sua custodia è responsabilità del
 gestore. Il file di configurazione (chiavi API, credenziali e-mail,
@@ -736,7 +736,7 @@ sottoscritto. La clausola che segue <b>non</b> copre Gemini tramite un account G
 percorso, esso richiede una formulazione propria e di norma il consenso espresso
 del cliente.</li>
 <li>Mantenga la frase tra parentesi relativa allo spazio di lavoro IA solo se utilizza effettivamente
-il ponte IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop
+il Bridge IA desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop
 o Kimi Desktop); altrimenti la elimini.</li>
 <li>La presente clausola copre i flussi all'interno dell'app descritti nel presente documento. Essa
 <b>non</b> copre il pacchetto di istruzioni IA (sezione 5) — il caricamento di tale esportazione

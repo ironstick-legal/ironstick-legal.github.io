@@ -93,7 +93,7 @@ mare). Un canal separat, opțional, este <b>conectorul pentru desktop</b>
 utilizatorului (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen Desktop
 <b>sau</b> Kimi Desktop), adică spre furnizorul acelei IA (Anthropic, OpenAI,
 Alibaba Cloud/Qwen sau Moonshot AI/Kimi) în cadrul abonamentului/contului propriu
-al utilizatorului la acel furnizor. Punțile pot rula în paralel — același server
+al utilizatorului la acel furnizor. Bridge-urile pot rula în paralel — același server
 MCP local poate fi înregistrat simultan la Claude, ChatGPT, Qwen și Kimi, iar
 acestea pot lucra pe același dosar în același timp. IRONSTICK nu operează niciun
 server propriu; nicio dată nu circulă vreodată către producătorul software-ului.
@@ -361,11 +361,11 @@ instantaneu de securitate stocat local</b> (secțiunea 8): cererea IA nu declan�
 la fiecare instrument, ceea ce returnează aceste instrumente circulă înapoi în
 conversația IA, adică spre furnizorul de IA.</p>
 
-<h3>4.9 Puntea către o IA locală de desktop (Claude Desktop / Claude Code / ChatGPT
+<h3>4.9 Bridge-ul către o IA locală de desktop (Claude Desktop / Claude Code / ChatGPT
 Desktop / Qwen Desktop / Kimi Desktop) — module suplimentare OPȚIONALE</h3>
 <p><b>Fiecare acces la o IA de desktop este un modul opțional, achiziționat
 separat.</b> Există numai acolo unde cabinetul a achiziționat și instalat modulul de
-punte respectiv; fără vreun modul, secțiunea conectorului rămâne blocată în
+Bridge respectiv; fără vreun modul, secțiunea conectorului rămâne blocată în
 configurație, punctul terminal local nu pornește niciodată și niciunul dintre
 fluxurile descrise în această secțiune nu poate avea loc. Același server MCP STDIO
 local poate fi înregistrat la <b>Claude Desktop/Claude Code</b>, <b>ChatGPT
@@ -377,7 +377,7 @@ utilizatorului redactează forme gata pentru depunere și, prin urmare, are nevo
 nume și numere reale.</div>
 <ul>
 <li>IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop sau Kimi Desktop) se conectează
-printr-o punte locală la aplicația care rulează; punctul terminal HTTP se leagă numai
+printr-un Bridge local la aplicația care rulează; punctul terminal HTTP se leagă numai
 la 127.0.0.1 (localhost este limita de acces; token-ul stocat nu este verificat
 suplimentar).</li>
 <li>La primul acces la date per execuție a programului, IRONSTICK afișează un modal
@@ -404,7 +404,7 @@ rescanarea rulează <b>local</b> (niciun destinatar extern nou), iar ambele vers
 de text sunt pregătite în spațiul de lucru local; orice citește IA din ele circulă
 către furnizorul său ca orice alt rezultat de instrument. Ca ultimă soluție absolută
 — numai după o astfel de rescanare și numai în cadrul limitelor stricte impuse de
-punte (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 de pagini) — IA poate cere utilizatorului să îi
+Bridge (≤&nbsp;10&nbsp;MB, ≤&nbsp;90 de pagini) — IA poate cere utilizatorului să îi
 predea <b>fișierul PDF original</b>: IRONSTICK doar deschide intrarea; utilizatorul
 însuși salvează PDF-ul prin pictograma agrafei și îl trage în chatul IA de desktop.
 Acest lucru transferă documentul <b>ca fișier</b> (inclusiv ștampile, semnături și
@@ -445,12 +445,12 @@ pentru ChatGPT (în cadrul abonamentului ChatGPT al utilizatorului și al condi�
 OpenAI), Alibaba Cloud/Qwen pentru Qwen Desktop (în cadrul contului Qwen al
 utilizatorului și al condițiilor Qwen) sau Moonshot AI pentru Kimi Desktop (în cadrul
 contului Kimi al utilizatorului și al condițiilor Moonshot AI). IRONSTICK nu scrie rânduri în jurnalul de
-audit pentru traficul punții; bara de sus afișează câte un logo pulsant per IA activă
+audit pentru traficul Bridge-ului; bara de sus afișează câte un logo pulsant per IA activă
 (marca Claude, marca ChatGPT, marca Qwen, marca Kimi) — accesul simultan este posibil și fiecare
-este semnalat separat. Puntea însăși păstrează un <b>jurnal de diagnosticare pur
+este semnalat separat. Bridge-ul însuși păstrează un <b>jurnal de diagnosticare pur
 local</b> al apelurilor sale de instrumente — marcaj temporal, numele
 instrumentului, succes/eșec și dimensiunea răspunsului, <b>niciodată vreun
-conținut</b> — într-un fișier simplu lângă programul punții. Acest jurnal nu este
+conținut</b> — într-un fișier simplu lângă programul Bridge-ului. Acest jurnal nu este
 transmis nicăieri și servește exclusiv depanării.</li>
 <li>Memoria IA partajată stochează local perspective distilate (≤1.000 de caractere
 fiecare, legate de client/dosar, cu expirare automată); conținutul său este vizibil
@@ -526,7 +526,7 @@ dosare de caz.</p>
 <tr><td>Corecție IA Fișier→Markdown</td><td>text convertit</td><td class="yes">da</td><td class="no">nu</td><td class="no">nu</td></tr>
 <tr><td>Detector IA de anonimizare</td><td>text deja anonimizat; răspunsurile conțin nume de terți în clar</td><td class="no">dezactivat — prin proiectare</td><td class="no">comutator = consimțământ</td><td class="yes">da</td></tr>
 <tr><td>Chat IA (extern)</td><td>prompt + context GUI + memorie + coadă 6k + rezumat 2k + rezultate de instrumente ≤10k/element</td><td class="yes">da</td><td>da — o dată per sesiune</td><td class="yes">da</td></tr>
-<tr><td>Puntea IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>rezultate brute de instrumente (date complete de dosar)</td><td class="no">nu — prin proiectare</td><td>da — o dată per execuție a programului, blocare 10 min la refuz</td><td class="no">nu (partea aplicației)</td></tr>
+<tr><td>Bridge-ul IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>rezultate brute de instrumente (date complete de dosar)</td><td class="no">nu — prin proiectare</td><td>da — o dată per execuție a programului, blocare 10 min la refuz</td><td class="no">nu (partea aplicației)</td></tr>
 <tr><td>ZIP de instrucțiuni IA</td><td>export în text clar al cabinetului (încărcare inițiată de utilizator)</td><td class="no">nu</td><td>avertisment o dată per execuție a programului</td><td>nu se aplică</td></tr>
 </table>
 
