@@ -44,4 +44,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://ironstick-legal.github.io/sitemap.xml
+Sitemap: https://www.ironstick.legal/sitemap.xml
