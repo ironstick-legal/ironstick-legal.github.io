@@ -50,9 +50,9 @@ Moonshot AI, OpenAI and/or Anthropic), which the user must review separately.</p
 <h2>1. Scope and endpoints</h2>
 <img class="flow" src="img/65_ai_client_vault.png" alt="AI API, AI desktop app and MCP server on the left, the IRONSTICK Client in the middle, data vault with AES-256, IRONSTICK Server and scan app on the right">
 <p>In-app external AI calls go to <b>the provider the automatic cascade is
-using at that moment</b>. The user can set up up to five providers; every
+using at that moment</b>. The user can set up up to four providers; every
 provider that is set up is used automatically in this fixed, cost-saving
-order: <b>Gemini (Google) → Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+order: <b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
 ChatGPT (OpenAI) → Claude (Anthropic)</b>. At every program start <span class="irs">IRONSTICK</span>
 checks which of them respond; if a quota or credit runs out during the day, or
 a provider stops answering, the very same request is repeated with the next
@@ -68,24 +68,31 @@ the user's own API key.</li>
 (Alibaba Cloud Model Studio, international region), the user's own API key.</li>
 <li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
 (Moonshot AI), the user's own API key.</li>
-<li><b>Gemini (Windows only):</b> no API key. <span class="irs">IRONSTICK</span> drives Google's own,
-unmodified command-line client (Google Antigravity CLI) as a hidden local
-process; the client is signed in with the user's <b>Google account</b>
-(Google's own sign-in dialog — <span class="irs">IRONSTICK</span> never sees password or code) and
-sends the request to Google under the user's Google AI plan. The client gets
-no access to <span class="irs">IRONSTICK</span>'s tools or files; it runs in an empty working folder
-with a private profile folder inside the data directory, and its local
-conversation records and logs are deleted after every call.</li>
 </ul>
-<div class="box warn"><b>Gemini through a Google account is a consumer
-service, not a commissioned-processing channel.</b> According to the Google
-Antigravity terms, Google may use interactions to improve its products and
-machine-learning technologies, and Google staff may review them, unless the
-user switches this off in the Google Antigravity settings; there is no
-data-processing agreement for this path. <span class="irs">IRONSTICK</span> transmits the same
-pseudonymized content as on the API paths, but a practice whose professional
-rules require a data-processing agreement for every processor should not set
-up Gemini — a provider that is not set up is never used by the cascade.</div>
+<p><b>Free background providers (optional).</b> In addition, the user can
+store the free offers of <b>Groq</b>, <b>OpenRouter</b> and <b>Mistral</b>.
+<span class="irs">IRONSTICK</span> uses them exclusively for tasks that run in the background:
+e-mail triage, data consistency monitor, daily briefing, dialogue summary,
+speaker assignment in transcriptions, retrieval of statute texts and situation
+report. Each of these providers has its own ON/OFF switch in the
+configuration; it is used only if a key is stored and its switch is set to ON.
+They are <b>never</b> used for the chat, for pleadings or for the Red/Blue Team
+review. If none of them is available, the cascade described above takes over.
+Pseudonymization, consent and audit log follow the respective task
+(section 4). The endpoints are:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+the user's own API key.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+the user's own API key.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+the user's own API key.</li>
+</ul>
+<div class="box warn"><b>Free offers — notice in the configuration.</b> Below
+each of these providers it says verbatim: “CAUTION: This is a free offer of the provider &lt;provider&gt;. If you store the API key and switch the toggle to ON, <span class="irs">IRONSTICK</span> uses this provider for background tasks such as summaries, e-mail triage and the like. Data inevitably goes to this provider in the process. Read its terms carefully with regard to the GDPR.” A practice whose
+professional rules require a data-processing agreement for every processor
+should switch these on only after checking the respective provider's terms —
+a provider that is switched off is never used.</div>
 <p>Three configurable model tiers are used per provider (small / medium /
 large). A separate, optional channel is the
 <b>desktop connector</b> (section 4.9): there, data flows into the user's own
@@ -102,8 +109,7 @@ firm's own network — it never contacts the vendor and never contacts any AI
 provider.</p>
 <div class="box"><b>The master switch is the user's own access.</b> In-app
 external AI processing exists only if the user has opened their own account
-with an AI provider and entered their own access key in the configuration
-(for Gemini: signed in with their Google account).
+with an AI provider and entered their own access key in the configuration.
 <b>Without any provider set up, no in-app external AI call can occur at all</b> — every
 feature described in section 4 then stays local or is simply unavailable. That
 account is a direct contract between the user and the provider; <span class="irs">IRONSTICK</span> is
@@ -210,12 +216,12 @@ decision).</li>
 </ul>
 
 <h3>4.2 E-mail monitor (triage)</h3>
-<p>Case assignment is deterministic first (case number or known registry number
-found in subject/snippet — no AI call). Otherwise <b>one small-tier call per
-e-mail</b> with exactly: sender name and address, subject, and the stored
-preview snippet (hard-capped at 1,500 characters) — <b>never the full body</b> —
-plus the complete case list (tokenized) as matching context. Answer: priority +
-case number. In the e-mail screen this is consent-gated once per session; in
+<p>Case assignment is done <b>locally and without AI</b>. For assessing the
+urgency, <b>one small-tier call per e-mail</b> is made with exactly: sender name
+and address, subject, and the stored preview snippet as plain text (hard-capped
+at 1,500 characters) — <b>never the full body</b>, no attachments and <b>no case
+list</b>. Answer: priority + reasoning. If free background providers are
+switched on (section 1), this call may run through them. In the e-mail screen this is consent-gated once per session; in
 <b>background operation it runs without a dialog</b> (enabling the monitor is
 the consent). Pseudonymized and audited in both modes.</p>
 <p><b>No tracking pixels.</b> Opening a mail in the monitor never contacts
@@ -267,13 +273,16 @@ protocols leave the machine only as tool results of the chat/connector
 (capped excerpts) or inside the AI instruction package (section 5).</p>
 
 <h3>4.5 Data consistency monitor</h3>
-<p>Phase 1 (e-mail ↔ master data) is fully deterministic. Phase 2 sends one
-small-tier call (pseudonymized, audited, <b>no dialog</b>, throttled to new
-inbound documents) containing: <b>all stored institution and person/entity
-master records</b> of the owner (IDs, names, contact data, CNP — tokenized where
-in the dictionary; institution names clear), all party names from cases, and de-duplicated <b>contact-region snippets</b> (±~100 characters
-around address/phone/tax markers) from inbound document full texts, capped at
-130,000 characters in total. The answer only ever becomes a suggestion that the
+<p>Phase 1 (e-mail ↔ master data) is fully deterministic. Phase 2 sends
+<b>one small-tier call per new inbound document</b> (pseudonymized, audited,
+<b>no dialog</b>) containing: the de-duplicated <b>contact-region snippets</b>
+(±~100 characters around address/phone/tax markers) from the full text of
+<b>that</b> document, the party names of that document and of its case, and, for
+each party, the <b>names</b> of possible matches from the stored master data
+(tokenized where in the dictionary; institution names clear). <b>Contact data
+and CNP from the stored master data are not transmitted.</b> If free background
+providers are switched on (section 1), this call may run through them. The
+answer only ever becomes a suggestion that the
 user must accept in the monitor.</p>
 
 <h3>4.6 Word processor (AI assistance in the text)</h3>
@@ -304,12 +313,14 @@ connector alike — is read once more by the same provider as opposing counsel
 jurisdiction; pseudonymized through the router and audited like every router
 call; no separate dialog — the switch is the consent; at most two rounds per
 file, after the second round the file is handed over regardless, with the
-reviewer's report attached for the user. <b>Dialogue summary:</b> in long chat
+reviewer's report attached for the user. The Red/Blue Team review
+<b>never</b> runs through the free background providers (section 1). <b>Dialogue summary:</b> in long chat
 sessions the older part of the dialogue (only the user's questions and the
 model's final answers, never tool results) is condensed by the active provider
 (small tier, background) into a 2,000-character summary that replaces the raw
 history; it is stored encrypted in the scratch store and overwritten each
-time.</p>
+time. If free background providers are switched on (section 1), the summary
+may run through them.</p>
 
 <h3>4.8 AI chat (external, API)</h3>
 <p>Consent once per chat session; medium tier with automatic escalation to the
@@ -351,6 +362,10 @@ data.</b> That is its purpose: the user's own desktop-AI session drafts
 submission-ready templates and therefore needs real names and numbers.</div>
 <ul>
 <li>The desktop AI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop or Kimi Desktop) connects through a local bridge to the running app; the connection does not leave the computer.</li>
+<li><b>Websites with an access check.</b> If a website requires a confirmation before
+it releases its content, <span class="irs">IRONSTICK</span> opens the page in a separate window; the
+user confirms there personally. The desktop AI then reads the content of the page —
+it flows to its provider like any other tool result.</li>
 <li>On the first data access per program run <span class="irs">IRONSTICK</span> shows a blocking consent
 modal; refusal blocks the channel for 10 minutes. After approval the channel is
 open for the rest of the program run.</li>
@@ -441,7 +456,9 @@ recognised text, plus the last 12 already assigned lines as context and the numb
 speakers. The calls run through the router — pseudonymised, subject to consent,
 recorded in the audit log. The answer may not alter the text: every line is checked
 against the recognised text; if a block fails, the transcript is taken over without
-speaker assignment. With only one speaker, no AI call takes place.</p>
+speaker assignment. With only one speaker, no AI call takes place. If free
+background providers are switched on (section 1), these calls may run through
+them.</p>
 
 <h2>5. The AI instruction package (export ZIP)</h2>
 <img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, user with MD files and ZIP archive, AI web app">
@@ -486,13 +503,13 @@ dossiers.</p>
 <table>
 <tr><th>Flow</th><th>What leaves (form)</th><th>Pseudonymized</th><th>Own consent dialog</th><th>Audit log</th></tr>
 <tr><td>Document capture (4 calls)</td><td>OCR/document text ≤30k, case/name lists</td><td class="yes">yes</td><td>yes — once per program run</td><td class="yes">yes</td></tr>
-<tr><td>E-mail triage (screen)</td><td>From/Subject/Snippet ≤1.5k + case list</td><td class="yes">yes</td><td>yes — once per session</td><td class="yes">yes</td></tr>
+<tr><td>E-mail triage (screen)</td><td>From/Subject/Snippet ≤1.5k (no case list)</td><td class="yes">yes</td><td>yes — once per session</td><td class="yes">yes</td></tr>
 <tr><td>E-mail triage (background)</td><td>same</td><td class="yes">yes</td><td class="no">no (monitor switch = consent)</td><td class="yes">yes</td></tr>
 <tr><td>Person research st. 1</td><td>real name (web search)</td><td class="no">no — by design</td><td>yes — once per session</td><td class="yes">yes (clear)</td></tr>
 <tr><td>Person research st. 2/3</td><td>page texts ≤8k / ≤6k per source</td><td class="yes">yes</td><td>same consent</td><td class="yes">yes</td></tr>
 <tr><td>Person/institution autofill</td><td>typed name (web search)</td><td class="no">no — by design</td><td>yes — once per session</td><td class="yes">yes (clear)</td></tr>
 <tr><td>Daily-protocol AI import</td><td>pasted raw text ≤200k</td><td class="yes">yes</td><td>yes</td><td class="yes">yes</td></tr>
-<tr><td>Consistency monitor</td><td>master records + contact regions ≤130k</td><td class="yes">yes (instit. names clear)</td><td class="no">no (throttled background)</td><td class="yes">yes</td></tr>
+<tr><td>Consistency monitor</td><td>per new document: its contact regions + names of possible matches (no contact data/CNP from master data)</td><td class="yes">yes (instit. names clear)</td><td class="no">no (throttled background)</td><td class="yes">yes</td></tr>
 <tr><td>Word processor: revise / structure</td><td>selection + 6k context / doc lines ≤40k</td><td class="yes">yes</td><td class="no">no (button = consent)</td><td class="no">no</td></tr>
 <tr><td>Read-aloud preprocessing</td><td>each sentence, clear text</td><td class="no">no</td><td class="no">no (start = consent)</td><td class="no">no</td></tr>
 <tr><td>Red/Blue Team review (API)</td><td>draft text + date + jurisdiction, per round (max 2)</td><td class="yes">yes</td><td class="no">no (switch = consent)</td><td class="yes">yes</td></tr>
@@ -502,6 +519,7 @@ dossiers.</p>
 <tr><td>AI chat (external)</td><td>prompt + GUI ctx + memory + 6k tail + 2k summary + tool results ≤10k/item</td><td class="yes">yes</td><td>yes — once per session</td><td class="yes">yes</td></tr>
 <tr><td>Desktop-AI bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>raw tool results (full case data)</td><td class="no">no — by design</td><td>yes — once per program run, 10-min block on refusal</td><td class="no">no (app side)</td></tr>
 <tr><td>Audio transcription: speaker assignment</td><td>recognised text, per call ≤60 lines + 12 lines of context — never the recording</td><td class="yes">yes</td><td>yes</td><td class="yes">yes</td></tr>
+<tr><td>Free background providers (Groq, OpenRouter, Mistral) — only when switched on</td><td>the same content as the respective background task; never chat, pleading or Red/Blue Team</td><td>as the respective task</td><td class="no">no (switch per provider = consent)</td><td class="yes">yes</td></tr>
 <tr><td>AI instruction ZIP</td><td>clear-text practice export (user-initiated upload)</td><td class="no">no</td><td>warning once per program run</td><td>n/a</td></tr>
 </table>
 
@@ -740,10 +758,10 @@ can be pasted into notices of any structure.</p>
 <li>Have the data-processing agreement of <b>every</b> AI provider you have
 set up in place, name in the clause only the providers you actually use, and
 check the sentence on training and retention against the terms you actually
-signed. The clause below does <b>not</b> cover Gemini through a Google account
-(a consumer service without such an agreement, section 1) — if you set that
-path up, it needs its own wording and normally the client's explicit
-consent.</li>
+signed. The clause covers the free background providers (Groq, OpenRouter,
+Mistral, section 1) only through the optional sentence in brackets there —
+switch them on only if their terms meet your professional-rule requirements,
+and delete the sentence if you do not use them.</li>
 <li>Keep the bracketed sentence about the AI workspace only if you really use
 the desktop-AI connector (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop
 or Kimi Desktop); delete it otherwise.</li>
@@ -766,7 +784,10 @@ provider (depending on availability: Alibaba Cloud, Moonshot AI, OpenAI or Anthr
 it on our behalf under a data-processing agreement. We use these functions for:
 classifying and registering incoming documents, prioritising incoming e-mail,
 checking our records for inconsistencies, drafting and reviewing legal
-documents, and legal analysis and research.</p>
+documents, and legal analysis and research. [Optional — delete if not used: For
+tasks that run in the background, such as prioritising incoming e-mail, checking
+our records and summaries, the free services of Groq, OpenRouter or Mistral may
+additionally be used; we checked their terms before switching them on.]</p>
 <p><b>Protective measures.</b> Before anything is transmitted, the software
 replaces the direct identifiers stored in our system — names, personal
 identification numbers, telephone numbers, e-mail addresses, postal addresses,
@@ -803,7 +824,7 @@ path) and reflects the shipped behaviour of the described version. Processing by
 the AI provider itself — retention, training use, sub-processors, jurisdiction —
 is governed solely by the provider's terms — the links to each provider's
 terms and privacy policy are in the corresponding section of the AI
-configuration (Google Antigravity: antigravity.google/terms; Alibaba Cloud:
+configuration (Groq: groq.com/terms-of-use; OpenRouter: openrouter.ai/terms; Mistral: legal.mistral.ai/terms/commercial-terms-of-service; Alibaba Cloud:
 alibabacloud.com/help/en/legal; Moonshot AI: platform.kimi.ai/docs/agreement;
 OpenAI: openai.com/policies). For Anthropic services consult, in
 their current versions: the Commercial Terms of Service

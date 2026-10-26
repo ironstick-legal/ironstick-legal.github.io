@@ -227,8 +227,8 @@ comfortably fetch yourself a coffee.</p>
 orange when something comes due, red when it is critical — permanently visible,
 one click to the full list.</li>
 <li><b>E-mail already triaged.</b> The monitor fetches your inbox in the
-background, assigns mails to cases (a known registry number is matched without
-any AI at all) and prioritises the rest. New post announces itself in the menu
+background and assigns mails to cases locally and without any AI at all; the
+AI only assesses the urgency. New post announces itself in the menu
 bar.</li>
 <li><b>Silent cases and flare-ups.</b> Cases with no activity for 14 days are
 listed so nothing quietly dies; cases that suddenly heat up — new deadline,
@@ -412,7 +412,8 @@ proof.</p>
 numbers rather than folders:</p>
 <ul>
 <li><b>Capture with AI pre-fill.</b> Drop a scanned PDF into the inbox: OCR
-runs, the AI proposes title, type, parties, case assignment, date and deadline
+runs, the AI proposes title, type, parties, case assignment, date and deadline,
+and <span class="irs">IRONSTICK</span> additionally recognises the matching case on its own
 — you confirm instead of typing. Every captured file gets a cryptographic
 <b>integrity fingerprint</b>, so later manipulation is provable.</li>
 <li><b>Stamping &amp; pagination.</b> Merging, Bates numbering, file stamps,
@@ -547,6 +548,10 @@ the AI your binding output formats. What the AI learns about a mandate is kept
 in a <b>shared AI memory</b> — compact, client-bound, visible and deletable by
 you alone. And you always see what is happening: whenever an AI reads your
 file, its symbol lights up in the menu bar.</p>
+<p><b>Websites with an access check.</b> If a website requires a
+confirmation before it releases its content, <span class="irs">IRONSTICK</span> opens the
+page in a separate window: you confirm there, and work on the page
+continues seamlessly.</p>
 <div class="box">First access per program run requires your explicit consent;
 documents marked secret are invisible on this channel; suggestions from the AI
 never write into your records — they wait for your approval in the Data
@@ -639,6 +644,9 @@ unless a fresh verification of exactly that file state came back green —
 every edit voids the attestation, and five failed rounds abort the loop
 and notify you. Every delivered document carries its verification
 stamp.</li>
+<li><b>No silent changes after delivery.</b> A correction to a delivered
+document is never worked in silently: the old version is visibly voided,
+and a new version is created. Your corrections feed into the review.</li>
 <li><b>No side doors.</b> A letter declared &ldquo;informal&rdquo; is
 content-checked and rerouted through the formal gates; renaming a document
 to reset its version count is refused; statute knowledge from press
@@ -650,20 +658,29 @@ on the spot.</li>
 <li><b>Quotes across case boundaries.</b> If a quote comes from a document of
 another case, the verifier finds it across the entire archive and names the exact
 document — the AI reads exactly that one, not the whole foreign file.</li>
+<li><b>Origin of every document.</b> For every document, the AI learns where
+it comes from: if it comes from the opposing side or an authority, its
+statements must first be critically examined; if it comes from the client, it
+reflects the client's view.</li>
 <li><b>No idling at your expense.</b> If a desktop AI tries to reload data it already
 holds unchanged, the call is refused — tokens and time go into the work, not into
 repetition.</li>
 </ul>
 <div class="box"><b>And you are never locked to one AI vendor.</b> The
-built-in AI runs on <b>Gemini, Qwen, Kimi, ChatGPT and Claude</b> — five
-look-alike sections in the configurator. Gemini needs no API key at all: one
-sign-in with your Google account and it runs on your Google AI plan (Windows).
-<b>And <span class="irs">IRONSTICK</span> saves your money by itself:</b> every provider you have set up
-is used automatically, cheapest first — Gemini, then Qwen, Kimi, ChatGPT,
+built-in AI runs on <b>Qwen, Kimi, ChatGPT and Claude</b> — four
+look-alike sections in the configurator. <b>And <span class="irs">IRONSTICK</span> saves your money by itself:</b> every provider you have set up
+is used automatically, cheapest first — Qwen, then Kimi, ChatGPT,
 Claude. At every start the program checks which of them respond; if a quota or
 credit runs out during the day, it silently carries on with the next one and
 checks again the next day. No selector, no interruption, no lost work. The
-desktop side offers Claude, ChatGPT, Qwen and Kimi. If one provider disappoints
+desktop side offers Claude, ChatGPT, Qwen and Kimi.
+<b>Background work at zero cost:</b> for tasks that run in the background
+without your involvement — summaries, e-mail triage and the like — you can
+additionally store the free offers of <b>Groq, OpenRouter and
+Mistral</b> and switch each one on and off individually. They are never used
+for chat or pleadings. Since data goes to these providers in the process, the
+configurator points out for each of them that you should check their terms
+thoroughly with regard to the GDPR. If one provider disappoints
 on price, policy or performance, you simply remove its key — the gates, and
 therefore the delivered standard, stay identical.</div>
 <h3>The <span class="irs">IRONSTICK</span> way</h3>
@@ -1221,7 +1238,7 @@ separately licensed add-ons to the base application; the Central Scan App
 requires an active Office Server licence.</li>
 <li><b>AI provider subscription:</b> a bridge runs on your own subscription with
 the provider (Claude, ChatGPT, Qwen or Kimi) — the built-in AI chat needs no
-extra bridge licence and additionally offers Google Gemini.</li>
+extra bridge licence.</li>
 <li><b>Training</b> is licensed separately in three on-site modules
 (app · app + office server · deep-dive AI bridges).</li>
 </ul><p><b>Download the software:</b> the Client-App, Bridges, Office Server and Central Scan App are available on the <a href="download.html">download page</a> — where you will also find the installation order, the licensing rules and the template for requesting license keys.</p></div><div class="site-foot"><h2 id="contact">Get in touch</h2><p>Interested in <span class="irs">IRONSTICK</span> or a demo? Write to us.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Scan the code to save our contact card — phone, e-mail and website.</p><p class="pref">Feel free to contact directly via WhatsApp or Telegram — calls are welcome too. Spoken languages: German, English, Romanian.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> is legal-practice software. This website is for informational purposes only and does not constitute legal advice.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>

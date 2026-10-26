@@ -52,8 +52,8 @@ pe care utilizatorul i-a configurat — Google, Alibaba Cloud, Moonshot AI, Open
 <img class="flow" src="img/65_ai_client_vault.png" alt="API IA, aplicația IA desktop și serverul MCP în stânga, IRONSTICK Client în mijloc, seiful de date cu AES-256, IRONSTICK Server și aplicația de scanare în dreapta">
 <p>Apelurile de IA externă din aplicație sunt direcționate către <b>furnizorul pe
 care cascada automată îl folosește în acel moment</b>. Utilizatorul poate configura
-până la cinci furnizori; fiecare furnizor configurat este folosit automat în
-această ordine fixă, care economisește costuri: <b>Gemini (Google) → Qwen (Alibaba
+până la patru furnizori; fiecare furnizor configurat este folosit automat în
+această ordine fixă, care economisește costuri: <b>Qwen (Alibaba
 Cloud) → Kimi (Moonshot AI) → ChatGPT (OpenAI) → Claude (Anthropic)</b>. La fiecare
 pornire a programului, <span class="irs">IRONSTICK</span> verifică care dintre ei răspund; dacă în cursul
 zilei se epuizează o cotă sau un credit ori un furnizor încetează să răspundă,
@@ -70,26 +70,37 @@ cheia API proprie a utilizatorului.</li>
 (Alibaba Cloud Model Studio, regiunea internațională), cheia API proprie a utilizatorului.</li>
 <li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
 (Moonshot AI), cheia API proprie a utilizatorului.</li>
-<li><b>Gemini (numai Windows):</b> fără cheie API. <span class="irs">IRONSTICK</span> operează clientul
-propriu, nemodificat, în linie de comandă al Google (Google Antigravity CLI) ca
-proces local ascuns; clientul este autentificat cu <b>contul Google</b> al
-utilizatorului (dialogul de autentificare propriu al Google — <span class="irs">IRONSTICK</span> nu vede
-niciodată parola sau codul) și trimite cererea către Google în cadrul planului
-Google AI al utilizatorului. Clientul nu obține acces la instrumentele sau
-fișierele <span class="irs">IRONSTICK</span>; rulează într-un folder de lucru gol, cu un folder de profil
-privat în interiorul directorului de date, iar înregistrările și jurnalele sale
-locale de conversație sunt șterse după fiecare apel.</li>
 </ul>
-<div class="box warn"><b>Gemini printr-un cont Google este un serviciu de
-consum, nu un canal de prelucrare împuternicită.</b> Potrivit condițiilor Google
-Antigravity, Google poate utiliza interacțiunile pentru a-și îmbunătăți produsele
-și tehnologiile de învățare automată, iar personalul Google le poate examina, cu
-excepția cazului în care utilizatorul dezactivează acest lucru în setările Google
-Antigravity; pentru această cale nu există un acord de prelucrare a datelor.
-<span class="irs">IRONSTICK</span> transmite același conținut pseudonimizat ca pe căile API, însă un cabinet
-ale cărui reguli profesionale impun un acord de prelucrare a datelor pentru fiecare
-persoană împuternicită nu ar trebui să configureze Gemini — un furnizor care nu
-este configurat nu este folosit niciodată de cascadă.</div>
+<p><b>Furnizori de fundal gratuiți (opțional).</b> În plus, utilizatorul poate
+configura ofertele gratuite ale <b>Groq</b>, <b>OpenRouter</b> și <b>Mistral</b>.
+<span class="irs">IRONSTICK</span> le folosește exclusiv pentru sarcini care rulează în fundal:
+trierea e-mailurilor, monitorul de consistență a datelor, briefingul zilnic,
+rezumatul dialogului, atribuirea vorbitorilor la transcrieri, preluarea textelor de
+lege și tabloul de situație. Fiecare dintre acești furnizori are în configurație
+propriul comutator PORNIT/OPRIT; este folosit numai dacă este salvată o cheie și
+comutatorul său este pe PORNIT. Pentru chat, pentru actele de procedură și pentru
+verificarea Red/Blue Team nu sunt folosiți <b>niciodată</b>. Dacă niciunul dintre ei
+nu este disponibil, preia cascada descrisă mai sus. Pseudonimizarea, consimțământul
+și jurnalul de audit urmează sarcina respectivă (secțiunea 4). Punctele terminale
+sunt:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+cheia API proprie a utilizatorului.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+cheia API proprie a utilizatorului.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+cheia API proprie a utilizatorului.</li>
+</ul>
+<div class="box warn"><b>Oferte gratuite — avertisment în configurație.</b> Sub
+fiecare dintre acești furnizori scrie textual: „ATENȚIE: este o ofertă gratuită a
+furnizorului &lt;furnizor&gt;. Dacă salvați cheia API și treceți comutatorul pe ON,
+<span class="irs">IRONSTICK</span> folosește acest furnizor pentru sarcini din fundal, precum rezumate,
+triajul e-mailurilor etc. Astfel ajung inevitabil date la acest furnizor. Citiți cu
+atenție termenii acestuia în privința GDPR." Un cabinet ale cărui reguli
+profesionale impun un acord de prelucrare a datelor pentru fiecare persoană
+împuternicită ar trebui să activeze aceste comutatoare numai după verificarea
+condițiilor furnizorului respectiv — un furnizor dezactivat nu este folosit
+niciodată.</div>
 <p>Se folosesc trei niveluri de model configurabile per furnizor (mic / mediu /
 mare). Un canal separat, opțional, este <b>conectorul pentru desktop</b>
 (secțiunea 4.9): acolo, datele circulă către IA locală de desktop proprie a
@@ -108,7 +119,7 @@ de IA.</p>
 <div class="box"><b>Comutatorul principal este accesul propriu al utilizatorului.</b>
 Prelucrarea de IA externă din aplicație există numai dacă utilizatorul și-a deschis
 propriul cont la un furnizor de IA și și-a introdus propria cheie de acces în
-configurație (pentru Gemini: autentificat cu contul Google).
+configurație.
 <b>Fără niciun furnizor configurat, niciun apel de IA externă din aplicație nu
 poate avea loc</b> — fiecare funcție descrisă în secțiunea 4 rămâne atunci locală
 sau este pur și simplu indisponibilă. Acel cont este un contract direct între
@@ -221,13 +232,13 @@ documentele marcate ca secrete (decizie deliberată a utilizatorului).</li>
 </ul>
 
 <h3>4.2 Monitorul de e-mail (trierea)</h3>
-<p>Atribuirea dosarului este mai întâi deterministă (număr de dosar sau număr de
-registru cunoscut găsit în subiect/fragment — fără apel de IA). În caz contrar,
-<b>un apel de nivel mic per e-mail</b> cu exact: numele și adresa expeditorului,
-subiectul și fragmentul de previzualizare stocat (limitat strict la 1.500 de
-caractere) — <b>niciodată corpul integral</b> — plus lista completă de dosare
-(tokenizată) drept context de potrivire. Răspuns: prioritate + număr de dosar. În
-ecranul de e-mail acest lucru este condiționat de consimțământ o dată per sesiune;
+<p>Atribuirea dosarului are loc <b>local și fără IA</b>. Pentru evaluarea
+urgenței are loc <b>un apel de nivel mic per e-mail</b> cu exact: numele și adresa
+expeditorului, subiectul și fragmentul de previzualizare stocat, ca text simplu
+(limitat strict la 1.500 de caractere) — <b>niciodată corpul integral</b>, fără
+atașamente și <b>fără lista de dosare</b>. Răspuns: prioritate + justificare. Dacă
+furnizorii de fundal gratuiți sunt activați (secțiunea 1), acest apel poate trece
+prin ei. În ecranul de e-mail acest lucru este condiționat de consimțământ o dată per sesiune;
 în <b>funcționarea în fundal rulează fără dialog</b> (activarea monitorului este
 consimțământul). Pseudonimizat și auditat în ambele moduri.</p>
 <p><b>Fără pixeli de urmărire.</b> Deschiderea unui e-mail în monitor nu contactează
@@ -285,15 +296,16 @@ instrumente ale chatului/conectorului (fragmente limitate) sau în interiorul
 pachetului de instrucțiuni IA (secțiunea 5).</p>
 
 <h3>4.5 Monitorul de consistență a datelor</h3>
-<p>Faza 1 (e-mail ↔ date de bază) este complet deterministă. Faza 2 trimite un apel
-de nivel mic (pseudonimizat, auditat, <b>fără dialog</b>, limitat la documentele noi
-primite) care conține: <b>toate fișele de bază stocate de instituții și
-persoane/entități</b> ale titularului (ID-uri, nume, date de contact, CNP —
-tokenizate acolo unde se află în dicționar; denumirile de instituții în clar), toate
-numele de părți din dosare, precum și <b>fragmentele de
-regiune de contact</b> dedublate (±~100 de caractere în jurul marcajelor de
-adresă/telefon/cod fiscal) din textele integrale ale documentelor primite, limitate
-la 130.000 de caractere în total. Răspunsul devine întotdeauna doar o sugestie pe
+<p>Faza 1 (e-mail ↔ date de bază) este complet deterministă. Faza 2 trimite
+<b>câte un apel per document nou primit</b>, de nivel mic (pseudonimizat, auditat,
+<b>fără dialog</b>), care conține: <b>fragmentele de regiune de contact</b> dedublate
+(±~100 de caractere în jurul marcajelor de adresă/telefon/cod fiscal) din textul
+integral al <b>acestui</b> document, numele părților din acest document și din
+dosarul său, precum și, pentru fiecare parte, <b>numele</b> potrivirilor posibile din
+datele de bază stocate (tokenizate acolo unde se află în dicționar; denumirile de
+instituții în clar). <b>Datele de contact și CNP-ul din datele de bază stocate nu
+sunt transmise.</b> Dacă furnizorii de fundal gratuiți sunt activați (secțiunea 1),
+acest apel poate trece prin ei. Răspunsul devine întotdeauna doar o sugestie pe
 care utilizatorul trebuie să o accepte în monitor.</p>
 
 <h3>4.6 Procesorul de text (asistență IA în text)</h3>
@@ -324,12 +336,15 @@ de același furnizor în rol de avocat al părții adverse (nivel mediu). Se tra
 textul proiectului, data și jurisdicția dosarului; pseudonimizat prin router și
 auditat ca fiecare apel de router; fără dialog separat — comutatorul este
 consimțământul; cel mult două runde per fișier, după a doua rundă fișierul este
-predat oricum, cu raportul examinatorului atașat pentru utilizator. <b>Rezumatul
+predat oricum, cu raportul examinatorului atașat pentru utilizator. Verificarea
+Red/Blue Team nu trece <b>niciodată</b> prin furnizorii de fundal gratuiți
+(secțiunea 1). <b>Rezumatul
 dialogului:</b> în sesiunile lungi de chat, partea mai veche a dialogului (numai
 întrebările utilizatorului și răspunsurile finale ale modelului, niciodată
 rezultatele instrumentelor) este condensată de furnizorul activ (nivel mic, în
 fundal) într-un rezumat de 2.000 de caractere care înlocuiește istoricul brut; este
-stocat criptat în depozitul de lucru și suprascris de fiecare dată.</p>
+stocat criptat în depozitul de lucru și suprascris de fiecare dată. Dacă furnizorii
+de fundal gratuiți sunt activați (secțiunea 1), rezumatul poate trece prin ei.</p>
 
 <h3>4.8 Chat IA (extern, API)</h3>
 <p>Consimțământ o dată per sesiune de chat; nivel mediu cu escaladare automată la
@@ -374,6 +389,11 @@ utilizatorului redactează forme gata pentru depunere și, prin urmare, are nevo
 nume și numere reale.</div>
 <ul>
 <li>IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop sau Kimi Desktop) se conectează printr-un Bridge local la aplicația care rulează; conexiunea nu părăsește calculatorul.</li>
+<li><b>Site-uri web cu verificare de acces.</b> Dacă un site web cere o confirmare
+înainte de a-și elibera conținutul, <span class="irs">IRONSTICK</span> deschide pagina într-o fereastră
+proprie; utilizatorul confirmă acolo personal. Conținutul paginii este citit apoi de
+IA de desktop — el ajunge la furnizorul acesteia ca orice alt rezultat de
+instrument.</li>
 <li>La primul acces la date per execuție a programului, <span class="irs">IRONSTICK</span> afișează un modal
 de consimțământ blocant; refuzul blochează canalul timp de 10 minute. După aprobare,
 canalul este deschis pentru restul execuției programului.</li>
@@ -467,7 +487,8 @@ plus ultimele 12 rânduri deja atribuite drept context și numărul de vorbitori
 prin router — pseudonimizate, sub rezerva acordului, consemnate în jurnalul de audit.
 Răspunsul nu are voie să modifice textul: fiecare rând este verificat față de textul
 recunoscut; dacă un bloc eșuează, transcrierea este preluată fără atribuirea vorbitorilor.
-Cu un singur vorbitor nu are loc niciun apel către IA.</p>
+Cu un singur vorbitor nu are loc niciun apel către IA. Dacă furnizorii de fundal
+gratuiți sunt activați (secțiunea 1), aceste apeluri pot trece prin ei.</p>
 
 <h2>5. Pachetul de instrucțiuni IA (export ZIP)</h2>
 <img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, utilizator cu fișiere MD și arhivă ZIP, aplicația IA web">
@@ -515,13 +536,13 @@ dosare de caz.</p>
 <table>
 <tr><th>Flux</th><th>Ce părăsește (formă)</th><th>Pseudonimizat</th><th>Dialog de consimțământ propriu</th><th>Jurnal de audit</th></tr>
 <tr><td>Captarea documentelor (4 apeluri)</td><td>text OCR/document ≤30k, liste de dosare/nume</td><td class="yes">da</td><td>da — o dată per execuție a programului</td><td class="yes">da</td></tr>
-<tr><td>Trierea e-mailurilor (ecran)</td><td>Expeditor/Subiect/Fragment ≤1,5k + lista de dosare</td><td class="yes">da</td><td>da — o dată per sesiune</td><td class="yes">da</td></tr>
+<tr><td>Trierea e-mailurilor (ecran)</td><td>Expeditor/Subiect/Fragment ≤1,5k (fără lista de dosare)</td><td class="yes">da</td><td>da — o dată per sesiune</td><td class="yes">da</td></tr>
 <tr><td>Trierea e-mailurilor (fundal)</td><td>același</td><td class="yes">da</td><td class="no">nu (comutatorul monitorului = consimțământ)</td><td class="yes">da</td></tr>
 <tr><td>Cercetarea persoanelor et. 1</td><td>nume real (căutare web)</td><td class="no">nu — prin proiectare</td><td>da — o dată per sesiune</td><td class="yes">da (în clar)</td></tr>
 <tr><td>Cercetarea persoanelor et. 2/3</td><td>texte de pagină ≤8k / ≤6k per sursă</td><td class="yes">da</td><td>același consimțământ</td><td class="yes">da</td></tr>
 <tr><td>Completarea automată persoană/instituție</td><td>nume tastat (căutare web)</td><td class="no">nu — prin proiectare</td><td>da — o dată per sesiune</td><td class="yes">da (în clar)</td></tr>
 <tr><td>Import IA de protocol zilnic</td><td>text brut lipit ≤200k</td><td class="yes">da</td><td>da</td><td class="yes">da</td></tr>
-<tr><td>Monitorul de consistență</td><td>fișe de bază + regiuni de contact ≤130k</td><td class="yes">da (denumiri de instit. în clar)</td><td class="no">nu (fundal limitat)</td><td class="yes">da</td></tr>
+<tr><td>Monitorul de consistență</td><td>per document nou: regiunile lui de contact + numele potrivirilor posibile (fără date de contact/CNP din datele de bază)</td><td class="yes">da (denumiri de instit. în clar)</td><td class="no">nu (fundal limitat)</td><td class="yes">da</td></tr>
 <tr><td>Procesor de text: revizuire / structură</td><td>selecție + context 6k / linii de doc ≤40k</td><td class="yes">da</td><td class="no">nu (buton = consimțământ)</td><td class="no">nu</td></tr>
 <tr><td>Preprocesare citire cu voce tare</td><td>fiecare propoziție, text clar</td><td class="no">nu</td><td class="no">nu (pornire = consimțământ)</td><td class="no">nu</td></tr>
 <tr><td>Revizuire Red/Blue Team (API)</td><td>text proiect + dată + jurisdicție, per rundă (max 2)</td><td class="yes">da</td><td class="no">nu (comutator = consimțământ)</td><td class="yes">da</td></tr>
@@ -531,6 +552,7 @@ dosare de caz.</p>
 <tr><td>Chat IA (extern)</td><td>prompt + context GUI + memorie + coadă 6k + rezumat 2k + rezultate de instrumente ≤10k/element</td><td class="yes">da</td><td>da — o dată per sesiune</td><td class="yes">da</td></tr>
 <tr><td>Bridge-ul IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>rezultate brute de instrumente (date complete de dosar)</td><td class="no">nu — prin proiectare</td><td>da — o dată per execuție a programului, blocare 10 min la refuz</td><td class="no">nu (partea aplicației)</td></tr>
 <tr><td>Transcriere audio: atribuirea vorbitorilor</td><td>text recunoscut, per apel ≤60 de rânduri + 12 rânduri de context — niciodată înregistrarea</td><td class="yes">da</td><td>da</td><td class="yes">da</td></tr>
+<tr><td>Furnizori de fundal gratuiți (Groq, OpenRouter, Mistral) — numai dacă sunt activați</td><td>același conținut ca sarcina de fundal respectivă; niciodată chat, act de procedură sau Red/Blue Team</td><td>ca sarcina respectivă</td><td class="no">nu (comutatorul per furnizor = consimțământ)</td><td class="yes">da</td></tr>
 <tr><td>ZIP de instrucțiuni IA</td><td>export în text clar al cabinetului (încărcare inițiată de utilizator)</td><td class="no">nu</td><td>avertisment o dată per execuție a programului</td><td>nu se aplică</td></tr>
 </table>
 
@@ -775,10 +797,11 @@ avocat:</b>
 <li>Asigurați-vă că acordul de prelucrare a datelor al <b>fiecărui</b> furnizor de IA
 pe care l-ați configurat este în vigoare, numiți în clauză numai furnizorii pe care îi
 folosiți efectiv și verificați propoziția despre antrenare și păstrare în raport cu
-condițiile pe care le-ați semnat efectiv. Clauza de mai jos <b>nu</b> acoperă Gemini
-printr-un cont Google (un serviciu de consum fără un astfel de acord, secțiunea 1) —
-dacă configurați acea cale, ea necesită o formulare proprie și, în mod normal,
-consimțământul explicit al clientului.</li>
+condițiile pe care le-ați semnat efectiv. Furnizorii de fundal gratuiți (Groq,
+OpenRouter, Mistral, secțiunea 1) sunt acoperiți de clauză numai prin propoziția
+opțională pusă acolo între paranteze — activați-i numai dacă condițiile lor
+satisfac cerințele dvs. profesionale și ștergeți propoziția dacă nu îi
+folosiți.</li>
 <li>Păstrați propoziția din paranteze despre spațiul de lucru IA numai dacă folosiți
 efectiv conectorul IA de desktop (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop
 sau Kimi Desktop); în caz contrar, ștergeți-o.</li>
@@ -804,7 +827,11 @@ numele nostru pe baza unui acord de prelucrare a datelor. Utilizăm aceste
 funcții pentru: clasificarea și înregistrarea documentelor primite,
 prioritizarea corespondenței electronice, verificarea coerenței datelor
 noastre, redactarea și verificarea actelor juridice, precum și pentru analiză
-și cercetare juridică.</p>
+și cercetare juridică. [Opțional — a se elimina dacă nu se utilizează: Pentru
+sarcinile care rulează în fundal, precum prioritizarea corespondenței electronice,
+verificarea datelor noastre și rezumatele, pot fi utilizate suplimentar serviciile
+gratuite ale Groq, OpenRouter sau Mistral; condițiile acestora le-am verificat
+înainte de activare.]</p>
 <p><b>Măsuri de protecție.</b> Înainte de orice transmitere, software-ul
 înlocuiește, pe propriul nostru calculator, identificatorii direcți stocați în
 sistem — nume, coduri numerice personale, numere de telefon, adrese de e-mail,
@@ -842,8 +869,7 @@ fiecărei funcții) și reflectă comportamentul livrat al versiunii descrise.
 Prelucrarea de către furnizorul de IA însuși — păstrare, utilizare pentru antrenare,
 subîmputerniciți, jurisdicție — este guvernată exclusiv de condițiile furnizorului —
 link-urile către condițiile și politica de confidențialitate ale fiecărui furnizor se
-află în secțiunea corespunzătoare a configurației IA (Google Antigravity:
-antigravity.google/terms; Alibaba Cloud: alibabacloud.com/help/en/legal; Moonshot AI:
+află în secțiunea corespunzătoare a configurației IA (Groq: groq.com/terms-of-use; OpenRouter: openrouter.ai/terms; Mistral: legal.mistral.ai/terms/commercial-terms-of-service; Alibaba Cloud: alibabacloud.com/help/en/legal; Moonshot AI:
 platform.kimi.ai/docs/agreement; OpenAI: openai.com/policies). Pentru serviciile
 Anthropic consultați, în versiunile lor curente: Condițiile comerciale de utilizare
 a serviciului

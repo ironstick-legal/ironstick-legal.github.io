@@ -53,9 +53,9 @@ l'utilisateur doit examiner séparément.</p>
 <img class="flow" src="img/65_ai_client_vault.png" alt="API d'IA, application d'IA de bureau et serveur MCP à gauche, IRONSTICK Client au centre, coffre-fort de données AES-256, IRONSTICK Server et application de numérisation à droite">
 <p>Les appels d'IA externes effectués depuis l'application sont adressés <b>au
 fournisseur que la cascade automatique utilise à ce moment-là</b>. L'utilisateur peut
-configurer jusqu'à cinq fournisseurs ; chaque fournisseur configuré est utilisé
+configurer jusqu'à quatre fournisseurs ; chaque fournisseur configuré est utilisé
 automatiquement dans l'ordre fixe suivant, conçu pour réduire les coûts :
-<b>Gemini (Google) → Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+<b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
 ChatGPT (OpenAI) → Claude (Anthropic)</b>. À chaque démarrage du programme, <span class="irs">IRONSTICK</span>
 vérifie lesquels d'entre eux répondent ; si un quota ou un crédit est épuisé au cours
 de la journée, ou si un fournisseur cesse de répondre, la même requête est répétée
@@ -72,26 +72,32 @@ clé API propre de l'utilisateur.</li>
 (Alibaba Cloud Model Studio, région internationale), clé API propre de l'utilisateur.</li>
 <li><b>Kimi :</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
 (Moonshot AI), clé API propre de l'utilisateur.</li>
-<li><b>Gemini (Windows uniquement) :</b> aucune clé API. <span class="irs">IRONSTICK</span> pilote le client en
-ligne de commande propre à Google, non modifié (Google Antigravity CLI), en tant que
-processus local masqué ; le client est connecté avec le <b>compte Google</b> de
-l'utilisateur (boîte de dialogue de connexion propre à Google — <span class="irs">IRONSTICK</span> ne voit
-jamais ni le mot de passe ni le code) et envoie la requête à Google dans le cadre de
-l'abonnement Google AI de l'utilisateur. Le client n'a aucun accès aux outils ni aux
-fichiers d'<span class="irs">IRONSTICK</span> ; il s'exécute dans un dossier de travail vide, avec un dossier
-de profil privé situé dans le répertoire de données, et ses enregistrements locaux de
-conversation et journaux sont supprimés après chaque appel.</li>
 </ul>
-<div class="box warn"><b>Gemini via un compte Google est un service grand public, et
-non un canal de sous-traitance.</b> Selon les conditions de Google Antigravity, Google
-peut utiliser les interactions pour améliorer ses produits et ses technologies
-d'apprentissage automatique, et le personnel de Google peut les examiner, à moins que
-l'utilisateur ne désactive cette option dans les paramètres de Google Antigravity ; il
-n'existe aucun contrat de sous-traitance pour cette voie. <span class="irs">IRONSTICK</span> transmet le même
-contenu pseudonymisé que sur les voies API, mais un cabinet dont les règles
-professionnelles exigent un contrat de sous-traitance pour chaque sous-traitant ne
-devrait pas configurer Gemini — un fournisseur qui n'est pas configuré n'est jamais
-utilisé par la cascade.</div>
+<p><b>Fournisseurs gratuits d'arrière-plan (facultatif).</b> L'utilisateur peut en outre
+enregistrer les offres gratuites de <b>Groq</b>, <b>OpenRouter</b> et <b>Mistral</b>.
+<span class="irs">IRONSTICK</span> les utilise exclusivement pour des tâches qui s'exécutent en arrière-plan :
+tri des courriels, moniteur de données, briefing quotidien, résumé du dialogue,
+attribution des interlocuteurs lors des transcriptions, récupération de textes de loi et
+tableau de situation. Chacun de ces fournisseurs dispose dans la configuration de son
+propre interrupteur ON/OFF ; il n'est utilisé que si une clé est enregistrée et que son
+interrupteur est sur ON. Ils ne sont <b>jamais</b> utilisés pour le chat, pour les
+écritures ni pour la revue Red/Blue Team. Si aucun d'entre eux n'est disponible, la
+cascade décrite ci-dessus prend le relais. La pseudonymisation, le consentement et le
+journal d'audit suivent la tâche concernée (section 4). Les points de terminaison sont
+les suivants :</p>
+<ul>
+<li><b>Groq :</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+clé API propre de l'utilisateur.</li>
+<li><b>OpenRouter :</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+clé API propre de l'utilisateur.</li>
+<li><b>Mistral :</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+clé API propre de l'utilisateur.</li>
+</ul>
+<div class="box warn"><b>Offres gratuites — avertissement dans la configuration.</b> Sous
+chacun de ces fournisseurs figure textuellement : « ATTENTION : il s’agit d’une offre gratuite du fournisseur &lt;fournisseur&gt;. Si vous enregistrez la clé API et placez l’interrupteur sur ON, <span class="irs">IRONSTICK</span> utilise ce fournisseur pour des tâches en arrière-plan telles que les résumés, le tri des e-mails, etc. Des données sont alors inévitablement transmises à ce fournisseur. Lisez attentivement ses conditions au regard du RGPD. » Un cabinet dont
+les règles professionnelles exigent un contrat de sous-traitance pour chaque sous-traitant
+ne devrait activer ces interrupteurs qu'après avoir examiné les conditions du fournisseur
+concerné — un fournisseur désactivé n'est jamais utilisé.</div>
 <p>Trois niveaux de modèle configurables sont utilisés par fournisseur (petit / moyen /
 grand). Un canal distinct et facultatif est le
 <b>Bridge d'IA de bureau</b> (section 4.9) : dans ce cas, les données sont
@@ -110,7 +116,7 @@ propre du cabinet — il ne contacte jamais l'éditeur ni aucun fournisseur d'IA
 <div class="box"><b>L'interrupteur principal est l'accès propre de l'utilisateur.</b>
 Un traitement d'IA externe depuis l'application n'existe que si l'utilisateur a ouvert
 son propre compte auprès d'un fournisseur d'IA et saisi sa propre clé d'accès dans la
-configuration (pour Gemini : s'est connecté avec son compte Google).
+configuration.
 <b>Si aucun fournisseur n'est configuré, aucun appel d'IA externe depuis l'application
 ne peut avoir lieu</b> — chacune des fonctionnalités décrites à la section 4 reste
 alors locale ou est tout simplement indisponible. Ce compte constitue un contrat
@@ -225,13 +231,13 @@ documents marqués comme secrets (décision délibérée de l'utilisateur).</li>
 </ul>
 
 <h3>4.2 Moniteur de courriels (tri)</h3>
-<p>L'affectation à un dossier est d'abord déterministe (numéro de dossier ou numéro
-de rôle connu trouvé dans l'objet/l'extrait — aucun appel d'IA). À défaut, <b>un
-appel de petit niveau par courriel</b> transmet exactement : le nom et l'adresse de
-l'expéditeur, l'objet et l'extrait d'aperçu enregistré (plafonné strictement à 1 500
-caractères) — <b>jamais le corps complet</b> —, plus la liste complète des dossiers
-(remplacée par des jetons) comme contexte de correspondance. Réponse : priorité +
-numéro de dossier. Dans l'écran des courriels, ce traitement est soumis au
+<p>L'affectation à un dossier s'effectue <b>localement et sans IA</b>. Pour l'évaluation
+de l'urgence, <b>un appel de petit niveau par courriel</b> transmet exactement : le nom et
+l'adresse de l'expéditeur, l'objet et l'extrait d'aperçu enregistré en texte brut
+(plafonné strictement à 1 500 caractères) — <b>jamais le corps complet</b>, aucune pièce
+jointe et <b>aucune liste des dossiers</b>. Réponse : priorité + justification. Si des
+fournisseurs gratuits d'arrière-plan sont activés (section 1), cet appel peut passer par
+eux. Dans l'écran des courriels, ce traitement est soumis au
 consentement une fois par session ; en <b>fonctionnement en arrière-plan, il
 s'exécute sans boîte de dialogue</b> (l'activation du moniteur vaut consentement).
 Pseudonymisé et audité dans les deux modes.</p>
@@ -294,14 +300,16 @@ plafonnés) ou au sein du paquet d'instructions IA (section 5).</p>
 
 <h3>4.5 Moniteur de données</h3>
 <p>La phase 1 (courriel ↔ données de base) est entièrement déterministe. La phase 2
-envoie un appel de petit niveau (pseudonymisé, audité, <b>sans boîte de dialogue</b>,
-limité aux nouveaux documents entrants) contenant : <b>toutes les fiches de base
-enregistrées des institutions et des personnes/entités</b> du titulaire (ID, noms,
-coordonnées, CNP — remplacés par des jetons lorsqu'ils figurent dans le dictionnaire ;
-noms d'institutions en clair), tous les noms de parties issus des dossiers, et des
-<b>extraits de zones de coordonnées</b> dédoublonnés (±~100 caractères autour des
-marqueurs d'adresse/de téléphone/fiscaux) provenant des textes intégraux des
-documents entrants, plafonnés à 130 000 caractères au total. La réponse ne devient
+envoie <b>un appel par nouveau document entrant</b>, de petit niveau (pseudonymisé,
+audité, <b>sans boîte de dialogue</b>), contenant : les <b>extraits de zones de
+coordonnées</b> dédoublonnés (±~100 caractères autour des marqueurs d'adresse/de
+téléphone/fiscaux) issus du texte intégral de <b>ce</b> document, les noms des parties de
+ce document et de son dossier, ainsi que, pour chaque partie, les <b>noms</b> des
+correspondances possibles dans les données de base enregistrées (remplacés par des
+jetons lorsqu'ils figurent dans le dictionnaire ; noms d'institutions en clair).
+<b>Les coordonnées et le CNP issus des données de base enregistrées ne sont pas
+transmis.</b> Si des fournisseurs gratuits d'arrière-plan sont activés (section 1), cet
+appel peut passer par eux. La réponse ne devient
 jamais qu'une suggestion que l'utilisateur doit accepter dans le moniteur.</p>
 
 <h3>4.6 Traitement de texte (assistance IA dans le texte)</h3>
@@ -336,12 +344,14 @@ et la juridiction compétente du dossier ; pseudonymisé par le routeur et audit
 tout appel du routeur ; aucune boîte de dialogue distincte — l'interrupteur vaut
 consentement ; au plus deux tours par fichier, après le second tour le fichier est
 remis dans tous les cas, accompagné du rapport du relecteur à l'attention de
-l'utilisateur. <b>Résumé du dialogue :</b> lors de longues sessions de chat, la partie
+l'utilisateur. La revue Red/Blue Team ne passe <b>jamais</b> par les fournisseurs
+gratuits d'arrière-plan (section 1). <b>Résumé du dialogue :</b> lors de longues sessions de chat, la partie
 la plus ancienne du dialogue (uniquement les questions de l'utilisateur et les
 réponses finales du modèle, jamais les résultats d'outils) est condensée par le
 fournisseur actif (petit niveau, en arrière-plan) en un résumé de 2 000 caractères
 qui remplace l'historique brut ; il est stocké chiffré dans la mémoire de travail
-temporaire et écrasé à chaque fois.</p>
+temporaire et écrasé à chaque fois. Si des fournisseurs gratuits d'arrière-plan sont
+activés (section 1), le résumé peut passer par eux.</p>
 
 <h3>4.8 Chat IA (externe, API)</h3>
 <p>Consentement une fois par session de chat ; niveau moyen avec escalade automatique
@@ -387,6 +397,10 @@ l'utilisateur rédige des modèles prêts à être déposés et a donc besoin de
 numéros réels.</div>
 <ul>
 <li>L'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop ou Kimi Desktop) se connecte à l'application en cours d'exécution par un Bridge local ; la connexion ne quitte pas l'ordinateur.</li>
+<li><b>Sites web avec contrôle d'accès.</b> Lorsqu'un site web exige une confirmation
+avant de libérer son contenu, <span class="irs">IRONSTICK</span> ouvre la page dans une fenêtre
+dédiée ; l'utilisateur y confirme lui-même. Le contenu de la page est ensuite lu par
+l'IA de bureau — il est transmis à son fournisseur comme tout autre résultat d'outil.</li>
 <li>Lors du premier accès aux données par exécution du programme, <span class="irs">IRONSTICK</span> affiche
 une fenêtre modale bloquante de consentement ; un refus bloque le canal pendant
 10 minutes. Après approbation, le canal reste ouvert pour le reste de l'exécution du
@@ -491,7 +505,8 @@ le nombre d'interlocuteurs. Les appels passent par le routeur — pseudonymisés
 consentement et consignés dans le journal d'audit. La réponse ne peut pas modifier le
 texte : chaque ligne est contrôlée par rapport au texte reconnu ; si un bloc échoue, la
 transcription est reprise sans attribution des interlocuteurs. Avec un seul
-interlocuteur, aucun appel à l'IA n'a lieu.</p>
+interlocuteur, aucun appel à l'IA n'a lieu. Si des fournisseurs gratuits d'arrière-plan
+sont activés (section 1), ces appels peuvent passer par eux.</p>
 
 <h2>5. Le paquet d'instructions IA (ZIP d'exportation)</h2>
 <img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, utilisateur avec fichiers MD et archive ZIP, application web d'IA">
@@ -538,13 +553,13 @@ et des dossiers d'affaires.</p>
 <table>
 <tr><th>Flux</th><th>Ce qui sort (forme)</th><th>Pseudonymisé</th><th>Boîte de dialogue de consentement propre</th><th>Journal d'audit</th></tr>
 <tr><td>Saisie de documents (4 appels)</td><td>texte OCR/du document ≤30k, listes de dossiers/de noms</td><td class="yes">oui</td><td>oui — une fois par exécution du programme</td><td class="yes">oui</td></tr>
-<tr><td>Tri des courriels (écran)</td><td>Expéditeur/Objet/Extrait ≤1,5k + liste des dossiers</td><td class="yes">oui</td><td>oui — une fois par session</td><td class="yes">oui</td></tr>
+<tr><td>Tri des courriels (écran)</td><td>Expéditeur/Objet/Extrait ≤1,5k (aucune liste des dossiers)</td><td class="yes">oui</td><td>oui — une fois par session</td><td class="yes">oui</td></tr>
 <tr><td>Tri des courriels (arrière-plan)</td><td>idem</td><td class="yes">oui</td><td class="no">non (interrupteur du moniteur = consentement)</td><td class="yes">oui</td></tr>
 <tr><td>Recherche de personnes, ét. 1</td><td>nom réel (recherche web)</td><td class="no">non — par conception</td><td>oui — une fois par session</td><td class="yes">oui (en clair)</td></tr>
 <tr><td>Recherche de personnes, ét. 2/3</td><td>textes de pages ≤8k / ≤6k par source</td><td class="yes">oui</td><td>même consentement</td><td class="yes">oui</td></tr>
 <tr><td>Remplissage automatique personne/institution</td><td>nom saisi (recherche web)</td><td class="no">non — par conception</td><td>oui — une fois par session</td><td class="yes">oui (en clair)</td></tr>
 <tr><td>Importation IA du journal quotidien</td><td>texte brut collé ≤200k</td><td class="yes">oui</td><td>oui</td><td class="yes">oui</td></tr>
-<tr><td>Moniteur de données</td><td>fiches de base + zones de coordonnées ≤130k</td><td class="yes">oui (noms d'instit. en clair)</td><td class="no">non (arrière-plan limité)</td><td class="yes">oui</td></tr>
+<tr><td>Moniteur de données</td><td>par nouveau document : ses zones de coordonnées + noms des correspondances possibles (ni coordonnées ni CNP issus des données de base)</td><td class="yes">oui (noms d'instit. en clair)</td><td class="no">non (arrière-plan limité)</td><td class="yes">oui</td></tr>
 <tr><td>Traitement de texte : réviser / structurer</td><td>sélection + contexte de 6k / lignes du doc. ≤40k</td><td class="yes">oui</td><td class="no">non (bouton = consentement)</td><td class="no">non</td></tr>
 <tr><td>Prétraitement de la lecture à voix haute</td><td>chaque phrase, en clair</td><td class="no">non</td><td class="no">non (lancement = consentement)</td><td class="no">non</td></tr>
 <tr><td>Revue Red/Blue Team (API)</td><td>texte du projet + date + juridiction, par tour (max. 2)</td><td class="yes">oui</td><td class="no">non (interrupteur = consentement)</td><td class="yes">oui</td></tr>
@@ -554,6 +569,7 @@ et des dossiers d'affaires.</p>
 <tr><td>Chat IA (externe)</td><td>invite + contexte GUI + mémoire + fin de dialogue de 6k + résumé de 2k + résultats d'outils ≤10k/élément</td><td class="yes">oui</td><td>oui — une fois par session</td><td class="yes">oui</td></tr>
 <tr><td>Bridge d'IA de bureau (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>résultats d'outils bruts (données de dossier complètes)</td><td class="no">non — par conception</td><td>oui — une fois par exécution du programme, blocage de 10 min en cas de refus</td><td class="no">non (côté application)</td></tr>
 <tr><td>Transcription audio : attribution des interlocuteurs</td><td>texte reconnu, par appel ≤60 lignes + 12 lignes de contexte — jamais l'enregistrement</td><td class="yes">oui</td><td>oui</td><td class="yes">oui</td></tr>
+<tr><td>Fournisseurs gratuits d'arrière-plan (Groq, OpenRouter, Mistral) — uniquement s'ils sont activés</td><td>les mêmes contenus que la tâche d'arrière-plan concernée ; jamais le chat, les écritures ni la revue Red/Blue Team</td><td>comme la tâche concernée</td><td class="no">non (interrupteur par fournisseur = consentement)</td><td class="yes">oui</td></tr>
 <tr><td>ZIP d'instructions IA</td><td>exportation en clair du cabinet (téléversement à l'initiative de l'utilisateur)</td><td class="no">non</td><td>avertissement une fois par exécution du programme</td><td>s.o.</td></tr>
 </table>
 
@@ -815,10 +831,11 @@ l'avocat :</b>
 <li>Assurez-vous de disposer du contrat de sous-traitance de <b>chaque</b> fournisseur
 d'IA que vous avez configuré, ne nommez dans la clause que les fournisseurs que vous
 utilisez effectivement, et vérifiez la phrase relative à l'entraînement et à la
-conservation au regard des conditions que vous avez effectivement signées. La clause
-ci-dessous ne couvre <b>pas</b> Gemini via un compte Google (service grand public
-dépourvu d'un tel contrat, section 1) — si vous configurez cette voie, elle nécessite
-une formulation propre et, en règle générale, le consentement exprès du client.</li>
+conservation au regard des conditions que vous avez effectivement signées. Les
+fournisseurs gratuits d'arrière-plan (Groq, OpenRouter, Mistral, section 1) ne sont
+couverts par la clause qu'au moyen de la phrase facultative qui y figure entre crochets —
+ne les activez que si leurs conditions satisfont à vos exigences déontologiques, et
+supprimez la phrase si vous ne les utilisez pas.</li>
 <li>Ne conservez la phrase entre crochets relative à l'espace de travail de l'IA que si
 vous utilisez réellement le Bridge d'IA de bureau (Claude Desktop/Code, ChatGPT
 Desktop, Qwen Desktop ou Kimi Desktop) ; supprimez-la dans le cas contraire.</li>
@@ -846,7 +863,11 @@ pour notre compte dans le cadre d'un accord de sous-traitance. Nous utilisons
 ces fonctions pour : le classement et l'enregistrement des documents entrants,
 la priorisation du courrier électronique entrant, la vérification de la
 cohérence de nos données, la rédaction et la relecture d'actes juridiques,
-ainsi que l'analyse et la recherche juridiques.</p>
+ainsi que l'analyse et la recherche juridiques. [Optionnel — à supprimer si non
+utilisé : Pour les tâches qui s'exécutent en arrière-plan, telles que la priorisation du
+courrier électronique entrant, la vérification de nos données et les résumés, les
+services gratuits de Groq, OpenRouter ou Mistral peuvent en outre être utilisés ; nous
+avons examiné leurs conditions avant de les activer.]</p>
 <p><b>Mesures de protection.</b> Avant toute transmission, le logiciel
 remplace, sur notre propre ordinateur, les identifiants directs enregistrés
 dans notre système — noms, numéros d'identification personnels, numéros de
@@ -887,7 +908,7 @@ décrite. Le traitement par le fournisseur d'IA lui-même — conservation, util
 pour l'entraînement, sous-traitants ultérieurs, juridiction — est régi exclusivement
 par les conditions du fournisseur — les liens vers les conditions et la politique de
 confidentialité de chaque fournisseur figurent dans la section correspondante de la
-configuration de l'IA (Google Antigravity : antigravity.google/terms ; Alibaba Cloud :
+configuration de l'IA (Groq : groq.com/terms-of-use ; OpenRouter : openrouter.ai/terms ; Mistral : legal.mistral.ai/terms/commercial-terms-of-service ; Alibaba Cloud :
 alibabacloud.com/help/en/legal ; Moonshot AI : platform.kimi.ai/docs/agreement ;
 OpenAI : openai.com/policies). Pour les services d'Anthropic, veuillez consulter, dans
 leurs versions en vigueur : les Commercial Terms of Service

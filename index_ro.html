@@ -230,9 +230,9 @@ luați liniștit o cafea.</p>
 <li><b>Termene cu semafor.</b> Clopoțelul din bara de meniu devine portocaliu
 când ceva ajunge la scadență, roșu când e critic — permanent vizibil, un
 clic până la lista completă.</li>
-<li><b>E-mail deja triat.</b> Monitorul vă aduce inboxul în fundal, alocă
-mesajele pe dosare (un număr de înregistrare cunoscut este potrivit complet
-fără IA) și prioritizează restul. Corespondența nouă se anunță în bara de
+<li><b>E-mail deja triat.</b> Monitorul vă aduce inboxul în fundal și alocă
+mesajele pe dosare local și complet fără IA; IA mai evaluează doar
+urgența. Corespondența nouă se anunță în bara de
 meniu.</li>
 <li><b>Dosare amuțite și dosare încinse.</b> Dosarele fără activitate de 14
 zile sunt listate, ca nimic să nu moară în tăcere; dosarele care se încing
@@ -403,7 +403,8 @@ publicului.</p>
 <ul>
 <li><b>Înregistrare cu precompletare de IA.</b> Trageți un PDF scanat în
 inbox: OCR-ul rulează, IA propune titlul, tipul, părțile, alocarea pe dosar,
-data și termenul — dumneavoastră confirmați în loc să tastați. Fiecare
+data și termenul, iar dosarul aferent îl recunoaște în plus <span class="irs">IRONSTICK</span>
+singur — dumneavoastră confirmați în loc să tastați. Fiecare
 fișier înregistrat primește o <b>amprentă criptografică de integritate</b>,
 astfel încât o manipulare ulterioară poate fi dovedită.</li>
 <li><b>Ștampilare &amp; paginare.</b> Contopire, numerotare Bates, ștampile
@@ -555,6 +556,10 @@ competențe învață IA formatele dumneavoastră de ieșire obligatorii. Ce
 partajată</b> — compactă, legată de client, vizibilă și ștergibilă numai de
 dumneavoastră. Și vedeți mereu ce se întâmplă: ori de câte ori o IA vă
 citește dosarul, simbolul ei se aprinde în bara de meniu.</p>
+<p><b>Site-uri web cu verificare de acces.</b> Dacă un site web cere o
+confirmare înainte de a-și elibera conținutul, <span class="irs">IRONSTICK</span> deschide
+pagina într-o fereastră proprie: confirmați acolo, iar lucrul pe pagină
+continuă fără întrerupere.</p>
 <div class="box">Primul acces per pornire de program cere consimțământul
 dumneavoastră explicit; documentele marcate secrete sunt invizibile pe acest
 canal; sugestiile IA nu scriu niciodată în evidențele dumneavoastră — ele
@@ -661,6 +666,10 @@ timp o verificare proaspătă a exact acelei stări a fișierului nu a ieșit
 verde — orice modificare anulează atestarea, iar cinci runde eșuate
 opresc bucla și vă notifică. Fiecare document livrat își poartă ștampila
 de verificare.</li>
+<li><b>Fără modificări tăcute după livrare.</b> O corectură la un document
+livrat nu este niciodată încorporată în tăcere: versiunea veche este anulată
+vizibil și se creează o versiune nouă. Corecturile dumneavoastră intră
+totodată în verificare.</li>
 <li><b>Fără uși laterale.</b> O scrisoare declarată „informală" este
 recunoscută după conținut și trecută prin porțile formale; redenumirea
 unui document pentru a reseta numărătoarea versiunilor este refuzată;
@@ -672,21 +681,30 @@ poartă obiectul real al dosarului din evidențele dumneavoastră, astfel
 <li><b>Citate dincolo de limitele dosarului.</b> Dacă un citat provine dintr-un
 document al altui dosar, verificatorul îl găsește în întregul fond de date și numește
 documentul exact — IA îl citește exact pe acela, nu întregul dosar străin.</li>
+<li><b>Proveniența fiecărui document.</b> IA află la fiecare document de unde
+provine: dacă vine de la partea adversă sau de la o autoritate, afirmațiile
+lui trebuie mai întâi verificate critic; dacă provine de la client, redă
+punctul de vedere al acestuia.</li>
 <li><b>Fără mers în gol pe banii dumneavoastră.</b> Dacă o IA de desktop încearcă să
 reîncarce date pe care le are deja neschimbate, apelul este refuzat — tokenii și timpul
 merg în muncă, nu în repetiție.</li>
 </ul>
 <div class="box"><b>Și nu sunteți legați de niciun furnizor de IA.</b> IA
-încorporată rulează pe <b>Gemini, Qwen, Kimi, ChatGPT și Claude</b> — cinci
-secțiuni identice în configurator. Gemini nu are nevoie de nicio cheie API: o
-singură autentificare cu contul Google și rulează pe planul dumneavoastră
-Google AI (Windows). <b>Iar <span class="irs">IRONSTICK</span> vă economisește banii singur:</b> fiecare
-furnizor configurat este folosit automat, cel mai ieftin primul — Gemini, apoi
-Qwen, Kimi, ChatGPT, Claude. La fiecare pornire programul verifică care dintre
+încorporată rulează pe <b>Qwen, Kimi, ChatGPT și Claude</b> — patru
+secțiuni identice în configurator. <b>Iar <span class="irs">IRONSTICK</span> vă economisește banii singur:</b> fiecare
+furnizor configurat este folosit automat, cel mai ieftin primul — Qwen, apoi
+Kimi, ChatGPT, Claude. La fiecare pornire programul verifică care dintre
 ei răspund; dacă în cursul zilei se epuizează o cotă sau un credit, continuă
 în tăcere cu următorul și verifică din nou a doua zi. Fără selector, fără
 întreruperi, fără muncă pierdută. Partea desktop oferă Claude, ChatGPT, Qwen
-și Kimi. Dacă un furnizor dezamăgește la preț, politici sau performanță, îi
+și Kimi.
+<b>Muncă de fundal la cost zero:</b> pentru sarcinile care rulează în fundal
+fără intervenția dumneavoastră — rezumate, triajul e-mailurilor și altele
+asemenea — puteți configura în plus ofertele gratuite ale <b>Groq, OpenRouter
+și Mistral</b> și le puteți activa și dezactiva pe fiecare în parte. Pentru chat
+și acte de procedură nu sunt folosite niciodată. Deoarece în acest caz datele
+ajung la acești furnizori, configuratorul vă atrage atenția la fiecare dintre ei
+să le verificați temeinic termenii și condițiile din perspectiva GDPR. Dacă un furnizor dezamăgește la preț, politici sau performanță, îi
 ștergeți pur și simplu cheia — porțile, și deci standardul livrat, rămân
 identice.</div>
 <h3>Calea <span class="irs">IRONSTICK</span></h3>
@@ -1293,7 +1311,7 @@ module suplimentare licențiate separat față de aplicația de bază; Central S
 App necesită o licență Office Server activă.</li>
 <li><b>Abonament la furnizorul IA:</b> un Bridge rulează pe propriul abonament la
 furnizor (Claude, ChatGPT, Qwen sau Kimi) — chatul IA integrat nu are nevoie de
-o licență Bridge suplimentară și oferă în plus Google Gemini.</li>
+o licență Bridge suplimentară.</li>
 <li><b>Instruirea</b> se licențiază separat în trei module la fața locului
 (aplicație · aplicație + office server · Bridge-uri IA în profunzime).</li>
 </ul><p><b>Descărcați software-ul:</b> Client-App, Bridges, Office-Server și Central Scan App sunt disponibile pe <a href="download_ro.html">pagina de descărcare</a> — unde găsiți și ordinea de instalare, regulile de licențiere și modelul pentru solicitarea cheilor de licență.</p></div><div class="site-foot"><h2 id="contact">Contact</h2><p>Interesat de <span class="irs">IRONSTICK</span> sau de o demonstrație? Scrieți-ne.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.</p><p class="pref">Contactați direct prin WhatsApp sau Telegram — și un apel este binevenit. Limbi vorbite: germană, engleză, română.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>

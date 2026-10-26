@@ -50,9 +50,9 @@ Moonshot AI, OpenAI und/oder Anthropic), die der Benutzer gesondert prüfen muss
 <h2>1. Geltungsbereich und Endpunkte</h2>
 <img class="flow" src="img/65_ai_client_vault.png" alt="KI-API, KI-Desktop-App und MCP-Server links, der IRONSTICK Client in der Mitte, Daten-Tresor mit AES-256, IRONSTICK Server und Scan-App rechts">
 <p>Externe KI-Aufrufe innerhalb der App gehen an <b>den Anbieter, den die automatische Kaskade
-in diesem Moment verwendet</b>. Der Benutzer kann bis zu fünf Anbieter einrichten; jeder
+in diesem Moment verwendet</b>. Der Benutzer kann bis zu vier Anbieter einrichten; jeder
 eingerichtete Anbieter wird automatisch in dieser festen, kostensparenden
-Reihenfolge verwendet: <b>Gemini (Google) → Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+Reihenfolge verwendet: <b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
 ChatGPT (OpenAI) → Claude (Anthropic)</b>. Bei jedem Programmstart prüft <span class="irs">IRONSTICK</span>,
 welche von ihnen antworten; läuft im Laufe des Tages ein Kontingent oder Guthaben aus oder
 antwortet ein Anbieter nicht mehr, wird genau dieselbe Anfrage beim nächsten
@@ -68,24 +68,36 @@ der eigene API-Schlüssel des Benutzers.</li>
 (Alibaba Cloud Model Studio, internationale Region), der eigene API-Schlüssel des Benutzers.</li>
 <li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
 (Moonshot AI), der eigene API-Schlüssel des Benutzers.</li>
-<li><b>Gemini (nur Windows):</b> kein API-Schlüssel. <span class="irs">IRONSTICK</span> steuert Googles eigenen,
-unveränderten Kommandozeilen-Client (Google Antigravity CLI) als verborgenen lokalen
-Prozess; der Client ist mit dem <b>Google-Konto</b> des Benutzers angemeldet
-(Googles eigener Anmeldedialog — <span class="irs">IRONSTICK</span> sieht weder Passwort noch Code) und
-sendet die Anfrage im Rahmen des Google-KI-Tarifs des Benutzers an Google. Der Client erhält
-keinen Zugriff auf die Werkzeuge oder Dateien von <span class="irs">IRONSTICK</span>; er läuft in einem leeren Arbeitsordner
-mit einem privaten Profilordner innerhalb des Datenverzeichnisses, und seine lokalen
-Gesprächsaufzeichnungen und Protokolle werden nach jedem Aufruf gelöscht.</li>
 </ul>
-<div class="box warn"><b>Gemini über ein Google-Konto ist ein Verbraucherdienst,
-kein Kanal der Auftragsverarbeitung.</b> Nach den Nutzungsbedingungen von Google
-Antigravity darf Google Interaktionen zur Verbesserung seiner Produkte und
-Technologien des maschinellen Lernens verwenden, und Mitarbeiter von Google dürfen sie überprüfen, sofern der
-Benutzer dies nicht in den Einstellungen von Google Antigravity abschaltet; für diesen Pfad besteht
-kein Auftragsverarbeitungsvertrag. <span class="irs">IRONSTICK</span> übermittelt denselben
-pseudonymisierten Inhalt wie auf den API-Pfaden, doch eine Kanzlei, deren Berufsrecht
-für jeden Auftragsverarbeiter einen Auftragsverarbeitungsvertrag verlangt, sollte Gemini
-nicht einrichten — ein nicht eingerichteter Anbieter wird von der Kaskade niemals verwendet.</div>
+<p><b>Kostenlose Hintergrund-Anbieter (optional).</b> Zusätzlich kann der Benutzer
+die kostenlosen Angebote von <b>Groq</b>, <b>OpenRouter</b> und <b>Mistral</b>
+hinterlegen. <span class="irs">IRONSTICK</span> verwendet sie ausschließlich für Aufgaben, die im Hintergrund
+laufen: E-Mail-Triage, Datenmonitor, Tagesbriefing, Dialog-Zusammenfassung,
+Sprecherzuordnung bei Transkriptionen, Abruf von Gesetzestexten und Lagebild. Jeder
+dieser Anbieter hat in der Konfiguration einen eigenen Schalter EIN/AUS; verwendet wird
+er nur, wenn ein Schlüssel hinterlegt und sein Schalter auf EIN steht. Für den Chat, für
+Schriftsätze und für die Red/Blue Team-Prüfung werden sie <b>nie</b> verwendet. Steht
+keiner von ihnen zur Verfügung, übernimmt die oben beschriebene Kaskade.
+Pseudonymisierung, Zustimmung und Audit-Protokoll richten sich nach der jeweiligen
+Aufgabe (Abschnitt 4). Die Endpunkte sind:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+</ul>
+<div class="box warn"><b>Kostenlose Angebote — Hinweis in der Konfiguration.</b> Unter
+jedem dieser Anbieter steht wörtlich: „VORSICHT: Es handelt sich hierbei um ein
+kostenloses Angebot des Anbieters &lt;Anbieter&gt;. Dieser Anbieter wird, sofern Sie den
+API-Key hinterlegen und den Schalter auf ON stellen, von <span class="irs">IRONSTICK</span> genutzt, um
+Hintergrundaufgaben wie Zusammenfassungen, E-Mail-Triage usw. zu erledigen. Dabei gehen
+unweigerlich Daten an diesen Anbieter. Lesen Sie sich deren AGB hinsichtlich DSGVO
+gründlich durch." Eine Kanzlei, deren Berufsrecht für jeden Auftragsverarbeiter einen
+Auftragsverarbeitungsvertrag verlangt, sollte diese Schalter erst nach Prüfung der
+Bedingungen des jeweiligen Anbieters einschalten — ein ausgeschalteter Anbieter wird
+niemals verwendet.</div>
 <p>Je Anbieter werden drei konfigurierbare Modellstufen verwendet (klein / mittel /
 groß). Ein separater, optionaler Kanal ist die
 <b>Desktop-KI-Bridge</b> (Abschnitt 4.9): Dort fließen Daten in die eigene
@@ -101,8 +113,7 @@ von der Kanzlei selbst betrieben, auf der eigenen Hardware der Kanzlei, innerhal
 eigenen Netzwerks der Kanzlei — er kontaktiert niemals den Hersteller und niemals einen KI-Anbieter.</p>
 <div class="box"><b>Der Hauptschalter ist der eigene Zugang des Benutzers.</b> Externe
 KI-Verarbeitung innerhalb der App gibt es nur, wenn der Benutzer ein eigenes Konto
-bei einem KI-Anbieter eröffnet und seinen eigenen Zugangsschlüssel in der Konfiguration eingetragen hat
-(für Gemini: sich mit seinem Google-Konto angemeldet hat).
+bei einem KI-Anbieter eröffnet und seinen eigenen Zugangsschlüssel in der Konfiguration eingetragen hat.
 <b>Ohne eingerichteten Anbieter kann überhaupt kein externer KI-Aufruf innerhalb der App erfolgen</b> — jede
 in Abschnitt 4 beschriebene Funktion bleibt dann lokal oder ist schlicht nicht verfügbar. Dieses
 Konto ist ein unmittelbarer Vertrag zwischen dem Benutzer und dem Anbieter; <span class="irs">IRONSTICK</span> ist
@@ -209,12 +220,12 @@ Benutzers).</li>
 </ul>
 
 <h3>4.2 E-Mail-Monitor (Triage)</h3>
-<p>Die Fallzuordnung erfolgt zunächst deterministisch (Fallnummer oder bekannte Registernummer
-im Betreff/Textauszug gefunden — kein KI-Aufruf). Andernfalls erfolgt <b>ein Aufruf der kleinen Stufe pro
-E-Mail</b> mit genau: Name und Adresse des Absenders, Betreff und dem gespeicherten
-Vorschau-Auszug (fest begrenzt auf 1.500 Zeichen) — <b>niemals dem vollständigen Nachrichtentext</b> —
-zuzüglich der vollständigen Fallliste (durch Platzhalter ersetzt) als Abgleichskontext. Antwort: Priorität +
-Fallnummer. Im E-Mail-Screen steht dies einmal pro Sitzung unter dem Vorbehalt der Zustimmung; im
+<p>Die Fallzuordnung erfolgt <b>lokal und ohne KI</b>. Für die Einschätzung der
+Dringlichkeit erfolgt <b>ein Aufruf der kleinen Stufe pro E-Mail</b> mit genau: Name und
+Adresse des Absenders, Betreff und dem gespeicherten Vorschau-Auszug als reinem Text (fest
+begrenzt auf 1.500 Zeichen) — <b>niemals dem vollständigen Nachrichtentext</b>, keinen
+Anhängen und <b>keiner Fallliste</b>. Antwort: Priorität + Begründung. Sind kostenlose
+Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann dieser Aufruf über diese laufen. Im E-Mail-Screen steht dies einmal pro Sitzung unter dem Vorbehalt der Zustimmung; im
 <b>Hintergrundbetrieb läuft es ohne Dialog</b> (die Aktivierung des Monitors ist
 die Zustimmung). In beiden Modi pseudonymisiert und im Audit-Protokoll erfasst.</p>
 <p><b>Keine Tracking-Pixel.</b> Das Öffnen einer E-Mail im Monitor kontaktiert niemals
@@ -266,13 +277,16 @@ Protokolle verlassen den Rechner nur als Werkzeugergebnisse des Chats/der Deskto
 (begrenzte Auszüge) oder innerhalb des KI-Instruktionspakets (Abschnitt 5).</p>
 
 <h3>4.5 Datenmonitor</h3>
-<p>Phase 1 (E-Mail ↔ Stammdaten) ist vollständig deterministisch. Phase 2 sendet einen
-Aufruf der kleinen Stufe (pseudonymisiert, im Audit-Protokoll erfasst, <b>kein Dialog</b>, gedrosselt auf neue
-eingehende Dokumente), der Folgendes enthält: <b>sämtliche gespeicherten Stammdatensätze zu Institutionen und Personen/Entitäten</b>
-des Inhabers (IDs, Namen, Kontaktdaten, CNP — durch Platzhalter ersetzt, soweit
-im Wörterbuch vorhanden; Namen von Institutionen im Klartext), alle Parteinamen aus Fällen sowie deduplizierte <b>Kontaktbereich-Auszüge</b> (±~100 Zeichen
-um Adress-/Telefon-/Steuermerkmale) aus den Volltexten eingehender Dokumente, begrenzt auf
-insgesamt 130.000 Zeichen. Die Antwort wird stets nur zu einem Vorschlag, den der
+<p>Phase 1 (E-Mail ↔ Stammdaten) ist vollständig deterministisch. Phase 2 sendet
+<b>je neuem eingehendem Dokument einen Aufruf</b> der kleinen Stufe (pseudonymisiert, im
+Audit-Protokoll erfasst, <b>kein Dialog</b>), der Folgendes enthält: die deduplizierten
+<b>Kontaktbereich-Auszüge</b> (±~100 Zeichen um Adress-/Telefon-/Steuermerkmale) aus dem
+Volltext <b>dieses</b> Dokuments, die Parteinamen dieses Dokuments und seines Falls sowie zu
+jeder Partei die <b>Namen</b> möglicher Treffer aus den gespeicherten Stammdaten (durch
+Platzhalter ersetzt, soweit im Wörterbuch vorhanden; Namen von Institutionen im Klartext).
+<b>Kontaktdaten und CNP aus den gespeicherten Stammdaten werden nicht übermittelt.</b> Sind
+kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann dieser Aufruf über diese
+laufen. Die Antwort wird stets nur zu einem Vorschlag, den der
 Benutzer im Monitor annehmen muss.</p>
 
 <h3>4.6 Textverarbeitung (KI-Unterstützung im Text)</h3>
@@ -303,12 +317,14 @@ gleichermaßen —, von demselben Anbieter ein weiteres Mal aus Sicht des gegner
 des Falls; pseudonymisiert über den Router und im Audit-Protokoll erfasst wie jeder Router-Aufruf;
 kein gesonderter Dialog — der Schalter ist die Zustimmung; höchstens zwei Runden je
 Datei, nach der zweiten Runde wird die Datei in jedem Fall übergeben, wobei der
-Bericht des Prüfers für den Benutzer beigefügt wird. <b>Dialog-Zusammenfassung:</b> in langen Chat-Sitzungen
+Bericht des Prüfers für den Benutzer beigefügt wird. Die Red/Blue Team-Prüfung läuft
+<b>nie</b> über die kostenlosen Hintergrund-Anbieter (Abschnitt 1). <b>Dialog-Zusammenfassung:</b> in langen Chat-Sitzungen
 wird der ältere Teil des Dialogs (nur die Fragen des Benutzers und die
 endgültigen Antworten des Modells, niemals Werkzeugergebnisse) vom aktiven Anbieter
 (kleine Stufe, im Hintergrund) zu einer Zusammenfassung von 2.000 Zeichen verdichtet, die den Rohverlauf
 ersetzt; sie wird verschlüsselt im Zwischenspeicher abgelegt und jedes Mal
-überschrieben.</p>
+überschrieben. Sind kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann die
+Zusammenfassung über diese laufen.</p>
 
 <h3>4.8 KI-Chat (extern, API)</h3>
 <p>Zustimmung einmal pro Chat-Sitzung; mittlere Stufe mit automatischer Eskalation zur
@@ -351,6 +367,10 @@ einreichungsfähige Vorlagen und benötigt daher echte Namen und Nummern.</div>
 <li>Die Desktop-KI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop oder Kimi Desktop)
 verbindet sich über eine lokale Bridge mit der laufenden App; die Verbindung verlässt den
 Rechner nicht.</li>
+<li><b>Websites mit Zugangsprüfung.</b> Verlangt eine Website eine Bestätigung, bevor sie
+ihre Inhalte freigibt, öffnet <span class="irs">IRONSTICK</span> die Seite in einem eigenen Fenster; der
+Benutzer bestätigt dort selbst. Den Inhalt der Seite liest anschließend die Desktop-KI —
+er fließt wie jedes andere Werkzeugergebnis an ihren Anbieter.</li>
 <li>Beim ersten Datenzugriff je Programmlauf zeigt <span class="irs">IRONSTICK</span> ein blockierendes
 Zustimmungs-Modal an; eine Ablehnung sperrt den Kanal für 10 Minuten. Nach der Freigabe ist der Kanal
 für den Rest des Programmlaufs geöffnet.</li>
@@ -442,7 +462,8 @@ die Zahl der Sprecher. Die Aufrufe laufen über den Router — pseudonymisiert, 
 Vorbehalt der Zustimmung, im Audit-Protokoll erfasst. Die Antwort darf den Text nicht
 verändern: jede Zeile wird gegen den erkannten Text geprüft; scheitert ein Block, wird
 das Transkript ohne Sprecherzuordnung übernommen. Bei nur einem Sprecher findet kein
-KI-Aufruf statt.</p>
+KI-Aufruf statt. Sind kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), können
+diese Aufrufe über diese laufen.</p>
 
 <h2>5. Das KI-Instruktionspaket (Export-ZIP)</h2>
 <img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, Benutzer mit MD-Dateien und ZIP-Archiv, KI-Web-App">
@@ -486,13 +507,13 @@ Fall-Dossiers ausgenommen.</p>
 <table>
 <tr><th>Datenfluss</th><th>Was abfließt (Form)</th><th>Pseudonymisiert</th><th>Eigener Zustimmungsdialog</th><th>Audit-Protokoll</th></tr>
 <tr><td>Dokumentenerfassung (4 Aufrufe)</td><td>OCR-/Dokumenttext ≤30k, Fall-/Namenslisten</td><td class="yes">ja</td><td>ja — einmal pro Programmlauf</td><td class="yes">ja</td></tr>
-<tr><td>E-Mail-Triage (Bildschirmansicht)</td><td>Absender/Betreff/Textauszug ≤1.5k + Fallliste</td><td class="yes">ja</td><td>ja — einmal pro Sitzung</td><td class="yes">ja</td></tr>
+<tr><td>E-Mail-Triage (Bildschirmansicht)</td><td>Absender/Betreff/Textauszug ≤1.5k (keine Fallliste)</td><td class="yes">ja</td><td>ja — einmal pro Sitzung</td><td class="yes">ja</td></tr>
 <tr><td>E-Mail-Triage (Hintergrund)</td><td>ebenso</td><td class="yes">ja</td><td class="no">nein (Monitor-Schalter = Zustimmung)</td><td class="yes">ja</td></tr>
 <tr><td>Personenrecherche Stufe 1</td><td>Klarname (Websuche)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Sitzung</td><td class="yes">ja (im Klartext)</td></tr>
 <tr><td>Personenrecherche Stufe 2/3</td><td>Seitentexte ≤8k / ≤6k pro Quelle</td><td class="yes">ja</td><td>dieselbe Zustimmung</td><td class="yes">ja</td></tr>
 <tr><td>Automatisches Ausfüllen Person/Institution</td><td>eingegebener Name (Websuche)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Sitzung</td><td class="yes">ja (im Klartext)</td></tr>
 <tr><td>KI-Import Tagesprotokoll</td><td>eingefügter Rohtext ≤200k</td><td class="yes">ja</td><td>ja</td><td class="yes">ja</td></tr>
-<tr><td>Konsistenzmonitor</td><td>Stammdatensätze + Kontaktabschnitte ≤130k</td><td class="yes">ja (Institutionsnamen im Klartext)</td><td class="no">nein (gedrosselter Hintergrundprozess)</td><td class="yes">ja</td></tr>
+<tr><td>Konsistenzmonitor</td><td>je neuem Dokument: dessen Kontaktabschnitte + Namen möglicher Treffer (keine Kontaktdaten/CNP aus den Stammdaten)</td><td class="yes">ja (Institutionsnamen im Klartext)</td><td class="no">nein (gedrosselter Hintergrundprozess)</td><td class="yes">ja</td></tr>
 <tr><td>Textverarbeitung: Überarbeiten / Strukturieren</td><td>Auswahl + 6k Kontext / Dokumentzeilen ≤40k</td><td class="yes">ja</td><td class="no">nein (Schaltfläche = Zustimmung)</td><td class="no">nein</td></tr>
 <tr><td>Vorverarbeitung für das Vorlesen</td><td>jeder Satz, Klartext</td><td class="no">nein</td><td class="no">nein (Start = Zustimmung)</td><td class="no">nein</td></tr>
 <tr><td>Red-/Blue-Team-Prüfung (API)</td><td>Entwurfstext + Datum + Rechtsraum, pro Runde (max. 2)</td><td class="yes">ja</td><td class="no">nein (Schalter = Zustimmung)</td><td class="yes">ja</td></tr>
@@ -502,6 +523,7 @@ Fall-Dossiers ausgenommen.</p>
 <tr><td>KI-Chat (extern)</td><td>Prompt + GUI-Kontext + Gedächtnis + 6k Verlaufsende + 2k Zusammenfassung + Werkzeugergebnisse ≤10k/Element</td><td class="yes">ja</td><td>ja — einmal pro Sitzung</td><td class="yes">ja</td></tr>
 <tr><td>Desktop-KI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>unverarbeitete Werkzeugergebnisse (vollständige Falldaten)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Programmlauf, 10-minütige Sperre bei Ablehnung</td><td class="no">nein (App-seitig)</td></tr>
 <tr><td>Audio-Transkription: Sprecherzuordnung</td><td>erkannter Text, je Aufruf ≤60 Zeilen + 12 Zeilen Kontext — die Aufnahme nie</td><td class="yes">ja</td><td>ja</td><td class="yes">ja</td></tr>
+<tr><td>Kostenlose Hintergrund-Anbieter (Groq, OpenRouter, Mistral) — nur wenn eingeschaltet</td><td>dieselben Inhalte wie die jeweilige Hintergrundaufgabe; nie Chat, Schriftsatz oder Red/Blue Team</td><td>wie die jeweilige Aufgabe</td><td class="no">nein (Schalter je Anbieter = Zustimmung)</td><td class="yes">ja</td></tr>
 <tr><td>KI-Instruktions-ZIP</td><td>Kanzleiexport im Klartext (vom Benutzer veranlasster Upload)</td><td class="no">nein</td><td>Warnung einmal pro Programmlauf</td><td>entfällt</td></tr>
 </table>
 
@@ -768,10 +790,10 @@ Erklärungen jeder Struktur eingefügt werden kann.</p>
 eingerichteten KI-Anbieters bereit, nennen Sie in der Klausel nur die Anbieter,
 die Sie tatsächlich nutzen, und prüfen Sie den Satz zu Training und
 Aufbewahrung anhand der Bedingungen, die Sie tatsächlich unterzeichnet haben.
-Die nachstehende Klausel deckt Gemini über ein Google-Konto <b>nicht</b> ab
-(ein Verbraucherdienst ohne einen solchen Vertrag, Abschnitt 1) — wenn Sie
-diesen Weg einrichten, bedarf es einer eigenen Formulierung und in der Regel der
-ausdrücklichen Zustimmung des Mandanten.</li>
+Die kostenlosen Hintergrund-Anbieter (Groq, OpenRouter, Mistral, Abschnitt 1)
+deckt die Klausel nur über den dort in Klammern gesetzten optionalen Satz ab —
+schalten Sie diese nur ein, wenn deren Bedingungen Ihren berufsrechtlichen
+Anforderungen genügen, und streichen Sie den Satz, wenn Sie sie nicht nutzen.</li>
 <li>Behalten Sie den in Klammern gesetzten Satz zum KI-Arbeitsbereich nur bei,
 wenn Sie die Desktop-KI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen
 Desktop oder Kimi Desktop) tatsächlich nutzen; andernfalls streichen Sie ihn.</li>
@@ -798,7 +820,11 @@ Auftragsverarbeitungsvereinbarung verarbeitet. Wir nutzen diese Funktionen für:
 die Klassifizierung und Erfassung eingehender Dokumente, die Priorisierung
 eingehender E-Mails, die Prüfung unserer Datenbestände auf Unstimmigkeiten,
 das Entwerfen und Prüfen juristischer Dokumente sowie für juristische Analyse
-und Recherche.</p>
+und Recherche. [Optional — streichen, falls nicht genutzt: Für Aufgaben, die im
+Hintergrund laufen, etwa die Priorisierung eingehender E-Mails, die Prüfung unserer
+Datenbestände und Zusammenfassungen, können zusätzlich die kostenlosen Dienste von Groq,
+OpenRouter oder Mistral eingesetzt werden; deren Bedingungen haben wir vor dem Einschalten
+geprüft.]</p>
 <p><b>Schutzmaßnahmen.</b> Vor jeder Übermittlung ersetzt die Software die in
 unserem System gespeicherten direkten Identifikatoren — Namen,
 Personenkennziffern, Telefonnummern, E-Mail-Adressen, Postanschriften,
@@ -839,8 +865,7 @@ Version wieder. Die Verarbeitung durch den KI-Anbieter selbst — Aufbewahrung,
 Verwendung für Training, Unterauftragsverarbeiter, Rechtsordnung — richtet sich
 ausschließlich nach den Bedingungen des Anbieters; die Links zu den
 Nutzungsbedingungen und Datenschutzerklärungen jedes Anbieters stehen im
-jeweiligen Abschnitt der KI-Konfiguration (Google Antigravity:
-antigravity.google/terms; Alibaba Cloud: alibabacloud.com/help/en/legal;
+jeweiligen Abschnitt der KI-Konfiguration (Groq: groq.com/terms-of-use; OpenRouter: openrouter.ai/terms; Mistral: legal.mistral.ai/terms/commercial-terms-of-service; Alibaba Cloud: alibabacloud.com/help/en/legal;
 Moonshot AI: platform.kimi.ai/docs/agreement; OpenAI: openai.com/policies).
 Für die Dienste von Anthropic sind in ihrer jeweils aktuellen Fassung
 maßgeblich: die Commercial Terms of Service

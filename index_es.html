@@ -231,8 +231,8 @@ mientras usted se sirve tranquilamente un café.</p>
 cuando algo vence, roja cuando es crítico — visible permanentemente, un clic
 hasta la lista completa.</li>
 <li><b>Correo ya clasificado.</b> El monitor recupera su bandeja de entrada en
-segundo plano, asigna los correos a los casos (un número de registro conocido se
-empareja sin IA alguna) y prioriza el resto. El correo nuevo se anuncia en la
+segundo plano y asigna los correos a los casos de forma local y sin IA alguna;
+la IA solo evalúa ya la urgencia. El correo nuevo se anuncia en la
 barra de menú.</li>
 <li><b>Casos en silencio y repuntes.</b> Los casos sin actividad durante 14 días
 se listan para que nada muera en silencio; los casos que de repente se calientan
@@ -431,7 +431,8 @@ probatorios, sellos y números de página en lugar de carpetas:</p>
 <ul>
 <li><b>Captura con precumplimentación por IA.</b> Suelte un PDF escaneado en la
 bandeja de entrada: se ejecuta el OCR, la IA propone título, tipo, partes,
-asignación de caso, fecha y plazo — usted confirma en lugar de teclear. Cada
+asignación de caso, fecha y plazo, y además <span class="irs">IRONSTICK</span> reconoce
+por sí mismo el caso correspondiente — usted confirma en lugar de teclear. Cada
 archivo registrado recibe una <b>huella de integridad</b> criptográfica, de modo
 que una manipulación posterior es demostrable.</li>
 <li><b>Sellado y paginación.</b> Fusión, numeración Bates, sellos de expediente,
@@ -579,6 +580,10 @@ aprende sobre un mandato se conserva en una <b>memoria de IA compartida</b> —
 compacta, vinculada al cliente, visible y borrable solo por usted. Y usted
 siempre ve lo que ocurre: cada vez que una IA lee su expediente, su símbolo se
 ilumina en la barra de menú.</p>
+<p><b>Sitios web con verificación de acceso.</b> Si un sitio web exige una
+confirmación antes de mostrar su contenido, <span class="irs">IRONSTICK</span> abre la
+página en una ventana propia: usted confirma allí, y el trabajo con la
+página continúa sin interrupciones.</p>
 <div class="box">El primer acceso por cada ejecución del programa requiere su
 consentimiento explícito; los documentos marcados como secretos son invisibles en
 este canal; las sugerencias de la IA nunca escriben en sus registros — esperan su
@@ -683,6 +688,10 @@ que una verificación reciente de exactamente ese estado del expediente haya
 resultado en verde — cada edición anula la certificación, y cinco rondas
 fallidas abortan el bucle y le avisan. Todo documento entregado lleva su sello
 de verificación.</li>
+<li><b>Sin cambios silenciosos tras la entrega.</b> Una corrección en un documento
+ya entregado nunca se incorpora en silencio: la versión anterior se anula de
+forma visible y se crea una nueva versión. Sus correcciones se tienen en cuenta
+en la verificación.</li>
 <li><b>Sin puertas laterales.</b> Una carta declarada &ldquo;informal&rdquo; se
 somete a control de contenido y se reencamina por las compuertas formales;
 renombrar un documento para reiniciar su recuento de versiones se rechaza; el
@@ -695,21 +704,30 @@ sí mismo en el acto.</li>
 <li><b>Citas más allá de los límites del caso.</b> Si una cita procede de un documento
 de otro caso, el verificador la encuentra en todo el archivo y nombra el documento exacto
 — la IA lee exactamente ese, no todo el expediente ajeno.</li>
+<li><b>El origen de cada documento.</b> La IA sabe de cada documento de dónde
+procede: si viene de la parte contraria o de una autoridad, sus afirmaciones
+deben examinarse primero de forma crítica; si procede del cliente, refleja el
+punto de vista de este.</li>
 <li><b>Sin marcha en vacío a su costa.</b> Si una IA de escritorio intenta volver a
 cargar datos que ya tiene sin cambios, la llamada se rechaza — los tokens y el tiempo se
 dedican al trabajo, no a la repetición.</li>
 </ul>
 <div class="box"><b>Y usted nunca queda atado a un único proveedor de IA.</b> La
-IA integrada funciona con <b>Gemini, Qwen, Kimi, ChatGPT y Claude</b> — cinco
-secciones de aspecto idéntico en el configurador. Gemini no necesita clave de
-API alguna: un inicio de sesión con su cuenta de Google y funciona con su plan
-de Google AI (Windows). <b>Y <span class="irs">IRONSTICK</span> le ahorra dinero por sí solo:</b> cada
+IA integrada funciona con <b>Qwen, Kimi, ChatGPT y Claude</b> — cuatro
+secciones de aspecto idéntico en el configurador. <b>Y <span class="irs">IRONSTICK</span> le ahorra dinero por sí solo:</b> cada
 proveedor que haya configurado se utiliza automáticamente, el más barato primero
-— Gemini, luego Qwen, Kimi, ChatGPT, Claude. En cada arranque el programa
+— Qwen, luego Kimi, ChatGPT, Claude. En cada arranque el programa
 comprueba cuáles de ellos responden; si una cuota o un crédito se agota durante
 el día, continúa en silencio con el siguiente y vuelve a comprobar al día
 siguiente. Sin selector, sin interrupción, sin trabajo perdido. En el lado de
-escritorio se ofrecen Claude, ChatGPT, Qwen y Kimi. Si un proveedor decepciona
+escritorio se ofrecen Claude, ChatGPT, Qwen y Kimi.
+<b>Trabajo en segundo plano a coste cero:</b> para las tareas que se ejecutan en
+segundo plano sin su intervención — resúmenes, clasificación del correo y
+similares — puede configurar además las ofertas gratuitas de <b>Groq, OpenRouter y
+Mistral</b> y activar o desactivar cada una por separado. Nunca se utilizan para el
+chat ni para los escritos. Como con ello se transmiten datos a estos proveedores,
+el configurador advierte en cada uno de que deben revisarse a fondo sus
+condiciones generales en lo relativo al RGPD. Si un proveedor decepciona
 en precio, política o rendimiento, usted simplemente elimina su clave — las
 compuertas, y por tanto el estándar entregado, permanecen idénticas.</div>
 <h3>La vía <span class="irs">IRONSTICK</span></h3>
@@ -1320,8 +1338,7 @@ complementos licenciados por separado de la aplicación base; la Central Scan Ap
 requiere una licencia de Office Server activa.</li>
 <li><b>Suscripción al proveedor de IA:</b> un Bridge funciona con su propia
 suscripción con el proveedor (Claude, ChatGPT, Qwen o Kimi) — el chat de IA
-integrado no necesita ninguna licencia de Bridge adicional y ofrece además
-Google Gemini.</li>
+integrado no necesita ninguna licencia de Bridge adicional.</li>
 <li><b>La formación</b> se licencia por separado en tres módulos presenciales
 (app · app + servidor de despacho · Bridges de IA en profundidad).</li>
 </ul><p><b>Descargar el software:</b> Client-App, Bridges, Office Server y Central Scan App están disponibles en la <a href="download_es.html">página de descargas</a> — donde también encontrará el orden de instalación, las reglas de licencia y la plantilla para solicitar las claves de licencia.</p></div><div class="site-foot"><h2 id="contact">Contacto</h2><p>¿Le interesa <span class="irs">IRONSTICK</span> o una demostración? Escríbanos.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Escanee el código para guardar nuestra tarjeta de contacto — teléfono, e-mail y sitio web.</p><p class="pref">Contacte directamente por WhatsApp o Telegram — también es bienvenida una llamada. Idiomas hablados: alemán, inglés, rumano.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> es software para la práctica jurídica. Este sitio tiene únicamente fines informativos y no constituye asesoramiento jurídico.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>

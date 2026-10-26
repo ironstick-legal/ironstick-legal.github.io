@@ -228,8 +228,8 @@ de la journée — pendant que vous allez tranquillement vous chercher un café.
 l'orange lorsqu'une échéance approche, au rouge lorsqu'elle est critique —
 visible en permanence, à un clic de la liste complète.</li>
 <li><b>Courriel déjà trié.</b> Le moniteur récupère votre boîte de réception en
-arrière-plan, affecte les courriels aux dossiers (un numéro de rôle connu est
-apparié sans aucune IA) et priorise le reste. Le nouveau courrier s'annonce dans
+arrière-plan et affecte les courriels aux dossiers localement et sans aucune IA ;
+l'IA n'évalue plus que l'urgence. Le nouveau courrier s'annonce dans
 la barre de menu.</li>
 <li><b>Dossiers dormants et regains d'activité.</b> Les dossiers sans activité
 depuis 14 jours sont répertoriés pour que rien ne s'éteigne en silence ; les
@@ -428,7 +428,8 @@ numéros de page plutôt qu'en dossiers :</p>
 <ul>
 <li><b>Saisie avec préremplissage par l'IA.</b> Déposez un PDF scanné dans la
 boîte de réception : l'OCR s'exécute, l'IA propose le titre, le type, les
-parties, l'affectation au dossier, la date et le délai — vous confirmez au lieu
+parties, l'affectation au dossier, la date et le délai, et <span class="irs">IRONSTICK</span>
+identifie en outre lui-même le dossier concerné — vous confirmez au lieu
 de saisir. Chaque fichier saisi reçoit une <b>empreinte d'intégrité</b>
 cryptographique, de sorte qu'une manipulation ultérieure est prouvable.</li>
 <li><b>Tamponnage &amp; pagination.</b> Fusion, numérotation Bates, tampons de
@@ -576,6 +577,10 @@ mandat est conservé dans une <b>mémoire d'IA partagée</b> — compacte, ratta
 au client, visible et effaçable par vous seul. Et vous voyez toujours ce qui se
 passe : chaque fois qu'une IA lit votre dossier, son symbole s'allume dans la
 barre de menu.</p>
+<p><b>Sites web avec contrôle d'accès.</b> Lorsqu'un site web exige une
+confirmation avant de libérer son contenu, <span class="irs">IRONSTICK</span> ouvre la
+page dans une fenêtre dédiée : vous y confirmez, et le travail sur la
+page se poursuit sans interruption.</p>
 <div class="box">Le premier accès à chaque exécution du programme requiert votre
 consentement explicite ; les documents marqués secrets sont invisibles sur ce
 canal ; les suggestions de l'IA n'écrivent jamais dans vos enregistrements —
@@ -677,6 +682,10 @@ refusée tant qu'une vérification fraîche de cet état exact du dossier n'est 
 revenue au vert — chaque modification annule l'attestation, et cinq tours en
 échec interrompent la boucle et vous en avertissent. Chaque document remis
 porte son tampon de vérification.</li>
+<li><b>Aucune modification silencieuse après la remise.</b> Une correction apportée
+à un document remis n'y est jamais intégrée en silence : l'ancienne version est
+visiblement invalidée et une nouvelle version est créée. Vos corrections sont
+alors prises en compte dans la vérification.</li>
 <li><b>Aucune porte dérobée.</b> Une lettre déclarée &ldquo;informelle&rdquo;
 est contrôlée quant à son contenu et réacheminée par les portes formelles ;
 renommer un document pour réinitialiser son compteur de versions est refusé ;
@@ -689,22 +698,31 @@ sur-le-champ.</li>
 <li><b>Citations au-delà des limites du dossier.</b> Si une citation provient d'un
 document d'un autre dossier, le vérificateur la retrouve dans l'ensemble du fonds et nomme
 le document exact — l'IA lit exactement celui-ci, pas tout le dossier étranger.</li>
+<li><b>Provenance de chaque document.</b> Pour chaque document, l'IA apprend d'où
+il provient : s'il émane de la partie adverse ou d'une autorité, ses affirmations
+doivent d'abord être examinées de manière critique ; s'il émane du client, il
+reflète le point de vue de celui-ci.</li>
 <li><b>Pas de marche à vide à vos frais.</b> Si une IA de bureau tente de recharger des
 données qu'elle possède déjà sans changement, l'appel est refusé — les jetons et le temps
 vont au travail, pas à la répétition.</li>
 </ul>
 <div class="box"><b>Et vous n'êtes jamais enfermé chez un seul fournisseur
-d'IA.</b> L'IA intégrée fonctionne avec <b>Gemini, Qwen, Kimi, ChatGPT et
-Claude</b> — cinq sections identiques dans le configurateur. Gemini n'a besoin
-d'aucune clé d'API : une seule connexion avec votre compte Google et il
-fonctionne sur votre offre Google AI (Windows). <b>Et <span class="irs">IRONSTICK</span> vous fait faire
+d'IA.</b> L'IA intégrée fonctionne avec <b>Qwen, Kimi, ChatGPT et
+Claude</b> — quatre sections identiques dans le configurateur. <b>Et <span class="irs">IRONSTICK</span> vous fait faire
 des économies tout seul :</b> chaque fournisseur que vous avez configuré est
-utilisé automatiquement, le moins cher d'abord — Gemini, puis Qwen, Kimi,
+utilisé automatiquement, le moins cher d'abord — Qwen, puis Kimi,
 ChatGPT, Claude. À chaque démarrage, le programme vérifie lesquels répondent ;
 si un quota ou un crédit s'épuise en cours de journée, il enchaîne silencieusement
 avec le suivant et vérifie de nouveau le lendemain. Aucun sélecteur, aucune
 interruption, aucun travail perdu. Côté bureau, on trouve Claude, ChatGPT, Qwen
-et Kimi. Si un fournisseur déçoit sur le prix, la politique ou la performance,
+et Kimi.
+<b>Travail en arrière-plan à coût zéro :</b> pour les tâches qui s'exécutent en
+arrière-plan sans votre intervention — synthèses, tri des courriels et autres —
+vous pouvez en outre enregistrer les offres gratuites de <b>Groq, OpenRouter et
+Mistral</b> et activer ou désactiver chacune séparément. Elles ne sont jamais
+utilisées pour le chat ni pour les écritures. Comme des données sont alors
+transmises à ces fournisseurs, le configurateur invite pour chacun d'eux à examiner
+attentivement leurs conditions générales au regard du RGPD. Si un fournisseur déçoit sur le prix, la politique ou la performance,
 il vous suffit d'en retirer la clé — les portes, et donc le standard remis,
 restent identiques.</div>
 <h3>La voie <span class="irs">IRONSTICK</span></h3>
@@ -1311,8 +1329,7 @@ l'application de base ; la Central Scan App requiert une licence Office Server
 active.</li>
 <li><b>Abonnement au fournisseur d'IA :</b> un Bridge fonctionne sur votre
 propre abonnement chez le fournisseur (Claude, ChatGPT, Qwen ou Kimi) — le chat
-IA intégré ne nécessite aucune licence Bridge supplémentaire et propose
-en plus Google Gemini.</li>
+IA intégré ne nécessite aucune licence Bridge supplémentaire.</li>
 <li><b>La formation</b> est licenciée séparément en trois modules sur site
 (application · application + serveur de cabinet · Bridges IA approfondis).</li>
 </ul><p><b>Télécharger le logiciel :</b> Client-App, Bridges, Office Server et Central Scan App sont disponibles sur la <a href="download_fr.html">page de téléchargement</a> — où vous trouverez aussi l'ordre d'installation, les règles de licence et le modèle pour demander les clés de licence.</p></div><div class="site-foot"><h2 id="contact">Contact</h2><p><span class="irs">IRONSTICK</span> ou une démonstration vous intéressent ? Écrivez-nous.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Scannez le code pour enregistrer notre carte de contact — téléphone, e-mail et site.</p><p class="pref">N'hésitez pas à prendre contact directement via WhatsApp ou Telegram — un appel est également le bienvenu. Langues parlées : allemand, anglais, roumain.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> est un logiciel pour la pratique juridique. Ce site est fourni à titre informatif uniquement et ne constitue pas un conseil juridique.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>

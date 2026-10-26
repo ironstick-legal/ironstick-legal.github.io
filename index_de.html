@@ -267,9 +267,9 @@ ohne eine einzige Akte zu öffnen. Überdies: Durch das separate
 etwas fällig wird, rot, wenn es kritisch ist — permanent sichtbar, ein
 Klick zur vollständigen Liste.</li>
 <li><b>E-Mail bereits triagiert.</b> Der Monitor holt Ihren Posteingang im
-Hintergrund ab, ordnet Mails den Fällen zu (ein bekanntes Aktenzeichen
-wird ganz ohne KI zugeordnet) und priorisiert den Rest. Neue Post meldet
-sich in der Menüleiste.</li>
+Hintergrund ab und ordnet die Mails lokal und ganz ohne KI den Fällen zu;
+die KI schätzt nur noch die Dringlichkeit ein. Neue Post meldet sich in der
+Menüleiste.</li>
 <li><b>Stille Fälle und Aufflammer.</b> Fälle ohne Aktivität seit 14 Tagen
 werden gelistet, damit nichts leise stirbt; Fälle, die sich plötzlich
 erhitzen — neue Frist, nahende Verhandlung, amtliche Post — tragen ein
@@ -443,7 +443,8 @@ Stempeln und Seitenzahlen denkt statt in Ordnern:</p>
 <ul>
 <li><b>Erfassen mit KI-Vorbefüllung.</b> Ziehen Sie ein gescanntes PDF in
 den Eingang: OCR läuft, die KI schlägt Titel, Typ, Parteien, Fall-Zuordnung,
-Datum und Frist vor — Sie bestätigen, statt zu tippen. Jede erfasste Datei
+Datum und Frist vor, und den zugehörigen Fall erkennt <span class="irs">IRONSTICK</span>
+zusätzlich selbst — Sie bestätigen, statt zu tippen. Jede erfasste Datei
 erhält einen kryptografischen <b>Integritäts-Fingerabdruck</b>, sodass
 spätere Manipulation beweisbar ist.</li>
 <li><b>Stempeln &amp; Paginieren.</b> Zusammenführen, Bates-Nummerierung,
@@ -598,6 +599,10 @@ KI über ein Mandat lernt, liegt in einem <b>geteilten KI-Gedächtnis</b> —
 kompakt, mandantengebunden, nur von Ihnen einsehbar und löschbar. Und Sie
 sehen immer, was passiert: Wann immer eine KI Ihre Akte liest, leuchtet
 ihr Symbol in der Menüleiste.</p>
+<p><b>Websites mit Zugangsprüfung.</b> Verlangt eine Website eine
+Bestätigung, bevor sie ihre Inhalte freigibt, öffnet <span class="irs">IRONSTICK</span> die
+Seite in einem eigenen Fenster: Sie bestätigen dort, und die Arbeit an der
+Seite geht nahtlos weiter.</p>
 <div class="box">Der erste Zugriff je Programmlauf verlangt Ihre
 ausdrückliche Zustimmung; als geheim markierte Dokumente sind auf diesem
 Kanal unsichtbar; Vorschläge der KI schreiben niemals in Ihre Bestände —
@@ -705,6 +710,10 @@ verweigert, solange nicht eine frische Prüfung exakt dieses Datei-Stands
 grün war — jede Änderung entwertet das Attest, und fünf gescheiterte
 Runden brechen die Schleife ab und benachrichtigen Sie. Jedes gelieferte
 Dokument trägt seinen Prüfstempel.</li>
+<li><b>Keine stillen Änderungen nach der Auslieferung.</b> Eine Korrektur an
+einem ausgelieferten Dokument wird nie still eingearbeitet: Die alte Fassung
+wird sichtbar entwertet, und es entsteht eine neue Version. Ihre Korrekturen
+fließen dabei in die Prüfung ein.</li>
 <li><b>Keine Seitentüren.</b> Ein als „informell" deklarierter Brief wird
 inhaltlich erkannt und durch die förmlichen Tore geleitet; das Umbenennen
 eines Dokuments zum Zurücksetzen der Versionszählung wird verweigert;
@@ -717,21 +726,30 @@ aus einem anderen Fall sich auf der Stelle selbst widerlegt.</li>
 Dokument eines anderen Falls, findet der Prüfer es im gesamten Bestand und
 nennt das exakte Dokument — die KI liest genau dieses, nicht die ganze fremde
 Akte.</li>
+<li><b>Herkunft jedes Dokuments.</b> Die KI erfährt bei jedem Dokument, woher
+es stammt: Kommt es von der Gegenseite oder einer Behörde, sind seine
+Aussagen erst kritisch zu prüfen; stammt es vom Mandanten, gibt es dessen
+Sicht wieder.</li>
 <li><b>Kein Leerlauf auf Ihre Kosten.</b> Will eine Desktop-KI Daten erneut
 laden, die sie unverändert schon hat, wird der Aufruf abgewiesen — Tokens und
 Zeit gehen in die Arbeit, nicht in Wiederholungen.</li>
 </ul>
 <div class="box"><b>Und Sie sind an keinen KI-Anbieter gekettet.</b> Die
-eingebaute KI läuft auf <b>Gemini, Qwen, Kimi, ChatGPT und Claude</b> — fünf
-gleich aufgebaute Bereiche im Konfigurator. Gemini braucht gar keinen
-API-Schlüssel: einmal mit dem Google-Konto anmelden, und es läuft auf Ihrem
-Google-AI-Tarif (Windows). <b>Und <span class="irs">IRONSTICK</span> spart Ihr Geld von selbst:</b>
+eingebaute KI läuft auf <b>Qwen, Kimi, ChatGPT und Claude</b> — vier
+gleich aufgebaute Bereiche im Konfigurator. <b>Und <span class="irs">IRONSTICK</span> spart Ihr Geld von selbst:</b>
 jeder hinterlegte Anbieter wird automatisch genutzt, der günstigste zuerst —
-Gemini, dann Qwen, Kimi, ChatGPT, Claude. Bei jedem Start prüft das Programm,
+Qwen, dann Kimi, ChatGPT, Claude. Bei jedem Start prüft das Programm,
 welche antworten; ist im Tagesverlauf ein Kontingent oder Guthaben
 aufgebraucht, arbeitet es stillschweigend mit dem nächsten weiter und prüft am
 nächsten Tag erneut. Kein Wahlschalter, keine Unterbrechung, keine verlorene
-Arbeit. Die Desktop-Seite bietet Claude, ChatGPT, Qwen und Kimi. Enttäuscht
+Arbeit. Die Desktop-Seite bietet Claude, ChatGPT, Qwen und Kimi.
+<b>Hintergrundarbeit zum Nulltarif:</b> Für Aufgaben, die ohne Ihr Zutun im
+Hintergrund laufen — Zusammenfassungen, E-Mail-Triage und Ähnliches —
+können Sie zusätzlich die kostenlosen Angebote von <b>Groq, OpenRouter und
+Mistral</b> hinterlegen und jeden einzeln ein- und ausschalten. Für Chat und
+Schriftsätze werden sie nie verwendet. Da dabei Daten an diese Anbieter
+gehen, weist der Konfigurator bei jedem darauf hin, deren AGB hinsichtlich
+DSGVO gründlich zu prüfen. Enttäuscht
 ein Anbieter bei Preis, Richtlinien oder Leistung, entfernen Sie einfach
 seinen Schlüssel — die Tore und damit der gelieferte Standard bleiben
 identisch.</div>
@@ -1357,7 +1375,7 @@ sind separat lizenzierte Zusatzmodule zur Basis-Anwendung; die Central Scan App
 setzt eine aktive Office-Server-Lizenz voraus.</li>
 <li><b>KI-Anbieter-Abo:</b> eine Bridge läuft auf Ihrem eigenen Abo beim
 Anbieter (Claude, ChatGPT, Qwen oder Kimi) — der integrierte KI-Chat braucht
-keine Extra-Bridge-Lizenz und bietet zusätzlich Google Gemini.</li>
+keine Extra-Bridge-Lizenz.</li>
 <li><b>Schulung</b> wird separat in drei Vor-Ort-Modulen lizenziert
 (App · App + Office-Server · Deep-Dive KI-Bridges).</li>
 </ul><p><b>Software herunterladen:</b> Client-App, Bridges, Office-Server und Central Scan App stehen auf der <a href="download_de.html">Download-Seite</a> bereit — dort finden Sie auch die Installationsreihenfolge, die Lizenzregeln und die Vorlage, um die Lizenzschlüssel anzufordern.</p></div><div class="site-foot"><h2 id="contact">Kontakt</h2><p>Interesse an <span class="irs">IRONSTICK</span> oder einer Demo? Schreiben Sie uns.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Code scannen, um unsere Kontaktkarte zu speichern — Telefon, E-Mail und Website.</p><p class="pref">Nehmen Sie gerne direkt per WhatsApp oder Telegram Kontakt auf — auch ein Anruf ist willkommen. Gesprochene Sprachen: Deutsch, Englisch, Rumänisch.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> ist eine Software für die juristische Praxis. Diese Website dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>
