@@ -41,6 +41,54 @@
   },
   "blocks": [
     {
+      "id": "2026-10-release-1-0-5",
+      "type": "message",
+      "style": "info",
+      "show": "start",
+      "title": {
+        "en": "IRONSTICK 1.0.5",
+        "de": "IRONSTICK 1.0.5",
+        "fr": "IRONSTICK 1.0.5",
+        "it": "IRONSTICK 1.0.5",
+        "es": "IRONSTICK 1.0.5",
+        "ro": "IRONSTICK 1.0.5",
+        "pt": "IRONSTICK 1.0.5",
+        "nl": "IRONSTICK 1.0.5",
+        "uk": "IRONSTICK 1.0.5",
+        "ru": "IRONSTICK 1.0.5",
+        "tr": "IRONSTICK 1.0.5"
+      },
+      "text": {
+        "en": "Download ironstick-setup-1.0.5.exe and start it. The setup downloads the remaining installation files itself. Your data stays untouched when you update.\n\nNew\n• Charts in a uniform design: relationship networks of persons and cases, and the chronology of a case's documents, with clickable references.\n• The desktop AI can draw flowcharts, process workflows, chronologies and networks and shows you a preview in IRONSTICK.\n• A chart can go into document capture, where it receives its stamp. Case networks can also be exported as a white A4 wallpaper for the wall.\n• Output formats now follow the jurisdiction of each case, with additions per country.\n\nChanges after updating\n• AI memory entries now need your approval. Earlier entries stay visible to you and reach the AI once you approve them.\n\nIncluded\n• IRONSTICK 1.0.5\n• Bridges 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• IRONSTICK Server 1.0.0 Synology",
+        "de": "Laden Sie ironstick-setup-1.0.5.exe herunter und starten Sie die Datei. Das Setup lädt die übrigen Installationsdateien selbst herunter. Beim Update bleiben Ihre Daten unberührt.\n\nNeu\n• Charts im einheitlichen Design: Beziehungsnetze von Personen und Fällen sowie die Chronologie der Dokumente eines Falls, mit anklickbaren Nummern.\n• Die Desktop-KI kann Abläufe, Prozesse, Chronologien und Netze zeichnen und zeigt Ihnen die Vorschau in IRONSTICK.\n• Ein Chart kann in die Dokumenterfassung gehen und erhält dort seinen Stempel. Fall-Netze lassen sich zusätzlich als weißes A4-Wallpaper für die Wand exportieren.\n• Die Ausgabeformate richten sich jetzt nach dem Rechtsraum des jeweiligen Falls, mit Zusätzen je Land.\n\nÄnderungen nach dem Update\n• Einträge im KI-Gedächtnis brauchen jetzt Ihre Freigabe. Frühere Einträge bleiben für Sie sichtbar und erreichen die KI, sobald Sie sie freigeben.\n\nEnthalten\n• IRONSTICK 1.0.5\n• Bridges 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• IRONSTICK Server 1.0.0 Synology",
+        "fr": "Téléchargez ironstick-setup-1.0.5.exe et lancez-le. Le programme d’installation télécharge lui-même les autres fichiers. Vos données restent intactes lors de la mise à jour.\n\nNouveautés\n• Des graphiques au style uniforme : réseaux de relations des personnes et des affaires, et chronologie des documents d’une affaire, avec des références cliquables.\n• L’IA de bureau peut dessiner des processus, des flux, des chronologies et des réseaux et vous en montre l’aperçu dans IRONSTICK.\n• Un graphique peut passer par la saisie des documents, où il reçoit son tampon. Les réseaux d’affaires peuvent aussi être exportés en fond mural A4 blanc.\n• Les formats de sortie suivent désormais la juridiction de chaque affaire, avec des compléments par pays.\n\nChangements après la mise à jour\n• Les entrées de la mémoire de l’IA nécessitent désormais votre autorisation. Les entrées antérieures restent visibles pour vous et parviennent à l’IA dès que vous les autorisez.\n\nInclus\n• IRONSTICK 1.0.5\n• Bridges 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Serveur IRONSTICK 1.0.0 Synology",
+        "it": "Scarichi ironstick-setup-1.0.5.exe e lo avvii. Il programma di installazione scarica da solo gli altri file. Con l'aggiornamento i Suoi dati restano intatti.\n\nNovità\n• Grafici in uno stile uniforme: reti di relazioni di persone e casi e cronologia dei documenti di un caso, con riferimenti cliccabili.\n• L'IA desktop può disegnare processi, flussi, cronologie e reti e Le mostra l'anteprima in IRONSTICK.\n• Un grafico può passare per la registrazione dei documenti, dove riceve il timbro. Le reti dei casi si possono anche esportare come wallpaper bianco A4 da parete.\n• I formati di output seguono ora la giurisdizione di ogni caso, con integrazioni per Paese.\n\nModifiche dopo l'aggiornamento\n• Le voci della memoria dell'IA richiedono ora la Sua approvazione. Le voci precedenti restano visibili per Lei e raggiungono l'IA quando le approva.\n\nIncluso\n• IRONSTICK 1.0.5\n• Bridge 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Server IRONSTICK 1.0.0 Synology",
+        "es": "Descargue ironstick-setup-1.0.5.exe e inícielo. El instalador descarga por sí mismo los demás archivos. Sus datos permanecen intactos al actualizar.\n\nNovedades\n• Gráficos con un diseño uniforme: redes de relaciones de personas y casos, y cronología de los documentos de un caso, con referencias clicables.\n• La IA de escritorio puede dibujar procesos, flujos, cronologías y redes y le muestra la vista previa en IRONSTICK.\n• Un gráfico puede pasar al registro de documentos, donde recibe su sello. Las redes de casos también se pueden exportar como wallpaper blanco A4 para la pared.\n• Los formatos de salida siguen ahora la jurisdicción de cada caso, con añadidos por país.\n\nCambios tras actualizar\n• Las entradas de la memoria de la IA necesitan ahora su autorización. Las entradas anteriores siguen visibles para usted y llegan a la IA cuando las autoriza.\n\nIncluido\n• IRONSTICK 1.0.5\n• Bridges 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Servidor IRONSTICK 1.0.0 Synology",
+        "ro": "Descărcați ironstick-setup-1.0.5.exe și porniți-l. Programul de instalare descarcă singur celelalte fișiere. La actualizare, datele dumneavoastră rămân neatinse.\n\nNou\n• Grafice într-un stil unitar: rețele de relații ale persoanelor și cazurilor și cronologia documentelor unui caz, cu referințe clicabile.\n• IA de birou poate desena procese, fluxuri, cronologii și rețele și vă arată previzualizarea în IRONSTICK.\n• Un grafic poate merge la înregistrarea documentelor, unde primește ștampila. Rețelele cazurilor se pot exporta și ca wallpaper alb A4 pentru perete.\n• Formatele de ieșire urmează acum jurisdicția fiecărui caz, cu completări pentru fiecare țară.\n\nModificări după actualizare\n• Intrările din memoria IA necesită acum aprobarea dumneavoastră. Intrările anterioare rămân vizibile pentru dumneavoastră și ajung la IA după ce le aprobați.\n\nInclus\n• IRONSTICK 1.0.5\n• Bridge-uri 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Server IRONSTICK 1.0.0 Synology",
+        "pt": "Transfira ironstick-setup-1.0.5.exe e inicie-o. O instalador transfere sozinho os restantes ficheiros. Os seus dados permanecem intactos na atualização.\n\nNovidades\n• Gráficos com um design uniforme: redes de relações de pessoas e casos e cronologia dos documentos de um caso, com referências clicáveis.\n• A IA de ambiente de trabalho pode desenhar processos, fluxos, cronologias e redes e mostra-lhe a pré-visualização no IRONSTICK.\n• Um gráfico pode passar pelo registo de documentos, onde recebe o carimbo. As redes de casos também podem ser exportadas como wallpaper branco A4 para a parede.\n• Os formatos de saída seguem agora a jurisdição de cada caso, com aditamentos por país.\n\nAlterações após a atualização\n• As entradas da memória da IA precisam agora da sua aprovação. As entradas anteriores continuam visíveis para si e chegam à IA quando as aprovar.\n\nIncluído\n• IRONSTICK 1.0.5\n• Bridges 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Servidor IRONSTICK 1.0.0 Synology",
+        "nl": "Download ironstick-setup-1.0.5.exe en start het bestand. De installatie downloadt de overige bestanden zelf. Uw gegevens blijven bij de update onaangeroerd.\n\nNieuw\n• Grafieken in een uniform ontwerp: relatienetwerken van personen en zaken en de chronologie van de documenten van een zaak, met klikbare verwijzingen.\n• De desktop-AI kan processen, stromen, chronologieën en netwerken tekenen en toont u het voorbeeld in IRONSTICK.\n• Een grafiek kan naar de documentregistratie gaan, waar hij zijn stempel krijgt. Zaaknetwerken kunnen ook worden geëxporteerd als witte A4-wallpaper voor aan de muur.\n• De uitvoerformaten volgen nu de jurisdictie van elke zaak, met aanvullingen per land.\n\nWijzigingen na de update\n• Vermeldingen in het AI-geheugen hebben nu uw goedkeuring nodig. Eerdere vermeldingen blijven voor u zichtbaar en bereiken de AI zodra u ze goedkeurt.\n\nInbegrepen\n• IRONSTICK 1.0.5\n• Bridges 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• IRONSTICK Server 1.0.0 Synology",
+        "uk": "Завантажте ironstick-setup-1.0.5.exe і запустіть його. Інсталятор сам завантажить решту файлів. Під час оновлення ваші дані залишаються недоторканими.\n\nНове\n• Схеми в єдиному оформленні: мережі зв’язків осіб і справ та хронологія документів справи, з клікабельними посиланнями.\n• Настільний ШІ може малювати процеси, потоки, хронології та мережі й показує попередній перегляд в IRONSTICK.\n• Схема може потрапити до реєстрації документів, де отримує штамп. Мережі справ можна також експортувати як білий настінний wallpaper формату A4.\n• Формати виводу тепер відповідають юрисдикції кожної справи, з доповненнями для окремих країн.\n\nЗміни після оновлення\n• Записи в пам’яті ШІ тепер потребують вашого схвалення. Попередні записи залишаються видимими для вас і доходять до ШІ після схвалення.\n\nВключено\n• IRONSTICK 1.0.5\n• Bridge 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Сервер IRONSTICK 1.0.0 Synology",
+        "ru": "Загрузите ironstick-setup-1.0.5.exe и запустите его. Установщик сам загрузит остальные файлы. При обновлении ваши данные остаются нетронутыми.\n\nНовое\n• Схемы в едином оформлении: сети связей лиц и дел и хронология документов дела, с кликабельными ссылками.\n• Настольный ИИ может рисовать процессы, потоки, хронологии и сети и показывает предпросмотр в IRONSTICK.\n• Схема может пойти в регистрацию документов, где получает штамп. Сети дел можно также экспортировать как белый настенный wallpaper формата A4.\n• Форматы вывода теперь соответствуют юрисдикции каждого дела, с дополнениями по странам.\n\nИзменения после обновления\n• Записи в памяти ИИ теперь требуют вашего одобрения. Прежние записи остаются видимыми для вас и доходят до ИИ после одобрения.\n\nВключено\n• IRONSTICK 1.0.5\n• Bridge 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• Сервер IRONSTICK 1.0.0 Synology",
+        "tr": "ironstick-setup-1.0.5.exe dosyasını indirip başlatın. Kurulum kalan dosyaları kendisi indirir. Güncelleme sırasında verilerinize dokunulmaz.\n\nYeni\n• Tek tip tasarımda grafikler: kişi ve dosyaların ilişki ağları ile bir dosyanın belgelerinin kronolojisi, tıklanabilir referanslarla.\n• Masaüstü YZ süreçler, akışlar, kronolojiler ve ağlar çizebilir ve önizlemeyi IRONSTICK içinde gösterir.\n• Bir grafik belge kaydına gidebilir ve orada damgasını alır. Dosya ağları ayrıca duvar için beyaz A4 wallpaper olarak dışa aktarılabilir.\n• Çıktı biçimleri artık her dosyanın yargı alanına göre belirlenir, ülkelere göre eklerle.\n\nGüncellemeden sonraki değişiklikler\n• YZ belleğindeki kayıtlar artık onayınızı gerektirir. Önceki kayıtlar sizin için görünür kalır ve onayladığınızda YZ'ye ulaşır.\n\nİçerik\n• IRONSTICK 1.0.5\n• Bridge 2.16.15 (Claude, ChatGPT, Qwen, Kimi)\n• Central Scan 1.0.3\n• IRONSTICK Sunucu 1.0.0 Synology"
+      },
+      "link": {
+        "url": "https://www.ironstick.legal/download.html",
+        "label": {
+          "en": "To the download",
+          "de": "Zum Download",
+          "fr": "Vers le téléchargement",
+          "it": "Al download",
+          "es": "A la descarga",
+          "ro": "Spre descărcare",
+          "pt": "Ir para a transferência",
+          "nl": "Naar de download",
+          "uk": "До завантаження",
+          "ru": "К загрузке",
+          "tr": "İndirmeye git"
+        }
+      }
+    },
+    {
       "id": "2026-10-welcome",
       "type": "message",
       "style": "info",
@@ -74,10 +122,17 @@
       "link": {
         "url": "https://www.ironstick.legal/",
         "label": {
-          "en": "To the website", "de": "Zur Website", "fr": "Vers le site web",
-          "it": "Al sito web", "es": "Al sitio web", "ro": "Spre site",
-          "pt": "Ir para o site", "nl": "Naar de website", "uk": "На вебсайт",
-          "ru": "На сайт", "tr": "Web sitesine git"
+          "en": "To the website",
+          "de": "Zur Website",
+          "fr": "Vers le site web",
+          "it": "Al sito web",
+          "es": "Al sitio web",
+          "ro": "Spre site",
+          "pt": "Ir para o site",
+          "nl": "Naar de website",
+          "uk": "На вебсайт",
+          "ru": "На сайт",
+          "tr": "Web sitesine git"
         }
       }
     }
