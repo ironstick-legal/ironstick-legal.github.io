@@ -692,3 +692,4 @@ body{overflow-x:clip}
 .u-form button.u-btn{border:none;cursor:pointer}
 .u-section-6 a{color:#c4520a}
 .u-section-1 .u-text-2{text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75)}
+.u-section-1 .u-text-2{background:rgba(0,0,0,.6);padding:10px 16px;border-radius:6px;width:fit-content;box-sizing:border-box;text-shadow:none}
