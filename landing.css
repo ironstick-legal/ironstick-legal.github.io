@@ -693,3 +693,6 @@ body{overflow-x:clip}
 .u-section-6 a{color:#c4520a}
 .u-section-1 .u-text-2{text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75)}
 .u-section-1 .u-text-2{background:rgba(0,0,0,.6);padding:10px 16px;border-radius:6px;width:fit-content;box-sizing:border-box;text-shadow:none}
+/* Lange Wörter passen auch bei mittlerer Breite in die Spalte */
+.u-section-7 .u-text-1{font-size:40px}
+@media (max-width:991px){.u-section-4 .u-text-2,.u-section-6 .u-text-2{font-size:30px}}

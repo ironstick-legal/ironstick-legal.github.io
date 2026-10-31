@@ -11,6 +11,16 @@
       if (p < 1) requestAnimationFrame(step);
     })(performance.now());
   }
+  // Der Einflug beginnt nie außerhalb des Fensters, sonst ist der Titel links oder rechts abgeschnitten.
+  function keepInView(el) {
+    var p = '--animation-custom_in-translate_x', x = parseFloat(getComputedStyle(el).getPropertyValue(p));
+    if (!x) return;
+    var r = el.getBoundingClientRect(), w = document.documentElement.clientWidth;
+    if (el.parentElement.closest('[data-animation-name]')) x = 0;
+    else if (x < 0) x = -Math.min(-x, Math.max(0, r.left - 8));
+    else x = Math.min(x, Math.max(0, w - r.right - 8));
+    el.style.setProperty(p, x + 'px');
+  }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
@@ -20,6 +30,7 @@
       el.classList.remove('lp-wait');
       if (name === 'counter') return count(el, ms);
       el.style.animationDuration = ms + 'ms';
+      keepInView(el);
       el.classList.add('lp-' + name);
     });
   }, { threshold: 0.05 });

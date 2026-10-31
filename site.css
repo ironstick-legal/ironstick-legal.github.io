@@ -56,3 +56,4 @@ html,body{background:#fff !important}
 .sd h2{font-size:25px;margin-top:44px}
 .sd h3{font-size:18px}
 }
+@media (max-width:575px){.sd h2{font-size:22px;hyphens:auto}}
