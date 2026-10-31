@@ -1,0 +1,26 @@
+/* Menübalken aller Seiten. Den Außenabstand (margin) legt jede Seite selbst fest. */
+.site-bar{position:sticky;top:0;z-index:50;display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;padding:8px 16px;font-family:'Segoe UI',Arial,sans-serif;line-height:1.55}
+.site-bar .left{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;min-width:0}
+.site-bar .b{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:#111;text-decoration:none}
+.site-bar img{height:34px;width:auto;display:block}
+.brand-wrap,.lang-wrap{position:relative}
+.brand-wrap{cursor:pointer}
+.lang-wrap{flex:none;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;color:#5f6368;cursor:pointer}
+.lang-wrap:hover,.lang-wrap:focus-within{background:#f1f3f4;color:#c4520a}
+.site-bar .menu{position:absolute;top:100%;min-width:190px;max-width:92vw;max-height:72vh;overflow:auto;background:#fff;border:1px solid #dadce0;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.18);padding:6px;display:none;z-index:60}
+.brand-wrap .menu{left:0}
+.lang-wrap .menu{right:0}
+.brand-wrap:hover .menu,.brand-wrap:focus-within .menu,.lang-wrap:hover .menu,.lang-wrap:focus-within .menu{display:block}
+.site-bar .menu a,.site-bar .menu .mh{display:block;padding:7px 12px;font-size:13.5px;font-weight:600;color:#3c4043;text-decoration:none;border-radius:6px;white-space:nowrap}
+.site-bar .menu .mh{cursor:default}
+.site-bar .menu a:hover{background:#f1f3f4;color:#c4520a}
+.site-bar .menu a.sub{padding-left:22px}
+.site-bar .menu a.sub::before{content:"\2022";margin-right:8px;color:#9aa0a6}
+.site-bar .menu a.on{background:#ff6e0e;color:#fff}
+/* Auf Touch-Geräten öffnet das Antippen des Logos das Menü, statt die Seite zu wechseln. */
+@media (hover:none){.brand-wrap .b{pointer-events:none}}
+@media (max-width:640px){
+.site-bar{padding:8px 12px}
+.site-bar .left{gap:4px 14px}
+.site-bar .b{font-size:16px}
+}

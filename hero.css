@@ -1,0 +1,38 @@
+/* Kopfbild wie auf der Landing-Seite (.u-section-1) */
+.gh{box-sizing:border-box;width:100vw;margin:-18px 0 32px calc(50% - 50vw);background-size:cover;background-repeat:no-repeat;overflow:hidden}
+.gh *{box-sizing:border-box}
+.gh-gdpr{background-image:url("img/lp_gdpr.jpg");background-position:50% 31%}
+.gh-dl{background-image:url("img/lp_download.jpg");background-position:50% 44%}
+.gh-client{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+.gh-bridge{background-image:url("img/lp_bridge.jpg");background-position:50% 19%}
+.gh-price{background-image:url("img/lp_pricing.jpg");background-position:50% 37%}
+.gh-in{display:flow-root;width:1140px;min-height:1063px;margin:0 auto}
+.gh-box{display:flex;align-items:center;width:588px;min-height:189px;margin:491px auto 0 0;padding:30px 29px;background:#fff;border-radius:20px}
+.gh .gh-box h1{font-size:44px;line-height:1.2;font-weight:700;color:#111;margin:0;padding:0;border:0}
+.gh .gh-box h1 .irs{font:inherit}
+.gh p.gh-sub{margin:30px 441px 60px 0;font-size:20px;line-height:1.6;font-weight:700;font-style:normal;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.75)}
+@media (max-width:1199px){
+.gh-in{width:940px;min-height:877px}
+.gh p.gh-sub{margin-right:241px}
+}
+@media (max-width:991px){
+.gh-in{width:720px;min-height:672px}
+.gh p.gh-sub{margin-right:21px}
+}
+@media (max-width:767px){
+.gh-in{width:540px;min-height:901px}
+.gh-box{width:540px;margin-top:365px;padding:30px 10px}
+.gh p.gh-sub{margin-right:0}
+.gh .gh-box h1{font-size:34px}
+}
+@media (max-width:575px){
+.gh-in{width:340px;min-height:796px}
+.gh-box{width:340px;min-height:147px;margin-top:275px}
+.gh .gh-box h1{font-size:26px}
+.gh p.gh-sub{font-size:18px}
+}
+@media (max-width:767px){.gh-dl .gh-box{margin-top:486px}}
+@media (max-width:575px){.gh-dl .gh-box{margin-top:358px}}
+@media (max-width:991px){.gh-price{background-size:auto 190vw;background-position:50% 0;background-color:#3a2a20}.gh-price .gh-box{margin-top:125vw}}
+@media (max-width:575px){.gh-price{background-size:auto 915px}.gh-price .gh-box{margin-top:607px}}
+@media (min-width:768px) and (max-width:991px){.gh-bridge{background-position:50% 0}.gh-bridge .gh-in{min-height:134vw}.gh-bridge .gh-box{margin-top:64vw}}

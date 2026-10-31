@@ -360,4 +360,124 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/gdpr_uk.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/gdpr.html"/>
   </url>
-</urlset>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_de.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_ro.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_fr.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_it.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_es.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_ru.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  <url>
+    <loc>https://www.ironstick.legal/kompendium_uk.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html"/>
+  </url>
+  </urlset>

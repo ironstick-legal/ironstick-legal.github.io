@@ -1,0 +1,1318 @@
+<!DOCTYPE html><html lang="ro"><head><meta charset="utf-8">
+<title>IRONSTICK — Dosarul care lucrează cu dumneavoastră</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.">
+<meta name="keywords" content="gestionarea cazurilor juridice, software juridic, IA juridică, drept civil, software avocat Windows, aplicație juridică Android, software juridic offline, OSINT, gestionarea termenelor, automatizare documente">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="yandex" content="index, follow">
+<meta name="author" content="IRONSTICK">
+<link rel="canonical" href="https://www.ironstick.legal/kompendium_ro.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/kompendium.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/kompendium_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/kompendium_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/kompendium_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/kompendium_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/kompendium_es.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/kompendium_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/kompendium_uk.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/kompendium.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IRONSTICK">
+<meta property="og:title" content="IRONSTICK — Dosarul care lucrează cu dumneavoastră">
+<meta property="og:description" content="Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.">
+<meta property="og:url" content="https://www.ironstick.legal/kompendium_ro.html">
+<meta property="og:image" content="https://www.ironstick.legal/og.png">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IRONSTICK — Dosarul care lucrează cu dumneavoastră">
+<meta name="twitter:description" content="Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.">
+<meta name="twitter:image" content="https://www.ironstick.legal/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.ironstick.legal/#org","name":"IRONSTICK","url":"https://www.ironstick.legal/","logo":"https://www.ironstick.legal/favicon.png","sameAs":["https://github.com/ironstick-legal"]},{"@type":"WebSite","@id":"https://www.ironstick.legal/#website","url":"https://www.ironstick.legal/","name":"IRONSTICK","inLanguage":"ro","publisher":{"@id":"https://www.ironstick.legal/#org"}},{"@type":"SoftwareApplication","name":"IRONSTICK","operatingSystem":"Windows, Android","applicationCategory":"BusinessApplication","description":"Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.","url":"https://www.ironstick.legal/kompendium_ro.html","inLanguage":"ro","publisher":{"@id":"https://www.ironstick.legal/#org"}}]}</script>
+<link rel="stylesheet" href="fonts/noto-serif.css">
+<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
+<link rel="stylesheet" href="sitebar.css">
+<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="hero.css">
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="site.css">
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0"><a class="b" href="index_ro.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><div class="menu"><a href="index_ro.html">Acasă</a><span class="mh">Compendii</span><a class="sub" href="kompendium_ro.html">Aplicația client</a><a class="sub" href="bridge_ro.html">Bridge</a><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a><a href="pricing_ro.html">Prețuri</a></div></div></div><nav class="lang-wrap" tabindex="0" title="Limbă" aria-label="Limbă"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="kompendium.html">English</a><a lang="de" hreflang="de" href="kompendium_de.html">Deutsch</a><a class="on" lang="ro" hreflang="ro" href="kompendium_ro.html">Română</a><a lang="fr" hreflang="fr" href="kompendium_fr.html">Français</a><a lang="it" hreflang="it" href="kompendium_it.html">Italiano</a><a lang="es" hreflang="es" href="kompendium_es.html">Español</a><a lang="ru" hreflang="ru" href="kompendium_ru.html">Русский</a><a lang="uk" hreflang="uk" href="kompendium_uk.html">Українська</a></div></nav></div>
+
+<section class="gh gh-client" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1><span class="irs">IRONSTICK</span></h1></div><p class="gh-sub">Sistemul de gestiune a cabinetului cu inteligență de dosar
+încorporată — pentru avocații care își vor serile înapoi.</p></div></section>
+<div class="hero">
+<div class="herotext">
+<p><span class="irs">IRONSTICK</span> este un sistem complet pentru cabinetul de avocatură, pentru
+Windows și tabletă Android: clienți, dosare, probe, termene, e-mail,
+integrare cu instanțele, producere de documente — cu un strat de IA care
+chiar vă cunoaște dosarele. Autentic pan-european — și construit deliberat
+pentru tradiția juridică continental-europeană, de <b>civil law</b>
+(romano-germanică), lumea dreptului codificat: disponibil în unsprezece
+limbi — engleză, germană, franceză, italiană, spaniolă, română, portugheză,
+neerlandeză, turcă, ucraineană și rusă — sistemul
+recunoaște și construiește automat jurisdicțiile, își extinde dinamic baza
+de date legislativă și o menține la zi, și se adaptează nevoilor și felului
+de lucru al utilizatorului său. Offline-first — iar datele dumneavoastră nu
+părăsesc niciodată propriul calculator fără acordul dumneavoastră.</p>
+</div>
+<div class="tiles">
+<div class="tile"><b>Orele devin minute</b>Schițele de acte, rezumatele de
+dosar și dosarele de instanță se generează din dosarul însuși — munca
+dumneavoastră se mută de la asamblare la verificare.</div>
+<div class="tile"><b>Nimic nu scapă</b>Fiecare document, e-mail, fotografie
+și cuvânt rostit poate fi căutat — inclusiv scanările și transcrierile
+convorbirilor telefonice. Termenele și dosarele amuțite ies singure la
+suprafață.</div>
+<div class="tile"><b>Totul este la o întrebare distanță</b>„Ce a venit de la
+partea adversă luna trecută?" — întrebați în limbaj natural, primiți un
+răspuns ancorat în documentele reale, cu surse pe care puteți da clic.</div>
+<div class="tile"><b>Dumneavoastră păstrați controlul</b>Date locale, propria
+cale de stocare, consimțământ înaintea oricărui apel de IA externă,
+pseudonimizare, jurnal de audit — și o <a href="gdpr_ro.html">declarație GDPR scrisă a fiecărui
+flux de date</a>.</div>
+</div>
+</div>
+
+<h3>De ce au cu adevărat nevoie cabinetele — și ce oferă <span class="irs">IRONSTICK</span></h3>
+<table>
+<tr><th>Nevoie</th><th>Ce oferă <span class="irs">IRONSTICK</span></th><th>Detalii</th></tr>
+<tr><td><b>Economie de timp, ore facturabile</b></td>
+<td>Proiectele de cereri, rezumatele de dosar și dosarele complete se nasc din dosarul însuși — verificați, în loc să căutați. Testat: 3000 de pagini de acte de procedură și anexe, ștampilate și paginate, într-un singur PDF — în mai puțin de 20&nbsp;de minute. Manual, este un proiect de o jumătate de zi până la o zi întreagă de lucru.</td>
+<td><a href="#ch3">Capitolul 3</a>, <a href="#ch5">5</a></td></tr>
+<tr><td><b>Niciun termen ratat</b></td>
+<td>Clopoțelul din bara de meniu devine portocaliu când ceva devine scadent și roșu când este critic — permanent vizibil. Dosarele fără activitate de 14 zile sunt listate, ca nimic să nu se stingă pe tăcute.</td>
+<td><a href="#ch1">Capitolul 1</a></td></tr>
+<tr><td><b>Secret profesional și GDPR</b></td>
+<td>Baza de date se află criptată pe propriul dumneavoastră mediu de stocare; furnizorul software nu vede niciodată datele clienților. Consimțământ înaintea fiecărui apel extern către IA, pseudonimizare, jurnal de audit și declarația GDPR privind fluxurile de date, cu o clauză model pentru nota de informare a clienților. Prin Bridge-urile IA de desktop, IA contului dumneavoastră lucrează live pe dosar.</td>
+<td><a href="#ch9">Capitolul 9</a>, <a href="#ch11">11</a></td></tr>
+<tr><td><b>Încredere în furnizor</b></td>
+<td>Cabinetul nu depinde de niciun centru de date străin: dosarul se află pe propriul dumneavoastră hardware, iar nici măcar o cădere totală a serverului sau a internetului nu oprește cabinetul. Licența se verifică offline, pe calculatorul dumneavoastră, iar tot ce înregistrați puteți exporta oricând.</td>
+<td><a href="#ch8">Capitolul 8</a>, <a href="#ch13">13</a></td></tr>
+<tr><td><b>Costuri previzibile</b></td>
+<td>Licență modulară: cumpărați doar componentele pe care le folosiți și le completați ulterior prin cheia de licență. IA rulează pe propriile dumneavoastră conturi (de regulă 20–40&nbsp;€ pe lună per cont, acolo unde e nevoie de abonament) în loc de taxe lunare de trei cifre per utilizator. Toate prețurile pe <a href="pricing_ro.html">pagina de prețuri</a>.</td>
+<td><a href="#ch9">Capitolul 9</a></td></tr>
+<tr><td><b>Integrare în fluxurile existente</b></td>
+<td>Scannerul sau copiatorul depune într-un folder, iar <span class="irs">IRONSTICK</span> preia de acolo. Căsuța de e-mail este preluată în fundal și repartizată pe dosare. Termenele apar în calendarul oricărui telefon; tableta Android lucrează pe același dosar.</td>
+<td><a href="#ch1">Capitolul 1</a>, <a href="#ch15">15</a></td></tr>
+<tr><td><b>Efort redus de introducere</b></td>
+<td>Fără migrare „big bang": dosarele noi rulează în <span class="irs">IRONSTICK</span> din prima zi, iar pe cele vechi le mutați doar când merită. Cu OCR-ul integrat, un document este înregistrat în medie în cincisprezece secunde. Instruire la fața locului, o zi pe modul.</td>
+<td>—</td></tr>
+<tr><td><b>Cunoașterea adversarului, a judecătorului și a contextului</b></td>
+<td>OSINT la o apăsare de buton pentru orice persoană și firmă, profiluri de judecători cu evaluarea hotărârilor lor și o analiză a relațiilor peste toate dosarele — cine este legat de cine și de ce. Actele de procedură pot fi acordate pe judecătorul care le citește. Fiecare hotărâre judecătorească este evaluată o singură dată după o grilă fixă, iar evaluările întregului cabinet se regăsesc în fiecare act adresat acelei instanțe.</td>
+<td><a href="#ch4">Capitolul 4</a></td></tr>
+</table>
+
+<h3>Pentru cine este făcut <span class="irs">IRONSTICK</span></h3>
+<p><span class="irs">IRONSTICK</span> merită oriunde se adună multe documente, multe părți și termene stricte — și acolo unde datele clienților nu au voie să părăsească biroul. Câștigă cel mai mult cabinetele care astăzi pierd ore căutând, tastând și compilând.</p>
+<ul>
+<li><b>Avocați individuali și cabinete mici.</b> Fără departament IT, fără buget pentru tehnicieni: <span class="irs">IRONSTICK</span> rulează pe un calculator Windows obișnuit, se întreține singur și preia munca pentru care altfel ar fi nevoie de încă o persoană.</li>
+<li><b>Avocați litigatori cu dosare voluminoase.</b> Cine gestionează mii de pagini de probe interoghează dosarul în limbaj natural și primește răspunsuri argumentate, cu surse. Dosarele pentru instanță se construiesc în cinci pași ghidați, cu numerotare Bates și opis.</li>
+<li><b>Avocați de drept comercial, insolvență și drept penal.</b> Aceste proceduri implică multe persoane, firme și legături încrucișate. Rețeaua de persoane și firme din toate dosarele face vizibile conexiuni imposibil de urmărit manual — până la profiluri OSINT ale fiecărei persoane și profiluri de judecători cu evaluarea hotărârilor lor.</li>
+</ul>
+
+<div class="showband"><img src="img/49_encryption.png" alt="Encrypted end to end — AES-256"></div>
+<p class="part">Partea I — Practica de zi cu zi</p>
+
+<h2 id="ch1">1. Dimineața dumneavoastră, în nouăzeci de secunde</h2>
+<p>Deschideți <span class="irs">IRONSTICK</span> și ziua este deja ordonată. Ecranul de pornire arată
+ce este scadent și ce a amuțit; <b>Agenda</b> contopește tot ce s-a
+întâmplat în toate mandatele — actele depuse ieri, e-mailurile de peste
+noapte, termenele noi de judecată, fotografiile, transcrierile — într-un
+singur flux cronologic. Vedeți întregul cabinet fără să deschideți un
+singur dosar. Mai mult: prin <b>rezumatul zilei</b> separat primiți, în
+limbaj vorbit, o scurtă privire de ansamblu asupra zilei — în timp ce vă
+luați liniștit o cafea.</p>
+<figure class="repl"><img src="img/51_three_windows.png" alt="One system, every view"><figcaption>Meniul principal: termenele, dosarele amuțite și toate secțiunile — dintr-o singură privire, înainte de a deschide vreun dosar.</figcaption></figure>
+<ul>
+<li><b>Termene cu semafor.</b> Clopoțelul din bara de meniu devine portocaliu
+când ceva ajunge la scadență, roșu când e critic — permanent vizibil, un
+clic până la lista completă.</li>
+<li><b>E-mail deja triat.</b> Monitorul vă aduce inboxul în fundal și alocă
+mesajele pe dosare local și complet fără IA; IA mai evaluează doar
+urgența. Corespondența nouă se anunță în bara de
+meniu.</li>
+<li><b>Dosare amuțite și dosare încinse.</b> Dosarele fără activitate de 14
+zile sunt listate, ca nimic să nu moară în tăcere; dosarele care se încing
+brusc — termen nou, ședință iminentă, corespondență oficială — poartă un
+marcaj 🔥 până se liniștesc.</li>
+</ul>
+
+<h2 id="ch2">2. Rezumate de dosar pe loc — întrebați, nu săpați</h2>
+<p>Asistentul de dosar răspunde la întrebări despre dosarele dumneavoastră
+cum ar face-o un colaborator bun — doar că el a citit <i>totul</i> și
+răspunde în secunde:</p>
+<ul>
+<li>„Rezumă stadiul în 5678/000/2026."</li>
+<li>„Ce scrisori au venit <i>de la</i> partea adversă — și am răspuns la
+ultima?"</li>
+<li>„Cine ce a spus despre cercetarea la fața locului — există contradicții?"</li>
+<li>„Am depus deja această probă la instanță?"</li>
+</ul>
+<p>Fiecare răspuns este <b>ancorat în documente reale</b> — rezultate
+numerotate pe care le deschideți cu un cuvânt („deschide 1", „citește-mi 1").
+Întrebările de rutină primesc răspuns de la un <b>strat local, pe propria
+mașină</b>, fără ca vreo dată să părăsească dispozitivul; analizele mai
+grele escaladează către IA externă numai cu consimțământul dumneavoastră.
+Asistentul vă vorbește limba — pe toate cele unsprezece — și poate fi condus în
+întregime <b>prin voce</b>, cu mâinile libere, cu recunoaștere vocală
+offline și citire cu voce tare.</p>
+<div class="box">Asistentul nu doar citește: verifică. Coduri numerice
+personale, IBAN-uri, coduri de TVA (în direct, contra sistemului european
+VIES), EORI, LEI și înregistrări din registrul comerțului sunt verificate
+la cerere — înainte ca un număr greșit să ajungă într-un act.</div>
+
+<div class="showband"><img src="img/53_case_tabs_collage.png" alt="Every angle on one case"></div>
+<h2 id="ch3">3. De la dosar la un șablon apt de depunere — în minute</h2>
+<p>Acesta este vârful de lance. Actele de procedură și scrisorile le scrieți
+<b>în dialog cu IA</b> — în chatul propriu al <span class="irs">IRONSTICK</span> (pe cheia
+dumneavoastră API) sau prin Bridge-ul către IA de desktop (Claude, ChatGPT,
+Qwen sau Kimi Desktop). <b>Redactează text › Cu ajutorul IA</b> din dosar deschide
+chatul cu dosarul și documentul deja numite; de acolo IA lucrează ca un
+asociat pe dosarul viu: datele de bază ale clientului, cronica dosarului cu
+textele integrale ale documentelor, termenele, probele conexe, borderoul de
+anexe, instrucțiunile dumneavoastră de dosar — și chiar istoricul recent al
+dosarelor <i>învecinate</i> ale aceluiași client, pentru că răspunsul
+adversarului stă deseori în dosarul paralel. Întreabă înapoi când ceva rămâne
+deschis, în loc să vă preseze dosarul în măști fixe.</p>
+<ul>
+<li><b>Cercetare în loc de afirmație.</b> În timpul redactării, IA caută
+activ în dosar. Nu are voie să afirme „nu s-a primit niciun răspuns" decât
+dacă o căutare a dovedit-o.</li>
+<li><b>Verificare înainte de predare.</b> Un verificator determinist confruntă
+schița finită cu dosarul viu: fiecare referință la probe, fiecare parte,
+instituție și număr de dosar, fiecare citare de normă față de biblioteca de
+legi verificată. Contradicțiile blochează predarea; ștampilele interne de
+dosar nu se strecoară niciodată în document.</li>
+<li><b>Red/Blue Team, încorporat.</b> La cerere, un al doilea model citește
+schița înainte de predare ca avocat al părții adverse: obiecțiile
+substanțiale o trimit înapoi la refacere, cel mult două runde — iar fiecare
+punct este analizat pe fond, niciodată preluat orbește.</li>
+<li><b>Un lanț de verificare care nu poate fi scurtat.</b> Înainte de a începe verificarea lungă, IA vă arată un rezumat al schiței: mai puteți face corecturi. Apoi o recitește integral, o compară cu propriile dumneavoastră înscrisuri anterioare și, în cazul unui răspuns, dovedește pasaj cu pasaj că fiecărei afirmații a părții adverse i se răspunde. Ulterior atacă actul din postura părții adverse, îl evaluează și îl corectează; sunt verificate și trimiterile interne și indicațiile de timp. <span class="irs">IRONSTICK</span> validează fiecare etapă, iar orice modificare ulterioară repornește lanțul de la început.</li>
+<li><b>Un șablon apt de depunere — niciodată un act finit de instanță.</b>
+Rezultatul vine prin dialogul de export al <span class="irs">IRONSTICK</span> și aterizează cu un clic
+în procesorul de text încorporat: paginare A4, antetul dumneavoastră (prima
+pagină sau fiecare pagină), controlul salturilor de pagină, plasarea
+semnăturii, borderoul de anexe preluat automat — tipărire, PDF, DOCX sau
+Markdown. Dumneavoastră verificați, corectați și semnați; răspunderea pentru
+ceea ce se depune rămâne a dumneavoastră.</li>
+</ul>
+<p class="quote">Ore de studiu al dosarului și de redactare devin minute de
+verificare — citiți, ascuțiți, semnați.</p>
+
+<h2 id="ch4">4. Câștig de detaliu — un dosar care ține minte totul</h2>
+<p>Inima <span class="irs">IRONSTICK</span> este inteligența probelor. Tot ce înregistrați — PDF-uri
+scanate, e-mailuri cu atașamente, istorice WhatsApp, fotografii,
+înregistrări audio — devine text integral căutabil. OCR-ul este încorporat
+(engleză, germană, franceză, italiană, spaniolă, română, portugheză,
+neerlandeză, turcă, ucraineană și rusă — nimic de
+instalat), iar căutarea este intenționat îngăduitoare: diacriticele,
+erorile tipice de scanare și numele parțiale își găsesc totuși ținta.</p>
+<ul>
+<li><b>Anexe și depuneri, dovedite din hârtia însăși.</b> La înregistrarea
+unui document, <span class="irs">IRONSTICK</span> citește care dintre probele dumneavoastră sunt
+conținute fizic în el și ce numere de înregistrare poartă. Cronica arată
+apoi, la fiecare probă: <i>depusă la instanță la … în dosarul …</i> — iar la
+fiecare scrisoare expediată, borderoul complet de anexe. „Am depus deja
+asta?" primește răspuns dintr-un clic.</li>
+<li><b>Lanțuri de numere de lucrare.</b> Fiecare număr de înregistrare leagă
+toate documentele aceleiași proceduri într-un lanț cronologic — istoria
+documentată a cine a scris ce, când, și dacă s-a răspuns vreodată.</li>
+<li><b>Media cu substanță.</b> Fotografiile își păstrează locul capturii (un
+clic până la vederea din satelit), înregistrările telefonice devin
+transcrieri cu vorbitori etichetați — totul căutabil, totul probă
+citabilă.</li>
+<li><b>Conștiință peste dosare.</b> Verificare de conflict de interese la
+preluare, avertismente când același adversar apare în mai multe mandate, un
+graf de relații al tuturor părților și un radar de relevanță care găsește
+material conex pe care nu v-ați gândit să îl căutați.</li>
+</ul>
+<p><b>Înregistrările devin text — automat, pe propriul calculator.</b>
+Convorbiri telefonice, înregistrări din ședințe, mesaje vocale, clipuri video: <span class="irs">IRONSTICK</span>
+acceptă orice format audio și video uzual (Windows). Decupați partea relevantă, alegeți
+limba, numărul de vorbitori și nivelul de calitate (rapid, mediu, ridicat) și vedeți
+timpul de calcul estimat înainte de a porni. Recunoașterea vocală rulează complet offline
+pe calculatorul dumneavoastră. Apoi IA atribuie frazele vorbitorilor — cu acordul
+dumneavoastră și pseudonimizat; nu are voie să schimbe niciun cuvânt, fiecare rând este
+verificat față de textul recunoscut. Ceea ce recunoașterea nu a înțeles cu certitudine este
+marcat, nu ghicit. Rezultatul se deschide în editor și, după verificarea dumneavoastră,
+devine o probă ce poate fi citată.</p>
+<p><b>Rețeaua se construiește singură.</b> O IA desktop conectată prin Bridge citește dosarul, cercetează părțile pe internet și depune fiecare persoană,
+firmă, instituție și fiecare legătură găsită ca propunere de aprobat cu un
+singur clic; un auto-linker de fundal leagă fiecare parte de fiecare dosar ale
+cărui documente o numesc; iar <b>Universul</b> transformă întregul fond de date
+într-o rețea 3D prin care puteți zbura, cu clici detectate automat — grupurile
+dense, strâns legate pulsează în roșu. În câteva ore aveți o rețea extrem de
+condensată de persoane și firme peste întregul fond de date — imposibil de
+obținut prin metode manuale — iar vizualizarea scoate clica direct la iveală.</p>
+<p><b>Ce înseamnă asta în practică — două zile, măsurate.</b> În două zile de lucru din septembrie 2026, o singură IA desktop conectată prin Bridge a citit dosarele unei cauze cu multe părți, a cercetat părțile pe internet și a depus ce a găsit; avocatul nu a făcut altceva decât să citească și să dea clic. Rezultatul, numărat apoi în baza de date: <b>293 de persoane și firme, 11 instituții, 811 legături și 733 de asocieri parte–dosar</b> — 2.487 de decizii de verificare în total, 97&nbsp;% acceptate, 3&nbsp;% respinse la poartă. Introdus manual — surse citite, fiecare persoană identificată, fiecare legătură verificată, fiecare înregistrare tastată — înseamnă circa 310 ore de lucru: opt săptămâni cu normă întreagă pentru o persoană, sau o jumătate de an pe lângă mandatele curente. Și orele nici măcar nu sunt esențialul. Nimeni nu ține în minte 300 de nume, 800 de legături și o duzină de liste de prieteni; clicile care se aprind în roșu carmin în Univers sunt invizibile într-un dulap cu dosare. Cele 3&nbsp;% sunt motivul pentru care există poarta de verificare: fiecare dintre ele ar fi fost o înregistrare greșită, dacă ar fi fost scrisă direct.</p>
+<p><b>Iar același motor desenează rețeaua de dosare a unui client:</b> dosarele ca hexagoane, grupate după propriile dumneavoastră spețe, legate acolo unde împart părți, se citează reciproc ca anexe sau menționează numărul de dosar al celuilalt — cu patru instrumente IA care citesc exact această imagine.</p>
+<div class="showband"><img src="img/60_mcp_network.png" alt="Serverul MCP, aplicația client și rețeaua de dosare a unui client"></div>
+
+<h3>OSINT la o apăsare de buton — cercetarea încorporată a persoanelor și firmelor</h3>
+<p>OSINT (Open Source Intelligence) — evaluarea sistematică a surselor liber
+accesibile — este practică standard în organele de anchetă și în cabinetele de
+drept comercial, dar este muncă manuală: fiecare cercetează altfel și fiecare
+uită altceva. <span class="irs">IRONSTICK</span> o transformă într-o procedură fixă. IA predă numele,
+localitatea, județul, țara și dacă este persoană fizică sau juridică — restul
+îl face aplicația singură, de fiecare dată la fel, fără goluri:</p>
+<ul>
+<li><b>Mai întâi propriile dosare.</b> Căutare deterministă în textul integral
+după nume, în întregul fond, la toți clienții: pentru fiecare dosar cele mai
+noi zece apariții, cu paragraful și poziția caracterelor — și mențiunea câte
+mai există în plus.</li>
+<li><b>Materialul de cercetare specific dosarului</b>, precum extrase din registrul comerțului, extrase de carte funciară etc., îl depuneți pur și simplu în dosar și îi indicați LLM-ului să îl ia și pe acesta în considerare.</li>
+<li><b>Apoi internetul, după o grilă fixă.</b> CV, Facebook, LinkedIn,
+Instagram, localitate, județ, scandaluri, știri, declarații de avere și de
+interese, impozite, participații la firme — la firme registrul comerțului și
+insolvența. Termenii de căutare sunt automat în limba țării persoanei vizate:
+pentru România „declarație de avere", nu „declaration of assets". Totul se petrece în fundal, prin aplicația client, complet automatizat: LLM-ul primește un profil OSINT complet pentru prelucrare. Este mult mai precis și mult mai ieftin.</li>
+<li><b>Trei motoare de căutare simultan.</b> Google, DuckDuckGo și Qwant
+parcurg grila în paralel; rezultatele sosesc ca o singură listă curățată, fără
+dubluri. Dacă un motor blochează, celelalte livrează mai departe.</li>
+<li><b>Un profil pregătit — nu un verdict.</b> IA primește ambele liste
+împreună cu termenii de căutare deja parcurși, deschide fiecare apariție și
+fiecare link în parte, elimină omonimii și depune în monitorul de date, ca
+propunere, doar ceea ce este dovedit. Se preia ceea ce aprobați
+dumneavoastră.</li>
+</ul>
+<p>Rezultatul în unul-două minute: un profil de cercetare pentru care un
+angajat ar avea nevoie de o jumătate de zi — și care la a trei suta persoană
+este la fel de complet ca la prima. Se evaluează exclusiv surse accesibile
+publicului.</p>
+
+<h3>Nimeni altcineva nu are așa ceva</h3>
+<p>Nu cunoaștem niciun alt produs care să țină o <b>bază de date a relațiilor</b> completă între persoane, firme și instituții la nivelul persoanei individuale, să o descompună până la dosarul individual și la proba individuală, să o deseneze curat pentru avocat și să dea aceeași imagine IA-ului ca text — inclusiv o <b>analiză a persoanei</b> cu 24 de câmpuri, care poate fi modificată numai cu dovadă.</p>
+<p>Softul clasic de cabinet ține părțile ca o agendă cu rol în dosar: niciun graf între ele, nicio analiză a persoanei, nicio clică, iar asistenții lor IA citesc documente, nu rețeaua. Asistenții juridici IA de pe piață stau deasupra dosarului, în cloudul furnizorului, cu un model pe care nu îl puteți alege. Marile platforme de investigație au graful și profilurile, dar ca instrumente pentru autorități și corporații cu proiecte de consultanță, fără dosar în sensul avocatului și fără o IA interschimbabilă care să le citească. Un cabinet care duce procese penale și civile cu zeci de părți și dosare împletite cade între aceste piețe. Exact acolo stă <span class="irs">IRONSTICK</span>.</p>
+<h3>Judecători și actori — cine cu cine, și de ce</h3>
+<p>Această cunoaștere nu se limitează la un singur dosar. Ea cuprinde fiecare parte, fiecare relație și fiecare rol pe care o persoană l-a jucat vreodată în oricare dintre dosarele dumneavoastră, peste dosare și peste clienți — cine stă în ce consiliu, cine semnează pentru cine, cine a apărut ca martor, adversar sau funcționar în ce procedură. Crește de la sine, în fiecare zi, în timp ce avocatul și IA lucrează dosarele, și rezultă ca produs secundar al muncii zilnice pe dosare.</p>
+<ul>
+<li><b>Analiza relațiilor — cine cu cine, și de ce.</b> Fiecare legătură între persoane, firme și instituții stă alături de proba care o susține; rețelele dense sunt recunoscute automat drept clici. Vedeți nu doar că două părți sunt legate, ci și prin ce.</li>
+<li><b>Profiluri de judecători.</b> Fiecare hotărâre din dosarele dumneavoastră este atribuită judecătorului sau procurorului care a pronunțat-o — din antet și din blocul de semnătură, nu din presupuneri. La aceasta se adaugă cercetarea OSINT asupra persoanei: parcurs profesional, declarații publice, legături cu părți și cabinete de avocatură.</li>
+<li><b>Evaluarea hotărârilor pe judecător — făcută o dată, disponibilă permanent.</b> Cum decide un anumit judecător, la ce reacționează, ce preia din actele de procedură și ce trece cu vederea? Fiecare hotărâre judecătorească este recunoscută la înregistrare — lângă intrare/ieșire există o căsuță „hotărâre judecătorească”, pe care o puteți schimba oricând — și ajunge pe o listă de evaluare; și arhiva existentă este verificată automat. IA parcurge lista hotărâre cu hotărâre: citește hotărârea și actele de procedură ale ambelor părți care au precedat-o, <span class="irs">IRONSTICK</span> măsoară ce parte din motivare provine din actul cui, iar IA răspunde la o grilă fixă — argumente, drept, probe, temeiul deciziei, stil, rezultat și o scurtă caracterizare a completului. Nimic nu se salvează fără comanda dumneavoastră, cu legătură la instanță, judecători și grefieri; dacă una dintre aceste persoane lipsește din datele de bază, este mai întâi cercetată prin OSINT și creată. O hotărâre nu se schimbă niciodată — este evaluată o dată și rămâne evaluată.</li>
+<li><b>Acte de procedură acordate pe judecător.</b> Un act poate fi acordat fin pe judecătorul sau completul care îl va citi — componența, hotărârile și pozițiile anterioare, legăturile cu părțile și, acolo unde există, motivele de recuzare — pentru că știți ce se întâmplă în fundal și cine cu cine. Înaintea fiecărui act adresat unei instanțe, IA citește evaluările adunate ale acelei instanțe și ale fiecărui judecător din complet. Dacă mai există hotărâri neevaluate, <span class="irs">IRONSTICK</span> întreabă înainte de livrare dacă doriți să le evaluați acum — ca rezultatul să mai fie inclus — sau mai târziu; iar la prima pornire din zi IA vă reamintește din proprie inițiativă.</li>
+<li><b>Colaborarea devine vizibilă.</b> Oricare două acte de procedură, chiar din proceduri și mandate diferite, pot fi puse față în față cuvânt cu cuvânt: blocurile de text identice arată ce avocați lucrează împreună.</li>
+</ul>
+<p>În instanță, aceasta este diferența dintre a susține un dosar și a cunoaște terenul: fiecare act poate fi aliniat la rețeaua de legături care există cu adevărat în jurul dosarului — cine este legat de cine, cine îi datorează cui, cine a stat înainte de care parte — pentru că avocatul știe mereu unde se află fiecare lucru. În această formă concentrată, cunoașterea aceasta nu există nicăieri altundeva; manual, pur și simplu nu poate fi constituită.</p>
+<figure class="repl"><img src="img/57_persons_maps.png" alt="The whole network, every way"><figcaption>Universul după două zile de captare automată: fiecare parte din fondul de date ca nod, dimensionat după legături, grupat în clici — cele dense și strâns legate pulsează în roșu carmin. Niciun nume nu a fost tastat manual.</figcaption></figure>
+
+<p><b>O foaie în loc de o mie de linii.</b> Rețeaua de relații a unei persoane sau a unui
+caz și cronologia documentelor sale sunt gata sub formă de grafic la apăsarea unui buton:
+rețeaua arată cele mai urgente cincizeci de noduri, ponderate după termene, activitate
+recentă și conexiuni; cronologia ordonează în timp actele primite și trimise, cu anexele
+chiar lângă fiecare act. Fiecare număr este clicabil și duce la probă, la persoană sau la
+instituție. Un clic pe <b>Înregistrează</b> duce graficul la înregistrarea documentelor, unde îl atribuiți și primește ștampila la salvare; din
+rețeaua cazului puteți crea în plus un <b>Wallpaper</b>: o foaie albă A4 în format peisaj
+pentru perete, care doar se descarcă și nu ajunge niciodată la dosar.</p>
+<p>Și IA de birou conectată prin Bridge desenează în același stil: procese, căi
+procedurale, cronologii, rețele. Discută graficul cu dumneavoastră și afișează
+previzualizarea în <span class="irs">IRONSTICK</span>; desenarea și verificarea erorilor înainte de afișare
+sunt deterministe, fără IA. Pe tabletă, graficele sunt doar pentru vizualizare.</p>
+
+<h2 id="ch5">5. Un sistem de documente construit pentru instanță</h2>
+<p><span class="irs">IRONSTICK</span> este și un DMS complet — unul care gândește în probe, ștampile
+și numere de pagină, nu în foldere:</p>
+<ul>
+<li><b>Înregistrare cu precompletare de IA.</b> Trageți un PDF scanat în
+inbox: OCR-ul rulează, IA propune titlul, tipul, părțile, alocarea pe dosar,
+data și termenul, iar dosarul aferent îl recunoaște în plus <span class="irs">IRONSTICK</span>
+singur — dumneavoastră confirmați în loc să tastați. Fiecare
+fișier înregistrat primește o <b>amprentă criptografică de integritate</b>,
+astfel încât o manipulare ulterioară poate fi dovedită.</li>
+<li><b>Ștampilare &amp; paginare.</b> Contopire, numerotare Bates, ștampile
+de dosar, curățarea metadatelor — fiecare PDF produs poartă un strat de text
+căutabil, deci documentul finit poate fi căutat și citat fără să mai rulați
+vreodată OCR.</li>
+<li><b>Asistentul de dosar de instanță.</b> Un drum ghidat, în cinci pași, de
+la cronică la un dosar apt de depunere: alegeți înregistrările, coperta și
+jurisdicția, previzualizați cu miniaturi de pagină, apoi un PDF finit cu
+cuprins și numere Bates — plus un <b>ZIP de probe EDRM</b> pentru predarea
+în eDiscovery.</li>
+<li><b>Anonimizare care ține.</b> Comutatoare pe categorii (clienți, nume,
+locuri, sume, coduri numerice, IBAN-uri …), un căutător local care marchează
+candidații, marcare manuală pe pagină — iar la export înnegririle sunt
+<b>arse ireversibil</b>, cu un strat curat de text căutabil deasupra.</li>
+<li><b>Expediere prin e-mail pentru fișiere prea mari.</b> Un PDF voluminos
+este împărțit fără pierderi în părți de mărimea cutiei poștale a instanței,
+fiecare cu un e-mail de predare gata redactat în limba documentului —
+copiați, atașați, trimiteți.</li>
+</ul>
+
+<h3>Dosare de mare amploare — 3000 de pagini, ștampilate și paginate, în mai puțin de 20 de minute</h3>
+<p>În practica procedurii civile și a litigiilor de mare amploare, acest
+argument lovește exact în cele mai importante puncte dureroase ale avocaților
+și ale personalului cabinetului — timpul, riscul de erori și munca manuală:</p>
+<ul>
+<li><b>Economie masivă de timp.</b> Ceea ce într-un cabinet este în mod normal
+un proiect de o jumătate de zi până la o zi întreagă pentru un asistent juridic
+sau pentru avocatul însuși — asamblarea manuală, unirea PDF-urilor, verificarea
+paginilor și ștampilarea de mână (numerotare Bates) — rulează aici complet
+automat în circa 20 de minute.</li>
+<li><b>Fără erori &amp; consecvență.</b> La peste 2.000 de pagini, în lucrul
+manual se strecoară repede greșeli: ștampile deplasate, numere de pagină
+greșite la anexe, trimiteri lipsă sau nerespectarea cerințelor de format. Un
+flux automatizat garantează un aspect absolut curat și unitar.</li>
+<li><b>Fără blocări ale sistemului.</b> Programele de birou obișnuite și
+vizualizatoarele PDF normale cedează la un pachet de 700&nbsp;MB cu 3000 de
+pagini atunci când încercați să îl prelucrați fluent sau să îl repaginați.</li>
+<li><b>Avantaj competitiv prin viteză.</b> Tocmai sub presiunea enormă a
+termenelor — de exemplu cu puțin înainte de expirarea termenului de introducere
+a acțiunii sau de depunere a întâmpinării — o asemenea soluție pune pe masă, în
+timp record, acte de procedură masive împreună cu toate probele, ca șablon gata
+de depunere.</li>
+</ul>
+<div class="showband"><img src="img/54_dossier_flow.png" alt="Un dosar se construiește — de la cap la coadă"></div>
+
+<div class="box"><b>Testat.</b> 3000 de pagini de acte de procedură, anexe mixte
+text și imagine, ștampilate și paginate, rezultat un singur PDF de
+700&nbsp;MB — în mai puțin de 20&nbsp;de minute.</div>
+
+<p class="part pb">Partea a II-a — IA la adâncime maximă</p>
+
+<h2 id="ch6">6. IA dumneavoastră de desktop, conectată direct la dosar</h2>
+<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_assistant.jpg" alt="Micul prieten al avocatului: asistentul IA care îl ajută să își facă munca mult mai eficient."><figcaption>Micul prieten al avocatului: asistentul IA care îl ajută să își facă munca mult mai eficient.</figcaption></figure>
+<p>Pentru munca analitică de adâncime, <span class="irs">IRONSTICK</span> oferă ceva ce niciun folder
+de export nu poate: un <b>Bridge viu</b> între propria IA de desktop —
+<b>Claude Desktop, ChatGPT Desktop, Qwen Desktop și/sau Kimi Desktop</b>, fiecare un modul
+licențiat separat — și aplicația în funcțiune. IA citește starea curentă a
+dosarului prin <b>208 de instrumente construite special</b> — cronici, texte
+integrale, e-mailuri, termene, date de bază — și lucrează la adâncime
+maximă:</p>
+<ul>
+<li>„Citește tot dosarul și spune-mi unde este cea mai slabă poziția
+noastră."</li>
+<li>„Redactează apelul în formatul nostru de acte și predă-l procesorului de
+text." — schița apare în <span class="irs">IRONSTICK</span>, gata pentru tipărirea cu antet.</li>
+<li>„Compară cele trei expertize și construiește-mi un tabel al
+contradicțiilor."</li>
+</ul>
+<p><b>Construit pentru dosare mari — de ce un Bridge viu bate orice export de
+fișiere.</b> Modulele Bridge abonabile există cu un singur scop: <b>lucrul pe
+bazine mari de date care cer analiză la detaliu maxim</b>. Sunt strict
+controlabile de dumneavoastră — comutatoare, porți de consimțământ,
+licențiere per IA — și totuși fiecare dialog și fiecare evaluare stă pe
+<b>întregul bazin de date <span class="irs">IRONSTICK</span></b> ca fundament. Această densitate de
+detaliu este pur și simplu de neatins printr-o alimentare convențională cu
+fișiere (exportul de fișiere Markdown într-un chat de IA): chiar și cele mai
+mari ferestre de context ale IA cuprind deodată doar câțiva megabytes de
+text —</p>
+<table>
+<tr><th>Model / platformă</th><th>Fereastra de context (tokeni)</th>
+<th>≈ capacitate de text</th></tr>
+<tr><td>Claude (Opus / Sonnet)</td><td>1.000.000</td><td>~2.500 KB (2,5 MB)</td></tr>
+<tr><td>ChatGPT (aplicație, Plus)</td><td>256.000</td><td>~1.000 KB</td></tr>
+<tr><td>ChatGPT (aplicație, Pro)</td><td>400.000</td><td>~1.600 KB</td></tr>
+<tr><td>ChatGPT (API maxim)</td><td>1.050.000</td><td>~4.000 KB (4 MB)</td></tr>
+</table>
+<p>— în timp ce o arhivă de dosare crescută în ani este de multe ori mai
+mare. Bridge-ul ocolește acest plafon: în loc să îndese fișiere în fereastră,
+IA primește <b>peste 200 de instrumente dedicate cu instrucțiuni stricte de
+folosire</b> și aduce exact pasajele, documentele, e-mailurile și termenele
+de care are nevoie, exact când are nevoie de ele — proaspete, din sistemul
+viu, peste întregul bazin. Fereastra de context poartă atunci analiza, nu
+balastul.</p>
+<p><b>Iar când sarcina chiar este „citește tot":</b> cu un singur apel, IA
+pregătește <b>întregul dosar</b> — netrunchiat, normalizat prin OCR —
+într-o zonă locală de lucru și îl citește apoi bucată cu bucată, fără să
+împingă vreodată tot dosarul prin fereastră. Un dosar cu 400 de documente
+devine complet lizibil; plafoanele de trunchiere protejează chatul,
+niciodată copia pregătită. Aceeași zonă îi dă IA un <b>start de sesiune
+dintr-un singur apel</b> — data, limba, ecranul dumneavoastră curent,
+briefingul zilnic, termenele și sarcinile deschise într-un singur protocol —
+și o <b>gardă de prospețime</b> care anulează orice extras pregătit în clipa
+în care dosarul de bază se schimbă: IA nu poate argumenta niciodată pe
+datele de ieri.</p>
+<p><b>Browserul <span class="irs">IRONSTICK</span> — vedeți ce citește IA (Windows).</b> <span class="irs">IRONSTICK</span> deschide paginile web și documentele din dosarul dumneavoastră într-o fereastră de browser proprie, cu chenar roșu, astfel încât să o puteți deosebi oricând de browserul dumneavoastră personal. La instrucțiunea dumneavoastră, IA citește ceea ce este deschis acolo — nu prin controlul de la distanță al ferestrei, ci ca text curățat; la un document din dosar știe exact despre care este vorba.</p>
+
+<h3>De ce un LLM „gol" eșuează singur pe dosare mari — și de ce <span class="irs">IRONSTICK</span>
+întoarce jocul</h3>
+<p>Un model de limbaj lăsat singur este pur și simplu depășit de un dosar
+crescut în ani — iar o fereastră de context mai mare (1 sau 2 milioane de
+tokeni) nu rezolvă asta. Aceasta este neînțelegerea fundamentală a valului
+actual de IA:</p>
+<ul>
+<li><b>Fenomenul „lost in the middle".</b> Dați unui model sute de pagini
+brute deodată și rata lui de precizie pe detalii se prăbușește: faptele din
+mijlocul dosarului sunt „uitate" — sau halucinate.</li>
+<li><b>Efectul de sufocare a contextului.</b> Un singur retur de instrument
+care varsă 50.000 de caractere de text integral în chat îneacă conversația:
+modelul își pierde orientarea, contextul dă pe dinafară, totul devine lent
+și scump.</li>
+<li><b>Fără memorie, fără structură.</b> Un LLM gol nu știe nimic despre
+termene, numere de dosar, părți, ștampile Bates sau cronologia procedurilor.
+El vede un singur șir lung de caractere.</li>
+</ul>
+<p><span class="irs">IRONSTICK</span> nu face din LLM un catâr care cară munți de hârtie — face din
+el un chirurg de precizie:</p>
+<ol>
+<li><b>Mai întâi structura.</b> Înainte ca IA să vadă un singur cuvânt,
+<span class="irs">IRONSTICK</span> a structurat deja dosarul: documente clasificate, date indexate,
+OCR reparat, anexe legate.</li>
+<li><b>Decuplare prin instrumente &amp; scratch.</b> Prin peste 200 de
+instrumente specializate, IA aduce exact ce cere întrebarea — iar când un
+retur este totuși uriaș, o limită dură deviază automat tot ce depășește
+limita conectorului în seiful local scratch — criptat AES-256 pe disc,
+lizibil numai prin poarta <span class="irs">IRONSTICK</span>. Chatul rămâne perfect curat.</li>
+<li><b>Persistență &amp; recursiune.</b> Prin memoria de IA partajată și
+protocoalele zilnice automate, niciun rezultat de analiză nu se mai pierde:
+IA își construiește cunoașterea pe săptămâni, în loc să pornească de la zero
+la fiecare prompt.</li>
+</ol>
+<p><b>Concluzia:</b> un LLM gol, fără sistem, este un jurist strălucit
+căruia i se dau 5.000 de foi volante, nesortate, și i se cere să găsească
+rândul decisiv în cinci secunde. <span class="irs">IRONSTICK</span> este infrastructura care
+transformă acel jurist într-un cabinet de înaltă performanță,
+funcțional.</p>
+<p>Configurarea este un buton per IA în configurare; un plugin de
+competențe învață IA formatele dumneavoastră de ieșire obligatorii. Ce
+învață IA despre un mandat se păstrează într-o <b>memorie de IA
+partajată</b> — compactă, legată de client, vizibilă și ștergibilă numai de
+dumneavoastră. Și vedeți mereu ce se întâmplă: ori de câte ori o IA vă
+citește dosarul, simbolul ei se aprinde în bara de meniu.</p>
+<p><b>Site-uri web cu verificare de acces.</b> Dacă un site web cere o
+confirmare înainte de a-și elibera conținutul, <span class="irs">IRONSTICK</span> deschide
+pagina într-o fereastră proprie: confirmați acolo, iar lucrul pe pagină
+continuă fără întrerupere.</p>
+<div class="box">Primul acces per pornire de program cere consimțământul
+dumneavoastră explicit; documentele marcate secrete sunt invizibile pe acest
+canal; sugestiile IA nu scriu niciodată în evidențele dumneavoastră — ele
+așteaptă aprobarea dumneavoastră în Monitorul de Consistență a Datelor.
+Intrările de cronică sosesc ca formular de înregistrare precompletat —
+adăugați fotografii dacă doriți și salvați dumneavoastră.</div>
+<div class="box"><b>Bridge-urile rulează în paralel.</b> Dacă sunt licențiate mai
+multe module, Claude, ChatGPT, Qwen și Kimi pot fi conectate simultan și pot
+lucra chiar pe același dosar în același timp — împărțind aceeași stare de
+dosar, aceeași memorie de IA și aceleași porți de verificare, în timp ce
+bara de meniu arată câte un logo pulsând per IA activă, astfel încât fiecare
+acces este atribuit IA care l-a făcut.</div>
+
+<h3>Mai multe minți, un dosar — un consiliu de consultanți încorporat</h3>
+<p>Aici devine mai mult decât un chatbot. Pentru că Bridge-urile pot rula
+deodată, puneți <b>IA independente pe același dosar</b> și le lăsați să își
+verifice reciproc munca — cu <span class="irs">IRONSTICK</span> la mijloc, ca bază de date comună și
+coordonator. Punctul decisiv: Claude, ChatGPT, Qwen și Kimi sunt <b>modele
+diferite, cu antrenamente diferite</b>, deci primiți <b>opinii și abordări
+cu adevărat diferite</b> — o a doua opinie reală, nu un model care își dă
+singur dreptate. Acestea sunt astăzi <b>printre cele mai puternice modele de
+IA din lume</b>; <span class="irs">IRONSTICK</span> le pune, unul lângă altul, pe dosarul
+dumneavoastră.</p>
+<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_advisory_board.jpg" alt="Mai multe IA independente pe același dosar — un consiliu de consilieri care se verifică reciproc."><figcaption>Mai multe IA independente pe același dosar — un consiliu de consilieri care se verifică reciproc.</figcaption></figure>
+<p>Le conduceți în limbaj natural, ca un partener care coordonează doi
+colaboratori: <i>„elaborează asta… acum dă-i-o celuilalt la verificat…
+adu-mi evaluarea lui… revizuiește."</i> Schița, teoria sau actul se predau
+prin <span class="irs">IRONSTICK</span>, a doua IA le analizează critic — cu sarcina de a găsi
+slăbiciuni, contraargumente și erori, nu de a lăuda — iar evaluarea ei se
+întoarce la dumneavoastră. Ambele stau pe <b>date de dosar identice</b>, iar
+întregul schimb este consemnat (curat din punct de vedere forensic).</p>
+<p>Această echipă bicefală de consultanță/forensică este ideală pentru:</p>
+<ul>
+<li><b>Dezvoltarea teoriilor cauzei</b> — una construiește, cealaltă o
+supune testului de stres.</li>
+<li><b>Recunoașterea tiparelor în dosar</b> — două modele prind ce scapă
+unuia.</li>
+<li><b>Elaborarea tacticii și strategiei</b> — propunere și
+contrapropunere.</li>
+<li><b>Redactarea și călirea actelor</b> — scrie, verifică, combate,
+rafinează.</li>
+<li><b>Contraverificarea liniilor dumneavoastră generale de argumentare</b> —
+înainte să o facă adversarul.</li>
+</ul>
+
+<h3>Un dosar care se vindecă singur — dumneavoastră ca instrument de
+precizie</h3>
+<p>Greșelile vechi de înregistrare și scanările ratate încetează să fie
+permanente. Când IA dă peste un text integral stocat care e trunchiat sau
+distrus de un OCR prost, nu îl ocolește în tăcere — <b>vindecă
+înregistrarea</b>: cere o rescanare proaspătă, exactă pe pagini, a PDF-ului
+original (alegeți paginile în selectorul de pagini familiar), compară noua
+scanare cu textul stocat pasaj cu pasaj, repară numai stricăciuni mecanice
+de scanare — fără reformulări; numerele, numele și sumele rămân neatinse —
+și predă înapoi textul integral vindecat. Îl vedeți în întregime, iar
+<b>numai clicul dumneavoastră îl salvează</b>. Arhiva devine mai curată cu
+fiecare săptămână în care lucrați în ea.</p>
+<p>Acolo unde chiar și o scanare proaspătă atinge limite fizice, IA vă
+transformă pe <b>dumneavoastră</b> în instrumentul ei de precizie —
+<b>Human-in-the-Loop Micro-Sourcing</b>: în locul unui inutil „fișierul nu a
+putut fi procesat", deschide înregistrarea, numește locul exact („pagina 12,
+sus") și vă roagă să transcrieți exact cele trei cuvinte ilizibile — sau, în
+limite stricte (10&nbsp;MB, 90 de pagini), să îi predați PDF-ul original
+prin agrafă, ca să citească scanarea cu propria vedere. Nu răsfoiți
+niciodată un dosar de 200 de pagini; sunteți chemat exact pentru acei
+0,1&nbsp;% pe care o mașină nu îi poate rezolva cu certitudine. Sistemele
+tradiționale cunosc două stări — „succes" (oricât de greșit) și „eroare,
+procesați manual"; aceasta este o simbioză între viteza IA și ochiul uman
+care, în această formă, nu există nicăieri altundeva pe piață.</p>
+
+<p class="part pb">Partea a III-a — Suveranitate: de ce nu un cloud</p>
+
+<h2 id="ch7">7. Firewall-ul anti-halucinație — unic, din câte știm</h2>
+<p>Singura teamă justificată privind IA în practica juridică: modelele
+inventează trimiteri, denaturează cifre și pretind că au citit dosare pe
+care doar le-au răsfoit. Industria răspunde cu prompturi și declinări de
+răspundere — <span class="irs">IRONSTICK</span> răspunde cu arhitectură. IA dumneavoastră de
+desktop lucrează asupra dosarului prin <b>208 de instrumente
+specializate</b>, iar orice drum către un document care iese din sistem
+trece prin porți deterministe: logică pură, nicio IA care verifică o
+IA.</p>
+<div class="showband"><img src="img/50_two_windows.png" alt="Priviți IA lucrând — în direct"></div>
+
+<ul>
+<li><b>Dovada lecturii.</b> Sistemul înregistrează, rând cu rând, ce a
+citit efectiv IA din dosar. Pasajele necitite îi sunt reproșate în fiecare
+răspuns — iar livrarea rămâne blocată cât timp există lacune. „Am citit
+tot" nu mai este o afirmație, ci o măsurătoare.</li>
+<li><b>Proveniența citărilor.</b> Fiecare referință probatorie trebuie să
+indice o piesă reală din dosar, pe care IA a preluat-o și a citit-o
+integral, în mod demonstrabil — citarea din fragmente de căutare sau din
+memorie pică verificarea.</li>
+<li><b>Norme doar din biblioteca verificată.</b> Articolele citate sunt
+confruntate cu litera legii din propria bibliotecă verificată; sursele noi
+intră doar prin dialogul dumneavoastră de consimțământ. Un număr de
+articol inventat blochează livrarea.</li>
+<li><b>Toleranță zero la cifre și nume.</b> Sumele trebuie să corespundă
+evidenței până la virgulă, numele părților până la diacritice;
+identificatorii personali și bancari trec prin validatoare cu cifră de
+control — un CNP sau un IBAN imposibil nu ajunge niciodată în
+instanță.</li>
+<li><b>Livrare doar contra atestare.</b> Un act formal este refuzat cât
+timp o verificare proaspătă a exact acelei stări a fișierului nu a ieșit
+verde — orice modificare anulează atestarea, iar cinci runde eșuate
+opresc bucla și vă notifică. Fiecare document livrat își poartă ștampila
+de verificare.</li>
+<li><b>Fără modificări tăcute după livrare.</b> O corectură la un document
+livrat nu este niciodată încorporată în tăcere: versiunea veche este anulată
+vizibil și se creează o versiune nouă. Corecturile dumneavoastră intră
+totodată în verificare.</li>
+<li><b>Fără uși laterale.</b> O scrisoare declarată „informală" este
+recunoscută după conținut și trecută prin porțile formale; redenumirea
+unui document pentru a reseta numărătoarea versiunilor este refuzată;
+cunoștințele despre norme luate din presă sau din memoria modelului pică
+verificarea — doar litera legii, citită demonstrabil din bibliotecă în
+această sesiune, susține o citare; iar fiecare răspuns despre un dosar
+poartă obiectul real al dosarului din evidențele dumneavoastră, astfel
+încât un context inventat dintr-un alt dosar se contrazice pe loc.</li>
+<li><b>Citate dincolo de limitele dosarului.</b> Dacă un citat provine dintr-un
+document al altui dosar, verificatorul îl găsește în întregul fond de date și numește
+documentul exact — IA îl citește exact pe acela, nu întregul dosar străin.</li>
+<li><b>Proveniența fiecărui document.</b> IA află la fiecare document de unde
+provine: dacă vine de la partea adversă sau de la o autoritate, afirmațiile
+lui trebuie mai întâi verificate critic; dacă provine de la client, redă
+punctul de vedere al acestuia.</li>
+<li><b>Protecție împotriva instrucțiunilor strecurate.</b> Paginile web pot conține texte adresate IA, nu dumneavoastră. Înainte ca acest conținut să ajungă la IA, <span class="irs">IRONSTICK</span> elimină textele-momeală ascunse și verifică restul după un catalog de tipare în unsprezece limbi. Pasajele detectate sunt făcute ilizibile, iar IA primește o notificare — logică pură, nicio IA care verifică o IA.</li>
+<li><b>Fără mers în gol pe banii dumneavoastră.</b> Dacă o IA de desktop încearcă să
+reîncarce date pe care le are deja neschimbate, apelul este refuzat — tokenii și timpul
+merg în muncă, nu în repetiție.</li>
+</ul>
+<div class="box"><b>Și nu sunteți legați de niciun furnizor de IA.</b> IA
+încorporată rulează pe <b>Qwen, Kimi, ChatGPT și Claude</b> — patru
+secțiuni identice în configurator. <b>Iar <span class="irs">IRONSTICK</span> vă economisește banii singur:</b> fiecare
+furnizor configurat este folosit automat, cel mai ieftin primul — Qwen, apoi
+Kimi, ChatGPT, Claude. La fiecare pornire programul verifică care dintre
+ei răspund; dacă în cursul zilei se epuizează o cotă sau un credit, continuă
+în tăcere cu următorul și verifică din nou a doua zi. Fără selector, fără
+întreruperi, fără muncă pierdută. Partea desktop oferă Claude, ChatGPT, Qwen
+și Kimi.
+<b>Muncă de fundal la cost zero:</b> pentru sarcinile care rulează în fundal
+fără intervenția dumneavoastră — rezumate, triajul e-mailurilor și altele
+asemenea — puteți configura în plus ofertele gratuite ale <b>Groq, OpenRouter
+și Mistral</b> și le puteți activa și dezactiva pe fiecare în parte. Pentru chat
+și acte de procedură nu sunt folosite niciodată. Deoarece în acest caz datele
+ajung la acești furnizori, configuratorul vă atrage atenția la fiecare dintre ei
+să le verificați temeinic termenii și condițiile din perspectiva GDPR. Dacă un furnizor dezamăgește la preț, politici sau performanță, îi
+ștergeți pur și simplu cheia — porțile, și deci standardul livrat, rămân
+identice.</div>
+<h3>Calea <span class="irs">IRONSTICK</span></h3>
+<div class="showband"><img src="img/58_mcp_bridge.png" alt="Serverul MCP conectează furnizorul de IA cu aplicația client"></div>
+
+<div class="box"><b>Ce înseamnă asta pentru alegerea IA:</b> cu aceste
+porți devine aproape irelevant cât de puternic este modelul conectat — un
+model mai slab are pur și simplu nevoie de mai multe runde de corecție.
+Diferența pe care o simțiți este în principal viteza de execuție;
+rezultatul livrat trebuie să atingă, oricum, același standard impus.</div>
+<div class="box"><b>A verifica nu înseamnă a impune.</b> Piața a început
+să facă reclamă la „verificarea citărilor" — în practică un serviciu de
+adnotare best-effort: citările sunt căutate, trimiterile completate „în
+măsura posibilului", iar documentul se întoarce oricum — prin cloud-ul
+furnizorului, cu răspunderea parcată la avocat. Verificarea <span class="irs">IRONSTICK</span>
+este un compilator, nu o sugestie: șaptesprezece porți deterministe, un verdict
+care blochează, o atestare legată de exact acea stare a fișierului —
+orice modificare o anulează — și niciun document formal nu pleacă fără
+ea. Alții adnotează; <span class="irs">IRONSTICK</span> impune.</div>
+<p>Din câte știm, nicio altă aplicație juridică din lume nu impune această
+combinație. Instrumentele de observabilitate consemnează după fapt,
+sandbox-urile îngrădesc accesul — <span class="irs">IRONSTICK</span> dovedește munca, la singura
+interfață pe care o are IA.</p>
+<p>Dacă doriți să aflați mai multe despre cum funcționează chatul IA intern, respectiv Bridge-ul pentru Claude, ChatGPT, Kimi și Qwen, și ce posibilități deschide Calea <span class="irs">IRONSTICK</span>, <a href="bridge_ro.html">faceți clic aici</a>.</p>
+<h3>Calea clasică</h3>
+<div class="showband"><img src="img/64_classic_way.png" alt="Calea clasică: IA fără acces la dosare, doar fișiere încărcate"></div>
+<p>Până astăzi, asistenții IA lucrează fără nicio conexiune la baza de date cu dosarele și datele clienților dumneavoastră — singura cale către IA este încărcarea de fișiere. Și majoritatea sistemelor bazate pe cloud funcționează după această cale clasică: în cel mai bun caz mută fișiere text în fundal — invizibil pentru utilizator. Astfel, IA se folosește în cel mai bun caz doar de informațiile din exact aceste fișiere încărcate. Cu puțin noroc, ele nu sunt prea mari și IA ține cont de tot; altfel, halucinațiile sunt programate dinainte. IA nu poate accesa dosarul în sine: lucrează orbește și încearcă să obțină pentru utilizator cel mai bun rezultat. Aceasta poate duce la aprecieri greșite periculoase și la afirmații false.</p>
+<p>Nici abilitățile (skills) și plug-in-urile suplimentare nu schimbă nimic. În cel mai rău caz chiar agravează problema: instrucțiunile lor ample ocupă o parte considerabilă a ferestrei de context înainte ca IA să fi citit primul document — și cu cât această fereastră este mai plină, cu atât mai inegal ține IA cont de ceea ce conține.</p>
+<div class="showband"><img src="img/71_context_overload.png" alt="IA supraîncărcată: skill-uri/plug-in-uri, instrucțiuni și fișiere sunt turnate în capul IA până când acesta dă pe dinafară" loading="lazy" decoding="async"></div>
+<p>Cel mai simplu este să vă imaginați o IA ca pe un copil de 10 ani cu o capacitate de asimilare relativ limitată. Dacă îi umpleți acestui copil creierul cu multe cunoștințe în cadrul unei lecții frontale, abia va fi în stare să rețină totul și poate chiar va uita fapte sau instrucțiuni importante.</p>
+<div class="showband"><img src="img/72_best_effort_path.png" alt="Best effort: IA supraîncărcată este trimisă la drum doar cu rugăminți și eșuează la țintă" loading="lazy" decoding="async"></div>
+<p>Exact asta se întâmplă în prezent cu modelele de IA „best effort”, indiferent de felul în care sunt promovate. De fapt, capul IA este pur și simplu umplut cu datele dosarului dumneavoastră: trebuie să citească dosare întregi, texte lungi și, pe deasupra, instrucțiunile lungi, eventual și plug-in-uri și skill-uri. Capul se umple și se umple, până vine momentul în care pur și simplu nu mai încape nimic și totul este comprimat sau pur și simplu nu se mai citește tot. Abia apoi IA este trimisă să vă redacteze actul procedural. Asta trebuie să eșueze inevitabil.</p>
+<div class="showband"><img src="img/73_ironstick_guided_path.png" alt="IRONSTICK: date pregătite și instrucțiuni scurte; IA este condusă prin indicatoare și porți de siguranță spre o țintă verificată" loading="lazy" decoding="async"></div>
+<p><span class="irs">IRONSTICK</span> merge pe un alt drum. Instrucțiunile sunt păstrate scurte, astfel încât, chiar și la modelele de IA mai slabe, să nu ocupe niciodată mai mult de jumătate din memorie. Datele dosarului dumneavoastră sunt mai întâi pregătite de <span class="irs">IRONSTICK</span>, iar IA este alimentată doar cu datele cu adevărat importante (vă puteți imagina date comprimate, fără proză) și abia apoi este trimisă la drum. Pe acest drum însă IA nu este lăsată singură, ci primește instrumente și măsuri de siguranță. Ea este condusă spre țintă prin indicatoare și porți de siguranță.</p>
+<h3>Diferența?</h3>
+<div class="showband"><img src="img/74_best_effort_requests.png" alt="Best effort: IA este trimisă la drum doar cu rugăminți și cu speranța că va respecta instrucțiunile, și eșuează" loading="lazy" decoding="async"></div>
+<p>Ofertele clasice „best effort” îi țin IA mai întâi un fel de lecție frontală și apoi o trimit la drum, mai mult sau mai puțin cu cele mai bune urări, cu rugămintea (… și speranța) că se va ține de instrucțiuni și nu va fi uitat nimic.</p>
+<div class="showband"><img src="img/75_ironstick_coaching_line.png" alt="IRONSTICK: o linie constantă de coaching cu porți de siguranță și informații suplimentare până la ținta verificată" loading="lazy" decoding="async"></div>
+<p><span class="irs">IRONSTICK</span> urmează abordarea unei linii constante de coaching, cu blocaje de siguranță, informații suplimentare, ajutoare și instrumente, și verifică astfel în permanență drumul și rezultatul modelului de IA.</p>
+
+
+<h2 id="ch8">8. Problema structurală a SaaS — și răspunsul <span class="irs">IRONSTICK</span></h2>
+<p><b>Cu un software de cabinet în cloud vă predați responsabilitatea și
+datele unor străini — și sperați că cloud-ul lor nu ia foc niciodată.
+<span class="irs">IRONSTICK</span> înseamnă suveranitate maximă:</b> sistemul este construit astfel
+încât nici măcar o cădere totală a serverului — sau o deturnare a
+infrastructurii — să nu poată opri cabinetul.</p>
+<p><b>Soluțiile SaaS vând promisiunea securității — această arhitectură
+livrează securitate nativă, impusă structural.</b> Soluțiile clasice de
+cabinet din cloud și SaaS poartă o problemă structurală gigantică pe care
+broșurile lor de marketing preferă să o ascundă: sunt extrem de
+<b>centralizate</b>. <span class="irs">IRONSTICK</span> este democratic și absolut
+<b>descentralizat</b>.</p>
+<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_attacks.jpg" alt="Atacurile care doboară platformele centralizate se opresc aici în scut — cabinetul lucrează mai departe."><figcaption>Atacurile care doboară platformele centralizate se opresc aici în scut — cabinetul lucrează mai departe.</figcaption></figure>
+<ul>
+<li><b>Punctul unic central de eșec.</b> Când un furnizor SaaS este spart —
+un atac pe lanțul de aprovizionare, credențiale de cloud capturate, o
+eroare de configurare la gazda de cloud — mii de cabinete de avocatură sunt
+lovite deodată. Această arhitectură distribuie riscul <b>fizic</b>, pe
+sediile individuale ale cabinetelor și pe propriile lor rețele locale
+securizate.</li>
+<li><b>Capcana răspunderii și a protecției datelor.</b> Cu SaaS, date de
+client extrem de sensibile stau pe serverele altcuiva — Microsoft Azure,
+AWS, centrele de date ale furnizorului. După o scurgere de date, un acces
+în baza US CLOUD Act sau o cădere de server, cabinetul rămâne descoperit —
+profesional și sub aspectul protecției datelor. Cu <span class="irs">IRONSTICK</span> datele rămân
+<b>100&nbsp;% local-first, pe dispozitivele proprii ale cabinetului</b>.</li>
+<li><b>Ostatici ai căderilor.</b> Dacă pică centrul de date al furnizorului
+SaaS — sau furnizorul are pur și simplu o zi proastă — nimeni din cabinet
+nu mai poate lucra. Aici, în cel mai rău caz, administratorul cumpără un
+aparat de schimb de ~300&nbsp;€ — sau cabinetul pur și simplu continuă să
+lucreze autonom pe stațiile de lucru.</li>
+<li><b>Nicio pierdere tăcută de date.</b> Un singur defect într-o bază de
+date din cloud poate șterge date iremediabil. Acest sistem se rehidratează,
+în caz de urgență, din stațiile de lucru separate fizic — inclusiv din
+laptopurile care se întorc din concediu.</li>
+</ul>
+<div class="box"><b>Independent de furnizor.</b> Dosarul dumneavoastră se află pe propriul hardware, licența se verifică offline, pe calculatorul dumneavoastră, iar <span class="irs">IRONSTICK</span> nu are nevoie de niciun server al furnizorului pentru a funcționa. Tot ce înregistrați puteți exporta oricând — ca PDF, ca DOCX sau ca backup complet pe propriul dumneavoastră suport de stocare.</div>
+
+<h2 id="ch9">9. De ce <span class="irs">IRONSTICK</span> — și nu o platformă AI juridică în cloud</h2>
+<p><b>Dosarul rămâne al dumneavoastră. IA vine la datele dumneavoastră — nu
+datele dumneavoastră la IA.</b> Această singură propoziție separă <span class="irs">IRONSTICK</span>
+de orice platformă juridică de IA din cloud de pe piață. În 2026 industria a
+trecut în masă la un singur model: dosarele clienților dumneavoastră stau în
+cloud-ul unui furnizor, iar o IA închiriată de la același furnizor lucrează
+acolo pe ele. <span class="irs">IRONSTICK</span> întoarce acest model — dosarul rămâne pe hardware-ul
+<i>dumneavoastră</i>, iar propriile abonamente de IA se conectează la el
+printr-un Bridge controlat și documentat.</p>
+<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_no_cloud.jpg" alt="Fără cloud: dosarul întreg încape pe un suport ales de dumneavoastră — chiar și pe un stick USB criptat."><figcaption>Fără cloud: dosarul întreg încape pe un suport ales de dumneavoastră — chiar și pe un stick USB criptat.</figcaption></figure>
+<p>Trei argumente, în ordinea în care le-ar ierarhiza clienții
+dumneavoastră:</p>
+<ul>
+<li><b>Suveranitatea datelor ca argument de deontologie profesională.</b>
+Baza de date trăiește pe propriul dumneavoastră suport; furnizorul de
+software nu vede niciodată date de client. Pseudonimizarea, jurnalul de
+audit și declarația GDPR completă a fluxurilor de date se livrează cu
+produsul — inclusiv o clauză-model gata de preluat pentru propria informare
+de confidențialitate a clienților. Pentru secretul profesional și
+răspunderea GDPR aceasta nu este o funcție; este răspunsul.</li>
+<li><b>Aduceți propria IA — și păstrați structura de costuri.</b> Lucrați cu
+propriile conturi Claude, ChatGPT, Qwen și/sau Kimi (de regulă 20–40&nbsp;€ pe
+lună fiecare, acolo unde e nevoie de abonament) în loc să plătiți taxe
+lunare de trei cifre per utilizator pentru o platformă juridică de IA în
+cloud. Pe trei ani, pentru un cabinet mic, diferența se măsoară în sume de
+cinci cifre — în timp ce modelele pe care le folosiți sunt aceleași modele
+de vârf pe care marile platforme vi le închiriază.</li>
+<li><b>Precizie controlată.</b> Peste 200 de instrumente dau IA acces viu
+la dosarul real — cronici, texte integrale, termene.
+Dar fiecare cale de scriere trece printr-o poartă de verificare:
+modificările propuse apar ca redline (tăiat pentru ștergeri, aldin pentru
+adăugiri) și nimic nu se aplică până nu acceptați. Fiecare referință dintr-un
+act generat este verificată contra dosarului. Arma e ascuțită; trăgaciul
+rămâne la dumneavoastră.</li>
+<li><b>Precizie și viteză fără egal.</b> Bridge-ul <span class="irs">IRONSTICK</span> dă IA acces direct
+la date <i>pregătite</i>: fiecare document deja trecut prin OCR, clasificat,
+datat, referențiat și legat de dosar. IA nu pierde niciodată timp (și nu
+face greșeli) reconstruind ce conține un dosar — interoghează exact
+înregistrarea, primește exact textul integral și citează exact referința.
+Conținutul voluminos circulă prin Bridge prin referință, în loc să fie
+retastat de model — exact la byte și în secunde. Rezultatul este un nivel de
+acuratețe și, mai ales, de viteză de procesare pe care chat-urile cu
+copy-paste și încărcările în cloud pur și simplu nu îl pot atinge.</li>
+</ul>
+
+<h2 id="ch10">10. De ce acum — și de ce nu pur și simplu ChatGPT?</h2>
+<p>Tot mai mulți avocați experimentează deja cu un chat de IA „gol" — lipesc
+documente în ChatGPT și pun întrebări. Pentru un singur document scurt
+funcționează. Contra unei încărcări reale de cabinet se lovește de doi
+pereți duri — și exact pe aceștia <span class="irs">IRONSTICK</span> este construit să îi
+elimine.</p>
+<ul>
+<li><b>Fereastra de context.</b> Un chat de IA poate lucra doar cu ce încape
+deodată în fereastra sa de context — în cel mai bun caz câțiva megabytes de
+text (vedeți comparația din Partea a III-a). O arhivă de dosare crescută în
+ani este de multe ori mai mare. Așa că un chat gol vă obligă să alegeți
+câteva pagini, aruncă tăcut restul și pornește de la zero la fiecare
+sesiune. <span class="irs">IRONSTICK</span> ridică plafonul: asistentul aduce exact pasajele,
+documentele, e-mailurile și termenele de care are nevoie — proaspete, din
+dosarul viu — și își poartă mai departe concluziile într-o memorie
+persistentă, legată de client, de la o sesiune la alta.</li>
+<li><b>Organizarea.</b> Un chat gol nu are structură — fără clienți, dosare,
+entități, instituții, termene, cronică sau legături între dosare. Fiecare
+sesiune e o insulă: nimic nu se îndosariază, nimic nu se transmite, nimic
+nu e auditabil. <span class="irs">IRONSTICK</span> <i>este</i> structura: IA lucrează în interiorul
+dosarului dumneavoastră organizat, citează exact proba și numărul de dosar,
+respectă termenele și lasă în urmă o pistă curată.</li>
+</ul>
+<p>Diferența e simplă: a sta de vorbă cu o IA — sau muncă de dosar
+apărabilă, repetabilă, care rezistă și peste luni.</p>
+<div class="showband"><img src="img/59_mcp_detail.png" alt="Serverul MCP: firewall, instrumente și bază de date"></div>
+
+<p><b>Și de ce, în fond, modele de IA externe — în loc de unul propriu?</b>
+Motivul este unul economic. Pentru a opera un LLM propriu, cu adevărat
+utilizabil, ar fi necesară o investiție de 400.000–500.000&nbsp;€ — numai
+pentru servere, instalații de răcire și infrastructură — plus costuri
+curente de 70.000–80.000&nbsp;€ pe an pentru funcționare și întreținere.
+Iar costurile tehnicienilor nici nu sunt incluse. Pentru un cabinet de
+avocatură asta pur și simplu nu are sens — investiția este mult prea mare.
+Iar dacă <span class="irs">IRONSTICK</span> ar oferi în schimb un serviciu propriu de IA în cloud, ar
+fi de fapt exact același lucru ca serviciile existente Claude, ChatGPT,
+Qwen și Kimi — doar că <span class="irs">IRONSTICK</span> nu l-ar putea oferi niciodată la prețurile lor.
+Dintr-o judecată pur logică, asta nu are sens. De aceea <span class="irs">IRONSTICK</span>
+conectează abonamentele dumneavoastră la cele mai puternice modele din
+lume, în loc să vă închirieze unul propriu de mâna a doua.</p>
+
+<p class="part pb">Partea a IV-a — Securitatea datelor: datele dumneavoastră,
+regulile dumneavoastră</p>
+
+<h2 id="ch11">11. Totul local — prin construcție</h2>
+<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_own_hardware.jpg" alt="Dosarul, probele și compartimentul de documente secrete rămân pe propriul dumneavoastră hardware — protejate prin construcție."><figcaption>Dosarul, probele și compartimentul de documente secrete rămân pe propriul dumneavoastră hardware — protejate prin construcție.</figcaption></figure>
+<ul>
+<li><b>Offline-first.</b> Întregul dosar trăiește local, într-un director
+ales de <b>dumneavoastră</b> — un stick USB criptat, dacă preferați. Fără
+cloud forțat, fără server al furnizorului, fără obligația unui cont. Fără
+internet, dosarul, căutarea, documentele și asistentul local continuă să
+funcționeze.</li>
+<li><b>Bază de date criptată AES-256.</b> Fișierul care ține întregul
+dumneavoastră cabinet — clienți, dosare, cronologie, e-mailuri, termene,
+memoria IA-urilor — stă pe disc criptat AES-256, fiecare pagină separat și
+sigilată pentru integritate. Nimic de configurat, nicio parolă de reținut:
+textul în clar există numai în memorie, cât timp rulează <span class="irs">IRONSTICK</span>. Cine
+copiază fișierul de pe un disc, un stick sau dintr-un backup ține în mână
+text cifrat.</li>
+<li><b>Documente criptate AES-256.</b> Și depozitul de documente în sine —
+fiecare PDF original, scanare, imagine, înregistrare — stă criptat, fiecare
+fișier cu propriul sigiliu de integritate. Text în clar există numai pentru
+documentele la care lucrați efectiv, în folderul temporar, golit la
+închiderea <span class="irs">IRONSTICK</span>. Ce exportați sau trimiteți părăsește seiful în mod
+deliberat.</li>
+<li><b>Cod de acces prin autentificator.</b> Fiecare pornire cere codul
+din șase cifre din aplicația de autentificare de pe telefon — aceleași
+coduri unice pe care le folosește banca dumneavoastră. Nicio parolă de
+reținut, nimic stocat: secretul este derivat la rulare din cheia de
+licență, iar cheia de licență vă readuce înăuntru dacă pierdeți telefonul.
+Până la introducerea codului nu se afișează nimic, iar conectorii IA nu
+primesc date de dosar. Și fișierul de configurare cu datele de acces API și
+e-mail stă criptat AES-256.</li>
+<li><b>Pseudonimizare înaintea IA externe.</b> Când funcțiile din aplicație
+chiar folosesc IA externă, numele, codurile numerice, numerele de dosar,
+IBAN-urile, numerele de telefon, e-mailurile și adresele din evidențele
+dumneavoastră sunt înlocuite mai întâi, pe mașina dumneavoastră, cu
+substituenți neutri — răspunsul este tradus înapoi local.</li>
+<li><b>Consimțământ și audit.</b> IA externă rulează pe bază de consimțământ
+explicit și este consemnată — pista de audit reține exact ce a părăsit
+efectiv mașina.</li>
+<li><b>Documente secrete (Windows).</b> Un compartiment ascuns, criptat cu
+parolă, pentru documentele pe care numai avocatul are voie să le vadă
+vreodată: invizibile în orice listă, excluse din orice canal de IA și din
+orice export, niciodată sincronizate pe tabletă — cu o secvență de
+distrugere de urgență pentru ziua cea mai neagră.</li>
+<li><b>Backupuri și sincronizare fără cloud.</b> Backup complet dintr-un
+clic, oriunde doriți; sincronizarea Windows ↔ tabletă merge pe cablu USB,
+verificată prin sume de control. Telefonul dumneavoastră primește numai
+intrări de calendar — niciodată conținut de dosar.</li>
+<li><b>Mutarea pe un mediu extern — verificată, nu sperată.</b> Dacă doriți să lucrați
+cu PC-ul de birou și laptopul pe același dosar, pe un SSD extern, <span class="irs">IRONSTICK</span> verifică ținta
+înainte de mutare: spațiul liber, viteza reală, sistemul de fișiere și dacă datele de test
+sunt recitite neschimbate; unitățile de rețea și folderele cloud sunt refuzate. După
+copiere, fiecare fișier este comparat prin sumă de control; comutarea are loc doar când
+totul corespunde, iar folderul vechi este păstrat sub alt nume. <span class="irs">IRONSTICK</span> recunoaște
+suportul indiferent de litera unității; dacă lipsește la pornire, <span class="irs">IRONSTICK</span> spune acest
+lucru, în loc să deschidă pe tăcute un set de date gol. De la un grad de umplere de
+85&nbsp;% primiți un avertisment. Cerințele pentru mediu se află în
+<a href="#ch15">Capitolul 15</a>.</li>
+<li><b>Declarație scrisă.</b> O declarație GDPR completă a fluxurilor de
+date se livrează cu sistemul — fiecare transmitere externă, conținutul ei
+exact și unde stau granițele. Inclusiv o clauză-model pentru propria
+informare de confidențialitate a clienților, în toate cele unsprezece
+limbi — engleză, germană, franceză, italiană, spaniolă, română, portugheză,
+neerlandeză, turcă, ucraineană și rusă.</li>
+</ul>
+<div class="showband"><img src="img/61_encryption_flow.png" alt="Criptare AES-256 în aplicația client și serverul MCP"></div>
+<p>Toate straturile de protecție din capitolul 11 sunt active din fabrică — fără configurare și fără un comutator care să se stingă din greșeală: <b>datele în repaus</b> criptate AES-256 — baza de date, fiecare document, configurarea și întreaga zonă de lucru a IA; pe scurt: <b>nicio dată de dosar nu mai stă necriptată pe discul dumneavoastră — nici măcar fișierele de lucru ale IA</b>. <b>Accesul la rulare</b> numai cu codul din aplicația de autentificare. <b>Datele în mișcare</b> numai ca act deliberat al dumneavoastră — fiecare cale documentată în declarația GDPR livrată cu produsul.</p>
+<p>Software-ul juridic în cloud vă vinde promisiunea că altcineva vă păstrează
+datele în siguranță. Aici protecția face parte din construcție, pe propriul
+hardware, și fiecare strat îl puteți verifica singur.</p>
+
+<p class="part pb">Partea a V-a — Crește odată cu cabinetul</p>
+
+<h2 id="ch12">12. Mai mult de un birou? Serverul de cabinet</h2>
+<figure class="serverpic"><img src="img/62_server_fanout.png" alt="Serverul de cabinet rulează pe un NAS Synology obișnuit — un DS223j ca acesta se găsește în comerț de la circa 900 de lei."><figcaption>Serverul de cabinet rulează pe un NAS Synology obișnuit — un DS223j ca acesta se găsește în comerț de la circa 900 de lei.</figcaption></figure>
+<p>Pentru cabinetele cu mai mulți avocați, <span class="irs">IRONSTICK</span> oferă <b><span class="irs">IRONSTICK</span>
+SERVER</b> — un modul licențiat separat care transformă stații de lucru
+independente într-un cabinet multi-utilizator coordonat, <b>fără cloud și
+fără a renunța la dosarul local</b>. Rulează ca pachet nativ pe un NAS
+Synology — cutiile de birou mici, ieftine, aproape fără întreținere, care
+stau deja în mii de cabinete de avocatură — pe orice model curent, în
+întregime în propria rețea. Serverul nu contactează niciodată internetul,
+niciodată furnizorul, și nu poartă niciun trafic de IA.</p>
+<p><b>De ce un NAS Synology — și de ce nu este un proiect IT.</b> Am ales
+Synology în mod deliberat pentru că aceste cutii sunt plug and play:
+conectați curentul și rețeaua și pur și simplu funcționează. Instalarea
+pachetului <span class="irs">IRONSTICK</span> Server pe el durează trei minute, apoi rulează — fără
+consolă, fără fișiere de configurare, fără administrator. Stațiile de lucru
+sunt la fel de nepretențioase: instalatorul ghidează complet configurarea,
+fără cunoștințe IT și fără chestionare lungi — porniți, introduceți cheia de
+licență, gata. Clienții și serverul se găsesc automat în rețea; nimeni nu
+tastează o adresă. Iar un cabinet cu un singur birou nu are nevoie deloc de
+NAS — serverul este un modul opțional pentru cabinetele cu mai mulți
+avocați.</p>
+<ul>
+<li><b>Partajați dosare, păstrați dosarul.</b> Eliberați un dosar către un
+coleg cu o singură acțiune; el se abonează și primește o copie completă în
+propriul dosar local. Revocabil oricând; documentele marcate secrete nu vă
+părăsesc niciodată biroul. Iar adevăratul multiplicator de forță: mai mulți
+avocați — fiecare cu propria IA — pot lucra <b>simultan</b> pe același
+dosar, trimițându-i proprietarului mesaje și analize finite direct din
+LLM-ul lor. La nevoie, un întreg cabinet poate converge pe un singur
+dosar.</li>
+<li><b>O bibliotecă legislativă pentru tot cabinetul.</b> Fiecare text de
+lege pe care un coleg îl verifică și îl eliberează devine disponibil la
+fiecare birou — și pentru <b>IA fiecărui birou</b>: asistentul și Bridge-urile
+IA de desktop citează același text verificat, cuvânt cu cuvânt, din
+biblioteca partajată, în loc să aducă din nou web-ul sau să se încreadă în
+memoria modelului. Datele de revizuire, marcajele roșii pentru intrările
+învechite și realocarea automată când un contribuitor lipsește țin
+biblioteca vie — cercetarea unui coleg devine cunoașterea verificată a
+întregului cabinet. Un <b>sistem democratic</b> o ține onestă: fiecare
+stație de lucru își reverifică propriile surse contribuite după două
+săptămâni — ca sarcină automată de fundal, fără nicio acțiune a
+utilizatorului. Dacă un contribuitor lipsește la momentul verificării,
+serverul îi distribuie verificările celorlalte stații; după patru săptămâni
+o sursă se colorează roșu. Odată intrată în sistem, rămâne în sistem.</li>
+<li><b>O privire de ansamblu a timpului pe tot cabinetul.</b> Fiecare stație
+de lucru își raportează în fundal timpul de lucru măsurat; paginile de
+administrare ale serverului arată timpul per dosar, per client și per zi —
+pentru un singur utilizator sau pentru tot cabinetul — plus prezența,
+istoricul partajărilor de dosare și un jurnal de securitate.</li>
+<li><b>Administrat din browser.</b> Aprobarea înregistrărilor, licența,
+utilizatorii, legile și timpul — totul pe o pagină de administrare servită
+chiar de NAS. Licență anuală cu un număr definit de locuri.</li>
+<li><b>O rețea de persoane și societăți pentru întregul cabinet.</b> Persoanele,
+societățile, instituțiile, relațiile dintre ele și analizele de persoană înregistrate pe o
+stație de lucru sunt disponibile tuturor prin server; duplicatele sunt recunoscute și
+unificate la reconciliere. Fiecare înregistrare are un proprietar: colegii nu o modifică
+direct, ci trimit o propunere pe care proprietarul o acceptă — dacă acesta nu răspunde în
+48 de ore, proprietatea trece la cel care a propus. Și ștergerea unei înregistrări străine
+devine o propunere.</li>
+<li><b>Experiența cu judecătorii a întregului cabinet.</b> Evaluările hotărârilor
+judecătorești circulă cu această rețea: fiecare coleg evaluează hotărârile din propriile
+dosare, iar fiecare IA de pe server citește, înaintea unui act, experiența întregului
+cabinet cu acea instanță și acei judecători — de fiecare dată cu indicarea celui care a
+evaluat.</li>
+</ul>
+
+<h3>Predarea și abonarea dosarelor — cum funcționează de fapt</h3>
+<p>Eliberarea unui dosar este un act deliberat, niciodată un efect
+secundar. Proprietarul partajează dosarul din aplicație; acesta călătorește
+către server printr-un <b>transfer în două faze</b> — întâi metadatele, apoi
+conținutul fișierelor, astfel încât un transfer întrerupt nu lasă niciodată
+în urmă o jumătate de dosar — iar fișierele mari sunt adresate după
+conținut, deci documentele identice călătoresc și se stochează o singură
+dată. Serverul atribuie <b>ID-uri interne proaspete</b> la tot ce stochează:
+un dosar primit nu poate intra niciodată în coliziune cu datele deja aflate
+pe stația unui coleg. Colegii văd dosarul partajat pe propriul ecran de
+dosare de server și se <b>abonează</b>; abonatul primește o copie completă
+în propriul dosar local și lucrează pe ea cu sistemul complet — căutare,
+asistent, redactare cu IA, totul. Proprietarul poate revoca
+partajarea oricând, administratorul poate încheia central orice abonament,
+iar fiecare partajare, abonare și export se consemnează cu dată, oră și
+adresă. Documentele marcate secrete sunt excluse prin construcție — nu
+ajung niciodată pe server.</p>
+<p><b>Mega-avantajul: lucru în echipă simultan, asistat de IA, pe un singur
+dosar.</b> Fiecare abonat își lucrează copia cu sistemul complet — inclusiv
+cu propria IA de desktop. Mai mulți avocați pot deci ataca același dosar
+<b>în același timp</b>, fiecare cu propriul LLM citind dosarul la adâncime
+maximă — și îi pot trimite proprietarului dosarului mesaje și evaluări
+finite <b>direct din sesiunea de IA</b>: un tabel al contradicțiilor de la
+un birou, o schiță călită de la următorul, o evaluare de risc de la al
+treilea, toate curgând înapoi la proprietar în timp ce munca se întâmplă.
+Când un termen se ivește brusc sau o ședință este devansată, un întreg
+cabinet poate converge peste noapte pe un singur dosar — analize paralele,
+fluxuri de lucru împărțite, un singur proprietar care ține dosarul.</p>
+
+<h3>O bază de date legislativă care crește singură — conectată direct la
+IA</h3>
+<p>Fiecare birou <span class="irs">IRONSTICK</span> întreține texte de lege verificate ca Markdown
+în text integral, fiecare intrare etichetată cu jurisdicția, linkul-sursă
+și data de revizuire. Asistentul și Bridge-urile IA de desktop ajung la această
+bibliotecă prin trei instrumente proprii: o căutare fuzzy (jurisdicția este o mențiune obligatorie — ordinile juridice nu se amestecă niciodată), preluarea cuvânt cu cuvânt a textului stocat (IA citează formularea verificată, nu memoria sa de antrenament) și depunerea de surse noi (ori de câte
+ori IA întâlnește online o sursă juridică relevantă, îndosarierea ei este o
+<b>obligație, nu o opțiune</b> — doar linkul; aplicația descarcă,
+convertește și verifică singură textul, iar dumneavoastră îl eliberați prin
+poarta de verificare a monitorului de date).</p>
+<p>Asta face baza de date <b>dinamică</b>: crește din munca zilnică a
+cabinetului. Fiecare sesiune de cercetare a fiecărui coleg — umană sau
+asistată de IA — o hrănește. Cu serverul de cabinet, fiecare lege eliberată
+este deduplicată central (aceeași sursă actualizează intrarea; o versiune
+mai nouă a aceluiași text câștigă, cea depășită este arhivată, nu pierdută)
+și <b>oglindită la fiecare birou</b>. Datele de revizuire o țin onestă:
+intrările neverificate de peste o lună se colorează roșu la fiecare birou
+și în administrarea web, iar dacă un contribuitor lipsește, serverul îi
+realocă intrările uniform între utilizatorii activi — obligația de
+revizuire nu moare niciodată odată cu un concediu. Rezultatul: toate IA
+cabinetului argumentează dintr-o <b>singură bibliotecă legislativă
+verificată, vie</b> — verificată o dată de un coleg, citată cuvânt cu
+cuvânt la fiecare birou, întreținută sub o obligație comună — în loc ca
+fiecare birou să aducă iar web-ul deschis și să se încreadă în ce a
+venit. Și este gândire de civil law de la un capăt la altul: autoritatea
+este textul de lege codificat, citat cuvânt cu cuvânt — exact felul în
+care se argumentează în fața instanțelor continental-europene.</p>
+
+<h3>Registratură centrală — aplicația Central Scan</h3>
+<p>Disponibilă <b>numai împreună cu serverul de cabinet</b>: <b>aplicația
+Central Scan</b>, un program de sine stătător pentru PC-ul de la
+secretariat — acolo nu e nevoie de nicio instalare <span class="irs">IRONSTICK</span>. <b>Până la
+trei licențe Central Scan</b> pot fi achiziționate per server — fiecare
+licențiată separat — deci pot rula până la trei stații de scanare per
+cabinet; toate pot lucra chiar <b>același folder de intrare în paralel,
+fără coliziuni</b> (un document deschis de o persoană este blocat automat
+și apare gri pentru celelalte).</p>
+<ul>
+<li><b>Un singur punct de scanare pentru tot cabinetul.</b> Secretariatul
+scanează toată corespondența de dimineață într-un singur folder și lucrează
+lista document cu document.</li>
+<li><b>Căutabil prin construcție.</b> Paginile care poartă deja un strat de
+text rămân neatinse; numai paginile scanate trec prin OCR local, iar textul
+recunoscut este încorporat în PDF ca strat invizibil — avocatul destinatar
+nu mai trebuie să ruleze OCR niciodată.</li>
+<li><b>Destinatarul este recunoscut — fără nicio IA.</b> Aplicația
+potrivește textul documentului cu numerele de dosar și numele avocaților
+cabinetului (raportate în direct de stațiile de lucru) — potrivire pur
+deterministă, zero tokeni, nimic nu părăsește rețeaua dumneavoastră.
+Destinatarii recunoscuți sunt propuși; un clic trimite.</li>
+<li><b>Livrarea este invizibilă.</b> <span class="irs">IRONSTICK</span>-ul fiecărui avocat își
+colectează automat documentele de pe server și le depune în registratura
+normală de documente — preia fluxul obișnuit de înregistrare. Serverul
+păstrează un document numai până când destinatarul a confirmat primirea;
+copiile locale de la stația de scanare se curăță singure după trei
+zile.</li>
+</ul>
+
+<h3>Măsurarea timpului — local la fiecare birou, agregat pentru cabinet</h3>
+<p><b>Local</b>, <span class="irs">IRONSTICK</span> măsoară timpul de lucru automat, ca efect
+secundar al lucrului: fără cronometru, fără disciplină start/stop. Timpul
+se deduce din activitatea efectivă în aplicație, se atribuie dosarului în
+care lucrați, cu plafonare a timpului inactiv, ca o fereastră deschisă
+peste prânz să nu factureze pe nimeni. Fiecare birou are propria pagină de
+timp — azi, 7, 30, 90 de zile sau tot; per dosar, per client, zi cu zi, cu
+bare.</p>
+<p><b>Cu serverul</b>, fiecare stație de lucru raportează aceste măsurători
+în fundal — la fiecare cinci minute, ca totaluri compacte pe zi și dosar
+(inclusiv numele clientului), cu zilele lipsă completate automat; un birou
+care se alătură mai târziu își livrează istoricul complet, deci imaginea pe
+cabinet este întreagă din prima zi. Pagina de Timp a administrării web este
+o copie fidelă a paginii de timp de pe desktop, extinsă cu un selector: un
+singur utilizator sau <b>TOȚI</b> — întregul cabinet. Timp per dosar, per
+client și per zi, peste toate birourile — o bază obiectivă pentru
+facturare, capacitate și decizii de management, produsă fără ca cineva să
+completeze vreo fișă de pontaj.</p>
+<p><b>Sistemul crește odată cu cabinetul.</b> Pornit ca avocat singur, azi
+o echipă de o sută — <span class="irs">IRONSTICK</span> crește împreună cu dumneavoastră. Ce e
+nevoie? Un client desktop <span class="irs">IRONSTICK</span> la început, ca avocat singur, poate un
+Bridge pentru Claude/GPT. Apoi doi avocați își unesc forțele: se mai licențiază un client și un Bridge, plus <span class="irs">IRONSTICK</span> SERVER — până la cinci stații de lucru sunt incluse. De atunci înainte, fiecare coleg suplimentar înseamnă un client și un Bridge, iar de la a șasea stație de lucru, încă un loc de server. Fără investiții mari într-un viitor îndepărtat — licențiați
+numai ce vă trebuie chiar acum. Iar dacă echipa se micșorează, pur și
+simplu cumpărați mai puține licențe.</p>
+
+<p class="part pb">Partea a VI-a — Fiabilitate: autovindecare, backupuri,
+aproape zero IT</p>
+
+<h2 id="ch13">13. Când moare hardware-ul — disaster recovery încorporat</h2>
+<p>Un server care coordonează un întreg cabinet trebuie să aibă voie să
+moară fără să ia cabinetul cu el — iar acesta are. Întreaga stare a
+serverului trăiește într-un <b>singur folder de date pe NAS</b>:
+includeți-l în backupul NAS-ului (de ex. Synology Hyper Backup) și un
+aparat mort se restaurează în trei pași — instalați pachetul pe aparatul de
+schimb, puneți folderul la loc, porniți. Totul revine exact cum era, iar
+stațiile de lucru se reconectează singure. Și pentru că adevărul
+sistemului este oricum <b>descentralizat</b> — fiecare stație de lucru își
+păstrează dosarul local complet, copiile abonate, oglinda bibliotecii
+legislative și propriile backupuri — chiar și cel mai rău caz, pierderea
+totală a NAS-ului <i>fără</i> niciun backup, se vindecă singur: stațiile de
+lucru se reînregistrează automat, proprietarii își reemit automat
+partajările de dosare (verificat de două ori pe zi), copiile abonate sunt
+protejate 14 zile în loc să fie aruncate, biblioteca legislativă crește la
+loc din oglinzile proprii ale stațiilor, iar predările de dosare în curs nu
+pot pierde date prin construcție. Pentru cerințe și mai înalte, același
+pachet rulează neschimbat pe modelele Synology mari, complet redundante —
+redundanță de discuri RAID, surse de alimentare redundante, perechi
+High-Availability cu failover automat. Mutarea cabinetului este la fel de
+nedramatică: luați stațiile de lucru cu dumneavoastră, instalați NAS-ul la
+noua adresă, conectați totul la LAN — <b>Plug and Play</b>, gata. Stațiile de lucru își regăsesc
+singure serverul; fără adrese fixe, fără reconfigurare, fără programare la
+IT — <b>și fără tehnicieni scumpi, niciodată</b>.</p>
+<div class="showband"><img src="img/63_server_move.png" alt="Schimbarea și mutarea serverului — plug and play"></div>
+
+<div class="box"><b>La o cădere totală de server, datele dumneavoastră rămân intacte</b> — datorită autovindecării sistemului și backupurilor descentralizate. Chiar și PDF-urile de corespondență scanată pe care aplicația Central Scan le-a încărcat, dar încă nu le-a livrat, stau 72 de ore în folderul local <i>erledigt</i> al stației de scanare, gata de retrimitere.</div>
+<p><b>Întreținerea:</b> sistemul este absolut auto-vindecător și, prin
+urmare, extrem de ușor de întreținut. Rulează absolut stabil și fluid chiar
+și pe hardware care nu mai e chiar la zi. Iar prin opțiunea de backup, în
+caz de urgență pur și simplu reinstalați și puneți backupul la loc.</p>
+<p><b>Sistemul se repară singur.</b> Singura dependență rămasă este cât de
+repede merge administratorul până la magazin după un aparat de schimb, pune
+software-ul la loc și îl conectează la LAN (serverul) — sau pune backupul
+la loc (stația de lucru). Restul se rezolvă de la sine. Și chiar în timp ce
+serverul e căzut — din orice motiv — <b>stațiile de lucru pur și simplu
+continuă să lucreze local, pe propriile calculatoare</b>: fiecare avocat
+are dosarul complet pe propria mașină, deci nimic nu se oprește.</p>
+
+<h2 id="ch14">14. Fără departament IT? Exact pentru asta este construit</h2>
+<p>O obiecție îndreptățită: <span class="irs">IRONSTICK</span> rulează pe propriul hardware, deci nu
+există un furnizor de cloud al cărui suport să intervină când moare un disc
+local. Adevărat — și intenționat: nimeni de la distanță nu vă deține
+dosarele, și nimeni de la distanță nu le poate pierde, citi sau să vă
+blocheze accesul. Ce cere asta cu adevărat de la un cabinet fără
+administrator este mai puțin decât pare.</p>
+<ul>
+<li><b>Un singur obicei, nimic mai mult: apăsați Backup.</b> Un clic în
+ecranul de backup scrie o copie de siguranță completă într-un singur fișier
+ZIP; îl salvați unde doriți — stick USB, disc extern, NAS-ul cabinetului.
+<span class="irs">IRONSTICK</span> nu lasă asta doar pe seama disciplinei: dacă ultimul backup este
+mai vechi de cinci zile, briefingul zilnic se încheie cu un memento urgent,
+rostit și scris, cu legătură directă către zona de backup; pe serverul
+cabinetului pagina de administrare arată data ultimului backup al fiecărui
+utilizator, roșu după cinci zile.</li>
+<li><b>Backupul în sine nu este periculos de pierdut.</b> Baza de date,
+documentele, configurarea și fișierele de lucru ale IA sunt criptate
+AES-256 — un ZIP de backup pe un stick pierdut este text cifrat, nimic
+altceva.</li>
+<li><b>Recuperarea este o rutină, nu un proiect.</b> Calculator nou sau
+reparat: instalați de pe stick, deschideți ecranul de backup, rulați ZIP-ul
+înapoi, porniți. Totul revine exact cum era — dosare, documente, cronici,
+memoria IA, biblioteca de legi. Fără tehnician, fără tichet, fără
+așteptare.</li>
+<li><b>Nimic de administrat între timp.</b> Niciun server de configurat,
+nicio bază de date de întreținut, niciun cont de utilizator de gestionat —
+cheia de licență și codul din aplicația de autentificare sunt toate datele
+de acces care există. Sistemul se repară singur, stațiile de lucru găsesc
+serverul cabinetului de unele singure, actualizările sunt din nou
+instalatorul. Cine poate salva un document pe un stick USB poate opera
+<span class="irs">IRONSTICK</span> în siguranță.</li>
+<li><b>Copiile secundare vin gratuit acolo unde le folosiți.</b> Fiecare
+stație de lucru într-o configurație cu server de cabinet își păstrează
+dosarul local complet, sincronizarea cu tableta poartă cu dumneavoastră o
+copie verificată prin sume de control, iar NAS-ul se salvează cu propriile
+instrumente (de ex. Synology Hyper Backup). Un dispozitiv pierdut nu
+înseamnă niciodată un cabinet pierdut.</li>
+<li><b>Vedeți ce rulează în fundal.</b> Indicatorul de performanță din bara de meniu
+listează fiecare proces de fundal în curs — preluarea e-mailurilor, recunoașterea textului,
+criptarea și decriptarea, copiile de rezervă, apelurile de instrumente ale IA,
+recunoașterea hotărârilor judecătorești noi. Nimic nu lucrează pe ascuns.</li>
+</ul>
+<p>Afinitatea IT necesară este cea a oricărui loc de muncă Windows — nu mai
+mult. Ce vă ia <span class="irs">IRONSTICK</span> de pe umeri este dependența de centrul de date al
+altcuiva; ce cere în schimb este un stick de backup pe care chiar îl
+folosiți.</p>
+
+<p class="part pb">Partea a VII-a — În practică</p>
+
+<h2 id="ch15">15. Cerințe de sistem</h2>
+<table>
+<tr><th></th><th>Minim</th><th>Recomandat pentru lucru complet fluid</th></tr>
+<tr><td>Sistem de operare</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, actualizări la zi</td></tr>
+<tr><td>Procesor</td><td>x64 modern cu 4 nuclee (de ex. Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 nuclee — recunoașterea de text rulează pe mai
+multe pagini în paralel, iar recunoașterea vocală offline profită direct de
+fiecare nucleu</td></tr>
+<tr><td>Memorie</td><td>8 GB RAM</td><td>16 GB RAM — spațiu confortabil
+pentru PDF-uri mari, construcții de dosare și transcriere audio în
+paralel</td></tr>
+<tr><td>Stocare</td><td>SSD cu 20 GB liberi</td><td>SSD NVMe cu 100+ GB
+liberi — arhiva de dosare, căutarea în text integral și producerea de
+PDF-uri sunt intensive pe disc; un SSD rapid se simte în fiecare zi</td></tr>
+<tr><td>Ecran</td><td>1920 × 1080</td><td>1920 × 1200 sau mai mult —
+ecranele de dosar folosesc generos spațiul vertical</td></tr>
+<tr><td>Grafică</td><td colspan="2">Nu este necesară placă grafică
+dedicată — orice grafică integrată este suficientă</td></tr>
+<tr><td>Conectivitate</td><td colspan="2">Internet numai pentru IA externă, actualizarea legilor, e-mail și hărți — dosarul,
+căutarea, documentele și
+asistentul local rulează complet offline; un port USB liber pentru
+sincronizarea cu tableta</td></tr>
+</table>
+<p>Opțional: o tabletă Android (Android 11 sau mai nou, 64-bit, ecran de
+mărimea unei tablete) pe același dosar, prin sincronizare pe cablu, și
+propriul cont de IA (pentru IA externă din aplicație și/sau o IA de
+desktop — Claude Desktop, ChatGPT Desktop, Qwen Desktop sau Kimi Desktop) — fără el,
+<span class="irs">IRONSTICK</span> rulează pur și simplu ca sistem complet local.</p>
+
+<h3>Păstrarea datelor pe un mediu extern (opțional)</h3>
+<p>Cine ține dosarul pe o unitate externă — de exemplu pentru a lucra cu PC-ul de birou și
+laptopul pe același set de date — are nevoie de un mediu care să reziste sarcinii continue
+a unui cabinet. <span class="irs">IRONSTICK</span> verifică fiecare țintă înainte de mutare și refuză mediile
+nepotrivite (Windows).</p>
+<table>
+<tr><th>Verificare</th><th>Cerință</th></tr>
+<tr><td>Spațiu liber</td><td>Cel puțin 9&nbsp;GB, respectiv cu 1&nbsp;GB mai mult decât setul
+de date actual</td></tr>
+<tr><td>Scriere / citire</td><td>Cel puțin 80&nbsp;MB/s / 150&nbsp;MB/s — și sub sarcină
+continuă (nu sub 60&nbsp;% din valoarea inițială)</td></tr>
+<tr><td>Multe fișiere mici</td><td>Cel puțin 250 de fișiere pe secundă</td></tr>
+<tr><td>Sistem de fișiere</td><td>NTFS sau exFAT, nu FAT32; neprotejat la scriere și
+neblocat</td></tr>
+<tr><td>Fiabilitate</td><td>Datele de test trebuie recitite neschimbate</td></tr>
+<tr><td>Nepermis</td><td>Unități de rețea și foldere sincronizate cu cloudul (OneDrive,
+Google Drive, Dropbox)</td></tr>
+<tr><td>Recomandare</td><td>SSD extern — stick-urile USB obișnuite ating rareori aceste
+valori</td></tr>
+</table>
+
+<h3>Cerințe de sistem — serverul de cabinet (modul opțional)</h3>
+<table>
+<tr><th></th><th>Cerință</th></tr>
+<tr><td>Aparat</td><td>Orice NAS Synology cu DSM 7.0 sau mai nou — ARM sau
+Intel; pachetul livrează binare native pentru ARMv7, ARM64 și x86-64</td></tr>
+<tr><td>Performanță</td><td>Scris intenționat atât de suplu încât rulează
+curat chiar și pe un <b>model de bază de acum zece ani</b>: verificat
+pe un DS214se din 2014 cu CPU ARM single-core și 256&nbsp;MB RAM. Dacă
+rulează acolo, rulează pe orice Synology din gamă — orice model curent are
+rezerve generoase</td></tr>
+<tr><td>Memorie / CPU</td><td>Fără cerințe dedicate dincolo de NAS-ul
+însuși — serverul stă la câțiva MB și nu scanează și nu indexează niciodată
+în fundal</td></tr>
+<tr><td>Stocare</td><td>Câteva sute de MB pentru pachet și biblioteca
+legislativă; pachetele de dosare partajate cresc numai cu ce partajați
+efectiv</td></tr>
+<tr><td>Rețea</td><td>Numai LAN-ul cabinetului; un port TCP (47712). DSM,
+Web Station și porturile 80/443 rămân complet neatinse — serverul nu se
+conectează niciodată la internet</td></tr>
+<tr><td>Administrare</td><td>Orice browser din LAN; parolă de administrare
+proprie; cheia de licență introdusă o singură dată</td></tr>
+</table>
+
+<p class="quote"><span class="irs">IRONSTICK</span> nu a fost construit ca să impresioneze într-un
+demo. A fost construit ca la 19:00 să închideți laptopul — cu dosarul
+citit, schița călită, termenul respectat, și dovada tuturor celor trei în
+sistem.</p>
+
+<div class="lic"><h2 id="ch16">16. Licențiere — modular, doar ce folosește cabinetul</h2>
+<p><span class="irs">IRONSTICK</span> se licențiază pe componente. Luați doar părțile de care aveți nevoie
+și adăugați pe măsură ce cabinetul crește. Aici sunt prezentate componentele și modul în care se licențiază fiecare — sumele le găsiți pe <a href="pricing_ro.html">pagina de prețuri</a>.</p>
+<table>
+<tr><th>Componentă</th><th>Licențiată per</th></tr>
+<tr><td><b><span class="irs">IRONSTICK</span> Client</b> (aplicația de bază)</td><td>per utilizator / stație</td></tr>
+<tr><td><b>Bridge individual</b> — Claude, ChatGPT, Qwen <i>sau</i> Kimi</td><td>per utilizator / stație</td></tr>
+<tr><td><b>Pachetul de Bridge-uri</b> — toate cele patru Bridge-uri împreună</td><td>per utilizator / stație</td></tr>
+<tr><td><b><span class="irs">IRONSTICK</span> Office Server</b> (incl. până la 5 clienți)</td><td>per cabinet / server</td></tr>
+<tr><td><b>Client suplimentar pe server</b> (de la al 6-lea)</td><td>per client suplimentar</td></tr>
+<tr><td><b>Central Scan App</b> (max. 3 per server)</td><td>per utilizator / stație de scanare</td></tr>
+</table>
+<ul>
+<li><b>Module suplimentare &amp; dependențe:</b> Bridge-urile și Office Server sunt
+module suplimentare licențiate separat față de aplicația de bază; Central Scan
+App necesită o licență Office Server activă.</li>
+<li><b>Abonament la furnizorul IA:</b> un Bridge rulează pe propriul abonament la
+furnizor (Claude, ChatGPT, Qwen sau Kimi) — chatul IA integrat nu are nevoie de
+o licență Bridge suplimentară.</li>
+<li><b>Instruirea</b> se licențiază separat în trei module la fața locului
+(aplicație · aplicație + office server · Bridge-uri IA în profunzime).</li>
+</ul><p><b>Descărcați software-ul:</b> Client-App, Bridges, Office-Server și Central Scan App sunt disponibile pe <a href="download_ro.html">pagina de descărcare</a> — unde găsiți și ordinea de instalare, regulile de licențiere și modelul pentru solicitarea cheilor de licență.</p></div><section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.</p><p class="pref">Contactați direct prin WhatsApp sau Telegram — și un apel este binevenit. Limbi vorbite: germană, engleză, română.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mesaj</h5><h3 class="ct-ask">Interesat de IRONSTICK sau de o demonstrație? Scrieți-ne.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Solicitare IRONSTICK de la" name="form"><div class="ct-fg"><label for="ct-name">Nume</label><input id="ct-name" type="text" name="name" placeholder="Numele dumneavoastră" required></div><div class="ct-fg"><label for="ct-msg">Mesaj</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Mesajul dumneavoastră" required></textarea></div><div class="ct-fg"><p class="ct-hint">Trimiterea deschide programul dumneavoastră de e-mail cu mesajul pregătit.</p><button type="submit">Trimiteți mesajul</button></div><div class="u-form-send-success">Programul de e-mail se deschide. Vă rugăm să trimiteți mesajul de acolo.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică. © 2026 IRONSTICK.</p></footer>
+</body></html>

@@ -1,102 +1,6 @@
-<!DOCTYPE html><html lang="it"><head><meta charset="utf-8">
+<!DOCTYPE html><html lang="it" style="font-size:16px"><head><meta charset="utf-8">
 <title>IRONSTICK — Il fascicolo che lavora con te</title>
-<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
-         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
-  h1 { font-size: 30px; margin: 10px 0 4px; }
-  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
-  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
-       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
-  h3 { font-size: 16px; margin-top: 22px; }
-  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
-          color: #5f6368; margin-top: 44px; }
-  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
-          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-  .hero > .herotext { flex: 1 1 460px; }
-  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
-  .hero > .tiles { flex: 1 1 100%; }
-  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
-  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
-          background: #f8f9fa; }
-  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
-  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
-  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
-  th { background: #f1f3f4; }
-  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
-  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
-           margin: 14px 0; font-style: italic; }
-  ul li, ol li { margin: 5px 0; }
-  figure { margin: 18px 0; text-align: center; }
-  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
-  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
-  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
-  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
-  figure.sidepic img { border: none; border-radius: 0; }
-  .pb { page-break-before: always; }
-  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
-                 table, figure, .tile { page-break-inside: avoid; } }
-</style><style>
-  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
-    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
-    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
-  .site-bar .b{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:#111}
-  .site-bar .left{display:flex;align-items:center;gap:20px}
-  .site-bar .dl{font-size:14.5px;font-weight:700;color:#1a73e8;text-decoration:none}
-  .site-bar .dl:hover{text-decoration:underline}
-  .site-bar img{height:34px;width:auto;display:block}
-  .site-bar .langs{display:flex;gap:6px}
-  .site-bar .langs a{border:1px solid #dadce0;border-radius:20px;padding:4px 12px;
-    font-size:13px;font-weight:700;color:#5f6368;text-decoration:none}
-  .site-bar .langs a.on{background:#1a73e8;border-color:#1a73e8;color:#fff}
-  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
-  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
-  .lic th{background:#f1f3f4}
-  .lic a{color:#1a73e8;font-weight:600}
-  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
-  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
-  .site-foot a{color:#1a73e8}
-  html{scroll-behavior:smooth}
-  h2{scroll-margin-top:64px}
-  .brand-wrap{position:relative}
-  .site-bar .brand-wrap .b{cursor:pointer}
-  .brand-wrap .menu{position:absolute;top:100%;left:0;min-width:300px;max-height:72vh;
-    overflow:auto;background:#fff;border:1px solid #dadce0;border-radius:10px;
-    box-shadow:0 10px 28px rgba(0,0,0,.18);padding:6px;display:none;z-index:60}
-  .brand-wrap:hover .menu{display:block}
-  .brand-wrap .menu a{display:block;padding:7px 12px;font-size:13.5px;font-weight:600;
-    color:#3c4043;text-decoration:none;border-radius:6px;white-space:nowrap}
-  .brand-wrap .menu a:hover{background:#f1f3f4;color:#1a73e8}
-  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
-  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
-    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
-  .portrait{height:180px;width:auto;border-radius:12px;display:block}
-  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
-  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
-  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
-    border-top:1px solid #dadce0;padding-top:10px}
-  img{max-width:100%;height:auto}
-  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
-  :root{color-scheme:only light}
-  html,body{background:#fff !important}
-  .hero{border-bottom:0 !important}
-  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
-    max-width:760px}
-  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
-  figure.repl img{border:0 !important;border-radius:0}
-  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
-    text-align:center}
-  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
-    border:0;border-radius:0}
-  @media (max-width:640px){
-    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -16px 14px}
-    .site-bar .b{font-size:16px}
-    .site-bar .langs{flex-wrap:wrap;justify-content:flex-start}
-    .brand-wrap .menu{min-width:220px;max-width:92vw}
-    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
-    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
-    .lic td,.lic th{border:0;padding:5px 8px}
-  }
-/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left .brand-wrap{flex-basis:100%}}</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="only light">
 <meta name="description" content="Sistema completo di gestione dei fascicoli legali, offline-first, per Windows e Android, con un'IA integrata che conosce i tuoi fascicoli: clienti, cause, prove, scadenze.">
 <meta name="keywords" content="gestione fascicoli legali, software legale, IA legale, diritto civile, software avvocato Windows, app legale Android, software legale offline, OSINT, gestione scadenze, automazione documenti">
@@ -135,1213 +39,314 @@
 <meta name="twitter:image" content="https://www.ironstick.legal/og.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.ironstick.legal/#org","name":"IRONSTICK","url":"https://www.ironstick.legal/","logo":"https://www.ironstick.legal/favicon.png","sameAs":["https://github.com/ironstick-legal"]},{"@type":"WebSite","@id":"https://www.ironstick.legal/#website","url":"https://www.ironstick.legal/","name":"IRONSTICK","inLanguage":"it","publisher":{"@id":"https://www.ironstick.legal/#org"}},{"@type":"SoftwareApplication","name":"IRONSTICK","operatingSystem":"Windows, Android","applicationCategory":"BusinessApplication","description":"Sistema completo di gestione dei fascicoli legali, offline-first, per Windows e Android, con un'IA integrata che conosce i tuoi fascicoli: clienti, cause, prove, scadenze.","url":"https://www.ironstick.legal/index_it.html","inLanguage":"it","publisher":{"@id":"https://www.ironstick.legal/#org"}}]}</script>
 <link rel="stylesheet" href="fonts/noto-serif.css">
-<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
-</head><body>
-<div class="site-bar"><div class="left"><div class="brand-wrap"><div class="b"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></div><div class="menu"><a href="#ch1">1. La tua mattinata, in novanta secondi</a><a href="#ch2">2. Sintesi istantanee dei casi — chiedi, non scavare</a><a href="#ch3">3. Dal fascicolo a un modello pronto per il deposito — in pochi minuti</a><a href="#ch4">4. Guadagno di dettaglio — un fascicolo che ricorda tutto</a><a href="#ch5">5. Un sistema documentale costruito per il tribunale</a><a href="#ch6">6. La tua IA desktop, collegata direttamente al tuo fascicolo</a><a href="#ch7">7. Il firewall anti-allucinazione — unico, per quanto ne sappiamo</a><a href="#ch8">8. Il problema strutturale del SaaS — e la risposta di IRONSTICK</a><a href="#ch9">9. Perché IRONSTICK — e non un'IA giuridica in cloud</a><a href="#ch10">10. Perché ora — e perché non semplicemente ChatGPT?</a><a href="#ch11">11. Tutto locale — per costruzione</a><a href="#ch12">12. Più di una scrivania? Il server di studio</a><a href="#ch13">13. Quando l'hardware muore — disaster recovery integrato</a><a href="#ch14">14. Nessun reparto IT? È proprio il punto del design</a><a href="#ch15">15. Requisiti di sistema</a><a href="#ch16">16. Licenze — modulare, solo ciò che lo studio usa</a><a href="gdpr_it.html">GDPR</a><a href="download_it.html">Download</a><a href="pricing_it.html">Prezzi</a><a href="#contact">Contatti</a></div></div><a class="dl" href="bridge_it.html">Bridge</a><a class="dl" href="gdpr_it.html">GDPR</a><a class="dl" href="download_it.html">Download</a><a class="dl" href="pricing_it.html">Prezzi</a></div><nav class="langs"><a class="l" href="index.html">EN</a><a class="l" href="index_de.html">DE</a><a class="l" href="index_ro.html">RO</a><a class="l" href="index_fr.html">FR</a><a class="l on" href="index_it.html">IT</a><a class="l" href="index_es.html">ES</a><a class="l" href="index_ru.html">RU</a><a class="l" href="index_uk.html">UKR</a></nav></div>
-
-<div class="hero">
-<div class="herotext">
-<h1><span class="irs">IRONSTICK</span></h1>
-<p class="tagline">Il sistema di gestione dei casi con intelligenza documentale
-integrata — per gli avvocati che vogliono riavere le proprie serate.</p>
-<p><span class="irs">IRONSTICK</span> è un sistema completo per lo studio legale, per Windows e tablet
-Android: clienti, casi, prove, scadenze, e-mail, produzione di
-documenti — con uno strato di IA che conosce davvero i tuoi fascicoli.
-Autenticamente paneuropeo — e costruito deliberatamente per la tradizione
-di <b>civil law</b> dell'Europa continentale, il mondo delle leggi codificate:
-disponibile in undici lingue — inglese, tedesco, francese, italiano, spagnolo,
-rumeno, portoghese, olandese, turco, ucraino e russo — il sistema riconosce e
-sviluppa automaticamente le giurisdizioni giuridiche, amplia dinamicamente la
-propria banca dati giuridica e la mantiene aggiornata, e si adatta alle esigenze
-e alle abitudini particolari del suo utente. Offline-first, e i tuoi dati non
-lasciano mai il tuo computer senza il tuo consenso.</p>
-</div>
-<img class="heroimg" src="img/hero.jpg" alt="IRONSTICK">
-<div class="tiles">
-<div class="tile"><b>Le ore diventano minuti</b>Bozze di atti, sintesi dei casi
-e dossier vengono generati dal fascicolo stesso — il tuo compito passa
-dall'assemblare al revisionare.</div>
-<div class="tile"><b>Nulla passa inosservato</b>Ogni documento, e-mail, foto
-e parola pronunciata è ricercabile — comprese le scansioni e le trascrizioni
-delle telefonate. Le scadenze e i casi silenti emergono da soli.</div>
-<div class="tile"><b>Tutto è a una domanda di distanza</b>«Cosa è arrivato dalla
-controparte il mese scorso?» — chiedi in linguaggio naturale e ottieni una
-risposta fondata sui documenti reali, con fonti cliccabili.</div>
-<div class="tile"><b>Il controllo resta a te</b>Dati locali, un percorso di
-archiviazione scelto da te, consenso prima di ogni chiamata a un'IA esterna,
-pseudonimizzazione, registri di audit — e una <a href="gdpr_it.html">dichiarazione scritta, conforme
-al GDPR, di ogni flusso di dati</a>.</div>
-</div>
-</div>
-
-<h3>Ciò di cui gli studi legali hanno davvero bisogno — e ciò che <span class="irs">IRONSTICK</span> offre</h3>
-<table>
-<tr><th>Esigenza</th><th>Cosa offre <span class="irs">IRONSTICK</span></th><th>Approfondisci</th></tr>
-<tr><td><b>Risparmiare tempo, fatturare ore</b></td>
-<td>Bozze di atti, sintesi dei casi e dossier nascono dal fascicolo stesso — lei verifica invece di cercare. Testato: 3.000 pagine di atti e allegati, timbrate e paginate, in un unico PDF — in meno di 20&nbsp;minuti. A mano è un lavoro da mezza giornata a una giornata intera.</td>
-<td><a href="#ch3">Capitolo 3</a>, <a href="#ch5">5</a></td></tr>
-<tr><td><b>Nessuna scadenza mancata</b></td>
-<td>La campanella nella barra dei menu diventa arancione quando qualcosa è in scadenza e rossa quando è critica — sempre visibile. I casi senza attività da 14 giorni vengono elencati, perché nulla si spenga in silenzio.</td>
-<td><a href="#ch1">Capitolo 1</a></td></tr>
-<tr><td><b>Segreto professionale e GDPR</b></td>
-<td>La banca dati è cifrata sul suo supporto; il fornitore del software non vede mai i dati dei clienti. Consenso prima di ogni chiamata esterna all'IA, pseudonimizzazione, registro di audit e la dichiarazione GDPR sui flussi di dati con una clausola tipo per la sua informativa ai clienti. Tramite i Bridge IA desktop, l'IA del suo account lavora in diretta sul fascicolo.</td>
-<td><a href="#ch9">Capitolo 9</a>, <a href="#ch11">11</a></td></tr>
-<tr><td><b>Fiducia nel fornitore</b></td>
-<td>Lo studio non dipende dal data center di nessun altro: il fascicolo risiede sul suo hardware, e nemmeno un guasto totale del server o di Internet ferma lo studio. La licenza viene verificata offline sul suo computer, e tutto ciò che registra lo esporta in qualsiasi momento.</td>
-<td><a href="#ch8">Capitolo 8</a>, <a href="#ch13">13</a></td></tr>
-<tr><td><b>Costi prevedibili</b></td>
-<td>Licenza modulare: acquista solo i componenti che usa e li integra in seguito tramite chiave di licenza. L'IA funziona sui suoi account (di norma 20–40&nbsp;€ al mese ciascuno, dove serve un abbonamento) invece di canoni mensili a tre cifre per postazione. Prezzi su richiesta.</td>
-<td><a href="#ch9">Capitolo 9</a></td></tr>
-<tr><td><b>Integrazione nei flussi esistenti</b></td>
-<td>Lo scanner o la fotocopiatrice deposita in una cartella, e <span class="irs">IRONSTICK</span> prende il testimone da lì. La casella e-mail viene scaricata in background e assegnata ai casi. Gli appuntamenti compaiono nel calendario di qualsiasi telefono; il tablet Android lavora sullo stesso fascicolo.</td>
-<td><a href="#ch1">Capitolo 1</a>, <a href="#ch15">15</a></td></tr>
-<tr><td><b>Avvio senza fatica</b></td>
-<td>Nessuna migrazione «big bang»: i nuovi casi vivono in <span class="irs">IRONSTICK</span> dal primo giorno, e i vecchi li trasferisce solo quando conviene. Con l'OCR integrato un documento viene registrato in media in quindici secondi. Formazione in sede, un giorno per modulo.</td>
-<td>—</td></tr>
-<tr><td><b>Conoscere la controparte, il giudice e il contesto</b></td>
-<td>OSINT con un clic su ogni persona e ogni società, profili dei giudici con la valutazione delle loro decisioni e un'analisi delle relazioni su tutti i fascicoli — chi è collegato a chi, e perché. Gli atti possono essere calibrati sul giudice che li leggerà. Ogni decisione giudiziaria viene valutata una sola volta secondo una griglia fissa, e le valutazioni dell'intero studio confluiscono in ogni atto rivolto a quel tribunale.</td>
-<td><a href="#ch4">Capitolo 4</a></td></tr>
-</table>
-
-<h3>Per chi è fatto <span class="irs">IRONSTICK</span></h3>
-<p><span class="irs">IRONSTICK</span> conviene ovunque si incontrino molti documenti, molte parti e scadenze rigide — e dove i dati dei clienti non devono lasciare lo studio. Ne traggono il massimo vantaggio gli studi che oggi perdono ore a cercare, digitare e assemblare.</p>
-<ul>
-<li><b>Avvocati singoli e piccoli studi.</b> Nessun reparto IT, nessun budget per tecnici: <span class="irs">IRONSTICK</span> gira su un normale computer Windows, si mantiene da solo e si fa carico del lavoro che altrimenti richiederebbe una seconda persona.</li>
-<li><b>Avvocati processualisti con fascicoli voluminosi.</b> Chi gestisce migliaia di pagine di prove interroga il fascicolo in linguaggio naturale e ottiene risposte documentate, con le fonti. I dossier per il tribunale nascono in cinque passaggi guidati, con numerazione Bates e indice.</li>
-<li><b>Avvocati d'impresa, fallimentaristi e penalisti.</b> Questi procedimenti coinvolgono molte persone, società e intrecci. La rete di persone e società su tutti i fascicoli rende visibili collegamenti che a mano sarebbe impossibile seguire — fino ai profili OSINT di ogni persona e ai profili dei giudici con la valutazione delle loro decisioni.</li>
-</ul>
-
-<div class="showband"><img src="img/49_encryption.png" alt="Encrypted end to end — AES-256"></div>
-<p class="part">Parte I — La pratica quotidiana</p>
-
-<h2 id="ch1">1. La tua mattinata, in novanta secondi</h2>
-<p>Apri <span class="irs">IRONSTICK</span> e la giornata è già in ordine. La schermata iniziale mostra
-ciò che è in scadenza e ciò che è caduto nel silenzio; l'<b>Agenda</b> unisce
-tutto ciò che è accaduto in tutti i mandati — i depositi di ieri, le e-mail
-notturne, le nuove udienze, foto, trascrizioni — in un unico flusso
-cronologico. Vedi l'intero studio senza aprire un solo caso. E oltre a questo:
-il <b>briefing giornaliero</b> separato ti dà una breve panoramica parlata della
-giornata — mentre ti vai comodamente a prendere un caffè.</p>
-<figure class="repl"><img src="img/51_three_windows.png" alt="One system, every view"><figcaption>Il menu principale: scadenze, casi dormienti e ogni sezione — a colpo d'occhio, prima di aprire un solo caso.</figcaption></figure>
-<ul>
-<li><b>Scadenze con un semaforo.</b> La campanella nella barra dei menu diventa
-arancione quando qualcosa scade, rossa quando è critico — sempre visibile, un
-clic per la lista completa.</li>
-<li><b>E-mail già smistata.</b> Il monitor recupera la tua casella di posta in
-background e assegna le mail ai casi localmente e senza alcuna IA; l'IA ne
-valuta soltanto l'urgenza. La nuova posta si annuncia nella barra dei
-menu.</li>
-<li><b>Casi silenti e riaccensioni.</b> I casi senza attività da 14 giorni
-vengono elencati affinché nulla si spenga in silenzio; i casi che
-improvvisamente si scaldano — nuova scadenza, udienza imminente, posta
-ufficiale — portano un contrassegno 🔥 finché non si calmano.</li>
-</ul>
-
-<h2 id="ch2">2. Sintesi istantanee dei casi — chiedi, non scavare</h2>
-<p>L'assistente del caso risponde alle domande sui tuoi fascicoli come farebbe
-un bravo collaboratore — solo che ha letto <i>tutto</i>, e risponde in pochi
-secondi:</p>
-<ul>
-<li>«Riassumi lo stato dei fatti nel 5678/000/2026.»</li>
-<li>«Quali lettere sono arrivate <i>dalla</i> controparte, e abbiamo risposto
-all'ultima?»</li>
-<li>«Chi ha detto cosa sul sopralluogo — ci sono
-contraddizioni?»</li>
-<li>«Ho già depositato questo allegato presso il tribunale?»</li>
-</ul>
-<p>Ogni risposta è <b>fondata su documenti reali</b> — risultati numerati che
-puoi aprire con una parola («apri 1», «leggi 1 ad alta voce»). Le domande di
-routine ricevono risposta da uno <b>strato locale sul tuo computer</b>, senza
-che alcun dato lasci il dispositivo; le analisi più impegnative passano all'IA
-esterna solo con il tuo consenso. L'assistente parla la tua lingua — tutte
-undici — e può essere guidato interamente <b>a voce</b>, a mani libere, con
-riconoscimento vocale offline e lettura ad alta voce.</p>
-<div class="box">L'assistente fa più che leggere: verifica. Numeri
-identificativi personali, IBAN, partite IVA (dal vivo con il sistema EU VIES),
-EORI, LEI e le iscrizioni nei registri delle imprese vengono controllati su
-richiesta — prima che un numero sbagliato finisca in un atto.</div>
-
-<div class="showband"><img src="img/53_case_tabs_collage.png" alt="Every angle on one case"></div>
-<h2 id="ch3">3. Dal fascicolo a un modello pronto per il deposito — in pochi minuti</h2>
-<p>Questo è il fiore all'occhiello. Scrivi atti e lettere <b>in dialogo con
-l'IA</b> — nella chat propria di <span class="irs">IRONSTICK</span> (sulla tua chiave API) o attraverso
-il Bridge IA desktop (Claude, ChatGPT, Qwen o Kimi Desktop). <b>Componi
-testo › Con l'aiuto dell'IA</b> in un caso apre la chat con il caso e il
-documento già indicati; da lì l'IA lavora come un collaboratore sul fascicolo
-dal vivo: anagrafica del cliente, la cronaca del caso con i testi integrali dei
-documenti, le scadenze, gli allegati correlati, l'elenco degli allegati, le tue
-istruzioni sul caso — e persino la storia recente dei casi <i>limitrofi</i> del
-cliente, perché la risposta della controparte spesso si trova nel fascicolo
-parallelo. Fa domande quando qualcosa è aperto invece di comprimere il tuo caso
-in maschere fisse.</p>
-<ul>
-<li><b>Ricerca invece di asserzione.</b> Durante la stesura, l'IA cerca
-attivamente nel fascicolo. Non le è permesso affermare «non è pervenuta alcuna
-risposta» a meno che una ricerca non lo abbia dimostrato.</li>
-<li><b>Verifica prima della consegna.</b> Uno scanner deterministico confronta
-la bozza finita con il fascicolo dal vivo: ogni riferimento a una prova, ogni
-parte, istituzione e numero di caso, ogni citazione normativa con la biblioteca
-giuridica verificata. Le contraddizioni bloccano la consegna; i timbri interni
-del fascicolo non trapelano mai nel documento.</li>
-<li><b>Red/Blue Team, integrato.</b> Su richiesta un secondo modello legge la
-bozza come avvocato avversario prima della consegna: i rilievi sostanziali la
-rimandano indietro per la rielaborazione, fino a due round — e ogni punto è
-analizzato nel merito, mai adottato ciecamente.</li>
-<li><b>Una catena di controllo che non si può accorciare.</b> Prima che inizi il lungo controllo, l'IA Le mostra un riassunto della bozza: può ancora apportare correzioni. Poi la rilegge per intero, la confronta con i Suoi atti precedenti e, in caso di replica, dimostra passo per passo che ogni affermazione della controparte ha una risposta. Quindi attacca l'atto come farebbe la controparte, lo valuta e lo corregge; vengono controllati anche i rinvii interni e le indicazioni temporali. <span class="irs">IRONSTICK</span> approva ogni fase, e qualsiasi modifica successiva fa ripartire la catena dall'inizio.</li>
-<li><b>Un modello pronto per il deposito — mai un atto finito.</b> Il risultato
-arriva attraverso la finestra di esportazione di <span class="irs">IRONSTICK</span> e atterra nel word
-processor integrato con un clic: impaginazione A4, la tua carta intestata (prima
-pagina o ogni pagina), controllo delle interruzioni di pagina, posizionamento
-della firma, elenco degli allegati ripreso automaticamente — stampa, PDF, DOCX o
-Markdown. Tu revisioni, correggi e firmi; la responsabilità di ciò che viene
-depositato resta a te.</li>
-</ul>
-<p class="quote">Ore di studio del fascicolo e di stesura diventano minuti di
-revisione — leggi, affini, firmi.</p>
-
-<h2 id="ch4">4. Guadagno di dettaglio — un fascicolo che ricorda tutto</h2>
-<p>Il cuore di <span class="irs">IRONSTICK</span> è l'intelligenza delle prove. Tutto ciò che acquisisci
-— PDF scansionati, e-mail con allegati, cronologie WhatsApp, foto, registrazioni
-audio — diventa testo integrale ricercabile. L'OCR è integrato (inglese,
-tedesco, francese, italiano, spagnolo, rumeno, portoghese, olandese, turco,
-ucraino e russo — nulla da installare) e la ricerca è deliberatamente indulgente:
-segni diacritici, tipici errori di scansione e nomi parziali trovano comunque
-il loro bersaglio.</p>
-<ul>
-<li><b>Allegati e depositi, provati dalla carta stessa.</b> Quando un documento
-viene acquisito, <span class="irs">IRONSTICK</span> legge quali dei tuoi allegati contiene fisicamente e
-quali numeri di ruolo reca. La cronaca mostra poi, su ogni allegato:
-<i>depositato presso il tribunale il … nel caso …</i> — e su ogni lettera in
-uscita, il suo elenco completo degli allegati. «L'ho già depositato?» ha una
-risposta con un clic.</li>
-<li><b>Catene di numeri di lettera.</b> Ogni numero di ruolo collega tutti i
-documenti dello stesso procedimento in una catena cronologica — la storia
-documentata di chi ha scritto cosa, quando, e se abbia mai ricevuto
-risposta.</li>
-<li><b>Media con sostanza.</b> Le foto conservano il loro luogo di scatto (un
-clic alla vista satellitare), le registrazioni telefoniche diventano
-trascrizioni con etichettatura dei parlanti — tutto ricercabile, tutto prova
-citabile.</li>
-<li><b>Consapevolezza tra i casi.</b> Controllo del conflitto di interessi
-all'apertura, avvisi quando la stessa controparte compare in più mandati, un
-grafo delle relazioni di tutte le parti e un radar di rilevanza che trova
-materiale correlato che non avresti pensato di cercare.</li>
-</ul>
-<p><b>Le registrazioni diventano testo — automaticamente, sul Suo computer.</b>
-Telefonate, registrazioni di udienze, messaggi vocali, video: <span class="irs">IRONSTICK</span> accetta ogni
-formato audio e video comune (Windows). Lei ritaglia la parte rilevante, sceglie la
-lingua, il numero di interlocutori e il livello di qualità (veloce, medio, alto) e vede il
-tempo di calcolo previsto prima di avviare. Il riconoscimento vocale funziona interamente
-offline sul Suo computer. L'IA attribuisce poi le frasi agli interlocutori — con il Suo
-consenso e in forma pseudonimizzata; non può modificare nemmeno una parola, ogni riga
-viene verificata rispetto al testo riconosciuto. Ciò che il riconoscimento non ha capito
-con certezza viene segnalato anziché indovinato. Il risultato si apre nell'editor e,
-dopo la Sua revisione, diventa una prova citabile.</p>
-<p><b>La rete si costruisce da sé.</b> Un'IA desktop collegata tramite il Bridge legge il
-fascicolo, ricerca le parti su internet e archivia ogni persona, azienda,
-istituzione e connessione che trova come proposta approvabile con un clic; un
-auto-linker in background lega ogni parte a ogni caso i cui documenti la nominano;
-e l'<b>Universo</b> trasforma l'intero inventario in una rete 3D navigabile con
-cluster rilevati automaticamente — i gruppi densi e fittamente intrecciati
-pulsano di rosso. In poche ore hai in mano una rete altamente condensata di
-persone e aziende su tutto il tuo set di dati — impossibile a mano — e la
-visualizzazione punta dritta al cluster.</p>
-<p><b>Cosa significa questo nella pratica — due giorni, misurati.</b> Nell'arco
-di due giornate lavorative del settembre 2026 una singola IA desktop collegata tramite il Bridge ha letto i fascicoli di un procedimento con più parti, ha ricercato le parti su
-internet e ha archiviato ciò che ha trovato; l'avvocato non ha fatto altro che
-leggere e cliccare. Il risultato, contato successivamente nella banca dati:
-<b>293 persone e aziende, 11 istituzioni, 811 relazioni e 733 collegamenti
-parte-caso</b> — 2.487 decisioni di revisione in totale, il 97&nbsp;per cento
-accettate, il 3&nbsp;per cento respinte al gate. A mano — fonti lette, ogni
-persona identificata, ogni connessione verificata, ogni record digitato — sono
-circa 310 ore di lavoro: otto settimane a tempo pieno per una persona, o mezzo
-anno accanto ai mandati dal vivo. E le ore non sono nemmeno il punto. Nessuno
-tiene in testa 300 nomi, 800 connessioni e una dozzina di liste di conoscenze; i
-cluster che brillano di cremisi nell'Universo sono invisibili nello schedario. Il
-3&nbsp;per cento è il motivo per cui il gate di revisione esiste: ognuno di essi
-sarebbe stato un record sbagliato se fosse stato scritto direttamente.</p>
-<p><b>E la stessa macchina disegna la rete dei casi di un cliente:</b> i casi
-come esagoni, raggruppati secondo le tue pratiche, connessi dove condividono
-parti, si citano a vicenda come allegato o nominano il numero di caso dell'altro
-— con quattro strumenti di IA che leggono esattamente questa immagine.</p>
-<div class="showband"><img src="img/60_mcp_network.png" alt="Server MCP, app client e la rete dei casi di un cliente"></div>
-
-
-<h3>OSINT con la pressione di un pulsante — ricerca integrata su persone e aziende</h3>
-<p>L'OSINT (open-source intelligence) — la valutazione sistematica di fonti
-liberamente accessibili — è prassi standard presso le autorità investigative e
-gli studi legali commerciali, ma è lavoro manuale: ognuno ricerca in modo
-diverso, e ognuno dimentica qualcosa di diverso. <span class="irs">IRONSTICK</span> lo trasforma in una
-procedura fissa. L'IA fornisce nome, città, distretto, paese e se si tratta di
-una persona fisica o giuridica — l'applicazione fa il resto da sola, allo stesso
-modo ogni volta, senza lacune:</p>
-<ul>
-<li><b>Prima i tuoi fascicoli.</b> Una ricerca deterministica a testo integrale
-del nome su tutto l'inventario, tutti i clienti: per ogni caso i dieci risultati
-più recenti con posizione di paragrafo e carattere — e una nota su quanti altri
-ce ne siano.</li>
-<li><b>Il materiale di ricerca specifico del caso</b>, come visure camerali, visure catastali ecc., basta archiviarlo nel fascicolo e indicare all'LLM di tenerne conto.</li>
-<li><b>Poi internet, su una griglia fissa.</b> CV, Facebook, LinkedIn,
-Instagram, città, distretto, scandali, resoconti di stampa, dichiarazioni
-patrimoniali e di interessi, tasse, partecipazioni societarie — per le aziende
-il registro delle imprese e l'insolvenza. I termini di ricerca sono
-automaticamente nella lingua del paese del bersaglio: per la Romania
-&ldquo;declarație de avere&rdquo;, non &ldquo;dichiarazione patrimoniale&rdquo;. Tutto avviene in background tramite l'app client, in modo completamente automatizzato: l'LLM riceve un profilo OSINT completo da elaborare. È molto più preciso e molto più economico.</li>
-<li><b>Tre motori di ricerca in una volta.</b> Google, DuckDuckGo e Qwant
-percorrono la griglia in parallelo; i risultati arrivano come un'unica lista
-ripulita senza duplicati. Se un motore blocca, gli altri continuano a
-consegnare.</li>
-<li><b>Un profilo preparato — non un verdetto.</b> L'IA riceve entrambe le liste
-insieme ai termini di ricerca già coperti, apre uno per uno ogni risultato e
-ogni link, esclude gli omonimi e mette nel monitor dei dati solo ciò che è
-comprovato, come proposta. Ciò che viene adottato è ciò che tu rilasci.</li>
-</ul>
-<p>Il risultato in uno o due minuti: un profilo di ricerca che costerebbe a un
-collaboratore mezza giornata — e che è altrettanto completo per la
-trecentesima persona quanto per la prima. Vengono valutate solo fonti
-pubblicamente accessibili.</p>
-
-<h3>Questo non ce l'ha nessun altro</h3>
-<p>Non conosciamo alcun altro prodotto che tenga una <b>banca dati delle
-relazioni</b> completa di persone, aziende e istituzioni a livello della singola
-persona, la scomponga fino al singolo fascicolo e al singolo allegato, la
-disegni in modo pulito per l'avvocato e ponga la stessa immagine davanti all'IA
-come testo — insieme a un'<b>analisi della persona</b> di 24 campi per persona
-modificabile solo con prova.</p>
-<p>Il software gestionale classico tiene le parti come una rubrica con un ruolo nel caso: nessun grafo tra loro, nessuna analisi della persona, nessun cluster, e i loro assistenti IA leggono documenti, non la rete. Gli assistenti legali IA del mercato stanno sopra il fascicolo nel cloud del fornitore, con un modello che non puoi scegliere. Le grandi piattaforme investigative hanno il grafo e i profili, ma come strumenti per autorità e aziende con un progetto di consulenza, senza un fascicolo nel senso dell'avvocato e senza un'IA intercambiabile che li legga. Uno studio che gestisce procedimenti penali e civili con decine di parti e casi intrecciati cade tra questi mercati. È esattamente lì che si colloca <span class="irs">IRONSTICK</span>.</p>
-<h3>Giudici e attori — chi con chi, e perché</h3>
-<p>Questa conoscenza non vale solo per un caso. Comprende ogni parte, ogni relazione e ogni ruolo che una persona abbia mai giocato in uno dei tuoi fascicoli, attraverso i casi e attraverso i clienti — chi siede in quale consiglio, chi firma per chi, chi è comparso in quale procedimento come testimone, controparte o titolare di carica. Cresce da sé, ogni giorno, mentre avvocato e IA lavorano i fascicoli, e nasce come sottoprodotto del lavoro quotidiano sui casi.</p>
-<ul>
-<li><b>Analisi delle relazioni — chi con chi, e perché.</b> Ogni collegamento tra persone, aziende e istituzioni è registrato con la prova che lo sostiene; gli intrecci densi vengono riconosciuti automaticamente come cluster. Vedi non solo che due parti sono collegate, ma attraverso cosa.</li>
-<li><b>Profili dei giudici.</b> Ogni decisione nei tuoi fascicoli viene attribuita al giudice o al pubblico ministero che l'ha emessa — dall'intestazione e dal blocco firma, non per supposizione. A ciò si aggiunge la ricerca OSINT sulla persona: carriera, dichiarazioni pubbliche, collegamenti con parti e studi legali.</li>
-<li><b>Valutazione delle decisioni per giudice — fatta una volta, disponibile per sempre.</b> Come decide un determinato giudice, a cosa reagisce, cosa riprende dagli atti e cosa trascura? Ogni decisione giudiziaria viene riconosciuta all'acquisizione — accanto a entrata/uscita c'è una casella «decisione giudiziaria» che Lei può modificare in qualsiasi momento — e finisce in una lista di valutazione; anche l'archivio esistente viene esaminato automaticamente. L'IA lavora la lista decisione per decisione: legge la decisione e gli atti di entrambe le parti che l'hanno preceduta, <span class="irs">IRONSTICK</span> misura quale quota della motivazione proviene da quale atto, e l'IA risponde a una griglia fissa — argomenti, diritto, prove, fondamento della decisione, stile, esito e una breve caratterizzazione del collegio. Nulla viene salvato senza il Suo comando, collegato a tribunale, giudici e cancellieri; se una di queste persone manca nei dati anagrafici, viene prima ricercata tramite OSINT e creata. Una decisione non cambia mai — viene valutata una volta e resta valutata.</li>
-<li><b>Atti calibrati sul giudice.</b> Un atto può essere calibrato sul singolo giudice o sul collegio che lo leggerà — composizione, decisioni e posizioni pregresse, connessioni con le parti e, dove presenti, motivi di ricusazione — perché sai cosa gira sullo sfondo e chi sta con chi. Prima di ogni atto rivolto a un tribunale, l'IA legge le valutazioni raccolte di quel tribunale e di ogni giudice del collegio. Se restano decisioni non valutate, <span class="irs">IRONSTICK</span> chiede prima dell'emissione se desidera valutarle subito — affinché il risultato confluisca ancora — oppure più tardi; e al primo avvio della giornata l'IA glielo ricorda di propria iniziativa.</li>
-<li><b>Rendere visibile la collaborazione.</b> Due atti qualsiasi, anche di procedimenti e mandati diversi, possono essere messi a confronto parola per parola: blocchi di testo identici mostrano quali avvocati lavorano insieme.</li>
-</ul>
-<p>In tribunale questa è la differenza tra presentare un caso e conoscere il campo: ogni documento può essere allineato alla rete reale attorno al caso — chi è connesso a chi, chi è debitore verso chi, chi in passato sedeva da quale lato — perché l'avvocato sa sempre dove si trova ogni cosa. In questa forma concentrata questa conoscenza non esiste da nessun'altra parte; a mano è semplicemente impossibile da costruire.</p>
-<figure class="repl"><img src="img/57_persons_maps.png" alt="The whole network, every way"><figcaption>L'Universo dopo due giorni di acquisizione automatica: ogni parte del set di dati come nodo, ponderato in base alle connessioni, raggruppato in cluster — quelli densi e fittamente intrecciati pulsano di cremisi. Non un solo nome è stato digitato a mano.</figcaption></figure>
-
-<p><b>Un foglio invece di mille linee.</b> La rete di relazioni di una persona o di un
-caso e la cronologia dei suoi documenti sono pronte come grafico alla pressione di un
-pulsante: la rete mostra i cinquanta nodi più urgenti, ponderati in base a scadenze,
-attività recente e collegamenti; la cronologia ordina nel tempo gli scritti in entrata e
-in uscita, con gli allegati subito accanto a ciascuno scritto. Ogni numero è cliccabile e
-porta alla prova, alla persona o all'istituzione. Un clic su <b>Registra</b> porta il grafico alla registrazione dei documenti, dove Lei lo assegna e riceve il timbro al salvataggio; dalla rete del caso si può creare anche un
-<b>Wallpaper</b>: un foglio bianco A4 orizzontale da appendere, che viene solo scaricato e
-non entra mai nel fascicolo.</p>
-<p>Anche l'IA desktop collegata tramite il Bridge disegna nello stesso stile: processi,
-percorsi procedurali, cronologie, reti. Discute il grafico con Lei e mostra l'anteprima in
-<span class="irs">IRONSTICK</span>; il disegno e il controllo degli errori prima della visualizzazione sono
-deterministici, senza IA. Sul tablet i grafici sono di sola consultazione.</p>
-
-<h2 id="ch5">5. Un sistema documentale costruito per il tribunale</h2>
-<p><span class="irs">IRONSTICK</span> è anche un DMS completo — uno che ragiona per allegati, timbri e
-numeri di pagina anziché per cartelle:</p>
-<ul>
-<li><b>Acquisizione con precompilazione IA.</b> Trascina un PDF scansionato
-nella casella di posta: l'OCR gira, l'IA propone titolo, tipo, parti,
-assegnazione al caso, data e scadenza, e il caso corrispondente lo riconosce
-anche <span class="irs">IRONSTICK</span> da solo — tu confermi invece di digitare. Ogni
-file acquisito riceve un'<b>impronta di integrità</b> crittografica, così che
-una manipolazione successiva sia dimostrabile.</li>
-<li><b>Timbratura e paginazione.</b> Unione, numerazione Bates, timbri sul
-documento, pulizia dei metadati — ogni PDF prodotto reca uno strato di testo
-ricercabile, così che il documento finito possa essere cercato e citato senza
-dover mai rieseguire l'OCR.</li>
-<li><b>L'assistente per il dossier.</b> Un percorso guidato in cinque passaggi
-dalla cronaca a un dossier del caso pronto per il deposito: scegli le voci, il
-frontespizio e la giurisdizione, anteprima con miniature di pagina, poi un PDF
-finito con indice e numeri Bates — più uno <b>ZIP di prove EDRM</b> per la
-consegna in eDiscovery.</li>
-<li><b>Oscuramento che tiene.</b> Interruttori per categoria (clienti, nomi,
-luoghi, importi, numeri identificativi, IBAN …), un ricercatore locale che
-segna i candidati, marcatura manuale sulla pagina — e all'esportazione gli
-oscuramenti vengono <b>fissati in modo irreversibile</b>, con uno strato di
-testo pulito e ricercabile sopra.</li>
-<li><b>Invio postale per file sovradimensionati.</b> Un PDF di grandi dimensioni
-viene suddiviso senza perdite in parti dimensionate per la casella postale del
-tribunale, ciascuna con un'e-mail di consegna pronta nella lingua del documento
-— copia, allega, invia.</li>
-</ul>
-
-<h3>Depositi su larga scala — 3.000 pagine, timbrate e paginate, in meno di 20 minuti</h3>
-<p>Nel processo civile e nel contenzioso su larga scala questo va dritto ai
-maggiori punti dolenti degli avvocati e del loro personale — tempo, tasso di
-errore e lavoro manuale:</p>
-<ul>
-<li><b>Enorme risparmio di tempo.</b> Ciò che normalmente è un progetto da mezza
-giornata a una giornata intera per un paralegale o per l'avvocato stesso —
-assemblare e unire PDF a mano, controllare le pagine, timbrare ogni pagina
-manualmente (numerazione Bates) — gira qui in modo completamente automatico in
-circa 20 minuti.</li>
-<li><b>Assenza di errori e coerenza.</b> Con più di 2.000 pagine, il lavoro
-manuale produce rapidamente errori: timbri scivolati, numeri di pagina sbagliati
-sugli allegati, collegamenti mancanti, regole di formattazione non rispettate.
-Una pipeline automatizzata garantisce un layout assolutamente pulito e
-uniforme.</li>
-<li><b>Nessun crash del sistema.</b> Il software da ufficio standard e i comuni
-visualizzatori PDF vanno in ginocchio su un pacchetto da 700&nbsp;MB con 3.000 pagine nel momento in cui provi a lavorarci fluidamente o a ripaginarlo.</li>
-<li><b>Vantaggio competitivo grazie alla velocità.</b> Sotto un'enorme
-pressione delle scadenze — poco prima che scada un termine per la domanda o per
-la replica — una soluzione simile mette sul tavolo atti imponenti comprese tutte
-le prove come modello pronto per il deposito in tempi record.</li>
-</ul>
-<div class="showband"><img src="img/54_dossier_flow.png" alt="Un dossier prende forma — dall'inizio alla fine"></div>
-
-<div class="box"><b>Testato.</b> 3.000 pagine di atti, allegati misti testo e
-immagine, timbrati e paginati, in uscita un unico PDF da 700&nbsp;MB — in meno
-di 20&nbsp;minuti.</div>
-
-<p class="part pb">Parte II — IA a piena profondità</p>
-
-<h2 id="ch6">6. La tua IA desktop, collegata direttamente al tuo fascicolo</h2>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_assistant.jpg" alt="Il piccolo amico dell'avvocato: l'assistente IA che lo aiuta a svolgere il suo lavoro in modo molto più efficiente."><figcaption>Il piccolo amico dell'avvocato: l'assistente IA che lo aiuta a svolgere il suo lavoro in modo molto più efficiente.</figcaption></figure>
-<p>Per il lavoro analitico profondo, <span class="irs">IRONSTICK</span> offre qualcosa che nessuna
-cartella di esportazione può dare: un <b>Bridge dal vivo</b> tra la tua IA desktop
-— <b>Claude Desktop, ChatGPT Desktop, Qwen Desktop e/o Kimi Desktop</b>, ognuno
-un componente aggiuntivo licenziato separatamente — e l'applicazione in
-esecuzione. L'IA legge lo stato attuale del fascicolo attraverso oltre <b>180 strumenti costruiti su misura</b> — cronache, testi integrali, e-mail, scadenze,
-anagrafiche — e lavora a piena profondità:</p>
-<ul>
-<li>«Leggi tutto il caso e dimmi dove la nostra posizione è più debole.»</li>
-<li>«Redigi l'appello nel nostro formato di atto e consegnalo al word
-processor.» — la bozza appare in <span class="irs">IRONSTICK</span>, pronta per la stampa su carta
-intestata.</li>
-<li>«Confronta le tre perizie e costruiscimi una tabella delle
-contraddizioni.»</li>
-</ul>
-<p><b>Costruito per fascicoli voluminosi — perché un Bridge dal vivo batte
-qualsiasi esportazione di file.</b> I componenti aggiuntivi Bridge abbonabili
-esistono per uno scopo: <b>lavorare su grandi bacini di dati che richiedono
-un'analisi a pieno dettaglio</b>. Sono altamente controllabili da te —
-interruttori, gate di consenso, licenza per singola IA — eppure ogni dialogo e
-ogni valutazione poggiano sull'<b>intero bacino di dati di <span class="irs">IRONSTICK</span></b> come
-fondamento. Quella densità di dettaglio semplicemente non è raggiungibile
-attraverso un'alimentazione di file convenzionale (esportare file Markdown in
-una chat IA): persino le più grandi finestre di contesto delle IA contengono
-solo qualche megabyte di testo per volta —</p>
-<table>
-<tr><th>Modello / piattaforma</th><th>Finestra di contesto (token)</th>
-<th>≈ capacità di testo</th></tr>
-<tr><td>Claude (Opus / Sonnet)</td><td>1.000.000</td><td>~2.500 KB (2,5 MB)</td></tr>
-<tr><td>ChatGPT (app, Plus)</td><td>256.000</td><td>~1.000 KB</td></tr>
-<tr><td>ChatGPT (app, Pro)</td><td>400.000</td><td>~1.600 KB</td></tr>
-<tr><td>ChatGPT (API max)</td><td>1.050.000</td><td>~4.000 KB (4 MB)</td></tr>
-</table>
-<p>— mentre un archivio di caso cresciuto nel tempo è molte volte tanto. Il
-Bridge aggira questo soffitto: invece di stipare i file nella finestra, all'IA
-vengono consegnati <b>oltre 180 strumenti dedicati con istruzioni rigorose su come
-usarli</b>, e recupera precisamente i passaggi, i documenti, le e-mail e le
-scadenze di cui ha bisogno, esattamente quando ne ha bisogno — freschi dal
-sistema dal vivo, attraverso l'intero bacino. La finestra di contesto porta
-allora l'analisi, non la zavorra.</p>
-<p><b>E quando il compito è davvero «leggi tutto»:</b> con una singola chiamata
-l'IA prepara l'<b>intero caso</b> — non troncato, normalizzato con OCR — in
-un'area di lavoro locale e poi lo legge pezzo per pezzo, senza mai spingere
-l'intero fascicolo attraverso la finestra. Un caso da 400 documenti diventa
-interamente leggibile; i limiti di troncamento proteggono la chat, mai la copia
-preparata. La stessa area dà all'IA un <b>avvio di sessione con una sola
-chiamata</b> — data, lingua, la tua schermata attuale, il briefing giornaliero,
-le scadenze e i compiti aperti in un unico protocollo — e una <b>guardia di
-freschezza</b> annulla qualsiasi estratto preparato nell'istante in cui il
-fascicolo sottostante cambia: l'IA non può mai argomentare sui dati di
-ieri.</p>
-<p><b>Il browser di <span class="irs">IRONSTICK</span> — Lei vede ciò che l'IA legge (Windows).</b> <span class="irs">IRONSTICK</span> apre le pagine web e i documenti del Suo fascicolo in una propria finestra del browser con una cornice rossa, così può sempre distinguerla dal Suo browser personale. Su Sua istruzione l'IA legge ciò che vi è aperto — non controllando la finestra a distanza, ma come testo ripulito; per un documento del fascicolo sa esattamente di quale si tratta.</p>
-
-<h3>Perché un LLM grezzo da solo fallisce sui fascicoli voluminosi — e perché <span class="irs">IRONSTICK</span> ribalta la partita</h3>
-<p>Un modello linguistico da solo è semplicemente surclassato da un fascicolo
-cresciuto nel tempo — e una finestra di contesto più grande (1 o 2 milioni di
-token) non risolve la cosa. Questo è il fraintendimento fondamentale
-dell'attuale ondata di IA:</p>
-<ul>
-<li><b>Il fenomeno del «perso nel mezzo».</b> Dai in pasto a un modello
-centinaia di pagine grezze in una volta e il suo tasso di successo per i
-dettagli crolla: i fatti dal centro del fascicolo vengono «dimenticati» — o
-allucinati.</li>
-<li><b>L'effetto di soffocamento del contesto.</b> Un singolo ritorno di
-strumento che scarica 50,000 caratteri di testo integrale nella chat intasa la
-conversazione: il modello perde l'orientamento, il contesto trabocca, tutto
-diventa lento e costoso.</li>
-<li><b>Nessuna memoria, nessuna struttura.</b> Un LLM nudo non sa nulla di
-scadenze, numeri di caso, parti, timbri Bates o della cronologia dei
-procedimenti. Vede una sola lunga stringa di caratteri.</li>
-</ul>
-<p><span class="irs">IRONSTICK</span> non fa dell'LLM un mulo da soma che trasporta montagne di carta —
-lo fa diventare un chirurgo di precisione:</p>
-<ol>
-<li><b>Prima la struttura.</b> Prima che l'IA veda una sola parola, <span class="irs">IRONSTICK</span>
-ha già strutturato il fascicolo: documenti classificati, date indicizzate, OCR
-riparato, allegati collegati.</li>
-<li><b>Disaccoppiamento tramite strumenti e scratch.</b> Attraverso più di 180 strumenti specializzati l'IA recupera precisamente ciò che la domanda richiede
-— e quando un valore di ritorno è comunque enorme, un limite rigido dirotta
-automaticamente tutto ciò che supera il limite del connettore nel vault di
-scratch locale — crittografato AES-256 su disco, leggibile solo attraverso il
-gate di <span class="irs">IRONSTICK</span>. La chat resta perfettamente pulita.</li>
-<li><b>Persistenza e ricorsione.</b> Attraverso la memoria IA condivisa e i
-protocolli giornalieri automatici nessun risultato d'analisi va mai perso: l'IA
-costruisce conoscenza nel corso delle settimane invece di ripartire da zero ad
-ogni prompt.</li>
-</ol>
-<p><b>In sintesi:</b> un LLM grezzo senza un sistema è un giurista brillante a
-cui vengono consegnati 5,000 fogli sciolti e disordinati e gli si chiede di
-trovare la riga decisiva in cinque secondi. <span class="irs">IRONSTICK</span> è l'infrastruttura che
-trasforma quel giurista in uno studio ad alte prestazioni funzionante.</p>
-<p>La configurazione è un pulsante per IA nella configurazione; un plugin skill
-insegna all'IA i tuoi formati di output vincolanti. Ciò che l'IA apprende su un
-mandato è conservato in una <b>memoria IA condivisa</b> — compatta, legata al
-cliente, visibile ed eliminabile da te soltanto. E vedi sempre cosa sta
-accadendo: ogni volta che un'IA legge il tuo fascicolo, il suo simbolo si
-accende nella barra dei menu.</p>
-<p><b>Siti web con verifica di accesso.</b> Se un sito web richiede una
-conferma prima di rendere disponibili i propri contenuti, <span class="irs">IRONSTICK</span> apre la
-pagina in una finestra propria: tu confermi lì, e il lavoro sulla pagina
-prosegue senza interruzioni.</p>
-<div class="box">Il primo accesso per esecuzione del programma richiede il tuo
-consenso esplicito; i documenti contrassegnati come segreti sono invisibili su
-questo canale; i suggerimenti dell'IA non scrivono mai nei tuoi record —
-aspettano la tua approvazione nel Monitor di Coerenza dei Dati. Le voci di
-cronaca arrivano come un modulo di acquisizione precompilato — aggiungi foto se
-vuoi e lo salvi tu stesso.</div>
-<div class="box"><b>I Bridge funzionano in parallelo.</b> Se più componenti
-aggiuntivi sono licenziati, Claude, ChatGPT, Qwen e Kimi possono essere
-collegati contemporaneamente e persino lavorare sullo stesso caso in simultanea
-— condividendo lo stesso stato del fascicolo, la stessa memoria IA e gli stessi
-gate di revisione, mentre la barra dei menu mostra un logo pulsante per ogni IA
-attiva, così che ogni accesso sia attribuito all'IA che lo ha compiuto.</div>
-
-<h3>Più menti, un solo caso — un collegio di consulenti integrato</h3>
-<p>È qui che diventa più di un chatbot. Poiché i Bridge possono funzionare
-insieme, metti <b>IA indipendenti sullo stesso fascicolo</b> e le lasci
-controllare a vicenda il proprio lavoro — con <span class="irs">IRONSTICK</span> al centro come banca
-dati condivisa e coordinatore. Il punto decisivo: Claude, ChatGPT, Qwen e Kimi
-sono <b>modelli diversi con addestramenti diversi</b>, così ottieni <b>opinioni
-e approcci genuinamente diversi</b> — una vera seconda opinione, non un modello
-che annuisce a se stesso. Oggi questi sono <b>tra i modelli di IA più potenti al
-mondo</b>; <span class="irs">IRONSTICK</span> li mette, fianco a fianco, sul tuo caso.</p>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_advisory_board.jpg" alt="Più IA indipendenti sullo stesso caso — un collegio di consulenti che verificano il lavoro l'uno dell'altro."><figcaption>Più IA indipendenti sullo stesso caso — un collegio di consulenti che verificano il lavoro l'uno dell'altro.</figcaption></figure>
-<p>Le dirigi in linguaggio naturale, come un socio che guida due collaboratori:
-<i>«elabora questo… ora dallo all'altra da controllare… portami la sua
-valutazione… rivedi.»</i> La bozza, la teoria o l'atto vengono consegnati
-attraverso <span class="irs">IRONSTICK</span>, la seconda IA li rivede criticamente — incaricata di
-trovare punti deboli, controargomenti ed errori, non di lodare — e la sua
-valutazione torna a te. Entrambe poggiano sui <b>dati identici del caso</b>, e
-l'intero scambio è registrato (forensemente pulito).</p>
-<p>Questa squadra di consulenza/forense a due teste è ideale per:</p>
-<ul>
-<li><b>Sviluppare teorie del caso</b> — costruiscine una, fai che l'altra la
-metta alla prova.</li>
-<li><b>Riconoscimento di schemi nel fascicolo</b> — due modelli colgono ciò che
-uno manca.</li>
-<li><b>Elaborare tattica e strategia</b> — proposta e controproposta.</li>
-<li><b>Redigere e irrobustire atti</b> — scrivi, revisiona, ribatti, affina.</li>
-<li><b>Verifica incrociata delle tue linee generali di ragionamento</b> — prima
-che lo faccia la controparte.</li>
-</ul>
-
-<h3>Un fascicolo che si autoripara — tu come strumento di precisione</h3>
-<p>Vecchi errori di acquisizione e scansioni maldestre smettono di essere
-permanenti. Quando l'IA incontra un testo integrale memorizzato che è troncato o
-rovinato da una cattiva esecuzione dell'OCR, non ci lavora attorno in silenzio —
-<b>ripara il record</b>: richiede una nuova scansione, accurata al livello di
-pagina, del PDF originale (scegli tu le pagine nel familiare selettore di
-pagina), confronta la nuova scansione con il testo memorizzato passaggio per
-passaggio, ripara solo i danni meccanici della scansione — mai riformulando;
-numeri, nomi e importi restano intatti — e restituisce il testo integrale
-riparato. Lo vedi per intero, e <b>solo il tuo clic lo salva</b>. L'archivio
-diventa più pulito ogni settimana in cui ci lavori.</p>
-<p>Dove persino una nuova scansione incontra limiti fisici, l'IA trasforma
-<b>te</b> nel suo strumento di precisione — <b>Micro-Sourcing Human-in-the-Loop
-</b>: invece di un inutile «impossibile elaborare il file», apre la voce,
-indica il punto esatto («pagina 12, in alto») e ti chiede di digitare
-precisamente le tre parole illeggibili — oppure, entro limiti rigidi (10&nbsp;MB,
-90 pagine), di consegnarle il PDF originale tramite la graffetta così che possa
-leggere la scansione con la propria visione. Non setacci mai un fascicolo di
-200 pagine; vieni chiamato in causa esattamente per lo 0,1&nbsp;% che una
-macchina non può risolvere con certezza. I sistemi tradizionali conoscono due
-stati — «successo» (per quanto sbagliato) ed «errore, elaborare manualmente»;
-questa è una simbiosi di velocità dell'IA e occhio umano che, in questa forma,
-non esiste da nessun'altra parte sul mercato.</p>
-
-<p class="part pb">Parte III — Sovranità: perché non un cloud</p>
-
-<h2 id="ch7">7. Il firewall anti-allucinazione — unico, per quanto ne sappiamo</h2>
-<p>L'unico timore giustificato riguardo all'IA nel lavoro giuridico: i modelli
-inventano citazioni, riportano cifre errate e affermano di aver letto fascicoli
-che hanno solo sfogliato. Il settore risponde con prompt e disclaimer —
-<span class="irs">IRONSTICK</span> risponde con l'architettura. La tua IA desktop lavora sul tuo
-fascicolo attraverso oltre <b>180 strumenti costruiti su misura</b>, e ogni percorso
-verso un documento in uscita passa per gate deterministici: pura logica,
-nessuna IA che controlla un'altra IA.</p>
-<div class="showband"><img src="img/50_two_windows.png" alt="Guardare l'IA al lavoro — in diretta"></div>
-
-<ul>
-<li><b>Prova di lettura.</b> Il sistema registra, riga per riga, ciò che l'IA
-ha effettivamente letto del tuo fascicolo. Gli intervalli non letti le vengono
-contestati in ogni risposta — e la consegna resta bloccata finché esistono
-lacune. «Ho letto tutto» smette di essere un'affermazione e diventa una
-misura.</li>
-<li><b>Provenienza delle citazioni.</b> Ogni riferimento a una prova deve
-puntare a un documento reale che l'IA ha dimostrabilmente recuperato e letto
-integralmente in questa sessione di lavoro — citare da frammenti di ricerca o a
-memoria non supera la verifica.</li>
-<li><b>Norme solo da una biblioteca verificata.</b> Gli articoli citati sono
-confrontati con la lettera della legge conservata nella tua biblioteca
-verificata; nuove fonti vi entrano solo attraverso la tua finestra di consenso.
-Un numero d'articolo inventato blocca la consegna.</li>
-<li><b>Tolleranza zero per numeri e nomi.</b> Gli importi devono coincidere con
-il documento fino alla virgola, i nomi delle parti fino al segno diacritico; gli
-identificativi personali e bancari passano per validatori di somma di controllo
-— un CNP o un IBAN impossibile non può mai arrivare in un tribunale.</li>
-<li><b>Consegna solo dietro attestazione.</b> Un atto formale viene rifiutato a
-meno che una nuova verifica esattamente di quello stato del fascicolo non sia
-tornata verde — ogni modifica annulla l'attestazione, e cinque round falliti
-interrompono il ciclo e ti avvisano. Ogni documento consegnato reca il proprio
-timbro di verifica.</li>
-<li><b>Nessuna modifica silenziosa dopo la consegna.</b> Una correzione a un
-documento consegnato non viene mai integrata in silenzio: la vecchia versione
-viene invalidata in modo visibile e ne nasce una nuova. Le tue correzioni
-confluiscono nella verifica.</li>
-<li><b>Nessuna porta di servizio.</b> Una lettera dichiarata «informale» viene
-controllata nei contenuti e reindirizzata attraverso i gate formali; rinominare
-un documento per azzerare il suo conteggio di versione viene rifiutato; la
-conoscenza normativa tratta da articoli di stampa o dalla memoria del modello
-non supera la verifica — solo il testo stesso della legge, dimostrabilmente
-letto dalla biblioteca in questa sessione, fonda una citazione; e ogni risposta
-su un caso reca il vero oggetto del caso dai tuoi documenti, così che un
-contesto inventato da un altro caso si smentisce all'istante.</li>
-<li><b>Citazioni oltre i confini del caso.</b> Se una citazione proviene da un documento
-di un altro caso, il verificatore la trova nell'intero archivio e indica il documento
-esatto — l'IA legge esattamente quello, non l'intero fascicolo altrui.</li>
-<li><b>Provenienza di ogni documento.</b> Per ogni documento l'IA sa da dove
-proviene: se viene dalla controparte o da un'autorità, le sue affermazioni vanno
-prima verificate criticamente; se proviene dal cliente, ne riflette il punto di
-vista.</li>
-<li><b>Protezione dalle istruzioni iniettate.</b> Le pagine web possono contenere testi rivolti all'IA anziché a Lei. Prima che i contenuti del web arrivino all'IA, <span class="irs">IRONSTICK</span> rimuove i testi esca nascosti e controlla il resto con un catalogo di schemi in undici lingue. I passaggi rilevati vengono resi illeggibili e l'IA riceve un avviso: pura logica, nessuna IA che controlla un'altra IA.</li>
-<li><b>Nessun giro a vuoto a Sue spese.</b> Se un'IA desktop tenta di ricaricare dati che
-possiede già invariati, la chiamata viene respinta — token e tempo vanno nel lavoro, non
-nella ripetizione.</li>
-</ul>
-<div class="box"><b>E non sei mai vincolato a un unico fornitore di IA.</b> L'IA
-integrata funziona su <b>Qwen, Kimi, ChatGPT e Claude</b> — quattro
-sezioni gemelle nel configuratore. <b>E <span class="irs">IRONSTICK</span> ti fa risparmiare da solo:</b> ogni fornitore che hai
-configurato viene usato automaticamente, prima il più economico — Qwen, poi
-Kimi, ChatGPT, Claude. Ad ogni avvio il programma controlla quali di essi
-rispondono; se una quota o un credito si esaurisce durante la giornata, prosegue
-in silenzio con il successivo e ricontrolla il giorno dopo. Nessun selettore,
-nessuna interruzione, nessun lavoro perso. Il lato desktop offre Claude, ChatGPT,
-Qwen e Kimi.
-<b>Lavoro in background a costo zero:</b> per le attività che si svolgono in
-background senza il tuo intervento — riassunti, smistamento delle e-mail e
-simili — puoi inoltre configurare le offerte gratuite di <b>Groq, OpenRouter e
-Mistral</b> e attivarle o disattivarle singolarmente. Per la chat e gli atti non
-vengono mai utilizzate. Poiché in questo modo dei dati vengono inviati a questi
-fornitori, il configuratore invita per ciascuno a verificarne attentamente le
-condizioni generali in materia di GDPR. Se un fornitore delude su prezzo, policy o prestazioni, ti basta
-rimuovere la sua chiave — i gate, e quindi lo standard consegnato, restano
-identici.</div>
-<h3>La via <span class="irs">IRONSTICK</span></h3>
-<div class="showband"><img src="img/58_mcp_bridge.png" alt="Il server MCP collega il fornitore di IA all'app client"></div>
-
-<div class="box"><b>Cosa significa questo per la tua scelta dell'IA:</b> con
-questi gate attivi diventa quasi irrilevante quanto sia potente il modello
-collegato — un modello più debole ha semplicemente bisogno di più round di
-correzione. La differenza che percepisci è soprattutto la velocità di
-esecuzione; il risultato consegnato deve comunque soddisfare lo stesso standard
-imposto.</div>
-<div class="box"><b>Controllare non è imporre.</b> Il mercato ha cominciato a
-pubblicizzare il «controllo delle citazioni» — nella pratica un servizio di
-annotazione best-effort: cerca le citazioni, aggiunge i riferimenti «dove
-possibile», poi restituisce il documento in ogni caso, attraverso il cloud del
-fornitore stesso, con la responsabilità parcheggiata sull'avvocato. La verifica
-di <span class="irs">IRONSTICK</span> è un compilatore, non un suggerimento: diciassette gate deterministici,
-un verdetto bloccante, un'attestazione vincolata all'esatto stato del fascicolo
-— ogni modifica la annulla — e nessun documento formale esce senza di essa. Gli
-altri annotano; <span class="irs">IRONSTICK</span> impone.</div>
-<p>Per quanto ci risulta, nessun software giuridico al mondo impone questa
-combinazione. Gli strumenti di osservabilità registrano a posteriori, i sandbox
-recintano l'accesso — <span class="irs">IRONSTICK</span> dimostra il lavoro, all'unica interfaccia che
-l'IA possiede.</p>
-<p>Se desidera saperne di più su come funzionano la chat IA interna e il Bridge per Claude, ChatGPT, Kimi e Qwen, e su quali possibilità apre la via <span class="irs">IRONSTICK</span>, <a href="bridge_it.html">faccia clic qui</a>.</p>
-<h3>La via classica</h3>
-<div class="showband"><img src="img/64_classic_way.png" alt="La via classica: IA senza accesso ai casi, solo file caricati"></div>
-<p>Ancora oggi gli assistenti di IA lavorano senza alcun collegamento alla banca dati con i tuoi casi e i dati dei clienti — l’unica via verso l'IA è il caricamento di file. Anche la maggior parte dei sistemi basati sul cloud funziona secondo questa via classica: nel migliore dei casi sposta file di testo in background — invisibili per l'utente. L'IA attinge quindi, nel migliore dei casi, solo alle informazioni contenute proprio in questi file caricati. Con un po' di fortuna non sono troppo grandi e l'IA tiene conto di tutto; altrimenti le allucinazioni sono programmate. L'IA non può accedere al caso stesso: lavora alla cieca e cerca di ottenere per l'utente il miglior risultato possibile. Questo può portare a valutazioni errate pericolose e ad affermazioni false.</p>
-<p>Skill e plug-in aggiuntivi non cambiano nulla. Nel peggiore dei casi aggravano persino il problema: le loro istruzioni corpose occupano una parte considerevole della finestra di contesto prima ancora che l'IA abbia letto il primo documento — e più questa finestra è piena, più l'IA tiene conto del suo contenuto in modo disomogeneo.</p>
-<div class="showband"><img src="img/71_context_overload.png" alt="IA sovraccarica: skill/plug-in, istruzioni e file vengono versati nella testa dell’IA finché trabocca" loading="lazy" decoding="async"></div>
-<p>Il modo più semplice è immaginare un’IA come un bambino di 10 anni con una capacità di apprendimento relativamente limitata. Se riempite il cervello di questo bambino con tante conoscenze nell’ambito di una lezione frontale, difficilmente sarà in grado di tenere tutto a mente e potrebbe persino dimenticare fatti o istruzioni importanti.</p>
-<div class="showband"><img src="img/72_best_effort_path.png" alt="Best effort: l’IA sovraccarica viene mandata per la sua strada solo con delle preghiere e fallisce l’obiettivo" loading="lazy" decoding="async"></div>
-<p>È esattamente ciò che accade oggi con i modelli di IA “best effort”, indipendentemente da come vengono pubblicizzati. Di fatto, la testa dell’IA viene semplicemente riempita con i dati del vostro caso: deve leggere interi dossier, testi lunghi e, per giunta, le lunghe istruzioni, eventualmente anche plug-in e skill. La testa si riempie e si riempie finché arriva il momento in cui non ci sta più nulla e tutto viene compresso, oppure semplicemente non tutto viene più letto. Dopodiché l’IA viene mandata a redigere il vostro atto. Non può che finire male.</p>
-<div class="showband"><img src="img/73_ironstick_guided_path.png" alt="IRONSTICK: dati preparati e istruzioni brevi; l’IA viene guidata da cartelli e porte di sicurezza fino a un obiettivo verificato" loading="lazy" decoding="async"></div>
-<p><span class="irs">IRONSTICK</span> segue un’altra strada. Le istruzioni sono volutamente brevi, così che anche con i modelli di IA più deboli non occupino mai più della metà della memoria. I dati del vostro caso vengono prima preparati da <span class="irs">IRONSTICK</span> e l’IA viene alimentata solo con i dati davvero importanti (immaginateli come dati compressi, senza prosa) e poi mandata per la sua strada. Su questa strada, però, l’IA non viene lasciata sola: le vengono messi a disposizione strumenti e protezioni. Viene guidata verso l’obiettivo da cartelli indicatori e porte di sicurezza.</p>
-<h3>La differenza?</h3>
-<div class="showband"><img src="img/74_best_effort_requests.png" alt="Best effort: l’IA viene mandata per la sua strada solo con delle preghiere e la speranza che rispetti le istruzioni, e fallisce" loading="lazy" decoding="async"></div>
-<p>Le offerte classiche “best effort” impartiscono prima all’IA una sorta di lezione frontale e poi la mandano per la sua strada, più o meno con i migliori auguri, con la preghiera (… e la speranza) che si attenga alle istruzioni e non abbia dimenticato nulla.</p>
-<div class="showband"><img src="img/75_ironstick_coaching_line.png" alt="IRONSTICK: una linea di coaching costante, con porte di sicurezza e informazioni aggiuntive fino all’obiettivo verificato" loading="lazy" decoding="async"></div>
-<p><span class="irs">IRONSTICK</span> segue l’approccio di una linea di coaching costante, con blocchi di sicurezza, informazioni aggiuntive, aiuti e strumenti, e verifica così costantemente il percorso e il risultato del modello di IA.</p>
-
-
-<h2 id="ch8">8. Il problema strutturale del SaaS — e la risposta di <span class="irs">IRONSTICK</span></h2>
-<p><b>Con un software gestionale in cloud affidi la tua responsabilità e i tuoi
-dati a estranei — sperando che il loro cloud non prenda mai fuoco. <span class="irs">IRONSTICK</span>
-significa massima sovranità:</b> il sistema è costruito in modo che nemmeno un
-guasto totale del server — o un dirottamento dell'infrastruttura — possa
-fermare lo studio.</p>
-<p><b>Le soluzioni SaaS vendono la promessa della sicurezza — questa
-architettura offre una sicurezza nativa, imposta a livello strutturale.</b> Le
-classiche soluzioni gestionali cloud e SaaS portano con sé un gigantesco
-problema strutturale che i loro dépliant pubblicitari preferiscono nascondere:
-sono fortemente <b>centralizzate</b>. <span class="irs">IRONSTICK</span> è democratico e assolutamente
-<b>decentralizzato</b>.</p>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_attacks.jpg" alt="Gli attacchi che mettono in ginocchio le piattaforme centralizzate si fermano qui, nello scudo — lo studio continua a lavorare."><figcaption>Gli attacchi che mettono in ginocchio le piattaforme centralizzate si fermano qui, nello scudo — lo studio continua a lavorare.</figcaption></figure>
-<ul>
-<li><b>Il punto unico di guasto centrale.</b> Quando un fornitore SaaS viene
-violato — un attacco alla catena di fornitura, credenziali cloud rubate, un
-errore di configurazione presso l'host cloud — migliaia di studi legali sono
-colpiti in un colpo solo. Questa architettura distribuisce il rischio
-<b>fisicamente</b> tra le singole sedi degli uffici e le loro reti locali
-irrobustite.</li>
-<li><b>La trappola della responsabilità e della protezione dei dati.</b> Con
-il SaaS, dati altamente sensibili dei clienti risiedono sui server di qualcun
-altro — Microsoft Azure, AWS, i data center del fornitore. Dopo una fuga di
-dati, un accesso ai sensi del US-CLOUD-Act o un'interruzione del server, lo
-studio resta sotto la pioggia, sul piano professionale e su quello della
-protezione dei dati. Con <span class="irs">IRONSTICK</span> i dati restano <b>al 100&nbsp;% local-first
-sui dispositivi dello studio</b>.</li>
-<li><b>Ostaggio delle interruzioni.</b> Se il data center del fornitore SaaS va
-giù — o il fornitore ha semplicemente una brutta giornata — nessuno nello
-studio può lavorare. Qui, nel peggiore dei casi, l'amministratore compra
-un'unità sostitutiva da ~300&nbsp;€ — oppure lo studio continua semplicemente a
-lavorare in autonomia sulle postazioni.</li>
-<li><b>Nessuna perdita silenziosa di dati.</b> Un singolo difetto in una banca
-dati cloud può cancellare i dati in modo irrecuperabile. Questo sistema, in
-caso di emergenza, si rigenera dalle postazioni fisicamente separate — inclusi
-i portatili che tornano dalle ferie.</li>
-</ul>
-<div class="box"><b>Indipendente dal fornitore.</b> Il tuo fascicolo risiede sul tuo hardware, la licenza viene verificata offline sul tuo computer, e <span class="irs">IRONSTICK</span> non ha bisogno di alcun server del fornitore per lavorare. Tutto ciò che registri lo esporti in qualsiasi momento — come PDF, come DOCX o come backup completo sul tuo supporto.</div>
-
-<h2 id="ch9">9. Perché <span class="irs">IRONSTICK</span> — e non un'IA giuridica in cloud</h2>
-<p><b>Il fascicolo resta tuo. L'IA viene ai tuoi dati — non i tuoi dati
-all'IA.</b> Questa singola frase separa <span class="irs">IRONSTICK</span> da ogni piattaforma di IA
-giuridica in cloud presente sul mercato. Nel 2026 il settore è passato in massa
-a un unico modello: i fascicoli dei tuoi clienti vivono sul cloud di un
-fornitore, e un'IA noleggiata da quello stesso fornitore vi lavora sopra.
-<span class="irs">IRONSTICK</span> ribalta quel modello — il fascicolo resta sul <i>tuo</i> hardware, e
-i tuoi abbonamenti IA vi si collegano attraverso un Bridge controllato e
-documentato.</p>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_no_cloud.jpg" alt="Nessun cloud: l'intero fascicolo sta su un supporto a tua scelta — anche una chiavetta USB crittografata."><figcaption>Nessun cloud: l'intero fascicolo sta su un supporto a tua scelta — anche una chiavetta USB crittografata.</figcaption></figure>
-<p>Tre argomenti, nell'ordine in cui li classificherebbero i tuoi clienti:</p>
-<ul>
-<li><b>La sovranità dei dati come argomento di dovere professionale.</b> La
-banca dati vive sul tuo supporto; il fornitore del software non vede mai i dati
-dei clienti. Pseudonimizzazione, registro di audit e la completa dichiarazione
-GDPR dei flussi di dati sono inclusi nel prodotto — compresa una clausola
-modello pronta da incollare per l'informativa privacy dei tuoi clienti. Per il
-segreto professionale e la rendicontazione GDPR questa non è una funzione; è la
-risposta.</li>
-<li><b>Porta la tua IA — e conserva la struttura dei costi.</b> Lavori con i
-tuoi account Claude, ChatGPT, Qwen e/o Kimi (di norma 20–40&nbsp;€ al mese
-ciascuno dove serve un abbonamento) invece di pagare canoni mensili a tre cifre
-per posto per una piattaforma di IA giuridica in cloud. Su tre anni, per un
-piccolo studio, la differenza si misura in cinque cifre — mentre i modelli che
-usi sono gli stessi modelli di frontiera che le grandi piattaforme ti
-noleggiano.</li>
-<li><b>Precisione controllata.</b> Oltre 180 strumenti danno all'IA accesso
-dal vivo al fascicolo reale — cronache, testi integrali, scadenze. Ma ogni
-percorso di scrittura passa per un gate di revisione: le modifiche proposte
-appaiono come una redline (testo barrato per le cancellazioni, grassetto per le
-aggiunte) e nulla viene applicato finché non accetti. Ogni riferimento in un
-atto generato è confrontato con il fascicolo. L'arma è affilata; il grilletto
-resta a te.</li>
-<li><b>Precisione e velocità senza pari.</b> Il Bridge <span class="irs">IRONSTICK</span> dà all'IA
-accesso diretto a dati <i>preparati</i>: ogni documento già elaborato con OCR,
-classificato, datato, riferito e legato al caso. L'IA non spreca mai tempo (né
-commette errori) a ricostruire ciò che un fascicolo contiene — interroga la voce
-esatta, riceve il testo integrale esatto e cita il riferimento esatto. I
-contenuti voluminosi si spostano per riferimento attraverso il Bridge invece di
-essere ridigitati dal modello, esatti al byte e in pochi secondi. Il risultato è
-un livello di accuratezza e, soprattutto, di velocità di elaborazione che il
-copia-incolla nelle chat e i caricamenti in cloud semplicemente non possono
-raggiungere.</li>
-</ul>
-
-<h2 id="ch10">10. Perché ora — e perché non semplicemente ChatGPT?</h2>
-<p>Sempre più avvocati stanno già sperimentando con una chat IA grezza —
-incollano documenti in ChatGPT e fanno domande. Per un singolo documento breve
-funziona. Di fronte a un carico di lavoro reale di uno studio si scontra con due
-muri invalicabili — ed entrambi sono esattamente ciò che <span class="irs">IRONSTICK</span> è costruito
-per rimuovere.</p>
-<ul>
-<li><b>La finestra di contesto.</b> Una chat IA può lavorare solo con ciò che
-entra nella sua finestra di contesto in una volta — nel migliore dei casi
-qualche megabyte di testo (vedi il confronto nella Parte III). Un archivio di
-caso cresciuto nel tempo è molte volte tanto. Così una chat grezza ti costringe
-a scegliere qualche pagina, scarta in silenzio il resto e ricomincia da zero ad
-ogni sessione. <span class="irs">IRONSTICK</span> rimuove il soffitto: l'assistente recupera esattamente
-i passaggi, i documenti, le e-mail e le scadenze di cui ha bisogno — freschi dal
-fascicolo dal vivo — e porta avanti la sua intuizione distillata in una memoria
-persistente, legata al cliente, attraverso le sessioni.</li>
-<li><b>Organizzazione.</b> Una chat grezza non ha struttura — niente clienti,
-casi, entità, istituzioni, scadenze, cronaca o collegamenti tra i casi. Ogni
-sessione è un'isola: nulla viene archiviato, nulla si trasferisce, nulla è
-verificabile. <span class="irs">IRONSTICK</span> <i>è</i> la struttura: l'IA lavora dentro il tuo
-fascicolo organizzato, cita l'esatto allegato e numero di caso, rispetta le
-scadenze e lascia dietro di sé una traccia pulita.</li>
-</ul>
-<p>La differenza è semplice: chiacchierare con un'IA, contro un lavoro sul caso
-difendibile e ripetibile che regge ancora mesi dopo.</p>
-<div class="showband"><img src="img/59_mcp_detail.png" alt="Server MCP: firewall, strumenti e database"></div>
-
-<p><b>E perché modelli di IA esterni, invece di un modello nostro?</b>
-Il motivo è economico. Gestire un LLM proprio, davvero utilizzabile,
-richiederebbe un investimento di 400.000–500.000&nbsp;€ — solo per server,
-impianti di raffreddamento e infrastruttura — più costi correnti di
-70.000–80.000&nbsp;€ all'anno per gestione e manutenzione. E questo non include
-nemmeno il costo dei tecnici. Per uno studio legale questo semplicemente non ha
-senso — l'investimento è di gran lunga troppo alto. E se <span class="irs">IRONSTICK</span> offrisse
-invece un proprio servizio di IA in cloud, sarebbe di fatto esattamente la
-stessa cosa dei servizi esistenti di Claude, ChatGPT, Qwen e Kimi — solo che
-<span class="irs">IRONSTICK</span> non potrebbe mai offrirlo ai loro prezzi. Per pura logica, non ha
-senso. Ecco perché <span class="irs">IRONSTICK</span> collega i tuoi abbonamenti ai modelli più potenti
-al mondo invece di noleggiartene uno proprio di seconda categoria.</p>
-
-<p class="part pb">Parte IV — Sicurezza dei dati: i tuoi dati, le tue regole</p>
-
-<h2 id="ch11">11. Tutto locale — per costruzione</h2>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_own_hardware.jpg" alt="Il fascicolo, le prove e il comparto segreto restano sul tuo hardware — protetti per costruzione."><figcaption>Il fascicolo, le prove e il comparto segreto restano sul tuo hardware — protetti per costruzione.</figcaption></figure>
-<ul>
-<li><b>Offline-first.</b> L'intero fascicolo vive localmente, in una directory
-che scegli <b>tu</b> — una chiavetta USB crittografata, se preferisci. Nessun
-cloud forzato, nessun server del fornitore, nessun requisito di account. Senza
-internet, il fascicolo, la ricerca, i documenti e l'assistente locale continuano
-a funzionare.</li>
-<li><b>Banca dati crittografata AES-256.</b> Il file che contiene l'intero tuo
-studio — clienti, casi, cronaca, e-mail, scadenze, la memoria delle IA — è
-crittografato su disco con AES-256, ogni pagina singolarmente e sigillata
-nell'integrità. Nulla da configurare, nessuna password da ricordare: il testo in
-chiaro esiste solo in memoria mentre <span class="irs">IRONSTICK</span> è in esecuzione. Chi copia il
-file da un disco, una chiavetta o un backup tiene in mano testo cifrato.</li>
-<li><b>Documenti crittografati AES-256.</b> L'archivio dei documenti stesso —
-ogni PDF originale, scansione, immagine, registrazione — riposa anch'esso
-crittografato, ogni file con il proprio sigillo di integrità. Il testo in chiaro
-esiste solo per i documenti su cui stai effettivamente lavorando, nella cartella
-temporanea, e viene cancellato quando chiudi <span class="irs">IRONSTICK</span>. Ciò che esporti o invii
-lascia il vault deliberatamente.</li>
-<li><b>Codice di accesso authenticator.</b> Ogni avvio chiede il codice a sei
-cifre dall'app authenticator del tuo telefono — gli stessi codici usa e getta
-che usa la tua banca. Nessuna password da ricordare, nulla memorizzato: il
-segreto è derivato dalla tua chiave di licenza in fase di esecuzione, e la
-chiave di licenza ti fa rientrare se il telefono va perso. Finché il codice non
-è inserito non viene mostrato nulla, e i connettori IA non ricevono alcun dato
-del caso. Il file di configurazione con le tue credenziali API e di posta riposa
-anch'esso crittografato AES-256.</li>
-<li><b>Pseudonimizzazione prima dell'IA esterna.</b> Quando le funzioni
-in-app usano effettivamente un'IA esterna, nomi, numeri identificativi, numeri
-di caso, IBAN, numeri di telefono, e-mail e indirizzi dai tuoi record vengono
-prima sostituiti da segnaposto neutri sulla tua macchina — la risposta viene
-ritradotta localmente.</li>
-<li><b>Consenso e audit.</b> L'IA esterna funziona su consenso esplicito ed è
-registrata — la traccia di audit memorizza esattamente ciò che ha effettivamente
-lasciato la macchina.</li>
-<li><b>Documenti segreti (Windows).</b> Un comparto nascosto, crittografato con
-password, per documenti che solo l'avvocato può mai vedere: invisibile in ogni
-lista, escluso da ogni canale IA e da ogni esportazione, mai sincronizzato con
-il tablet — con una sequenza di distruzione d'emergenza per il giorno
-peggiore.</li>
-<li><b>Backup e sincronizzazione senza cloud.</b> Backup completo con un clic
-ovunque tu voglia; la sincronizzazione Windows ↔ tablet avviene tramite un cavo
-USB, verificata con somma di controllo. Il tuo telefono riceve solo le voci di
-calendario — mai i contenuti dei fascicoli.</li>
-<li><b>Trasferimento su un supporto esterno — verificato, non sperato.</b> Se desidera
-lavorare con il PC dello studio e il portatile sullo stesso fascicolo su un SSD esterno,
-<span class="irs">IRONSTICK</span> verifica la destinazione prima del trasferimento: spazio libero, velocità
-effettiva, file system e rilettura invariata dei dati di prova; unità di rete e cartelle
-cloud vengono respinte. Dopo la copia ogni file viene confrontato tramite checksum; il
-passaggio avviene solo quando tutto coincide, e la vecchia cartella viene conservata con
-un altro nome. <span class="irs">IRONSTICK</span> riconosce il supporto indipendentemente dalla lettera di unità;
-se manca all'avvio, <span class="irs">IRONSTICK</span> lo segnala invece di aprire in silenzio un archivio vuoto.
-Da un riempimento dell'85&nbsp;% riceve un avviso. I requisiti del supporto si trovano
-nel <a href="#ch15">Capitolo 15</a>.</li>
-<li><b>Dichiarazione scritta.</b> Una completa dichiarazione GDPR dei flussi di
-dati è inclusa nel sistema — ogni trasmissione esterna, il suo contenuto esatto
-e dove si trovano i confini. Compresa una clausola modello per la tua
-informativa privacy ai clienti, in tutte le undici lingue — inglese, tedesco,
-francese, italiano, spagnolo, rumeno, portoghese, olandese, turco, ucraino e
-russo.</li>
-</ul>
-<div class="showband"><img src="img/61_encryption_flow.png" alt="Crittografia AES-256 nell'app client e nel server MCP"></div>
-<p>Tutti gli strati di protezione del capitolo 11 sono attivi fin da subito — senza configurazione e senza un interruttore che possa essere disattivato per errore: <b>dati a riposo</b> crittografati AES-256 — banca dati, ogni documento, la configurazione e l'intero spazio di lavoro dell'IA; in parole povere: <b>nessun dato del caso giace non crittografato sul tuo disco — nemmeno i file di lavoro dell'IA</b>. <b>Accesso in fase di esecuzione</b> solo con il codice dell'app authenticator. <b>Dati in movimento</b> solo come tuo atto deliberato — ogni percorso documentato nella dichiarazione GDPR inclusa nel prodotto.</p>
-<p>Il software legale in cloud ti vende la promessa che qualcun altro tenga al
-sicuro i tuoi dati. Qui la protezione fa parte della costruzione, sul tuo
-hardware, e puoi verificare ogni strato tu stesso.</p>
-
-<p class="part pb">Parte V — Crescere con lo studio</p>
-
-<h2 id="ch12">12. Più di una scrivania? Il server di studio</h2>
-<figure class="serverpic"><img src="img/62_server_fanout.png" alt="Il server di studio gira su un comune NAS Synology — un DS223j come questo si trova al dettaglio a partire da circa 180&nbsp;€."><figcaption>Il server di studio gira su un comune NAS Synology — un DS223j come questo si trova al dettaglio a partire da circa 180&nbsp;€.</figcaption></figure>
-<p>Per gli studi con più avvocati, <span class="irs">IRONSTICK</span> offre l'<b><span class="irs">IRONSTICK</span> SERVER</b> —
-un componente aggiuntivo licenziato separatamente che trasforma postazioni
-indipendenti in uno studio multiutente coordinato, <b>senza un cloud e senza
-rinunciare al fascicolo locale</b>. Gira come pacchetto nativo su un NAS
-Synology — le piccole, economiche scatole da ufficio a manutenzione quasi nulla
-che già siedono in migliaia di studi legali — su qualsiasi modello attuale,
-interamente all'interno della tua rete. Il server non contatta mai internet, non
-contatta mai il fornitore e non trasporta alcun traffico IA.</p>
-<p><b>Perché un NAS Synology — e perché non è un progetto IT.</b> Abbiamo scelto
-Synology deliberatamente perché queste scatole sono plug and play: colleghi
-corrente e rete, e funzionano e basta. Installare il pacchetto server <span class="irs">IRONSTICK</span>
-su di esse è fatto in tre minuti e poi gira semplicemente — nessuna console,
-nessun file di configurazione, nessun amministratore. Le postazioni sono
-altrettanto poco esigenti: l'installer è una configurazione completamente
-guidata senza conoscenze IT e senza lunghi questionari — avvialo, inserisci la
-chiave di licenza, fatto. Client e server si trovano automaticamente nella rete;
-nessuno digita un indirizzo. E uno studio a scrivania singola non ha affatto
-bisogno di un NAS — il server è un componente aggiuntivo opzionale per gli studi
-con più avvocati.</p>
-<ul>
-<li><b>Condividi i casi, mantieni il tuo fascicolo.</b> Rilascia un caso a un
-collega con un'azione; lui si iscrive e riceve una copia completa nel proprio
-fascicolo locale. Revocabile in qualsiasi momento; i documenti contrassegnati
-come segreti non lasciano mai la tua scrivania. E il vero moltiplicatore di
-forza: più avvocati — ciascuno con la propria IA — possono lavorare lo stesso
-caso <b>in simultanea</b>, inviando al titolare messaggi e analisi finite
-direttamente dal loro LLM. In caso di emergenza, un intero studio può convergere
-su un unico caso.</li>
-<li><b>Una biblioteca giuridica per tutto lo studio.</b> Ogni testo normativo
-che un collega verifica e rilascia diventa disponibile ad ogni scrivania — e ad
-<b>ogni IA di ogni scrivania</b>: l'assistente e i Bridge IA desktop citano
-lo stesso testo verificato, alla lettera, dalla biblioteca condivisa invece di
-recuperare di nuovo dal web o fidarsi della memoria del modello. Date di
-revisione, segnalazioni per le voci obsolete e riassegnazione automatica quando
-un contributore è assente mantengono viva la biblioteca — la ricerca di un
-collega diventa conoscenza verificata di tutto lo studio. Un <b>sistema
-democratico</b> la mantiene onesta: ogni postazione ricontrolla le proprie fonti
-contribuite dopo due settimane — come compito automatico in background, senza
-alcuna azione da parte dell'utente. Se un contributore è assente al momento del
-controllo, il server distribuisce i suoi controlli tra le altre postazioni; dopo
-quattro settimane una fonte viene colorata di rosso. Una volta nel sistema, vi
-resta.</li>
-<li><b>Una panoramica dei tempi per tutto lo studio.</b> Ogni postazione
-riporta il tempo di lavoro misurato in background; le pagine di amministrazione
-del server mostrano il tempo per caso, per cliente e per giorno — per un singolo
-utente o per tutto lo studio — più presenza, cronologia della condivisione dei
-casi e un registro di sicurezza.</li>
-<li><b>Amministrato in un browser.</b> Approvazione delle registrazioni,
-licenza, utenti, leggi e tempi — tutto su un'unica pagina di amministrazione
-servita dal NAS stesso. Licenza annuale con un numero definito di postazioni.</li>
-<li><b>Una rete di persone e società per l'intero studio.</b> Persone, società,
-istituzioni, le loro relazioni e le analisi delle persone registrate su una postazione
-sono disponibili per tutti tramite il server; i duplicati vengono riconosciuti e uniti
-durante l'allineamento. Ogni anagrafica ha un proprietario: i colleghi non la modificano
-direttamente, ma inviano una proposta che il proprietario accetta — se non risponde entro
-48 ore, la proprietà passa al proponente. Anche l'eliminazione di un'anagrafica altrui
-diventa una proposta.</li>
-<li><b>L'esperienza sui giudici dell'intero studio.</b> Le valutazioni delle decisioni
-giudiziarie viaggiano con questa rete: ogni collega valuta le decisioni dei propri
-fascicoli, e ogni IA sul server legge, prima di un atto, l'esperienza dell'intero studio
-con quel tribunale e quei giudici — sempre con l'indicazione di chi ha valutato.</li>
-</ul>
-
-<h3>Trasferimento e sottoscrizione di un caso — come funziona davvero</h3>
-<p>Rilasciare un caso è un atto deliberato, mai un effetto collaterale. Il
-titolare condivide il caso dall'interno dell'app; esso viaggia verso il server
-in un <b>trasferimento a due fasi</b> — prima i metadati, poi il contenuto del
-fascicolo, così che un trasferimento interrotto non lasci mai dietro di sé un
-mezzo caso — e i file di grandi dimensioni sono indirizzati per contenuto, così
-che documenti identici viaggino e siano memorizzati una sola volta. Il server
-assegna <b>ID interni nuovi</b> a tutto ciò che memorizza: un caso ricevuto non
-può mai collidere con dati già presenti sulla postazione di un collega. I
-colleghi vedono il caso condiviso sulla propria schermata dei casi-server e vi
-si <b>iscrivono</b>; l'iscritto riceve una copia completa nel proprio fascicolo
-locale e vi lavora con il sistema completo — ricerca, assistente, stesura IA,
-tutto. Il titolare può revocare la condivisione in qualsiasi momento,
-l'amministratore può terminare centralmente qualsiasi iscrizione, e ogni
-condivisione, iscrizione ed esportazione è registrata con data, ora e indirizzo.
-I documenti contrassegnati come segreti sono esclusi per design — non
-raggiungono mai il server.</p>
-<p><b>Il mega vantaggio: lavoro di squadra assistito da IA in simultanea su un
-caso.</b> Ogni iscritto lavora la propria copia con il sistema completo —
-compresa la propria IA desktop. Più avvocati possono quindi attaccare lo stesso
-caso <b>nello stesso momento</b>, ciascuno con il proprio LLM che legge il
-fascicolo a piena profondità — e inviare al titolare del caso messaggi e
-valutazioni finite <b>direttamente dalla sessione IA</b>: una tabella delle
-contraddizioni da una scrivania, una bozza irrobustita dalla successiva, una
-valutazione del rischio dalla terza, tutte che rifluiscono al titolare mentre il
-lavoro accade. Quando una scadenza si profila improvvisamente o un'udienza viene
-anticipata, un intero studio può convergere su un unico caso da un giorno
-all'altro — analisi parallele, flussi di lavoro divisi, un titolare che mantiene
-il fascicolo.</p>
-
-<h3>Una banca dati giuridica che cresce da sé — collegata direttamente alle IA</h3>
-<p>Ogni scrivania <span class="irs">IRONSTICK</span> mantiene testi normativi verificati come Markdown a
-testo integrale, ogni voce contrassegnata con giurisdizione, link alla fonte e
-data di revisione. L'assistente e i Bridge IA desktop raggiungono questa
-biblioteca attraverso tre strumenti propri: una ricerca fuzzy (la giurisdizione è un dato obbligatorio — gli ordinamenti giuridici non vengono mai mescolati), il richiamo alla lettera del testo memorizzato (l'IA cita la formulazione verificata, non la sua memoria di addestramento) e la presentazione di nuove fonti (ogni volta
-che l'IA incontra online una fonte giuridica rilevante, archiviarla è un
-<b>dovere, non un'opzione</b> — solo il link; l'applicazione scarica, converte e
-verifica il testo da sola, e tu lo rilasci attraverso il gate di revisione del
-monitor dei dati).</p>
-<p>È questo che rende la banca dati <b>dinamica</b>: cresce dal lavoro
-quotidiano dello studio. Ogni sessione di ricerca di ogni collega — umano o
-assistito da IA — la alimenta. Con il server di studio, ogni norma rilasciata
-viene deduplicata centralmente (la stessa fonte aggiorna la voce; una versione
-più recente dello stesso testo vince, quella superata viene archiviata, non
-persa) e <b>rispecchiata su ogni scrivania</b>. Le date di revisione la
-mantengono onesta: le voci non controllate da oltre un mese diventano rosse su
-ogni scrivania e nell'amministrazione web, e se un contributore è assente, il
-server riassegna le sue voci in modo uniforme tra gli utenti attivi — il dovere
-di revisione non muore mai con una vacanza. Il risultato: tutte le IA dello
-studio argomentano da <b>un'unica biblioteca normativa verificata e viva</b> —
-verificata una volta da un collega, citata alla lettera ad ogni scrivania,
-mantenuta sotto un dovere comune — invece che ogni scrivania recuperi di nuovo
-dal web aperto e si fidi di qualunque cosa sia tornata. Ed è pensiero da civil
-law dall'inizio alla fine: l'autorità è il testo normativo codificato, citato
-alla lettera — esattamente come i tribunali dell'Europa continentale si
-aspettano di sentirsi argomentare.</p>
-
-<h3>Acquisizione centralizzata della posta — la Central Scan App</h3>
-<p>Disponibile <b>solo in connessione con il server di studio</b>: la
-<b>Central Scan App</b>, un programma autonomo per il PC dell'impiegato di
-segreteria — nessuna installazione di <span class="irs">IRONSTICK</span> necessaria lì. <b>Fino a tre
-licenze Central Scan</b> possono essere acquisite per server — ciascuna
-licenziata separatamente — così che fino a tre postazioni di scansione possano
-funzionare per ufficio; tutte possono persino lavorare la <b>stessa cartella di
-acquisizione in parallelo senza collidere</b> (un documento aperto da un
-impiegato viene automaticamente bloccato e reso grigio per gli altri).</p>
-<ul>
-<li><b>Un unico punto di scansione per tutto lo studio.</b> L'impiegato
-scansiona l'intera posta del mattino in un'unica cartella e lavora la lista
-documento per documento.</li>
-<li><b>Ricercabile per design.</b> Le pagine che portano già uno strato di testo
-vengono lasciate intatte; solo le pagine scansionate passano per l'OCR locale, e
-il testo riconosciuto viene incorporato nel PDF come strato invisibile —
-l'avvocato ricevente non deve mai rieseguire l'OCR.</li>
-<li><b>Il destinatario viene riconosciuto — senza alcuna IA.</b> L'app confronta
-il testo del documento con i numeri di caso e i nomi degli avvocati dello studio
-(riportati dal vivo dalle postazioni) — puro abbinamento deterministico, zero
-token, nulla lascia la tua rete. I destinatari riconosciuti vengono suggeriti;
-un clic invia.</li>
-<li><b>La consegna è invisibile.</b> L'<span class="irs">IRONSTICK</span> di ogni avvocato raccoglie
-automaticamente i propri documenti dal server e li deposita nella normale
-acquisizione dei documenti — il consueto flusso di acquisizione prende il
-sopravvento. Il server conserva un documento solo finché il destinatario non ne
-ha confermato la ricezione; le copie locali alla scrivania di scansione si
-ripuliscono da sole dopo tre giorni.</li>
-</ul>
-
-<h3>Rilevazione dei tempi — locale su ogni scrivania, aggregata per lo studio</h3>
-<p><b>Localmente</b>, <span class="irs">IRONSTICK</span> misura il tempo di lavoro automaticamente come
-effetto collaterale del lavorare: nessun cronometro, nessuna disciplina di
-start/stop. Il tempo è derivato dall'attività effettiva nell'applicazione,
-attribuito al caso in cui stai lavorando, con il tempo di inattività limitato
-così che una finestra aperta durante il pranzo non addebiti nulla a nessuno.
-Ogni scrivania ha la propria pagina dei tempi — oggi, 7, 30, 90 giorni o tutto;
-per caso, per cliente, giorno per giorno con barre.</p>
-<p><b>Con il server</b>, ogni postazione riporta queste misurazioni in
-background — ogni cinque minuti, come totali giornalieri compatti per caso
-(compreso il nome del cliente), con i giorni mancanti reintegrati
-automaticamente; una scrivania che si aggiunge più tardi consegna la propria
-cronologia completa, così che il quadro di tutto lo studio sia intero dal primo
-giorno. La pagina Tempi dell'amministrazione web è una copia fedele della pagina
-dei tempi desktop, estesa da un selettore: un singolo utente, oppure
-<b>TUTTI</b> — l'intero studio. Tempo per caso, per cliente e per giorno,
-attraverso ogni scrivania — una base oggettiva per fatturazione, capacità e
-decisioni gestionali, prodotta senza che nessuno compili un foglio delle
-ore.</p>
-<p><b>Il sistema cresce con lo studio.</b> Partito come avvocato singolo, un
-team di cento persone oggi — <span class="irs">IRONSTICK</span> cresce insieme. Cosa serve? Un client
-desktop <span class="irs">IRONSTICK</span> all'inizio come avvocato singolo, forse un Bridge per
-Claude/GPT. Poi due avvocati uniscono le forze: si licenziano un client in più e un Bridge in più, più l'<span class="irs">IRONSTICK</span> SERVER — fino a cinque postazioni sono incluse. Da quel momento in poi, ogni collega aggiuntivo significa un client e un Bridge e, dalla sesta postazione, un ulteriore posto server. Nessun grande
-investimento verso un futuro lontano — licenzia solo ciò di cui hai bisogno
-proprio ora. E se il team si riduce, compri semplicemente meno licenze.</p>
-
-<p class="part pb">Parte VI — Affidabilità: autoriparazione, backup, quasi nessun IT</p>
-
-<h2 id="ch13">13. Quando l'hardware muore — disaster recovery integrato</h2>
-<p>Un server che coordina un intero studio deve poter morire senza portarsi via
-lo studio — e questo può. L'intero stato del server vive in <b>un'unica cartella
-di dati sul NAS</b>: includila nel backup del NAS (ad es. Synology Hyper Backup)
-e un'unità morta viene ripristinata in tre passaggi — installa il pacchetto sul
-sostituto, rimetti la cartella, avvia. Tutto torna esattamente com'era e le
-postazioni si riconnettono da sole. E poiché la verità del sistema è comunque
-<b>decentralizzata</b> — ogni postazione mantiene il proprio fascicolo locale
-completo, le copie a cui è iscritta, il proprio mirror della biblioteca
-giuridica e i propri backup — persino il caso peggiore, una perdita totale del
-NAS <i>senza</i> alcun backup, si autoripara: le postazioni si registrano di
-nuovo automaticamente, i titolari riemettono automaticamente i loro rilasci di
-caso (controllati due volte al giorno), le copie a cui si è iscritti sono
-protette per 14 giorni invece di essere scartate, la biblioteca giuridica
-ricresce dai mirror delle postazioni stesse, e i trasferimenti di caso in
-sospeso non possono perdere dati per design. Per esigenze ancora più elevate, lo
-stesso pacchetto gira immutato sui grandi modelli Synology completamente
-ridondanti — ridondanza dei dischi RAID, alimentatori ridondanti, coppie in
-High-Availability con failover automatico. Trasferire l'ufficio è altrettanto
-poco drammatico: porta con te le postazioni, imposta il NAS al nuovo indirizzo,
-collega tutto alla LAN — <b>Plug and Play</b>, fatto. Le postazioni ritrovano il loro server da sole;
-nessun indirizzo fisso, nessuna riconfigurazione, nessun appuntamento IT — <b>e
-nessun tecnico costoso, mai</b>.</p>
-<div class="showband"><img src="img/63_server_move.png" alt="Sostituire il server e traslocare — plug and play"></div>
-
-<div class="box"><b>In caso di guasto totale del server i tuoi dati restano intatti</b> — grazie all'autoriparazione del sistema e ai backup decentralizzati. Persino i PDF di posta scansionata che la Central Scan App ha caricato ma non ancora consegnato restano per 72 ore nella cartella locale <i>erledigt</i> della postazione di scansione, pronti per essere reinviati.</div>
-<p><b>Manutenzione:</b> il sistema è assolutamente autoriparante e quindi
-estremamente a bassa manutenzione. Gira in modo assolutamente stabile e fluido
-anche su hardware che non è più del tutto aggiornato. E grazie all'opzione di
-backup, in caso di emergenza reinstalli semplicemente e riporti indietro il
-backup.</p>
-<p><b>Il sistema si ripara da sé.</b> L'unica dipendenza che resta è quanto in
-fretta l'amministratore cammina fino al negozio per un dispositivo sostitutivo,
-rimette il software e lo collega alla LAN (server) — o riporta indietro il
-backup (postazione). Tutto il resto si prende cura di sé. E anche mentre il
-server è giù — per qualunque motivo — <b>le postazioni continuano semplicemente
-a lavorare localmente sui propri computer</b>: ogni avvocato ha il fascicolo
-completo sulla propria macchina, così nulla si ferma.</p>
-
-<h2 id="ch14">14. Nessun reparto IT? È proprio il punto del design</h2>
-<p>Un'obiezione legittima: <span class="irs">IRONSTICK</span> gira sul tuo hardware, quindi non c'è un
-fornitore cloud il cui help desk risolve le cose quando un disco locale muore.
-Vero — e deliberato: nessuno a distanza tiene i tuoi fascicoli, e nessuno a
-distanza può perderli, leggerli o chiuderti fuori. Ciò che questo richiede
-davvero a uno studio senza amministratore è più piccolo di quanto sembri.</p>
-<ul>
-<li><b>Un'unica abitudine, nient'altro: premere Backup.</b> Un clic sulla
-schermata di backup scrive un backup completo come un unico ZIP; lo salvi dove
-preferisci — una chiavetta USB, un disco esterno, il NAS dello studio. <span class="irs">IRONSTICK</span>
-non lascia questo alla sola disciplina: se l'ultimo backup ha più di cinque
-giorni, il briefing giornaliero termina con un pressante promemoria, parlato e
-scritto, con un link diretto all'area di backup; sul server di studio la pagina
-di amministrazione mostra la data dell'ultimo backup di ogni utente, rossa dopo
-cinque giorni.</li>
-<li><b>Il backup stesso è innocuo da perdere.</b> Banca dati, documenti,
-configurazione e i file di lavoro dell'IA sono crittografati AES-256 — uno ZIP
-di backup su una chiavetta persa è testo cifrato, nient'altro.</li>
-<li><b>Il ripristino è una routine, non un progetto.</b> Macchina nuova o
-riparata: installa dalla chiavetta, apri la schermata di backup, riporta
-indietro lo ZIP, avvia. Tutto torna esattamente com'era — casi, documenti,
-cronache, memoria IA, biblioteca giuridica. Nessun tecnico, nessun ticket,
-nessuna attesa.</li>
-<li><b>Nulla da amministrare nel frattempo.</b> Nessun server da configurare,
-nessuna banca dati da ottimizzare, nessun account utente da gestire — la chiave
-di licenza e il codice authenticator sono tutte le credenziali che esistono. Il
-sistema si ripara da sé, le postazioni trovano il server di studio da sole, gli
-aggiornamenti sono di nuovo l'installer. Se sai salvare un documento su una
-chiavetta USB, sai far funzionare <span class="irs">IRONSTICK</span> in sicurezza.</li>
-<li><b>Le seconde copie arrivano gratis dove le usi.</b> Ogni postazione in una
-configurazione con server di studio mantiene il proprio fascicolo locale
-completo, la sincronizzazione con il tablet porta con te una copia verificata
-con somma di controllo, e il NAS viene sottoposto a backup dai propri strumenti
-(ad es. Synology Hyper Backup). Perdere un dispositivo non significa mai perdere
-lo studio.</li>
-<li><b>Lei vede cosa gira in background.</b> L'indicatore delle prestazioni nella barra
-dei menu elenca ogni processo in background in corso — recupero della posta,
-riconoscimento del testo, cifratura e decifratura, backup, le chiamate di strumenti
-dell'IA, il riconoscimento di nuove decisioni giudiziarie. Nulla lavora in modo
-invisibile.</li>
-</ul>
-<p>L'affinità con l'IT richiesta è quella di qualsiasi postazione Windows — non
-di più. Ciò che <span class="irs">IRONSTICK</span> rimuove è la dipendenza dal data center di qualcun
-altro; ciò che chiede in cambio è una chiavetta di backup che tu usi
-davvero.</p>
-
-<p class="part pb">Parte VII — Nella pratica</p>
-
-<h2 id="ch15">15. Requisiti di sistema</h2>
-<table>
-<tr><th></th><th>Minimo</th><th>Consigliato per un lavoro pienamente fluido</th></tr>
-<tr><td>Sistema operativo</td><td>Windows 11, 64-bit</td>
-<td>Windows 11, 64-bit, aggiornamenti correnti</td></tr>
-<tr><td>Processore</td><td>Moderno x64 a 4 core (ad es. Intel Core i5 /
-AMD Ryzen 5)</td><td>6–8 core — il riconoscimento del testo gira su più pagine
-in parallelo, e il riconoscimento vocale offline beneficia direttamente di ogni
-core</td></tr>
-<tr><td>Memoria</td><td>8 GB RAM</td><td>16 GB RAM — comodo margine per PDF
-di grandi dimensioni, costruzione di dossier e trascrizione audio fianco a
-fianco</td></tr>
-<tr><td>Archiviazione</td><td>SSD con 20 GB liberi</td><td>SSD NVMe con 100+ GB
-liberi — l'archivio dei fascicoli, la ricerca a testo integrale e la produzione
-di PDF sono intensivi sul disco; un SSD veloce si sente ogni singolo
-giorno</td></tr>
-<tr><td>Display</td><td>1920 × 1080</td><td>1920 × 1200 o superiore — le
-schermate dei casi usano generosamente lo spazio verticale</td></tr>
-<tr><td>Scheda grafica</td><td colspan="2">Nessuna scheda grafica dedicata
-richiesta — qualsiasi grafica integrata è sufficiente</td></tr>
-<tr><td>Connettività</td><td colspan="2">Internet solo per l'IA esterna, gli
-aggiornamenti normativi, l'e-mail e le mappe — il fascicolo, la ricerca, i
-documenti e l'assistente locale girano completamente offline; una porta USB
-libera per la sincronizzazione del tablet</td></tr>
-</table>
-<p>Opzionale: un tablet Android (Android 11 o più recente, 64-bit, schermo in
-formato tablet) sullo stesso fascicolo tramite sincronizzazione via cavo, e il
-tuo account IA (per l'IA esterna in-app e/o un'IA desktop — Claude Desktop,
-ChatGPT Desktop, Qwen Desktop o Kimi Desktop) — senza di esso, <span class="irs">IRONSTICK</span> gira
-semplicemente come un sistema completamente locale.</p>
-
-<h3>Archiviazione dei dati su un supporto esterno (opzionale)</h3>
-<p>Chi tiene il fascicolo su un'unità esterna — ad esempio per lavorare con il PC dello
-studio e il portatile sullo stesso archivio — ha bisogno di un supporto che regga il carico
-continuo di uno studio legale. <span class="irs">IRONSTICK</span> verifica ogni destinazione prima del
-trasferimento e respinge i supporti inadatti (Windows).</p>
-<table>
-<tr><th>Verifica</th><th>Requisito</th></tr>
-<tr><td>Spazio libero</td><td>Almeno 9&nbsp;GB, ovvero 1&nbsp;GB in più dell'archivio
-attuale</td></tr>
-<tr><td>Scrittura / lettura</td><td>Almeno 80&nbsp;MB/s / 150&nbsp;MB/s — anche sotto carico
-continuo (non sotto il 60&nbsp;% del valore iniziale)</td></tr>
-<tr><td>Molti file piccoli</td><td>Almeno 250 file al secondo</td></tr>
-<tr><td>File system</td><td>NTFS o exFAT, non FAT32; non protetto da scrittura né
-bloccato</td></tr>
-<tr><td>Affidabilità</td><td>I dati di prova devono essere riletti invariati</td></tr>
-<tr><td>Non ammesso</td><td>Unità di rete e cartelle sincronizzate con il cloud (OneDrive,
-Google Drive, Dropbox)</td></tr>
-<tr><td>Raccomandazione</td><td>SSD esterno — le normali chiavette USB raramente raggiungono
-questi valori</td></tr>
-</table>
-
-<h3>Requisiti di sistema — il server di studio (componente opzionale)</h3>
-<table>
-<tr><th></th><th>Requisito</th></tr>
-<tr><td>Dispositivo</td><td>Qualsiasi NAS Synology con DSM 7.0 o più recente —
-ARM o Intel; il pacchetto include binari nativi per ARMv7, ARM64 e x86-64</td></tr>
-<tr><td>Prestazioni</td><td>Scritto deliberatamente così snello da girare
-pulitamente anche su un'<b>unità di fascia base di dieci anni</b>: verificato su
-un DS214se del 2014 con una CPU ARM single-core e 256&nbsp;MB di RAM. Se gira
-lì, gira su ogni Synology della gamma — qualsiasi modello attuale ha un generoso
-margine</td></tr>
-<tr><td>Memoria / CPU</td><td>Nessun requisito dedicato oltre al NAS stesso — il
-server rimane inattivo su pochi MB e non scansiona né indicizza mai in
-background</td></tr>
-<tr><td>Archiviazione</td><td>Poche centinaia di MB per il pacchetto e la
-biblioteca giuridica; i pacchetti di caso condivisi crescono solo con ciò che
-effettivamente condividi</td></tr>
-<tr><td>Rete</td><td>Solo LAN dell'ufficio; una porta TCP (47712). DSM, Web
-Station e le porte 80/443 restano completamente intatte — il server non si
-connette mai a internet</td></tr>
-<tr><td>Amministrazione</td><td>Qualsiasi browser sulla LAN; propria password di
-amministrazione; chiave di licenza inserita una volta</td></tr>
-</table>
-
-<p class="quote"><span class="irs">IRONSTICK</span> non è stato costruito per impressionare in una demo.
-È stato costruito perché alle 19:00 tu chiuda il coperchio — con il fascicolo
-letto, la bozza irrobustita, la scadenza rispettata, e la prova di tutti e tre
-nel sistema.</p>
-
-<div class="lic"><h2 id="ch16">16. Licenze — modulare, solo ciò che lo studio usa</h2>
-<p><span class="irs">IRONSTICK</span> è licenziato per componente. Prendete solo le parti che vi servono
-e ne aggiungete altre man mano che lo studio cresce. Qui trovate i componenti e come ciascuno è licenziato — gli importi sono nella <a href="pricing_it.html">pagina dei prezzi</a>.</p>
-<table>
-<tr><th>Componente</th><th>Licenziato per</th></tr>
-<tr><td><b><span class="irs">IRONSTICK</span> Client</b> (applicazione base)</td><td>per utente / postazione</td></tr>
-<tr><td><b>Bridge singolo</b> — Claude, ChatGPT, Qwen <i>o</i> Kimi</td><td>per utente / postazione</td></tr>
-<tr><td><b>Bundle di tutti i Bridge</b> — tutti e quattro insieme</td><td>per utente / postazione</td></tr>
-<tr><td><b><span class="irs">IRONSTICK</span> Office Server</b> (incl. fino a 5 client)</td><td>per studio / server</td></tr>
-<tr><td><b>Client aggiuntivo sul server</b> (dal 6°)</td><td>per client aggiuntivo</td></tr>
-<tr><td><b>Central Scan App</b> (max. 3 per server)</td><td>per utente / postazione di scansione</td></tr>
-</table>
-<ul>
-<li><b>Componenti aggiuntivi &amp; dipendenze:</b> i Bridge e l'Office Server
-sono componenti aggiuntivi licenziati separatamente dall'applicazione base; la
-Central Scan App richiede una licenza Office Server attiva.</li>
-<li><b>Abbonamento al fornitore IA:</b> un Bridge funziona con il vostro
-abbonamento presso il fornitore (Claude, ChatGPT, Qwen o Kimi) — la chat IA
-integrata non richiede alcuna licenza Bridge aggiuntiva.</li>
-<li><b>La formazione</b> è licenziata separatamente in tre moduli in loco
-(app · app + office server · Bridge IA approfonditi).</li>
-</ul><p><b>Scarica il software:</b> Client-App, Bridge, Office Server e Central Scan App sono disponibili nella <a href="download_it.html">pagina di download</a> — dove trovi anche l'ordine di installazione, le regole di licenza e il modello per richiedere le chiavi di licenza.</p></div><div class="site-foot"><h2 id="contact">Contatti</h2><p><span class="irs">IRONSTICK</span> o una demo ti interessano? Scrivici.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Scansiona il codice per salvare la nostra scheda contatto — telefono, e-mail e sito.</p><p class="pref">Contattate direttamente via WhatsApp o Telegram — anche una chiamata è benvenuta. Lingue parlate: tedesco, inglese, rumeno.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> è un software per la pratica legale. Questo sito ha finalità puramente informative e non costituisce consulenza legale.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>
+<link rel="stylesheet" href="landing.css">
+<script src="landing.js" defer></script>
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="sitebar.css">
+</head>
+<body class="u-body u-clearfix u-xl-mode">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0"><a class="b" href="index_it.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><div class="menu"><a href="index_it.html">Home</a><span class="mh">Compendi</span><a class="sub" href="kompendium_it.html">App client</a><a class="sub" href="bridge_it.html">Bridge</a><a href="gdpr_it.html">GDPR</a><a href="download_it.html">Download</a><a href="pricing_it.html">Prezzi</a></div></div></div><nav class="lang-wrap" tabindex="0" title="Lingua" aria-label="Lingua"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="index.html">English</a><a lang="de" hreflang="de" href="index_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="index_ro.html">Română</a><a lang="fr" hreflang="fr" href="index_fr.html">Français</a><a class="on" lang="it" hreflang="it" href="index_it.html">Italiano</a><a lang="es" hreflang="es" href="index_es.html">Español</a><a lang="ru" hreflang="ru" href="index_ru.html">Русский</a><a lang="uk" hreflang="uk" href="index_uk.html">Українська</a></div></nav></div>
+<section class="u-clearfix u-image u-section-1" id="block-1" data-parallax="22 60">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-group u-radius u-shape-round u-white u-group-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1">Il fascicolo che lavora con te</h1>
+          </div>
+        </div>
+        <p class="u-large-text u-text u-text-body-alt-color u-text-variant u-text-2">Il sistema gestionale per studi legali con intelligenza dei fascicoli integrata.<br>Scadenze, prove, atti ed e-mail in un unico posto, in locale sul tuo computer.<br>Per gli avvocati che rivogliono le loro serate.</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="block-2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="2000">Le ore diventano minuti. Controlli invece di cercare.</h2>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <p class="u-text u-text-default u-text-2">Ogni documento, e-mail, foto e parola pronunciata diventa ricercabile, comprese le scansioni e le trascrizioni delle telefonate.<br>
+<br><span>Chiedi in linguaggio naturale, da tastiera o a voce: ogni risposta è fondata sui documenti reali, con fonti cliccabili.</span></p>
+                  <ul class="u-custom-list u-spacing-13 u-text u-text-3" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                    <li>
+                      <div class="u-list-icon u-text-palette-2-base">
+                        <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" style="">●</div>
+                      </div>Le scadenze e i casi silenti emergono da soli</li>
+                    <li>
+                      <div class="u-list-icon u-text-palette-2-base">
+                        <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" style="">●</div>
+                      </div>Bozze di atti ricavate dal fascicolo</li>
+                    <li>
+                      <div class="u-list-icon u-text-palette-2-base">
+                        <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" style="">●</div>
+                      </div>OCR, ricerca a testo pieno, trascrizione di audio e video</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-container-align-left u-grey-5 u-section-3" id="block-3">
+      <img class="u-expanded-width u-image u-image-default u-image-1" src="img/lp_meeting.jpg" alt="">
+      <div class="u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-1">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <div class="u-align-center u-container-align-center u-container-style u-custom-item u-group u-palette-2-base u-group-1" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-1">01</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-2"><b>Avvocati singoli e piccoli studi.</b> Nessun reparto IT, nessun budget per tecnici: IRONSTICK gira su un normale computer Windows e si mantiene da solo.</p>
+            </div>
+          </div>
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-2">
+            <div class="u-container-layout u-similar-container u-container-layout-3">
+              <div class="u-align-center u-black u-container-align-center u-container-style u-custom-item u-group u-group-2" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">02</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-4"><b>Avvocati processualisti con fascicoli voluminosi.</b> Chi gestisce migliaia di pagine di prove interroga il fascicolo in linguaggio naturale e ottiene risposte documentate, con le fonti.</p>
+            </div>
+          </div>
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-3">
+            <div class="u-container-layout u-similar-container u-container-layout-5">
+              <div class="u-align-center u-black u-container-align-center u-container-style u-custom-item u-group u-group-3" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-5">03</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-6"><b>Avvocati d'impresa, fallimentaristi e penalisti.</b> Molte persone, società e intrecci: la rete su tutti i fascicoli rende visibili collegamenti che a mano sarebbe impossibile seguire.</p>
+            </div>
+          </div>
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-4">
+            <div class="u-container-layout u-similar-container u-container-layout-7">
+              <div class="u-align-center u-container-align-center u-container-style u-custom-item u-group u-palette-2-base u-group-4" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-7">04</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-8"><b>Studi con più avvocati.</b> L'IRONSTICK SERVER collega le postazioni tramite un NAS Synology nella tua rete: condividi i casi, senza cloud e senza rinunciare al fascicolo locale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="block-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="2000">Bozze di atti in minuti, non in ore</h2>
+                  <p class="u-text u-text-3">Atti e lettere nascono in dialogo con l'IA, direttamente dal fascicolo. Prima della consegna, un verificatore deterministico confronta la bozza con il fascicolo vivo: ogni riferimento di prova, ogni parte, ogni citazione normativa.<br>
+<br><span>Il risultato è un modello pronto per il deposito, mai un atto giudiziario finito: controlli, correggi e firmi, e la responsabilità resta tua. Esportazione in PDF o DOCX. Provato: 3000 pagine di atti e allegati, timbrate e impaginate, in un unico PDF in meno di 20 minuti.</span></p>
+                </div>
+              </div>
+              <div class="u-container-style u-image u-layout-cell u-size-30 u-image-1">
+                <div class="u-container-layout u-container-layout-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-5 u-section-5" id="block-5">
+      <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
+        <div class="u-align-center u-container-align-center u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-group-1">
+          <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-valign-middle-xs">
+            <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1">La tua IA, il tuo account</h2>
+            <p class="u-text u-text-2">Attraverso il Bridge, Claude, ChatGPT, Qwen e Kimi lavorano direttamente sul tuo fascicolo, ciascuna con gli stessi strumenti e con il tuo abbonamento presso il fornitore. Il Bridge è un modulo aggiuntivo con licenza separata.</p>
+          </div>
+        </div>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2"><span class="u-icon u-icon-circle u-palette-2-base u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 128 128" style=""><use xlink:href="#svg-5e7a"></use></svg><svg class="u-svg-content" viewBox="0 0 128 128" id="svg-5e7a"><polygon points="104 40 104 48 120 48 120 120 48 120 48 104 40 104 40 128 128 128 128 40"></polygon><rect x="80" width="8" height="8"></rect><rect x="16" width="8" height="8"></rect><rect x="32" width="8" height="8"></rect><rect x="16" y="80" width="8" height="8"></rect><rect x="48" width="8" height="8"></rect><rect x="64" width="8" height="8"></rect><rect width="8" height="8"></rect><rect y="48" width="8" height="8"></rect><rect y="64" width="8" height="8"></rect><rect y="32" width="8" height="8"></rect><rect y="16" width="8" height="8"></rect><rect x="80" y="16" width="8" height="8"></rect><rect y="80" width="8" height="8"></rect><path d="m63.6 96.8 10.4 10.4 36.8-36.8-10.6-10.6-5.7-17-19.6-19.5-39.5 16.2c-6.1 2.5-9.1 9.5-6.5 15.7l0.3 0.6-0.5 0.5c-6.2 6.2-6.2 16.4 0 22.6l15.1 15.1 19.8 2.8zm-31.6-29.2c0-2.1 0.8-4.2 2.3-5.7l14.1 14.1 5.7-5.7-17-17c-1.6-1.6-1.6-4.1 0-5.7 0.4-0.4 0.8-0.7 1.3-0.9l34.6-14 14.4 14.4 5.7 17 6.3 6.3-25.5 25.5-6.6-6.6-19.8-2.8-13.2-13.3c-1.5-1.5-2.3-3.5-2.3-5.6z"></path></svg></span>
+                <h5 class="u-text u-text-default u-text-3">IA desktop sul Bridge</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-4" data-animation-name="counter" data-animation-duration="3000">4</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3"><span class="u-icon u-icon-circle u-palette-2-base u-icon-2" data-animation-name="customAnimationIn" data-animation-duration="1000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 128 128" style=""><use xlink:href="#svg-e6b7"></use></svg><svg class="u-svg-content" viewBox="0 0 128 128" id="svg-e6b7"><path d="m102.7 39.2c0.8 0 1.5 0.3 2.1 0.9l7.8 7.8c4.8 4.8 7.7 11.5 7.4 18.3-0.6 12.6-11 22.6-23.7 22.6h-29c-0.1 0-0.1-0.1-0.1-0.2 1.1-3 4.1-5.2 7.5-5.2h10.5c0.9 0 1.8-0.4 2.3-1.1 0.8-1.1 0.7-2.6-0.3-3.5l-24.9-24.8c-0.6-0.6-0.9-1.3-0.9-2.1s0.3-1.5 0.9-2.1 1.3-0.8 2.1-0.8 1.5 0.3 2.1 0.8l16.9 16.9c0.5 0.5 1.2 0.8 1.9 0.8s1.4-0.3 1.9-0.8 0.8-1.2 0.8-1.9-0.3-1.4-0.8-1.9l-6.7-6.7c-0.6-0.6-0.9-1.3-0.9-2.1s0.3-1.5 0.9-2.1 1.3-0.8 2.1-0.8 1.5 0.3 2.1 0.8l4 4c0.5 0.5 1.2 0.8 1.9 0.8s1.4-0.3 1.9-0.8 0.8-1.2 0.8-1.9-0.3-1.4-0.8-1.9l-2.7-2.7c-0.5-0.5-0.8-1.2-0.8-2s0.3-1.5 0.9-2.1 1.3-0.9 2.1-0.9 1.5 0.3 2.1 0.9l2.7 2.7c0.5 0.5 1.2 0.8 1.9 0.8s1.4-0.3 1.9-0.8 0.8-1.2 0.8-1.9-0.2-1.3-0.7-1.8c-0.8-0.9-1.2-2.1-0.8-3.3 0.5-1.3 1.6-1.9 2.8-1.9m0-8c-2.9 0-5.7 1.1-7.8 3.2-0.7 0.7-1.2 1.4-1.7 2.1 0 0-0.1 0.1-0.1 0-0.4 0-0.8-0.1-1.1-0.1-2.9 0-5.7 1.1-7.8 3.2-1 1-1.8 2.2-2.3 3.4 0 0 0 0.1-0.1 0.1-2.6 0.2-5.1 1.3-6.9 3.2l-0.2 0.2-2.5-2.5c-2-2-4.9-3.2-7.8-3.2s-5.7 1.1-7.8 3.2-3.2 4.9-3.2 7.8c0 3 1.2 5.7 3.2 7.8l15.8 15.8c0.1 0.1 0 0.2-0.1 0.2-5.8 0.8-10.8 4.8-12.8 10.5-1.9 5.2 2 10.7 7.5 10.7h29.1c8.5 0 16.4-3.3 22.4-9.3 6.1-6.1 9.4-14.3 9.3-23-0.1-8.4-3.8-16.4-9.8-22.4l-7.8-7.8c-1.8-2-4.6-3.1-7.5-3.1z"></path><path d="m82.1 118c0 1.1-0.9 2-2 2h-70.2c-1.1 0-2-0.9-2-2v-108c0-1.1 0.9-2 2-2h70.1c1.1 0 2 0.9 2 2v16.9c0 2.2 1.8 4 4 4s4-1.8 4-4v-16.9c0-5.5-4.5-10-9.9-10h-70.2c-5.4 0-9.9 4.5-9.9 10v108c0 5.5 4.5 10 9.9 10h70.1c5.5 0 9.9-4.5 9.9-10v-10.6c0-2.2-1.8-4-4-4s-4 1.8-4 4v10.6z"></path></svg></span>
+                <h5 class="u-text u-text-default u-text-5">Strumenti del Bridge</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-6" data-animation-name="counter" data-animation-duration="3000">208</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4"><span class="u-icon u-icon-circle u-palette-2-base u-icon-3" data-animation-name="customAnimationIn" data-animation-duration="2000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 372.483 372.483" style=""><use xlink:href="#svg-32f8"></use></svg><svg class="u-svg-content" viewBox="0 0 372.483 372.483" x="0px" y="0px" id="svg-32f8" style="enable-background:new 0 0 372.483 372.483;"><g id="XMLID_10_"><g><path d="M372.482,263.045c0-21.796-6.527-42.842-18.877-60.863c-8.883-12.962-20.322-23.726-33.578-31.725    c15.607-14.78,25.372-35.67,25.372-58.811c0-44.684-36.354-81.038-81.037-81.038c-26.496,0-51.316,13.104-66.392,34.615    c-3.831-0.558-7.745-0.859-11.729-0.859s-7.897,0.302-11.728,0.859c-15.077-21.511-39.897-34.615-66.392-34.615    c-44.684,0-81.038,36.354-81.038,81.038c0,23.141,9.765,44.031,25.373,58.811c-13.257,7.998-24.696,18.763-33.578,31.724    C6.528,220.203,0,241.249,0,263.045v45.075h78.121v33.755h216.242V308.12h78.12v-45.075H372.482z M264.362,50.609    c33.656,0,61.037,27.381,61.037,61.038s-27.381,61.038-61.037,61.038c-0.603,0-1.206-0.009-1.81-0.027    c0.046-0.128,0.084-0.259,0.129-0.387c1.042-2.954,1.911-5.988,2.608-9.087c0.049-0.22,0.105-0.438,0.152-0.659    c0.181-0.836,0.34-1.68,0.495-2.526c0.073-0.4,0.148-0.799,0.215-1.2c0.126-0.755,0.24-1.513,0.345-2.274    c0.073-0.529,0.139-1.058,0.202-1.588c0.079-0.672,0.156-1.345,0.219-2.022c0.064-0.691,0.112-1.383,0.158-2.076    c0.036-0.546,0.081-1.09,0.106-1.639c0.055-1.177,0.086-2.356,0.09-3.536c0-0.087,0.007-0.172,0.007-0.26    c0-0.047-0.004-0.094-0.004-0.141c-0.002-1.205-0.037-2.403-0.091-3.597c-0.016-0.347-0.037-0.693-0.057-1.039    c-0.059-1.015-0.136-2.025-0.231-3.03c-0.022-0.228-0.04-0.456-0.063-0.683c-3.022-29.209-21.475-54.21-48.095-65.774    C230.208,58.253,246.8,50.609,264.362,50.609z M165.122,88.131c0.195-0.071,0.392-0.138,0.587-0.208    c0.607-0.217,1.219-0.423,1.834-0.622c0.466-0.149,0.935-0.293,1.407-0.431c0.343-0.101,0.687-0.198,1.032-0.294    c0.616-0.169,1.235-0.334,1.86-0.485c4.62-1.122,9.438-1.731,14.397-1.731c4.963,0.004,9.783,0.614,14.404,1.736    c0.621,0.15,1.236,0.314,1.849,0.482c0.35,0.097,0.7,0.195,1.047,0.298c0.466,0.137,0.93,0.279,1.391,0.426    c0.623,0.201,1.242,0.409,1.856,0.629c0.189,0.067,0.378,0.131,0.566,0.2c20.413,7.549,35.718,25.716,39.182,47.763    c0.027,0.176,0.053,0.353,0.079,0.53c0.111,0.747,0.204,1.5,0.287,2.255c0.03,0.278,0.062,0.555,0.089,0.834    c0.066,0.689,0.115,1.383,0.159,2.079c0.018,0.298,0.043,0.595,0.057,0.894c0.042,0.889,0.065,1.783,0.068,2.682    c0,0.078,0.005,0.154,0.005,0.232c0,0.036-0.002,0.073-0.002,0.109c-0.002,0.87-0.028,1.734-0.066,2.595    c-0.012,0.271-0.024,0.542-0.04,0.812c-0.047,0.832-0.109,1.66-0.189,2.482c-0.031,0.318-0.073,0.635-0.109,0.952    c-0.061,0.532-0.129,1.063-0.203,1.591c-0.058,0.411-0.116,0.823-0.182,1.232c-0.101,0.623-0.213,1.242-0.333,1.859    c-0.107,0.549-0.224,1.096-0.346,1.642c-0.073,0.329-0.149,0.658-0.228,0.985c-0.195,0.811-0.409,1.617-0.637,2.42    c-0.091,0.319-0.176,0.64-0.272,0.956c-0.139,0.46-0.289,0.916-0.438,1.372c-0.12,0.365-0.243,0.728-0.37,1.09    c-0.144,0.411-0.286,0.823-0.438,1.231c-0.259,0.693-0.531,1.38-0.814,2.061c-0.126,0.304-0.26,0.605-0.391,0.908    c-0.247,0.567-0.501,1.131-0.765,1.689c-0.031,0.066-0.062,0.132-0.093,0.198c-0.095,0.198-0.189,0.397-0.286,0.595    c-0.296,0.604-0.604,1.201-0.92,1.793c-0.123,0.23-0.242,0.463-0.368,0.692c-0.008,0.015-0.016,0.029-0.024,0.043    c-0.346,0.63-0.707,1.25-1.074,1.866c-0.146,0.244-0.29,0.489-0.439,0.73c-0.4,0.649-0.811,1.291-1.234,1.923    c-0.263,0.393-0.538,0.778-0.81,1.165c-0.231,0.328-0.461,0.657-0.698,0.98c-0.307,0.418-0.62,0.831-0.938,1.242    c-0.216,0.279-0.434,0.556-0.654,0.832c-0.336,0.42-0.675,0.838-1.021,1.249c-0.215,0.255-0.436,0.505-0.655,0.756    c-0.36,0.413-0.719,0.827-1.089,1.23c-0.22,0.239-0.448,0.469-0.672,0.705c-0.602,0.635-1.218,1.256-1.846,1.865    c-0.373,0.361-0.744,0.723-1.126,1.074c-0.264,0.243-0.535,0.479-0.804,0.718c-0.438,0.389-0.879,0.774-1.328,1.15    c-0.228,0.191-0.458,0.38-0.689,0.568c-0.543,0.442-1.093,0.875-1.652,1.299c-0.152,0.115-0.302,0.232-0.455,0.346    c-10.16,7.553-22.736,12.03-36.34,12.03c-13.605,0-26.183-4.478-36.343-12.033c-0.15-0.112-0.297-0.227-0.446-0.34    c-0.561-0.425-1.114-0.861-1.659-1.305c-0.229-0.187-0.458-0.374-0.684-0.564c-0.451-0.378-0.893-0.765-1.333-1.155    c-0.267-0.238-0.537-0.472-0.8-0.714c-0.383-0.352-0.755-0.715-1.129-1.076c-0.631-0.611-1.248-1.234-1.852-1.871    c-0.221-0.233-0.447-0.46-0.664-0.696c-0.371-0.404-0.73-0.819-1.09-1.232c-0.219-0.251-0.439-0.5-0.654-0.755    c-0.347-0.411-0.685-0.829-1.021-1.248c-0.22-0.276-0.439-0.553-0.655-0.833c-0.317-0.41-0.63-0.823-0.937-1.241    c-0.237-0.324-0.468-0.654-0.699-0.983c-0.272-0.386-0.546-0.77-0.808-1.162c-0.425-0.635-0.838-1.279-1.239-1.93    c-0.147-0.239-0.289-0.48-0.433-0.721c-0.373-0.625-0.738-1.253-1.089-1.892c-0.129-0.235-0.251-0.474-0.378-0.71    c-0.316-0.594-0.625-1.193-0.922-1.798c-0.106-0.215-0.209-0.432-0.312-0.648c-0.016-0.033-0.031-0.066-0.046-0.099    c-0.277-0.584-0.542-1.174-0.801-1.769c-0.123-0.283-0.248-0.565-0.366-0.849c-0.29-0.696-0.567-1.398-0.832-2.106    c-0.143-0.382-0.275-0.768-0.41-1.153c-0.139-0.395-0.273-0.793-0.404-1.192c-0.141-0.432-0.283-0.864-0.415-1.298    c-0.197-0.649-0.383-1.302-0.558-1.959c-0.123-0.461-0.234-0.926-0.347-1.39c-0.088-0.365-0.173-0.73-0.254-1.097    c-0.1-0.45-0.201-0.899-0.291-1.351c-0.139-0.704-0.266-1.412-0.38-2.124c-0.062-0.384-0.116-0.769-0.171-1.153    c-0.081-0.569-0.154-1.141-0.219-1.715c-0.032-0.283-0.069-0.566-0.098-0.849c-0.083-0.843-0.146-1.692-0.194-2.544    c-0.014-0.245-0.025-0.49-0.036-0.735c-0.041-0.911-0.07-1.825-0.07-2.745c0-0.986,0.028-1.965,0.075-2.94    c0.013-0.265,0.035-0.528,0.05-0.792c0.044-0.732,0.097-1.462,0.167-2.188c0.024-0.253,0.053-0.505,0.08-0.757    c0.086-0.786,0.183-1.568,0.299-2.345c0.022-0.151,0.044-0.303,0.068-0.454C129.393,113.864,144.701,95.685,165.122,88.131z     M47.083,111.647c0-33.656,27.381-61.038,61.038-61.038c17.563,0,34.154,7.645,45.625,20.529    c-26.629,11.568-45.086,36.581-48.099,65.802c-0.021,0.198-0.036,0.397-0.055,0.596c-0.1,1.041-0.179,2.086-0.239,3.137    c-0.018,0.32-0.038,0.639-0.053,0.96c-0.057,1.251-0.096,2.506-0.096,3.77c0,1.276,0.037,2.549,0.097,3.821    c0.024,0.512,0.066,1.019,0.099,1.528c0.049,0.732,0.099,1.464,0.167,2.194c0.06,0.649,0.134,1.294,0.21,1.939    c0.066,0.562,0.136,1.122,0.214,1.682c0.102,0.735,0.212,1.467,0.333,2.196c0.073,0.433,0.153,0.865,0.232,1.297    c0.15,0.816,0.303,1.63,0.477,2.437c0.058,0.266,0.124,0.53,0.184,0.795c0.679,3.003,1.522,5.943,2.526,8.81    c0.064,0.185,0.12,0.372,0.185,0.556c-0.603,0.018-1.207,0.027-1.809,0.027C74.464,172.684,47.083,145.303,47.083,111.647z     M94.888,239.148c-0.22,0.347-0.43,0.7-0.646,1.049c-0.457,0.738-0.91,1.478-1.348,2.225c-0.245,0.417-0.481,0.837-0.719,1.257    c-0.394,0.693-0.783,1.388-1.161,2.089c-0.238,0.441-0.472,0.884-0.704,1.327c-0.364,0.697-0.719,1.398-1.067,2.101    c-0.219,0.442-0.437,0.883-0.649,1.327c-0.354,0.741-0.695,1.488-1.032,2.236c-0.183,0.407-0.371,0.811-0.548,1.22    c-0.39,0.896-0.762,1.799-1.127,2.705c-0.107,0.265-0.221,0.527-0.325,0.792c-0.463,1.177-0.906,2.362-1.326,3.553    c-0.096,0.273-0.182,0.549-0.277,0.822c-0.316,0.918-0.624,1.839-0.915,2.764c-0.133,0.425-0.256,0.852-0.384,1.278    c-0.235,0.784-0.466,1.569-0.683,2.359c-0.129,0.47-0.252,0.941-0.375,1.413c-0.198,0.758-0.388,1.518-0.568,2.281    c-0.115,0.483-0.227,0.966-0.334,1.45c-0.172,0.773-0.333,1.549-0.488,2.326c-0.093,0.467-0.189,0.934-0.276,1.403    c-0.157,0.846-0.298,1.696-0.435,2.547c-0.064,0.4-0.135,0.798-0.195,1.198c-0.186,1.25-0.355,2.503-0.497,3.762    c-0.002,0.015-0.003,0.03-0.004,0.045c-0.129,1.145-0.24,2.292-0.333,3.443H20v-25.075c0-34.258,19.694-65.013,50.548-79.631    c11.24,5.908,24.017,9.271,37.572,9.271c3.92,0,7.852-0.29,11.754-0.864c0.608,0.867,1.226,1.725,1.866,2.567    c0.216,0.283,0.44,0.559,0.66,0.839c0.632,0.808,1.273,1.607,1.935,2.39c0.271,0.321,0.549,0.635,0.825,0.952    c0.62,0.712,1.25,1.415,1.894,2.104c0.338,0.363,0.682,0.72,1.026,1.077c0.589,0.607,1.186,1.205,1.793,1.794    c0.228,0.221,0.443,0.455,0.673,0.674c-0.869,0.525-1.73,1.063-2.583,1.612c-0.139,0.089-0.275,0.183-0.413,0.273    c-0.853,0.554-1.697,1.12-2.533,1.697c-0.289,0.2-0.577,0.402-0.865,0.604c-0.745,0.525-1.482,1.059-2.213,1.602    c-0.231,0.172-0.465,0.34-0.694,0.514c-0.93,0.703-1.849,1.419-2.756,2.151c-0.198,0.16-0.392,0.325-0.59,0.487    c-0.722,0.591-1.437,1.192-2.143,1.802c-0.274,0.236-0.546,0.474-0.818,0.713c-0.707,0.623-1.405,1.255-2.096,1.896    c-0.18,0.167-0.364,0.331-0.543,0.5c-0.848,0.798-1.683,1.611-2.506,2.438c-0.214,0.215-0.423,0.434-0.635,0.65    c-0.63,0.643-1.253,1.293-1.868,1.952c-0.244,0.262-0.488,0.524-0.73,0.789c-0.692,0.756-1.374,1.522-2.045,2.299    c-0.105,0.122-0.214,0.24-0.319,0.363c-0.765,0.893-1.513,1.803-2.251,2.722c-0.206,0.256-0.407,0.516-0.61,0.775    c-0.555,0.705-1.102,1.417-1.64,2.136c-0.208,0.278-0.417,0.554-0.622,0.834c-0.704,0.96-1.399,1.928-2.074,2.913    C96.274,236.998,95.572,238.069,94.888,239.148z M98.121,321.876v-13.755v-11.32c0-1.11,0.021-2.216,0.062-3.319    c0.013-0.363,0.042-0.723,0.06-1.085c0.036-0.736,0.07-1.473,0.124-2.206c0.033-0.445,0.083-0.886,0.123-1.33    c0.058-0.646,0.11-1.293,0.182-1.935c0.053-0.47,0.122-0.937,0.182-1.406c0.078-0.611,0.151-1.223,0.241-1.831    c0.073-0.484,0.161-0.964,0.241-1.446c0.098-0.586,0.189-1.174,0.299-1.757c0.093-0.493,0.201-0.981,0.302-1.472    c0.116-0.566,0.227-1.134,0.354-1.696c0.112-0.496,0.24-0.987,0.36-1.481c0.135-0.55,0.264-1.103,0.409-1.65    c0.132-0.497,0.278-0.989,0.418-1.482c0.152-0.537,0.3-1.075,0.462-1.608c0.151-0.496,0.317-0.988,0.476-1.481    c0.17-0.523,0.335-1.047,0.514-1.566c0.17-0.491,0.353-0.978,0.531-1.465c0.188-0.514,0.372-1.03,0.569-1.54    c0.188-0.485,0.388-0.964,0.583-1.446c0.205-0.503,0.407-1.009,0.621-1.508c0.207-0.481,0.425-0.957,0.64-1.433    c0.221-0.491,0.44-0.984,0.67-1.47c0.225-0.475,0.461-0.944,0.694-1.415c0.238-0.48,0.473-0.961,0.719-1.436    c0.243-0.468,0.496-0.93,0.747-1.393c0.254-0.469,0.505-0.938,0.767-1.402c0.26-0.46,0.53-0.913,0.797-1.368    c0.27-0.458,0.538-0.917,0.817-1.371c0.277-0.451,0.563-0.895,0.848-1.341c0.286-0.447,0.57-0.894,0.864-1.336    s0.596-0.878,0.898-1.314c0.301-0.435,0.601-0.87,0.909-1.3c0.31-0.432,0.629-0.858,0.948-1.285    c0.316-0.423,0.631-0.846,0.954-1.263c0.326-0.421,0.66-0.836,0.994-1.252c0.331-0.412,0.663-0.823,1.001-1.229    c0.341-0.408,0.689-0.811,1.037-1.213c0.347-0.401,0.695-0.802,1.05-1.198c0.355-0.396,0.718-0.786,1.08-1.176    c0.362-0.389,0.724-0.776,1.093-1.158c0.37-0.384,0.747-0.762,1.125-1.139c0.377-0.377,0.756-0.752,1.14-1.123    c0.383-0.369,0.772-0.733,1.163-1.096c0.392-0.364,0.786-0.727,1.185-1.085c0.398-0.356,0.8-0.707,1.205-1.056    c0.406-0.351,0.815-0.7,1.228-1.044c0.411-0.342,0.826-0.679,1.244-1.014c0.421-0.338,0.845-0.673,1.273-1.004    c0.423-0.326,0.85-0.648,1.279-0.968c0.436-0.325,0.875-0.646,1.319-0.963c0.434-0.311,0.872-0.617,1.313-0.921    c0.452-0.311,0.906-0.618,1.364-0.921c0.445-0.294,0.894-0.585,1.345-0.872c0.467-0.297,0.937-0.59,1.41-0.878    c0.456-0.278,0.915-0.553,1.377-0.823c0.48-0.281,0.964-0.558,1.451-0.831c0.467-0.262,0.937-0.521,1.41-0.775    c0.495-0.266,0.994-0.527,1.496-0.785c0.476-0.245,0.954-0.486,1.436-0.723c0.379-0.186,0.762-0.366,1.145-0.547    c11.239,5.908,24.018,9.27,37.572,9.27c13.555,0,26.333-3.362,37.572-9.27c0.38,0.18,0.76,0.359,1.136,0.543    c0.488,0.24,0.971,0.484,1.453,0.731c0.496,0.255,0.99,0.513,1.48,0.776c0.478,0.257,0.953,0.519,1.425,0.784    c0.481,0.27,0.959,0.543,1.433,0.821c0.469,0.274,0.934,0.553,1.396,0.835c0.467,0.285,0.93,0.573,1.39,0.866    c0.458,0.291,0.912,0.585,1.363,0.884c0.453,0.299,0.902,0.603,1.348,0.91c0.445,0.307,0.888,0.616,1.327,0.93    c0.439,0.314,0.873,0.632,1.305,0.954c0.434,0.322,0.865,0.647,1.292,0.977c0.424,0.328,0.844,0.66,1.262,0.995    c0.42,0.337,0.838,0.676,1.252,1.02c0.411,0.342,0.817,0.689,1.221,1.038c0.407,0.351,0.812,0.704,1.212,1.063    c0.396,0.355,0.787,0.715,1.176,1.076c0.394,0.366,0.787,0.734,1.174,1.107c0.381,0.367,0.756,0.739,1.129,1.112    c0.38,0.38,0.76,0.761,1.133,1.147c0.366,0.38,0.727,0.764,1.086,1.15c0.366,0.393,0.731,0.787,1.089,1.186    c0.352,0.392,0.697,0.789,1.041,1.187c0.351,0.405,0.702,0.811,1.045,1.223c0.337,0.403,0.666,0.812,0.995,1.221    c0.336,0.418,0.672,0.835,1,1.259c0.322,0.415,0.635,0.836,0.949,1.257c0.32,0.428,0.64,0.857,0.952,1.291    c0.307,0.427,0.606,0.861,0.905,1.294c0.303,0.438,0.607,0.876,0.902,1.32c0.292,0.439,0.574,0.883,0.858,1.327    c0.287,0.449,0.575,0.897,0.854,1.351c0.276,0.449,0.542,0.905,0.81,1.359c0.27,0.458,0.542,0.915,0.803,1.378    c0.261,0.462,0.511,0.93,0.764,1.396c0.252,0.465,0.506,0.929,0.749,1.398c0.246,0.474,0.48,0.955,0.718,1.434    c0.233,0.471,0.47,0.941,0.695,1.417c0.23,0.486,0.448,0.977,0.668,1.467c0.216,0.479,0.435,0.955,0.642,1.438    c0.213,0.495,0.412,0.996,0.616,1.496c0.198,0.486,0.4,0.97,0.589,1.46c0.196,0.507,0.379,1.02,0.566,1.532    c0.179,0.489,0.362,0.976,0.532,1.469c0.18,0.521,0.346,1.048,0.516,1.573c0.159,0.491,0.324,0.98,0.474,1.475    c0.163,0.533,0.31,1.072,0.463,1.609c0.14,0.493,0.286,0.984,0.418,1.481c0.145,0.547,0.274,1.099,0.409,1.65    c0.121,0.493,0.248,0.985,0.36,1.481c0.127,0.562,0.237,1.129,0.354,1.694c0.101,0.491,0.209,0.98,0.302,1.474    c0.109,0.578,0.199,1.161,0.297,1.743c0.081,0.487,0.171,0.971,0.244,1.461c0.09,0.603,0.162,1.211,0.24,1.817    c0.061,0.473,0.131,0.943,0.184,1.418c0.072,0.642,0.124,1.289,0.182,1.935c0.04,0.444,0.09,0.885,0.123,1.33    c0.055,0.733,0.088,1.471,0.124,2.208c0.018,0.361,0.047,0.721,0.06,1.083c0.041,1.103,0.062,2.209,0.062,3.319v11.319v13.757    H98.121z M294.015,288.12c-0.196-2.436-0.478-4.857-0.836-7.263c-0.057-0.381-0.125-0.759-0.186-1.139    c-0.139-0.871-0.284-1.74-0.445-2.606c-0.085-0.456-0.178-0.91-0.269-1.365c-0.157-0.791-0.321-1.58-0.496-2.366    c-0.106-0.474-0.216-0.948-0.328-1.42c-0.183-0.772-0.375-1.541-0.575-2.308c-0.121-0.465-0.242-0.929-0.37-1.393    c-0.219-0.798-0.453-1.592-0.691-2.385c-0.126-0.418-0.246-0.837-0.377-1.254c-0.295-0.939-0.607-1.873-0.928-2.805    c-0.09-0.26-0.172-0.523-0.264-0.783c-0.422-1.195-0.865-2.383-1.33-3.564c-0.1-0.253-0.209-0.503-0.311-0.756    c-0.369-0.917-0.747-1.832-1.142-2.74c-0.175-0.403-0.36-0.801-0.54-1.202c-0.34-0.756-0.684-1.509-1.042-2.257    c-0.209-0.438-0.425-0.873-0.64-1.308c-0.351-0.71-0.71-1.417-1.077-2.12c-0.23-0.44-0.461-0.878-0.697-1.315    c-0.38-0.703-0.77-1.401-1.166-2.097c-0.238-0.418-0.473-0.836-0.716-1.251c-0.44-0.751-0.895-1.494-1.355-2.236    c-0.214-0.346-0.422-0.695-0.64-1.038c-0.685-1.079-1.387-2.15-2.113-3.209c-0.676-0.986-1.371-1.954-2.075-2.914    c-0.204-0.278-0.412-0.553-0.618-0.829c-0.541-0.723-1.09-1.437-1.647-2.145c-0.201-0.255-0.4-0.513-0.604-0.766    c-0.739-0.922-1.49-1.834-2.257-2.729c-0.1-0.116-0.203-0.229-0.303-0.345c-0.676-0.783-1.364-1.555-2.061-2.317    c-0.24-0.262-0.481-0.521-0.723-0.781c-0.618-0.663-1.245-1.318-1.879-1.964c-0.209-0.213-0.414-0.428-0.625-0.639    c-0.825-0.828-1.663-1.644-2.513-2.444c-0.175-0.165-0.355-0.325-0.531-0.489c-0.695-0.645-1.397-1.28-2.107-1.906    c-0.27-0.238-0.542-0.474-0.814-0.71c-0.708-0.611-1.423-1.212-2.146-1.804c-0.197-0.161-0.39-0.326-0.588-0.486    c-0.906-0.732-1.825-1.448-2.754-2.15c-0.232-0.175-0.468-0.345-0.701-0.518c-0.728-0.54-1.461-1.072-2.203-1.594    c-0.291-0.205-0.582-0.409-0.874-0.611c-0.828-0.571-1.663-1.131-2.507-1.679c-0.148-0.096-0.293-0.196-0.441-0.291    c-0.852-0.547-1.71-1.084-2.578-1.608c0.224-0.213,0.434-0.44,0.655-0.656c0.62-0.6,1.229-1.21,1.829-1.83    c0.335-0.346,0.668-0.693,0.996-1.045c0.655-0.7,1.293-1.414,1.923-2.137c0.268-0.307,0.537-0.612,0.8-0.924    c0.671-0.794,1.323-1.605,1.964-2.426c0.21-0.268,0.425-0.532,0.631-0.803c0.643-0.845,1.264-1.707,1.875-2.577    c3.902,0.573,7.834,0.863,11.754,0.863c13.555,0,26.333-3.362,37.572-9.271c30.855,14.618,50.548,45.373,50.548,79.631v25.074    H294.015z"></path>
+</g>
+</g></svg></span>
+                <h5 class="u-text u-text-default u-text-7">Lingue</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-8" data-animation-name="counter" data-animation-duration="3000">11</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5"><span class="u-icon u-icon-circle u-palette-2-base u-icon-4" data-animation-name="customAnimationIn" data-animation-duration="1000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xlink:href="#svg-1044"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-1044" style="enable-background:new 0 0 512 512;"><g><g><path d="M256,0C144.702,0,54.154,90.547,54.154,201.846c0,69.363,35.172,130.662,88.615,167.011v128.373    c0,5.012,2.541,9.682,6.75,12.402c4.207,2.721,9.509,3.121,14.08,1.066L256,469.119l92.401,41.58c1.935,0.87,4,1.301,6.059,1.301    c2.804,0,5.594-0.798,8.021-2.367c4.208-2.721,6.75-7.391,6.75-12.402V368.858c53.443-36.349,88.615-97.648,88.615-167.011    C457.846,90.547,367.298,0,256,0z M339.692,474.39l-77.632-34.934c-1.927-0.868-3.994-1.302-6.06-1.302s-4.133,0.433-6.06,1.301    l-77.632,34.934v-88.835c7.423,3.384,15.042,6.292,22.805,8.745c0.44,0.14,0.879,0.283,1.321,0.419    c0.991,0.305,1.985,0.599,2.98,0.888c0.737,0.216,1.474,0.43,2.213,0.638c0.803,0.224,1.609,0.441,2.415,0.655    c0.94,0.251,1.882,0.496,2.827,0.734c0.668,0.167,1.337,0.331,2.007,0.49c1.087,0.261,2.177,0.513,3.271,0.756    c0.567,0.126,1.135,0.251,1.703,0.372c1.198,0.256,2.4,0.498,3.607,0.733c0.491,0.095,0.982,0.192,1.474,0.284    c1.278,0.238,2.561,0.461,3.847,0.675c0.441,0.074,0.882,0.15,1.324,0.22c1.327,0.212,2.66,0.407,3.997,0.592    c0.414,0.057,0.827,0.119,1.241,0.174c1.353,0.179,2.712,0.34,4.072,0.492c0.406,0.045,0.81,0.096,1.216,0.14    c1.357,0.144,2.719,0.267,4.084,0.383c0.414,0.035,0.826,0.078,1.241,0.11c1.345,0.106,2.696,0.191,4.049,0.271    c0.434,0.026,0.866,0.06,1.302,0.083c1.367,0.072,2.739,0.121,4.113,0.165c0.414,0.014,0.825,0.036,1.239,0.047    c1.776,0.046,3.558,0.072,5.346,0.072c1.787,0,3.569-0.026,5.345-0.072c0.414-0.011,0.825-0.033,1.239-0.047    c1.374-0.044,2.746-0.094,4.113-0.165c0.434-0.023,0.867-0.057,1.302-0.083c1.353-0.08,2.704-0.164,4.049-0.271    c0.415-0.032,0.827-0.075,1.241-0.11c1.365-0.116,2.727-0.24,4.084-0.383c0.406-0.043,0.81-0.094,1.216-0.14    c1.361-0.153,2.719-0.313,4.072-0.492c0.415-0.055,0.827-0.116,1.241-0.174c1.336-0.185,2.669-0.38,3.997-0.592    c0.442-0.071,0.882-0.147,1.324-0.22c1.286-0.214,2.569-0.437,3.847-0.675c0.492-0.092,0.983-0.188,1.474-0.284    c1.206-0.234,2.408-0.478,3.607-0.733c0.569-0.121,1.136-0.246,1.703-0.372c1.094-0.243,2.184-0.495,3.271-0.756    c0.669-0.16,1.338-0.324,2.007-0.49c0.945-0.237,1.886-0.482,2.827-0.734c0.806-0.215,1.612-0.43,2.415-0.655    c0.739-0.208,1.477-0.422,2.213-0.638c0.995-0.29,1.99-0.583,2.98-0.888c0.442-0.137,0.881-0.28,1.321-0.419    c7.763-2.453,15.382-5.36,22.805-8.744V474.39z M312.229,364.724c-0.589,0.203-1.178,0.407-1.769,0.604    c-0.898,0.3-1.8,0.595-2.705,0.88c-1.053,0.331-2.109,0.65-3.168,0.96c-0.747,0.22-1.495,0.439-2.246,0.649    c-1.401,0.391-2.807,0.765-4.218,1.12c-0.526,0.133-1.054,0.259-1.581,0.387c-1.381,0.334-2.768,0.652-4.158,0.952    c-0.35,0.076-0.697,0.156-1.047,0.228c-1.794,0.375-3.594,0.724-5.401,1.041c-0.184,0.032-0.369,0.06-0.554,0.093    c-1.628,0.281-3.261,0.536-4.897,0.769c-0.369,0.053-0.738,0.105-1.109,0.156c-1.745,0.237-3.493,0.455-5.247,0.639    c-0.066,0.007-0.132,0.016-0.198,0.023c-1.836,0.191-3.679,0.348-5.524,0.479c-0.4,0.029-0.802,0.05-1.203,0.077    c-1.435,0.093-2.87,0.166-4.309,0.224c-0.489,0.02-0.978,0.04-1.467,0.056c-1.807,0.055-3.616,0.093-5.428,0.093    s-3.621-0.037-5.428-0.095c-0.49-0.015-0.979-0.036-1.467-0.056c-1.439-0.057-2.874-0.131-4.309-0.224    c-0.401-0.026-0.802-0.048-1.203-0.077c-1.845-0.132-3.687-0.289-5.524-0.479c-0.066-0.007-0.132-0.016-0.198-0.023    c-1.754-0.184-3.502-0.402-5.247-0.639c-0.369-0.05-0.738-0.102-1.108-0.156c-1.637-0.234-3.27-0.488-4.898-0.769    c-0.184-0.031-0.369-0.06-0.554-0.093c-1.807-0.317-3.608-0.667-5.401-1.041c-0.349-0.073-0.697-0.154-1.047-0.228    c-1.39-0.299-2.777-0.618-4.158-0.952c-0.528-0.128-1.056-0.254-1.581-0.387c-1.411-0.354-2.817-0.73-4.218-1.12    c-0.751-0.21-1.499-0.429-2.246-0.649c-1.058-0.311-2.115-0.629-3.169-0.96c-0.905-0.286-1.806-0.58-2.705-0.88    c-0.592-0.197-1.181-0.401-1.769-0.604c-67.484-23.361-116.078-87.547-116.078-162.876c0-95.01,77.297-172.308,172.308-172.308    s172.308,77.297,172.308,172.308C428.308,277.175,379.713,341.361,312.229,364.724z"></path>
+</g>
+</g><g><g><path d="M343.622,201.846l27.741-52.14c2.394-4.497,2.299-9.91-0.248-14.321c-2.547-4.411-7.188-7.2-12.279-7.376l-59.025-2.045    L268.527,75.87c-2.699-4.32-7.433-6.946-12.527-6.946s-9.828,2.626-12.527,6.946l-31.283,50.094l-59.025,2.045    c-5.091,0.176-9.732,2.965-12.279,7.376s-2.642,9.824-0.248,14.321l27.741,52.14l-27.741,52.14    c-2.394,4.497-2.299,9.91,0.248,14.321c2.547,4.411,7.188,7.2,12.279,7.376l59.025,2.045l31.283,50.094    c2.698,4.32,7.433,6.946,12.527,6.946s9.828-2.626,12.527-6.946l31.283-50.094l59.025-2.045c5.091-0.176,9.732-2.965,12.279-7.376    c2.547-4.411,2.642-9.824,0.248-14.321L343.622,201.846z M290.935,248.479c-4.909,0.17-9.414,2.771-12.015,6.938L256,292.118    l-22.919-36.7c-2.602-4.167-7.106-6.767-12.015-6.938l-43.242-1.499l20.323-38.198c2.308-4.337,2.308-9.537,0-13.874    l-20.323-38.198l43.242-1.499c4.909-0.17,9.414-2.771,12.015-6.938L256,111.575l22.919,36.7c2.602,4.167,7.106,6.767,12.015,6.938    l43.242,1.499l-20.323,38.198c-2.307,4.337-2.307,9.538,0.001,13.874l20.323,38.198L290.935,248.479z"></path>
+</g>
+</g></svg></span>
+                <h5 class="u-text u-text-default u-text-9">Giorni di prova gratuita</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-10" data-animation-name="counter" data-animation-duration="3000">30</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="block-6">
+      <div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-image u-layout-cell u-size-30 u-image-1">
+                <div class="u-container-layout u-container-layout-1"></div>
+              </div>
+              <div class="u-align-left u-container-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="2000">Il tuo segreto professionale resta da te</h2>
+                  <p class="u-text u-text-default u-text-3">La banca dati è cifrata sul tuo supporto; il fornitore del software non vede mai i dati dei clienti. Il consenso prima di ogni chiamata esterna all'IA, la pseudonimizzazione e il registro di audit sono integrati.<br>
+<br><span>Il Bridge trasmette deliberatamente dati reali, con il tuo abbonamento presso il fornitore. Il tuo studio non dipende da alcun centro dati esterno: la licenza viene verificata offline sul tuo computer e tutto ciò che acquisisci si esporta in qualsiasi momento.</span><br>
+<br><a href="gdpr_it.html">Leggi la dichiarazione GDPR sui flussi di dati</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="block-7">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-left u-container-align-left u-container-style u-group u-shape-rectangle u-group-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+          <div class="u-container-layout u-valign-top-xl u-container-layout-1">
+            <h1 class="u-custom-font u-font-montserrat u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="2000">Modulare. Fatturazione mensile.</h1><span class="u-icon u-icon-rectangle u-palette-2-light-2 u-text-palette-2-base u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="2000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 491.52 491.52" style=""><use xlink:href="#svg-8180"></use></svg><svg class="u-svg-content" viewBox="0 0 491.52 491.52" x="0px" y="0px" id="svg-8180" style="enable-background:new 0 0 491.52 491.52;"><g><g><path d="M399.4,203.578h-19.801h-0.005v-69.744C379.593,60.039,319.556,0,245.759,0c-73.793,0-133.832,60.039-133.832,133.835    v69.744H92.122c-15.656,0-28.35,12.692-28.35,28.349v17.246v196.751v17.245c0,15.658,12.693,28.35,28.35,28.35H245.76H399.4    c15.656,0,28.348-12.692,28.348-28.35v-17.245V249.174v-17.246C427.748,216.27,415.056,203.578,399.4,203.578z M275.935,406.648    h-60.349l10.801-51.467c-10.101-6.428-16.848-17.652-16.848-30.512c0-20.003,16.218-36.219,36.221-36.219    c20.004,0,36.219,16.216,36.219,36.219c0,12.86-6.745,24.084-16.845,30.51L275.935,406.648z M331.84,203.578h-86.08h-86.075    h-0.005v-69.744c0-47.469,38.613-86.081,86.08-86.081c47.469,0,86.08,38.613,86.08,86.081V203.578z"></path>
+</g>
+</g></svg></span>
+            <p class="u-text u-text-2">Tutti i prezzi indicati su questo sito web non includono l'IVA di legge.</p>
+          </div>
+        </div>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-left u-black u-container-align-left u-container-style u-custom-item u-list-item u-repeater-item u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Solo</h2>
+                <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-4">220 €</h5>
+                <p class="u-text u-text-default u-text-5">per utente al mese, Europa occidentale. Europa orientale: 110 €.</p>
+                <div class="u-border-3 u-border-white u-expanded-width u-line u-line-horizontal u-line-1"></div>
+                <p class="u-text u-text-default u-text-6">Comprende:</p>
+                <ul class="u-custom-list u-text u-text-default u-text-7">
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-f6f9" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Sistema gestionale completo</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-f6f9" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Assistente dei casi e bozze di atti</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-f6f9" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Locale e cifrato</li>
+                </ul>
+                <a href="download_it.html" class="u-border-none u-btn u-button-style u-white u-btn-1">Prova 30 giorni</a>
+              </div>
+            </div>
+            <div class="u-align-left u-container-align-left u-container-style u-list-item u-palette-2-base u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-8">Team</h2>
+                <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-9">790 €</h5>
+                <p class="u-text u-text-default u-text-10">IRONSTICK SERVER al mese, modulo aggiuntivo con fino a 5 client inclusi, Europa occidentale. Europa orientale: 518 €.</p>
+                <div class="u-border-3 u-border-white u-expanded-width u-line u-line-horizontal u-line-2"></div>
+                <p class="u-text u-text-default u-text-11">Comprende:</p>
+                <ul class="u-custom-list u-text u-text-default u-text-12">
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-df1e" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Condividi i casi, tieni il fascicolo</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-df1e" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Nella tua rete, senza cloud</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-df1e" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Funziona su un NAS Synology</li>
+                </ul>
+                <a href="pricing_it.html" class="u-border-none u-btn u-button-style u-white u-btn-2">Tutti i prezzi</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-8" id="block-10">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-container-layout-1">
+                  <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1">Contatti</h5>
+                  <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2" data-animation-name="customAnimationIn" data-animation-duration="2000">Tobias Werren</h3>
+                  <div class="lp-cc"><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scansiona il codice per salvare la nostra scheda contatto — telefono, e-mail e sito.</p><p class="pref">Contattate direttamente via WhatsApp o Telegram — anche una chiamata è benvenuta. Lingue parlate: tedesco, inglese, rumeno.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-top u-container-layout-2">
+                  <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-6">Messaggio</h5>
+                  <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-7">IRONSTICK o una demo ti interessano? Scrivici.</h3>
+                  <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-white u-group-1">
+                    <div class="u-container-layout u-container-layout-3">
+                      <div class="u-form u-form-1">
+                        <form action="#" data-subject="Richiesta IRONSTICK da" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
+                          <div class="u-form-group u-form-name">
+                            <label for="name-61fc" class="u-label">Nome</label>
+                            <input type="text" placeholder="Il tuo nome" id="name-61fc" name="name" class="u-border-grey-10 u-input u-input-rectangle" required="">
+                          </div>
+                          <div class="u-form-group u-form-message">
+                            <label for="message-61fc" class="u-label">Messaggio</label>
+                            <textarea placeholder="Il tuo messaggio" rows="4" cols="50" id="message-61fc" name="message" class="u-border-grey-10 u-input u-input-rectangle" required=""></textarea>
+                          </div>
+                          <div class="u-align-left u-form-group u-form-submit">
+                            <p class="lp-hint">L'invio apre il tuo programma di posta con il messaggio preparato.</p><button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-2-base u-btn-1">Invia messaggio</button>
+                          </div>
+                          <div class="u-form-send-message u-form-send-success">Il tuo programma di posta si sta aprendo. Invia lì il messaggio.</div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-a73b"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">IRONSTICK è un software per la pratica legale. Questo sito ha finalità puramente informative e non costituisce consulenza legale. © 2026 IRONSTICK.</p>
+      </div></footer>
 </body></html>

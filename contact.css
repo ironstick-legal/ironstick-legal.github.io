@@ -1,0 +1,56 @@
+/* Kontaktteil und Fußzeile aller Seiten, Werte 1:1 aus der Landing-Seite (.u-section-8, .u-footer) */
+body{overflow-x:clip;padding-bottom:0 !important}
+.ct{box-sizing:border-box;width:100vw;margin:64px 0 0 calc(50% - 50vw);background:#f2f2f2;color:#111;font-size:16px;line-height:1.6;scroll-margin-top:64px}
+.ct *{box-sizing:border-box}
+.ct-in{display:flex;flex-wrap:wrap;width:1140px;margin:0 auto;padding:60px 0}
+.ct-l,.ct-r{flex:0 0 50%;max-width:50%;min-width:50%;padding:30px 29px}
+.ct h5.ct-h{font-size:20px;line-height:1.2;font-weight:400;color:#111;border:0;padding:0}
+.ct-l h5.ct-h{margin:0 1px}
+.ct-r h5.ct-h{margin:0 auto 0 0}
+.ct h3.ct-name{font-size:48px;line-height:1.2;font-weight:700;color:#111;border:0;padding:0;margin:20px auto 0 1px}
+.ct h3.ct-ask{font-size:24px;line-height:1.2;font-weight:700;color:#111;border:0;padding:0;margin:20px auto 0 0}
+.ct .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:18px 0 0}
+.ct .qr{width:180px;height:180px;display:block;border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff;max-width:none}
+.ct .portrait{height:180px;width:auto;border-radius:12px;display:block;max-width:none}
+.ct p.qrhint{font-size:14px;line-height:1.6;color:#5f6368;margin:10px 0 4px}
+.ct p.pref{font-size:15px;line-height:1.6;color:#202124;margin:6px 0 0;max-width:none}
+.ct p.cbtn{margin:12px 0 4px}
+.ct .cbtn a{display:inline-block;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0}
+.ct .cbtn .wa{background:#25D366}
+.ct .cbtn .tg{background:#229ED9}
+.ct-box{display:flex;width:510px;min-height:392px;margin:48px auto 0;padding:30px;background:#fff;color:#111}
+.ct-fw{position:relative;width:450px;font-size:16px}
+.ct-fw form{display:flex;flex-wrap:wrap;align-items:flex-end;row-gap:10px;width:calc(100% + 10px);margin:0 0 0 -10px;padding:10px}
+.ct-fg{width:100%;padding-left:10px;text-align:start}
+.ct-fg label{font-weight:400;color:#111}
+.ct-fg input,.ct-fg textarea{display:block;width:100%;height:auto;margin:0;padding:10px 12px;border:1px solid #e5e5e5;border-radius:0;background:#fff;color:#000;font:inherit;line-height:1.6}
+.ct-fw ::placeholder{color:inherit;opacity:.5}
+.ct p.ct-hint{font-size:13.6px;line-height:1.6;color:#5f6368;margin:20px 0}
+.ct-fg button{display:inline-block;position:relative;margin:1px 0;padding:10px 30px;border:0;border-radius:0;background:#ff6e0e;color:#fff;font:inherit;font-weight:400;line-height:1.4;cursor:pointer}
+.ct-fg button:hover{background:#f26000}
+.ct-fw .u-form-send-success{display:none;position:absolute;left:0;bottom:0;width:100%;padding:20px;background:#62C584;color:#fff;text-align:center;z-index:1}
+.sd-foot{display:flow-root;box-sizing:border-box;width:100vw;margin:0 0 0 calc(50% - 50vw);background:#333;color:#fff;text-align:center;font-size:16px;line-height:1.6}
+.sd-foot p{width:417px;max-width:100%;margin:49px auto;font-size:14px;line-height:1.6;color:#fff}
+@media (max-width:1199px){
+.ct-in{width:940px}
+.ct-box{width:412px}
+.ct-fw{width:352px}
+}
+@media (max-width:991px){
+.ct-in{width:720px}
+.ct h3.ct-name{font-size:36px}
+.ct-box{width:302px}
+.ct-fw{width:242px}
+}
+@media (max-width:767px){
+.ct-in{width:540px}
+.ct-l,.ct-r{max-width:100%;min-width:100%;flex-basis:100%;padding-left:10px;padding-right:10px}
+.ct-box{width:auto;margin-left:0;margin-right:0;padding-left:10px;padding-right:10px}
+.ct-fw{width:500px}
+}
+@media (max-width:575px){
+.ct-in{width:340px}
+.ct h3.ct-name{font-size:24px}
+.ct-fw{width:300px}
+.sd-foot p{width:340px}
+}

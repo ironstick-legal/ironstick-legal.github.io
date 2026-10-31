@@ -1,0 +1,58 @@
+/* Erscheinungsbild der Inhaltsseiten, abgestimmt auf die Landing-Seite. Texte und Aufbau der Seiten bleiben unberührt. */
+:root{--blue:#ff6e0e;--acc:#ff6e0e;--acc-dark:#c4520a;--acc-hover:#f26000;--acc-soft:#fff1e7;--band:#f2f2f2;color-scheme:only light}
+html,body{background:#fff !important}
+
+/* Volle Breite: Menübar, Bänder und Fußzeile von Rand zu Rand, Inhalt in derselben Breite wie auf der Landing-Seite */
+.sd{--gut:max(24px,calc((100vw - 1140px)/2));box-sizing:border-box;max-width:none;width:auto;margin:0;padding:32px var(--gut) 0;color:#111;overflow-x:clip}
+.sd .site-bar{margin:-32px calc(-1*var(--gut)) 18px}
+.wrap{max-width:1140px}
+
+/* Überschriften */
+.sd h1{font-size:48px;line-height:1.2;font-weight:700;color:#111;border:0;margin:24px 0 10px}
+.sd .lead h1{font-size:48px;color:#111}
+.sd h2{font-size:32px;line-height:1.25;font-weight:700;color:#111;border:0;padding:0;margin:56px 0 14px}
+.sd h3{font-size:19px;line-height:1.35;color:#111}
+.lead h1{font-size:48px;line-height:1.2}
+.sd .tagline,.sd .lead p,.lead p{font-size:18px;color:#5f6368}
+.sd .meta{color:#5f6368}
+.sd .part{color:var(--acc-dark);margin-top:64px}
+.sd .hero{border:0}
+
+/* Links im Fließtext */
+.sd :where(p,li,td,th,figcaption,.tile,.note,.legend,.aisec) a,.foot a{color:var(--acc-dark)}
+.sd .lic a{color:var(--acc-dark)}
+
+/* Hervorhebungen */
+.sd:not(.sd-dl) .box{border-left-color:var(--acc);background:var(--band)}
+.sd:not(.sd-dl) .box.warn{border-left-color:#ea8600}
+.sd:not(.sd-dl) .box.crit{border-left-color:#c5221f}
+.sd .tile{background:#fff;border:0;border-radius:0;box-shadow:0 2px 14px rgba(0,0,0,.09);padding:16px 18px}
+.sd .tile b{color:var(--acc-dark);font-size:16px}
+.sd .ex{background:var(--band);border-radius:0}
+.sd .ex b{color:var(--acc-dark)}
+.sd .gate:not(.hard):not(.review){background:var(--acc-dark)}
+.sd th{background:var(--band)}
+
+/* Knöpfe und Karten */
+.btn,.dlf a,.copybtn{border-radius:0}
+.btn:hover,.dlf a:hover,.copybtn:hover{background:var(--acc-hover)}
+.sd a.btn{color:#fff}
+.sd .btn.off{background:#e8eaed;color:#9aa0a6}
+.sd .card,.sd.sd-dl .box,.sd .subcard,.sd .tpl{border-radius:0}
+.sd .arb{border-color:var(--acc);border-radius:0;background:#fff}
+.sd .dlbox,.sd .dlf,.sd .dlx button{border-radius:0}
+.sd .dlf.main{background:var(--acc-soft)}
+.sd .dlf .fn b{color:var(--acc-dark)}
+.sd .note{background:var(--acc-soft);border-radius:0}
+.sd .lic-is{background:var(--acc-soft);color:var(--acc-dark);border-color:var(--acc-dark)}
+.sd ul.rules li::before{color:var(--acc-dark)}
+.sd .site-bar .menu a.on{background:var(--acc);color:#fff}
+.lang-wrap:hover,.lang-wrap:focus-within{color:var(--acc-dark)}
+.site-bar .menu a:hover{color:var(--acc-dark)}
+
+
+@media (max-width:767px){
+.sd h1,.sd .lead h1,.lead h1{font-size:34px}
+.sd h2{font-size:25px;margin-top:44px}
+.sd h3{font-size:18px}
+}

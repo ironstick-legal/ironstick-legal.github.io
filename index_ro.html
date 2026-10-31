@@ -1,102 +1,6 @@
-<!DOCTYPE html><html lang="ro"><head><meta charset="utf-8">
+<!DOCTYPE html><html lang="ro" style="font-size:16px"><head><meta charset="utf-8">
 <title>IRONSTICK — Dosarul care lucrează cu dumneavoastră</title>
-<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
-         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
-  h1 { font-size: 30px; margin: 10px 0 4px; }
-  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
-  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
-       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
-  h3 { font-size: 16px; margin-top: 22px; }
-  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
-          color: #5f6368; margin-top: 44px; }
-  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
-          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-  .hero > .herotext { flex: 1 1 460px; }
-  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
-  .hero > .tiles { flex: 1 1 100%; }
-  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
-  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
-          background: #f8f9fa; }
-  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
-  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
-  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
-  th { background: #f1f3f4; }
-  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
-  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
-           margin: 14px 0; font-style: italic; }
-  ul li, ol li { margin: 5px 0; }
-  figure { margin: 18px 0; text-align: center; }
-  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
-  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
-  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
-  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
-  figure.sidepic img { border: none; border-radius: 0; }
-  .pb { page-break-before: always; }
-  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
-                 table, figure, .tile { page-break-inside: avoid; } }
-</style><style>
-  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
-    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
-    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
-  .site-bar .b{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:#111}
-  .site-bar .left{display:flex;align-items:center;gap:20px}
-  .site-bar .dl{font-size:14.5px;font-weight:700;color:#1a73e8;text-decoration:none}
-  .site-bar .dl:hover{text-decoration:underline}
-  .site-bar img{height:34px;width:auto;display:block}
-  .site-bar .langs{display:flex;gap:6px}
-  .site-bar .langs a{border:1px solid #dadce0;border-radius:20px;padding:4px 12px;
-    font-size:13px;font-weight:700;color:#5f6368;text-decoration:none}
-  .site-bar .langs a.on{background:#1a73e8;border-color:#1a73e8;color:#fff}
-  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
-  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
-  .lic th{background:#f1f3f4}
-  .lic a{color:#1a73e8;font-weight:600}
-  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
-  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
-  .site-foot a{color:#1a73e8}
-  html{scroll-behavior:smooth}
-  h2{scroll-margin-top:64px}
-  .brand-wrap{position:relative}
-  .site-bar .brand-wrap .b{cursor:pointer}
-  .brand-wrap .menu{position:absolute;top:100%;left:0;min-width:300px;max-height:72vh;
-    overflow:auto;background:#fff;border:1px solid #dadce0;border-radius:10px;
-    box-shadow:0 10px 28px rgba(0,0,0,.18);padding:6px;display:none;z-index:60}
-  .brand-wrap:hover .menu{display:block}
-  .brand-wrap .menu a{display:block;padding:7px 12px;font-size:13.5px;font-weight:600;
-    color:#3c4043;text-decoration:none;border-radius:6px;white-space:nowrap}
-  .brand-wrap .menu a:hover{background:#f1f3f4;color:#1a73e8}
-  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
-  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
-    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
-  .portrait{height:180px;width:auto;border-radius:12px;display:block}
-  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
-  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
-  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
-    border-top:1px solid #dadce0;padding-top:10px}
-  img{max-width:100%;height:auto}
-  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
-  :root{color-scheme:only light}
-  html,body{background:#fff !important}
-  .hero{border-bottom:0 !important}
-  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
-    max-width:760px}
-  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
-  figure.repl img{border:0 !important;border-radius:0}
-  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
-    text-align:center}
-  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
-    border:0;border-radius:0}
-  @media (max-width:640px){
-    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -16px 14px}
-    .site-bar .b{font-size:16px}
-    .site-bar .langs{flex-wrap:wrap;justify-content:flex-start}
-    .brand-wrap .menu{min-width:220px;max-width:92vw}
-    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
-    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
-    .lic td,.lic th{border:0;padding:5px 8px}
-  }
-/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left .brand-wrap{flex-basis:100%}}</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="only light">
 <meta name="description" content="Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.">
 <meta name="keywords" content="gestionarea cazurilor juridice, software juridic, IA juridică, drept civil, software avocat Windows, aplicație juridică Android, software juridic offline, OSINT, gestionarea termenelor, automatizare documente">
@@ -135,1200 +39,314 @@
 <meta name="twitter:image" content="https://www.ironstick.legal/og.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.ironstick.legal/#org","name":"IRONSTICK","url":"https://www.ironstick.legal/","logo":"https://www.ironstick.legal/favicon.png","sameAs":["https://github.com/ironstick-legal"]},{"@type":"WebSite","@id":"https://www.ironstick.legal/#website","url":"https://www.ironstick.legal/","name":"IRONSTICK","inLanguage":"ro","publisher":{"@id":"https://www.ironstick.legal/#org"}},{"@type":"SoftwareApplication","name":"IRONSTICK","operatingSystem":"Windows, Android","applicationCategory":"BusinessApplication","description":"Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.","url":"https://www.ironstick.legal/index_ro.html","inLanguage":"ro","publisher":{"@id":"https://www.ironstick.legal/#org"}}]}</script>
 <link rel="stylesheet" href="fonts/noto-serif.css">
-<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
-</head><body>
-<div class="site-bar"><div class="left"><div class="brand-wrap"><div class="b"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></div><div class="menu"><a href="#ch1">1. Dimineața dumneavoastră, în nouăzeci de secunde</a><a href="#ch2">2. Rezumate de dosar pe loc — întrebați, nu săpați</a><a href="#ch3">3. De la dosar la un șablon apt de depunere — în minute</a><a href="#ch4">4. Câștig de detaliu — un dosar care ține minte totul</a><a href="#ch5">5. Un sistem de documente construit pentru instanță</a><a href="#ch6">6. IA dumneavoastră de desktop, conectată direct la dosar</a><a href="#ch7">7. Firewall-ul anti-halucinație — unic, din câte știm</a><a href="#ch8">8. Problema structurală a SaaS — și răspunsul IRONSTICK</a><a href="#ch9">9. De ce IRONSTICK — și nu o platformă AI juridică în cloud</a><a href="#ch10">10. De ce acum — și de ce nu pur și simplu ChatGPT?</a><a href="#ch11">11. Totul local — prin construcție</a><a href="#ch12">12. Mai mult de un birou? Serverul de cabinet</a><a href="#ch13">13. Când moare hardware-ul — disaster recovery încorporat</a><a href="#ch14">14. Fără departament IT? Exact pentru asta este construit</a><a href="#ch15">15. Cerințe de sistem</a><a href="#ch16">16. Licențiere — modular, doar ce folosește cabinetul</a><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a><a href="pricing_ro.html">Prețuri</a><a href="#contact">Contact</a></div></div><a class="dl" href="bridge_ro.html">Bridge</a><a class="dl" href="gdpr_ro.html">GDPR</a><a class="dl" href="download_ro.html">Download</a><a class="dl" href="pricing_ro.html">Prețuri</a></div><nav class="langs"><a class="l" href="index.html">EN</a><a class="l" href="index_de.html">DE</a><a class="l on" href="index_ro.html">RO</a><a class="l" href="index_fr.html">FR</a><a class="l" href="index_it.html">IT</a><a class="l" href="index_es.html">ES</a><a class="l" href="index_ru.html">RU</a><a class="l" href="index_uk.html">UKR</a></nav></div>
-
-<div class="hero">
-<div class="herotext">
-<h1><span class="irs">IRONSTICK</span></h1>
-<p class="tagline">Sistemul de gestiune a cabinetului cu inteligență de dosar
-încorporată — pentru avocații care își vor serile înapoi.</p>
-<p><span class="irs">IRONSTICK</span> este un sistem complet pentru cabinetul de avocatură, pentru
-Windows și tabletă Android: clienți, dosare, probe, termene, e-mail,
-integrare cu instanțele, producere de documente — cu un strat de IA care
-chiar vă cunoaște dosarele. Autentic pan-european — și construit deliberat
-pentru tradiția juridică continental-europeană, de <b>civil law</b>
-(romano-germanică), lumea dreptului codificat: disponibil în unsprezece
-limbi — engleză, germană, franceză, italiană, spaniolă, română, portugheză,
-neerlandeză, turcă, ucraineană și rusă — sistemul
-recunoaște și construiește automat jurisdicțiile, își extinde dinamic baza
-de date legislativă și o menține la zi, și se adaptează nevoilor și felului
-de lucru al utilizatorului său. Offline-first — iar datele dumneavoastră nu
-părăsesc niciodată propriul calculator fără acordul dumneavoastră.</p>
-</div>
-<img class="heroimg" src="img/hero.jpg" alt="IRONSTICK">
-<div class="tiles">
-<div class="tile"><b>Orele devin minute</b>Schițele de acte, rezumatele de
-dosar și dosarele de instanță se generează din dosarul însuși — munca
-dumneavoastră se mută de la asamblare la verificare.</div>
-<div class="tile"><b>Nimic nu scapă</b>Fiecare document, e-mail, fotografie
-și cuvânt rostit poate fi căutat — inclusiv scanările și transcrierile
-convorbirilor telefonice. Termenele și dosarele amuțite ies singure la
-suprafață.</div>
-<div class="tile"><b>Totul este la o întrebare distanță</b>„Ce a venit de la
-partea adversă luna trecută?" — întrebați în limbaj natural, primiți un
-răspuns ancorat în documentele reale, cu surse pe care puteți da clic.</div>
-<div class="tile"><b>Dumneavoastră păstrați controlul</b>Date locale, propria
-cale de stocare, consimțământ înaintea oricărui apel de IA externă,
-pseudonimizare, jurnal de audit — și o <a href="gdpr_ro.html">declarație GDPR scrisă a fiecărui
-flux de date</a>.</div>
-</div>
-</div>
-
-<h3>De ce au cu adevărat nevoie cabinetele — și ce oferă <span class="irs">IRONSTICK</span></h3>
-<table>
-<tr><th>Nevoie</th><th>Ce oferă <span class="irs">IRONSTICK</span></th><th>Detalii</th></tr>
-<tr><td><b>Economie de timp, ore facturabile</b></td>
-<td>Proiectele de cereri, rezumatele de dosar și dosarele complete se nasc din dosarul însuși — verificați, în loc să căutați. Testat: 3000 de pagini de acte de procedură și anexe, ștampilate și paginate, într-un singur PDF — în mai puțin de 20&nbsp;de minute. Manual, este un proiect de o jumătate de zi până la o zi întreagă de lucru.</td>
-<td><a href="#ch3">Capitolul 3</a>, <a href="#ch5">5</a></td></tr>
-<tr><td><b>Niciun termen ratat</b></td>
-<td>Clopoțelul din bara de meniu devine portocaliu când ceva devine scadent și roșu când este critic — permanent vizibil. Dosarele fără activitate de 14 zile sunt listate, ca nimic să nu se stingă pe tăcute.</td>
-<td><a href="#ch1">Capitolul 1</a></td></tr>
-<tr><td><b>Secret profesional și GDPR</b></td>
-<td>Baza de date se află criptată pe propriul dumneavoastră mediu de stocare; furnizorul software nu vede niciodată datele clienților. Consimțământ înaintea fiecărui apel extern către IA, pseudonimizare, jurnal de audit și declarația GDPR privind fluxurile de date, cu o clauză model pentru nota de informare a clienților. Prin Bridge-urile IA de desktop, IA contului dumneavoastră lucrează live pe dosar.</td>
-<td><a href="#ch9">Capitolul 9</a>, <a href="#ch11">11</a></td></tr>
-<tr><td><b>Încredere în furnizor</b></td>
-<td>Cabinetul nu depinde de niciun centru de date străin: dosarul se află pe propriul dumneavoastră hardware, iar nici măcar o cădere totală a serverului sau a internetului nu oprește cabinetul. Licența se verifică offline, pe calculatorul dumneavoastră, iar tot ce înregistrați puteți exporta oricând.</td>
-<td><a href="#ch8">Capitolul 8</a>, <a href="#ch13">13</a></td></tr>
-<tr><td><b>Costuri previzibile</b></td>
-<td>Licență modulară: cumpărați doar componentele pe care le folosiți și le completați ulterior prin cheia de licență. IA rulează pe propriile dumneavoastră conturi (de regulă 20–40&nbsp;€ pe lună per cont, acolo unde e nevoie de abonament) în loc de taxe lunare de trei cifre per utilizator. Prețuri la cerere.</td>
-<td><a href="#ch9">Capitolul 9</a></td></tr>
-<tr><td><b>Integrare în fluxurile existente</b></td>
-<td>Scannerul sau copiatorul depune într-un folder, iar <span class="irs">IRONSTICK</span> preia de acolo. Căsuța de e-mail este preluată în fundal și repartizată pe dosare. Termenele apar în calendarul oricărui telefon; tableta Android lucrează pe același dosar.</td>
-<td><a href="#ch1">Capitolul 1</a>, <a href="#ch15">15</a></td></tr>
-<tr><td><b>Efort redus de introducere</b></td>
-<td>Fără migrare „big bang": dosarele noi rulează în <span class="irs">IRONSTICK</span> din prima zi, iar pe cele vechi le mutați doar când merită. Cu OCR-ul integrat, un document este înregistrat în medie în cincisprezece secunde. Instruire la fața locului, o zi pe modul.</td>
-<td>—</td></tr>
-<tr><td><b>Cunoașterea adversarului, a judecătorului și a contextului</b></td>
-<td>OSINT la o apăsare de buton pentru orice persoană și firmă, profiluri de judecători cu evaluarea hotărârilor lor și o analiză a relațiilor peste toate dosarele — cine este legat de cine și de ce. Actele de procedură pot fi acordate pe judecătorul care le citește. Fiecare hotărâre judecătorească este evaluată o singură dată după o grilă fixă, iar evaluările întregului cabinet se regăsesc în fiecare act adresat acelei instanțe.</td>
-<td><a href="#ch4">Capitolul 4</a></td></tr>
-</table>
-
-<h3>Pentru cine este făcut <span class="irs">IRONSTICK</span></h3>
-<p><span class="irs">IRONSTICK</span> merită oriunde se adună multe documente, multe părți și termene stricte — și acolo unde datele clienților nu au voie să părăsească biroul. Câștigă cel mai mult cabinetele care astăzi pierd ore căutând, tastând și compilând.</p>
-<ul>
-<li><b>Avocați individuali și cabinete mici.</b> Fără departament IT, fără buget pentru tehnicieni: <span class="irs">IRONSTICK</span> rulează pe un calculator Windows obișnuit, se întreține singur și preia munca pentru care altfel ar fi nevoie de încă o persoană.</li>
-<li><b>Avocați litigatori cu dosare voluminoase.</b> Cine gestionează mii de pagini de probe interoghează dosarul în limbaj natural și primește răspunsuri argumentate, cu surse. Dosarele pentru instanță se construiesc în cinci pași ghidați, cu numerotare Bates și opis.</li>
-<li><b>Avocați de drept comercial, insolvență și drept penal.</b> Aceste proceduri implică multe persoane, firme și legături încrucișate. Rețeaua de persoane și firme din toate dosarele face vizibile conexiuni imposibil de urmărit manual — până la profiluri OSINT ale fiecărei persoane și profiluri de judecători cu evaluarea hotărârilor lor.</li>
-</ul>
-
-<div class="showband"><img src="img/49_encryption.png" alt="Encrypted end to end — AES-256"></div>
-<p class="part">Partea I — Practica de zi cu zi</p>
-
-<h2 id="ch1">1. Dimineața dumneavoastră, în nouăzeci de secunde</h2>
-<p>Deschideți <span class="irs">IRONSTICK</span> și ziua este deja ordonată. Ecranul de pornire arată
-ce este scadent și ce a amuțit; <b>Agenda</b> contopește tot ce s-a
-întâmplat în toate mandatele — actele depuse ieri, e-mailurile de peste
-noapte, termenele noi de judecată, fotografiile, transcrierile — într-un
-singur flux cronologic. Vedeți întregul cabinet fără să deschideți un
-singur dosar. Mai mult: prin <b>rezumatul zilei</b> separat primiți, în
-limbaj vorbit, o scurtă privire de ansamblu asupra zilei — în timp ce vă
-luați liniștit o cafea.</p>
-<figure class="repl"><img src="img/51_three_windows.png" alt="One system, every view"><figcaption>Meniul principal: termenele, dosarele amuțite și toate secțiunile — dintr-o singură privire, înainte de a deschide vreun dosar.</figcaption></figure>
-<ul>
-<li><b>Termene cu semafor.</b> Clopoțelul din bara de meniu devine portocaliu
-când ceva ajunge la scadență, roșu când e critic — permanent vizibil, un
-clic până la lista completă.</li>
-<li><b>E-mail deja triat.</b> Monitorul vă aduce inboxul în fundal și alocă
-mesajele pe dosare local și complet fără IA; IA mai evaluează doar
-urgența. Corespondența nouă se anunță în bara de
-meniu.</li>
-<li><b>Dosare amuțite și dosare încinse.</b> Dosarele fără activitate de 14
-zile sunt listate, ca nimic să nu moară în tăcere; dosarele care se încing
-brusc — termen nou, ședință iminentă, corespondență oficială — poartă un
-marcaj 🔥 până se liniștesc.</li>
-</ul>
-
-<h2 id="ch2">2. Rezumate de dosar pe loc — întrebați, nu săpați</h2>
-<p>Asistentul de dosar răspunde la întrebări despre dosarele dumneavoastră
-cum ar face-o un colaborator bun — doar că el a citit <i>totul</i> și
-răspunde în secunde:</p>
-<ul>
-<li>„Rezumă stadiul în 5678/000/2026."</li>
-<li>„Ce scrisori au venit <i>de la</i> partea adversă — și am răspuns la
-ultima?"</li>
-<li>„Cine ce a spus despre cercetarea la fața locului — există contradicții?"</li>
-<li>„Am depus deja această probă la instanță?"</li>
-</ul>
-<p>Fiecare răspuns este <b>ancorat în documente reale</b> — rezultate
-numerotate pe care le deschideți cu un cuvânt („deschide 1", „citește-mi 1").
-Întrebările de rutină primesc răspuns de la un <b>strat local, pe propria
-mașină</b>, fără ca vreo dată să părăsească dispozitivul; analizele mai
-grele escaladează către IA externă numai cu consimțământul dumneavoastră.
-Asistentul vă vorbește limba — pe toate cele unsprezece — și poate fi condus în
-întregime <b>prin voce</b>, cu mâinile libere, cu recunoaștere vocală
-offline și citire cu voce tare.</p>
-<div class="box">Asistentul nu doar citește: verifică. Coduri numerice
-personale, IBAN-uri, coduri de TVA (în direct, contra sistemului european
-VIES), EORI, LEI și înregistrări din registrul comerțului sunt verificate
-la cerere — înainte ca un număr greșit să ajungă într-un act.</div>
-
-<div class="showband"><img src="img/53_case_tabs_collage.png" alt="Every angle on one case"></div>
-<h2 id="ch3">3. De la dosar la un șablon apt de depunere — în minute</h2>
-<p>Acesta este vârful de lance. Actele de procedură și scrisorile le scrieți
-<b>în dialog cu IA</b> — în chatul propriu al <span class="irs">IRONSTICK</span> (pe cheia
-dumneavoastră API) sau prin Bridge-ul către IA de desktop (Claude, ChatGPT,
-Qwen sau Kimi Desktop). <b>Redactează text › Cu ajutorul IA</b> din dosar deschide
-chatul cu dosarul și documentul deja numite; de acolo IA lucrează ca un
-asociat pe dosarul viu: datele de bază ale clientului, cronica dosarului cu
-textele integrale ale documentelor, termenele, probele conexe, borderoul de
-anexe, instrucțiunile dumneavoastră de dosar — și chiar istoricul recent al
-dosarelor <i>învecinate</i> ale aceluiași client, pentru că răspunsul
-adversarului stă deseori în dosarul paralel. Întreabă înapoi când ceva rămâne
-deschis, în loc să vă preseze dosarul în măști fixe.</p>
-<ul>
-<li><b>Cercetare în loc de afirmație.</b> În timpul redactării, IA caută
-activ în dosar. Nu are voie să afirme „nu s-a primit niciun răspuns" decât
-dacă o căutare a dovedit-o.</li>
-<li><b>Verificare înainte de predare.</b> Un verificator determinist confruntă
-schița finită cu dosarul viu: fiecare referință la probe, fiecare parte,
-instituție și număr de dosar, fiecare citare de normă față de biblioteca de
-legi verificată. Contradicțiile blochează predarea; ștampilele interne de
-dosar nu se strecoară niciodată în document.</li>
-<li><b>Red/Blue Team, încorporat.</b> La cerere, un al doilea model citește
-schița înainte de predare ca avocat al părții adverse: obiecțiile
-substanțiale o trimit înapoi la refacere, cel mult două runde — iar fiecare
-punct este analizat pe fond, niciodată preluat orbește.</li>
-<li><b>Un lanț de verificare care nu poate fi scurtat.</b> Înainte de a începe verificarea lungă, IA vă arată un rezumat al schiței: mai puteți face corecturi. Apoi o recitește integral, o compară cu propriile dumneavoastră înscrisuri anterioare și, în cazul unui răspuns, dovedește pasaj cu pasaj că fiecărei afirmații a părții adverse i se răspunde. Ulterior atacă actul din postura părții adverse, îl evaluează și îl corectează; sunt verificate și trimiterile interne și indicațiile de timp. <span class="irs">IRONSTICK</span> validează fiecare etapă, iar orice modificare ulterioară repornește lanțul de la început.</li>
-<li><b>Un șablon apt de depunere — niciodată un act finit de instanță.</b>
-Rezultatul vine prin dialogul de export al <span class="irs">IRONSTICK</span> și aterizează cu un clic
-în procesorul de text încorporat: paginare A4, antetul dumneavoastră (prima
-pagină sau fiecare pagină), controlul salturilor de pagină, plasarea
-semnăturii, borderoul de anexe preluat automat — tipărire, PDF, DOCX sau
-Markdown. Dumneavoastră verificați, corectați și semnați; răspunderea pentru
-ceea ce se depune rămâne a dumneavoastră.</li>
-</ul>
-<p class="quote">Ore de studiu al dosarului și de redactare devin minute de
-verificare — citiți, ascuțiți, semnați.</p>
-
-<h2 id="ch4">4. Câștig de detaliu — un dosar care ține minte totul</h2>
-<p>Inima <span class="irs">IRONSTICK</span> este inteligența probelor. Tot ce înregistrați — PDF-uri
-scanate, e-mailuri cu atașamente, istorice WhatsApp, fotografii,
-înregistrări audio — devine text integral căutabil. OCR-ul este încorporat
-(engleză, germană, franceză, italiană, spaniolă, română, portugheză,
-neerlandeză, turcă, ucraineană și rusă — nimic de
-instalat), iar căutarea este intenționat îngăduitoare: diacriticele,
-erorile tipice de scanare și numele parțiale își găsesc totuși ținta.</p>
-<ul>
-<li><b>Anexe și depuneri, dovedite din hârtia însăși.</b> La înregistrarea
-unui document, <span class="irs">IRONSTICK</span> citește care dintre probele dumneavoastră sunt
-conținute fizic în el și ce numere de înregistrare poartă. Cronica arată
-apoi, la fiecare probă: <i>depusă la instanță la … în dosarul …</i> — iar la
-fiecare scrisoare expediată, borderoul complet de anexe. „Am depus deja
-asta?" primește răspuns dintr-un clic.</li>
-<li><b>Lanțuri de numere de lucrare.</b> Fiecare număr de înregistrare leagă
-toate documentele aceleiași proceduri într-un lanț cronologic — istoria
-documentată a cine a scris ce, când, și dacă s-a răspuns vreodată.</li>
-<li><b>Media cu substanță.</b> Fotografiile își păstrează locul capturii (un
-clic până la vederea din satelit), înregistrările telefonice devin
-transcrieri cu vorbitori etichetați — totul căutabil, totul probă
-citabilă.</li>
-<li><b>Conștiință peste dosare.</b> Verificare de conflict de interese la
-preluare, avertismente când același adversar apare în mai multe mandate, un
-graf de relații al tuturor părților și un radar de relevanță care găsește
-material conex pe care nu v-ați gândit să îl căutați.</li>
-</ul>
-<p><b>Înregistrările devin text — automat, pe propriul calculator.</b>
-Convorbiri telefonice, înregistrări din ședințe, mesaje vocale, clipuri video: <span class="irs">IRONSTICK</span>
-acceptă orice format audio și video uzual (Windows). Decupați partea relevantă, alegeți
-limba, numărul de vorbitori și nivelul de calitate (rapid, mediu, ridicat) și vedeți
-timpul de calcul estimat înainte de a porni. Recunoașterea vocală rulează complet offline
-pe calculatorul dumneavoastră. Apoi IA atribuie frazele vorbitorilor — cu acordul
-dumneavoastră și pseudonimizat; nu are voie să schimbe niciun cuvânt, fiecare rând este
-verificat față de textul recunoscut. Ceea ce recunoașterea nu a înțeles cu certitudine este
-marcat, nu ghicit. Rezultatul se deschide în editor și, după verificarea dumneavoastră,
-devine o probă ce poate fi citată.</p>
-<p><b>Rețeaua se construiește singură.</b> O IA desktop conectată prin Bridge citește dosarul, cercetează părțile pe internet și depune fiecare persoană,
-firmă, instituție și fiecare legătură găsită ca propunere de aprobat cu un
-singur clic; un auto-linker de fundal leagă fiecare parte de fiecare dosar ale
-cărui documente o numesc; iar <b>Universul</b> transformă întregul fond de date
-într-o rețea 3D prin care puteți zbura, cu clici detectate automat — grupurile
-dense, strâns legate pulsează în roșu. În câteva ore aveți o rețea extrem de
-condensată de persoane și firme peste întregul fond de date — imposibil de
-obținut prin metode manuale — iar vizualizarea scoate clica direct la iveală.</p>
-<p><b>Ce înseamnă asta în practică — două zile, măsurate.</b> În două zile de lucru din septembrie 2026, o singură IA desktop conectată prin Bridge a citit dosarele unei cauze cu multe părți, a cercetat părțile pe internet și a depus ce a găsit; avocatul nu a făcut altceva decât să citească și să dea clic. Rezultatul, numărat apoi în baza de date: <b>293 de persoane și firme, 11 instituții, 811 legături și 733 de asocieri parte–dosar</b> — 2.487 de decizii de verificare în total, 97&nbsp;% acceptate, 3&nbsp;% respinse la poartă. Introdus manual — surse citite, fiecare persoană identificată, fiecare legătură verificată, fiecare înregistrare tastată — înseamnă circa 310 ore de lucru: opt săptămâni cu normă întreagă pentru o persoană, sau o jumătate de an pe lângă mandatele curente. Și orele nici măcar nu sunt esențialul. Nimeni nu ține în minte 300 de nume, 800 de legături și o duzină de liste de prieteni; clicile care se aprind în roșu carmin în Univers sunt invizibile într-un dulap cu dosare. Cele 3&nbsp;% sunt motivul pentru care există poarta de verificare: fiecare dintre ele ar fi fost o înregistrare greșită, dacă ar fi fost scrisă direct.</p>
-<p><b>Iar același motor desenează rețeaua de dosare a unui client:</b> dosarele ca hexagoane, grupate după propriile dumneavoastră spețe, legate acolo unde împart părți, se citează reciproc ca anexe sau menționează numărul de dosar al celuilalt — cu patru instrumente IA care citesc exact această imagine.</p>
-<div class="showband"><img src="img/60_mcp_network.png" alt="Serverul MCP, aplicația client și rețeaua de dosare a unui client"></div>
-
-<h3>OSINT la o apăsare de buton — cercetarea încorporată a persoanelor și firmelor</h3>
-<p>OSINT (Open Source Intelligence) — evaluarea sistematică a surselor liber
-accesibile — este practică standard în organele de anchetă și în cabinetele de
-drept comercial, dar este muncă manuală: fiecare cercetează altfel și fiecare
-uită altceva. <span class="irs">IRONSTICK</span> o transformă într-o procedură fixă. IA predă numele,
-localitatea, județul, țara și dacă este persoană fizică sau juridică — restul
-îl face aplicația singură, de fiecare dată la fel, fără goluri:</p>
-<ul>
-<li><b>Mai întâi propriile dosare.</b> Căutare deterministă în textul integral
-după nume, în întregul fond, la toți clienții: pentru fiecare dosar cele mai
-noi zece apariții, cu paragraful și poziția caracterelor — și mențiunea câte
-mai există în plus.</li>
-<li><b>Materialul de cercetare specific dosarului</b>, precum extrase din registrul comerțului, extrase de carte funciară etc., îl depuneți pur și simplu în dosar și îi indicați LLM-ului să îl ia și pe acesta în considerare.</li>
-<li><b>Apoi internetul, după o grilă fixă.</b> CV, Facebook, LinkedIn,
-Instagram, localitate, județ, scandaluri, știri, declarații de avere și de
-interese, impozite, participații la firme — la firme registrul comerțului și
-insolvența. Termenii de căutare sunt automat în limba țării persoanei vizate:
-pentru România „declarație de avere", nu „declaration of assets". Totul se petrece în fundal, prin aplicația client, complet automatizat: LLM-ul primește un profil OSINT complet pentru prelucrare. Este mult mai precis și mult mai ieftin.</li>
-<li><b>Trei motoare de căutare simultan.</b> Google, DuckDuckGo și Qwant
-parcurg grila în paralel; rezultatele sosesc ca o singură listă curățată, fără
-dubluri. Dacă un motor blochează, celelalte livrează mai departe.</li>
-<li><b>Un profil pregătit — nu un verdict.</b> IA primește ambele liste
-împreună cu termenii de căutare deja parcurși, deschide fiecare apariție și
-fiecare link în parte, elimină omonimii și depune în monitorul de date, ca
-propunere, doar ceea ce este dovedit. Se preia ceea ce aprobați
-dumneavoastră.</li>
-</ul>
-<p>Rezultatul în unul-două minute: un profil de cercetare pentru care un
-angajat ar avea nevoie de o jumătate de zi — și care la a trei suta persoană
-este la fel de complet ca la prima. Se evaluează exclusiv surse accesibile
-publicului.</p>
-
-<h3>Nimeni altcineva nu are așa ceva</h3>
-<p>Nu cunoaștem niciun alt produs care să țină o <b>bază de date a relațiilor</b> completă între persoane, firme și instituții la nivelul persoanei individuale, să o descompună până la dosarul individual și la proba individuală, să o deseneze curat pentru avocat și să dea aceeași imagine IA-ului ca text — inclusiv o <b>analiză a persoanei</b> cu 24 de câmpuri, care poate fi modificată numai cu dovadă.</p>
-<p>Softul clasic de cabinet ține părțile ca o agendă cu rol în dosar: niciun graf între ele, nicio analiză a persoanei, nicio clică, iar asistenții lor IA citesc documente, nu rețeaua. Asistenții juridici IA de pe piață stau deasupra dosarului, în cloudul furnizorului, cu un model pe care nu îl puteți alege. Marile platforme de investigație au graful și profilurile, dar ca instrumente pentru autorități și corporații cu proiecte de consultanță, fără dosar în sensul avocatului și fără o IA interschimbabilă care să le citească. Un cabinet care duce procese penale și civile cu zeci de părți și dosare împletite cade între aceste piețe. Exact acolo stă <span class="irs">IRONSTICK</span>.</p>
-<h3>Judecători și actori — cine cu cine, și de ce</h3>
-<p>Această cunoaștere nu se limitează la un singur dosar. Ea cuprinde fiecare parte, fiecare relație și fiecare rol pe care o persoană l-a jucat vreodată în oricare dintre dosarele dumneavoastră, peste dosare și peste clienți — cine stă în ce consiliu, cine semnează pentru cine, cine a apărut ca martor, adversar sau funcționar în ce procedură. Crește de la sine, în fiecare zi, în timp ce avocatul și IA lucrează dosarele, și rezultă ca produs secundar al muncii zilnice pe dosare.</p>
-<ul>
-<li><b>Analiza relațiilor — cine cu cine, și de ce.</b> Fiecare legătură între persoane, firme și instituții stă alături de proba care o susține; rețelele dense sunt recunoscute automat drept clici. Vedeți nu doar că două părți sunt legate, ci și prin ce.</li>
-<li><b>Profiluri de judecători.</b> Fiecare hotărâre din dosarele dumneavoastră este atribuită judecătorului sau procurorului care a pronunțat-o — din antet și din blocul de semnătură, nu din presupuneri. La aceasta se adaugă cercetarea OSINT asupra persoanei: parcurs profesional, declarații publice, legături cu părți și cabinete de avocatură.</li>
-<li><b>Evaluarea hotărârilor pe judecător — făcută o dată, disponibilă permanent.</b> Cum decide un anumit judecător, la ce reacționează, ce preia din actele de procedură și ce trece cu vederea? Fiecare hotărâre judecătorească este recunoscută la înregistrare — lângă intrare/ieșire există o căsuță „hotărâre judecătorească”, pe care o puteți schimba oricând — și ajunge pe o listă de evaluare; și arhiva existentă este verificată automat. IA parcurge lista hotărâre cu hotărâre: citește hotărârea și actele de procedură ale ambelor părți care au precedat-o, <span class="irs">IRONSTICK</span> măsoară ce parte din motivare provine din actul cui, iar IA răspunde la o grilă fixă — argumente, drept, probe, temeiul deciziei, stil, rezultat și o scurtă caracterizare a completului. Nimic nu se salvează fără comanda dumneavoastră, cu legătură la instanță, judecători și grefieri; dacă una dintre aceste persoane lipsește din datele de bază, este mai întâi cercetată prin OSINT și creată. O hotărâre nu se schimbă niciodată — este evaluată o dată și rămâne evaluată.</li>
-<li><b>Acte de procedură acordate pe judecător.</b> Un act poate fi acordat fin pe judecătorul sau completul care îl va citi — componența, hotărârile și pozițiile anterioare, legăturile cu părțile și, acolo unde există, motivele de recuzare — pentru că știți ce se întâmplă în fundal și cine cu cine. Înaintea fiecărui act adresat unei instanțe, IA citește evaluările adunate ale acelei instanțe și ale fiecărui judecător din complet. Dacă mai există hotărâri neevaluate, <span class="irs">IRONSTICK</span> întreabă înainte de livrare dacă doriți să le evaluați acum — ca rezultatul să mai fie inclus — sau mai târziu; iar la prima pornire din zi IA vă reamintește din proprie inițiativă.</li>
-<li><b>Colaborarea devine vizibilă.</b> Oricare două acte de procedură, chiar din proceduri și mandate diferite, pot fi puse față în față cuvânt cu cuvânt: blocurile de text identice arată ce avocați lucrează împreună.</li>
-</ul>
-<p>În instanță, aceasta este diferența dintre a susține un dosar și a cunoaște terenul: fiecare act poate fi aliniat la rețeaua de legături care există cu adevărat în jurul dosarului — cine este legat de cine, cine îi datorează cui, cine a stat înainte de care parte — pentru că avocatul știe mereu unde se află fiecare lucru. În această formă concentrată, cunoașterea aceasta nu există nicăieri altundeva; manual, pur și simplu nu poate fi constituită.</p>
-<figure class="repl"><img src="img/57_persons_maps.png" alt="The whole network, every way"><figcaption>Universul după două zile de captare automată: fiecare parte din fondul de date ca nod, dimensionat după legături, grupat în clici — cele dense și strâns legate pulsează în roșu carmin. Niciun nume nu a fost tastat manual.</figcaption></figure>
-
-<p><b>O foaie în loc de o mie de linii.</b> Rețeaua de relații a unei persoane sau a unui
-caz și cronologia documentelor sale sunt gata sub formă de grafic la apăsarea unui buton:
-rețeaua arată cele mai urgente cincizeci de noduri, ponderate după termene, activitate
-recentă și conexiuni; cronologia ordonează în timp actele primite și trimise, cu anexele
-chiar lângă fiecare act. Fiecare număr este clicabil și duce la probă, la persoană sau la
-instituție. Un clic pe <b>Înregistrează</b> duce graficul la înregistrarea documentelor, unde îl atribuiți și primește ștampila la salvare; din
-rețeaua cazului puteți crea în plus un <b>Wallpaper</b>: o foaie albă A4 în format peisaj
-pentru perete, care doar se descarcă și nu ajunge niciodată la dosar.</p>
-<p>Și IA de birou conectată prin Bridge desenează în același stil: procese, căi
-procedurale, cronologii, rețele. Discută graficul cu dumneavoastră și afișează
-previzualizarea în <span class="irs">IRONSTICK</span>; desenarea și verificarea erorilor înainte de afișare
-sunt deterministe, fără IA. Pe tabletă, graficele sunt doar pentru vizualizare.</p>
-
-<h2 id="ch5">5. Un sistem de documente construit pentru instanță</h2>
-<p><span class="irs">IRONSTICK</span> este și un DMS complet — unul care gândește în probe, ștampile
-și numere de pagină, nu în foldere:</p>
-<ul>
-<li><b>Înregistrare cu precompletare de IA.</b> Trageți un PDF scanat în
-inbox: OCR-ul rulează, IA propune titlul, tipul, părțile, alocarea pe dosar,
-data și termenul, iar dosarul aferent îl recunoaște în plus <span class="irs">IRONSTICK</span>
-singur — dumneavoastră confirmați în loc să tastați. Fiecare
-fișier înregistrat primește o <b>amprentă criptografică de integritate</b>,
-astfel încât o manipulare ulterioară poate fi dovedită.</li>
-<li><b>Ștampilare &amp; paginare.</b> Contopire, numerotare Bates, ștampile
-de dosar, curățarea metadatelor — fiecare PDF produs poartă un strat de text
-căutabil, deci documentul finit poate fi căutat și citat fără să mai rulați
-vreodată OCR.</li>
-<li><b>Asistentul de dosar de instanță.</b> Un drum ghidat, în cinci pași, de
-la cronică la un dosar apt de depunere: alegeți înregistrările, coperta și
-jurisdicția, previzualizați cu miniaturi de pagină, apoi un PDF finit cu
-cuprins și numere Bates — plus un <b>ZIP de probe EDRM</b> pentru predarea
-în eDiscovery.</li>
-<li><b>Anonimizare care ține.</b> Comutatoare pe categorii (clienți, nume,
-locuri, sume, coduri numerice, IBAN-uri …), un căutător local care marchează
-candidații, marcare manuală pe pagină — iar la export înnegririle sunt
-<b>arse ireversibil</b>, cu un strat curat de text căutabil deasupra.</li>
-<li><b>Expediere prin e-mail pentru fișiere prea mari.</b> Un PDF voluminos
-este împărțit fără pierderi în părți de mărimea cutiei poștale a instanței,
-fiecare cu un e-mail de predare gata redactat în limba documentului —
-copiați, atașați, trimiteți.</li>
-</ul>
-
-<h3>Dosare de mare amploare — 3000 de pagini, ștampilate și paginate, în mai puțin de 20 de minute</h3>
-<p>În practica procedurii civile și a litigiilor de mare amploare, acest
-argument lovește exact în cele mai importante puncte dureroase ale avocaților
-și ale personalului cabinetului — timpul, riscul de erori și munca manuală:</p>
-<ul>
-<li><b>Economie masivă de timp.</b> Ceea ce într-un cabinet este în mod normal
-un proiect de o jumătate de zi până la o zi întreagă pentru un asistent juridic
-sau pentru avocatul însuși — asamblarea manuală, unirea PDF-urilor, verificarea
-paginilor și ștampilarea de mână (numerotare Bates) — rulează aici complet
-automat în circa 20 de minute.</li>
-<li><b>Fără erori &amp; consecvență.</b> La peste 2.000 de pagini, în lucrul
-manual se strecoară repede greșeli: ștampile deplasate, numere de pagină
-greșite la anexe, trimiteri lipsă sau nerespectarea cerințelor de format. Un
-flux automatizat garantează un aspect absolut curat și unitar.</li>
-<li><b>Fără blocări ale sistemului.</b> Programele de birou obișnuite și
-vizualizatoarele PDF normale cedează la un pachet de 700&nbsp;MB cu 3000 de
-pagini atunci când încercați să îl prelucrați fluent sau să îl repaginați.</li>
-<li><b>Avantaj competitiv prin viteză.</b> Tocmai sub presiunea enormă a
-termenelor — de exemplu cu puțin înainte de expirarea termenului de introducere
-a acțiunii sau de depunere a întâmpinării — o asemenea soluție pune pe masă, în
-timp record, acte de procedură masive împreună cu toate probele, ca șablon gata
-de depunere.</li>
-</ul>
-<div class="showband"><img src="img/54_dossier_flow.png" alt="Un dosar se construiește — de la cap la coadă"></div>
-
-<div class="box"><b>Testat.</b> 3000 de pagini de acte de procedură, anexe mixte
-text și imagine, ștampilate și paginate, rezultat un singur PDF de
-700&nbsp;MB — în mai puțin de 20&nbsp;de minute.</div>
-
-<p class="part pb">Partea a II-a — IA la adâncime maximă</p>
-
-<h2 id="ch6">6. IA dumneavoastră de desktop, conectată direct la dosar</h2>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_assistant.jpg" alt="Micul prieten al avocatului: asistentul IA care îl ajută să își facă munca mult mai eficient."><figcaption>Micul prieten al avocatului: asistentul IA care îl ajută să își facă munca mult mai eficient.</figcaption></figure>
-<p>Pentru munca analitică de adâncime, <span class="irs">IRONSTICK</span> oferă ceva ce niciun folder
-de export nu poate: un <b>Bridge viu</b> între propria IA de desktop —
-<b>Claude Desktop, ChatGPT Desktop, Qwen Desktop și/sau Kimi Desktop</b>, fiecare un modul
-licențiat separat — și aplicația în funcțiune. IA citește starea curentă a
-dosarului prin <b>180 de instrumente construite special</b> — cronici, texte
-integrale, e-mailuri, termene, date de bază — și lucrează la adâncime
-maximă:</p>
-<ul>
-<li>„Citește tot dosarul și spune-mi unde este cea mai slabă poziția
-noastră."</li>
-<li>„Redactează apelul în formatul nostru de acte și predă-l procesorului de
-text." — schița apare în <span class="irs">IRONSTICK</span>, gata pentru tipărirea cu antet.</li>
-<li>„Compară cele trei expertize și construiește-mi un tabel al
-contradicțiilor."</li>
-</ul>
-<p><b>Construit pentru dosare mari — de ce un Bridge viu bate orice export de
-fișiere.</b> Modulele Bridge abonabile există cu un singur scop: <b>lucrul pe
-bazine mari de date care cer analiză la detaliu maxim</b>. Sunt strict
-controlabile de dumneavoastră — comutatoare, porți de consimțământ,
-licențiere per IA — și totuși fiecare dialog și fiecare evaluare stă pe
-<b>întregul bazin de date <span class="irs">IRONSTICK</span></b> ca fundament. Această densitate de
-detaliu este pur și simplu de neatins printr-o alimentare convențională cu
-fișiere (exportul de fișiere Markdown într-un chat de IA): chiar și cele mai
-mari ferestre de context ale IA cuprind deodată doar câțiva megabytes de
-text —</p>
-<table>
-<tr><th>Model / platformă</th><th>Fereastra de context (tokeni)</th>
-<th>≈ capacitate de text</th></tr>
-<tr><td>Claude (Opus / Sonnet)</td><td>1.000.000</td><td>~2.500 KB (2,5 MB)</td></tr>
-<tr><td>ChatGPT (aplicație, Plus)</td><td>256.000</td><td>~1.000 KB</td></tr>
-<tr><td>ChatGPT (aplicație, Pro)</td><td>400.000</td><td>~1.600 KB</td></tr>
-<tr><td>ChatGPT (API maxim)</td><td>1.050.000</td><td>~4.000 KB (4 MB)</td></tr>
-</table>
-<p>— în timp ce o arhivă de dosare crescută în ani este de multe ori mai
-mare. Bridge-ul ocolește acest plafon: în loc să îndese fișiere în fereastră,
-IA primește <b>peste 180 de instrumente dedicate cu instrucțiuni stricte de
-folosire</b> și aduce exact pasajele, documentele, e-mailurile și termenele
-de care are nevoie, exact când are nevoie de ele — proaspete, din sistemul
-viu, peste întregul bazin. Fereastra de context poartă atunci analiza, nu
-balastul.</p>
-<p><b>Iar când sarcina chiar este „citește tot":</b> cu un singur apel, IA
-pregătește <b>întregul dosar</b> — netrunchiat, normalizat prin OCR —
-într-o zonă locală de lucru și îl citește apoi bucată cu bucată, fără să
-împingă vreodată tot dosarul prin fereastră. Un dosar cu 400 de documente
-devine complet lizibil; plafoanele de trunchiere protejează chatul,
-niciodată copia pregătită. Aceeași zonă îi dă IA un <b>start de sesiune
-dintr-un singur apel</b> — data, limba, ecranul dumneavoastră curent,
-briefingul zilnic, termenele și sarcinile deschise într-un singur protocol —
-și o <b>gardă de prospețime</b> care anulează orice extras pregătit în clipa
-în care dosarul de bază se schimbă: IA nu poate argumenta niciodată pe
-datele de ieri.</p>
-<p><b>Browserul <span class="irs">IRONSTICK</span> — vedeți ce citește IA (Windows).</b> <span class="irs">IRONSTICK</span> deschide paginile web și documentele din dosarul dumneavoastră într-o fereastră de browser proprie, cu chenar roșu, astfel încât să o puteți deosebi oricând de browserul dumneavoastră personal. La instrucțiunea dumneavoastră, IA citește ceea ce este deschis acolo — nu prin controlul de la distanță al ferestrei, ci ca text curățat; la un document din dosar știe exact despre care este vorba.</p>
-
-<h3>De ce un LLM „gol" eșuează singur pe dosare mari — și de ce <span class="irs">IRONSTICK</span>
-întoarce jocul</h3>
-<p>Un model de limbaj lăsat singur este pur și simplu depășit de un dosar
-crescut în ani — iar o fereastră de context mai mare (1 sau 2 milioane de
-tokeni) nu rezolvă asta. Aceasta este neînțelegerea fundamentală a valului
-actual de IA:</p>
-<ul>
-<li><b>Fenomenul „lost in the middle".</b> Dați unui model sute de pagini
-brute deodată și rata lui de precizie pe detalii se prăbușește: faptele din
-mijlocul dosarului sunt „uitate" — sau halucinate.</li>
-<li><b>Efectul de sufocare a contextului.</b> Un singur retur de instrument
-care varsă 50.000 de caractere de text integral în chat îneacă conversația:
-modelul își pierde orientarea, contextul dă pe dinafară, totul devine lent
-și scump.</li>
-<li><b>Fără memorie, fără structură.</b> Un LLM gol nu știe nimic despre
-termene, numere de dosar, părți, ștampile Bates sau cronologia procedurilor.
-El vede un singur șir lung de caractere.</li>
-</ul>
-<p><span class="irs">IRONSTICK</span> nu face din LLM un catâr care cară munți de hârtie — face din
-el un chirurg de precizie:</p>
-<ol>
-<li><b>Mai întâi structura.</b> Înainte ca IA să vadă un singur cuvânt,
-<span class="irs">IRONSTICK</span> a structurat deja dosarul: documente clasificate, date indexate,
-OCR reparat, anexe legate.</li>
-<li><b>Decuplare prin instrumente &amp; scratch.</b> Prin peste 180 de
-instrumente specializate, IA aduce exact ce cere întrebarea — iar când un
-retur este totuși uriaș, o limită dură deviază automat tot ce depășește
-limita conectorului în seiful local scratch — criptat AES-256 pe disc,
-lizibil numai prin poarta <span class="irs">IRONSTICK</span>. Chatul rămâne perfect curat.</li>
-<li><b>Persistență &amp; recursiune.</b> Prin memoria de IA partajată și
-protocoalele zilnice automate, niciun rezultat de analiză nu se mai pierde:
-IA își construiește cunoașterea pe săptămâni, în loc să pornească de la zero
-la fiecare prompt.</li>
-</ol>
-<p><b>Concluzia:</b> un LLM gol, fără sistem, este un jurist strălucit
-căruia i se dau 5.000 de foi volante, nesortate, și i se cere să găsească
-rândul decisiv în cinci secunde. <span class="irs">IRONSTICK</span> este infrastructura care
-transformă acel jurist într-un cabinet de înaltă performanță,
-funcțional.</p>
-<p>Configurarea este un buton per IA în configurare; un plugin de
-competențe învață IA formatele dumneavoastră de ieșire obligatorii. Ce
-învață IA despre un mandat se păstrează într-o <b>memorie de IA
-partajată</b> — compactă, legată de client, vizibilă și ștergibilă numai de
-dumneavoastră. Și vedeți mereu ce se întâmplă: ori de câte ori o IA vă
-citește dosarul, simbolul ei se aprinde în bara de meniu.</p>
-<p><b>Site-uri web cu verificare de acces.</b> Dacă un site web cere o
-confirmare înainte de a-și elibera conținutul, <span class="irs">IRONSTICK</span> deschide
-pagina într-o fereastră proprie: confirmați acolo, iar lucrul pe pagină
-continuă fără întrerupere.</p>
-<div class="box">Primul acces per pornire de program cere consimțământul
-dumneavoastră explicit; documentele marcate secrete sunt invizibile pe acest
-canal; sugestiile IA nu scriu niciodată în evidențele dumneavoastră — ele
-așteaptă aprobarea dumneavoastră în Monitorul de Consistență a Datelor.
-Intrările de cronică sosesc ca formular de înregistrare precompletat —
-adăugați fotografii dacă doriți și salvați dumneavoastră.</div>
-<div class="box"><b>Bridge-urile rulează în paralel.</b> Dacă sunt licențiate mai
-multe module, Claude, ChatGPT, Qwen și Kimi pot fi conectate simultan și pot
-lucra chiar pe același dosar în același timp — împărțind aceeași stare de
-dosar, aceeași memorie de IA și aceleași porți de verificare, în timp ce
-bara de meniu arată câte un logo pulsând per IA activă, astfel încât fiecare
-acces este atribuit IA care l-a făcut.</div>
-
-<h3>Mai multe minți, un dosar — un consiliu de consultanți încorporat</h3>
-<p>Aici devine mai mult decât un chatbot. Pentru că Bridge-urile pot rula
-deodată, puneți <b>IA independente pe același dosar</b> și le lăsați să își
-verifice reciproc munca — cu <span class="irs">IRONSTICK</span> la mijloc, ca bază de date comună și
-coordonator. Punctul decisiv: Claude, ChatGPT, Qwen și Kimi sunt <b>modele
-diferite, cu antrenamente diferite</b>, deci primiți <b>opinii și abordări
-cu adevărat diferite</b> — o a doua opinie reală, nu un model care își dă
-singur dreptate. Acestea sunt astăzi <b>printre cele mai puternice modele de
-IA din lume</b>; <span class="irs">IRONSTICK</span> le pune, unul lângă altul, pe dosarul
-dumneavoastră.</p>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_advisory_board.jpg" alt="Mai multe IA independente pe același dosar — un consiliu de consilieri care se verifică reciproc."><figcaption>Mai multe IA independente pe același dosar — un consiliu de consilieri care se verifică reciproc.</figcaption></figure>
-<p>Le conduceți în limbaj natural, ca un partener care coordonează doi
-colaboratori: <i>„elaborează asta… acum dă-i-o celuilalt la verificat…
-adu-mi evaluarea lui… revizuiește."</i> Schița, teoria sau actul se predau
-prin <span class="irs">IRONSTICK</span>, a doua IA le analizează critic — cu sarcina de a găsi
-slăbiciuni, contraargumente și erori, nu de a lăuda — iar evaluarea ei se
-întoarce la dumneavoastră. Ambele stau pe <b>date de dosar identice</b>, iar
-întregul schimb este consemnat (curat din punct de vedere forensic).</p>
-<p>Această echipă bicefală de consultanță/forensică este ideală pentru:</p>
-<ul>
-<li><b>Dezvoltarea teoriilor cauzei</b> — una construiește, cealaltă o
-supune testului de stres.</li>
-<li><b>Recunoașterea tiparelor în dosar</b> — două modele prind ce scapă
-unuia.</li>
-<li><b>Elaborarea tacticii și strategiei</b> — propunere și
-contrapropunere.</li>
-<li><b>Redactarea și călirea actelor</b> — scrie, verifică, combate,
-rafinează.</li>
-<li><b>Contraverificarea liniilor dumneavoastră generale de argumentare</b> —
-înainte să o facă adversarul.</li>
-</ul>
-
-<h3>Un dosar care se vindecă singur — dumneavoastră ca instrument de
-precizie</h3>
-<p>Greșelile vechi de înregistrare și scanările ratate încetează să fie
-permanente. Când IA dă peste un text integral stocat care e trunchiat sau
-distrus de un OCR prost, nu îl ocolește în tăcere — <b>vindecă
-înregistrarea</b>: cere o rescanare proaspătă, exactă pe pagini, a PDF-ului
-original (alegeți paginile în selectorul de pagini familiar), compară noua
-scanare cu textul stocat pasaj cu pasaj, repară numai stricăciuni mecanice
-de scanare — fără reformulări; numerele, numele și sumele rămân neatinse —
-și predă înapoi textul integral vindecat. Îl vedeți în întregime, iar
-<b>numai clicul dumneavoastră îl salvează</b>. Arhiva devine mai curată cu
-fiecare săptămână în care lucrați în ea.</p>
-<p>Acolo unde chiar și o scanare proaspătă atinge limite fizice, IA vă
-transformă pe <b>dumneavoastră</b> în instrumentul ei de precizie —
-<b>Human-in-the-Loop Micro-Sourcing</b>: în locul unui inutil „fișierul nu a
-putut fi procesat", deschide înregistrarea, numește locul exact („pagina 12,
-sus") și vă roagă să transcrieți exact cele trei cuvinte ilizibile — sau, în
-limite stricte (10&nbsp;MB, 90 de pagini), să îi predați PDF-ul original
-prin agrafă, ca să citească scanarea cu propria vedere. Nu răsfoiți
-niciodată un dosar de 200 de pagini; sunteți chemat exact pentru acei
-0,1&nbsp;% pe care o mașină nu îi poate rezolva cu certitudine. Sistemele
-tradiționale cunosc două stări — „succes" (oricât de greșit) și „eroare,
-procesați manual"; aceasta este o simbioză între viteza IA și ochiul uman
-care, în această formă, nu există nicăieri altundeva pe piață.</p>
-
-<p class="part pb">Partea a III-a — Suveranitate: de ce nu un cloud</p>
-
-<h2 id="ch7">7. Firewall-ul anti-halucinație — unic, din câte știm</h2>
-<p>Singura teamă justificată privind IA în practica juridică: modelele
-inventează trimiteri, denaturează cifre și pretind că au citit dosare pe
-care doar le-au răsfoit. Industria răspunde cu prompturi și declinări de
-răspundere — <span class="irs">IRONSTICK</span> răspunde cu arhitectură. IA dumneavoastră de
-desktop lucrează asupra dosarului prin <b>180 de instrumente
-specializate</b>, iar orice drum către un document care iese din sistem
-trece prin porți deterministe: logică pură, nicio IA care verifică o
-IA.</p>
-<div class="showband"><img src="img/50_two_windows.png" alt="Priviți IA lucrând — în direct"></div>
-
-<ul>
-<li><b>Dovada lecturii.</b> Sistemul înregistrează, rând cu rând, ce a
-citit efectiv IA din dosar. Pasajele necitite îi sunt reproșate în fiecare
-răspuns — iar livrarea rămâne blocată cât timp există lacune. „Am citit
-tot" nu mai este o afirmație, ci o măsurătoare.</li>
-<li><b>Proveniența citărilor.</b> Fiecare referință probatorie trebuie să
-indice o piesă reală din dosar, pe care IA a preluat-o și a citit-o
-integral, în mod demonstrabil — citarea din fragmente de căutare sau din
-memorie pică verificarea.</li>
-<li><b>Norme doar din biblioteca verificată.</b> Articolele citate sunt
-confruntate cu litera legii din propria bibliotecă verificată; sursele noi
-intră doar prin dialogul dumneavoastră de consimțământ. Un număr de
-articol inventat blochează livrarea.</li>
-<li><b>Toleranță zero la cifre și nume.</b> Sumele trebuie să corespundă
-evidenței până la virgulă, numele părților până la diacritice;
-identificatorii personali și bancari trec prin validatoare cu cifră de
-control — un CNP sau un IBAN imposibil nu ajunge niciodată în
-instanță.</li>
-<li><b>Livrare doar contra atestare.</b> Un act formal este refuzat cât
-timp o verificare proaspătă a exact acelei stări a fișierului nu a ieșit
-verde — orice modificare anulează atestarea, iar cinci runde eșuate
-opresc bucla și vă notifică. Fiecare document livrat își poartă ștampila
-de verificare.</li>
-<li><b>Fără modificări tăcute după livrare.</b> O corectură la un document
-livrat nu este niciodată încorporată în tăcere: versiunea veche este anulată
-vizibil și se creează o versiune nouă. Corecturile dumneavoastră intră
-totodată în verificare.</li>
-<li><b>Fără uși laterale.</b> O scrisoare declarată „informală" este
-recunoscută după conținut și trecută prin porțile formale; redenumirea
-unui document pentru a reseta numărătoarea versiunilor este refuzată;
-cunoștințele despre norme luate din presă sau din memoria modelului pică
-verificarea — doar litera legii, citită demonstrabil din bibliotecă în
-această sesiune, susține o citare; iar fiecare răspuns despre un dosar
-poartă obiectul real al dosarului din evidențele dumneavoastră, astfel
-încât un context inventat dintr-un alt dosar se contrazice pe loc.</li>
-<li><b>Citate dincolo de limitele dosarului.</b> Dacă un citat provine dintr-un
-document al altui dosar, verificatorul îl găsește în întregul fond de date și numește
-documentul exact — IA îl citește exact pe acela, nu întregul dosar străin.</li>
-<li><b>Proveniența fiecărui document.</b> IA află la fiecare document de unde
-provine: dacă vine de la partea adversă sau de la o autoritate, afirmațiile
-lui trebuie mai întâi verificate critic; dacă provine de la client, redă
-punctul de vedere al acestuia.</li>
-<li><b>Protecție împotriva instrucțiunilor strecurate.</b> Paginile web pot conține texte adresate IA, nu dumneavoastră. Înainte ca acest conținut să ajungă la IA, <span class="irs">IRONSTICK</span> elimină textele-momeală ascunse și verifică restul după un catalog de tipare în unsprezece limbi. Pasajele detectate sunt făcute ilizibile, iar IA primește o notificare — logică pură, nicio IA care verifică o IA.</li>
-<li><b>Fără mers în gol pe banii dumneavoastră.</b> Dacă o IA de desktop încearcă să
-reîncarce date pe care le are deja neschimbate, apelul este refuzat — tokenii și timpul
-merg în muncă, nu în repetiție.</li>
-</ul>
-<div class="box"><b>Și nu sunteți legați de niciun furnizor de IA.</b> IA
-încorporată rulează pe <b>Qwen, Kimi, ChatGPT și Claude</b> — patru
-secțiuni identice în configurator. <b>Iar <span class="irs">IRONSTICK</span> vă economisește banii singur:</b> fiecare
-furnizor configurat este folosit automat, cel mai ieftin primul — Qwen, apoi
-Kimi, ChatGPT, Claude. La fiecare pornire programul verifică care dintre
-ei răspund; dacă în cursul zilei se epuizează o cotă sau un credit, continuă
-în tăcere cu următorul și verifică din nou a doua zi. Fără selector, fără
-întreruperi, fără muncă pierdută. Partea desktop oferă Claude, ChatGPT, Qwen
-și Kimi.
-<b>Muncă de fundal la cost zero:</b> pentru sarcinile care rulează în fundal
-fără intervenția dumneavoastră — rezumate, triajul e-mailurilor și altele
-asemenea — puteți configura în plus ofertele gratuite ale <b>Groq, OpenRouter
-și Mistral</b> și le puteți activa și dezactiva pe fiecare în parte. Pentru chat
-și acte de procedură nu sunt folosite niciodată. Deoarece în acest caz datele
-ajung la acești furnizori, configuratorul vă atrage atenția la fiecare dintre ei
-să le verificați temeinic termenii și condițiile din perspectiva GDPR. Dacă un furnizor dezamăgește la preț, politici sau performanță, îi
-ștergeți pur și simplu cheia — porțile, și deci standardul livrat, rămân
-identice.</div>
-<h3>Calea <span class="irs">IRONSTICK</span></h3>
-<div class="showband"><img src="img/58_mcp_bridge.png" alt="Serverul MCP conectează furnizorul de IA cu aplicația client"></div>
-
-<div class="box"><b>Ce înseamnă asta pentru alegerea IA:</b> cu aceste
-porți devine aproape irelevant cât de puternic este modelul conectat — un
-model mai slab are pur și simplu nevoie de mai multe runde de corecție.
-Diferența pe care o simțiți este în principal viteza de execuție;
-rezultatul livrat trebuie să atingă, oricum, același standard impus.</div>
-<div class="box"><b>A verifica nu înseamnă a impune.</b> Piața a început
-să facă reclamă la „verificarea citărilor" — în practică un serviciu de
-adnotare best-effort: citările sunt căutate, trimiterile completate „în
-măsura posibilului", iar documentul se întoarce oricum — prin cloud-ul
-furnizorului, cu răspunderea parcată la avocat. Verificarea <span class="irs">IRONSTICK</span>
-este un compilator, nu o sugestie: șaptesprezece porți deterministe, un verdict
-care blochează, o atestare legată de exact acea stare a fișierului —
-orice modificare o anulează — și niciun document formal nu pleacă fără
-ea. Alții adnotează; <span class="irs">IRONSTICK</span> impune.</div>
-<p>Din câte știm, nicio altă aplicație juridică din lume nu impune această
-combinație. Instrumentele de observabilitate consemnează după fapt,
-sandbox-urile îngrădesc accesul — <span class="irs">IRONSTICK</span> dovedește munca, la singura
-interfață pe care o are IA.</p>
-<p>Dacă doriți să aflați mai multe despre cum funcționează chatul IA intern, respectiv Bridge-ul pentru Claude, ChatGPT, Kimi și Qwen, și ce posibilități deschide Calea <span class="irs">IRONSTICK</span>, <a href="bridge_ro.html">faceți clic aici</a>.</p>
-<h3>Calea clasică</h3>
-<div class="showband"><img src="img/64_classic_way.png" alt="Calea clasică: IA fără acces la dosare, doar fișiere încărcate"></div>
-<p>Până astăzi, asistenții IA lucrează fără nicio conexiune la baza de date cu dosarele și datele clienților dumneavoastră — singura cale către IA este încărcarea de fișiere. Și majoritatea sistemelor bazate pe cloud funcționează după această cale clasică: în cel mai bun caz mută fișiere text în fundal — invizibil pentru utilizator. Astfel, IA se folosește în cel mai bun caz doar de informațiile din exact aceste fișiere încărcate. Cu puțin noroc, ele nu sunt prea mari și IA ține cont de tot; altfel, halucinațiile sunt programate dinainte. IA nu poate accesa dosarul în sine: lucrează orbește și încearcă să obțină pentru utilizator cel mai bun rezultat. Aceasta poate duce la aprecieri greșite periculoase și la afirmații false.</p>
-<p>Nici abilitățile (skills) și plug-in-urile suplimentare nu schimbă nimic. În cel mai rău caz chiar agravează problema: instrucțiunile lor ample ocupă o parte considerabilă a ferestrei de context înainte ca IA să fi citit primul document — și cu cât această fereastră este mai plină, cu atât mai inegal ține IA cont de ceea ce conține.</p>
-<div class="showband"><img src="img/71_context_overload.png" alt="IA supraîncărcată: skill-uri/plug-in-uri, instrucțiuni și fișiere sunt turnate în capul IA până când acesta dă pe dinafară" loading="lazy" decoding="async"></div>
-<p>Cel mai simplu este să vă imaginați o IA ca pe un copil de 10 ani cu o capacitate de asimilare relativ limitată. Dacă îi umpleți acestui copil creierul cu multe cunoștințe în cadrul unei lecții frontale, abia va fi în stare să rețină totul și poate chiar va uita fapte sau instrucțiuni importante.</p>
-<div class="showband"><img src="img/72_best_effort_path.png" alt="Best effort: IA supraîncărcată este trimisă la drum doar cu rugăminți și eșuează la țintă" loading="lazy" decoding="async"></div>
-<p>Exact asta se întâmplă în prezent cu modelele de IA „best effort”, indiferent de felul în care sunt promovate. De fapt, capul IA este pur și simplu umplut cu datele dosarului dumneavoastră: trebuie să citească dosare întregi, texte lungi și, pe deasupra, instrucțiunile lungi, eventual și plug-in-uri și skill-uri. Capul se umple și se umple, până vine momentul în care pur și simplu nu mai încape nimic și totul este comprimat sau pur și simplu nu se mai citește tot. Abia apoi IA este trimisă să vă redacteze actul procedural. Asta trebuie să eșueze inevitabil.</p>
-<div class="showband"><img src="img/73_ironstick_guided_path.png" alt="IRONSTICK: date pregătite și instrucțiuni scurte; IA este condusă prin indicatoare și porți de siguranță spre o țintă verificată" loading="lazy" decoding="async"></div>
-<p><span class="irs">IRONSTICK</span> merge pe un alt drum. Instrucțiunile sunt păstrate scurte, astfel încât, chiar și la modelele de IA mai slabe, să nu ocupe niciodată mai mult de jumătate din memorie. Datele dosarului dumneavoastră sunt mai întâi pregătite de <span class="irs">IRONSTICK</span>, iar IA este alimentată doar cu datele cu adevărat importante (vă puteți imagina date comprimate, fără proză) și abia apoi este trimisă la drum. Pe acest drum însă IA nu este lăsată singură, ci primește instrumente și măsuri de siguranță. Ea este condusă spre țintă prin indicatoare și porți de siguranță.</p>
-<h3>Diferența?</h3>
-<div class="showband"><img src="img/74_best_effort_requests.png" alt="Best effort: IA este trimisă la drum doar cu rugăminți și cu speranța că va respecta instrucțiunile, și eșuează" loading="lazy" decoding="async"></div>
-<p>Ofertele clasice „best effort” îi țin IA mai întâi un fel de lecție frontală și apoi o trimit la drum, mai mult sau mai puțin cu cele mai bune urări, cu rugămintea (… și speranța) că se va ține de instrucțiuni și nu va fi uitat nimic.</p>
-<div class="showband"><img src="img/75_ironstick_coaching_line.png" alt="IRONSTICK: o linie constantă de coaching cu porți de siguranță și informații suplimentare până la ținta verificată" loading="lazy" decoding="async"></div>
-<p><span class="irs">IRONSTICK</span> urmează abordarea unei linii constante de coaching, cu blocaje de siguranță, informații suplimentare, ajutoare și instrumente, și verifică astfel în permanență drumul și rezultatul modelului de IA.</p>
-
-
-<h2 id="ch8">8. Problema structurală a SaaS — și răspunsul <span class="irs">IRONSTICK</span></h2>
-<p><b>Cu un software de cabinet în cloud vă predați responsabilitatea și
-datele unor străini — și sperați că cloud-ul lor nu ia foc niciodată.
-<span class="irs">IRONSTICK</span> înseamnă suveranitate maximă:</b> sistemul este construit astfel
-încât nici măcar o cădere totală a serverului — sau o deturnare a
-infrastructurii — să nu poată opri cabinetul.</p>
-<p><b>Soluțiile SaaS vând promisiunea securității — această arhitectură
-livrează securitate nativă, impusă structural.</b> Soluțiile clasice de
-cabinet din cloud și SaaS poartă o problemă structurală gigantică pe care
-broșurile lor de marketing preferă să o ascundă: sunt extrem de
-<b>centralizate</b>. <span class="irs">IRONSTICK</span> este democratic și absolut
-<b>descentralizat</b>.</p>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_attacks.jpg" alt="Atacurile care doboară platformele centralizate se opresc aici în scut — cabinetul lucrează mai departe."><figcaption>Atacurile care doboară platformele centralizate se opresc aici în scut — cabinetul lucrează mai departe.</figcaption></figure>
-<ul>
-<li><b>Punctul unic central de eșec.</b> Când un furnizor SaaS este spart —
-un atac pe lanțul de aprovizionare, credențiale de cloud capturate, o
-eroare de configurare la gazda de cloud — mii de cabinete de avocatură sunt
-lovite deodată. Această arhitectură distribuie riscul <b>fizic</b>, pe
-sediile individuale ale cabinetelor și pe propriile lor rețele locale
-securizate.</li>
-<li><b>Capcana răspunderii și a protecției datelor.</b> Cu SaaS, date de
-client extrem de sensibile stau pe serverele altcuiva — Microsoft Azure,
-AWS, centrele de date ale furnizorului. După o scurgere de date, un acces
-în baza US CLOUD Act sau o cădere de server, cabinetul rămâne descoperit —
-profesional și sub aspectul protecției datelor. Cu <span class="irs">IRONSTICK</span> datele rămân
-<b>100&nbsp;% local-first, pe dispozitivele proprii ale cabinetului</b>.</li>
-<li><b>Ostatici ai căderilor.</b> Dacă pică centrul de date al furnizorului
-SaaS — sau furnizorul are pur și simplu o zi proastă — nimeni din cabinet
-nu mai poate lucra. Aici, în cel mai rău caz, administratorul cumpără un
-aparat de schimb de ~300&nbsp;€ — sau cabinetul pur și simplu continuă să
-lucreze autonom pe stațiile de lucru.</li>
-<li><b>Nicio pierdere tăcută de date.</b> Un singur defect într-o bază de
-date din cloud poate șterge date iremediabil. Acest sistem se rehidratează,
-în caz de urgență, din stațiile de lucru separate fizic — inclusiv din
-laptopurile care se întorc din concediu.</li>
-</ul>
-<div class="box"><b>Independent de furnizor.</b> Dosarul dumneavoastră se află pe propriul hardware, licența se verifică offline, pe calculatorul dumneavoastră, iar <span class="irs">IRONSTICK</span> nu are nevoie de niciun server al furnizorului pentru a funcționa. Tot ce înregistrați puteți exporta oricând — ca PDF, ca DOCX sau ca backup complet pe propriul dumneavoastră suport de stocare.</div>
-
-<h2 id="ch9">9. De ce <span class="irs">IRONSTICK</span> — și nu o platformă AI juridică în cloud</h2>
-<p><b>Dosarul rămâne al dumneavoastră. IA vine la datele dumneavoastră — nu
-datele dumneavoastră la IA.</b> Această singură propoziție separă <span class="irs">IRONSTICK</span>
-de orice platformă juridică de IA din cloud de pe piață. În 2026 industria a
-trecut în masă la un singur model: dosarele clienților dumneavoastră stau în
-cloud-ul unui furnizor, iar o IA închiriată de la același furnizor lucrează
-acolo pe ele. <span class="irs">IRONSTICK</span> întoarce acest model — dosarul rămâne pe hardware-ul
-<i>dumneavoastră</i>, iar propriile abonamente de IA se conectează la el
-printr-un Bridge controlat și documentat.</p>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_no_cloud.jpg" alt="Fără cloud: dosarul întreg încape pe un suport ales de dumneavoastră — chiar și pe un stick USB criptat."><figcaption>Fără cloud: dosarul întreg încape pe un suport ales de dumneavoastră — chiar și pe un stick USB criptat.</figcaption></figure>
-<p>Trei argumente, în ordinea în care le-ar ierarhiza clienții
-dumneavoastră:</p>
-<ul>
-<li><b>Suveranitatea datelor ca argument de deontologie profesională.</b>
-Baza de date trăiește pe propriul dumneavoastră suport; furnizorul de
-software nu vede niciodată date de client. Pseudonimizarea, jurnalul de
-audit și declarația GDPR completă a fluxurilor de date se livrează cu
-produsul — inclusiv o clauză-model gata de preluat pentru propria informare
-de confidențialitate a clienților. Pentru secretul profesional și
-răspunderea GDPR aceasta nu este o funcție; este răspunsul.</li>
-<li><b>Aduceți propria IA — și păstrați structura de costuri.</b> Lucrați cu
-propriile conturi Claude, ChatGPT, Qwen și/sau Kimi (de regulă 20–40&nbsp;€ pe
-lună fiecare, acolo unde e nevoie de abonament) în loc să plătiți taxe
-lunare de trei cifre per utilizator pentru o platformă juridică de IA în
-cloud. Pe trei ani, pentru un cabinet mic, diferența se măsoară în sume de
-cinci cifre — în timp ce modelele pe care le folosiți sunt aceleași modele
-de vârf pe care marile platforme vi le închiriază.</li>
-<li><b>Precizie controlată.</b> Peste 180 de instrumente dau IA acces viu
-la dosarul real — cronici, texte integrale, termene.
-Dar fiecare cale de scriere trece printr-o poartă de verificare:
-modificările propuse apar ca redline (tăiat pentru ștergeri, aldin pentru
-adăugiri) și nimic nu se aplică până nu acceptați. Fiecare referință dintr-un
-act generat este verificată contra dosarului. Arma e ascuțită; trăgaciul
-rămâne la dumneavoastră.</li>
-<li><b>Precizie și viteză fără egal.</b> Bridge-ul <span class="irs">IRONSTICK</span> dă IA acces direct
-la date <i>pregătite</i>: fiecare document deja trecut prin OCR, clasificat,
-datat, referențiat și legat de dosar. IA nu pierde niciodată timp (și nu
-face greșeli) reconstruind ce conține un dosar — interoghează exact
-înregistrarea, primește exact textul integral și citează exact referința.
-Conținutul voluminos circulă prin Bridge prin referință, în loc să fie
-retastat de model — exact la byte și în secunde. Rezultatul este un nivel de
-acuratețe și, mai ales, de viteză de procesare pe care chat-urile cu
-copy-paste și încărcările în cloud pur și simplu nu îl pot atinge.</li>
-</ul>
-
-<h2 id="ch10">10. De ce acum — și de ce nu pur și simplu ChatGPT?</h2>
-<p>Tot mai mulți avocați experimentează deja cu un chat de IA „gol" — lipesc
-documente în ChatGPT și pun întrebări. Pentru un singur document scurt
-funcționează. Contra unei încărcări reale de cabinet se lovește de doi
-pereți duri — și exact pe aceștia <span class="irs">IRONSTICK</span> este construit să îi
-elimine.</p>
-<ul>
-<li><b>Fereastra de context.</b> Un chat de IA poate lucra doar cu ce încape
-deodată în fereastra sa de context — în cel mai bun caz câțiva megabytes de
-text (vedeți comparația din Partea a III-a). O arhivă de dosare crescută în
-ani este de multe ori mai mare. Așa că un chat gol vă obligă să alegeți
-câteva pagini, aruncă tăcut restul și pornește de la zero la fiecare
-sesiune. <span class="irs">IRONSTICK</span> ridică plafonul: asistentul aduce exact pasajele,
-documentele, e-mailurile și termenele de care are nevoie — proaspete, din
-dosarul viu — și își poartă mai departe concluziile într-o memorie
-persistentă, legată de client, de la o sesiune la alta.</li>
-<li><b>Organizarea.</b> Un chat gol nu are structură — fără clienți, dosare,
-entități, instituții, termene, cronică sau legături între dosare. Fiecare
-sesiune e o insulă: nimic nu se îndosariază, nimic nu se transmite, nimic
-nu e auditabil. <span class="irs">IRONSTICK</span> <i>este</i> structura: IA lucrează în interiorul
-dosarului dumneavoastră organizat, citează exact proba și numărul de dosar,
-respectă termenele și lasă în urmă o pistă curată.</li>
-</ul>
-<p>Diferența e simplă: a sta de vorbă cu o IA — sau muncă de dosar
-apărabilă, repetabilă, care rezistă și peste luni.</p>
-<div class="showband"><img src="img/59_mcp_detail.png" alt="Serverul MCP: firewall, instrumente și bază de date"></div>
-
-<p><b>Și de ce, în fond, modele de IA externe — în loc de unul propriu?</b>
-Motivul este unul economic. Pentru a opera un LLM propriu, cu adevărat
-utilizabil, ar fi necesară o investiție de 400.000–500.000&nbsp;€ — numai
-pentru servere, instalații de răcire și infrastructură — plus costuri
-curente de 70.000–80.000&nbsp;€ pe an pentru funcționare și întreținere.
-Iar costurile tehnicienilor nici nu sunt incluse. Pentru un cabinet de
-avocatură asta pur și simplu nu are sens — investiția este mult prea mare.
-Iar dacă <span class="irs">IRONSTICK</span> ar oferi în schimb un serviciu propriu de IA în cloud, ar
-fi de fapt exact același lucru ca serviciile existente Claude, ChatGPT,
-Qwen și Kimi — doar că <span class="irs">IRONSTICK</span> nu l-ar putea oferi niciodată la prețurile lor.
-Dintr-o judecată pur logică, asta nu are sens. De aceea <span class="irs">IRONSTICK</span>
-conectează abonamentele dumneavoastră la cele mai puternice modele din
-lume, în loc să vă închirieze unul propriu de mâna a doua.</p>
-
-<p class="part pb">Partea a IV-a — Securitatea datelor: datele dumneavoastră,
-regulile dumneavoastră</p>
-
-<h2 id="ch11">11. Totul local — prin construcție</h2>
-<figure class="cutout"><img loading="lazy" decoding="async" src="img/cutout_own_hardware.jpg" alt="Dosarul, probele și compartimentul de documente secrete rămân pe propriul dumneavoastră hardware — protejate prin construcție."><figcaption>Dosarul, probele și compartimentul de documente secrete rămân pe propriul dumneavoastră hardware — protejate prin construcție.</figcaption></figure>
-<ul>
-<li><b>Offline-first.</b> Întregul dosar trăiește local, într-un director
-ales de <b>dumneavoastră</b> — un stick USB criptat, dacă preferați. Fără
-cloud forțat, fără server al furnizorului, fără obligația unui cont. Fără
-internet, dosarul, căutarea, documentele și asistentul local continuă să
-funcționeze.</li>
-<li><b>Bază de date criptată AES-256.</b> Fișierul care ține întregul
-dumneavoastră cabinet — clienți, dosare, cronologie, e-mailuri, termene,
-memoria IA-urilor — stă pe disc criptat AES-256, fiecare pagină separat și
-sigilată pentru integritate. Nimic de configurat, nicio parolă de reținut:
-textul în clar există numai în memorie, cât timp rulează <span class="irs">IRONSTICK</span>. Cine
-copiază fișierul de pe un disc, un stick sau dintr-un backup ține în mână
-text cifrat.</li>
-<li><b>Documente criptate AES-256.</b> Și depozitul de documente în sine —
-fiecare PDF original, scanare, imagine, înregistrare — stă criptat, fiecare
-fișier cu propriul sigiliu de integritate. Text în clar există numai pentru
-documentele la care lucrați efectiv, în folderul temporar, golit la
-închiderea <span class="irs">IRONSTICK</span>. Ce exportați sau trimiteți părăsește seiful în mod
-deliberat.</li>
-<li><b>Cod de acces prin autentificator.</b> Fiecare pornire cere codul
-din șase cifre din aplicația de autentificare de pe telefon — aceleași
-coduri unice pe care le folosește banca dumneavoastră. Nicio parolă de
-reținut, nimic stocat: secretul este derivat la rulare din cheia de
-licență, iar cheia de licență vă readuce înăuntru dacă pierdeți telefonul.
-Până la introducerea codului nu se afișează nimic, iar conectorii IA nu
-primesc date de dosar. Și fișierul de configurare cu datele de acces API și
-e-mail stă criptat AES-256.</li>
-<li><b>Pseudonimizare înaintea IA externe.</b> Când funcțiile din aplicație
-chiar folosesc IA externă, numele, codurile numerice, numerele de dosar,
-IBAN-urile, numerele de telefon, e-mailurile și adresele din evidențele
-dumneavoastră sunt înlocuite mai întâi, pe mașina dumneavoastră, cu
-substituenți neutri — răspunsul este tradus înapoi local.</li>
-<li><b>Consimțământ și audit.</b> IA externă rulează pe bază de consimțământ
-explicit și este consemnată — pista de audit reține exact ce a părăsit
-efectiv mașina.</li>
-<li><b>Documente secrete (Windows).</b> Un compartiment ascuns, criptat cu
-parolă, pentru documentele pe care numai avocatul are voie să le vadă
-vreodată: invizibile în orice listă, excluse din orice canal de IA și din
-orice export, niciodată sincronizate pe tabletă — cu o secvență de
-distrugere de urgență pentru ziua cea mai neagră.</li>
-<li><b>Backupuri și sincronizare fără cloud.</b> Backup complet dintr-un
-clic, oriunde doriți; sincronizarea Windows ↔ tabletă merge pe cablu USB,
-verificată prin sume de control. Telefonul dumneavoastră primește numai
-intrări de calendar — niciodată conținut de dosar.</li>
-<li><b>Mutarea pe un mediu extern — verificată, nu sperată.</b> Dacă doriți să lucrați
-cu PC-ul de birou și laptopul pe același dosar, pe un SSD extern, <span class="irs">IRONSTICK</span> verifică ținta
-înainte de mutare: spațiul liber, viteza reală, sistemul de fișiere și dacă datele de test
-sunt recitite neschimbate; unitățile de rețea și folderele cloud sunt refuzate. După
-copiere, fiecare fișier este comparat prin sumă de control; comutarea are loc doar când
-totul corespunde, iar folderul vechi este păstrat sub alt nume. <span class="irs">IRONSTICK</span> recunoaște
-suportul indiferent de litera unității; dacă lipsește la pornire, <span class="irs">IRONSTICK</span> spune acest
-lucru, în loc să deschidă pe tăcute un set de date gol. De la un grad de umplere de
-85&nbsp;% primiți un avertisment. Cerințele pentru mediu se află în
-<a href="#ch15">Capitolul 15</a>.</li>
-<li><b>Declarație scrisă.</b> O declarație GDPR completă a fluxurilor de
-date se livrează cu sistemul — fiecare transmitere externă, conținutul ei
-exact și unde stau granițele. Inclusiv o clauză-model pentru propria
-informare de confidențialitate a clienților, în toate cele unsprezece
-limbi — engleză, germană, franceză, italiană, spaniolă, română, portugheză,
-neerlandeză, turcă, ucraineană și rusă.</li>
-</ul>
-<div class="showband"><img src="img/61_encryption_flow.png" alt="Criptare AES-256 în aplicația client și serverul MCP"></div>
-<p>Toate straturile de protecție din capitolul 11 sunt active din fabrică — fără configurare și fără un comutator care să se stingă din greșeală: <b>datele în repaus</b> criptate AES-256 — baza de date, fiecare document, configurarea și întreaga zonă de lucru a IA; pe scurt: <b>nicio dată de dosar nu mai stă necriptată pe discul dumneavoastră — nici măcar fișierele de lucru ale IA</b>. <b>Accesul la rulare</b> numai cu codul din aplicația de autentificare. <b>Datele în mișcare</b> numai ca act deliberat al dumneavoastră — fiecare cale documentată în declarația GDPR livrată cu produsul.</p>
-<p>Software-ul juridic în cloud vă vinde promisiunea că altcineva vă păstrează
-datele în siguranță. Aici protecția face parte din construcție, pe propriul
-hardware, și fiecare strat îl puteți verifica singur.</p>
-
-<p class="part pb">Partea a V-a — Crește odată cu cabinetul</p>
-
-<h2 id="ch12">12. Mai mult de un birou? Serverul de cabinet</h2>
-<figure class="serverpic"><img src="img/62_server_fanout.png" alt="Serverul de cabinet rulează pe un NAS Synology obișnuit — un DS223j ca acesta se găsește în comerț de la circa 900 de lei."><figcaption>Serverul de cabinet rulează pe un NAS Synology obișnuit — un DS223j ca acesta se găsește în comerț de la circa 900 de lei.</figcaption></figure>
-<p>Pentru cabinetele cu mai mulți avocați, <span class="irs">IRONSTICK</span> oferă <b><span class="irs">IRONSTICK</span>
-SERVER</b> — un modul licențiat separat care transformă stații de lucru
-independente într-un cabinet multi-utilizator coordonat, <b>fără cloud și
-fără a renunța la dosarul local</b>. Rulează ca pachet nativ pe un NAS
-Synology — cutiile de birou mici, ieftine, aproape fără întreținere, care
-stau deja în mii de cabinete de avocatură — pe orice model curent, în
-întregime în propria rețea. Serverul nu contactează niciodată internetul,
-niciodată furnizorul, și nu poartă niciun trafic de IA.</p>
-<p><b>De ce un NAS Synology — și de ce nu este un proiect IT.</b> Am ales
-Synology în mod deliberat pentru că aceste cutii sunt plug and play:
-conectați curentul și rețeaua și pur și simplu funcționează. Instalarea
-pachetului <span class="irs">IRONSTICK</span> Server pe el durează trei minute, apoi rulează — fără
-consolă, fără fișiere de configurare, fără administrator. Stațiile de lucru
-sunt la fel de nepretențioase: instalatorul ghidează complet configurarea,
-fără cunoștințe IT și fără chestionare lungi — porniți, introduceți cheia de
-licență, gata. Clienții și serverul se găsesc automat în rețea; nimeni nu
-tastează o adresă. Iar un cabinet cu un singur birou nu are nevoie deloc de
-NAS — serverul este un modul opțional pentru cabinetele cu mai mulți
-avocați.</p>
-<ul>
-<li><b>Partajați dosare, păstrați dosarul.</b> Eliberați un dosar către un
-coleg cu o singură acțiune; el se abonează și primește o copie completă în
-propriul dosar local. Revocabil oricând; documentele marcate secrete nu vă
-părăsesc niciodată biroul. Iar adevăratul multiplicator de forță: mai mulți
-avocați — fiecare cu propria IA — pot lucra <b>simultan</b> pe același
-dosar, trimițându-i proprietarului mesaje și analize finite direct din
-LLM-ul lor. La nevoie, un întreg cabinet poate converge pe un singur
-dosar.</li>
-<li><b>O bibliotecă legislativă pentru tot cabinetul.</b> Fiecare text de
-lege pe care un coleg îl verifică și îl eliberează devine disponibil la
-fiecare birou — și pentru <b>IA fiecărui birou</b>: asistentul și Bridge-urile
-IA de desktop citează același text verificat, cuvânt cu cuvânt, din
-biblioteca partajată, în loc să aducă din nou web-ul sau să se încreadă în
-memoria modelului. Datele de revizuire, marcajele roșii pentru intrările
-învechite și realocarea automată când un contribuitor lipsește țin
-biblioteca vie — cercetarea unui coleg devine cunoașterea verificată a
-întregului cabinet. Un <b>sistem democratic</b> o ține onestă: fiecare
-stație de lucru își reverifică propriile surse contribuite după două
-săptămâni — ca sarcină automată de fundal, fără nicio acțiune a
-utilizatorului. Dacă un contribuitor lipsește la momentul verificării,
-serverul îi distribuie verificările celorlalte stații; după patru săptămâni
-o sursă se colorează roșu. Odată intrată în sistem, rămâne în sistem.</li>
-<li><b>O privire de ansamblu a timpului pe tot cabinetul.</b> Fiecare stație
-de lucru își raportează în fundal timpul de lucru măsurat; paginile de
-administrare ale serverului arată timpul per dosar, per client și per zi —
-pentru un singur utilizator sau pentru tot cabinetul — plus prezența,
-istoricul partajărilor de dosare și un jurnal de securitate.</li>
-<li><b>Administrat din browser.</b> Aprobarea înregistrărilor, licența,
-utilizatorii, legile și timpul — totul pe o pagină de administrare servită
-chiar de NAS. Licență anuală cu un număr definit de locuri.</li>
-<li><b>O rețea de persoane și societăți pentru întregul cabinet.</b> Persoanele,
-societățile, instituțiile, relațiile dintre ele și analizele de persoană înregistrate pe o
-stație de lucru sunt disponibile tuturor prin server; duplicatele sunt recunoscute și
-unificate la reconciliere. Fiecare înregistrare are un proprietar: colegii nu o modifică
-direct, ci trimit o propunere pe care proprietarul o acceptă — dacă acesta nu răspunde în
-48 de ore, proprietatea trece la cel care a propus. Și ștergerea unei înregistrări străine
-devine o propunere.</li>
-<li><b>Experiența cu judecătorii a întregului cabinet.</b> Evaluările hotărârilor
-judecătorești circulă cu această rețea: fiecare coleg evaluează hotărârile din propriile
-dosare, iar fiecare IA de pe server citește, înaintea unui act, experiența întregului
-cabinet cu acea instanță și acei judecători — de fiecare dată cu indicarea celui care a
-evaluat.</li>
-</ul>
-
-<h3>Predarea și abonarea dosarelor — cum funcționează de fapt</h3>
-<p>Eliberarea unui dosar este un act deliberat, niciodată un efect
-secundar. Proprietarul partajează dosarul din aplicație; acesta călătorește
-către server printr-un <b>transfer în două faze</b> — întâi metadatele, apoi
-conținutul fișierelor, astfel încât un transfer întrerupt nu lasă niciodată
-în urmă o jumătate de dosar — iar fișierele mari sunt adresate după
-conținut, deci documentele identice călătoresc și se stochează o singură
-dată. Serverul atribuie <b>ID-uri interne proaspete</b> la tot ce stochează:
-un dosar primit nu poate intra niciodată în coliziune cu datele deja aflate
-pe stația unui coleg. Colegii văd dosarul partajat pe propriul ecran de
-dosare de server și se <b>abonează</b>; abonatul primește o copie completă
-în propriul dosar local și lucrează pe ea cu sistemul complet — căutare,
-asistent, redactare cu IA, totul. Proprietarul poate revoca
-partajarea oricând, administratorul poate încheia central orice abonament,
-iar fiecare partajare, abonare și export se consemnează cu dată, oră și
-adresă. Documentele marcate secrete sunt excluse prin construcție — nu
-ajung niciodată pe server.</p>
-<p><b>Mega-avantajul: lucru în echipă simultan, asistat de IA, pe un singur
-dosar.</b> Fiecare abonat își lucrează copia cu sistemul complet — inclusiv
-cu propria IA de desktop. Mai mulți avocați pot deci ataca același dosar
-<b>în același timp</b>, fiecare cu propriul LLM citind dosarul la adâncime
-maximă — și îi pot trimite proprietarului dosarului mesaje și evaluări
-finite <b>direct din sesiunea de IA</b>: un tabel al contradicțiilor de la
-un birou, o schiță călită de la următorul, o evaluare de risc de la al
-treilea, toate curgând înapoi la proprietar în timp ce munca se întâmplă.
-Când un termen se ivește brusc sau o ședință este devansată, un întreg
-cabinet poate converge peste noapte pe un singur dosar — analize paralele,
-fluxuri de lucru împărțite, un singur proprietar care ține dosarul.</p>
-
-<h3>O bază de date legislativă care crește singură — conectată direct la
-IA</h3>
-<p>Fiecare birou <span class="irs">IRONSTICK</span> întreține texte de lege verificate ca Markdown
-în text integral, fiecare intrare etichetată cu jurisdicția, linkul-sursă
-și data de revizuire. Asistentul și Bridge-urile IA de desktop ajung la această
-bibliotecă prin trei instrumente proprii: o căutare fuzzy (jurisdicția este o mențiune obligatorie — ordinile juridice nu se amestecă niciodată), preluarea cuvânt cu cuvânt a textului stocat (IA citează formularea verificată, nu memoria sa de antrenament) și depunerea de surse noi (ori de câte
-ori IA întâlnește online o sursă juridică relevantă, îndosarierea ei este o
-<b>obligație, nu o opțiune</b> — doar linkul; aplicația descarcă,
-convertește și verifică singură textul, iar dumneavoastră îl eliberați prin
-poarta de verificare a monitorului de date).</p>
-<p>Asta face baza de date <b>dinamică</b>: crește din munca zilnică a
-cabinetului. Fiecare sesiune de cercetare a fiecărui coleg — umană sau
-asistată de IA — o hrănește. Cu serverul de cabinet, fiecare lege eliberată
-este deduplicată central (aceeași sursă actualizează intrarea; o versiune
-mai nouă a aceluiași text câștigă, cea depășită este arhivată, nu pierdută)
-și <b>oglindită la fiecare birou</b>. Datele de revizuire o țin onestă:
-intrările neverificate de peste o lună se colorează roșu la fiecare birou
-și în administrarea web, iar dacă un contribuitor lipsește, serverul îi
-realocă intrările uniform între utilizatorii activi — obligația de
-revizuire nu moare niciodată odată cu un concediu. Rezultatul: toate IA
-cabinetului argumentează dintr-o <b>singură bibliotecă legislativă
-verificată, vie</b> — verificată o dată de un coleg, citată cuvânt cu
-cuvânt la fiecare birou, întreținută sub o obligație comună — în loc ca
-fiecare birou să aducă iar web-ul deschis și să se încreadă în ce a
-venit. Și este gândire de civil law de la un capăt la altul: autoritatea
-este textul de lege codificat, citat cuvânt cu cuvânt — exact felul în
-care se argumentează în fața instanțelor continental-europene.</p>
-
-<h3>Registratură centrală — aplicația Central Scan</h3>
-<p>Disponibilă <b>numai împreună cu serverul de cabinet</b>: <b>aplicația
-Central Scan</b>, un program de sine stătător pentru PC-ul de la
-secretariat — acolo nu e nevoie de nicio instalare <span class="irs">IRONSTICK</span>. <b>Până la
-trei licențe Central Scan</b> pot fi achiziționate per server — fiecare
-licențiată separat — deci pot rula până la trei stații de scanare per
-cabinet; toate pot lucra chiar <b>același folder de intrare în paralel,
-fără coliziuni</b> (un document deschis de o persoană este blocat automat
-și apare gri pentru celelalte).</p>
-<ul>
-<li><b>Un singur punct de scanare pentru tot cabinetul.</b> Secretariatul
-scanează toată corespondența de dimineață într-un singur folder și lucrează
-lista document cu document.</li>
-<li><b>Căutabil prin construcție.</b> Paginile care poartă deja un strat de
-text rămân neatinse; numai paginile scanate trec prin OCR local, iar textul
-recunoscut este încorporat în PDF ca strat invizibil — avocatul destinatar
-nu mai trebuie să ruleze OCR niciodată.</li>
-<li><b>Destinatarul este recunoscut — fără nicio IA.</b> Aplicația
-potrivește textul documentului cu numerele de dosar și numele avocaților
-cabinetului (raportate în direct de stațiile de lucru) — potrivire pur
-deterministă, zero tokeni, nimic nu părăsește rețeaua dumneavoastră.
-Destinatarii recunoscuți sunt propuși; un clic trimite.</li>
-<li><b>Livrarea este invizibilă.</b> <span class="irs">IRONSTICK</span>-ul fiecărui avocat își
-colectează automat documentele de pe server și le depune în registratura
-normală de documente — preia fluxul obișnuit de înregistrare. Serverul
-păstrează un document numai până când destinatarul a confirmat primirea;
-copiile locale de la stația de scanare se curăță singure după trei
-zile.</li>
-</ul>
-
-<h3>Măsurarea timpului — local la fiecare birou, agregat pentru cabinet</h3>
-<p><b>Local</b>, <span class="irs">IRONSTICK</span> măsoară timpul de lucru automat, ca efect
-secundar al lucrului: fără cronometru, fără disciplină start/stop. Timpul
-se deduce din activitatea efectivă în aplicație, se atribuie dosarului în
-care lucrați, cu plafonare a timpului inactiv, ca o fereastră deschisă
-peste prânz să nu factureze pe nimeni. Fiecare birou are propria pagină de
-timp — azi, 7, 30, 90 de zile sau tot; per dosar, per client, zi cu zi, cu
-bare.</p>
-<p><b>Cu serverul</b>, fiecare stație de lucru raportează aceste măsurători
-în fundal — la fiecare cinci minute, ca totaluri compacte pe zi și dosar
-(inclusiv numele clientului), cu zilele lipsă completate automat; un birou
-care se alătură mai târziu își livrează istoricul complet, deci imaginea pe
-cabinet este întreagă din prima zi. Pagina de Timp a administrării web este
-o copie fidelă a paginii de timp de pe desktop, extinsă cu un selector: un
-singur utilizator sau <b>TOȚI</b> — întregul cabinet. Timp per dosar, per
-client și per zi, peste toate birourile — o bază obiectivă pentru
-facturare, capacitate și decizii de management, produsă fără ca cineva să
-completeze vreo fișă de pontaj.</p>
-<p><b>Sistemul crește odată cu cabinetul.</b> Pornit ca avocat singur, azi
-o echipă de o sută — <span class="irs">IRONSTICK</span> crește împreună cu dumneavoastră. Ce e
-nevoie? Un client desktop <span class="irs">IRONSTICK</span> la început, ca avocat singur, poate un
-Bridge pentru Claude/GPT. Apoi doi avocați își unesc forțele: se mai licențiază un client și un Bridge, plus <span class="irs">IRONSTICK</span> SERVER — până la cinci stații de lucru sunt incluse. De atunci înainte, fiecare coleg suplimentar înseamnă un client și un Bridge, iar de la a șasea stație de lucru, încă un loc de server. Fără investiții mari într-un viitor îndepărtat — licențiați
-numai ce vă trebuie chiar acum. Iar dacă echipa se micșorează, pur și
-simplu cumpărați mai puține licențe.</p>
-
-<p class="part pb">Partea a VI-a — Fiabilitate: autovindecare, backupuri,
-aproape zero IT</p>
-
-<h2 id="ch13">13. Când moare hardware-ul — disaster recovery încorporat</h2>
-<p>Un server care coordonează un întreg cabinet trebuie să aibă voie să
-moară fără să ia cabinetul cu el — iar acesta are. Întreaga stare a
-serverului trăiește într-un <b>singur folder de date pe NAS</b>:
-includeți-l în backupul NAS-ului (de ex. Synology Hyper Backup) și un
-aparat mort se restaurează în trei pași — instalați pachetul pe aparatul de
-schimb, puneți folderul la loc, porniți. Totul revine exact cum era, iar
-stațiile de lucru se reconectează singure. Și pentru că adevărul
-sistemului este oricum <b>descentralizat</b> — fiecare stație de lucru își
-păstrează dosarul local complet, copiile abonate, oglinda bibliotecii
-legislative și propriile backupuri — chiar și cel mai rău caz, pierderea
-totală a NAS-ului <i>fără</i> niciun backup, se vindecă singur: stațiile de
-lucru se reînregistrează automat, proprietarii își reemit automat
-partajările de dosare (verificat de două ori pe zi), copiile abonate sunt
-protejate 14 zile în loc să fie aruncate, biblioteca legislativă crește la
-loc din oglinzile proprii ale stațiilor, iar predările de dosare în curs nu
-pot pierde date prin construcție. Pentru cerințe și mai înalte, același
-pachet rulează neschimbat pe modelele Synology mari, complet redundante —
-redundanță de discuri RAID, surse de alimentare redundante, perechi
-High-Availability cu failover automat. Mutarea cabinetului este la fel de
-nedramatică: luați stațiile de lucru cu dumneavoastră, instalați NAS-ul la
-noua adresă, conectați totul la LAN — <b>Plug and Play</b>, gata. Stațiile de lucru își regăsesc
-singure serverul; fără adrese fixe, fără reconfigurare, fără programare la
-IT — <b>și fără tehnicieni scumpi, niciodată</b>.</p>
-<div class="showband"><img src="img/63_server_move.png" alt="Schimbarea și mutarea serverului — plug and play"></div>
-
-<div class="box"><b>La o cădere totală de server, datele dumneavoastră rămân intacte</b> — datorită autovindecării sistemului și backupurilor descentralizate. Chiar și PDF-urile de corespondență scanată pe care aplicația Central Scan le-a încărcat, dar încă nu le-a livrat, stau 72 de ore în folderul local <i>erledigt</i> al stației de scanare, gata de retrimitere.</div>
-<p><b>Întreținerea:</b> sistemul este absolut auto-vindecător și, prin
-urmare, extrem de ușor de întreținut. Rulează absolut stabil și fluid chiar
-și pe hardware care nu mai e chiar la zi. Iar prin opțiunea de backup, în
-caz de urgență pur și simplu reinstalați și puneți backupul la loc.</p>
-<p><b>Sistemul se repară singur.</b> Singura dependență rămasă este cât de
-repede merge administratorul până la magazin după un aparat de schimb, pune
-software-ul la loc și îl conectează la LAN (serverul) — sau pune backupul
-la loc (stația de lucru). Restul se rezolvă de la sine. Și chiar în timp ce
-serverul e căzut — din orice motiv — <b>stațiile de lucru pur și simplu
-continuă să lucreze local, pe propriile calculatoare</b>: fiecare avocat
-are dosarul complet pe propria mașină, deci nimic nu se oprește.</p>
-
-<h2 id="ch14">14. Fără departament IT? Exact pentru asta este construit</h2>
-<p>O obiecție îndreptățită: <span class="irs">IRONSTICK</span> rulează pe propriul hardware, deci nu
-există un furnizor de cloud al cărui suport să intervină când moare un disc
-local. Adevărat — și intenționat: nimeni de la distanță nu vă deține
-dosarele, și nimeni de la distanță nu le poate pierde, citi sau să vă
-blocheze accesul. Ce cere asta cu adevărat de la un cabinet fără
-administrator este mai puțin decât pare.</p>
-<ul>
-<li><b>Un singur obicei, nimic mai mult: apăsați Backup.</b> Un clic în
-ecranul de backup scrie o copie de siguranță completă într-un singur fișier
-ZIP; îl salvați unde doriți — stick USB, disc extern, NAS-ul cabinetului.
-<span class="irs">IRONSTICK</span> nu lasă asta doar pe seama disciplinei: dacă ultimul backup este
-mai vechi de cinci zile, briefingul zilnic se încheie cu un memento urgent,
-rostit și scris, cu legătură directă către zona de backup; pe serverul
-cabinetului pagina de administrare arată data ultimului backup al fiecărui
-utilizator, roșu după cinci zile.</li>
-<li><b>Backupul în sine nu este periculos de pierdut.</b> Baza de date,
-documentele, configurarea și fișierele de lucru ale IA sunt criptate
-AES-256 — un ZIP de backup pe un stick pierdut este text cifrat, nimic
-altceva.</li>
-<li><b>Recuperarea este o rutină, nu un proiect.</b> Calculator nou sau
-reparat: instalați de pe stick, deschideți ecranul de backup, rulați ZIP-ul
-înapoi, porniți. Totul revine exact cum era — dosare, documente, cronici,
-memoria IA, biblioteca de legi. Fără tehnician, fără tichet, fără
-așteptare.</li>
-<li><b>Nimic de administrat între timp.</b> Niciun server de configurat,
-nicio bază de date de întreținut, niciun cont de utilizator de gestionat —
-cheia de licență și codul din aplicația de autentificare sunt toate datele
-de acces care există. Sistemul se repară singur, stațiile de lucru găsesc
-serverul cabinetului de unele singure, actualizările sunt din nou
-instalatorul. Cine poate salva un document pe un stick USB poate opera
-<span class="irs">IRONSTICK</span> în siguranță.</li>
-<li><b>Copiile secundare vin gratuit acolo unde le folosiți.</b> Fiecare
-stație de lucru într-o configurație cu server de cabinet își păstrează
-dosarul local complet, sincronizarea cu tableta poartă cu dumneavoastră o
-copie verificată prin sume de control, iar NAS-ul se salvează cu propriile
-instrumente (de ex. Synology Hyper Backup). Un dispozitiv pierdut nu
-înseamnă niciodată un cabinet pierdut.</li>
-<li><b>Vedeți ce rulează în fundal.</b> Indicatorul de performanță din bara de meniu
-listează fiecare proces de fundal în curs — preluarea e-mailurilor, recunoașterea textului,
-criptarea și decriptarea, copiile de rezervă, apelurile de instrumente ale IA,
-recunoașterea hotărârilor judecătorești noi. Nimic nu lucrează pe ascuns.</li>
-</ul>
-<p>Afinitatea IT necesară este cea a oricărui loc de muncă Windows — nu mai
-mult. Ce vă ia <span class="irs">IRONSTICK</span> de pe umeri este dependența de centrul de date al
-altcuiva; ce cere în schimb este un stick de backup pe care chiar îl
-folosiți.</p>
-
-<p class="part pb">Partea a VII-a — În practică</p>
-
-<h2 id="ch15">15. Cerințe de sistem</h2>
-<table>
-<tr><th></th><th>Minim</th><th>Recomandat pentru lucru complet fluid</th></tr>
-<tr><td>Sistem de operare</td><td>Windows 11, 64-bit</td>
-<td>Windows 11, 64-bit, actualizări la zi</td></tr>
-<tr><td>Procesor</td><td>x64 modern cu 4 nuclee (de ex. Intel Core i5 /
-AMD Ryzen 5)</td><td>6–8 nuclee — recunoașterea de text rulează pe mai
-multe pagini în paralel, iar recunoașterea vocală offline profită direct de
-fiecare nucleu</td></tr>
-<tr><td>Memorie</td><td>8 GB RAM</td><td>16 GB RAM — spațiu confortabil
-pentru PDF-uri mari, construcții de dosare și transcriere audio în
-paralel</td></tr>
-<tr><td>Stocare</td><td>SSD cu 20 GB liberi</td><td>SSD NVMe cu 100+ GB
-liberi — arhiva de dosare, căutarea în text integral și producerea de
-PDF-uri sunt intensive pe disc; un SSD rapid se simte în fiecare zi</td></tr>
-<tr><td>Ecran</td><td>1920 × 1080</td><td>1920 × 1200 sau mai mult —
-ecranele de dosar folosesc generos spațiul vertical</td></tr>
-<tr><td>Grafică</td><td colspan="2">Nu este necesară placă grafică
-dedicată — orice grafică integrată este suficientă</td></tr>
-<tr><td>Conectivitate</td><td colspan="2">Internet numai pentru IA externă, actualizarea legilor, e-mail și hărți — dosarul,
-căutarea, documentele și
-asistentul local rulează complet offline; un port USB liber pentru
-sincronizarea cu tableta</td></tr>
-</table>
-<p>Opțional: o tabletă Android (Android 11 sau mai nou, 64-bit, ecran de
-mărimea unei tablete) pe același dosar, prin sincronizare pe cablu, și
-propriul cont de IA (pentru IA externă din aplicație și/sau o IA de
-desktop — Claude Desktop, ChatGPT Desktop, Qwen Desktop sau Kimi Desktop) — fără el,
-<span class="irs">IRONSTICK</span> rulează pur și simplu ca sistem complet local.</p>
-
-<h3>Păstrarea datelor pe un mediu extern (opțional)</h3>
-<p>Cine ține dosarul pe o unitate externă — de exemplu pentru a lucra cu PC-ul de birou și
-laptopul pe același set de date — are nevoie de un mediu care să reziste sarcinii continue
-a unui cabinet. <span class="irs">IRONSTICK</span> verifică fiecare țintă înainte de mutare și refuză mediile
-nepotrivite (Windows).</p>
-<table>
-<tr><th>Verificare</th><th>Cerință</th></tr>
-<tr><td>Spațiu liber</td><td>Cel puțin 9&nbsp;GB, respectiv cu 1&nbsp;GB mai mult decât setul
-de date actual</td></tr>
-<tr><td>Scriere / citire</td><td>Cel puțin 80&nbsp;MB/s / 150&nbsp;MB/s — și sub sarcină
-continuă (nu sub 60&nbsp;% din valoarea inițială)</td></tr>
-<tr><td>Multe fișiere mici</td><td>Cel puțin 250 de fișiere pe secundă</td></tr>
-<tr><td>Sistem de fișiere</td><td>NTFS sau exFAT, nu FAT32; neprotejat la scriere și
-neblocat</td></tr>
-<tr><td>Fiabilitate</td><td>Datele de test trebuie recitite neschimbate</td></tr>
-<tr><td>Nepermis</td><td>Unități de rețea și foldere sincronizate cu cloudul (OneDrive,
-Google Drive, Dropbox)</td></tr>
-<tr><td>Recomandare</td><td>SSD extern — stick-urile USB obișnuite ating rareori aceste
-valori</td></tr>
-</table>
-
-<h3>Cerințe de sistem — serverul de cabinet (modul opțional)</h3>
-<table>
-<tr><th></th><th>Cerință</th></tr>
-<tr><td>Aparat</td><td>Orice NAS Synology cu DSM 7.0 sau mai nou — ARM sau
-Intel; pachetul livrează binare native pentru ARMv7, ARM64 și x86-64</td></tr>
-<tr><td>Performanță</td><td>Scris intenționat atât de suplu încât rulează
-curat chiar și pe un <b>model de bază de acum zece ani</b>: verificat
-pe un DS214se din 2014 cu CPU ARM single-core și 256&nbsp;MB RAM. Dacă
-rulează acolo, rulează pe orice Synology din gamă — orice model curent are
-rezerve generoase</td></tr>
-<tr><td>Memorie / CPU</td><td>Fără cerințe dedicate dincolo de NAS-ul
-însuși — serverul stă la câțiva MB și nu scanează și nu indexează niciodată
-în fundal</td></tr>
-<tr><td>Stocare</td><td>Câteva sute de MB pentru pachet și biblioteca
-legislativă; pachetele de dosare partajate cresc numai cu ce partajați
-efectiv</td></tr>
-<tr><td>Rețea</td><td>Numai LAN-ul cabinetului; un port TCP (47712). DSM,
-Web Station și porturile 80/443 rămân complet neatinse — serverul nu se
-conectează niciodată la internet</td></tr>
-<tr><td>Administrare</td><td>Orice browser din LAN; parolă de administrare
-proprie; cheia de licență introdusă o singură dată</td></tr>
-</table>
-
-<p class="quote"><span class="irs">IRONSTICK</span> nu a fost construit ca să impresioneze într-un
-demo. A fost construit ca la 19:00 să închideți laptopul — cu dosarul
-citit, schița călită, termenul respectat, și dovada tuturor celor trei în
-sistem.</p>
-
-<div class="lic"><h2 id="ch16">16. Licențiere — modular, doar ce folosește cabinetul</h2>
-<p><span class="irs">IRONSTICK</span> se licențiază pe componente. Luați doar părțile de care aveți nevoie
-și adăugați pe măsură ce cabinetul crește. Aici sunt prezentate componentele și modul în care se licențiază fiecare — sumele le găsiți pe <a href="pricing_ro.html">pagina de prețuri</a>.</p>
-<table>
-<tr><th>Componentă</th><th>Licențiată per</th></tr>
-<tr><td><b><span class="irs">IRONSTICK</span> Client</b> (aplicația de bază)</td><td>per utilizator / stație</td></tr>
-<tr><td><b>Bridge individual</b> — Claude, ChatGPT, Qwen <i>sau</i> Kimi</td><td>per utilizator / stație</td></tr>
-<tr><td><b>Pachetul de Bridge-uri</b> — toate cele patru Bridge-uri împreună</td><td>per utilizator / stație</td></tr>
-<tr><td><b><span class="irs">IRONSTICK</span> Office Server</b> (incl. până la 5 clienți)</td><td>per cabinet / server</td></tr>
-<tr><td><b>Client suplimentar pe server</b> (de la al 6-lea)</td><td>per client suplimentar</td></tr>
-<tr><td><b>Central Scan App</b> (max. 3 per server)</td><td>per utilizator / stație de scanare</td></tr>
-</table>
-<ul>
-<li><b>Module suplimentare &amp; dependențe:</b> Bridge-urile și Office Server sunt
-module suplimentare licențiate separat față de aplicația de bază; Central Scan
-App necesită o licență Office Server activă.</li>
-<li><b>Abonament la furnizorul IA:</b> un Bridge rulează pe propriul abonament la
-furnizor (Claude, ChatGPT, Qwen sau Kimi) — chatul IA integrat nu are nevoie de
-o licență Bridge suplimentară.</li>
-<li><b>Instruirea</b> se licențiază separat în trei module la fața locului
-(aplicație · aplicație + office server · Bridge-uri IA în profunzime).</li>
-</ul><p><b>Descărcați software-ul:</b> Client-App, Bridges, Office-Server și Central Scan App sunt disponibile pe <a href="download_ro.html">pagina de descărcare</a> — unde găsiți și ordinea de instalare, regulile de licențiere și modelul pentru solicitarea cheilor de licență.</p></div><div class="site-foot"><h2 id="contact">Contact</h2><p>Interesat de <span class="irs">IRONSTICK</span> sau de o demonstrație? Scrieți-ne.</p><div class="cc-name">Tobias Werren</div><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren"></div><p class="qrhint">Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.</p><p class="pref">Contactați direct prin WhatsApp sau Telegram — și un apel este binevenit. Limbi vorbite: germană, engleză, română.</p><p class="cbtn" style="margin:12px 0 4px"><a href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">WhatsApp</a><a href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank" style="display:inline-block;background:#229ED9;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0">Telegram</a></p><p class="disc"><span class="irs">IRONSTICK</span> este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică.</p><p style="font-size:13px;margin-top:14px">© 2026 <span class="irs">IRONSTICK</span>.</p></div>
+<link rel="stylesheet" href="landing.css">
+<script src="landing.js" defer></script>
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="sitebar.css">
+</head>
+<body class="u-body u-clearfix u-xl-mode">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0"><a class="b" href="index_ro.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><div class="menu"><a href="index_ro.html">Acasă</a><span class="mh">Compendii</span><a class="sub" href="kompendium_ro.html">Aplicația client</a><a class="sub" href="bridge_ro.html">Bridge</a><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a><a href="pricing_ro.html">Prețuri</a></div></div></div><nav class="lang-wrap" tabindex="0" title="Limbă" aria-label="Limbă"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="index.html">English</a><a lang="de" hreflang="de" href="index_de.html">Deutsch</a><a class="on" lang="ro" hreflang="ro" href="index_ro.html">Română</a><a lang="fr" hreflang="fr" href="index_fr.html">Français</a><a lang="it" hreflang="it" href="index_it.html">Italiano</a><a lang="es" hreflang="es" href="index_es.html">Español</a><a lang="ru" hreflang="ru" href="index_ru.html">Русский</a><a lang="uk" hreflang="uk" href="index_uk.html">Українська</a></div></nav></div>
+<section class="u-clearfix u-image u-section-1" id="block-1" data-parallax="22 60">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="custom-expanded u-container-style u-group u-radius u-shape-round u-white u-group-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+          <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h1 class="u-text u-text-default u-text-1">Dosarul care lucrează cu dumneavoastră</h1>
+          </div>
+        </div>
+        <p class="u-large-text u-text u-text-body-alt-color u-text-variant u-text-2">Sistemul de gestiune a cabinetului cu inteligență de dosar încorporată.<br>Termene, probe, acte și e-mail într-un singur loc, local pe calculatorul dumneavoastră.<br>Pentru avocații care își vor serile înapoi.</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="block-2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="2000">Orele devin minute. Verificați în loc să căutați.</h2>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <p class="u-text u-text-default u-text-2">Fiecare document, e-mail, fotografie și cuvânt rostit poate fi căutat, inclusiv scanările și transcrierile convorbirilor telefonice.<br>
+<br><span>Întrebați în limbaj natural, de la tastatură sau cu vocea: fiecare răspuns este ancorat în documentele reale, cu surse pe care puteți da clic.</span></p>
+                  <ul class="u-custom-list u-spacing-13 u-text u-text-3" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                    <li>
+                      <div class="u-list-icon u-text-palette-2-base">
+                        <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" style="">●</div>
+                      </div>Termenele și dosarele amuțite ies singure la suprafață</li>
+                    <li>
+                      <div class="u-list-icon u-text-palette-2-base">
+                        <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" style="">●</div>
+                      </div>Proiecte de acte generate din dosar</li>
+                    <li>
+                      <div class="u-list-icon u-text-palette-2-base">
+                        <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" style="">●</div>
+                      </div>OCR, căutare în text integral, transcriere audio și video</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-container-align-left u-grey-5 u-section-3" id="block-3">
+      <img class="u-expanded-width u-image u-image-default u-image-1" src="img/lp_meeting.jpg" alt="">
+      <div class="u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-1">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <div class="u-align-center u-container-align-center u-container-style u-custom-item u-group u-palette-2-base u-group-1" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-1">01</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-2"><b>Avocați individuali și cabinete mici.</b> Fără departament IT, fără buget pentru tehnicieni: IRONSTICK rulează pe un calculator Windows obișnuit și se întreține singur.</p>
+            </div>
+          </div>
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-2">
+            <div class="u-container-layout u-similar-container u-container-layout-3">
+              <div class="u-align-center u-black u-container-align-center u-container-style u-custom-item u-group u-group-2" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">02</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-4"><b>Avocați litigatori cu dosare voluminoase.</b> Cine gestionează mii de pagini de probe interoghează dosarul în limbaj natural și primește răspunsuri argumentate, cu surse.</p>
+            </div>
+          </div>
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-3">
+            <div class="u-container-layout u-similar-container u-container-layout-5">
+              <div class="u-align-center u-black u-container-align-center u-container-style u-custom-item u-group u-group-3" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-5">03</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-6"><b>Avocați de drept comercial, insolvență și drept penal.</b> Multe persoane, firme și legături încrucișate: rețeaua din toate dosarele face vizibile conexiuni imposibil de urmărit manual.</p>
+            </div>
+          </div>
+          <div class="u-align-left u-container-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle u-white u-list-item-4">
+            <div class="u-container-layout u-similar-container u-container-layout-7">
+              <div class="u-align-center u-container-align-center u-container-style u-custom-item u-group u-palette-2-base u-group-4" data-animation-name="rollIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-7">04</h2>
+                </div>
+              </div>
+              <p class="u-text u-text-grey-40 u-text-8"><b>Cabinete cu mai mulți avocați.</b> IRONSTICK SERVER conectează posturile de lucru printr-un NAS Synology în propria rețea: partajați dosare, fără cloud și fără a renunța la dosarul local.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="block-4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="2000">Proiecte de acte în minute, nu în ore</h2>
+                  <p class="u-text u-text-3">Actele și scrisorile se nasc în dialog cu IA, direct din dosar. Înainte de predare, un verificator determinist compară proiectul cu dosarul viu: fiecare referință de probă, fiecare parte, fiecare citare de normă.<br>
+<br><span>Rezultatul este un șablon apt de depunere, niciodată un act de instanță finalizat: dumneavoastră verificați, corectați și semnați, iar răspunderea rămâne a dumneavoastră. Export în PDF sau DOCX. Testat: 3000 de pagini de acte și anexe, ștampilate și paginate, într-un singur PDF în mai puțin de 20 de minute.</span></p>
+                </div>
+              </div>
+              <div class="u-container-style u-image u-layout-cell u-size-30 u-image-1">
+                <div class="u-container-layout u-container-layout-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-5 u-section-5" id="block-5">
+      <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
+        <div class="u-align-center u-container-align-center u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-group-1">
+          <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-valign-middle-xs">
+            <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1">IA dumneavoastră, contul dumneavoastră</h2>
+            <p class="u-text u-text-2">Prin Bridge, Claude, ChatGPT, Qwen și Kimi lucrează direct pe dosarul dumneavoastră, fiecare cu aceleași instrumente și sub propriul abonament la furnizor. Bridge este un modul suplimentar, licențiat separat.</p>
+          </div>
+        </div>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2"><span class="u-icon u-icon-circle u-palette-2-base u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 128 128" style=""><use xlink:href="#svg-5e7a"></use></svg><svg class="u-svg-content" viewBox="0 0 128 128" id="svg-5e7a"><polygon points="104 40 104 48 120 48 120 120 48 120 48 104 40 104 40 128 128 128 128 40"></polygon><rect x="80" width="8" height="8"></rect><rect x="16" width="8" height="8"></rect><rect x="32" width="8" height="8"></rect><rect x="16" y="80" width="8" height="8"></rect><rect x="48" width="8" height="8"></rect><rect x="64" width="8" height="8"></rect><rect width="8" height="8"></rect><rect y="48" width="8" height="8"></rect><rect y="64" width="8" height="8"></rect><rect y="32" width="8" height="8"></rect><rect y="16" width="8" height="8"></rect><rect x="80" y="16" width="8" height="8"></rect><rect y="80" width="8" height="8"></rect><path d="m63.6 96.8 10.4 10.4 36.8-36.8-10.6-10.6-5.7-17-19.6-19.5-39.5 16.2c-6.1 2.5-9.1 9.5-6.5 15.7l0.3 0.6-0.5 0.5c-6.2 6.2-6.2 16.4 0 22.6l15.1 15.1 19.8 2.8zm-31.6-29.2c0-2.1 0.8-4.2 2.3-5.7l14.1 14.1 5.7-5.7-17-17c-1.6-1.6-1.6-4.1 0-5.7 0.4-0.4 0.8-0.7 1.3-0.9l34.6-14 14.4 14.4 5.7 17 6.3 6.3-25.5 25.5-6.6-6.6-19.8-2.8-13.2-13.3c-1.5-1.5-2.3-3.5-2.3-5.6z"></path></svg></span>
+                <h5 class="u-text u-text-default u-text-3">IA de desktop pe Bridge</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-4" data-animation-name="counter" data-animation-duration="3000">4</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3"><span class="u-icon u-icon-circle u-palette-2-base u-icon-2" data-animation-name="customAnimationIn" data-animation-duration="1000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 128 128" style=""><use xlink:href="#svg-e6b7"></use></svg><svg class="u-svg-content" viewBox="0 0 128 128" id="svg-e6b7"><path d="m102.7 39.2c0.8 0 1.5 0.3 2.1 0.9l7.8 7.8c4.8 4.8 7.7 11.5 7.4 18.3-0.6 12.6-11 22.6-23.7 22.6h-29c-0.1 0-0.1-0.1-0.1-0.2 1.1-3 4.1-5.2 7.5-5.2h10.5c0.9 0 1.8-0.4 2.3-1.1 0.8-1.1 0.7-2.6-0.3-3.5l-24.9-24.8c-0.6-0.6-0.9-1.3-0.9-2.1s0.3-1.5 0.9-2.1 1.3-0.8 2.1-0.8 1.5 0.3 2.1 0.8l16.9 16.9c0.5 0.5 1.2 0.8 1.9 0.8s1.4-0.3 1.9-0.8 0.8-1.2 0.8-1.9-0.3-1.4-0.8-1.9l-6.7-6.7c-0.6-0.6-0.9-1.3-0.9-2.1s0.3-1.5 0.9-2.1 1.3-0.8 2.1-0.8 1.5 0.3 2.1 0.8l4 4c0.5 0.5 1.2 0.8 1.9 0.8s1.4-0.3 1.9-0.8 0.8-1.2 0.8-1.9-0.3-1.4-0.8-1.9l-2.7-2.7c-0.5-0.5-0.8-1.2-0.8-2s0.3-1.5 0.9-2.1 1.3-0.9 2.1-0.9 1.5 0.3 2.1 0.9l2.7 2.7c0.5 0.5 1.2 0.8 1.9 0.8s1.4-0.3 1.9-0.8 0.8-1.2 0.8-1.9-0.2-1.3-0.7-1.8c-0.8-0.9-1.2-2.1-0.8-3.3 0.5-1.3 1.6-1.9 2.8-1.9m0-8c-2.9 0-5.7 1.1-7.8 3.2-0.7 0.7-1.2 1.4-1.7 2.1 0 0-0.1 0.1-0.1 0-0.4 0-0.8-0.1-1.1-0.1-2.9 0-5.7 1.1-7.8 3.2-1 1-1.8 2.2-2.3 3.4 0 0 0 0.1-0.1 0.1-2.6 0.2-5.1 1.3-6.9 3.2l-0.2 0.2-2.5-2.5c-2-2-4.9-3.2-7.8-3.2s-5.7 1.1-7.8 3.2-3.2 4.9-3.2 7.8c0 3 1.2 5.7 3.2 7.8l15.8 15.8c0.1 0.1 0 0.2-0.1 0.2-5.8 0.8-10.8 4.8-12.8 10.5-1.9 5.2 2 10.7 7.5 10.7h29.1c8.5 0 16.4-3.3 22.4-9.3 6.1-6.1 9.4-14.3 9.3-23-0.1-8.4-3.8-16.4-9.8-22.4l-7.8-7.8c-1.8-2-4.6-3.1-7.5-3.1z"></path><path d="m82.1 118c0 1.1-0.9 2-2 2h-70.2c-1.1 0-2-0.9-2-2v-108c0-1.1 0.9-2 2-2h70.1c1.1 0 2 0.9 2 2v16.9c0 2.2 1.8 4 4 4s4-1.8 4-4v-16.9c0-5.5-4.5-10-9.9-10h-70.2c-5.4 0-9.9 4.5-9.9 10v108c0 5.5 4.5 10 9.9 10h70.1c5.5 0 9.9-4.5 9.9-10v-10.6c0-2.2-1.8-4-4-4s-4 1.8-4 4v10.6z"></path></svg></span>
+                <h5 class="u-text u-text-default u-text-5">Instrumente Bridge</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-6" data-animation-name="counter" data-animation-duration="3000">208</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4"><span class="u-icon u-icon-circle u-palette-2-base u-icon-3" data-animation-name="customAnimationIn" data-animation-duration="2000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 372.483 372.483" style=""><use xlink:href="#svg-32f8"></use></svg><svg class="u-svg-content" viewBox="0 0 372.483 372.483" x="0px" y="0px" id="svg-32f8" style="enable-background:new 0 0 372.483 372.483;"><g id="XMLID_10_"><g><path d="M372.482,263.045c0-21.796-6.527-42.842-18.877-60.863c-8.883-12.962-20.322-23.726-33.578-31.725    c15.607-14.78,25.372-35.67,25.372-58.811c0-44.684-36.354-81.038-81.037-81.038c-26.496,0-51.316,13.104-66.392,34.615    c-3.831-0.558-7.745-0.859-11.729-0.859s-7.897,0.302-11.728,0.859c-15.077-21.511-39.897-34.615-66.392-34.615    c-44.684,0-81.038,36.354-81.038,81.038c0,23.141,9.765,44.031,25.373,58.811c-13.257,7.998-24.696,18.763-33.578,31.724    C6.528,220.203,0,241.249,0,263.045v45.075h78.121v33.755h216.242V308.12h78.12v-45.075H372.482z M264.362,50.609    c33.656,0,61.037,27.381,61.037,61.038s-27.381,61.038-61.037,61.038c-0.603,0-1.206-0.009-1.81-0.027    c0.046-0.128,0.084-0.259,0.129-0.387c1.042-2.954,1.911-5.988,2.608-9.087c0.049-0.22,0.105-0.438,0.152-0.659    c0.181-0.836,0.34-1.68,0.495-2.526c0.073-0.4,0.148-0.799,0.215-1.2c0.126-0.755,0.24-1.513,0.345-2.274    c0.073-0.529,0.139-1.058,0.202-1.588c0.079-0.672,0.156-1.345,0.219-2.022c0.064-0.691,0.112-1.383,0.158-2.076    c0.036-0.546,0.081-1.09,0.106-1.639c0.055-1.177,0.086-2.356,0.09-3.536c0-0.087,0.007-0.172,0.007-0.26    c0-0.047-0.004-0.094-0.004-0.141c-0.002-1.205-0.037-2.403-0.091-3.597c-0.016-0.347-0.037-0.693-0.057-1.039    c-0.059-1.015-0.136-2.025-0.231-3.03c-0.022-0.228-0.04-0.456-0.063-0.683c-3.022-29.209-21.475-54.21-48.095-65.774    C230.208,58.253,246.8,50.609,264.362,50.609z M165.122,88.131c0.195-0.071,0.392-0.138,0.587-0.208    c0.607-0.217,1.219-0.423,1.834-0.622c0.466-0.149,0.935-0.293,1.407-0.431c0.343-0.101,0.687-0.198,1.032-0.294    c0.616-0.169,1.235-0.334,1.86-0.485c4.62-1.122,9.438-1.731,14.397-1.731c4.963,0.004,9.783,0.614,14.404,1.736    c0.621,0.15,1.236,0.314,1.849,0.482c0.35,0.097,0.7,0.195,1.047,0.298c0.466,0.137,0.93,0.279,1.391,0.426    c0.623,0.201,1.242,0.409,1.856,0.629c0.189,0.067,0.378,0.131,0.566,0.2c20.413,7.549,35.718,25.716,39.182,47.763    c0.027,0.176,0.053,0.353,0.079,0.53c0.111,0.747,0.204,1.5,0.287,2.255c0.03,0.278,0.062,0.555,0.089,0.834    c0.066,0.689,0.115,1.383,0.159,2.079c0.018,0.298,0.043,0.595,0.057,0.894c0.042,0.889,0.065,1.783,0.068,2.682    c0,0.078,0.005,0.154,0.005,0.232c0,0.036-0.002,0.073-0.002,0.109c-0.002,0.87-0.028,1.734-0.066,2.595    c-0.012,0.271-0.024,0.542-0.04,0.812c-0.047,0.832-0.109,1.66-0.189,2.482c-0.031,0.318-0.073,0.635-0.109,0.952    c-0.061,0.532-0.129,1.063-0.203,1.591c-0.058,0.411-0.116,0.823-0.182,1.232c-0.101,0.623-0.213,1.242-0.333,1.859    c-0.107,0.549-0.224,1.096-0.346,1.642c-0.073,0.329-0.149,0.658-0.228,0.985c-0.195,0.811-0.409,1.617-0.637,2.42    c-0.091,0.319-0.176,0.64-0.272,0.956c-0.139,0.46-0.289,0.916-0.438,1.372c-0.12,0.365-0.243,0.728-0.37,1.09    c-0.144,0.411-0.286,0.823-0.438,1.231c-0.259,0.693-0.531,1.38-0.814,2.061c-0.126,0.304-0.26,0.605-0.391,0.908    c-0.247,0.567-0.501,1.131-0.765,1.689c-0.031,0.066-0.062,0.132-0.093,0.198c-0.095,0.198-0.189,0.397-0.286,0.595    c-0.296,0.604-0.604,1.201-0.92,1.793c-0.123,0.23-0.242,0.463-0.368,0.692c-0.008,0.015-0.016,0.029-0.024,0.043    c-0.346,0.63-0.707,1.25-1.074,1.866c-0.146,0.244-0.29,0.489-0.439,0.73c-0.4,0.649-0.811,1.291-1.234,1.923    c-0.263,0.393-0.538,0.778-0.81,1.165c-0.231,0.328-0.461,0.657-0.698,0.98c-0.307,0.418-0.62,0.831-0.938,1.242    c-0.216,0.279-0.434,0.556-0.654,0.832c-0.336,0.42-0.675,0.838-1.021,1.249c-0.215,0.255-0.436,0.505-0.655,0.756    c-0.36,0.413-0.719,0.827-1.089,1.23c-0.22,0.239-0.448,0.469-0.672,0.705c-0.602,0.635-1.218,1.256-1.846,1.865    c-0.373,0.361-0.744,0.723-1.126,1.074c-0.264,0.243-0.535,0.479-0.804,0.718c-0.438,0.389-0.879,0.774-1.328,1.15    c-0.228,0.191-0.458,0.38-0.689,0.568c-0.543,0.442-1.093,0.875-1.652,1.299c-0.152,0.115-0.302,0.232-0.455,0.346    c-10.16,7.553-22.736,12.03-36.34,12.03c-13.605,0-26.183-4.478-36.343-12.033c-0.15-0.112-0.297-0.227-0.446-0.34    c-0.561-0.425-1.114-0.861-1.659-1.305c-0.229-0.187-0.458-0.374-0.684-0.564c-0.451-0.378-0.893-0.765-1.333-1.155    c-0.267-0.238-0.537-0.472-0.8-0.714c-0.383-0.352-0.755-0.715-1.129-1.076c-0.631-0.611-1.248-1.234-1.852-1.871    c-0.221-0.233-0.447-0.46-0.664-0.696c-0.371-0.404-0.73-0.819-1.09-1.232c-0.219-0.251-0.439-0.5-0.654-0.755    c-0.347-0.411-0.685-0.829-1.021-1.248c-0.22-0.276-0.439-0.553-0.655-0.833c-0.317-0.41-0.63-0.823-0.937-1.241    c-0.237-0.324-0.468-0.654-0.699-0.983c-0.272-0.386-0.546-0.77-0.808-1.162c-0.425-0.635-0.838-1.279-1.239-1.93    c-0.147-0.239-0.289-0.48-0.433-0.721c-0.373-0.625-0.738-1.253-1.089-1.892c-0.129-0.235-0.251-0.474-0.378-0.71    c-0.316-0.594-0.625-1.193-0.922-1.798c-0.106-0.215-0.209-0.432-0.312-0.648c-0.016-0.033-0.031-0.066-0.046-0.099    c-0.277-0.584-0.542-1.174-0.801-1.769c-0.123-0.283-0.248-0.565-0.366-0.849c-0.29-0.696-0.567-1.398-0.832-2.106    c-0.143-0.382-0.275-0.768-0.41-1.153c-0.139-0.395-0.273-0.793-0.404-1.192c-0.141-0.432-0.283-0.864-0.415-1.298    c-0.197-0.649-0.383-1.302-0.558-1.959c-0.123-0.461-0.234-0.926-0.347-1.39c-0.088-0.365-0.173-0.73-0.254-1.097    c-0.1-0.45-0.201-0.899-0.291-1.351c-0.139-0.704-0.266-1.412-0.38-2.124c-0.062-0.384-0.116-0.769-0.171-1.153    c-0.081-0.569-0.154-1.141-0.219-1.715c-0.032-0.283-0.069-0.566-0.098-0.849c-0.083-0.843-0.146-1.692-0.194-2.544    c-0.014-0.245-0.025-0.49-0.036-0.735c-0.041-0.911-0.07-1.825-0.07-2.745c0-0.986,0.028-1.965,0.075-2.94    c0.013-0.265,0.035-0.528,0.05-0.792c0.044-0.732,0.097-1.462,0.167-2.188c0.024-0.253,0.053-0.505,0.08-0.757    c0.086-0.786,0.183-1.568,0.299-2.345c0.022-0.151,0.044-0.303,0.068-0.454C129.393,113.864,144.701,95.685,165.122,88.131z     M47.083,111.647c0-33.656,27.381-61.038,61.038-61.038c17.563,0,34.154,7.645,45.625,20.529    c-26.629,11.568-45.086,36.581-48.099,65.802c-0.021,0.198-0.036,0.397-0.055,0.596c-0.1,1.041-0.179,2.086-0.239,3.137    c-0.018,0.32-0.038,0.639-0.053,0.96c-0.057,1.251-0.096,2.506-0.096,3.77c0,1.276,0.037,2.549,0.097,3.821    c0.024,0.512,0.066,1.019,0.099,1.528c0.049,0.732,0.099,1.464,0.167,2.194c0.06,0.649,0.134,1.294,0.21,1.939    c0.066,0.562,0.136,1.122,0.214,1.682c0.102,0.735,0.212,1.467,0.333,2.196c0.073,0.433,0.153,0.865,0.232,1.297    c0.15,0.816,0.303,1.63,0.477,2.437c0.058,0.266,0.124,0.53,0.184,0.795c0.679,3.003,1.522,5.943,2.526,8.81    c0.064,0.185,0.12,0.372,0.185,0.556c-0.603,0.018-1.207,0.027-1.809,0.027C74.464,172.684,47.083,145.303,47.083,111.647z     M94.888,239.148c-0.22,0.347-0.43,0.7-0.646,1.049c-0.457,0.738-0.91,1.478-1.348,2.225c-0.245,0.417-0.481,0.837-0.719,1.257    c-0.394,0.693-0.783,1.388-1.161,2.089c-0.238,0.441-0.472,0.884-0.704,1.327c-0.364,0.697-0.719,1.398-1.067,2.101    c-0.219,0.442-0.437,0.883-0.649,1.327c-0.354,0.741-0.695,1.488-1.032,2.236c-0.183,0.407-0.371,0.811-0.548,1.22    c-0.39,0.896-0.762,1.799-1.127,2.705c-0.107,0.265-0.221,0.527-0.325,0.792c-0.463,1.177-0.906,2.362-1.326,3.553    c-0.096,0.273-0.182,0.549-0.277,0.822c-0.316,0.918-0.624,1.839-0.915,2.764c-0.133,0.425-0.256,0.852-0.384,1.278    c-0.235,0.784-0.466,1.569-0.683,2.359c-0.129,0.47-0.252,0.941-0.375,1.413c-0.198,0.758-0.388,1.518-0.568,2.281    c-0.115,0.483-0.227,0.966-0.334,1.45c-0.172,0.773-0.333,1.549-0.488,2.326c-0.093,0.467-0.189,0.934-0.276,1.403    c-0.157,0.846-0.298,1.696-0.435,2.547c-0.064,0.4-0.135,0.798-0.195,1.198c-0.186,1.25-0.355,2.503-0.497,3.762    c-0.002,0.015-0.003,0.03-0.004,0.045c-0.129,1.145-0.24,2.292-0.333,3.443H20v-25.075c0-34.258,19.694-65.013,50.548-79.631    c11.24,5.908,24.017,9.271,37.572,9.271c3.92,0,7.852-0.29,11.754-0.864c0.608,0.867,1.226,1.725,1.866,2.567    c0.216,0.283,0.44,0.559,0.66,0.839c0.632,0.808,1.273,1.607,1.935,2.39c0.271,0.321,0.549,0.635,0.825,0.952    c0.62,0.712,1.25,1.415,1.894,2.104c0.338,0.363,0.682,0.72,1.026,1.077c0.589,0.607,1.186,1.205,1.793,1.794    c0.228,0.221,0.443,0.455,0.673,0.674c-0.869,0.525-1.73,1.063-2.583,1.612c-0.139,0.089-0.275,0.183-0.413,0.273    c-0.853,0.554-1.697,1.12-2.533,1.697c-0.289,0.2-0.577,0.402-0.865,0.604c-0.745,0.525-1.482,1.059-2.213,1.602    c-0.231,0.172-0.465,0.34-0.694,0.514c-0.93,0.703-1.849,1.419-2.756,2.151c-0.198,0.16-0.392,0.325-0.59,0.487    c-0.722,0.591-1.437,1.192-2.143,1.802c-0.274,0.236-0.546,0.474-0.818,0.713c-0.707,0.623-1.405,1.255-2.096,1.896    c-0.18,0.167-0.364,0.331-0.543,0.5c-0.848,0.798-1.683,1.611-2.506,2.438c-0.214,0.215-0.423,0.434-0.635,0.65    c-0.63,0.643-1.253,1.293-1.868,1.952c-0.244,0.262-0.488,0.524-0.73,0.789c-0.692,0.756-1.374,1.522-2.045,2.299    c-0.105,0.122-0.214,0.24-0.319,0.363c-0.765,0.893-1.513,1.803-2.251,2.722c-0.206,0.256-0.407,0.516-0.61,0.775    c-0.555,0.705-1.102,1.417-1.64,2.136c-0.208,0.278-0.417,0.554-0.622,0.834c-0.704,0.96-1.399,1.928-2.074,2.913    C96.274,236.998,95.572,238.069,94.888,239.148z M98.121,321.876v-13.755v-11.32c0-1.11,0.021-2.216,0.062-3.319    c0.013-0.363,0.042-0.723,0.06-1.085c0.036-0.736,0.07-1.473,0.124-2.206c0.033-0.445,0.083-0.886,0.123-1.33    c0.058-0.646,0.11-1.293,0.182-1.935c0.053-0.47,0.122-0.937,0.182-1.406c0.078-0.611,0.151-1.223,0.241-1.831    c0.073-0.484,0.161-0.964,0.241-1.446c0.098-0.586,0.189-1.174,0.299-1.757c0.093-0.493,0.201-0.981,0.302-1.472    c0.116-0.566,0.227-1.134,0.354-1.696c0.112-0.496,0.24-0.987,0.36-1.481c0.135-0.55,0.264-1.103,0.409-1.65    c0.132-0.497,0.278-0.989,0.418-1.482c0.152-0.537,0.3-1.075,0.462-1.608c0.151-0.496,0.317-0.988,0.476-1.481    c0.17-0.523,0.335-1.047,0.514-1.566c0.17-0.491,0.353-0.978,0.531-1.465c0.188-0.514,0.372-1.03,0.569-1.54    c0.188-0.485,0.388-0.964,0.583-1.446c0.205-0.503,0.407-1.009,0.621-1.508c0.207-0.481,0.425-0.957,0.64-1.433    c0.221-0.491,0.44-0.984,0.67-1.47c0.225-0.475,0.461-0.944,0.694-1.415c0.238-0.48,0.473-0.961,0.719-1.436    c0.243-0.468,0.496-0.93,0.747-1.393c0.254-0.469,0.505-0.938,0.767-1.402c0.26-0.46,0.53-0.913,0.797-1.368    c0.27-0.458,0.538-0.917,0.817-1.371c0.277-0.451,0.563-0.895,0.848-1.341c0.286-0.447,0.57-0.894,0.864-1.336    s0.596-0.878,0.898-1.314c0.301-0.435,0.601-0.87,0.909-1.3c0.31-0.432,0.629-0.858,0.948-1.285    c0.316-0.423,0.631-0.846,0.954-1.263c0.326-0.421,0.66-0.836,0.994-1.252c0.331-0.412,0.663-0.823,1.001-1.229    c0.341-0.408,0.689-0.811,1.037-1.213c0.347-0.401,0.695-0.802,1.05-1.198c0.355-0.396,0.718-0.786,1.08-1.176    c0.362-0.389,0.724-0.776,1.093-1.158c0.37-0.384,0.747-0.762,1.125-1.139c0.377-0.377,0.756-0.752,1.14-1.123    c0.383-0.369,0.772-0.733,1.163-1.096c0.392-0.364,0.786-0.727,1.185-1.085c0.398-0.356,0.8-0.707,1.205-1.056    c0.406-0.351,0.815-0.7,1.228-1.044c0.411-0.342,0.826-0.679,1.244-1.014c0.421-0.338,0.845-0.673,1.273-1.004    c0.423-0.326,0.85-0.648,1.279-0.968c0.436-0.325,0.875-0.646,1.319-0.963c0.434-0.311,0.872-0.617,1.313-0.921    c0.452-0.311,0.906-0.618,1.364-0.921c0.445-0.294,0.894-0.585,1.345-0.872c0.467-0.297,0.937-0.59,1.41-0.878    c0.456-0.278,0.915-0.553,1.377-0.823c0.48-0.281,0.964-0.558,1.451-0.831c0.467-0.262,0.937-0.521,1.41-0.775    c0.495-0.266,0.994-0.527,1.496-0.785c0.476-0.245,0.954-0.486,1.436-0.723c0.379-0.186,0.762-0.366,1.145-0.547    c11.239,5.908,24.018,9.27,37.572,9.27c13.555,0,26.333-3.362,37.572-9.27c0.38,0.18,0.76,0.359,1.136,0.543    c0.488,0.24,0.971,0.484,1.453,0.731c0.496,0.255,0.99,0.513,1.48,0.776c0.478,0.257,0.953,0.519,1.425,0.784    c0.481,0.27,0.959,0.543,1.433,0.821c0.469,0.274,0.934,0.553,1.396,0.835c0.467,0.285,0.93,0.573,1.39,0.866    c0.458,0.291,0.912,0.585,1.363,0.884c0.453,0.299,0.902,0.603,1.348,0.91c0.445,0.307,0.888,0.616,1.327,0.93    c0.439,0.314,0.873,0.632,1.305,0.954c0.434,0.322,0.865,0.647,1.292,0.977c0.424,0.328,0.844,0.66,1.262,0.995    c0.42,0.337,0.838,0.676,1.252,1.02c0.411,0.342,0.817,0.689,1.221,1.038c0.407,0.351,0.812,0.704,1.212,1.063    c0.396,0.355,0.787,0.715,1.176,1.076c0.394,0.366,0.787,0.734,1.174,1.107c0.381,0.367,0.756,0.739,1.129,1.112    c0.38,0.38,0.76,0.761,1.133,1.147c0.366,0.38,0.727,0.764,1.086,1.15c0.366,0.393,0.731,0.787,1.089,1.186    c0.352,0.392,0.697,0.789,1.041,1.187c0.351,0.405,0.702,0.811,1.045,1.223c0.337,0.403,0.666,0.812,0.995,1.221    c0.336,0.418,0.672,0.835,1,1.259c0.322,0.415,0.635,0.836,0.949,1.257c0.32,0.428,0.64,0.857,0.952,1.291    c0.307,0.427,0.606,0.861,0.905,1.294c0.303,0.438,0.607,0.876,0.902,1.32c0.292,0.439,0.574,0.883,0.858,1.327    c0.287,0.449,0.575,0.897,0.854,1.351c0.276,0.449,0.542,0.905,0.81,1.359c0.27,0.458,0.542,0.915,0.803,1.378    c0.261,0.462,0.511,0.93,0.764,1.396c0.252,0.465,0.506,0.929,0.749,1.398c0.246,0.474,0.48,0.955,0.718,1.434    c0.233,0.471,0.47,0.941,0.695,1.417c0.23,0.486,0.448,0.977,0.668,1.467c0.216,0.479,0.435,0.955,0.642,1.438    c0.213,0.495,0.412,0.996,0.616,1.496c0.198,0.486,0.4,0.97,0.589,1.46c0.196,0.507,0.379,1.02,0.566,1.532    c0.179,0.489,0.362,0.976,0.532,1.469c0.18,0.521,0.346,1.048,0.516,1.573c0.159,0.491,0.324,0.98,0.474,1.475    c0.163,0.533,0.31,1.072,0.463,1.609c0.14,0.493,0.286,0.984,0.418,1.481c0.145,0.547,0.274,1.099,0.409,1.65    c0.121,0.493,0.248,0.985,0.36,1.481c0.127,0.562,0.237,1.129,0.354,1.694c0.101,0.491,0.209,0.98,0.302,1.474    c0.109,0.578,0.199,1.161,0.297,1.743c0.081,0.487,0.171,0.971,0.244,1.461c0.09,0.603,0.162,1.211,0.24,1.817    c0.061,0.473,0.131,0.943,0.184,1.418c0.072,0.642,0.124,1.289,0.182,1.935c0.04,0.444,0.09,0.885,0.123,1.33    c0.055,0.733,0.088,1.471,0.124,2.208c0.018,0.361,0.047,0.721,0.06,1.083c0.041,1.103,0.062,2.209,0.062,3.319v11.319v13.757    H98.121z M294.015,288.12c-0.196-2.436-0.478-4.857-0.836-7.263c-0.057-0.381-0.125-0.759-0.186-1.139    c-0.139-0.871-0.284-1.74-0.445-2.606c-0.085-0.456-0.178-0.91-0.269-1.365c-0.157-0.791-0.321-1.58-0.496-2.366    c-0.106-0.474-0.216-0.948-0.328-1.42c-0.183-0.772-0.375-1.541-0.575-2.308c-0.121-0.465-0.242-0.929-0.37-1.393    c-0.219-0.798-0.453-1.592-0.691-2.385c-0.126-0.418-0.246-0.837-0.377-1.254c-0.295-0.939-0.607-1.873-0.928-2.805    c-0.09-0.26-0.172-0.523-0.264-0.783c-0.422-1.195-0.865-2.383-1.33-3.564c-0.1-0.253-0.209-0.503-0.311-0.756    c-0.369-0.917-0.747-1.832-1.142-2.74c-0.175-0.403-0.36-0.801-0.54-1.202c-0.34-0.756-0.684-1.509-1.042-2.257    c-0.209-0.438-0.425-0.873-0.64-1.308c-0.351-0.71-0.71-1.417-1.077-2.12c-0.23-0.44-0.461-0.878-0.697-1.315    c-0.38-0.703-0.77-1.401-1.166-2.097c-0.238-0.418-0.473-0.836-0.716-1.251c-0.44-0.751-0.895-1.494-1.355-2.236    c-0.214-0.346-0.422-0.695-0.64-1.038c-0.685-1.079-1.387-2.15-2.113-3.209c-0.676-0.986-1.371-1.954-2.075-2.914    c-0.204-0.278-0.412-0.553-0.618-0.829c-0.541-0.723-1.09-1.437-1.647-2.145c-0.201-0.255-0.4-0.513-0.604-0.766    c-0.739-0.922-1.49-1.834-2.257-2.729c-0.1-0.116-0.203-0.229-0.303-0.345c-0.676-0.783-1.364-1.555-2.061-2.317    c-0.24-0.262-0.481-0.521-0.723-0.781c-0.618-0.663-1.245-1.318-1.879-1.964c-0.209-0.213-0.414-0.428-0.625-0.639    c-0.825-0.828-1.663-1.644-2.513-2.444c-0.175-0.165-0.355-0.325-0.531-0.489c-0.695-0.645-1.397-1.28-2.107-1.906    c-0.27-0.238-0.542-0.474-0.814-0.71c-0.708-0.611-1.423-1.212-2.146-1.804c-0.197-0.161-0.39-0.326-0.588-0.486    c-0.906-0.732-1.825-1.448-2.754-2.15c-0.232-0.175-0.468-0.345-0.701-0.518c-0.728-0.54-1.461-1.072-2.203-1.594    c-0.291-0.205-0.582-0.409-0.874-0.611c-0.828-0.571-1.663-1.131-2.507-1.679c-0.148-0.096-0.293-0.196-0.441-0.291    c-0.852-0.547-1.71-1.084-2.578-1.608c0.224-0.213,0.434-0.44,0.655-0.656c0.62-0.6,1.229-1.21,1.829-1.83    c0.335-0.346,0.668-0.693,0.996-1.045c0.655-0.7,1.293-1.414,1.923-2.137c0.268-0.307,0.537-0.612,0.8-0.924    c0.671-0.794,1.323-1.605,1.964-2.426c0.21-0.268,0.425-0.532,0.631-0.803c0.643-0.845,1.264-1.707,1.875-2.577    c3.902,0.573,7.834,0.863,11.754,0.863c13.555,0,26.333-3.362,37.572-9.271c30.855,14.618,50.548,45.373,50.548,79.631v25.074    H294.015z"></path>
+</g>
+</g></svg></span>
+                <h5 class="u-text u-text-default u-text-7">Limbi</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-8" data-animation-name="counter" data-animation-duration="3000">11</p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle" data-animation-name="zoomIn" data-animation-duration="2000">
+              <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5"><span class="u-icon u-icon-circle u-palette-2-base u-icon-4" data-animation-name="customAnimationIn" data-animation-duration="1000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xlink:href="#svg-1044"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-1044" style="enable-background:new 0 0 512 512;"><g><g><path d="M256,0C144.702,0,54.154,90.547,54.154,201.846c0,69.363,35.172,130.662,88.615,167.011v128.373    c0,5.012,2.541,9.682,6.75,12.402c4.207,2.721,9.509,3.121,14.08,1.066L256,469.119l92.401,41.58c1.935,0.87,4,1.301,6.059,1.301    c2.804,0,5.594-0.798,8.021-2.367c4.208-2.721,6.75-7.391,6.75-12.402V368.858c53.443-36.349,88.615-97.648,88.615-167.011    C457.846,90.547,367.298,0,256,0z M339.692,474.39l-77.632-34.934c-1.927-0.868-3.994-1.302-6.06-1.302s-4.133,0.433-6.06,1.301    l-77.632,34.934v-88.835c7.423,3.384,15.042,6.292,22.805,8.745c0.44,0.14,0.879,0.283,1.321,0.419    c0.991,0.305,1.985,0.599,2.98,0.888c0.737,0.216,1.474,0.43,2.213,0.638c0.803,0.224,1.609,0.441,2.415,0.655    c0.94,0.251,1.882,0.496,2.827,0.734c0.668,0.167,1.337,0.331,2.007,0.49c1.087,0.261,2.177,0.513,3.271,0.756    c0.567,0.126,1.135,0.251,1.703,0.372c1.198,0.256,2.4,0.498,3.607,0.733c0.491,0.095,0.982,0.192,1.474,0.284    c1.278,0.238,2.561,0.461,3.847,0.675c0.441,0.074,0.882,0.15,1.324,0.22c1.327,0.212,2.66,0.407,3.997,0.592    c0.414,0.057,0.827,0.119,1.241,0.174c1.353,0.179,2.712,0.34,4.072,0.492c0.406,0.045,0.81,0.096,1.216,0.14    c1.357,0.144,2.719,0.267,4.084,0.383c0.414,0.035,0.826,0.078,1.241,0.11c1.345,0.106,2.696,0.191,4.049,0.271    c0.434,0.026,0.866,0.06,1.302,0.083c1.367,0.072,2.739,0.121,4.113,0.165c0.414,0.014,0.825,0.036,1.239,0.047    c1.776,0.046,3.558,0.072,5.346,0.072c1.787,0,3.569-0.026,5.345-0.072c0.414-0.011,0.825-0.033,1.239-0.047    c1.374-0.044,2.746-0.094,4.113-0.165c0.434-0.023,0.867-0.057,1.302-0.083c1.353-0.08,2.704-0.164,4.049-0.271    c0.415-0.032,0.827-0.075,1.241-0.11c1.365-0.116,2.727-0.24,4.084-0.383c0.406-0.043,0.81-0.094,1.216-0.14    c1.361-0.153,2.719-0.313,4.072-0.492c0.415-0.055,0.827-0.116,1.241-0.174c1.336-0.185,2.669-0.38,3.997-0.592    c0.442-0.071,0.882-0.147,1.324-0.22c1.286-0.214,2.569-0.437,3.847-0.675c0.492-0.092,0.983-0.188,1.474-0.284    c1.206-0.234,2.408-0.478,3.607-0.733c0.569-0.121,1.136-0.246,1.703-0.372c1.094-0.243,2.184-0.495,3.271-0.756    c0.669-0.16,1.338-0.324,2.007-0.49c0.945-0.237,1.886-0.482,2.827-0.734c0.806-0.215,1.612-0.43,2.415-0.655    c0.739-0.208,1.477-0.422,2.213-0.638c0.995-0.29,1.99-0.583,2.98-0.888c0.442-0.137,0.881-0.28,1.321-0.419    c7.763-2.453,15.382-5.36,22.805-8.744V474.39z M312.229,364.724c-0.589,0.203-1.178,0.407-1.769,0.604    c-0.898,0.3-1.8,0.595-2.705,0.88c-1.053,0.331-2.109,0.65-3.168,0.96c-0.747,0.22-1.495,0.439-2.246,0.649    c-1.401,0.391-2.807,0.765-4.218,1.12c-0.526,0.133-1.054,0.259-1.581,0.387c-1.381,0.334-2.768,0.652-4.158,0.952    c-0.35,0.076-0.697,0.156-1.047,0.228c-1.794,0.375-3.594,0.724-5.401,1.041c-0.184,0.032-0.369,0.06-0.554,0.093    c-1.628,0.281-3.261,0.536-4.897,0.769c-0.369,0.053-0.738,0.105-1.109,0.156c-1.745,0.237-3.493,0.455-5.247,0.639    c-0.066,0.007-0.132,0.016-0.198,0.023c-1.836,0.191-3.679,0.348-5.524,0.479c-0.4,0.029-0.802,0.05-1.203,0.077    c-1.435,0.093-2.87,0.166-4.309,0.224c-0.489,0.02-0.978,0.04-1.467,0.056c-1.807,0.055-3.616,0.093-5.428,0.093    s-3.621-0.037-5.428-0.095c-0.49-0.015-0.979-0.036-1.467-0.056c-1.439-0.057-2.874-0.131-4.309-0.224    c-0.401-0.026-0.802-0.048-1.203-0.077c-1.845-0.132-3.687-0.289-5.524-0.479c-0.066-0.007-0.132-0.016-0.198-0.023    c-1.754-0.184-3.502-0.402-5.247-0.639c-0.369-0.05-0.738-0.102-1.108-0.156c-1.637-0.234-3.27-0.488-4.898-0.769    c-0.184-0.031-0.369-0.06-0.554-0.093c-1.807-0.317-3.608-0.667-5.401-1.041c-0.349-0.073-0.697-0.154-1.047-0.228    c-1.39-0.299-2.777-0.618-4.158-0.952c-0.528-0.128-1.056-0.254-1.581-0.387c-1.411-0.354-2.817-0.73-4.218-1.12    c-0.751-0.21-1.499-0.429-2.246-0.649c-1.058-0.311-2.115-0.629-3.169-0.96c-0.905-0.286-1.806-0.58-2.705-0.88    c-0.592-0.197-1.181-0.401-1.769-0.604c-67.484-23.361-116.078-87.547-116.078-162.876c0-95.01,77.297-172.308,172.308-172.308    s172.308,77.297,172.308,172.308C428.308,277.175,379.713,341.361,312.229,364.724z"></path>
+</g>
+</g><g><g><path d="M343.622,201.846l27.741-52.14c2.394-4.497,2.299-9.91-0.248-14.321c-2.547-4.411-7.188-7.2-12.279-7.376l-59.025-2.045    L268.527,75.87c-2.699-4.32-7.433-6.946-12.527-6.946s-9.828,2.626-12.527,6.946l-31.283,50.094l-59.025,2.045    c-5.091,0.176-9.732,2.965-12.279,7.376s-2.642,9.824-0.248,14.321l27.741,52.14l-27.741,52.14    c-2.394,4.497-2.299,9.91,0.248,14.321c2.547,4.411,7.188,7.2,12.279,7.376l59.025,2.045l31.283,50.094    c2.698,4.32,7.433,6.946,12.527,6.946s9.828-2.626,12.527-6.946l31.283-50.094l59.025-2.045c5.091-0.176,9.732-2.965,12.279-7.376    c2.547-4.411,2.642-9.824,0.248-14.321L343.622,201.846z M290.935,248.479c-4.909,0.17-9.414,2.771-12.015,6.938L256,292.118    l-22.919-36.7c-2.602-4.167-7.106-6.767-12.015-6.938l-43.242-1.499l20.323-38.198c2.308-4.337,2.308-9.537,0-13.874    l-20.323-38.198l43.242-1.499c4.909-0.17,9.414-2.771,12.015-6.938L256,111.575l22.919,36.7c2.602,4.167,7.106,6.767,12.015,6.938    l43.242,1.499l-20.323,38.198c-2.307,4.337-2.307,9.538,0.001,13.874l20.323,38.198L290.935,248.479z"></path>
+</g>
+</g></svg></span>
+                <h5 class="u-text u-text-default u-text-9">Zile de testare gratuită</h5>
+                <p class="u-custom-font u-font-montserrat u-text u-text-default u-text-10" data-animation-name="counter" data-animation-duration="3000">30</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-6" id="block-6">
+      <div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-image u-layout-cell u-size-30 u-image-1">
+                <div class="u-container-layout u-container-layout-1"></div>
+              </div>
+              <div class="u-align-left u-container-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-2" data-animation-name="customAnimationIn" data-animation-duration="2000">Secretul profesional rămâne la dumneavoastră</h2>
+                  <p class="u-text u-text-default u-text-3">Baza de date se află criptată pe propriul dumneavoastră mediu de stocare; furnizorul software nu vede niciodată datele clienților. Consimțământul înaintea fiecărui apel extern către IA, pseudonimizarea și jurnalul de audit sunt încorporate.<br>
+<br><span>Bridge transmite în mod deliberat date reale, sub propriul abonament la furnizor. Cabinetul dumneavoastră nu depinde de niciun centru de date străin: licența se verifică offline pe calculatorul dumneavoastră, iar tot ce înregistrați puteți exporta oricând.</span><br>
+<br><a href="gdpr_ro.html">Citiți declarația GDPR privind fluxurile de date</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="block-7">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-left u-container-align-left u-container-style u-group u-shape-rectangle u-group-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+          <div class="u-container-layout u-valign-top-xl u-container-layout-1">
+            <h1 class="u-custom-font u-font-montserrat u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="2000">Modular. Facturare lunară.</h1><span class="u-icon u-icon-rectangle u-palette-2-light-2 u-text-palette-2-base u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="2000"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 491.52 491.52" style=""><use xlink:href="#svg-8180"></use></svg><svg class="u-svg-content" viewBox="0 0 491.52 491.52" x="0px" y="0px" id="svg-8180" style="enable-background:new 0 0 491.52 491.52;"><g><g><path d="M399.4,203.578h-19.801h-0.005v-69.744C379.593,60.039,319.556,0,245.759,0c-73.793,0-133.832,60.039-133.832,133.835    v69.744H92.122c-15.656,0-28.35,12.692-28.35,28.349v17.246v196.751v17.245c0,15.658,12.693,28.35,28.35,28.35H245.76H399.4    c15.656,0,28.348-12.692,28.348-28.35v-17.245V249.174v-17.246C427.748,216.27,415.056,203.578,399.4,203.578z M275.935,406.648    h-60.349l10.801-51.467c-10.101-6.428-16.848-17.652-16.848-30.512c0-20.003,16.218-36.219,36.221-36.219    c20.004,0,36.219,16.216,36.219,36.219c0,12.86-6.745,24.084-16.845,30.51L275.935,406.648z M331.84,203.578h-86.08h-86.075    h-0.005v-69.744c0-47.469,38.613-86.081,86.08-86.081c47.469,0,86.08,38.613,86.08,86.081V203.578z"></path>
+</g>
+</g></svg></span>
+            <p class="u-text u-text-2">Toate prețurile afișate pe acest site sunt fără TVA-ul legal.</p>
+          </div>
+        </div>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-left u-black u-container-align-left u-container-style u-custom-item u-list-item u-repeater-item u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Solo</h2>
+                <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-4">220 €</h5>
+                <p class="u-text u-text-default u-text-5">per utilizator pe lună, Europa de Vest. Europa de Est: 110 €.</p>
+                <div class="u-border-3 u-border-white u-expanded-width u-line u-line-horizontal u-line-1"></div>
+                <p class="u-text u-text-default u-text-6">Include:</p>
+                <ul class="u-custom-list u-text u-text-default u-text-7">
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-f6f9" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Sistem complet de gestiune</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-f6f9" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Asistent de dosar și proiecte de acte</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-f6f9" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Local și criptat</li>
+                </ul>
+                <a href="download_ro.html" class="u-border-none u-btn u-button-style u-white u-btn-1">Testați 30 de zile</a>
+              </div>
+            </div>
+            <div class="u-align-left u-container-align-left u-container-style u-list-item u-palette-2-base u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <h2 class="u-custom-font u-font-montserrat u-text u-text-default u-text-8">Team</h2>
+                <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-9">790 €</h5>
+                <p class="u-text u-text-default u-text-10">IRONSTICK SERVER pe lună, modul suplimentar cu până la 5 clienți incluși, Europa de Vest. Europa de Est: 518 €.</p>
+                <div class="u-border-3 u-border-white u-expanded-width u-line u-line-horizontal u-line-2"></div>
+                <p class="u-text u-text-default u-text-11">Include:</p>
+                <ul class="u-custom-list u-text u-text-default u-text-12">
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-df1e" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Partajați dosare, păstrați dosarul</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-df1e" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>În propria rețea, fără cloud</li>
+                  <li>
+                    <div class="u-list-icon u-text-white">
+                      <svg class="u-svg-content" viewBox="0 0 408.576 408.576" x="0px" y="0px" id="svg-df1e" style=""><g class="" style=""><g class="" style=""><path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288    S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6    c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344    c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" class="" style=""></path>
+</g>
+</g></svg>
+                    </div>Rulează pe un NAS Synology</li>
+                </ul>
+                <a href="pricing_ro.html" class="u-border-none u-btn u-button-style u-white u-btn-2">Toate prețurile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-8" id="block-10">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+                <div class="u-container-layout u-container-layout-1">
+                  <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-1">Contact</h5>
+                  <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-2" data-animation-name="customAnimationIn" data-animation-duration="2000">Tobias Werren</h3>
+                  <div class="lp-cc"><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.</p><p class="pref">Contactați direct prin WhatsApp sau Telegram — și un apel este binevenit. Limbi vorbite: germană, engleză, română.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-top u-container-layout-2">
+                  <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-6">Mesaj</h5>
+                  <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-7">Interesat de IRONSTICK sau de o demonstrație? Scrieți-ne.</h3>
+                  <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-white u-group-1">
+                    <div class="u-container-layout u-container-layout-3">
+                      <div class="u-form u-form-1">
+                        <form action="#" data-subject="Solicitare IRONSTICK de la" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
+                          <div class="u-form-group u-form-name">
+                            <label for="name-61fc" class="u-label">Nume</label>
+                            <input type="text" placeholder="Numele dumneavoastră" id="name-61fc" name="name" class="u-border-grey-10 u-input u-input-rectangle" required="">
+                          </div>
+                          <div class="u-form-group u-form-message">
+                            <label for="message-61fc" class="u-label">Mesaj</label>
+                            <textarea placeholder="Mesajul dumneavoastră" rows="4" cols="50" id="message-61fc" name="message" class="u-border-grey-10 u-input u-input-rectangle" required=""></textarea>
+                          </div>
+                          <div class="u-align-left u-form-group u-form-submit">
+                            <p class="lp-hint">Trimiterea deschide programul dumneavoastră de e-mail cu mesajul pregătit.</p><button type="submit" class="u-border-none u-btn u-btn-submit u-button-style u-palette-2-base u-btn-1">Trimiteți mesajul</button>
+                          </div>
+                          <div class="u-form-send-message u-form-send-success">Programul de e-mail se deschide. Vă rugăm să trimiteți mesajul de acolo.</div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-a73b"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">IRONSTICK este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică. © 2026 IRONSTICK.</p>
+      </div></footer>
 </body></html>
