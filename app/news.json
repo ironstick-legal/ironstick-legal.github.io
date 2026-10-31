@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "_doc": {
+    "where": "https://www.ironstick.legal/app/news.json — fetched by IRONSTICK after unlock, every 6 hours, and when the IRONSTICK browser start page opens (max. 3 s; offline: last good copy).",
+    "latest": "version / date / url (https) / text {lang}: the start page shows 'A new version of IRONSTICK is available' when the installed version is older. Information only — updates stay with the installer.",
+    "blocks": "List of building blocks. Unknown types and fields are ignored. Texts are plain text (no HTML), links https only.",
+    "types": {
+      "message": "Start page: title, text, optional link {url, label}.",
+      "image": "Start page: url (https, image/*, max. 2 MB), alt {lang}.",
+      "button": "Start page: url (https), label {lang}.",
+      "divider": "Start page: horizontal line.",
+      "notice": "App modal, shown ONCE per id: title, text, optional link.",
+      "warning": "App modal (red), shown at every start until the user clicks 'Acknowledged'; with persistent:true at every start until 'until'."
+    },
+    "fields": {
+      "id": "Unique, never reuse (notice/warning are remembered by id).",
+      "style": "info | warning | important (colour).",
+      "show": "\"start\", \"app\" or [\"start\",\"app\"]. Default: notice/warning → app, all others → start.",
+      "from / until": "YYYY-MM-DD, both inclusive, optional.",
+      "min_version / max_version": "e.g. 1.0.4 — only these installed versions see the block, optional.",
+      "lang": "Every text is an object {en, de, fr, it, es, ro, pt, nl, uk, ru, tr}; missing language → en → de."
+    }
+  },
+  "latest": {
+    "version": "1.0.5",
+    "date": "2026-10-31",
+    "url": "https://www.ironstick.legal/download.html",
+    "text": {
+      "en": "IRONSTICK 1.0.5 is the current version.",
+      "de": "IRONSTICK 1.0.5 ist die aktuelle Version.",
+      "fr": "IRONSTICK 1.0.5 est la version actuelle.",
+      "it": "IRONSTICK 1.0.5 è la versione attuale.",
+      "es": "IRONSTICK 1.0.5 es la versión actual.",
+      "ro": "IRONSTICK 1.0.5 este versiunea actuală.",
+      "pt": "O IRONSTICK 1.0.5 é a versão atual.",
+      "nl": "IRONSTICK 1.0.5 is de huidige versie.",
+      "uk": "IRONSTICK 1.0.5 — поточна версія.",
+      "ru": "IRONSTICK 1.0.5 — текущая версия.",
+      "tr": "IRONSTICK 1.0.5 güncel sürümdür."
+    }
+  },
+  "blocks": [
+    {
+      "id": "2026-10-welcome",
+      "type": "message",
+      "style": "info",
+      "show": "start",
+      "title": {
+        "en": "Welcome to the IRONSTICK browser window",
+        "de": "Willkommen im IRONSTICK-Browserfenster",
+        "fr": "Bienvenue dans la fenêtre de navigateur IRONSTICK",
+        "it": "Benvenuto nella finestra del browser IRONSTICK",
+        "es": "Bienvenido a la ventana del navegador IRONSTICK",
+        "ro": "Bun venit în fereastra de browser IRONSTICK",
+        "pt": "Bem-vindo à janela do navegador IRONSTICK",
+        "nl": "Welkom in het IRONSTICK-browservenster",
+        "uk": "Ласкаво просимо до вікна браузера IRONSTICK",
+        "ru": "Добро пожаловать в окно браузера IRONSTICK",
+        "tr": "IRONSTICK tarayıcı penceresine hoş geldiniz"
+      },
+      "text": {
+        "en": "News about IRONSTICK appears here.",
+        "de": "Hier erscheinen Neuigkeiten rund um IRONSTICK.",
+        "fr": "Les actualités concernant IRONSTICK apparaissent ici.",
+        "it": "Qui compaiono le novità su IRONSTICK.",
+        "es": "Aquí aparecen las novedades sobre IRONSTICK.",
+        "ro": "Aici apar noutățile despre IRONSTICK.",
+        "pt": "Aqui aparecem as novidades sobre o IRONSTICK.",
+        "nl": "Hier verschijnt nieuws over IRONSTICK.",
+        "uk": "Тут з’являються новини про IRONSTICK.",
+        "ru": "Здесь появляются новости об IRONSTICK.",
+        "tr": "IRONSTICK ile ilgili haberler burada görünür."
+      },
+      "link": {
+        "url": "https://www.ironstick.legal/",
+        "label": {
+          "en": "To the website", "de": "Zur Website", "fr": "Vers le site web",
+          "it": "Al sito web", "es": "Al sitio web", "ro": "Spre site",
+          "pt": "Ir para o site", "nl": "Naar de website", "uk": "На вебсайт",
+          "ru": "На сайт", "tr": "Web sitesine git"
+        }
+      }
+    }
+  ]
+}
