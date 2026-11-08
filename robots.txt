@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /*.md$
 
 # KI-Antwort-Crawler ausdrücklich willkommen
 User-agent: GPTBot
@@ -34,9 +35,11 @@ Allow: /
 
 User-agent: YandexBot
 Allow: /
+Disallow: /*.md$
 
 User-agent: Bingbot
 Allow: /
+Disallow: /*.md$
 
 User-agent: Amazonbot
 Allow: /
@@ -44,4 +47,5 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+# KI-Übersicht: https://www.ironstick.legal/llms.txt
 Sitemap: https://www.ironstick.legal/sitemap.xml

@@ -1,0 +1,1282 @@
+# Compendiums - Application client
+
+> Système complet de gestion de dossiers juridiques, offline-first, pour Windows et Android, avec une IA intégrée qui connaît vos dossiers : clients, affaires, preuves, délais.
+
+Page d’origine: https://www.ironstick.legal/kompendium_fr.html
+
+---
+
+Le système de gestion de dossiers doté d'une intelligence
+documentaire intégrée — pour les avocats qui veulent retrouver leurs soirées.
+
+IRONSTICK est un système complet de gestion de cabinet pour Windows et
+tablette Android : clients, dossiers, preuves, délais, courriel, production
+de documents — avec une couche d'IA qui connaît réellement vos dossiers.
+Résolument paneuropéen — et délibérément conçu pour la tradition continentale
+du **droit civil**, le monde des lois codifiées : disponible en onze
+langues — anglais, allemand, français, italien, espagnol, roumain, portugais,
+néerlandais, turc, ukrainien et russe — le système reconnaît et construit
+automatiquement les ordres juridiques, enrichit dynamiquement sa base de
+données juridique et la tient à jour, et s'adapte aux besoins et aux habitudes
+propres de son utilisateur. Priorité au hors-ligne, et vos données ne quittent
+jamais votre propre ordinateur sans votre accord.
+
+**Les heures deviennent des minutes**Projets d'écritures,
+synthèses de dossiers et dossiers complets sont générés à partir du dossier
+lui-même — votre travail passe de l'assemblage à la relecture.
+**Rien n'échappe**Chaque document, courriel, photo et
+parole prononcée est consultable — y compris les scans et les transcriptions
+d'appels téléphoniques. Les délais et les dossiers dormants remontent d'eux-mêmes.
+**Tout est à une question près**« Qu'avons-nous reçu de la
+partie adverse le mois dernier ? » — posez la question en langage courant,
+obtenez une réponse ancrée dans les documents réels, avec des sources cliquables.
+**Vous gardez le contrôle**Données locales, votre propre
+chemin de stockage, consentement avant tout appel à une IA externe,
+pseudonymisation, journaux d'audit — et une [déclaration écrite RGPD de chaque
+flux de données](https://www.ironstick.legal/gdpr_fr.html).
+
+### Ce dont les cabinets ont vraiment besoin — et ce que livre IRONSTICK
+
+| Besoin | Ce que livre IRONSTICK | En savoir plus |
+| --- | --- | --- |
+| **Gagner du temps, facturer des heures** | Projets de conclusions, synthèses de dossier et dossiers complets naissent du dossier lui-même — vous vérifiez au lieu de chercher. Testé : 3,000 pages d'écritures et d'annexes, tamponnées et paginées, en un seul PDF — en moins de 20 minutes. À la main, c'est un chantier d'une demi-journée à une journée entière. | [Chapitre 3](#ch3), [5](#ch5) |
+| **Aucun délai manqué** | La cloche de la barre de menu passe à l'orange quand une échéance approche et au rouge quand elle devient critique — visible en permanence. Les dossiers sans activité depuis 14 jours sont listés, pour que rien ne meure en silence. | [Chapitre 1](#ch1) |
+| **Secret professionnel et RGPD** | La base de données est chiffrée sur votre propre support ; l'éditeur du logiciel ne voit jamais les données des clients. Consentement avant chaque appel externe à l'IA, pseudonymisation, journal d'audit et déclaration RGPD des flux de données avec une clause type pour votre notice d'information clients. Via les Bridges d'IA de bureau, l'IA de votre propre compte travaille en direct sur le dossier. | [Chapitre 9](#ch9), [11](#ch11) |
+| **Confiance dans l'éditeur** | Votre cabinet ne dépend d'aucun centre de données tiers : le dossier se trouve sur votre propre matériel, et même une panne totale du serveur ou d'Internet n'arrête pas le cabinet. La licence est vérifiée hors ligne sur votre ordinateur, et tout ce que vous saisissez, vous l'exportez à tout moment. | [Chapitre 8](#ch8), [13](#ch13) |
+| **Des coûts prévisibles** | Licence modulaire : vous n'achetez que les composants que vous utilisez et complétez plus tard par clé de licence. L'IA fonctionne sur vos propres comptes (généralement €20–40 par mois chacun lorsqu'un abonnement est requis) au lieu de frais mensuels à trois chiffres par poste. Tous les tarifs sur la [page des tarifs](https://www.ironstick.legal/pricing_fr.html). | [Chapitre 9](#ch9) |
+| **Intégration aux processus existants** | Votre scanner ou copieur dépose dans un dossier, et IRONSTICK prend le relais. Votre boîte e-mail est relevée en arrière-plan et affectée aux dossiers. Les rendez-vous apparaissent dans le calendrier de n'importe quel téléphone ; la tablette Android travaille sur le même dossier. | [Chapitre 1](#ch1), [15](#ch15) |
+| **Mise en place légère** | Pas de migration « big bang » : les nouveaux dossiers vivent dans IRONSTICK dès le premier jour, et vous ne transférez les anciens que lorsque cela en vaut la peine. Avec l'OCR intégré, un document est saisi en quinze secondes en moyenne. Formation sur site, une journée par module. | — |
+| **Connaître l'adversaire, le juge et l'environnement** | OSINT en un clic sur chaque personne et chaque société, profils de juges avec l'évaluation de leurs décisions et une analyse des relations sur l'ensemble des dossiers — qui est lié à qui, et pourquoi. Les écritures peuvent être ajustées au juge qui les lira. Chaque décision de justice est évaluée une seule fois selon une grille fixe, et les évaluations de tout le cabinet nourrissent chaque écriture adressée à ce tribunal. | [Chapitre 4](#ch4) |
+
+### Pour qui IRONSTICK est conçu
+
+IRONSTICK est rentable partout où se rencontrent beaucoup de documents, beaucoup de parties et des délais stricts — et là où les données des clients ne doivent pas quitter le cabinet. Ce sont les cabinets qui perdent aujourd'hui des heures à chercher, saisir et compiler qui y gagnent le plus.
+
+- **Avocats exerçant seuls et petits cabinets.** Pas de service informatique, pas de budget pour des techniciens : IRONSTICK tourne sur un ordinateur Windows ordinaire, s'entretient lui-même et prend en charge le travail qui exigerait sinon une deuxième personne.
+- **Avocats plaidants aux dossiers volumineux.** Qui gère des milliers de pages de pièces interroge le dossier en langage naturel et obtient des réponses étayées, avec leurs sources. Les dossiers de plaidoirie se constituent en cinq étapes guidées, numérotés Bates et indexés.
+- **Avocats en droit des affaires, des procédures collectives et en droit pénal.** Ces procédures impliquent de nombreuses personnes, sociétés et imbrications. Le réseau des personnes et des sociétés sur l'ensemble des dossiers rend visibles des liens impossibles à suivre à la main — jusqu'aux profils OSINT de chaque personne et aux profils de juges avec l'évaluation de leurs décisions.
+
+![Encrypted end to end — AES-256](https://www.ironstick.legal/img/49_encryption.png)
+Partie I — La pratique au quotidien
+
+## 1. Votre matinée, en quatre-vingt-dix secondes
+
+Ouvrez IRONSTICK et la journée est déjà en ordre. L'écran d'accueil montre ce
+qui arrive à échéance et ce qui s'est tu ; l'**Agenda** fusionne tout ce qui
+s'est passé dans l'ensemble des mandats — les dépôts d'hier, les courriels de la
+nuit, les nouvelles dates d'audience, les photos, les transcriptions — en un
+seul fil chronologique. Vous voyez tout le cabinet sans ouvrir un seul dossier.
+Et au-delà : le **briefing quotidien** séparé vous donne un bref aperçu parlé
+de la journée — pendant que vous allez tranquillement vous chercher un café.
+
+![One system, every view](https://www.ironstick.legal/img/51_three_windows.png)
+
+Le menu principal : délais, dossiers dormants et chaque rubrique — d’un coup d’œil, avant d’ouvrir un seul dossier.
+
+- **Des délais à feu tricolore.** La cloche de la barre de menu passe à
+l'orange lorsqu'une échéance approche, au rouge lorsqu'elle est critique —
+visible en permanence, à un clic de la liste complète.
+- **Courriel déjà trié.** Le moniteur récupère votre boîte de réception en
+arrière-plan et affecte les courriels aux dossiers localement et sans aucune IA ;
+l'IA n'évalue plus que l'urgence. Le nouveau courrier s'annonce dans
+la barre de menu.
+- **Dossiers dormants et regains d'activité.** Les dossiers sans activité
+depuis 14 jours sont répertoriés pour que rien ne s'éteigne en silence ; les
+dossiers qui s'échauffent soudain — nouveau délai, audience imminente, courrier
+officiel — portent un marqueur 🔥 jusqu'à ce qu'ils se calment.
+
+## 2. Des synthèses de dossier instantanées — demandez, ne fouillez pas
+
+L'assistant de dossier répond aux questions sur vos dossiers comme le ferait
+un bon collaborateur — sauf qu'il a lu *tout*, et qu'il répond en quelques
+secondes :
+
+- “Résume l'état des lieux dans le 5678/000/2026.”
+- “Quelles lettres sont venues *de* la partie adverse, et avons-nous
+répondu à la dernière ?”
+- “Qui a dit quoi au sujet de la visite des lieux — y a-t-il des
+contradictions ?”
+- “Ai-je déjà versé cette pièce au tribunal ?”
+
+Chaque réponse est **ancrée dans des documents réels** — des résultats
+numérotés que vous pouvez ouvrir d'un mot (“ouvre 1”, “lis 1 à voix haute”). Les
+questions courantes sont traitées par une **couche locale sur votre propre
+machine**, sans qu'aucune donnée ne quitte l'appareil ; les analyses plus
+lourdes ne remontent vers une IA externe qu'avec votre consentement. L'assistant
+parle votre langue — les onze — et peut être piloté entièrement **à la voix**,
+mains libres, avec reconnaissance vocale hors-ligne et lecture à voix haute.
+
+L'assistant ne fait pas que lire : il vérifie. Les numéros
+d'identité personnels, IBAN, numéros de TVA (en direct via le système VIES de
+l'UE), EORI, LEI et inscriptions au registre du commerce sont contrôlés sur
+demande — avant qu'un numéro erroné ne se retrouve dans une écriture.
+![Every angle on one case](https://www.ironstick.legal/img/53_case_tabs_collage.png)
+## 3. Du dossier à un modèle prêt à déposer — en quelques minutes
+
+C'est le produit phare. Vous rédigez écritures et lettres **en dialogue avec
+l'IA** — dans le chat propre d'IRONSTICK (sur votre clé d'API) ou via le Bridge
+d'IA de bureau (Claude, ChatGPT, Qwen ou Kimi Desktop). **Rédiger un texte ›
+Avec l'aide de l'IA** dans un dossier ouvre le chat avec le dossier et le
+document déjà nommés ; à partir de là, l'IA travaille comme un collaborateur sur
+le dossier vivant : données maîtresses du client, la chronique du dossier avec
+les textes intégraux des documents, les délais, les pièces connexes, la liste des
+annexes, vos consignes de dossier — et même l'historique récent des dossiers
+*voisins* du client, car la réponse de la partie adverse se trouve souvent
+dans le dossier parallèle. Il pose des questions en retour lorsque quelque chose
+reste ouvert au lieu de faire entrer votre dossier dans des masques figés.
+
+- **Rechercher au lieu d'affirmer.** Pendant la rédaction, l'IA fouille
+activement le dossier. Elle n'a pas le droit d'affirmer “aucune réponse n'a été
+reçue” tant qu'une recherche ne l'a pas prouvé.
+- **Vérification avant remise.** Un analyseur déterministe contrôle le
+projet achevé par rapport au dossier vivant : chaque référence de preuve, chaque
+partie, institution et numéro de dossier, chaque citation de loi par rapport à
+la bibliothèque juridique vérifiée. Les contradictions bloquent la remise ; les
+tampons internes du dossier ne filtrent jamais dans le document.
+- **Red/Blue Team, intégrée.** Sur demande, un second modèle lit le projet
+comme le conseil adverse avant la remise : des constats substantiels le renvoient
+en retravail, jusqu'à deux tours — et chaque point est analysé au fond, jamais
+repris aveuglément.
+- **Une chaîne de contrôle impossible à raccourcir.** Avant le début du long contrôle, l'IA vous montre un résumé du projet : vous pouvez encore le corriger. Elle le relit ensuite en entier, le confronte à vos propres écritures antérieures et, pour une réplique, démontre passage par passage qu'il est répondu à chaque affirmation de la partie adverse. Elle attaque ensuite l'acte comme le ferait la partie adverse, l'évalue et le corrige ; les renvois internes et les indications de temps sont également vérifiés. IRONSTICK valide chaque étape, et toute modification ultérieure relance la chaîne depuis le début.
+- **Un modèle prêt à déposer — jamais un acte fini.** Le résultat arrive
+via le dialogue d'export d'IRONSTICK et atterrit dans le traitement de texte
+intégré d'un seul clic : pagination A4, votre en-tête (première page ou chaque
+page), contrôle des sauts de page, placement de la signature, liste des annexes
+reprise automatiquement — impression, PDF, DOCX ou Markdown. Vous relisez,
+corrigez et signez ; la responsabilité de ce qui est déposé reste la vôtre.
+
+Des heures d'étude du dossier et de rédaction deviennent des
+minutes de relecture — vous lisez, affinez, signez.
+
+## 4. Gain de détail — un dossier qui se souvient de tout
+
+Le cœur d'IRONSTICK, c'est l'intelligence des preuves. Tout ce que vous
+saisissez — PDF scannés, courriels avec pièces jointes, historiques WhatsApp,
+photos, enregistrements audio — devient un texte intégral consultable. L'OCR
+est intégré (anglais, allemand, français, italien, espagnol, roumain, portugais,
+néerlandais, turc, ukrainien et russe — rien à installer) et la recherche est
+délibérément tolérante : signes diacritiques, erreurs de scan typiques et noms
+partiels trouvent tout de même leur cible.
+
+- **Annexes et dépôts, prouvés par le papier lui-même.** Lorsqu'un document
+est saisi, IRONSTICK lit quelles de vos pièces il contient physiquement et quels
+numéros de rôle il porte. La chronique montre alors, sur chaque pièce :
+*versée au tribunal le … dans le dossier …* — et sur chaque lettre sortante,
+sa liste complète d'annexes. “L'ai-je déjà versée ?” obtient une réponse en un
+clic.
+- **Chaînes de numéros de courrier.** Chaque numéro de rôle relie tous les
+documents d'une même procédure en une chaîne chronologique — l'historique
+documenté de qui a écrit quoi, quand, et si cela a jamais reçu une réponse.
+- **Des médias qui ont de la substance.** Les photos conservent leur lieu
+de prise (un clic vers la vue satellite), les enregistrements téléphoniques
+deviennent des transcriptions avec identification des locuteurs — tout est
+consultable, tout est une preuve citable.
+- **Conscience transversale des dossiers.** Contrôle des conflits d'intérêts
+à l'ouverture, avertissements lorsque la même partie adverse apparaît dans
+plusieurs mandats, un graphe des relations de toutes les parties, et un radar de
+pertinence qui trouve des éléments connexes que vous n'auriez pas songé à
+chercher.
+
+**Les enregistrements deviennent du texte — automatiquement, sur votre propre ordinateur.**
+Appels téléphoniques, enregistrements d'audience, messages vocaux, vidéos : IRONSTICK
+accepte tous les formats audio et vidéo courants (Windows). Vous découpez la partie
+pertinente, choisissez la langue, le nombre d'interlocuteurs et le niveau de qualité
+(rapide, moyen, élevé) et voyez le temps de calcul prévu avant de lancer. La
+reconnaissance vocale fonctionne entièrement hors ligne sur votre ordinateur. L'IA
+attribue ensuite les phrases aux interlocuteurs — avec votre consentement et de façon
+pseudonymisée ; elle ne peut modifier aucun mot, chaque ligne est contrôlée par rapport
+au texte reconnu. Ce que la reconnaissance n'a pas compris avec certitude est signalé
+au lieu d'être deviné. Le résultat s'ouvre dans l'éditeur et devient, après votre
+relecture, une preuve citable.
+
+**Le réseau se construit tout seul.** Une IA de bureau connectée via le Bridge lit le
+dossier, recherche les parties sur internet et enregistre chaque personne,
+société, institution et lien qu'elle trouve sous forme de proposition à approuver
+en un clic ; un lieur automatique en arrière-plan rattache chaque partie à
+chaque dossier dont les documents la nomment ; et l'**Univers** transforme
+tout l'inventaire en un réseau 3D à survoler, avec des grappes détectées
+automatiquement — les groupes denses et étroitement entrelacés pulsent en rouge.
+En quelques heures, vous disposez d'un réseau de personnes et de sociétés
+extrêmement condensé sur l'ensemble de votre jeu de données — impossible à la
+main — et la visualisation pointe droit sur la grappe.
+
+**Ce que cela donne en pratique — deux jours, mesurés.** Sur deux jours
+ouvrés en septembre 2026, une seule IA de bureau connectée via le Bridge a lu les dossiers
+d'une procédure multipartite, recherché les parties sur internet et enregistré
+ce qu'elle avait trouvé ; l'avocat n'a fait que lire et cliquer. Le résultat,
+compté ensuite dans la base de données : **293 personnes et sociétés, 11
+institutions, 811 relations et 733 liens partie-dossier** — 2,487 décisions de
+validation au total, 97 pour cent acceptées, 3 pour cent rejetées à la
+porte. À la main — sources lues, chaque personne identifiée, chaque lien vérifié,
+chaque enregistrement saisi — cela représente environ 310 heures de travail :
+huit semaines à plein temps pour une personne, ou un semestre en parallèle de
+mandats en cours. Et les heures ne sont même pas l'essentiel. Personne ne retient
+300 noms, 800 liens et une douzaine de listes d'amis dans sa tête ; les grappes
+qui rougeoient en cramoisi dans l'Univers sont invisibles dans l'armoire à
+dossiers. Les 3 pour cent sont la raison d'être de la porte de validation :
+chacun aurait été un enregistrement erroné s'il avait été écrit d'un trait.
+
+**Et la même machine dessine le réseau de dossiers d'un client :** les
+dossiers en hexagones, regroupés par vos propres affaires, reliés là où ils
+partagent des parties, se citent mutuellement comme pièce ou nomment le numéro de
+dossier de l'autre — avec quatre outils d'IA qui lisent exactement cette image.
+
+![Serveur MCP, application client et le réseau de dossiers d'un client](https://www.ironstick.legal/img/60_mcp_network.png)
+### L'OSINT en un clic — recherche intégrée sur les personnes et les sociétés
+
+L'OSINT (open-source intelligence) — l'exploitation systématique de sources
+librement accessibles — est une pratique courante dans les autorités d'enquête et
+les cabinets d'affaires, mais c'est un travail manuel : chacun recherche
+différemment, et chacun oublie quelque chose de différent. IRONSTICK en fait une
+procédure fixe. L'IA transmet le nom, la ville, l'arrondissement, le pays et s'il
+s'agit d'une personne physique ou morale — l'application fait le reste elle-même,
+de la même façon à chaque fois, sans lacune :
+
+- **Vos propres dossiers d'abord.** Une recherche plein texte déterministe
+du nom dans tout l'inventaire, tous clients confondus : par dossier, les dix
+résultats les plus récents avec la position du paragraphe et du caractère — et
+une indication du nombre restant.
+- **Les documents de recherche propres au dossier**, comme les extraits du registre du commerce, les extraits cadastraux, etc. : il suffit de les classer dans le dossier et d'indiquer au LLM de les prendre également en compte.
+- **Puis internet, selon une grille fixe.** CV, Facebook, LinkedIn,
+Instagram, ville, arrondissement, scandales, articles de presse, déclarations de
+patrimoine et d'intérêts, impôts, participations dans des sociétés — pour les
+sociétés, le registre du commerce et les procédures d'insolvabilité. Les termes
+de recherche sont automatiquement dans la langue du pays de la cible : pour la
+Roumanie “declarație de avere”, et non “declaration of
+assets”. Tout cela se fait en arrière-plan, via l'application client, de façon entièrement automatisée : le LLM reçoit un profil OSINT complet à traiter. C'est nettement plus précis et bien moins coûteux.
+- **Trois moteurs de recherche à la fois.** Google, DuckDuckGo et Qwant
+parcourent la grille en parallèle ; les résultats arrivent en une seule liste
+nettoyée, sans doublons. Si un moteur bloque, les autres continuent de fournir.
+- **Un profil préparé — pas un verdict.** L'IA reçoit les deux listes ainsi
+que les termes de recherche déjà couverts, ouvre chaque résultat et chaque lien
+un par un, écarte les homonymes et ne dépose comme proposition dans le moniteur
+de données que ce qui est étayé. Ce qui est retenu, c'est ce que vous validez.
+
+Le résultat en une à deux minutes : un profil de recherche qui coûterait une
+demi-journée à un collaborateur — et qui est tout aussi complet pour la
+trois-centième personne que pour la première. Seules des sources accessibles au
+public sont exploitées.
+
+### Voilà ce que personne d'autre n'a
+
+Nous ne connaissons aucun autre produit qui tienne une véritable **base de
+données de relations** entre personnes, sociétés et institutions au niveau de
+la personne individuelle, la décline jusqu'au dossier unique et à la pièce
+unique, la dessine proprement pour l'avocat et présente la même image à l'IA sous
+forme de texte — avec une **analyse de personne** de 24 champs par personne,
+qui ne peut être modifiée que sur preuve.
+
+Les logiciels de cabinet classiques conservent les parties comme un carnet d'adresses avec un rôle dans le dossier : aucun graphe entre elles, aucune analyse de personne, aucune grappe, et leurs assistants d'IA lisent des documents, pas le réseau. Les assistants juridiques d'IA du marché planent au-dessus du dossier dans le cloud du fournisseur, avec un modèle que vous ne pouvez pas choisir. Les grandes plateformes d'investigation ont le graphe et les profils, mais en tant qu'outils pour autorités et entreprises assortis d'un projet de conseil, sans dossier au sens de l'avocat et sans IA interchangeable qui les lise. Un cabinet menant des procédures pénales et civiles avec des dizaines de parties et des dossiers imbriqués tombe entre ces marchés. C'est exactement là que se place IRONSTICK.
+
+### Juges et acteurs — qui avec qui, et pourquoi
+
+Ce savoir ne vaut pas seulement pour un dossier. Il englobe chaque partie, chaque relation et chaque rôle qu'une personne a jamais joué dans l'un de vos dossiers, à travers les dossiers et à travers les clients — qui siège à quel conseil, qui signe pour qui, qui a comparu dans quelle procédure comme témoin, adversaire ou titulaire d'une fonction. Il croît de lui-même, chaque jour, pendant que l'avocat et l'IA travaillent les dossiers, et apparaît comme un sous-produit du travail quotidien de dossier.
+
+- **Analyse des relations — qui avec qui, et pourquoi.** Chaque lien entre personnes, sociétés et institutions est enregistré avec la preuve qui le fonde ; les réseaux denses sont automatiquement détectés comme grappes. Vous voyez non seulement que deux parties sont liées, mais par quoi.
+- **Profils de juges.** Chaque décision de vos dossiers est attribuée au juge ou au procureur qui l'a rendue — d'après l'en-tête et le bloc de signature, non par supposition. S'y ajoute la recherche OSINT sur la personne : parcours, déclarations publiques, liens avec des parties et des cabinets.
+- **Évaluation des décisions par juge — faite une fois, disponible durablement.** Comment décide un juge donné, à quoi réagit-il, que reprend-il des écritures et que laisse-t-il de côté ? Chaque décision de justice est reconnue lors de la saisie — à côté d'entrant/sortant figure une case « décision de justice » que vous pouvez modifier à tout moment — et rejoint une liste d'évaluation ; le fonds existant est lui aussi parcouru automatiquement. L'IA traite la liste décision par décision : elle lit la décision et les écritures des deux parties qui l'ont précédée, IRONSTICK mesure quelle part de la motivation provient de quelle écriture, et l'IA répond à une grille fixe — arguments, droit, preuves, fondement de la décision, style, résultat et une brève caractérisation de la formation de jugement. Rien n'est enregistré sans votre ordre, avec un lien vers le tribunal, les juges et les greffiers ; si l'une de ces personnes manque dans les données de base, elle est d'abord recherchée par OSINT puis créée. Une décision ne change jamais — elle est évaluée une fois et le reste.
+- **Des écritures ajustées au juge.** Une écriture peut être ajustée au juge individuel ou à la formation qui la lira — composition, décisions et positions antérieures, liens avec les parties et, le cas échéant, motifs de récusation — parce que vous savez ce qui se joue en arrière-plan et qui est avec qui. Avant chaque écriture adressée à un tribunal, l'IA lit les évaluations réunies de ce tribunal et de chaque juge de la formation. S'il reste des décisions non évaluées, IRONSTICK demande avant la sortie si vous souhaitez les évaluer maintenant — pour que le résultat soit encore pris en compte — ou plus tard ; et au premier démarrage de la journée, l'IA vous le rappelle d'elle-même.
+- **Rendre la coopération visible.** Deux écritures quelconques, même issues de procédures et de mandats différents, peuvent être confrontées mot pour mot : des blocs de texte identiques montrent quels avocats travaillent ensemble.
+
+Au tribunal, c'est la différence entre présenter une affaire et connaître le terrain : chaque document peut être aligné sur la toile réelle qui entoure le dossier — qui est lié à qui, qui est redevable à qui, qui a auparavant siégé de quel côté — parce que l'avocat sait toujours où se trouve chaque chose. Sous cette forme concentrée, ce savoir n'existe nulle part ailleurs ; à la main, il est tout simplement impossible à constituer.
+
+![The whole network, every way](https://www.ironstick.legal/img/57_persons_maps.png)
+
+L’Univers après deux jours de saisie automatique : chaque partie du jeu de données comme un nœud, pondéré par ses liens, regroupé en grappes — les plus denses et étroitement entrelacées pulsent en cramoisi. Pas un seul nom n’a été saisi à la main.
+
+**Une feuille au lieu de mille lignes.** Le réseau de relations d’une personne ou
+d’une affaire et la chronologie de ses documents sont disponibles sous forme de graphique
+d’une simple pression sur un bouton : le réseau montre les cinquante nœuds les plus urgents,
+pondérés selon les délais, l’activité récente et les liens ; la chronologie classe dans le
+temps les courriers entrants et sortants, les annexes juste à côté de chaque courrier.
+Chaque numéro est cliquable et mène à la pièce, à la personne ou à l’institution. Un clic sur **Saisir** mène le graphique à la saisie des documents, où vous l’affectez et où il reçoit son tampon à l’enregistrement ; à partir du
+réseau de l’affaire, vous pouvez aussi créer un **Wallpaper** : une feuille blanche A4
+paysage pour le mur, qui est seulement téléchargée et n’entre jamais au dossier.
+
+L’IA de bureau connectée par le Bridge dessine elle aussi dans le même style :
+processus, voies de procédure, chronologies, réseaux. Elle discute du graphique avec vous
+et affiche l’aperçu dans IRONSTICK ; le dessin et le contrôle des erreurs avant
+l’affichage sont déterministes, sans IA. Sur la tablette, les graphiques sont en simple
+consultation.
+
+## 5. Un système documentaire conçu pour le tribunal
+
+IRONSTICK est aussi une GED complète — qui pense en pièces, tampons et
+numéros de page plutôt qu'en dossiers :
+
+- **Saisie avec préremplissage par l'IA.** Déposez un PDF scanné dans la
+boîte de réception : l'OCR s'exécute, l'IA propose le titre, le type, les
+parties, l'affectation au dossier, la date et le délai, et IRONSTICK
+identifie en outre lui-même le dossier concerné — vous confirmez au lieu
+de saisir. Chaque fichier saisi reçoit une **empreinte d'intégrité**
+cryptographique, de sorte qu'une manipulation ultérieure est prouvable.
+- **Tamponnage & pagination.** Fusion, numérotation Bates, tampons de
+dossier, nettoyage des métadonnées — chaque PDF produit porte une couche de
+texte consultable, de sorte que le document fini peut être recherché et cité sans
+jamais relancer l'OCR.
+- **L'assistant de dossier.** Un parcours guidé en cinq étapes, de la
+chronique à un dossier prêt à déposer : choix des entrées, page de garde et ordre
+juridique, aperçu avec vignettes de pages, puis un PDF fini avec table des
+matières et numéros Bates — plus un **ZIP de preuves EDRM** pour la remise en
+eDiscovery.
+- **Un caviardage qui tient.** Interrupteurs par catégorie (clients, noms,
+lieux, montants, numéros d'identité, IBAN …), un chercheur local qui marque les
+candidats, un marquage manuel sur la page — et à l'export, les caviardages sont
+**gravés de façon irréversible**, avec une couche de texte consultable et
+propre par-dessus.
+- **Envoi par courriel des fichiers surdimensionnés.** Un PDF volumineux
+est découpé sans perte en parties à la taille de la boîte du tribunal, chacune
+assortie d'un courriel de transmission tout prêt dans la langue du document —
+copier, joindre, envoyer.
+
+### Dépôts de grande ampleur — 3,000 pages, tamponnées et paginées, en moins de 20 minutes
+
+En procédure civile et dans le contentieux de grande ampleur, cela vise droit
+les plus grandes douleurs des avocats et de leur personnel — le temps, le taux
+d'erreur et le travail manuel :
+
+- **Un gain de temps massif.** Ce qui représente normalement un projet
+d'une demi-journée à une journée entière pour un juriste assistant ou l'avocat
+lui-même — assembler et fusionner des PDF à la main, vérifier les pages,
+tamponner chaque page manuellement (numérotation Bates) — s'exécute ici
+entièrement en automatique en une vingtaine de minutes.
+- **Absence d'erreurs & cohérence.** Au-delà de 2,000 pages, le travail
+manuel produit vite des fautes : tampons décalés, numéros de page erronés sur les
+annexes, liens manquants, règles de mise en forme oubliées. Une chaîne
+automatisée garantit une mise en page absolument propre et uniforme.
+- **Aucun plantage du système.** Les logiciels bureautiques courants et les
+lecteurs PDF ordinaires plient le genou devant un paquet de 700 MB à 3,000 pages dès que l'on tente de le parcourir couramment ou de le repaginer.
+- **Un avantage concurrentiel par la vitesse.** Sous une énorme pression de
+délai — juste avant l'expiration d'un délai de demande ou de réponse — une telle
+solution pose sur la table des écritures massives, preuves comprises, sous forme
+de modèle prêt à déposer en un temps record.
+
+![Un dossier se constitue — du début à la fin](https://www.ironstick.legal/img/54_dossier_flow.png)
+**Testé.** 3,000 pages d'écritures, annexes mêlant texte et
+image, tamponnées et paginées, produisant un seul PDF de 700 MB — en moins
+de 20 minutes.
+Partie II — L'IA en pleine profondeur
+
+## 6. Votre IA de bureau, branchée directement sur votre dossier
+
+![Le petit ami de l’avocat : l’assistant d’IA qui l’aide à accomplir son travail bien plus efficacement.](https://www.ironstick.legal/img/cutout_assistant.jpg)
+
+Le petit ami de l’avocat : l’assistant d’IA qui l’aide à accomplir son travail bien plus efficacement.
+
+Pour le travail analytique en profondeur, IRONSTICK offre ce qu'aucun dossier
+d'export ne peut : un **Bridge en direct** entre votre propre IA de bureau —
+**Claude Desktop, ChatGPT Desktop, Qwen Desktop et/ou Kimi Desktop**, chacun
+un module sous licence séparée — et l'application en cours d'exécution. L'IA lit
+l'état actuel du dossier via plus de **209 outils sur mesure** — chroniques, textes
+intégraux, courriels, délais, données maîtresses — et travaille en pleine
+profondeur :
+
+- “Lis tout le dossier et dis-moi où notre position est la plus faible.”
+- “Rédige l'appel dans notre format d'écriture et transmets-le au traitement
+de texte.” — le projet apparaît dans IRONSTICK, prêt pour l'impression sur
+en-tête.
+- “Compare les trois expertises et construis-moi un tableau des contradictions.”
+
+**Conçu pour les gros dossiers — pourquoi un Bridge en direct l'emporte sur
+tout export de fichiers.** Les modules Bridge souscriptibles existent dans un
+seul but : **travailler sur de grands ensembles de données qui exigent une
+analyse au détail le plus fin**. Ils sont largement pilotables par vous —
+interrupteurs, portes de consentement, licence par IA — mais chaque dialogue et
+chaque évaluation reposent sur l'**intégralité de l'ensemble de données
+IRONSTICK** comme fondement. Cette densité de détail n'est tout simplement pas
+atteignable par un flux de fichiers conventionnel (exporter des fichiers Markdown
+dans un chat d'IA) : même les plus grandes fenêtres de contexte d'IA ne
+contiennent que quelques mégaoctets de texte à la fois —
+
+| Modèle / plateforme | Fenêtre de contexte (tokens) | ≈ capacité de texte |
+| --- | --- | --- |
+| Claude (Opus / Sonnet) | 1,000,000 | ~2,500 KB (2.5 MB) |
+| ChatGPT (application, Plus) | 256,000 | ~1,000 KB |
+| ChatGPT (application, Pro) | 400,000 | ~1,600 KB |
+| ChatGPT (API max) | 1,050,000 | ~4,000 KB (4 MB) |
+
+— alors qu'un dossier constitué au fil du temps représente bien davantage. Le
+Bridge contourne ce plafond : au lieu d'entasser des fichiers dans la fenêtre, on
+remet à l'IA **plus de 200 outils dédiés assortis d'instructions strictes sur leur
+usage**, et elle va chercher précisément les passages, documents, courriels et
+délais dont elle a besoin, exactement quand elle en a besoin — directement depuis
+le système vivant, sur l'ensemble du pool. La fenêtre de contexte porte alors
+l'analyse, non le lest.
+
+**Et lorsque la tâche est vraiment “tout lire” :** en un seul appel, l'IA
+prépare l'**intégralité du dossier** — non tronqué, normalisé par OCR — dans
+une zone de travail locale, puis le lit morceau par morceau, sans jamais faire
+passer tout le dossier par la fenêtre. Un dossier de 400 documents devient
+entièrement lisible ; les plafonds de troncature protègent le chat, jamais la
+copie préparée. Cette même zone donne à l'IA un **démarrage de session en un
+appel** — date, langue, votre écran actuel, le briefing quotidien, les délais
+et les tâches ouvertes en un seul protocole — et un **garde-fraîcheur** annule
+tout extrait préparé dès que le dossier sous-jacent change : l'IA ne peut jamais
+raisonner sur les données de la veille.
+
+**Le navigateur IRONSTICK — vous voyez ce que lit l'IA (Windows).** IRONSTICK ouvre les pages web et les documents de votre dossier dans sa propre fenêtre de navigateur à cadre rouge, pour que vous la distinguiez toujours de votre navigateur personnel. Sur votre instruction, l'IA lit ce qui y est ouvert — non en pilotant la fenêtre à distance, mais sous forme de texte nettoyé ; pour un document du dossier, elle sait exactement duquel il s'agit.
+
+### Pourquoi un LLM brut seul échoue sur les gros dossiers — et pourquoi IRONSTICK renverse la donne
+
+Un modèle de langage seul est tout simplement dépassé par un dossier
+constitué au fil du temps — et une fenêtre de contexte plus grande (1 ou 2
+millions de tokens) n'y change rien. C'est le malentendu fondamental de la vague
+d'IA actuelle :
+
+- **Le phénomène du “lost in the middle”.** Donnez à un modèle des
+centaines de pages brutes d'un coup et son taux de réussite sur les détails
+s'effondre : des faits situés au milieu du dossier sont “oubliés” — ou
+hallucinés.
+- **L'effet d'étouffement du contexte.** Un seul retour d'outil déversant
+50,000 caractères de texte intégral dans le chat engorge la conversation : le
+modèle perd ses repères, le contexte déborde, tout devient lent et coûteux.
+- **Pas de mémoire, pas de structure.** Un LLM nu ne connaît rien des
+délais, des numéros de dossier, des parties, des tampons Bates ou de la
+chronologie de la procédure. Il voit une seule longue chaîne de caractères.
+
+IRONSTICK ne fait pas du LLM une bête de somme portant des montagnes de
+papier — il en fait un chirurgien de précision :
+
+1. **La structure d'abord.** Avant que l'IA ne voie un seul mot, IRONSTICK a
+déjà structuré le dossier : documents classés, dates indexées, OCR réparé,
+annexes reliées.
+2. **Découplage par les outils & le brouillon.** Via plus de 200 outils
+spécialisés, l'IA va chercher précisément ce dont la question a besoin — et
+lorsqu'une valeur de retour est malgré tout énorme, une limite stricte détourne
+automatiquement tout ce qui dépasse la limite du connecteur vers le coffre de
+brouillon local — chiffré en AES-256 sur le disque, lisible uniquement via la
+porte d'IRONSTICK. Le chat reste parfaitement propre.
+3. **Persistance & récursivité.** Grâce à la mémoire d'IA partagée et
+aux protocoles quotidiens automatiques, aucun résultat d'analyse n'est jamais
+perdu : l'IA bâtit un savoir sur des semaines au lieu de repartir de zéro à
+chaque prompt.
+
+**En un mot :** un LLM brut sans système, c'est un juriste brillant à qui
+l'on remet 5,000 feuilles éparses, non triées, en lui demandant de trouver la
+ligne décisive en cinq secondes. IRONSTICK est l'infrastructure qui transforme
+ce juriste en un cabinet de haute performance qui fonctionne.
+
+La configuration se fait par un bouton par IA ; un plugin de compétence
+enseigne à l'IA vos formats de sortie contraignants. Ce que l'IA apprend d'un
+mandat est conservé dans une **mémoire d'IA partagée** — compacte, rattachée
+au client, visible et effaçable par vous seul. Et vous voyez toujours ce qui se
+passe : chaque fois qu'une IA lit votre dossier, son symbole s'allume dans la
+barre de menu.
+
+**Sites web avec contrôle d'accès.** Lorsqu'un site web exige une
+confirmation avant de libérer son contenu, IRONSTICK ouvre la
+page dans une fenêtre dédiée : vous y confirmez, et le travail sur la
+page se poursuit sans interruption.
+
+Le premier accès à chaque exécution du programme requiert votre
+consentement explicite ; les documents marqués secrets sont invisibles sur ce
+canal ; les suggestions de l'IA n'écrivent jamais dans vos enregistrements —
+elles attendent votre validation dans le Moniteur de cohérence des données. Les
+entrées de chronique arrivent sous forme de formulaire de saisie prérempli —
+vous ajoutez des photos si vous le souhaitez et l'enregistrez vous-même.
+**Les Bridges fonctionnent en parallèle.** Si plusieurs
+modules sont sous licence, Claude, ChatGPT, Qwen et Kimi peuvent être connectés
+en même temps et même travailler simultanément sur le même dossier — partageant
+le même état du dossier, la même mémoire d'IA et les mêmes portes de validation,
+tandis que la barre de menu affiche un logo pulsant par IA active, de sorte que
+chaque accès est attribué à l'IA qui l'a effectué.
+### Plusieurs esprits, un seul dossier — un conseil consultatif intégré
+
+C'est là que cela devient plus qu'un chatbot. Comme les Bridges peuvent
+fonctionner en même temps, vous mettez des **IA indépendantes sur le même
+dossier** et les laissez contrôler mutuellement leur travail — avec IRONSTICK
+au centre comme base de données partagée et coordinateur. Le point décisif :
+Claude, ChatGPT, Qwen et Kimi sont des **modèles différents entraînés
+différemment**, si bien que vous obtenez des **avis et des approches
+réellement différents** — un véritable deuxième avis, et non un modèle qui
+opine devant lui-même. Ce sont aujourd'hui **parmi les modèles d'IA les plus
+puissants du monde** ; IRONSTICK les met, côte à côte, sur votre dossier.
+
+![Plusieurs IA indépendantes sur le même dossier — un conseil consultatif qui contrôle mutuellement son travail.](https://www.ironstick.legal/img/cutout_advisory_board.jpg)
+
+Plusieurs IA indépendantes sur le même dossier — un conseil consultatif qui contrôle mutuellement son travail.
+
+Vous les dirigez en langage courant, comme un associé pilotant deux
+collaborateurs : *„élabore ceci… maintenant donne-le à l'autre pour contrôle…
+rapporte-moi son appréciation… révise."* Le projet, la théorie ou l'écriture
+est transmis via IRONSTICK, la seconde IA le relit d'un œil critique — chargée de
+trouver faiblesses, contre-arguments et erreurs, non de louer — et son
+appréciation vous revient. Toutes deux s'appuient sur les **données de dossier
+identiques**, et tout l'échange est journalisé (proprement, à des fins
+probatoires).
+
+Cette équipe à deux têtes, conseil/forensique, est idéale pour :
+
+- **Développer des théories du dossier** — l'une en construit une, l'autre la met à l'épreuve.
+- **Reconnaître des schémas dans le dossier** — deux modèles saisissent ce qu'un seul manque.
+- **Élaborer tactique et stratégie** — proposition et contre-proposition.
+- **Rédiger et durcir les écritures** — écrire, relire, réfuter, affiner.
+- **Recouper vos lignes de raisonnement générales** — avant que la partie adverse ne le fasse.
+
+### Un dossier qui se répare lui-même — vous comme instrument de précision
+
+Les anciennes erreurs de saisie et les scans ratés cessent d'être définitifs.
+Lorsque l'IA tombe sur un texte intégral stocké qui est tronqué ou ruiné par un
+mauvais passage d'OCR, elle ne le contourne pas en silence — elle **répare
+l'enregistrement** : elle demande un nouveau scan, exact à la page près, du PDF
+d'origine (vous choisissez les pages dans le sélecteur de pages habituel),
+compare le nouveau scan au texte stocké passage par passage, ne répare que les
+dommages mécaniques du scan — sans jamais reformuler ; les chiffres, les noms et
+les montants restent intacts — et rend le texte intégral réparé. Vous le voyez
+en entier, et **seul votre clic l'enregistre**. L'archive devient plus propre
+à chaque semaine où vous y travaillez.
+
+Là où même un nouveau scan se heurte à des limites physiques, l'IA fait de
+**vous** son outil de précision — **Human-in-the-Loop Micro-Sourcing** :
+au lieu d'un inutile “le fichier n'a pas pu être traité”, elle ouvre l'entrée,
+désigne l'endroit exact (“page 12, vers le haut”) et vous demande de recopier
+précisément les trois mots illisibles — ou, dans des limites strictes
+(10 MB, 90 pages), de lui remettre le PDF d'origine via le trombone pour
+qu'elle puisse lire le scan avec sa propre vision. Vous ne passez jamais au
+peigne fin un dossier de 200 pages ; on vous appelle pour exactement les
+0.1 % qu'une machine ne peut résoudre avec certitude. Les systèmes
+traditionnels connaissent deux états — “succès” (aussi faux soit-il) et “erreur,
+veuillez traiter manuellement” ; ceci est une symbiose entre la vitesse de l'IA
+et l'œil humain qui, sous cette forme, n'existe nulle part ailleurs sur le
+marché.
+
+Partie III — Souveraineté : pourquoi pas de cloud
+
+## 7. Le pare-feu anti-hallucinations — unique, à notre connaissance
+
+La seule crainte justifiée à propos de l'IA dans le travail juridique : les
+modèles inventent des citations, déforment des chiffres et prétendent avoir lu
+des dossiers qu'ils ont seulement survolés. Le secteur répond par des prompts
+et des avertissements — IRONSTICK répond par l'architecture. Votre IA de bureau
+travaille sur votre dossier via plus de **209 outils sur mesure**, et tout chemin
+vers un document sortant passe par des portes déterministes : de la logique
+pure, aucune IA qui contrôle une IA.
+
+![Regarder l'IA travailler — en direct](https://www.ironstick.legal/img/50_two_windows.png)
+- **Preuve de lecture.** Le système consigne, ligne par ligne, ce que l'IA
+a réellement lu de votre dossier. Les plages non lues lui sont opposées dans
+chaque réponse — et la remise reste bloquée tant que des lacunes subsistent.
+“J'ai tout lu” cesse d'être une affirmation et devient une mesure.
+- **Provenance des citations.** Chaque référence de preuve doit renvoyer à
+un enregistrement réel que l'IA a manifestement récupéré et lu intégralement au
+cours de cette session de travail — citer à partir d'extraits de recherche ou
+de mémoire échoue à la vérification.
+- **Les textes de loi uniquement depuis une bibliothèque vérifiée.** Les
+articles cités sont contrôlés par rapport à la lettre de la loi stockée dans
+votre propre bibliothèque vérifiée ; de nouvelles sources n'y entrent que via
+votre dialogue de consentement. Un numéro d'article inventé bloque la remise.
+- **Tolérance zéro pour les chiffres et les noms.** Les montants doivent
+correspondre à l'enregistrement à la virgule près, les noms des parties au
+signe diacritique près ; les identifiants personnels et bancaires passent par
+des validateurs de somme de contrôle — un CNP ou un IBAN impossible ne peut
+jamais parvenir à un tribunal.
+- **Remise uniquement contre attestation.** Une écriture formelle est
+refusée tant qu'une vérification fraîche de cet état exact du dossier n'est pas
+revenue au vert — chaque modification annule l'attestation, et cinq tours en
+échec interrompent la boucle et vous en avertissent. Chaque document remis
+porte son tampon de vérification.
+- **Aucune modification silencieuse après la remise.** Une correction apportée
+à un document remis n'y est jamais intégrée en silence : l'ancienne version est
+visiblement invalidée et une nouvelle version est créée. Vos corrections sont
+alors prises en compte dans la vérification.
+- **Aucune porte dérobée.** Une lettre déclarée “informelle”
+est contrôlée quant à son contenu et réacheminée par les portes formelles ;
+renommer un document pour réinitialiser son compteur de versions est refusé ;
+une connaissance de la loi tirée d'articles de presse ou de la mémoire du modèle
+échoue à la vérification — seul le texte même de la loi, manifestement lu depuis
+la bibliothèque au cours de cette session, fonde une citation ; et chaque réponse
+sur un dossier porte le véritable objet du dossier tiré de vos enregistrements,
+si bien qu'un contexte inventé à partir d'un autre dossier se réfute de lui-même
+sur-le-champ.
+- **Citations au-delà des limites du dossier.** Si une citation provient d'un
+document d'un autre dossier, le vérificateur la retrouve dans l'ensemble du fonds et nomme
+le document exact — l'IA lit exactement celui-ci, pas tout le dossier étranger.
+- **Provenance de chaque document.** Pour chaque document, l'IA apprend d'où
+il provient : s'il émane de la partie adverse ou d'une autorité, ses affirmations
+doivent d'abord être examinées de manière critique ; s'il émane du client, il
+reflète le point de vue de celui-ci.
+- **Protection contre les instructions injectées.** Les pages web peuvent contenir des textes adressés à l'IA plutôt qu'à vous. Avant que les contenus du web n'atteignent l'IA, IRONSTICK supprime les textes-appâts cachés et contrôle le reste à l'aide d'un catalogue de motifs en onze langues. Les passages détectés sont rendus illisibles et l'IA en est avertie — de la logique pure, aucune IA qui contrôle une IA.
+- **Pas de marche à vide à vos frais.** Si une IA de bureau tente de recharger des
+données qu'elle possède déjà sans changement, l'appel est refusé — les jetons et le temps
+vont au travail, pas à la répétition.
+
+**Et vous n'êtes jamais enfermé chez un seul fournisseur
+d'IA.** L'IA intégrée fonctionne avec **Qwen, Kimi, ChatGPT et
+Claude** — quatre sections identiques dans le configurateur. **Et IRONSTICK vous fait faire
+des économies tout seul :** chaque fournisseur que vous avez configuré est
+utilisé automatiquement, le moins cher d'abord — Qwen, puis Kimi,
+ChatGPT, Claude. À chaque démarrage, le programme vérifie lesquels répondent ;
+si un quota ou un crédit s'épuise en cours de journée, il enchaîne silencieusement
+avec le suivant et vérifie de nouveau le lendemain. Aucun sélecteur, aucune
+interruption, aucun travail perdu. Côté bureau, on trouve Claude, ChatGPT, Qwen
+et Kimi.
+**Travail en arrière-plan à coût zéro :** pour les tâches qui s'exécutent en
+arrière-plan sans votre intervention — synthèses, tri des courriels et autres —
+vous pouvez en outre enregistrer les offres gratuites de **Groq, OpenRouter et
+Mistral** et activer ou désactiver chacune séparément. Elles ne sont jamais
+utilisées pour le chat ni pour les écritures. Comme des données sont alors
+transmises à ces fournisseurs, le configurateur invite pour chacun d'eux à examiner
+attentivement leurs conditions générales au regard du RGPD. Si un fournisseur déçoit sur le prix, la politique ou la performance,
+il vous suffit d'en retirer la clé — les portes, et donc le standard remis,
+restent identiques.
+### La voie IRONSTICK
+
+![Le serveur MCP relie le fournisseur d'IA à l'application client](https://www.ironstick.legal/img/58_mcp_bridge.png)
+**Ce que cela signifie pour votre choix d'IA :** avec ces
+portes en place, il devient presque indifférent que le modèle connecté soit
+puissant — un modèle plus faible a simplement besoin de davantage de tours de
+correction. La différence que vous ressentez tient surtout à la vitesse
+d'exécution ; le résultat remis doit dans tous les cas satisfaire au même
+standard imposé.
+**Contrôler n'est pas imposer.** Le marché s'est mis à
+vanter la “vérification des citations” — en pratique un service
+d'annotation au mieux : rechercher les citations, ajouter des références
+“dans la mesure du possible”, puis rendre le document dans tous les
+cas, via le cloud propre de l'éditeur, la responsabilité restant sur les épaules
+de l'avocat. La vérification d'IRONSTICK est un compilateur, pas une suggestion :
+dix-sept portes déterministes, un verdict bloquant, une attestation liée à l'état
+exact du dossier — toute modification l'annule — et aucun document formel ne
+sort sans elle. Les autres annotent ; IRONSTICK impose.
+À notre connaissance, aucun logiciel juridique au monde n'impose cette
+combinaison. Les outils d'observabilité journalisent après coup, les bacs à
+sable cloisonnent l'accès — IRONSTICK prouve le travail, à la seule interface
+dont dispose l'IA.
+
+Si vous souhaitez en savoir plus sur le fonctionnement du chat IA interne et du Bridge pour Claude, ChatGPT, Kimi et Qwen, ainsi que sur les possibilités qu’ouvre la voie IRONSTICK, [cliquez ici](https://www.ironstick.legal/bridge_fr.html).
+
+### La voie classique
+
+![La voie classique : une IA sans accès aux dossiers, uniquement des fichiers téléversés](https://www.ironstick.legal/img/64_classic_way.png)
+Aujourd'hui encore, les assistants d'IA travaillent sans aucune connexion à la base de données de vos dossiers et des données de vos clients — le seul chemin vers l'IA est le téléversement de fichiers. La plupart des systèmes basés sur le cloud fonctionnent eux aussi selon cette voie classique : au mieux, ils déplacent des fichiers texte en arrière-plan — invisibles pour l'utilisateur. L'IA ne puise donc, au mieux, que dans les informations de ces seuls fichiers téléversés. Avec un peu de chance, ils ne sont pas trop volumineux et l'IA tient compte de tout ; sinon, les hallucinations sont programmées d'avance. L'IA ne peut pas accéder au dossier lui-même : elle travaille à l'aveugle et tente d'obtenir le meilleur résultat pour l'utilisateur. Cela peut conduire à des erreurs d'appréciation dangereuses et à des affirmations fausses.
+
+Des compétences (skills) et des plug-ins supplémentaires n’y changent rien. Dans le pire des cas, ils aggravent même le problème : leurs instructions volumineuses occupent une part considérable de la fenêtre de contexte avant même que l'IA n'ait lu le premier document — et plus cette fenêtre est pleine, plus l'IA tient compte de son contenu de façon inégale.
+
+![IA surchargée : skills/plug-ins, instructions et fichiers sont déversés dans la tête de l’IA jusqu’à ce qu’elle déborde](https://www.ironstick.legal/img/71_context_overload.png)
+Le plus simple est de vous représenter une IA comme un enfant de 10 ans doté d’une capacité d’assimilation relativement limitée. Si vous remplissez le cerveau de cet enfant d’une grande quantité de savoir dans le cadre d’un cours magistral, il sera à peine capable de tout retenir et risque même d’oublier des faits ou des instructions importants.
+
+![Best effort : l’IA surchargée est envoyée en route avec de simples prières et échoue au but](https://www.ironstick.legal/img/72_best_effort_path.png)
+C’est exactement ce qui se passe aujourd’hui avec les modèles d’IA « best effort », quelle que soit la façon dont ils sont présentés. En pratique, la tête de l’IA est tout simplement remplie de vos données de dossier : elle doit lire des dossiers entiers, de longs textes et, par-dessus le marché, les longues instructions, voire encore des plug-ins et des skills. La tête se remplit et se remplit jusqu’au moment où plus rien n’y entre et où tout est compressé, ou bien où tout n’est tout simplement plus lu. Ensuite, l’IA est envoyée rédiger votre acte de procédure. Cela ne peut qu’échouer.
+
+![IRONSTICK : données préparées et instructions courtes ; l’IA est guidée par des panneaux et des portes de sécurité jusqu’à un but vérifié](https://www.ironstick.legal/img/73_ironstick_guided_path.png)
+IRONSTICK emprunte une autre voie. Les instructions sont volontairement courtes, afin que, même avec les modèles d’IA les plus faibles, elles n’occupent jamais plus de la moitié de la mémoire. Vos données de dossier sont d’abord préparées par IRONSTICK, et l’IA n’est alimentée qu’avec les données réellement importantes (imaginez des données condensées, sans prose) avant d’être envoyée en route. Sur ce chemin, l’IA n’est toutefois pas laissée seule : on lui donne des outils et des garde-fous. Elle est guidée jusqu’au but par des panneaux indicateurs et des portes de sécurité.
+
+### La différence ?
+
+![Best effort : l’IA est envoyée en route avec de simples prières et l’espoir qu’elle respecte les instructions, et elle échoue](https://www.ironstick.legal/img/74_best_effort_requests.png)
+Les offres classiques « best effort » donnent d’abord à l’IA une sorte de cours magistral, puis l’envoient en route, plus ou moins avec leurs meilleurs vœux, en la priant (… et en espérant) de respecter les instructions et de n’avoir rien oublié.
+
+![IRONSTICK : une ligne de coaching constante, avec portes de sécurité et informations complémentaires jusqu’au but vérifié](https://www.ironstick.legal/img/75_ironstick_coaching_line.png)
+IRONSTICK suit l’approche d’une ligne de coaching constante, avec verrous de sécurité, informations complémentaires, aides et outils, et vérifie ainsi en permanence le chemin et le résultat du modèle d’IA.
+
+## 8. Le problème structurel du SaaS — et la réponse d'IRONSTICK
+
+**Avec un logiciel de cabinet dans le cloud, vous confiez votre
+responsabilité et vos données à des inconnus — en espérant que leur cloud ne
+prendra jamais feu. IRONSTICK, c'est la souveraineté maximale :** le système
+est construit de telle sorte que même une panne totale du serveur — ou un
+détournement de l'infrastructure — ne peut arrêter le cabinet.
+
+**Les solutions SaaS vendent la promesse de la sécurité — cette
+architecture offre une sécurité native, imposée par sa structure.** Les
+solutions de cabinet classiques en cloud et en SaaS portent un gigantesque
+problème structurel que leurs brochures commerciales préfèrent taire : elles
+sont fortement **centralisées**. IRONSTICK est démocratique et absolument
+**décentralisé**.
+
+![Les attaques qui font tomber les plateformes centralisées s’arrêtent ici, dans le bouclier — le cabinet continue de fonctionner.](https://www.ironstick.legal/img/cutout_attacks.jpg)
+
+Les attaques qui font tomber les plateformes centralisées s’arrêtent ici, dans le bouclier — le cabinet continue de fonctionner.
+
+- **Le point de défaillance unique et central.** Lorsqu'un fournisseur
+SaaS est piraté — attaque de la chaîne d'approvisionnement, identifiants cloud
+dérobés, erreur de configuration chez l'hébergeur cloud — des milliers de
+cabinets sont touchés d'un coup. Cette architecture répartit le risque
+**physiquement** entre les différents sites des cabinets et leurs propres
+réseaux locaux durcis.
+- **Le piège de la responsabilité et de la protection des données.** Avec
+le SaaS, des données clients hautement sensibles se trouvent sur les serveurs
+d'autrui — Microsoft Azure, AWS, les centres de données de l'éditeur. Après une
+fuite de données, un accès au titre du US-CLOUD-Act ou une panne de serveur, le
+cabinet reste sous la pluie, sur le plan professionnel comme au regard du droit
+de la protection des données. Avec IRONSTICK, les données restent **à 100 %
+en priorité locale, sur les propres appareils du cabinet**.
+- **Pris en otage par les pannes.** Si le centre de données du fournisseur
+SaaS tombe — ou si le fournisseur a simplement une mauvaise journée — plus
+personne dans le cabinet ne peut travailler. Ici, dans le pire des cas,
+l'administrateur achète un appareil de remplacement à ~300 € — ou le
+cabinet continue tout simplement de travailler de façon autonome sur les
+postes de travail.
+- **Aucune perte de données silencieuse.** Un seul défaut dans une base de
+données cloud peut effacer des données de façon irrécupérable. Ce système se
+réhydrate lui-même, en cas d'urgence, à partir des postes de travail
+physiquement séparés — y compris les ordinateurs portables de retour de vacances.
+
+**Indépendant de l'éditeur.** Votre dossier se trouve sur votre propre matériel, la licence est vérifiée hors ligne sur votre ordinateur, et IRONSTICK n'a besoin d'aucun serveur de l'éditeur pour fonctionner. Tout ce que vous saisissez, vous l'exportez à tout moment — en PDF, en DOCX ou sous forme de sauvegarde complète sur votre propre support.
+## 9. Pourquoi IRONSTICK — et non une IA juridique dans le cloud
+
+**Le dossier reste le vôtre. L'IA vient à vos données — pas vos données à
+l'IA.** Cette seule phrase sépare IRONSTICK de toutes les plateformes d'IA
+juridique dans le cloud du marché. En 2026, le secteur est passé en masse à un
+seul modèle : vos dossiers clients résident dans le cloud d'un éditeur, et une
+IA louée à ce même éditeur y travaille. IRONSTICK renverse ce modèle — le
+dossier reste sur *votre* matériel, et vos propres abonnements d'IA s'y
+connectent via un Bridge contrôlé et documenté.
+
+![Pas de cloud : l’intégralité du dossier tient sur un support de votre choix — même une clé USB chiffrée.](https://www.ironstick.legal/img/cutout_no_cloud.jpg)
+
+Pas de cloud : l’intégralité du dossier tient sur un support de votre choix — même une clé USB chiffrée.
+
+Trois arguments, dans l'ordre où vos clients les classeraient :
+
+- **La souveraineté des données comme argument déontologique.** La base de
+données réside sur votre propre support ; l'éditeur du logiciel ne voit jamais
+les données clients. La pseudonymisation, le journal d'audit et la déclaration
+complète RGPD des flux de données sont livrés avec le produit — y compris une
+clause type prête à coller pour votre notice de confidentialité client. Pour le
+secret professionnel et la responsabilité RGPD, ce n'est pas une fonctionnalité ;
+c'est la réponse.
+- **Apportez votre propre IA — et gardez votre structure de coûts.** Vous
+travaillez avec vos propres comptes Claude, ChatGPT, Qwen et/ou Kimi
+(généralement €20–40 par mois chacun lorsqu'un abonnement est requis) au lieu de
+payer des redevances mensuelles à trois chiffres par poste pour une plateforme
+d'IA juridique dans le cloud. Sur trois ans, pour un petit cabinet, la
+différence se compte à cinq chiffres — alors que les modèles que vous utilisez
+sont les mêmes modèles de pointe que les grandes plateformes vous louent.
+- **Une puissance maîtrisée.** Plus de 200 outils donnent à l'IA
+un accès en direct au dossier réel — chroniques, textes intégraux, délais. Mais
+tout chemin d'écriture passe par une porte de validation : les modifications
+proposées apparaissent en révision (biffé pour les suppressions, gras pour les
+ajouts) et rien n'est appliqué tant que vous n'avez pas accepté. Chaque référence
+d'une écriture générée est contrôlée par rapport au dossier. L'arme est acérée ;
+la détente reste entre vos mains.
+- **Une précision et une rapidité inégalées.** Le Bridge IRONSTICK donne à
+l'IA un accès direct à des données *préparées* : chaque document déjà passé
+à l'OCR, classé, daté, référencé et rattaché à un dossier. L'IA ne perd jamais
+de temps (ni ne commet d'erreurs) à reconstituer ce que contient un dossier —
+elle interroge l'entrée exacte, reçoit le texte intégral exact et cite la
+référence exacte. Les contenus volumineux transitent par référence via le Bridge
+au lieu d'être ressaisis par le modèle, à l'octet près et en quelques secondes.
+Il en résulte un niveau d'exactitude et, surtout, une vitesse de traitement que
+les échanges par copier-coller et les téléversements vers le cloud ne peuvent
+tout simplement pas atteindre.
+
+## 10. Pourquoi maintenant — et pourquoi pas simplement ChatGPT ?
+
+De plus en plus d'avocats expérimentent déjà un simple chat d'IA — en collant
+des documents dans ChatGPT et en posant leurs questions. Pour un seul document
+court, cela fonctionne. Face à la charge réelle d'un cabinet, cela se heurte à
+deux murs infranchissables — et tous deux sont précisément ce qu'IRONSTICK est
+conçu pour faire disparaître.
+
+- **La fenêtre de contexte.** Un chat d'IA ne peut travailler qu'avec ce
+qui tient d'un coup dans sa fenêtre de contexte — au mieux quelques mégaoctets
+de texte (voir la comparaison en Partie III). Un dossier constitué au fil du
+temps représente bien davantage. Un simple chat vous force donc à sélectionner
+quelques pages, laisse tomber le reste en silence et repart de zéro à chaque
+session. IRONSTICK supprime le plafond : l'assistant va chercher exactement les
+passages, documents, courriels et délais dont il a besoin — directement dans le
+dossier vivant — et reporte l'essentiel distillé dans une mémoire persistante,
+rattachée au client, d'une session à l'autre.
+- **L'organisation.** Un simple chat n'a aucune structure — pas de clients,
+de dossiers, d'entités, d'institutions, de délais, de chronique ni de liens
+transversaux entre dossiers. Chaque session est une île : rien n'est classé,
+rien n'est reporté, rien n'est auditable. IRONSTICK *est* la structure :
+l'IA travaille au sein de votre dossier organisé, cite la pièce et le numéro de
+dossier exacts, respecte les délais et laisse une trace propre derrière elle.
+
+L'écart est simple : discuter avec une IA, contre un travail de dossier
+défendable et reproductible qui tient encore des mois plus tard.
+
+![Serveur MCP : pare-feu, outils et base de données](https://www.ironstick.legal/img/59_mcp_detail.png)
+**Et pourquoi des modèles d'IA externes tout court — plutôt qu'un modèle à
+nous ?** La raison est économique. Exploiter un LLM propre et réellement
+utilisable exigerait un investissement de 400,000–500,000 € — rien que pour
+les serveurs, les installations de refroidissement et l'infrastructure — plus
+des coûts de fonctionnement de 70,000–80,000 € par an pour l'exploitation
+et la maintenance. Et cela n'inclut même pas le coût des techniciens. Pour un
+cabinet d'avocats, ce n'est tout simplement pas raisonnable — l'investissement
+est bien trop élevé. Et si IRONSTICK proposait à la place son propre service
+d'IA dans le cloud, ce serait en fait exactement la même chose que les services
+existants de Claude, ChatGPT, Qwen et Kimi — sauf qu'IRONSTICK ne pourrait
+jamais l'offrir à leurs prix. En pure logique, cela n'a aucun sens. C'est
+pourquoi IRONSTICK connecte vos propres abonnements aux modèles les plus
+puissants du monde au lieu de vous en louer un de second ordre.
+
+Partie IV — Sécurité des données : vos données, vos règles
+
+## 11. Tout en local — par construction
+
+![Le dossier, les preuves et le compartiment secret restent sur votre propre matériel — protégés par construction.](https://www.ironstick.legal/img/cutout_own_hardware.jpg)
+
+Le dossier, les preuves et le compartiment secret restent sur votre propre matériel — protégés par construction.
+
+- **Priorité au hors-ligne.** L'intégralité du dossier réside en local,
+dans un répertoire que **vous** choisissez — une clé USB chiffrée, si vous
+préférez. Pas de cloud imposé, pas de serveur de l'éditeur, aucune obligation de
+compte. Sans internet, le dossier, la recherche, les documents et l'assistant
+local continuent de fonctionner.
+- **Base de données chiffrée en AES-256.** Le fichier qui contient tout
+votre cabinet — clients, dossiers, chronique, courriels, délais, la mémoire des
+IA — est chiffré sur le disque en AES-256, chaque page individuellement et
+scellée en intégrité. Rien à configurer, aucun mot de passe à retenir : le texte
+en clair n'existe qu'en mémoire pendant qu'IRONSTICK tourne. Quiconque copie le
+fichier depuis un disque, une clé ou une sauvegarde ne tient que du texte
+chiffré.
+- **Documents chiffrés en AES-256.** Le magasin de documents lui-même —
+chaque PDF d'origine, scan, image, enregistrement — repose lui aussi chiffré,
+chaque fichier avec son propre sceau d'intégrité. Le texte en clair n'existe que
+pour les documents sur lesquels vous travaillez effectivement, dans le dossier
+temporaire, et il est effacé lorsque vous fermez IRONSTICK. Ce que vous exportez
+ou envoyez quitte le coffre de façon délibérée.
+- **Code d'accès par authentificateur.** Chaque démarrage demande le code à
+six chiffres de l'application d'authentification de votre téléphone — les mêmes
+codes à usage unique qu'utilise votre banque. Aucun mot de passe à retenir, rien
+de stocké : le secret est dérivé de votre clé de licence à l'exécution, et la
+clé de licence vous permet de rentrer si le téléphone est perdu. Tant que le
+code n'est pas saisi, rien n'est affiché, et les connecteurs d'IA ne reçoivent
+aucune donnée de dossier. Le fichier de configuration contenant vos identifiants
+d'API et de messagerie repose lui aussi chiffré en AES-256.
+- **Pseudonymisation avant l'IA externe.** Lorsque des fonctions internes
+recourent à une IA externe, les noms, numéros d'identité, numéros de dossier,
+IBAN, numéros de téléphone, courriels et adresses issus de vos enregistrements
+sont d'abord remplacés par des marqueurs neutres sur votre machine — la réponse
+est retraduite en local.
+- **Consentement et audit.** L'IA externe fonctionne sur consentement
+explicite et est journalisée — la piste d'audit enregistre exactement ce qui a
+réellement quitté la machine.
+- **Documents secrets (Windows).** Un compartiment caché, chiffré par mot
+de passe, pour les documents que seul l'avocat peut voir : invisible dans chaque
+liste, exclu de chaque canal d'IA et de chaque export, jamais synchronisé vers
+la tablette — avec une séquence de destruction d'urgence pour le pire des jours.
+- **Sauvegardes et synchronisation sans cloud.** Sauvegarde complète en un
+clic vers l'endroit de votre choix ; la synchronisation Windows ↔ tablette passe
+par un câble USB, vérifiée par somme de contrôle. Votre téléphone ne reçoit que
+les entrées d'agenda — jamais le contenu des dossiers.
+- **Déménagement vers un support externe — contrôlé, pas espéré.** Si vous voulez
+faire fonctionner le PC du bureau et l'ordinateur portable avec le même dossier sur un SSD
+externe, IRONSTICK contrôle la cible avant le déménagement : espace libre, vitesse réelle,
+système de fichiers et relecture inchangée des données de test ; les lecteurs réseau et
+les dossiers cloud sont refusés. Après la copie, chaque fichier est comparé par somme de
+contrôle ; la bascule n'a lieu que lorsque tout concorde, et l'ancien dossier est conservé
+sous un autre nom. IRONSTICK reconnaît le support indépendamment de sa lettre de lecteur ;
+s'il manque au démarrage, IRONSTICK le signale au lieu d'ouvrir en silence un fonds vide.
+À partir d'un taux de remplissage de 85 %, vous êtes averti. Les exigences relatives
+au support figurent au [Chapitre 15](#ch15).
+- **Divulgation écrite.** Une déclaration complète RGPD des flux de données
+est livrée avec le système — chaque transmission externe, son contenu exact, et
+où se situent les limites. Y compris une clause type pour votre propre notice de
+confidentialité client, dans les onze langues — anglais, allemand, français,
+italien, espagnol, roumain, portugais, néerlandais, turc, ukrainien et russe.
+
+![Chiffrement AES-256 dans l'application client et le serveur MCP](https://www.ironstick.legal/img/61_encryption_flow.png)
+Toutes les couches de protection du chapitre 11 sont actives dès la sortie de la boîte — sans configuration et sans interrupteur qui puisse être désactivé par erreur : **données au repos** chiffrées en AES-256 — base de données, chaque document, la configuration et l'intégralité de l'espace de travail de l'IA ; en clair : **plus aucune donnée de dossier ne repose non chiffrée sur votre disque — pas même les fichiers de travail de l'IA**. **Accès à l'exécution** uniquement avec le code de l'application d'authentification. **Données en mouvement** uniquement par votre acte délibéré — chaque chemin documenté dans la déclaration RGPD livrée avec le produit.
+
+Les logiciels juridiques dans le cloud vous vendent la promesse qu'un autre
+garde vos données en sécurité. Ici, la protection fait partie de la construction,
+sur votre propre matériel, et vous pouvez vérifier chaque couche vous-même.
+
+Partie V — Grandir avec le cabinet
+
+## 12. Plus d'un poste ? Le serveur de cabinet
+
+![Le serveur de cabinet tourne sur un NAS Synology ordinaire — un DS223j comme celui-ci se vend au détail à partir d’environ 180 €.](https://www.ironstick.legal/img/62_server_fanout.png)
+
+Le serveur de cabinet tourne sur un NAS Synology ordinaire — un DS223j comme celui-ci se vend au détail à partir d’environ 180 €.
+
+Pour les cabinets comptant plusieurs avocats, IRONSTICK propose l'**IRONSTICK
+SERVER** — un module sous licence séparée qui transforme des postes de travail
+indépendants en un cabinet multi-utilisateurs coordonné, **sans cloud et sans
+renoncer au dossier local**. Il s'exécute comme un paquet natif sur un NAS
+Synology — ces petits boîtiers de bureau bon marché, à maintenance quasi nulle,
+déjà présents dans des milliers de cabinets — sur n'importe quel modèle actuel,
+entièrement à l'intérieur de votre propre réseau. Le serveur ne contacte jamais
+internet, ne contacte jamais l'éditeur, et ne transporte aucun trafic d'IA.
+
+**Pourquoi un NAS Synology — et pourquoi ce n'est pas un projet
+informatique.** Nous avons choisi Synology à dessein parce que ces boîtiers
+sont prêts à l'emploi : branchez l'alimentation et le réseau, et ils
+fonctionnent tout simplement. Installer le paquet serveur IRONSTICK dessus prend
+trois minutes, puis cela tourne, un point c'est tout — pas de console, pas de
+fichiers de configuration, pas d'administrateur. Les postes de travail sont tout
+aussi peu exigeants : l'installateur est une configuration entièrement guidée,
+sans connaissances informatiques et sans longs questionnaires — lancez-le,
+saisissez la clé de licence, terminé. Clients et serveur se trouvent
+automatiquement sur le réseau ; personne ne tape d'adresse. Et un cabinet à
+poste unique n'a besoin d'aucun NAS — le serveur est un module optionnel pour
+les cabinets comptant plusieurs avocats.
+
+- **Partagez les dossiers, gardez votre dossier.** Cédez un dossier à un
+confrère en une seule action ; il s'y abonne et reçoit une copie complète dans
+son propre dossier local. Révocable à tout moment ; les documents marqués secrets
+ne quittent jamais votre poste. Et le véritable multiplicateur de force :
+plusieurs avocats — chacun avec sa propre IA — peuvent travailler le même
+dossier **simultanément**, en envoyant au propriétaire des messages et des
+analyses achevées directement depuis leur LLM. En cas d'urgence, tout un cabinet
+peut converger sur un seul dossier.
+- **Une seule bibliothèque juridique pour tout le cabinet.** Chaque texte
+de loi qu'un confrère vérifie et publie devient disponible à chaque poste — et à
+**l'IA de chaque poste** : l'assistant et les Bridges d'IA de bureau citent le
+même texte vérifié, mot pour mot, issu de la bibliothèque partagée au lieu
+d'aller de nouveau chercher sur le web ou de se fier à la mémoire du modèle. Les
+dates de révision, les signalements en rouge des entrées périmées et la
+réattribution automatique lorsqu'un contributeur est absent maintiennent la
+bibliothèque en vie — la recherche d'un confrère devient le savoir vérifié de
+tout le cabinet. Un **système démocratique** le garde honnête : chaque poste
+de travail revérifie ses propres sources contribuées au bout de deux semaines —
+en tâche de fond automatique, sans aucune action de l'utilisateur. Si un
+contributeur est absent au moment du contrôle, le serveur répartit ses contrôles
+entre les autres postes ; au bout de quatre semaines, une source est colorée en
+rouge. Une fois dans le système, elle y reste.
+- **Une vue d'ensemble du temps à l'échelle du cabinet.** Chaque poste de
+travail remonte en arrière-plan son temps de travail mesuré ; les pages
+d'administration du serveur montrent le temps par dossier, par client et par jour
+— pour un seul utilisateur ou tout le cabinet — plus la présence, l'historique de
+partage des dossiers et un journal de sécurité.
+- **Administré dans un navigateur.** Approbation des inscriptions, licence,
+utilisateurs, lois et temps — le tout sur une seule page d'administration servie
+par le NAS lui-même. Licence annuelle avec un nombre défini de postes.
+- **Un réseau de personnes et de sociétés pour tout le cabinet.** Les personnes,
+sociétés, institutions, leurs relations et les analyses de personnes saisies sur un poste
+sont disponibles pour tous via le serveur ; les doublons sont reconnus et fusionnés lors du
+rapprochement. Chaque fiche a un propriétaire : les collègues ne la modifient pas
+directement, ils envoient une proposition que le propriétaire accepte — s'il ne répond pas
+dans les 48 heures, la propriété est transférée. La suppression d'une fiche étrangère
+devient elle aussi une proposition.
+- **L'expérience des juges de tout le cabinet.** Les évaluations de décisions de
+justice voyagent avec ce réseau : chaque collègue évalue les décisions de ses propres
+dossiers, et chaque IA du serveur lit, avant une écriture, l'expérience de tout le cabinet
+avec ce tribunal et ces juges — avec à chaque fois l'indication de qui a évalué.
+
+### Cession de dossier et abonnement — comment cela fonctionne réellement
+
+Céder un dossier est un acte délibéré, jamais un effet secondaire. Le
+propriétaire partage le dossier depuis l'application ; il voyage vers le serveur
+en un **transfert en deux phases** — les métadonnées d'abord, le contenu des
+fichiers ensuite, de sorte qu'un transfert interrompu ne laisse jamais un
+demi-dossier derrière lui — et les gros fichiers sont adressés par contenu, si
+bien que des documents identiques ne voyagent et ne sont stockés qu'une seule
+fois. Le serveur attribue de **nouveaux identifiants internes** à tout ce
+qu'il stocke : un dossier reçu ne peut jamais entrer en collision avec des
+données déjà présentes sur le poste d'un confrère. Les confrères voient le
+dossier partagé sur leur propre écran des dossiers-serveur et s'y **abonnent** ;
+l'abonné reçoit une copie complète dans son propre dossier local et y travaille
+avec le système complet — recherche, assistant, rédaction par IA, tout. Le
+propriétaire peut révoquer le partage à tout moment, l'administrateur peut mettre
+fin à tout abonnement de façon centralisée, et chaque partage, abonnement et
+export est enregistré avec la date, l'heure et l'adresse. Les documents marqués
+secrets sont exclus par conception — ils n'atteignent jamais le serveur.
+
+**Le méga-avantage : un travail d'équipe assisté par IA, simultané, sur un
+seul dossier.** Chaque abonné travaille sa copie avec le système complet — y
+compris sa propre IA de bureau. Plusieurs avocats peuvent donc attaquer le même
+dossier **en même temps**, chacun avec son propre LLM lisant le dossier en
+pleine profondeur — et envoyer au propriétaire du dossier des messages et des
+évaluations achevées **directement depuis la session d'IA** : un tableau des
+contradictions d'un poste, un projet durci du suivant, une évaluation des risques
+du troisième, le tout affluant vers le propriétaire pendant que le travail se
+fait. Lorsqu'un délai surgit soudain ou qu'une audience est avancée, tout un
+cabinet peut converger sur un seul dossier du jour au lendemain — analyses
+parallèles, flux de travail répartis, un seul propriétaire gardant le dossier.
+
+### Une base de données juridique qui croît d'elle-même — câblée directement dans les IA
+
+Chaque poste IRONSTICK tient des textes de loi vérifiés en Markdown plein
+texte, chaque entrée étiquetée avec l'ordre juridique, le lien de la source et la
+date de révision. L'assistant et les Bridges d'IA de bureau atteignent cette
+bibliothèque via trois outils propres : une recherche floue (l'ordre juridique est une indication obligatoire — les ordres juridiques ne sont jamais mélangés), la restitution mot pour mot du texte stocké (l'IA cite le libellé vérifié, non sa mémoire d'entraînement) et le dépôt de nouvelles sources (dès que l'IA rencontre en ligne
+une source juridique pertinente, la classer est un **devoir, pas une option**
+— le lien seulement ; l'application télécharge, convertit et vérifie le texte
+elle-même, et vous le publiez via la porte de validation du moniteur de
+données).
+
+C'est ce qui rend la base de données **dynamique** : elle naît du travail
+quotidien du cabinet. Chaque session de recherche de chaque confrère — humaine ou
+assistée par IA — la nourrit. Avec le serveur de cabinet, chaque texte de loi
+publié est dédoublonné de façon centralisée (une même source met à jour l'entrée ;
+une version plus récente du même texte l'emporte, celle qui est remplacée est
+mise de côté, non perdue) et **répliqué sur chaque poste**. Les dates de
+révision le gardent honnête : les entrées non contrôlées depuis plus d'un mois
+passent au rouge sur chaque poste et dans l'administration web, et si un
+contributeur est absent, le serveur redistribue ses entrées équitablement entre
+les utilisateurs actifs — le devoir de révision ne meurt jamais avec des vacances.
+Résultat : toutes les IA du cabinet raisonnent à partir d'**une seule
+bibliothèque de lois vérifiée et vivante** — vérifiée une fois par un confrère,
+citée mot pour mot à chaque poste, maintenue sous un devoir commun — au lieu que
+chaque poste retourne chercher sur le web ouvert et se fie à ce qui en revient.
+Et c'est une pensée de droit civil de bout en bout : l'autorité est le texte de
+loi codifié, cité mot pour mot — exactement la façon dont les tribunaux d'Europe
+continentale attendent qu'on plaide devant eux.
+
+### Réception centralisée du courrier — la Central Scan App
+
+Disponible **uniquement en lien avec le serveur de cabinet** : la
+**Central Scan App**, un programme autonome pour le PC du secrétariat — aucune
+installation d'IRONSTICK n'y est nécessaire. **Jusqu'à trois licences Central
+Scan** peuvent être acquises par serveur — chacune sous licence séparée — de
+sorte que jusqu'à trois postes de numérisation peuvent fonctionner par cabinet ;
+tous peuvent même travailler le **même dossier de réception en parallèle sans
+collision** (un document ouvert par un secrétaire est automatiquement
+verrouillé et grisé pour les autres).
+
+- **Un seul point de numérisation pour tout le cabinet.** Le secrétaire
+numérise tout le courrier du matin dans un seul dossier et traite la liste
+document par document.
+- **Consultable par conception.** Les pages qui portent déjà une couche de
+texte sont laissées intactes ; seules les pages numérisées passent par l'OCR
+local, et le texte reconnu est incorporé au PDF comme couche invisible — l'avocat
+destinataire n'a jamais à le repasser à l'OCR.
+- **Le destinataire est reconnu — sans aucune IA.** L'application confronte
+le texte du document aux numéros de dossier et aux noms d'avocats du cabinet
+(remontés en direct par les postes de travail) — un appariement déterministe pur,
+zéro token, rien ne quitte votre réseau. Les destinataires reconnus sont
+proposés ; un clic envoie.
+- **La distribution est invisible.** L'IRONSTICK de chaque avocat récupère
+automatiquement ses propres documents depuis le serveur et les dépose dans la
+réception normale des documents — le flux de saisie habituel prend le relais. Le
+serveur ne conserve un document que jusqu'à ce que le destinataire ait confirmé
+sa réception ; les copies locales au poste de numérisation se nettoient
+d'elles-mêmes au bout de trois jours.
+
+### Suivi du temps — local sur chaque poste, agrégé pour le cabinet
+
+**En local**, IRONSTICK mesure le temps de travail automatiquement, comme
+effet secondaire du travail : pas de chronomètre, pas de discipline de
+démarrage/arrêt. Le temps est dérivé de l'activité réelle dans l'application,
+attribué au dossier dans lequel vous travaillez, le temps d'inactivité étant
+plafonné pour qu'une fenêtre laissée ouverte pendant le déjeuner ne facture
+personne. Chaque poste a sa propre page de temps — aujourd'hui, 7, 30, 90 jours
+ou tout ; par dossier, par client, jour par jour avec des barres.
+
+**Avec le serveur**, chaque poste de travail remonte ces mesures en
+arrière-plan — toutes les cinq minutes, sous forme de totaux journaliers compacts
+par dossier (nom du client compris), les jours manquants étant complétés
+automatiquement ; un poste qui rejoint plus tard livre son historique complet, de
+sorte que le tableau à l'échelle du cabinet est complet dès le premier jour. La
+page Temps de l'administration web est une copie fidèle de la page de temps du
+bureau, augmentée d'un sélecteur : un seul utilisateur, ou **TOUS** — tout le
+cabinet. Le temps par dossier, par client et par jour, sur chaque poste — une
+base objective pour la facturation, la capacité et les décisions de gestion,
+produite sans que personne ne remplisse de feuille de temps.
+
+**Le système grandit avec le cabinet.** Parti d'un avocat solo, une équipe
+de cent personnes aujourd'hui — IRONSTICK suit. Que faut-il ? Un client de bureau
+IRONSTICK au début, en avocat solo, peut-être un Bridge pour Claude/GPT. Puis deux
+avocats s'associent : un client de plus et un Bridge de plus sont licenciés, plus l'IRONSTICK SERVER — jusqu'à cinq postes de travail y sont inclus. À partir de là, chaque confrère supplémentaire signifie un client et un Bridge, et, à partir du sixième poste de travail, une place serveur supplémentaire. Pas de gros investissements dans un
+avenir lointain — ne licenciez que ce dont vous avez besoin sur le moment. Et si
+l'équipe se réduit, il vous suffit d'acheter moins de licences.
+
+Partie VI — Fiabilité : auto-réparation, sauvegardes, presque pas d'informatique
+
+## 13. Quand le matériel meurt — la reprise après sinistre est intégrée
+
+Un serveur qui coordonne tout un cabinet doit pouvoir mourir sans emporter le
+cabinet avec lui — et celui-ci le peut. Tout l'état du serveur réside dans **un
+seul dossier de données sur le NAS** : incluez-le dans la sauvegarde du NAS
+(p. ex. Synology Hyper Backup) et une unité morte est restaurée en trois étapes —
+installer le paquet sur le remplaçant, remettre le dossier, démarrer. Tout revient
+exactement comme c'était et les postes de travail se reconnectent d'eux-mêmes. Et
+parce que la vérité du système est de toute façon **décentralisée** — chaque
+poste garde son dossier local complet, ses copies abonnées, son miroir de la
+bibliothèque juridique et ses propres sauvegardes — même le pire des cas, une
+perte totale du NAS *sans* aucune sauvegarde, se répare de lui-même : les
+postes se réenregistrent automatiquement, les propriétaires réémettent
+automatiquement leurs cessions de dossier (contrôlées deux fois par jour), les
+copies abonnées sont protégées pendant 14 jours au lieu d'être supprimées, la
+bibliothèque juridique repousse à partir des propres miroirs des postes, et les
+cessions de dossier en attente ne peuvent pas perdre de données par conception.
+Pour des exigences encore plus élevées, le même paquet tourne sans modification
+sur les grands modèles Synology entièrement redondants — redondance de disques
+RAID, alimentations redondantes, paires haute disponibilité à bascule
+automatique. Déménager le cabinet est tout aussi peu dramatique : emportez les
+postes de travail, installez le NAS à la nouvelle adresse, branchez tout au
+réseau local — **Plug and Play**, terminé. Les postes retrouvent leur serveur d'eux-mêmes ; pas
+d'adresses fixes, pas de reconfiguration, pas de rendez-vous informatique —
+**et jamais de techniciens coûteux**.
+
+![Remplacer le serveur et déménager — plug and play](https://www.ironstick.legal/img/63_server_move.png)
+**En cas de panne totale du serveur, vos données sont préservées** — grâce à l'auto-réparation du système et aux sauvegardes décentralisées. Même les PDF de courrier numérisé que la Central Scan App a téléversés mais pas encore distribués restent 72 heures dans le dossier local *erledigt* du poste de numérisation, prêts à être renvoyés.
+**Maintenance :** le système est absolument auto-réparant et donc
+extrêmement peu exigeant en maintenance. Il tourne de façon absolument stable et
+fluide même sur du matériel qui n'est plus tout à fait à jour. Et grâce à
+l'option de sauvegarde, en cas d'urgence il vous suffit de réinstaller et de
+restaurer la sauvegarde.
+
+**Le système se répare lui-même.** La seule dépendance qui subsiste est la
+vitesse à laquelle l'administrateur se rend au magasin pour un appareil de
+remplacement, y réinstalle le logiciel et le branche au réseau local (serveur) —
+ou restaure la sauvegarde (poste de travail). Tout le reste se règle de
+soi-même. Et même pendant que le serveur est en panne — pour quelque raison que
+ce soit — **les postes de travail continuent tout simplement de travailler en
+local sur leurs propres ordinateurs** : chaque avocat a le dossier complet sur
+sa propre machine, donc rien ne s'arrête.
+
+## 14. Pas de service informatique ? C'est tout l'intérêt de la conception
+
+Une objection légitime : IRONSTICK tourne sur votre propre matériel, il n'y a
+donc pas d'éditeur cloud dont le service d'assistance répare les choses quand un
+disque local meurt. Vrai — et voulu : personne à distance ne détient vos
+dossiers, et personne à distance ne peut les perdre, les lire ou vous en
+verrouiller l'accès. Ce que cela exige réellement d'un cabinet sans
+administrateur est plus modeste qu'il n'y paraît.
+
+- **Une seule habitude, rien de plus : appuyer sur Sauvegarde.** Un clic
+sur l'écran de sauvegarde écrit une sauvegarde complète sous forme d'un seul ZIP ;
+vous l'enregistrez où bon vous semble — une clé USB, un disque externe, le NAS du
+cabinet. IRONSTICK ne s'en remet pas à la seule discipline : si la dernière
+sauvegarde date de plus de cinq jours, le briefing quotidien se termine par un
+rappel urgent, parlé et écrit, avec un lien direct vers la zone de sauvegarde ;
+sur le serveur de cabinet, la page d'administration affiche la date de dernière
+sauvegarde de chaque utilisateur, en rouge après cinq jours.
+- **Perdre la sauvegarde elle-même est sans danger.** La base de données,
+les documents, la configuration et les fichiers de travail de l'IA sont chiffrés
+en AES-256 — un ZIP de sauvegarde sur une clé perdue n'est que du texte chiffré,
+rien d'autre.
+- **La restauration est une routine, pas un projet.** Machine neuve ou
+réparée : installez depuis la clé, ouvrez l'écran de sauvegarde, restaurez le ZIP,
+démarrez. Tout revient exactement comme c'était — dossiers, documents, chroniques,
+mémoire de l'IA, bibliothèque de lois. Pas de technicien, pas de ticket, pas
+d'attente.
+- **Rien à administrer entre les deux.** Pas de serveur à configurer, pas de
+base de données à régler, pas de comptes utilisateurs à gérer — la clé de licence
+et le code d'authentification sont les seuls identifiants qui existent. Le système
+se répare lui-même, les postes trouvent le serveur de cabinet d'eux-mêmes, les
+mises à jour sont de nouveau l'installateur. Si vous savez enregistrer un document
+sur une clé USB, vous pouvez faire tourner IRONSTICK en toute sécurité.
+- **Les copies secondaires viennent gratuitement là où vous les utilisez.**
+Chaque poste de travail dans une configuration à serveur de cabinet garde son
+dossier local complet, la synchronisation avec la tablette emporte avec vous une
+copie vérifiée par somme de contrôle, et le NAS est sauvegardé par ses propres
+outils (p. ex. Synology Hyper Backup). Perdre un appareil ne signifie jamais
+perdre le cabinet.
+- **Vous voyez ce qui tourne en arrière-plan.** L'indicateur de performance de la
+barre de menus énumère chaque processus d'arrière-plan en cours — relève du courrier,
+reconnaissance de texte, chiffrement et déchiffrement, sauvegardes, appels d'outils de
+l'IA, reconnaissance de nouvelles décisions de justice. Rien ne travaille de façon
+invisible.
+
+L'aisance informatique requise est celle de n'importe quel poste de travail
+Windows — pas davantage. Ce qu'IRONSTICK supprime, c'est la dépendance au centre
+de données d'autrui ; ce qu'il demande en retour, c'est une clé de sauvegarde que
+vous utilisez réellement.
+
+Partie VII — En pratique
+
+## 15. Configuration requise
+
+|  | Minimum | Recommandé pour un travail parfaitement fluide |
+| --- | --- | --- |
+| Système d'exploitation | Windows 11, 64-bit | Windows 11, 64-bit, mises à jour à jour |
+| Processeur | x64 moderne à 4 cœurs (p. ex. Intel Core i5 /
+ AMD Ryzen 5) | 6–8 cœurs — la reconnaissance de texte s'exécute en
+ parallèle sur plusieurs pages, et la reconnaissance vocale hors-ligne profite
+ directement de chaque cœur |
+| Mémoire | 8 GB RAM | 16 GB RAM — une marge confortable pour
+ les gros PDF, la constitution de dossiers et la transcription audio côte à
+ côte |
+| Stockage | SSD avec 20 GB libres | SSD NVMe avec 100+ GB
+ libres — l'archive des dossiers, la recherche plein texte et la production de PDF
+ sollicitent fortement le disque ; un SSD rapide se ressent chaque jour |
+| Affichage | 1920 × 1080 | 1920 × 1200 ou plus — les écrans de
+ dossier utilisent généreusement l'espace vertical |
+| Carte graphique | Aucune carte graphique dédiée requise
+ — n'importe quelle puce graphique intégrée suffit | |
+| Connectivité | Internet uniquement pour l'IA externe,
+ les mises à jour des lois, le courriel et les cartes — le dossier, la recherche,
+ les documents et l'assistant local fonctionnent entièrement hors-ligne ; un port
+ USB libre pour la synchronisation de la tablette | |
+
+En option : une tablette Android (Android 11 ou plus récent, 64-bit, écran de
+taille tablette) sur le même dossier via synchronisation par câble, et votre
+propre compte d'IA (pour l'IA externe intégrée à l'app et/ou une IA de bureau —
+Claude Desktop, ChatGPT Desktop, Qwen Desktop ou Kimi Desktop) — sans cela,
+IRONSTICK fonctionne tout simplement comme un système entièrement local.
+
+### Stockage des données sur un support externe (optionnel)
+
+Qui tient son dossier sur un lecteur externe — par exemple pour faire fonctionner le PC
+du bureau et l'ordinateur portable avec le même fonds — a besoin d'un support qui résiste
+à la charge continue d'un cabinet. IRONSTICK contrôle chaque cible avant le déménagement et
+refuse les supports inadaptés (Windows).
+
+| Contrôle | Exigence |
+| --- | --- |
+| Espace libre | Au moins 9 Go, ou 1 Go de plus que le fonds
+ actuel |
+| Écriture / lecture | Au moins 80 Mo/s / 150 Mo/s — y compris sous
+ charge continue (pas en dessous de 60 % de la valeur initiale) |
+| Nombreux petits fichiers | Au moins 250 fichiers par seconde |
+| Système de fichiers | NTFS ou exFAT, pas FAT32 ; ni protégé en écriture ni
+ verrouillé |
+| Fiabilité | Les données de test doivent être relues sans changement |
+| Non autorisé | Lecteurs réseau et dossiers synchronisés avec le cloud
+ (OneDrive, Google Drive, Dropbox) |
+| Recommandation | SSD externe — les clés USB ordinaires atteignent rarement ces
+ valeurs |
+
+### Configuration requise — le serveur de cabinet (module optionnel)
+
+|  | Exigence |
+| --- | --- |
+| Appareil | N'importe quel NAS Synology sous DSM 7.0 ou plus récent
+ — ARM ou Intel ; le paquet fournit des binaires natifs pour ARMv7, ARM64 et
+ x86-64 |
+| Performance | Écrit à dessein de façon si légère qu'il tourne
+ proprement même sur une **unité d'entrée de gamme vieille de dix ans** :
+ vérifié sur un DS214se de 2014 doté d'un CPU ARM à un seul cœur et de
+ 256 MB de RAM. S'il tourne là, il tourne sur chaque Synology de la gamme —
+ n'importe quel modèle actuel dispose d'une marge généreuse |
+| Mémoire / CPU | Aucune exigence particulière au-delà du NAS
+ lui-même — le serveur est au repos à quelques MB et ne scanne ni n'indexe jamais
+ en arrière-plan |
+| Stockage | Quelques centaines de MB pour le paquet et la
+ bibliothèque juridique ; les paquets de dossiers partagés ne croissent qu'avec ce
+ que vous partagez réellement |
+| Réseau | Réseau local du cabinet uniquement ; un port TCP (47712).
+ DSM, Web Station et les ports 80/443 restent complètement intacts — le serveur ne
+ se connecte jamais à internet |
+| Administration | N'importe quel navigateur sur le réseau local ;
+ propre mot de passe administrateur ; clé de licence saisie une seule fois |
+
+IRONSTICK n'a pas été conçu pour impressionner lors d'une démo.
+Il a été conçu pour qu'à 19:00 vous rabattiez l'écran — le dossier lu, le projet
+durci, le délai tenu, et la preuve des trois dans le système.
+
+## 16. Licences — modulaire, seulement ce que votre cabinet utilise
+
+IRONSTICK est licencié par composant. Vous ne prenez que les éléments dont
+vous avez besoin et vous en ajoutez à mesure que le cabinet grandit. Vous trouverez ici les composants et le mode de licence de chacun — les montants figurent sur la [page des tarifs](https://www.ironstick.legal/pricing_fr.html).
+
+| Composant | Licencié par |
+| --- | --- |
+| **IRONSTICK Client** (application de base) | par utilisateur / poste |
+| **Bridge unique** — Claude, ChatGPT, Qwen *ou* Kimi | par utilisateur / poste |
+| **Pack de tous les Bridges** — les quatre Bridges ensemble | par utilisateur / poste |
+| **IRONSTICK Office Server** (jusqu'à 5 clients inclus) | par cabinet / serveur |
+| **Client supplémentaire sur le serveur** (à partir du 6e) | par client supplémentaire |
+| **Central Scan App** (max. 3 par serveur) | par utilisateur / poste de numérisation |
+
+- **Modules complémentaires & dépendances :** les Bridges et
+l'Office Server sont des modules complémentaires licenciés séparément de
+l'application de base ; la Central Scan App requiert une licence Office Server
+active.
+- **Abonnement au fournisseur d'IA :** un Bridge fonctionne sur votre
+propre abonnement chez le fournisseur (Claude, ChatGPT, Qwen ou Kimi) — le chat
+IA intégré ne nécessite aucune licence Bridge supplémentaire.
+- **La formation** est licenciée séparément en trois modules sur site
+(application · application + serveur de cabinet · Bridges IA approfondis).
+
+**Télécharger le logiciel :** Client-App, Bridges, Office Server et Central Scan App sont disponibles sur la [page de téléchargement](https://www.ironstick.legal/download_fr.html) — où vous trouverez aussi l'ordre d'installation, les règles de licence et le modèle pour demander les clés de licence.
+
+##### Contact
+
+### Tobias Werren
+
+![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Scannez le code pour enregistrer notre carte de contact — téléphone, e-mail et site.
+
+N'hésitez pas à prendre contact directement via WhatsApp ou Telegram — un appel est également le bienvenu. Langues parlées : allemand, anglais, roumain.
+
+[WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
+
+##### Message
+
+### IRONSTICK ou une démonstration vous intéressent ? Écrivez-nous.
