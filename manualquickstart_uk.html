@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8">
+<title>IRONSTICK — Посібник - Швидкий старт</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Швидкий старт — від встановлення до перших клієнтів за шість кроків.">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualquickstart_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualquickstart_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualquickstart_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualquickstart_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualquickstart_es.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualquickstart_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualquickstart_uk.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="canonical" href="https://www.ironstick.legal/manualquickstart_uk.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style></head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Меню"><a class="b" href="index_uk.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_uk.html">Головна</a><span class="mh">Посібники</span><a class="sub" href="manualquickstart_uk.html">Швидкий старт</a><a class="sub" href="manualironstick_uk.html">Клієнтський застосунок</a><a class="sub" href="manualbridge_uk.html">Bridge</a><span class="mh">Компендіуми</span><a class="sub" href="kompendium_uk.html">Клієнтський застосунок</a><a class="sub" href="bridge_uk.html">Bridge</a><a href="gdpr_uk.html">GDPR</a><a href="download_uk.html">Download</a><a href="pricing_uk.html">Ціни</a></div></div><nav class="mainnav"><div class="nav-drop" tabindex="0"><span>Посібники</span><div class="menu"><a href="manualquickstart_uk.html" aria-current="page">Швидкий старт</a><a href="manualironstick_uk.html">Клієнтський застосунок</a><a href="manualbridge_uk.html">Bridge</a></div></div><div class="nav-drop" tabindex="0"><span>Компендіуми</span><div class="menu"><a href="kompendium_uk.html">Клієнтський застосунок</a><a href="bridge_uk.html">Bridge</a></div></div><a href="gdpr_uk.html">GDPR</a><a href="download_uk.html">Download</a><a href="pricing_uk.html">Ціни</a></nav></div><div class="bar-right"><a class="cta" href="download_uk.html">Тест 30 днів</a><nav class="lang-wrap" tabindex="0" title="Мова" aria-label="Мова"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualquickstart.html">English</a><a lang="de" hreflang="de" href="manualquickstart_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualquickstart_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualquickstart_fr.html">Français</a><a lang="it" hreflang="it" href="manualquickstart_it.html">Italiano</a><a lang="es" hreflang="es" href="manualquickstart_es.html">Español</a><a lang="ru" hreflang="ru" href="manualquickstart_ru.html">Русский</a><a class="on" lang="uk" hreflang="uk" href="manualquickstart_uk.html">Українська</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Посібник - Швидкий старт</h1></div><p class="gh-sub">Швидкий старт — від встановлення до перших клієнтів за шість кроків.</p></div></section>
+
+<h2 id="q1">1. Встановлення IRONSTICK</h2>
+<figure><img src="img/screens/A%20installer.png" alt="Програма встановлення IRONSTICK: мова, папка призначення, ярлик на робочому столі, готовність до встановлення, встановлення"><figcaption>Встановлення за п’ять коротких кроків.</figcaption></figure>
+<p class="scr-intro">Програма встановлення встановлює <span class="irs">IRONSTICK</span> на ваш комп’ютер із Windows за кілька кліків.
+Ви обираєте мову встановлення, папку та те, чи створювати ярлик на робочому столі; після цього програма встановлюється.
+Якщо <span class="irs">IRONSTICK</span> уже встановлено, просто встановіть нову версію поверх — ваші дані залишаться на місці.</p>
+<h3 class="do">Що ви робите тут</h3>
+<h4>Встановлення</h4>
+<ul>
+<li><b>Мова встановлення.</b> Оберіть мову, якою з вами спілкуватиметься програма встановлення, і підтвердіть кнопкою <i>OK</i>.</li>
+<li><b>Папка призначення.</b> Запропонована папка — <i>C:\Program Files\IRONSTICK</i>. Залиште її або оберіть іншу за допомогою <i>Огляд…</i>.</li>
+<li><b>Ярлик на робочому столі.</b> Залиште позначку, якщо хочете мати значок <span class="irs">IRONSTICK</span> на робочому столі.</li>
+<li><b>Встановлення.</b> Підсумок ще раз показує папку та ярлик; <i>Установити</i> запускає встановлення, а індикатор виконання показує, як далеко воно просунулося.</li>
+</ul>
+<h4>Перший запуск</h4>
+<ul>
+<li><b>Ліцензійний ключ.</b> Під час першого запуску <span class="irs">IRONSTICK</span> запитує ваш ліцензійний ключ. Введіть його з одержаного паперового носія або вставте.</li>
+<li><b>Код безпеки.</b> Після дійсного ліцензійного ключа ви побачите QR-код. Відскануйте його застосунком-автентифікатором на телефоні. Відтоді <span class="irs">IRONSTICK</span> відкривається лише після введення шестицифрового коду з цього застосунку.</li>
+<li><b>Новий телефон.</b> Якщо ви втратили телефон, введіть ліцензійний ключ ще раз на початковому екрані; QR-код з’явиться знову, і ви налаштуєте новий телефон.</li>
+</ul>
+
+<h2 id="q2">2. Ліцензія, користувач і мова</h2>
+<figure><img src="img/screens/A%20config%20license%20user%20language.png" alt="Конфігурація з діалогом ліцензійного ключа та відкритою карткою користувача з полем мови"><figcaption>Ліцензійний ключ, ваша картка користувача та мова програми.</figcaption></figure>
+<p class="scr-intro">Відкрийте конфігурацію за допомогою шестірні у верхній панелі.
+Тут ви вводите або поновлюєте ліцензійний ключ, заповнюєте картку користувача та обираєте мову, якою з вами спілкуються <span class="irs">IRONSTICK</span> і ШІ.
+Приділіть хвилину картці користувача: ваші дані використовуються в листах, процесуальних документах і запиті на ліцензію.</p>
+<ol class="marks">
+<li><b>Ліцензійний ключ.</b> Посилання <i>Ліцензійний ключ</i> під рядком версії відкриває вікно ліцензії. Введіть або вставте ключ і натисніть <i>Активувати</i>. <i>Запросити ліцензійний ключ</i> перевіряє, чи заповнена ваша картка користувача, і готує текст запиту з темою та одержувачем, кожен із кнопкою копіювання.</li>
+<li><b>Користувач.</b> Відкриває вашу картку користувача. Число поруч із заголовком ідентифікує вашу інсталяцію; маленький значок копіює його.</li>
+<li><b>Поля з ліцензії.</b> Компанія, звертання, ім’я та прізвище беруться з вашого ліцензійного ключа і заблоковані (замок). Заповніть інші поля: посаду, адресу, країну, телефон, мобільний, e-mail, дату народження та месенджери, якими ви користуєтеся.</li>
+<li><b>Мова.</b> Мова програми та діалогу зі ШІ. Після <i>Зберегти</i> кожен екран одразу перемикається на нову мову.</li>
+</ol>
+
+<h2 id="q3">3. Конфігурація ШІ</h2>
+<figure><img src="img/screens/A%20config%20AI.png" alt="Конфігурація ШІ з безкоштовними фоновими сервісами та сервісами ШІ для вбудованого чату"><figcaption>Безкоштовні сервіси для фонових завдань і ваші сервіси ШІ для вбудованого чату.</figcaption></figure>
+<p class="scr-intro">Конфігурація ШІ містить ключі доступу (API-ключі) до сервісів ШІ, якими може користуватися <span class="irs">IRONSTICK</span>.
+Є два види: безкоштовні сервіси, що виконують лише фонові завдання, та сервіси для повних функцій ШІ вбудованого чату.
+Вам потрібен обліковий запис у відповідному сервісі; посилання під кожним полем ведуть на сторінки реєстрації, умов і конфіденційності.</p>
+<ol class="marks">
+<li><b>Конфігурація ШІ.</b> Відкриває картку з усіма сервісами ШІ.</li>
+<li><b>Безкоштовні сервіси для фонових завдань.</b> Використовуються лише для фонової роботи, як-от призначення електронної пошти, монітор даних, щоденний брифінг і звіт про ситуацію. Натисніть посилання під полем, щоб створити обліковий запис безпосередньо в постачальника та згенерувати там API-ключ. Вставте цей API-ключ у поле й натисніть <i>Зберегти</i>. Перемикач поруч із сервісом вмикає або вимикає цей сервіс для зазначених дій — навіть коли його API-ключ залишається збереженим. Червоне повідомлення говорить, на що ви погоджуєтесь: у разі безкоштовної пропозиції дані передаються цьому постачальнику — уважно прочитайте його умови та політику конфіденційності щодо GDPR, перш ніж увімкнути.</li>
+<li><b>Сервіси ШІ для вбудованого чату.</b> Натисніть посилання під полем, щоб створити обліковий запис безпосередньо в постачальника та згенерувати там API-ключ. Вставте API-ключ у поле й натисніть <i>Зберегти</i>. <b>Зверніть увагу:</b> працюючий API-ключ у постачальника завжди коштує грошей; рекомендується поповнення щонайменше на 20 доларів/євро на кожного постачальника. Також рекомендуємо користуватися щонайменше двома постачальниками, щоб уникнути перерв: якщо збережено кілька сервісів, <span class="irs">IRONSTICK</span> автоматично використовує їх у фіксованому порядку, показаному цифрами, починаючи з найдешевшого; якщо один недоступний або його кошти вичерпано, його підхоплює наступний. Регулярно перевіряйте баланс кожного облікового запису.</li>
+</ol>
+
+<h2 id="q4">4. Ваш підпис</h2>
+<figure><img src="img/screens/A%20config%20sign.png" alt="Картка підпису з полем для малювання та кнопками очищення, завантаження, видалення й збереження"><figcaption>Намалюйте свій підпис один раз — або завантажте його як зображення.</figcaption></figure>
+<p class="scr-intro">Ваш підпис зберігається один раз у конфігурації.
+<span class="irs">IRONSTICK</span> ставить його там, де ви підписуєте документи: у попередньому перегляді друку текстового процесора та на штампах додатків.
+Ви можете намалювати його мишею або на сенсорному екрані чи завантажити скан свого підпису.</p>
+<ol class="marks">
+<li><b>Підписи.</b> Відкриває картку підпису.</li>
+<li><b>Поле підпису.</b> Намалюйте свій підпис мишею або пальцем. <i>Очистити поле підпису</i> починає спочатку; <i>Завантажити зображення (JPG/PNG)</i> бере натомість відсканований підпис; <i>Видалити</i> прибирає збережений підпис; <i>Зберегти</i> зберігає його. Зелена галочка та маленький попередній перегляд показують підпис, який зараз збережено.</li>
+</ol>
+
+<h2 id="q5">5. Шаблон бланка</h2>
+<figure><img src="img/screens/A%20config%20template.png" alt="Картка шаблону бланка з кнопкою завантаження"><figcaption>Бланк вашої фірми під кожним процесуальним документом.</figcaption></figure>
+<p class="scr-intro">Якщо ваша фірма використовує друкований фірмовий бланк, завантажте його один раз як PDF формату A4.
+<span class="irs">IRONSTICK</span> тоді розміщує ваші процесуальні документи на цьому бланку: текст починається під ним.
+У текстовому процесорі ви вмикаєте або вимикаєте бланк для кожного документа окремо.</p>
+<ol class="marks">
+<li><b>Шаблон бланка.</b> Відкриває картку шаблону.</li>
+<li><b>Завантажити шаблон.</b> Оберіть PDF формату A4 з вашим бланком. Поки шаблон не збережено, картка повідомляє про це.</li>
+</ol>
+
+<h2 id="q6">6. Перенесіть своїх клієнтів</h2>
+<figure><img src="img/screens/A%20client%20import.png" alt="Список клієнтів із вікном імпорту та зіставленням стовпців"><figcaption>Перенесіть наявних клієнтів з іншої програми.</figcaption></figure>
+<p class="scr-intro">Вам не потрібно вводити наявних клієнтів по одному.
+Експортуйте їх зі своєї попередньої програми або адресної книги як файл CSV чи vCard і перетягніть цей файл у вікно імпорту.
+Навіть якщо у вас ніколи не було власної системи ведення клієнтів, дані з програми для виставлення рахунків часто можна використати для безпосереднього імпорту вашої клієнтської бази — це заощаджує дуже багато роботи.
+Нових клієнтів ви створюєте за допомогою <i>Новий клієнт</i>.</p>
+<ol class="marks">
+<li><b>Імпортувати клієнта.</b> Відкриває вікно імпорту. Перетягніть файл CSV або vCard (.vcf) на область скидання. Файл Excel спершу зберігається в Excel як CSV. Для файлу CSV друге вікно перелічує кожен стовпець із прикладом значення та полем, до якого він потрапляє; зіставлення заповнене наперед, і ви можете змінити кожне поле. Принаймні один стовпець має бути зіставлений з іменем. З однією адресою форма <i>Новий клієнт</i> відкривається вже заповненою; з кількома ви в списку позначаєте, кого імпортувати — клієнти, які вже існують, не позначені.</li>
+<li><b>Новий клієнт.</b> Відкриває порожню форму клієнта для клієнта, якого ви вводите вручну.</li>
+</ol>
+
+<div class="boxorange"><b>І на цьому ви готові фіксувати свої справи в <span class="irs">IRONSTICK</span>.</b> Чи внесете ви всі свої наявні файли в <span class="irs">IRONSTICK</span>, чи просто почнете працювати з <span class="irs">IRONSTICK</span> над новими справами — вирішувати вам. На практиці найкращим виявився комбінований підхід: вручну зафіксуйте кілька важливих наявних справ, яким терміново потрібна підтримка <span class="irs">IRONSTICK</span>, і водночас одразу ведіть усі нові справи в <span class="irs">IRONSTICK</span>.</div>
+
+<footer class="sd-foot"><p>IRONSTICK — програмне забезпечення для юридичної практики. Цей сайт має суто інформаційний характер і не є юридичною консультацією. © 2026 IRONSTICK.</p></footer>
+</body></html>

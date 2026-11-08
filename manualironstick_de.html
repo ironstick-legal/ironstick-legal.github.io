@@ -1,0 +1,1404 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<title>IRONSTICK — Handbuch - Client-App</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Benutzerhandbuch — jeder Screen: was Sie sehen und was Sie tun können.">
+<meta name="robots" content="index, follow">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualironstick_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualironstick_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualironstick_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualironstick_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualironstick_es.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualironstick_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualironstick_uk.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="canonical" href="https://www.ironstick.legal/manualironstick_de.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_de.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_de.html">Startseite</a><span class="mh">Handbücher</span><a class="sub" href="manualquickstart_de.html">Schnellstart</a><a class="sub" href="manualironstick_de.html">Client-App</a><a class="sub" href="manualbridge_de.html">Bridge</a><span class="mh">Kompendien</span><a class="sub" href="kompendium_de.html">Client-App</a><a class="sub" href="bridge_de.html">Bridge</a><a href="gdpr_de.html">DSGVO</a><a href="download_de.html">Download</a><a href="pricing_de.html">Preise</a></div></div><nav class="mainnav"><div class="nav-drop" tabindex="0"><span>Handbücher</span><div class="menu"><a href="manualquickstart_de.html">Schnellstart</a><a href="manualironstick_de.html" aria-current="page">Client-App</a><a href="manualbridge_de.html">Bridge</a></div></div><div class="nav-drop" tabindex="0"><span>Kompendien</span><div class="menu"><a href="kompendium_de.html">Client-App</a><a href="bridge_de.html">Bridge</a></div></div><a href="gdpr_de.html">DSGVO</a><a href="download_de.html">Download</a><a href="pricing_de.html">Preise</a></nav></div><div class="bar-right"><a class="cta" href="download_de.html">30 Tage testen</a><nav class="lang-wrap" tabindex="0" title="Sprache" aria-label="Sprache"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualironstick.html">English</a><a class="on" lang="de" hreflang="de" href="manualironstick_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualironstick_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualironstick_fr.html">Français</a><a lang="it" hreflang="it" href="manualironstick_it.html">Italiano</a><a lang="es" hreflang="es" href="manualironstick_es.html">Español</a><a lang="ru" hreflang="ru" href="manualironstick_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualironstick_uk.html">Українська</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Handbuch - Client-App</h1></div><p class="gh-sub">Benutzerhandbuch — jeder Screen: was Sie sehen und was Sie tun können.</p></div></section>
+
+<h2 id="s0">0. Menüleiste</h2>
+<figure><img src="img/screens/0%20menubar.png" alt="Die Menüleiste mit Burger-Menü, Brotkrumenpfad, Ressourcenanzeige und den Symbolen rechts sowie das IRONSTICK-Browserfenster"><figcaption>Die Menüleiste, die oben auf jedem Bildschirm sitzt, und das IRONSTICK-Browserfenster, das über den Globus geöffnet wird.</figcaption></figure>
+<p class="scr-intro">Die Menüleiste sitzt oben auf jedem Bildschirm von <span class="irs">IRONSTICK</span>, sodass Sie die wichtigen Funktionen von überall erreichen.
+Links befinden sich das Navigationsmenü und der Programmname samt kleinen Live-Anzeigen. In der Mitte steht das Tagesbriefing. Rechts liegen die
+Anzeigen für neue E-Mails, Fristen und Nachrichten, der KI-Chat, das Browserfenster, die Konfiguration und die Power-Taste. Unter der Leiste zeigt der Brotkrumenpfad, wo Sie sich befinden.
+Viele Symbole erscheinen nur, wenn es etwas anzuzeigen gibt. Ein rotes Symbol, das wackelt, bedeutet immer, dass etwas Neues auf Sie wartet.</p>
+<ol class="marks">
+<li><b>Brotkrumenpfad.</b> Zeigt den Weg zum aktuellen Bildschirm, zum Beispiel <i>Hauptmenü › Institutionen</i>. Der letzte Teil ist der Bildschirm, auf dem Sie sich befinden. Klicken Sie auf einen früheren Teil, um direkt dorthin zurückzukehren.</li>
+<li><b>Navigationsmenü (Burger).</b> Öffnet das Seitenmenü mit Hauptmenü, Mandanten, Institutionen, Personen, Fristen, Tags, Texten und Suche. Der Bildschirm, auf dem Sie sich befinden, ist blau hervorgehoben. Das rote Power-Symbol unten im Menü schließt das Programm, genau wie die Power-Taste.</li>
+<li><b>Ressourcenanzeige (nur Windows).</b> Ein kleiner Balken und der Text <i>(CPU / RAM)</i> zeigen, wie viel Prozessorleistung und Speicher <span class="irs">IRONSTICK</span> selbst gerade verbraucht. Der Balken ist grün, wird ab 50 % orange und ab 80 % rot. Zeigen Sie darauf, um zu sehen, welche Hintergrundaufgaben gerade laufen, mit Fortschritt und Laufzeit. Aufgaben, die gestoppt werden können, tragen ein rotes X.</li>
+<li><b>KI-Gedächtnis (rosa Gehirn).</b> Erscheint, sobald die KI Notizen in ihrem Gedächtnis gespeichert hat. Es pulsiert, während die KI das Gedächtnis liest oder beschreibt. Klicken Sie darauf, um die gespeicherten Notizen zu prüfen. Sie können alle Notizen eines Mandanten auf einmal löschen oder einzelne Notizen unter den letzten 100 ankreuzen und löschen.</li>
+<li><b>Tagesbriefing (Lautsprecher).</b> Öffnet jederzeit das Tagesbriefing: was heute ansteht (Fristen, Gerichtstermine, Termine, E-Mails), was heute bereits erledigt wurde und ein kurzer Rückblick. Klicken Sie auf eine Zeile, um den passenden Bildschirm zu öffnen, zum Beispiel die Fristen, den Kalender, den E-Mail-Monitor oder den Fall. <i>Vorlesen</i> spielt die gesprochene Fassung ab, und <i>Stopp</i> beendet sie. Ein Schalter ändert nur den Stil des gesprochenen Textes. Ist Ihr letztes Backup älter als fünf Tage, warnt Sie das Briefing.</li>
+<li><b>Datenkonsistenz-Monitor.</b> Öffnet die Liste der Änderungsvorschläge zu Ihren Mandanten- und Kontaktdaten, die <span class="irs">IRONSTICK</span> in Ihren E-Mails gefunden hat. Bei jedem Vorschlag wählen Sie <i>Zulassen</i> oder <i>Ablehnen</i>. Das Symbol ist grau, wenn nichts wartet, und rot, wenn es Vorschläge gibt. Es wackelt auch, wenn neue Fälle aus dem Gerichtsportal vorgeschlagen wurden (Länderfunktion).</li>
+<li><b>E-Mail.</b> Nur sichtbar, wenn die E-Mail-Prüfung im Hintergrund in der Konfiguration eingeschaltet ist. Grau bedeutet keine neuen E-Mails. Rot und wackelnd bedeutet, dass neue E-Mails eingegangen sind; der Tooltip zeigt, wie viele. Klicken Sie, um den E-Mail-Monitor zu öffnen, in dem alles als gesehen gilt.</li>
+<li><b>KI-Chat (Roboter).</b> Klicken Sie, um den KI-Chat zu öffnen. Unter Windows öffnet er sich in einem eigenen Fenster. Befinden Sie sich in einem Fall oder bei einem Mandanten, zeigt ein kleiner violetter Punkt, dass der Chat diesen Fall oder Mandanten bereits kennt. Klicken Sie mit der rechten Maustaste darauf (auf dem Tablet: gedrückt halten), um die Spracherkennung ein- oder auszuschalten. Solange sie eingeschaltet ist, bewegt sich der Roboter, und der Chat hört zu und antwortet laut. Der Roboter ist ausgeblendet, solange eine externe Desktop-KI mit <span class="irs">IRONSTICK</span> verbunden ist. Auf dem Tablet ist er ausgegraut, wenn keine Internetverbindung besteht.</li>
+<li><b>Server-Chat.</b> Erscheint nur, wenn ein Büro-Server verbunden ist. Er öffnet einen Chat mit den anderen Benutzern des Büro-Servers. Ein grüner Punkt bedeutet, dass der Benutzer online ist, rot bedeutet offline. Sie können Ihre eigenen Nachrichten löschen, und ein Schalter stummt den Chat, sodass er nicht mehr von selbst aufpoppt. Das Symbol wird rot und wackelt, wenn eine ungelesene Nachricht vorliegt.</li>
+<li><b>Fristenglocke.</b> Rot, wenn mindestens eine Frist heute fällig oder überfällig ist. Orange, wenn Fristen in den nächsten zehn Tagen fällig werden. Grau, wenn nichts ansteht. Zeigen Sie auf die Glocke, um die Anzahl zu sehen. Die Glocke wackelt auch, wenn eine Gerichtssitzung aus dem Gerichtsportal auf heute fällt (Länderfunktion). Ein Klick öffnet immer die Fristenübersicht.</li>
+<li><b>Power-Taste.</b> Schließt <span class="irs">IRONSTICK</span> sofort, ohne Rückfrage. Sie löscht temporäre Dateien und den Browser-Cache und beendet alle Hilfsprogramme, sodass nichts vom Programm im Speicher weiterläuft.</li>
+<li value="13"><b>Konfiguration (Zahnrad).</b> Öffnet den Konfigurationsbildschirm mit Systeminformationen, Speicherort, Benutzerprofil, KI-Einstellungen, E-Mail-Konto, Büro-Server, Unterschrift und Briefkopf.</li>
+</ol>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>IRONSTICK-Browserfenster (Globus)</h4>
+<ul>
+<li><b>Das Browserfenster öffnen.</b> Der Globus zwischen Glocke und Zahnrad öffnet das <span class="irs">IRONSTICK</span>-Browserfenster, das einen roten Rahmen hat, damit Sie es stets erkennen. Solange es geöffnet ist, blinkt der Globus rot. Ist das Fenster bereits offen, passiert nichts weiter.</li>
+<li><b>Startseite.</b> Die Startseite erklärt das Fenster, bietet Schnellzugriffe auf gängige soziale Netzwerke und zeigt die neuesten Nachrichten von der <span class="irs">IRONSTICK</span>-Website, zum Beispiel eine neue Programmversion mit ihrem Download-Link.</li>
+<li><b>Den KI-Chat mitlesen lassen.</b> Gehen Sie selbst auf die gewünschte Seite und schreiben Sie dann im Chat etwa <i>„Sieh dir das aktuelle Browserfenster an“</i>. Der Chat liest die Seite als reinen Text (ohne Bilder) und kann sie im Gespräch verwenden. Er kann auch weitere Seiten derselben Website öffnen und von dort Dateien herunterladen.</li>
+<li><b>Logins und Sicherheitsprüfungen erledigen Sie.</b> Logins und „Sind Sie ein Mensch“-Prüfungen führen Sie selbst in diesem Fenster durch. Das Fenster verwendet ein eigenes Browserprofil, getrennt von Ihrem üblichen Browser; auf manchen Seiten müssen Sie sich deshalb einmal anmelden. Diese Logins bleiben für das nächste Mal gespeichert. Für privates Surfen verwenden Sie Ihren normalen Browser.</li>
+</ul>
+
+<h4>Symbole, die nur bei Bedarf erscheinen</h4>
+<ul>
+<li><b>Dokumenteneingang (nur Windows).</b> Ein rotes, wackelndes Eingangssymbol erscheint, solange unbearbeitete Dokumente im Dokumenteneingang warten. Der Tooltip zeigt, wie viele. Klicken Sie darauf, um die Dokumentenerfassung zu öffnen. Wartet nichts, verschwindet das Symbol.</li>
+<li><b>Notiz-Pin (Büro-Server).</b> Haben Kollegen am Büro-Server neue Notizen zu einem Fall hinterlassen, erscheint ein roter, wackelnder Pin. Jeder Klick führt Sie zum Fall mit der nächsten ungelesenen Notiz und öffnet dessen Pinnwand.</li>
+<li><b>KI-Dienst nicht verfügbar.</b> Ist ein von Ihnen eingerichteter externer KI-Dienst heute nicht verfügbar, erscheint ein roter Kreis mit Ausrufezeichen. Klicken Sie darauf, um für jeden Dienst den Grund und den nächsten Versuchszeitpunkt zu sehen. Wurde ein Dienst gestoppt, weil sein Guthaben aufgebraucht ist, führt <i>Aufladen</i> Sie direkt zu diesem Dienst in der KI-Konfiguration.</li>
+<li><b>Verbundene Desktop-KI (nur Windows).</b> Arbeitet eine externe Desktop-KI-App mit Ihren Daten, erscheint ihr Symbol rechts neben der Ressourcenanzeige. Es pulsiert, während eine Anfrage läuft. Zeigen Sie darauf, um zu sehen, welche Fälle sie in dieser Sitzung gelesen hat und wie weit, ob sie die <span class="irs">IRONSTICK</span>-Instruktionen bestätigt hat und wie viele Regelverstöße sie begangen hat.</li>
+</ul>
+
+<h4>Allgemeines Verhalten</h4>
+<ul>
+<li><b>Das Fenster verschieben.</b> Ziehen Sie am PC einen beliebigen leeren Bereich der Menüleiste, um das Programmfenster zu verschieben, genau wie die normale Fenster-Titelleiste.</li>
+<li><b>Gesperrt bei langen Speichervorgängen.</b> Während ein langer Speichervorgang läuft, sind Menüleiste und Brotkrumenpfad ausgegraut und reagieren nicht, und Sie können nicht zurückgehen. Der Bildschirm darunter bleibt sichtbar, damit Sie den Fortschritt verfolgen können.</li>
+<li><b>Auf dem Android-Tablet.</b> In der Mitte der Leiste befindet sich statt des Programmnamens eine rote <i>DESTROY</i>-Schaltfläche. Nach einer Bestätigung löscht sie alle <span class="irs">IRONSTICK</span>-Daten dauerhaft vom Tablet, startet die Deinstallation der App und schließt sie. Das lässt sich nicht rückgängig machen. Das Tablet hat kein Tagesbriefing und keine Ressourcenanzeige.</li>
+</ul>
+
+<h2 id="s1">1. Hauptmenü</h2>
+<figure><img src="img/screens/1%20menu.png" alt="Hauptmenü mit den Reitern Start, Agenda und Heatmap"><figcaption>Das Hauptmenü und seine drei Reiter: Start, Agenda und Heatmap.</figcaption></figure>
+<p class="scr-intro">Das Hauptmenü ist der erste Bildschirm, nachdem Sie <span class="irs">IRONSTICK</span> entsperrt haben. Oben sitzen drei Reiter:
+<b>Start</b> zeigt, was heute Ihre Aufmerksamkeit braucht, und öffnet jeden Teil des Programms,
+<b>Agenda</b> listet alles, was in allen Ihren Fällen geschehen ist, in Datumsreihenfolge auf,
+und <b>Heatmap</b> zeigt, wie aktiv Ihre Kanzlei in den letzten zwölf Monaten war.</p>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Reiter Start</h4>
+<ul>
+<li><b>Fristen auf einen Blick.</b> Die Fristenkarte zeigt ein grünes Häkchen, wenn nichts überfällig ist, zusammen mit der Anzahl der Fristen in den nächsten 30 Tagen. Überfällige Fristen erscheinen rot mit den ersten aufgelisteten Einträgen. <i>Fristenübersicht</i> öffnet die vollständige Liste.</li>
+<li><b>Mandanten-Geburtstage.</b> Am Geburtstag eines Mandanten und für zwei Tage danach erscheint unter der Fristenkarte eine Torte. Klicken Sie auf einen Namen, um direkt zu diesem Mandanten zu gelangen.</li>
+<li><b>Stille Fälle.</b> Die zweite Karte zählt die Fälle ohne Aktivität seit 14 Tagen und listet die ersten drei auf. Klicken Sie auf die Karte, um alle zu sehen, damit kein Fall unbemerkt einschläft.</li>
+<li><b>Jedes Modul öffnen.</b> Jede Kachel öffnet einen Teil des Programms – Mandanten, Personen, Institutionen, Dokumentenerfassung, Suche, Kalender, Tagesprotokoll, Textverarbeitung, E-Mail-Monitor, Zeiterfassung, Gesetze, Backup und mehr. Jede Kachel trägt eine kurze Beschreibung ihrer Funktion.</li>
+<li><b>Die Kacheln nach Ihren Wünschen anordnen.</b> Ziehen Sie eine Kachel an ihrem Griff an eine neue Position. Die Reihenfolge wird auf diesem Computer gespeichert.</li>
+<li><b>Tags und Sicherheit.</b> Die Tags-Kachel zeigt Ihre farbigen Tags und öffnet die Tag-Verwaltung. Die Sicherheitskachel zeigt den Zustand dieses Computers (System, Laufwerke, Netzwerk) und öffnet die Konfiguration.</li>
+<li><b>Audio.</b> Die Audio-Kachel öffnet den Audio-Schneider für bereits vorhandene Aufnahmen; ihr zweiter Link startet eine Live-Aufnahme mit KI-Transkription.</li>
+<li><b>Kacheln, die nur bei Bedarf erscheinen.</b> <i>Server-Fälle</i> erscheint nur, wenn ein Büro-Server verbunden ist. Länderspezifische Kacheln erscheinen nur, wenn diese Funktionen eingeschaltet sind. Einige Kacheln, die einen PC brauchen (zum Beispiel Dokumentenerfassung und Textverarbeitung), werden auf dem Android-Tablet nicht angezeigt.</li>
+</ul>
+
+<h4>Reiter Agenda</h4>
+<ul>
+<li><b>Alles in einer Zeitleiste.</b> Der Feed umfasst drei Tage zurück und zehn Tage voraus: Chronikeinträge, E-Mails, Gerichtstermine, Fristen, Schriftsätze, Fotos und Transkripte aus allen Fällen. Heute wird vollständig angezeigt; die kommenden und die vergangenen Tage sind jeweils in einem Balken eingeklappt. Scrollen Sie nach oben, um die kommenden Tage einzeln zu öffnen; klicken Sie auf den Balken von heute, um zu heute zurückzuspringen.</li>
+<li><b>Jeder Eintrag führt weiter.</b> Die grauen Nummern (Mandant / Fall / Dokument) sowie der blaue Mandantenname und die grüne Fallnummer öffnen jeweils den passenden Bildschirm. PDF-Dokumente zeigen bis zu vier Seitenvorschauen – klicken Sie auf eine, um durch das ganze Dokument zu blättern. Bilder öffnen sich im Vollbild mit Zoom; angehängte Dateien öffnen sich im <span class="irs">IRONSTICK</span>-Browserfenster. Ein Tagesprotokoll-Eintrag öffnet seinen vollen Text.</li>
+<li><b>Schnellzugriffe und Filter.</b> Die Leiste links öffnet Mandanten, Personen, Institutionen, Suche, Kalender, Fristen, Tagesprotokoll, E-Mail-Monitor und Zeiterfassung. Haken Sie <i>Fristen und Gerichtstermine</i> an, um nur zeitgebundene Einträge zu sehen, oder <i>Vorschau aus</i> für eine kompakte reine Textliste.</li>
+</ul>
+
+<h4>Reiter Heatmap</h4>
+<ul>
+<li><b>Kennzahlen.</b> Vier Kacheln zeigen die Aktivität der letzten zwölf Monate, die Anzahl der aktiven Tage, den geschäftigsten Tag und die Anzahl der Fristen und Verhandlungen.</li>
+<li><b>Aktivitätskalender.</b> Jedes Quadrat ist ein Tag; je dunkler das Grün, desto mehr geschah. Ein roter Punkt markiert eine Frist, ein gelber Punkt eine Gerichtsverhandlung. Zeigen Sie auf einen Tag, um zu sehen, was geschah (Chronikeinträge, Schriftsätze, E-Mails, Chat, gearbeitete Minuten). Ein Klick auf einen der letzten drei Tage öffnet diesen Tag in der Agenda.</li>
+<li><b>Pro Mandant.</b> Die Auswahlliste beschränkt die ganze Heatmap auf einen einzelnen Mandanten.</li>
+<li><b>Aufgeflammte Fälle.</b> Unter dem Kalender werden Fälle aufgelistet, die plötzlich aktiv wurden. Klicken Sie auf die Fallnummer, um den Fall zu öffnen, oder auf den Mandantennamen, um die Fälle dieses Mandanten zu sehen.</li>
+</ul>
+
+<h4>Hinweise beim Start</h4>
+<ul>
+<li><b>Tagesbriefing.</b> Beim ersten Start des Tages fragt <span class="irs">IRONSTICK</span>, ob Sie das Tagesbriefing hören möchten – einen kurzen gesprochenen Überblick über Ihren Tag.</li>
+<li><b>Büro-Server.</b> Wird ein Büro-Server gefunden, aber dieser Arbeitsplatz hat keinen Zugriff darauf, weist Sie bei jedem Programmstart ein Hinweis darauf hin; Sie können normal weiterarbeiten.</li>
+</ul>
+
+<h2 id="s2">2. Konfiguration</h2>
+
+<h3>System und Datenbank</h3>
+<figure><img src="img/screens/2%20konfig%201-2.png" alt="Konfigurationsbildschirm mit den geöffneten Karten System und Datenbank"><figcaption>Die Konfigurationsliste mit den geöffneten Karten System und Datenbank.</figcaption></figure>
+<p class="scr-intro">Die Konfiguration (Zahnrad in der Menüleiste) fasst alle Einstellungen von <span class="irs">IRONSTICK</span> auf einer Seite als Liste von Karten zusammen. Klicken Sie auf den Titel einer Karte, um sie zu öffnen, und noch einmal, um sie zu schließen. Es ist immer nur eine Karte geöffnet.
+Die Karte <b>System</b> zeigt die Angaben zu diesem Computer für den Support. Die Karte <b>Datenbank</b> zeigt, wie viele Daten Sie haben und wo sie auf dem Datenträger gespeichert sind.
+Die Programmversion und der Lizenzschlüssel stehen am Ende der Seite.</p>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>System (nur Windows)</b></p>
+<ul>
+<li><b>Der Computer auf einen Blick.</b> Vier Kacheln zeigen Prozessor, installierten Speicher, Grafikkarte und Speicherplatz. Darunter stehen dieselben Geräte- und Windows-Informationen, die Windows unter <i>Einstellungen › System › Info</i> anzeigt. Sie können jeden Wert markieren und kopieren, zum Beispiel für eine Supportanfrage.</li>
+<li><b>Laufwerke.</b> Eine Liste zeigt jedes Laufwerk mit Kapazität, belegtem Speicherplatz und Hersteller. Klicken Sie auf ein Laufwerk, um es im Windows-Explorer zu öffnen.</li>
+<li><b>Schnellzugriff auf Windows.</b> Die Schaltflächen unten öffnen die Windows-Einstellungen, die Eigenschaften der Ethernet-Netzwerkverbindung, ein Befehlsfenster, das die vollständige Netzwerkkonfiguration anzeigt, und den Lautstärkemixer.</li>
+</ul>
+<p class="grp"><b>Datenbank</b></p>
+<ul>
+<li><b>Ihre Daten in Zahlen.</b> Der Kartentitel zeigt die Größe der Datenbank. Darin sehen Sie die Anzahl der Mandanten, Fälle, Beweiseinträge, Dokumente, Entitäten, Dateien, Protokolleinträge und Logins sowie den gesamten und den freien Speicherplatz des Laufwerks.</li>
+<li><b>Aktuell in Verwendung.</b> Ein graues Feld zeigt den Ordner, mit dem <span class="irs">IRONSTICK</span> gerade arbeitet. Alle Daten liegen in diesem einen Ordner: Datenbank, Lizenz, Konfiguration und jede Datei.</li>
+<li><b>Den Speicherort ändern (PC).</b> Mit <i>Ordner wählen</i> wählen Sie einen neuen Speicherort, etwa einen USB-Stick, ein anderes Laufwerk oder einen Cloud-synchronisierten Ordner. Der Ordner <i>IRONSTICK</i> wird dort automatisch angelegt. Klicken Sie auf <i>Speichern</i>, um den Umzug zu starten. <span class="irs">IRONSTICK</span> teilt Ihnen zuerst mit, wie viele Daten verschoben werden. Danach testet es das gewählte Laufwerk (zum Beispiel Geschwindigkeit, freien Speicherplatz und Schreibschutz) und fährt nur fort, wenn das Laufwerk den Test besteht. Wenn Sie bestätigen, wird der Umzug beim nächsten Programmstart durchgeführt, und das Programm schließt sich.</li>
+<li><b>Daten bereits am neuen Speicherort.</b> Enthält der gewählte Ordner bereits <span class="irs">IRONSTICK</span>-Daten, wird nichts ohne Rückfrage überschrieben. Beide Kopien werden verglichen, und Sie wählen, ob die dort gefundene Kopie verwendet oder durch Ihre aktuellen Daten ersetzt wird.</li>
+<li><b>Auf dem Android-Tablet.</b> Der Datenordner ist fest vorgegeben (es ist der Ordner, in den die USB-Synchronisation kopiert), sodass dort nichts zu wählen ist.</li>
+</ul>
+<p class="grp"><b>Benutzer (nur PC)</b></p>
+<ul>
+<li><b>Ihr Profil.</b> Die dritte Karte enthält Ihre Angaben: Firma, Funktion, Anrede, Vor- und Nachname, Adresse, Land, Telefon, Mobiltelefon, E-Mail, Facebook, Geburtsdatum und welche Messenger Sie nutzen (WhatsApp, Signal, Telegram, Viber). Klicken Sie auf <i>Speichern</i>, um sie zu speichern. Ihr Geburtsdatum wird, falls Sie einen Büro-Server nutzen, für Geburtstagsgrüße mit diesem geteilt.</li>
+<li><b>Aus Ihrer Lizenz übernommene Felder.</b> Bei aktiver Lizenz stammen Firma, Anrede und Name aus dem Lizenzschlüssel und können hier nicht geändert werden.</li>
+<li><b>Ihre Nummer.</b> Ihre Benutzernummer steht in Klammern neben dem Kartentitel. Das Kopiersymbol legt sie in die Zwischenablage, zum Beispiel für eine Lizenzanfrage.</li>
+<li><b>Programmsprache.</b> Wählen Sie die Sprache des Programms und speichern Sie. <span class="irs">IRONSTICK</span> lädt dann in der neuen Sprache neu und kehrt zum Hauptmenü zurück. Ein geöffnetes Chat-Fenster schließt sich und öffnet sich beim nächsten Mal in der neuen Sprache.</li>
+</ul>
+
+<h3>Desktop-KI und KI-Konfiguration</h3>
+<figure><img src="img/screens/2%20konfig%203-4.png" alt="Konfiguration mit den geöffneten Karten KI mit lokalem MCP-Server und KI-Konfiguration"><figcaption>Die Karten zum Anbinden einer Desktop-KI-App und für die externen KI-Dienste.</figcaption></figure>
+<p class="scr-intro">Diese beiden Karten steuern, wie KI mit Ihren Daten arbeitet. <b>KI mit lokalem MCP-Server</b> lässt eine auf diesem Computer installierte KI-App direkt auf Ihre <span class="irs">IRONSTICK</span>-Daten zugreifen. Das ist optional und für den Betrieb des Programms nicht nötig.
+In der <b>KI-Konfiguration</b> tragen Sie Ihre Zugangsschlüssel für die externen KI-Dienste ein, die <span class="irs">IRONSTICK</span> für seine KI-Funktionen und Hintergrundaufgaben verwendet.</p>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>KI mit lokalem MCP-Server</b></p>
+<ul>
+<li><b>Wann die Karte erscheint.</b> Die Karte wird nur am PC angezeigt, und nur, wenn mindestens eine Desktop-KI-App zu Ihrer Lizenz gehört.</li>
+<li><b>Zugriff erlauben.</b> Der erste Schalter entscheidet, ob die verbundene Desktop-KI überhaupt auf <span class="irs">IRONSTICK</span> zugreifen darf. Ist er aus, kann der externe Konnektor das Programm nicht erreichen.</li>
+<li><b>Navigation erlauben.</b> Der zweite Schalter lässt die Desktop-KI das Programm steuern, zum Beispiel um Dokumente zu öffnen oder einen Export zu starten. Er funktioniert nur, wenn der Zugriff erlaubt ist.</li>
+<li><b>Eine App einrichten.</b> Für jede lizenzierte Desktop-KI-App gibt es eine farbige Schaltfläche <i>… einrichten</i>. Ein Klick registriert <span class="irs">IRONSTICK</span> in dieser App und erklärt die restlichen Schritte, meist einen Neustart der App. Bei einer App wird der Einrichtungstext in die Zwischenablage kopiert, und Sie fügen ihn in den eigenen Dialog dieser App ein.</li>
+<li><b>Skill-Plugins.</b> <i>IRONSTICK-Skill-Plugin erzeugen</i> und <i>… Plugin erzeugen</i> erstellen ein Skill-Paket für die Desktop-KI-App. Eine Meldung zeigt, wo die Datei gespeichert wurde, damit Sie sie in die App ziehen können.</li>
+<li><b>Desktop-KI recyceln (Windows).</b> Die hellrote Schaltfläche schließt die aufgelisteten Desktop-KI-Apps und startet sie nach Ihrer Bestätigung neu. Verwenden Sie sie, wenn eine App die Verbindung zu <span class="irs">IRONSTICK</span> verloren hat.</li>
+<li><b>Links.</b> Die Links unter den Schaltflächen öffnen die Download-Seite, die Nutzungsbedingungen und die Datenschutzerklärung jeder App im <span class="irs">IRONSTICK</span>-Browserfenster.</li>
+</ul>
+<p class="grp"><b>KI-Konfiguration</b></p>
+<ul>
+<li><b>Automatische Reihenfolge.</b> Sie wählen nicht einen einzelnen Dienst. Jeder Dienst mit hinterlegtem Schlüssel wird automatisch verwendet, in fester Reihenfolge, der günstigste zuerst. Geht einem Dienst im Laufe des Tages das Kontingent oder Guthaben aus, wechselt <span class="irs">IRONSTICK</span> für den Rest des Tages zum nächsten und versucht es am nächsten Tag erneut.</li>
+<li><b>Statusanzeige.</b> Die runde Anzeige vor jedem Dienst zeigt seinen Platz in der Reihenfolge. Grün bedeutet verfügbar, rot heute nicht verfügbar, und grau bedeutet, dass kein Schlüssel hinterlegt ist. Zeigen Sie auf eine rote Anzeige, um den Grund und den nächsten Versuchszeitpunkt zu sehen.</li>
+<li><b>Kostenlose Dienste für Hintergrundaufgaben.</b> Die Dienste oberhalb der dicken Linie sind kostenlose Angebote, die nur für Hintergrundaufgaben verwendet werden, etwa die E-Mail-Zuordnung, den Datenkonsistenz-Monitor, das Tagesbriefing und das Lagebild. Ihre Anzeige zeigt eine Uhr. Jeder hat einen eigenen Ein/Aus-Schalter, und ein roter Warntext erinnert Sie daran, dass Ihre Daten an diesen Anbieter gehen. Lesen Sie dessen Bedingungen im Hinblick auf den Datenschutz (DSGVO) sorgfältig, bevor Sie ihn einschalten.</li>
+<li><b>Kostenpflichtige Dienste.</b> Die Dienste unterhalb der dicken Linie werden in der angezeigten Reihenfolge verwendet. Ihr Schalter <i>Red/Blue Team erlauben</i> lässt die KI einen fertigen Schriftsatz ein zweites Mal als kritischer Prüfer lesen und alles markieren, was vom Text nicht gedeckt ist. Wesentliche Befunde halten das Ergebnis zurück. Der Schalter ist erst benutzbar, wenn für diesen Dienst ein Schlüssel gespeichert ist.</li>
+<li><b>Einen Schlüssel eintragen.</b> Fügen Sie den Zugangsschlüssel in das Schlüsselfeld ein und klicken Sie auf <i>Speichern</i>. Das Augensymbol zeigt oder verbirgt den Schlüssel. Reihenfolge und Anzeigen werden sofort aktualisiert.</li>
+<li><b>Konto-Links.</b> Unter jedem Dienst gibt es Links zum Erstellen eines Kontos und eines Zugangsschlüssels, zur Kontostandsabfrage (bei einigen Diensten) und zu den Nutzungsbedingungen und der Datenschutzerklärung. Sie öffnen sich im <span class="irs">IRONSTICK</span>-Browserfenster.</li>
+</ul>
+
+<h3>E-Mail-Monitor und Hintergrundaufgaben</h3>
+<figure><img src="img/screens/2%20konfig%205-6.png" alt="Konfiguration mit den geöffneten Karten E-Mail-Monitor und Hintergrundaufgaben"><figcaption>Die Einstellungen des E-Mail-Kontos und die Schalter für automatische Hintergrundaufgaben.</figcaption></figure>
+<p class="scr-intro">Im <b>E-Mail-Monitor</b> verbinden Sie Ihr Postfach, damit <span class="irs">IRONSTICK</span> neue E-Mails abholen und Ihren Fällen zuordnen kann.
+Die <b>Hintergrundaufgaben</b> fassen die automatisch laufenden Aufgaben mit je einem Schalter zusammen, sodass Sie entscheiden, was von selbst laufen darf und welche Aufgaben externe KI verwenden dürfen.</p>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>E-Mail-Monitor</b></p>
+<ul>
+<li><b>Prüfung im Hintergrund.</b> Der Schalter oben schaltet die automatische E-Mail-Prüfung ein oder aus. Ist er ein, wird die Post beim Programmstart und danach alle fünf Minuten geprüft, und das E-Mail-Symbol erscheint in der Menüleiste. Ist er aus, geschieht beides nicht.</li>
+<li><b>Ihren Mail-Dienst wählen.</b> Wählen Sie Ihren Anbieter aus der Liste (zum Beispiel Gmail, Outlook / Hotmail, Yahoo, GMX, Web.de, T-Online, Bluewin oder ProtonMail), und Server, Port und Verschlüsselung werden für Sie eingetragen. Für jeden anderen Anbieter wählen Sie <i>Sonstiges</i> und tragen die Angaben von Hand ein.</li>
+<li><b>Login.</b> Geben Sie Ihren Benutzernamen oder Ihre E-Mail-Adresse und Ihr Passwort ein. Viele Anbieter verlangen ein separates App-Passwort. Das Augensymbol zeigt oder verbirgt es.</li>
+<li><b>Mail-URL-Vorlage.</b> Die Webadresse, mit der eine E-Mail in Ihrem Webmail geöffnet wird. Die Platzhalter <i>{email}</i> und <i>{subject}</i> werden automatisch ausgefüllt.</li>
+<li><b>Speichern und testen.</b> <i>Speichern</i> speichert die Einstellungen. <i>Verbindung testen</i> meldet sich an Ihrem Postfach an und meldet entweder die Anzahl der Nachrichten in Ihrem Posteingang oder den Fehler.</li>
+</ul>
+<p class="grp"><b>Hintergrundaufgaben</b></p>
+<ul>
+<li><b>Fallbeschreibungen automatisch aktualisieren (externe KI).</b> Bringt einmal täglich die Fallbeschreibungen auf den Stand neuer Dokumente und Termine. Dies verwendet externe KI. Mit dem Einschalten stimmen Sie ausdrücklich der Verarbeitung durch externe KI zu.</li>
+<li><b>Gerichtsportal automatisch abrufen.</b> Ruft neue Aktendaten und Termine aus dem Gerichtsportal ab. Es ruft nur Daten ab und verwendet keine KI. Dieser Schalter erscheint nur, wenn die Länderfunktionen für Rumänien aktiv sind.</li>
+<li><b>E-Mails automatisch abrufen.</b> Prüft im Hintergrund auf neue E-Mails und ordnet sie Fällen zu, wobei externe KI zum Sortieren verwendet wird. Dies ist derselbe Schalter wie oben in der Karte E-Mail-Monitor.</li>
+</ul>
+
+<h3>Büro-Server und Unterschriften</h3>
+<figure><img src="img/screens/2%20konfig%207-8.png" alt="Konfiguration mit den geöffneten Karten Büro-Server und Unterschriften"><figcaption>Die Verbindung zum Büro-Server und das Unterschriftenfeld.</figcaption></figure>
+<p class="scr-intro">Der <b>Büro-Server</b> verbindet diesen Arbeitsplatz mit dem gemeinsamen Server Ihres Büros und zeigt, wer sonst noch darauf arbeitet.
+In <b>Unterschriften</b> hinterlegen Sie Ihre handschriftliche Unterschrift, die <span class="irs">IRONSTICK</span> in Ihre Dokumente einsetzen kann. Unter diesen Karten folgen die Briefkopf-Vorlage, das Login-Protokoll und die Versionszeile.</p>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Büro-Server</b></p>
+<ul>
+<li><b>Serververbindung.</b> Der Schalter schaltet die Verbindung ein oder aus. Die Suche nach dem Server läuft nur, solange er ein ist. Die Statuszeile zeigt, ob Sie verbunden sind, ob der Zugriff angefragt wurde und auf Genehmigung wartet oder ob kein Server gefunden wurde. Der Rest der Karte ist ausgegraut, bis Sie verbunden sind.</li>
+<li><b>Server-Seiten.</b> Bei bestehender Verbindung öffnet ein Klick auf die grüne Statuszeile die Webseite des Servers. Zwei Schaltflächen öffnen die Verwaltungsseite des Speichersystems und die <span class="irs">IRONSTICK</span>-Serververwaltung. Dort melden Sie sich mit den jeweiligen Passwörtern an.</li>
+<li><b>Benutzer.</b> Die Liste zeigt jeden auf dem Büro-Server registrierten Benutzer. Ein grüner Punkt bedeutet, dass der Benutzer online ist.</li>
+</ul>
+<p class="grp"><b>Unterschriften (nur PC)</b></p>
+<ul>
+<li><b>Ihre Unterschrift zeichnen.</b> Unterschreiben Sie im weißen Feld mit der Maus, einem Stift oder einem Finger und klicken Sie dann auf <i>Speichern</i>. <i>Unterschriftenfeld löschen</i> löscht die Zeichnung, sodass Sie von vorn beginnen können.</li>
+<li><b>Eine Unterschrift hochladen.</b> <i>Bild hochladen (JPG/PNG)</i> speichert stattdessen eine gescannte Unterschrift.</li>
+<li><b>Gespeicherte Unterschrift.</b> Ein grünes Häkchen und eine kleine Vorschau zeigen die aktuell gespeicherte Unterschrift. <i>Löschen</i> entfernt sie.</li>
+</ul>
+<p class="grp"><b>Briefkopf-Vorlage (nur PC)</b></p>
+<ul>
+<li><b>Ihren Briefkopf hochladen.</b> <i>Vorlage hochladen</i> übernimmt ein A4-Hochformat-PDF mit dem Briefkopf Ihres Büros. Ziehen Sie im sich öffnenden Fenster die rote Linie (oder klicken Sie) an den unteren Rand des Briefkopfs und speichern Sie dann. Der Text Ihrer Schriftsätze beginnt unterhalb dieser Linie.</li>
+<li><b>Prüfen und anpassen.</b> Eine Vorschau zeigt den gespeicherten Briefkopf. Der Schalter <i>Briefkopf nur auf der ersten Seite</i> druckt ihn nur auf der ersten statt auf jeder Seite. <i>Vorlage entfernen</i> löscht ihn.</li>
+</ul>
+<p class="grp"><b>Login-Protokoll und Version</b></p>
+<ul>
+<li><b>Login-Protokoll.</b> Die letzte Karte listet die letzten 50 Logins, die neuesten zuerst: Zeit, Benutzernummer, externe und interne IP-Adresse, Ort, Land, Gerät, Betriebssystem, Browser und eine Sicherheitsbewertung. Sie können den Text markieren oder die ganze Tabelle mit dem Kopiersymbol kopieren.</li>
+<li><b>Version.</b> Die Zeile am Seitenende zeigt die Version des Windows-Programms und der Android-App, die in Ihrem Datenordner liegen.</li>
+<li><b>Lizenzschlüssel (PC).</b> Klicken Sie auf <i>Lizenzschlüssel</i>, um einen neuen oder verlängerten Schlüssel einzugeben, und klicken Sie auf <i>Aktivieren</i>. Ist der Schlüssel ungültig, abgelaufen, noch nicht gültig oder gehört er einem anderen Benutzer, wird Ihnen der Grund mitgeteilt. <i>Lizenzschlüssel anfordern</i> bereitet eine fertige Anfrage vor. Nach der Aktivierung richten Sie Ihre Authenticator-App erneut ein, indem Sie den angezeigten QR-Code scannen, und die lizenzierten Module werden sofort freigeschaltet.</li>
+</ul>
+
+<h2 id="s3">3. Mandanten</h2>
+<figure><img src="img/screens/3%20clients.png" alt="Mandantenliste mit Suchfeld, Import- und Neuer-Mandant-Schaltflächen, einem QR-Code-Fenster und einem Social-Media-Fenster"><figcaption>Die Mandantenliste, mit dem QR-Code-Fenster und dem Social-Media-Fenster, die sich aus einer Zeile öffnen.</figcaption></figure>
+<p class="scr-intro">In der Mandantenliste werden alle Ihre Mandanten geführt. Jede Zeile zeigt Referenznummer, Name, Ort, Telefon, Social Media, E-Mail und Anzahl der Fälle des Mandanten.
+Von hier aus legen Sie neue Mandanten an, importieren bestehende Kontakte, drucken die Liste und öffnen die Fälle eines Mandanten.
+Das Bild zeigt außerdem das QR-Code-Fenster, das sich über das WhatsApp-Symbol öffnet, und das Social-Media-Fenster, das sich über das Social-Symbol öffnet.</p>
+
+<ol class="marks">
+<li><b>Suche.</b> Grenzt die Liste beim Tippen ein. Sie durchsucht Namen, Telefonnummern und E-Mail-Adressen; ein Sternchen (*) funktioniert als Platzhalter.</li>
+<li><b>Mandant importieren.</b> Übernimmt Mandanten aus einer CSV-Datei oder einer vCard-Datei.</li>
+<li><b>Neuer Mandant.</b> Öffnet ein leeres Mandantenformular.</li>
+<li><b>Liste drucken.</b> Erstellt ein PDF der ganzen Mandantenliste, das Sie in Ihrem Ordner Dokumente oder in Google Drive speichern.</li>
+<li><b>Mandantenreferenz.</b> Die violette Nummer (zum Beispiel <i>@C0000001</i>) ist die Referenznummer des Mandanten. Klicken Sie darauf, um sie in die Zwischenablage zu kopieren, zum Beispiel um sie in den Chat oder ein Dokument einzufügen.</li>
+<li><b>Fälle.</b> Die Anzahl der Fälle dieses Mandanten. Eine rote Wolke bedeutet, dass mindestens ein Fall auf dem Büro-Server geteilt ist; eine rote Flamme bedeutet, dass mindestens ein Fall kürzlich aufgeflammt ist.</li>
+<li><b>Bearbeiten.</b> Öffnet das Mandantenformular mit den Angaben dieses Mandanten.</li>
+<li><b>Löschen.</b> Entfernt den Mandanten nach einer Bestätigung.</li>
+</ol>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Einen Mandanten finden</h4>
+<ul>
+<li><b>Suche beim Tippen.</b> Die Suche prüft Vor- und Nachnamen getrennt und findet auch ähnlich klingende Namen, sodass kleine Tippfehler trotzdem ein Ergebnis liefern. Akzente werden ignoriert, „Stefan“ findet also auch „Ștefan“.</li>
+<li><b>Telefon und E-Mail.</b> Tippen Sie einen Teil einer Telefonnummer (Leerzeichen und Bindestriche spielen keine Rolle) oder einen Teil einer E-Mail-Adresse. Tippen Sie mehrere Wörter, muss ein Mandant alle erfüllen.</li>
+<li><b>Die Suche zurücksetzen.</b> Das kleine X im Suchfeld zeigt wieder die volle Liste. Passt nichts, sagt die Liste das.</li>
+<li><b>Das Dringendste zuerst.</b> Mandanten mit einem aufgeflammten Fall stehen oben, dann Mandanten mit den meisten Fällen, dann die mit der jüngsten Aktivität, dann alphabetisch.</li>
+<li><b>Mehrere Seiten.</b> Bei mehr als 25 Mandanten wird die Liste in Seiten aufgeteilt; die Seitennavigation erscheint dann über und unter der Liste.</li>
+<li><b>Geburtstage.</b> Am Geburtstag eines Mandanten und für zwei Tage danach erscheint vor dem Namen eine kleine Torte. Sind Sie über einen Klick auf einen Geburtstagsnamen im Hauptmenü hierher gelangt, zeigt die Liste nur die Mandanten, die gerade Geburtstag haben.</li>
+</ul>
+
+<h4>Mit einer Mandantenzeile arbeiten</h4>
+<ul>
+<li><b>Die Fälle öffnen.</b> Klicken Sie irgendwo auf eine Zeile, um die Fallliste dieses Mandanten zu öffnen.</li>
+<li><b>Anrufen, WhatsApp oder E-Mail per QR-Code.</b> Klicken Sie auf die Telefonnummer, das grüne WhatsApp-Symbol oder die E-Mail-Adresse. Ein Fenster zeigt einen QR-Code, den Sie mit Ihrem Telefon scannen können, um anzurufen, WhatsApp zu öffnen oder eine E-Mail zu schreiben. Ein Klick auf den QR-Code öffnet das passende Programm auf diesem Computer; gibt es keines, wird der Wert in die Zwischenablage kopiert.</li>
+<li><b>Social Media.</b> Das blaue Symbol in der Spalte <i>Social</i> erscheint nur, wenn Profile erfasst sind. Es öffnet ein Fenster mit den Profilen bei Facebook, Instagram, TikTok, LinkedIn und X. Das Öffnen-Symbol zeigt das Profil im <span class="irs">IRONSTICK</span>-Browserfenster (auf dem Tablet: im System-Browser); die Kopieren-Schaltfläche kopiert die Adresse.</li>
+<li><b>Die Referenznummer kopieren.</b> Ein Klick auf die violette <i>@C</i>-Nummer kopiert sie, zum Beispiel um sie in einen Chat oder ein Dokument einzufügen.</li>
+<li><b>Einen Mandanten löschen.</b> Das X öffnet eine Bestätigung. Hat der Mandant noch Fälle, Dokumente oder Fall-Verknüpfungen, listet eine gelbe Warnung diese vor der Bestätigung auf. Notizen, die sich die KI zu diesem Mandanten gemerkt hat, werden ebenfalls entfernt.</li>
+</ul>
+
+<h4>Die Mandantenliste drucken</h4>
+<ul>
+<li><b>PDF aller Mandanten.</b> Die Druck-Schaltfläche im Kartenkopf erstellt eine Mandantenliste als PDF. Im Exportfenster können Sie sie in Ihrem Ordner Dokumente speichern oder, falls Google Drive auf diesem Computer installiert ist, in einem Google-Drive-Ordner.</li>
+</ul>
+
+<h4>Einen Mandanten anlegen oder bearbeiten</h4>
+<ul>
+<li><b>Stammdaten.</b> Name (Pflichtfeld), persönliche Kennnummer, Staatsangehörigkeit, Sprache und Geburtstag. Die Wahl einer Staatsangehörigkeit wählt auch die passende Sprache vor. Der Geburtstag wird aus einem Kalender gewählt und kann mit dem X gelöscht werden.</li>
+<li><b>Adresse.</b> Straße, Postleitzahl, Bezirk/Kreis, Ort und Land.</li>
+<li><b>Geokoordinaten.</b> Schalten Sie den Schalter ein, um den Mandanten auf einer Karte zu platzieren. <span class="irs">IRONSTICK</span> sucht die Adresse automatisch; Sie können den Suchtext korrigieren und erneut suchen, Breiten- und Längengrad selbst eintippen oder einfach auf die Karte klicken, um den Punkt zu setzen.</li>
+<li><b>Kontakt.</b> Telefon (haken Sie <i>WhatsApp</i> an, wenn die Nummer WhatsApp nutzt), E-Mail und ein freies Textfeld für Einzelheiten. Eine ungültige E-Mail-Adresse wird vor dem Speichern gemeldet.</li>
+<li><b>Bankverbindung und Social Media.</b> Bankname und IBAN; Adressen der Profile bei Facebook, Instagram, TikTok, LinkedIn und X.</li>
+<li><b>Speichern oder abbrechen.</b> Die Schaltflächen unten speichern den Mandanten oder verlassen das Formular ohne Änderungen. Beim Bearbeiten werden unter dem Titel die Mandantennummer und das Erstellungsdatum angezeigt.</li>
+</ul>
+
+<h4>Mandanten importieren</h4>
+<ul>
+<li><b>Eine Datei ablegen.</b> <i>Mandant importieren</i> öffnet ein Fenster mit einer Ablagefläche. Ziehen Sie eine CSV-Datei oder eine vCard-Datei (zum Beispiel aus Ihrem Telefon oder Mailprogramm exportiert) darauf.</li>
+<li><b>Spalten zuordnen (nur CSV).</b> Ein zweites Fenster listet jede Spalte der Datei mit einem Beispielwert und dem Feld, in das sie gelangt. Die Zuordnung ist vorausgefüllt; ändern Sie jedes Feld über die Auswahlliste oder wählen Sie, eine Spalte nicht zu importieren. <i>Weiter</i> wird verfügbar, sobald eine Spalte dem Namen zugeordnet ist.</li>
+<li><b>Ein Kontakt.</b> Enthält die Datei eine einzelne Adresse, öffnet sich das Formular <i>Neuer Mandant</i> bereits ausgefüllt, sodass Sie es selbst prüfen, ergänzen und speichern können.</li>
+<li><b>Mehrere Kontakte.</b> Sie erhalten eine Liste mit einem Kontrollkästchen je Kontakt; alle sind vorab angehakt. Kontakte, die bereits als Mandanten bestehen, sind nicht angehakt und als bereits vorhanden markiert. <i>Importieren</i> legt alle angehakten Mandanten in einem Schritt an und zeigt, wie viele hinzugefügt wurden.</li>
+<li><b>Wenn etwas schiefgeht.</b> Kann die Datei nicht gelesen werden oder enthält sie keine Adresse, teilt Ihnen das Fenster das mit. Schlägt der Import fehl, wird nichts verändert.</li>
+</ul>
+
+<h2 id="s4">4. Fälle</h2>
+
+<h3>Die Fallliste eines Mandanten</h3>
+<figure><img src="img/screens/4%20cases.png" alt="Fallliste eines Mandanten, gruppiert in Sachverhalte, mit dem Nucleu-Fenster und dem Snakes-Fenster eines Sachverhalts"><figcaption>Die Fälle eines Mandanten, gruppiert in Sachverhalte, mit den Nucleu- und Snakes-Fenstern eines Sachverhalts.</figcaption></figure>
+<p class="scr-intro">Dieser Bildschirm zeigt alle Fälle eines Mandanten. Zusammengehörige Fälle werden zu <b>Sachverhalten</b> gruppiert (zum Beispiel alle Verfahren gegen denselben Gegner); noch keinem Sachverhalt zugeordnete Fälle erscheinen unter <i>Nicht zugeordnete Fälle</i>.
+Sie können Sachverhalte anlegen, Fälle per Drag-and-drop in sie einsortieren und Priorität, Status und Erfolgsaussichten jedes Falls auf einen Blick sehen.
+Das Bild zeigt außerdem das Nucleu-Fenster und das Snakes-Fenster, die sich über die beiden Symbole in der Titelleiste eines Sachverhalts öffnen.</p>
+
+<ol class="marks">
+<li><b>Notizen.</b> Öffnet die Notizwand für diesen Mandanten.</li>
+<li><b>Drucken.</b> Erstellt eine PDF-Übersicht aller Fälle dieses Mandanten, mit oder ohne KI-Zusammenfassung des jüngsten Stands.</li>
+<li><b>Neuer Sachverhalt.</b> Legt eine neue Gruppe für zusammengehörige Fälle an.</li>
+<li><b>Universum.</b> Zeigt die Fälle des Mandanten als Netzwerk, als 3D-Karte oder als 2D-Karte. Erscheint ab drei Fällen.</li>
+<li><b>Neuer Fall.</b> Öffnet das Formular für einen neuen Fall dieses Mandanten.</li>
+<li><b>Sachverhalt.</b> Die Titelleiste eines Sachverhalts. Klicken Sie darauf, um den Sachverhalt ein- oder auszuklappen. Die beiden Symbole in der Mitte öffnen den Nucleu und die Snakes des Sachverhalts; rechts sehen Sie die Anzahl der Fälle, Umbenennen (Stift) und Löschen (X).</li>
+<li><b>Nucleu des Sachverhalts.</b> Eine allgemeine KI-Instruktion, die für jeden Fall dieses Sachverhalts gilt. Schreiben Sie hier, was jedes für diese Fälle verfasste Dokument berücksichtigen muss, und speichern Sie dann.</li>
+<li><b>Snakes des Sachverhalts.</b> Die Snakes aller Fälle in diesem Sachverhalt, in Listenreihenfolge. Klicken Sie auf einen Fall, um ihn im Reiter Snake zu öffnen.</li>
+<li><b>Ziehgriff.</b> Fassen Sie den gepunkteten Griff und ziehen Sie den Fall in einen Sachverhalt, oder legen Sie ihn auf einem bestehenden Fall ab, um ihn zu dessen Unterfall zu machen.</li>
+<li><b>Aus dem Sachverhalt entfernen.</b> Nimmt den Fall aus diesem Sachverhalt heraus. Der Fall selbst bleibt erhalten und erscheint unter <i>Nicht zugeordnete Fälle</i>, sofern er nicht auch in einem anderen Sachverhalt ist.</li>
+<li><b>Erfolgsaussichten.</b> Ein kleines Messgerät, das das Ergebnis der jüngsten KI-Bewertung des Falls zeigt. Zeigen Sie darauf, um die Prozentzahl zu lesen; klicken Sie darauf, um den Fall im Reiter Bewertung zu öffnen.</li>
+</ol>
+
+<h4>Was Sie hier tun können</h4>
+
+<p class="grp"><b>Eine Fallzeile lesen</b></p>
+<ul>
+<li><b>Einen Fall öffnen.</b> Klicken Sie auf eine Zeile, um den Fall in seinem Reiter Chronik zu öffnen.</li>
+<li><b>Nummern und Tags.</b> Jede Zeile beginnt mit der Mandanten-/Fallnummer, gefolgt von blauen Tags für Land, Rechtsgebiet und Verfahrensstadium. Zeigen Sie auf einen Tag, um seinen vollen Namen zu sehen.</li>
+<li><b>Fallnummer in Orange.</b> Wurde der Fall im Gerichtsportal gefunden (Länderfunktionen), wird das Aktenzeichen des Gerichts in Orange angezeigt. Klicken Sie darauf, um die Portaldetails zu sehen: Gericht, Abteilung, Gegenstand, Parteien, Rechtsmittel und alle Verhandlungen mit ihren Ergebnissen. Von dort können Sie auch den Fall öffnen.</li>
+<li><b>Titel und Gegner.</b> Auf den Falltitel folgt der Gegner in Grau; bei mehreren Gegnern wird nur der erste angezeigt, plus die Anzahl der weiteren. Inaktive Fälle werden hellgrau dargestellt.</li>
+<li><b>Flamme.</b> Eine rote Flamme markiert einen Fall, der kürzlich aufgeflammt ist.</li>
+<li><b>Priorität und Status.</b> Die erste Pille zeigt die Priorität (Dringend und Hoch in Rot, Normal in Grau, Niedrig in Grün); die zweite zeigt den Status (Aktiv in Grün, Pausiert in Rot, Inaktiv in Grau).</li>
+<li><b>Fälle eines anderen Mandanten.</b> Gehört ein Fall zu einem anderen Ihrer Mandanten, der im Verfahren auf derselben Seite steht, zeigt die Zeile <i>Originalakte</i> mit der Nummer und dem Namen dieses Mandanten sowie der Rolle in einer bernsteinfarbenen Pille. Klicken Sie auf die Nummer, um zur Fallliste dieses Mandanten zu gelangen.</li>
+<li><b>Rote Wolke.</b> Erscheint, wenn ein Büro-Server verbunden ist und der Fall dort geteilt ist. Klicken Sie darauf, um den Fall in seinem Reiter Fall zu öffnen.</li>
+</ul>
+
+<p class="grp"><b>Fälle in Sachverhalten organisieren</b></p>
+<ul>
+<li><b>Anlegen, umbenennen, löschen.</b> <i>Neuer Sachverhalt</i> fragt nach einem Namen. Der Stift in der Titelleiste benennt den Sachverhalt um; das X löscht ihn nach einer Bestätigung. Das Löschen eines Sachverhalts löscht nie seine Fälle; sie kehren einfach zu <i>Nicht zugeordnete Fälle</i> zurück, sofern sie nicht auch in einem anderen Sachverhalt sind.</li>
+<li><b>Ein- und ausklappen.</b> Klicken Sie auf die Titelleiste eines Sachverhalts, um seine Fälle zu verbergen oder anzuzeigen.</li>
+<li><b>Einen Fall verschieben.</b> Ziehen Sie einen Fall an seinem gepunkteten Griff in einen anderen Sachverhalt. Der Sachverhalt, über den Sie ziehen, leuchtet blau auf.</li>
+<li><b>Einen Unterfall bilden.</b> Legen Sie einen Fall auf der Mitte eines anderen Falls ab, um ihn darunter einzuordnen; Unterfälle werden eingerückt angezeigt. Legen Sie ihn über oder unter einem Fall ab (eine blaue Linie zeigt die Stelle) oder auf einem leeren Teil des Sachverhalts, um ihn als Hauptfall zu behalten.</li>
+<li><b>Derselbe Fall in zwei Sachverhalten.</b> Ziehen Sie statt des Griffs das Doppelblatt-Symbol, um den Fall einem weiteren Sachverhalt hinzuzufügen. Er erscheint dann in beiden.</li>
+<li><b>Einen Fall herausnehmen.</b> Verwenden Sie das Trennen-Symbol in der Zeile oder ziehen Sie den Fall an seinem Griff auf <i>Nicht zugeordnete Fälle</i>.</li>
+</ul>
+
+<p class="grp"><b>Arbeitsmappen</b></p>
+<ul>
+<li><b>Mappen pro Sachverhalt.</b> Unter jedem Sachverhalt klappt <i>Arbeitsmappen</i> eine Liste von Mappen auf. <i>Neue Mappe</i> legt eine an; jede Mappe kann umbenannt oder gelöscht werden.</li>
+<li><b>Inhalte.</b> Einträge, die Sie aus einem Fall heraus einer Arbeitsmappe zuweisen, werden mit Datum, Titel und Fallnummer aufgelistet. Das X neben einem Eintrag entfernt ihn aus der Mappe.</li>
+</ul>
+
+<p class="grp"><b>Nucleu und Snakes eines Sachverhalts</b></p>
+<ul>
+<li><b>Nucleu.</b> Das Atom-Symbol öffnet den Nucleu des Sachverhalts: einen Text von bis zu 20.000 Zeichen, der der KI sagt, was sie für jeden Fall dieses Sachverhalts beachten soll. Jedes Speichern behält eine neue Version. Ein Fall kann zusätzlich einen eigenen Nucleu haben, der im Fall selbst gesetzt wird. Schließen Sie das Fenster mit ungespeicherten Änderungen, fragt <span class="irs">IRONSTICK</span>, ob sie verworfen werden sollen.</li>
+<li><b>Snakes.</b> Das Schlangen-Symbol öffnet die Snakes aller Fälle des Sachverhalts. Eine Snake hält die Behauptungen der Gegenseite fest, die durch Dokumente widerlegt werden, mit der Fundstelle jeder Behauptung und den Dokumenten, die ihr widersprechen. Klicken Sie auf einen Falltitel, um diesen Fall im Reiter Snake zu öffnen. Hat noch kein Fall eine Snake, sagt das Fenster das.</li>
+</ul>
+
+<p class="grp"><b>Drucken, neuer Fall und mehr</b></p>
+<ul>
+<li><b>Fallübersicht als PDF.</b> Die Druck-Schaltfläche fragt, ob Sie die Übersicht mit oder ohne den von der KI verfassten jüngsten Stand wünschen. Wählen Sie die KI-Fassung und verwendet sie externe KI, werden Sie zuerst um Ihre Zustimmung gebeten. Das PDF wird dann in Ihrem Ordner Dokumente oder in Google Drive gespeichert.</li>
+<li><b>Neuer Fall.</b> Das Formular verlangt einen Titel (Pflichtfeld), Priorität und Status. Haken Sie <i>Kläger ist der Mandant</i> an, um den Namen des Mandanten automatisch einzutragen, oder tippen Sie einen anderen Kläger ein, und erfassen Sie den Gegner.</li>
+<li><b>Weitere Mandanten im selben Verfahren.</b> Haben Sie weitere Mandanten, können Sie diese nach Name oder <i>@C</i>-Nummer suchen und dem Fall hinzufügen. Der Fall erscheint dann auch in deren Falllisten.</li>
+<li><b>Interessenkonflikt-Prüfung.</b> Sobald Ihre eigene Seite und der Gegner ausgefüllt sind, vergleicht diese Schaltfläche die Namen mit Ihren eigenen Mandanten, Parteien und Fällen und zeigt das Ergebnis. Nichts verlässt diesen Computer.</li>
+<li><b>Weitere Optionen.</b> Markieren Sie einen Fall als öffentlich (in den Medien bekannt) oder sperren Sie ihn, sodass kein anderer Fall mit ihm verknüpft werden kann, weder von Hand noch automatisch noch durch die KI.</li>
+<li><b>Rechtliche Angaben.</b> Die Eingabe eines Aktenzeichens des Gerichts setzt <i>hat ein Aktenzeichen</i> und trägt das heutige Datum ein, das Sie ändern können. Wählen Sie zuerst das Land; die Rechtsgebiete und Verfahrensstadien für dieses Land werden dann angeboten. Ein freies Beschreibungsfeld vervollständigt das Formular.</li>
+<li><b>Abonnierte Fälle.</b> Ist ein Büro-Server verbunden und Sie folgen Fällen eines Kollegen, erscheinen sie in einer eigenen Karte mit einer blauen Wolke, dem Namen des Inhabers und der letzten Änderung des Inhabers. Klicken Sie auf einen, um ihn zu öffnen.</li>
+<li><b>Noch keine Fälle.</b> Ein Mandant ohne Fälle zeigt einen kurzen Hinweis mit einer Schaltfläche <i>Neuer Fall</i>.</li>
+</ul>
+
+<h3>Notizen und das Fall-Universum</h3>
+<figure><img src="img/screens/4%20cases%20universe%20notes.png" alt="Fallliste mit der Notizwand, dem Universum-Menü und den 2D- und 3D-Netzwerkkarten"><figcaption>Die Notizwand und die beiden Netzwerkansichten der Fälle eines Mandanten.</figcaption></figure>
+<p class="scr-intro">Zwei Schaltflächen über der Fallliste öffnen Werkzeuge, die über alle Fälle des Mandanten hinweg arbeiten.
+<b>Notizen</b> öffnet eine Notizwand für den Mandanten. <b>Universum</b> zeigt, wie die Fälle des Mandanten zusammenhängen: als 3D-Karte, durch die Sie fliegen können, oder als 2D-Zeichnung auf kariertem Papier.
+Das Bild zeigt die Notizwand, das geöffnete Universum-Menü und beide Karten.</p>
+
+<ol class="marks">
+<li value="1"><b>Notizen.</b> Die Notizwand des Mandanten, mit Ihren eigenen Notizen und den Notizen der KI zu diesem Mandanten.</li>
+<li value="4"><b>Universum-Menü.</b> Zeigen Sie auf die Schaltfläche oder klicken Sie darauf, um <i>3D-Karte</i> oder <i>2D-Karte</i> zu wählen.</li>
+</ol>
+
+<h4>Was Sie hier tun können</h4>
+
+<p class="grp"><b>Notizwand</b></p>
+<ul>
+<li><b>Eine Notiz hinzufügen.</b> Die erste, blassgelbe Karte <i>Neue Notiz</i> öffnet ein Textfeld (bis zu 1.000 Zeichen) mit einem optionalen Datum. Speichern heftet die Notiz an die Wand; die neuesten Notizen stehen oben.</li>
+<li><b>Drei Arten von Notizen.</b> Gelbe Notizen sind Ihre eigenen; klicken Sie auf eine, um sie zu bearbeiten. Zettel auf kariertem Papier sind Einträge, die sich die KI für diesen Mandanten gemerkt hat. Weiße Karten sind Notizen von Kollegen, die einem geteilten Fall auf dem Büro-Server folgen.</li>
+<li><b>Kopieren und löschen.</b> Jede Notiz hat eine kleine Kopieren-Schaltfläche und eine Löschen-Schaltfläche. Eine Notiz mit Datum zeigt es mit einem kleinen Wecker.</li>
+<li><b>Notizen aus der Fallliste gehören dem Mandanten.</b> Hier geöffnete Notizen sind nicht an einen einzelnen Fall gebunden.</li>
+</ul>
+
+<p class="grp"><b>3D-Karte (Universum)</b></p>
+<ul>
+<li><b>Was Sie sehen.</b> Jeder Fall ist ein Sechseck, Institutionen sind Dreiecke. Fälle sind verbunden, wenn sie Personen, Firmen oder Institutionen teilen, wenn ein Dokument des einen Falls im anderen genannt wird oder wenn ein Fall die Fallnummer des anderen erwähnt. Fälle desselben Sachverhalts bilden eine farbige Wolke.</li>
+<li><b>Aufbau der Karte.</b> Die Karte baut sich vor Ihren Augen auf, während ein Fortschrittsbalken läuft. Die Zeile oben links zeigt die Anzahl der Fälle, Verbindungen und Sachverhalte.</li>
+<li><b>Hindurchfliegen.</b> W/A/S/D bewegen vorwärts, rückwärts und seitwärts, R/F nach oben und unten; die Pfeiltasten oder Ziehen mit der Maus drehen die Ansicht. Umschalt beschleunigt, die Leertaste bremst, und das Mausrad bewegt vor oder zurück. Das Feld unten links listet die Tasten; der Balken unten rechts zeigt Ihre Geschwindigkeit.</li>
+<li><b>Einen Punkt markieren und anfliegen.</b> Klicken Sie auf einen Fall oder eine Institution: Die Ansicht fliegt dorthin, und er bleibt markiert, zusammen mit seinen Verbindungen und dem Grund jeder Verbindung. Klicken Sie erneut darauf, um die Markierung zu entfernen.</li>
+<li><b>Von der Karte aus öffnen.</b> Doppelklicken Sie auf einen Fall, um ihn zu öffnen. Ein Doppelklick auf eine Person oder Firma öffnet die Personenliste, eine Institution öffnet die Institutionenliste; der Eintrag ist dort gelb hervorgehoben.</li>
+<li><b>Suche.</b> Das Suchfeld unten rechts findet einen Namen, eine Telefonnummer oder eine E-Mail und markiert den besten Treffer, genau wie ein Klick.</li>
+<li><b>Personen und Firmen anzeigen.</b> Der Schalter <i>Fall-Verbindungen</i> fügt der Karte die Personen und Firmen der Fälle hinzu. Er ist zu Beginn ausgeschaltet; Institutionen werden immer angezeigt.</li>
+<li><b>Schließen.</b> Das X oben rechts oder die Escape-Taste schließt die Karte.</li>
+</ul>
+
+<p class="grp"><b>2D-Karte</b></p>
+<ul>
+<li><b>Eine Zeichnung auf kariertem Papier.</b> Dasselbe Netzwerk wird flach gezeichnet, wie eine technische Zeichnung. Namen erscheinen, wenn Sie auf einen Punkt zeigen oder ihn markieren.</li>
+<li><b>Verschieben und zoomen.</b> Ziehen Sie mit der Maus oder verwenden Sie W/A/S/D oder die Pfeiltasten, um das Blatt zu verschieben. Das Mausrad zoomt auf den Zeiger zu.</li>
+<li><b>Markieren, öffnen, suchen.</b> Ein Klick auf einen Punkt bewegt ihn in die Mitte und markiert ihn (er pulsiert); ein Klick auf leeres Papier entfernt die Markierung und zoomt heraus. Ein Doppelklick öffnet den Fall, die Person oder die Institution, wie auf der 3D-Karte. Das Suchfeld und der Schalter <i>Fall-Verbindungen</i> funktionieren auf dieselbe Weise.</li>
+<li><b>Schließen.</b> Das X oben rechts oder die Escape-Taste schließt die Karte.</li>
+</ul>
+
+<h2 id="s5">5. Fall</h2>
+
+<h3>Registerkarte Fall, Teilen und Übergeben</h3>
+<figure><img src="img/screens/5%20case%20case.png" alt="Fallbildschirm auf der Registerkarte Fall mit den Dialogen Teilen und Fall übergeben sowie dem IRONSTICK SERVER"><figcaption>Die Registerkarte Fall mit den Dialogen zum Teilen eines Falls und zum Übergeben über den IRONSTICK SERVER.</figcaption></figure>
+<p class="scr-intro">Der Fallbildschirm enthält alles, was zu einem Fall gehört. Oben sehen Sie den Falltitel und den Mandanten, drei Schaltflächen (<i>Notizen</i>, <i>Dossier</i>, <i>Text verfassen</i>) und eine Reihe von Registerkarten. Das Bild zeigt die Registerkarte <b>Fall</b> mit den Falldaten und einer Übersicht über die Dateien im Fall.
+Ist ein IRONSTICK SERVER verbunden, kann ein Fall mit Kolleginnen und Kollegen geteilt oder an einen anderen Benutzer übergeben werden; dafür erscheinen die beiden Dialoge im Bild.</p>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Kopfbereich und Navigation</b></p>
+<ul>
+<li><b>Brotkrumenpfad.</b> Der Pfad oben führt zurück zum Hauptmenü, zur Mandantenliste oder zur Fallliste des Mandanten. Der letzte Teil zeigt die Fallnummer zusammen mit Land, Rechtsgebiet und Stadium.</li>
+<li><b>Wolke vor dem Titel.</b> Eine rote Wolke bedeutet, dass Sie diesen Fall auf dem IRONSTICK SERVER geteilt haben; eine blaue Wolke bedeutet, dass es ein Fall ist, den jemand anderes mit Ihnen geteilt hat. Ein Klick auf die Wolke springt zur Registerkarte Fall.</li>
+<li><b>Zwischen Registerkarten wechseln.</b> Klicken Sie auf eine Registerkarte, um zu wechseln. Verlassen Sie die Registerkarte Fall-Nucleu oder Fall-Snake mit ungespeicherten Änderungen, fragt <span class="irs">IRONSTICK</span>, ob diese verworfen werden sollen.</li>
+</ul>
+<p class="grp"><b>Falldaten</b></p>
+<ul>
+<li><b>Nummer, Titel und Aktenzeichen.</b> Die Karte zeigt die interne Mandanten-/Fallnummer, den Titel und das amtliche Aktenzeichen. Ist dem Fall eine Gerichtsportal-Akte zugeordnet, erscheint das Aktenzeichen orange mit gepunkteter Unterstreichung; ein Klick darauf öffnet die Details der Portal-Akte (nur Länderfunktionen).</li>
+<li><b>Priorität und Temperatur.</b> Die von Ihnen gesetzte Priorität erscheint als farbiges Label. Eine kleine rote Flamme daneben zeigt, dass der Fall zuletzt aufgeflammt ist (neue Fristen, Verhandlungen, Einträge oder E-Mails in den letzten 14 Tagen); Ihre eigene Priorität ändert sie nie.</li>
+<li><b>Parteien und rechtliche Einordnung.</b> Öffentlich ja/nein, Kläger (markiert, wenn es Ihr Mandant ist), Gegner, Land, Rechtsgebiet und Stadium, ob eine Dossiernummer vergeben wurde (mit Datum), Falltyp, Startdatum und die Beschreibung.</li>
+<li><b>Umfang des Falls.</b> Unter der Beschreibung zählt eine Tabelle die eingehenden, ausgehenden und Beweis-PDFs, Bilder und Audiodateien, mit Wortanzahl und Dateigröße, einer Fallsumme und einer Schätzung, wie viel Text die KI lesen müsste.</li>
+</ul>
+<p class="grp"><b>Schaltflächen auf der Fallkarte</b></p>
+<ul>
+<li><b>Drucken.</b> Wählen Sie <i>Chronologie</i> oder <i>Dokumentation</i>, und der Fall wird als PDF exportiert.</li>
+<li><b>Bearbeiten.</b> Öffnet das Fallformular: Titel, Priorität, Status, Kläger (oder „der Mandant ist Kläger“), weitere eigene Mandanten im selben Verfahren, Gegner, eine Interessenkonfliktprüfung (aktiv, sobald beide Seiten ausgefüllt sind), öffentlicher Fall, ein Schalter, der verhindert, dass diesem Fall etwas zugeordnet wird (von Hand, automatisch oder durch die KI), Aktenzeichen, Dossiernummer mit Datum, Land, Rechtsgebiet, Stadium und Beschreibung.</li>
+<li><b>Löschen.</b> Nach einer Bestätigung wird der Fall vollständig aus <span class="irs">IRONSTICK</span> entfernt. Zuvor wird eine vollständige Sicherung des Falls erstellt; schlägt die Sicherung fehl, wird nichts gelöscht.</li>
+</ul>
+<p class="grp"><b>Teilen und Übergeben (nur bei verbundenem IRONSTICK SERVER)</b></p>
+<ul>
+<li><b>Teilen.</b> Teilen Sie den Fall <i>für alle Benutzer</i> oder <i>für ausgewählte Benutzer</i>, die Sie in der Liste anhaken. Der Fall wird dann im Hintergrund auf den IRONSTICK SERVER hochgeladen. Sobald er geteilt ist, wird dieselbe Schaltfläche rot und lautet <i>Freigabe widerrufen</i>, womit die Freigabe sofort zurückgezogen wird.</li>
+<li><b>Freigabekarte.</b> Unter den Falldaten zeigt eine Karte den Upload-Fortschritt und danach die Abonnenten, jeweils mit Online-Punkt und der Zeit des letzten Zugriffs. Anfragen von Kolleginnen und Kollegen erscheinen hervorgehoben mit <i>Zulassen</i> und <i>Ablehnen</i>; jeder Abonnent kann einzeln entfernt werden.</li>
+<li><b>Fall übergeben.</b> Wählen Sie den Empfänger aus der Liste der Benutzer des IRONSTICK SERVERs und klicken Sie auf <i>Übergeben</i>. Der Fall wird gepackt und über den IRONSTICK SERVER gesendet; sobald der Empfänger ihn angenommen hat, wird der Fall von Ihrem Computer entfernt (eine Sicherung bleibt erhalten). Ohne IRONSTICK SERVER gibt es keine Übergabe.</li>
+<li><b>Mit Ihnen geteilte Fälle.</b> Ein abonnierter Fall kann gelesen, aber nicht geändert werden; Bearbeitungsschaltflächen zeigen stattdessen einen Hinweis. Unter der Beschreibung sehen Sie den Eigentümer und die anderen Abonnenten. <i>Abonnement löschen</i> beendet das Abonnement und entfernt die Kopie.</li>
+</ul>
+
+<h3>Die Registerkarten im Überblick: Mandant bis Karte</h3>
+<figure><img src="img/screens/5%20case%20tab1.png" alt="Die ersten sechs Registerkarten des Fallbildschirms: Mandant, Fall, Institutionen, Entitäten, Verbindungen und Karte"><figcaption>Die Registerkarten Mandant, Fall, Institutionen, Entitäten, Verbindungen und Karte.</figcaption></figure>
+<p class="scr-intro">Die Registerkartenleiste gliedert den Fall in Ansichten. Die ersten sechs Registerkarten zeigen, um wen und was es im Fall geht: den Mandanten, die Falldaten, die beteiligten Institutionen und Personen, wie sie verbunden sind und wo etwas geschehen ist.
+Jede Linie im Bild führt von einer Registerkarte zur Ansicht, die sie öffnet.</p>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Mandant</b></p>
+<ul>
+<li><b>Mandantenkarte.</b> Nummer, Name, Personenkennzahl, Staatsangehörigkeit, vollständige Adresse, Telefon, E-Mail, Bank und IBAN, Sprache, Social-Media-Links, Details und das Anlagedatum des Mandanten. Leere Felder werden nicht angezeigt.</li>
+<li><b>Kontakt mit einem Klick.</b> Klicken Sie auf den Namen für einen Kontakt-QR-Code, auf die Telefonnummer für einen QR-Code zum Anrufen, auf das grüne Chat-Symbol für WhatsApp oder auf die E-Mail-Adresse, um zu schreiben. Social-Media-Links öffnen sich im <span class="irs">IRONSTICK</span>-Browserfenster. <i>Bearbeiten</i> öffnet das Mandantenformular.</li>
+</ul>
+<p class="grp"><b>Fall</b></p>
+<ul>
+<li><b>Falldaten.</b> Mandanten- und Fallnummer, Titel, amtliches Aktenzeichen, Priorität, Parteien, Land, Rechtsgebiet, Stadium, Startdatum, Beschreibung und der Umfang des Falls, mit Schaltflächen zum Drucken, Bearbeiten oder Löschen des Falls.</li>
+</ul>
+<p class="grp"><b>Institutionen und Entitäten</b></p>
+<ul>
+<li><b>Wer beteiligt ist.</b> Institutionen listet Gerichte, Behörden und andere Stellen mit Typ, Stadt und Kontaktsymbolen; Entitäten listet Personen und Unternehmen mit Typ, Stadt und Kontakt. Die Kopfzeile zeigt, wie viele zugeordnet sind. Lange Listen werden in Seiten zu 20 Einträgen aufgeteilt.</li>
+<li><b>Einen Eintrag öffnen.</b> Klicken Sie auf eine Zeile, um die Institutionen- oder Personenliste mit dem hervorgehobenen Eintrag zu öffnen. Telefon- und E-Mail-Symbole öffnen einen QR-Code, der Globus öffnet die Website im <span class="irs">IRONSTICK</span>-Browserfenster.</li>
+<li><b>Analyse.</b> In Entitäten erscheint das violette Analysesymbol, wenn für diese Person eine Analyse vorhanden ist; es öffnet die Personenanalyse.</li>
+<li><b>Hinzufügen und entfernen.</b> <i>Hinzufügen</i> öffnet eine Suche über alle Institutionen oder Personen, die noch nicht in diesem Fall sind (nach Name, Stadt oder E-Mail). Wählen Sie eine aus, prüfen Sie die Vorschau und klicken Sie auf <i>Hinzufügen</i>. Das Symbol der unterbrochenen Verbindung am Zeilenende entfernt die Zuordnung nach einer Bestätigung; die Institution oder Person selbst bleibt erhalten.</li>
+</ul>
+<p class="grp"><b>Verbindungen</b></p>
+<ul>
+<li><b>Beziehungsdiagramm.</b> Zeigt die Personen und Institutionen des Falls und wie sie verknüpft sind, auf einer oder mehreren Seiten; die Kopfzeile zählt Entitäten und Verbindungen. Wo es viele sind, werden die dringendsten angezeigt.</li>
+<li><b>Mit dem Diagramm arbeiten.</b> Zoomen Sie mit den Lupen-Schaltflächen hinein und heraus. Klicken Sie auf einen Namen, um diese Person oder Institution zu öffnen. <i>Wallpaper</i> lädt das Diagramm als großes Poster-PDF herunter; <i>Erfassen</i> übergibt es an die Dokumentenerfassung, wo Sie es einem Fall zuordnen. Beide Export-Schaltflächen sind auf dem Android-Tablet nicht verfügbar.</li>
+</ul>
+<p class="grp"><b>Karte</b></p>
+<ul>
+<li><b>Alles auf der Karte.</b> Personen (blau), Unternehmen (violett), Institutionen (rot) und Ereignisse (grün) erscheinen auf einer Satellitenkarte; eine Legende darunter erklärt die Farben. Weiße Ringe markieren Entfernungen von 5, 15 und 30 km um den Mittelpunkt des Falls.</li>
+<li><b>Fehlende Positionen.</b> Adressen ohne Koordinaten werden automatisch nachgeschlagen, solange die Karte geöffnet ist; ein kleiner Hinweis zeigt den Fortschritt, und die gefundene Position wird gemerkt.</li>
+<li><b>Details und Druck.</b> Klicken Sie auf eine Markierung für Name, Typ und Adresse; ihr Detail-Link öffnet die Person, die Institution oder den Chronik-Eintrag (hervorgehoben in der Chronik). Die Druckschaltfläche exportiert die Karte als PDF.</li>
+</ul>
+
+<h3>Die Registerkarten im Überblick: Dokumentation bis KI-Bewertung</h3>
+<figure><img src="img/screens/5%20case%20tab2.png" alt="Die Registerkarten Dokumentation, Chronik, Fall-Nucleu, Fall-Snake und KI-Bewertung"><figcaption>Die Registerkarten Dokumentation, Chronik, Fall-Nucleu (Atom), Fall-Snake und KI-Bewertung.</figcaption></figure>
+<p class="scr-intro">Die übrigen Registerkarten enthalten den Inhalt des Falls: die abgelegten Dokumente, die Chronik von allem, was geschehen ist, zwei Textbereiche, die alle schriftliche Arbeit am Fall leiten, und die KI-Bewertung.
+Das Atom und die Schlange werden nur als Symbole angezeigt; zeigen Sie darauf, um ihre Namen zu sehen.</p>
+
+<h4>Was Sie hier tun können</h4>
+<ul>
+<li><b>Dokumentation.</b> Alle Dokumente des Falls mit einem PDF — eingehend, ausgehend und Beweise — mit Filtern nach Richtung, einem Sprung zu einem Datum und dem Chronologie-Diagramm.</li>
+<li><b>Chronik.</b> Die Chronik des Falls: jedes Ereignis, Dokument, Foto, Telefonat und jede Notiz in zeitlicher Reihenfolge.</li>
+<li><b>Fall-Nucleu (Atom).</b> Die verbindliche Vorgabe für alle schriftliche Arbeit an diesem Fall — dem jeder Schriftsatz folgen muss. Schreiben oder ändern Sie den Text und klicken Sie auf <i>Speichern</i>; jedes Speichern erzeugt eine neue Version, und der kopierbare Code mit seiner Versionsnummer zeigt, welche aktuell ist. Ein Zähler zeigt die Länge (bis zu 20.000 Zeichen). Darunter sehen Sie, schreibgeschützt, den Nucleu jedes Sachverhalts, zu dem dieser Fall gehört.</li>
+<li><b>Fall-Snake.</b> Ein Register unwahrer oder widersprüchlicher Aussagen der Gegenseite in diesem Fall, damit sie in Schriftsätzen verwendet werden können. Sie wird auf dieselbe Weise bearbeitet und gespeichert wie der Nucleu, mit eigener Versionsnummer.</li>
+<li><b>KI-Bewertung.</b> Eine KI-Auswertung der Erfolgsaussichten des Falls: Erfolgschancen, die Grundlage des Verfahrens, die Gerichtsakte und die IRONSTICK-Akte, Stärken, Schwächen und ein kritischer Hinweis.</li>
+</ul>
+
+<h3>Chronik</h3>
+<figure><img src="img/screens/5%20case%20chronicle%201.png" alt="Registerkarte Chronik mit nummerierten Markierungen an den Kopf-Schaltflächen, dem Datumsfeld, Neuer Eintrag und einer Eintragszeile"><figcaption>Die Registerkarte Chronik: die Chronik des Falls, neueste Einträge zuerst.</figcaption></figure>
+<p class="scr-intro">Die Chronik listet jeden Eintrag des Falls — Ereignisse, Briefe, E-Mails, Telefonate, Fotos, Aufnahmen — mit den neuesten zuerst. Jede Zeile zeigt Nummer und Datum, Titel, Beschreibung und Labels, die angehängten Dateien, eine Fristmarkierung und die Aktionen.
+Die vergrößerte Zeile unten im Bild zeigt die Teile eines einzelnen Eintrags.</p>
+<ol class="marks">
+<li><b>Notizen.</b> Öffnet die Pinnwand des Falls. Ihre eigenen Notizen sind gelb, Notizen von Abonnenten eines geteilten Falls sind weiße Karten, und Notizen, die sich die KI für diesen Fall gemerkt hat, erscheinen als kleine karierte Zettel. Klicken Sie auf <i>Neue Notiz</i>, um eine zu schreiben (bis zu 1.000 Zeichen, optional mit Datum), klicken Sie auf eine gelbe Notiz, um sie zu bearbeiten, auf eine beliebige Notiz, um sie vollständig zu lesen; jede hat kleine Schaltflächen zum Kopieren und Löschen.</li>
+<li><b>Dossier.</b> Öffnet den Dossier-Assistenten, der ein vollständiges Dossier des Falls erstellt. Er erscheint nur, wenn die Chronik Einträge hat.</li>
+<li><b>Text verfassen.</b> Wählen Sie <i>Mit KI Hilfe</i>, um den KI-Chat mit der Bitte zu öffnen, ein Dokument für diesen Fall zu entwerfen, oder <i>Leeres Textdokument</i>, um in der Textverarbeitung zu schreiben. Auf dem Android-Tablet nicht sichtbar.</li>
+<li><b>Zu einem Datum springen.</b> Wählen Sie ein Datum und klicken Sie auf die Lupe, um zur Seite zu gehen, die es enthält.</li>
+<li><b>Neuer Eintrag.</b> Öffnet das Formular für einen neuen Chronik-Eintrag.</li>
+<li><b>Eintragsnummer und Datum.</b> Die violette Nummer identifiziert den Eintrag; ein Klick darauf kopiert sie in die Zwischenablage. Darunter stehen das Datum und, falls erfasst, die Uhrzeit von–bis.</li>
+<li><b>Büroklammer und Mappe.</b> Die <b>Büroklammer</b> öffnet das angehängte Dokument; bei einem Eintrag ohne Datei, Bild oder Transkript exportiert sie den Eintrag selbst als PDF. Die <b>Mappe</b> zeigt, in wie vielen Arbeitsmappen der Eintrag abgelegt ist — klicken Sie darauf, um Mappen an- oder abzuhaken oder eine neue anzulegen; eine leere Mappe mit Plus bedeutet, dass der Eintrag noch in keiner Mappe liegt. Weitere Symbole erscheinen hier für Bilder, Transkripte, Audio oder einen Ort.</li>
+<li><b>Aktionen.</b> Fünf Symbole in zwei Reihen:
+<table>
+<tr><th>Symbol</th><th>Was es bewirkt</th></tr>
+<tr><td>Radar (erste Reihe)</td><td>Öffnet das Relevanz-Radar: die inhaltlich ähnlichsten Einträge in diesem und in anderen Fällen. Klicken Sie auf einen Treffer, um dorthin zu springen.</td></tr>
+<tr><td>Tag (erste Reihe)</td><td>Ordnet dem Eintrag Tags zu — globale Tags in Rot, Gelb, Grün oder Blau oder Fall-Tags. Das Symbol nimmt die Farbe des ersten Tags an.</td></tr>
+<tr><td>Stift (zweite Reihe)</td><td>Bearbeitet den Eintrag: Ein Eintrag ohne Dokument öffnet das Chronik-Eintragsformular, ein Eintrag mit PDF öffnet das Dokumentformular.</td></tr>
+<tr><td>Kopieren (zweite Reihe)</td><td>Kopiert den Eintrag mit seinen Dokumenten, Bildern und Transkripten in einen anderen Fall desselben Mandanten.</td></tr>
+<tr><td>× (zweite Reihe)</td><td>Löscht den Eintrag nach einer Bestätigung.</td></tr>
+</table>
+Bei geheimen Dokumenten sind Tag, Stift und Kopieren ausgegraut; nur Löschen bleibt.</li>
+</ol>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Die Liste</b></p>
+<ul>
+<li><b>Seiten und Sortierung.</b> Die Liste zeigt 20 Einträge pro Seite; Seitenschaltflächen erscheinen über und unter der Liste, wenn es mehr als eine Seite gibt. Klicken Sie auf die Spaltenüberschrift <i>Datum</i>, um zwischen neueste und älteste zuerst zu wechseln.</li>
+<li><b>Was eine Zeile Ihnen sagt.</b> Unter dem Titel sehen Sie die Beschreibung, farbige Labels (Land, Rechtsgebiet, Stadium, IN in Orange oder OUT in Grün, Institutionstyp, Sprache, Dokumenttyp) und die beteiligten Personen.</li>
+<li><b>Einen Text zu einem Eintrag schreiben.</b> Das kleine Symbol aus Stift und Zeilen neben dem Titel startet <i>Text verfassen</i> für genau diesen Eintrag; eine Zahl davor zählt die bereits dazu verfassten Texte. Auf dem Android-Tablet nicht sichtbar.</li>
+<li><b>Fristenspalte.</b> Eine orange Glocke bedeutet, dass die Frist des Eintrags innerhalb von 10 Tagen fällig ist, eine rot läutende Glocke, dass sie überschritten ist. Zeigen Sie auf die Glocke, um die verbleibenden Tage oder das Datum zu sehen.</li>
+<li><b>Aus der Suche oder dem Radar kommend.</b> Öffnen Sie den Fall aus einem Suchergebnis oder dem Relevanz-Radar, geht die Chronik zur richtigen Seite, und der Eintrag leuchtet einige Sekunden gelb auf.</li>
+</ul>
+<p class="grp"><b>Aktionen zu einem Eintrag</b></p>
+<ul>
+<li><b>Relevanz-Radar.</b> Zeigt, welche anderen Einträge — in diesem und in anderen Fällen — inhaltlich am ähnlichsten sind. Klicken Sie auf einen Treffer, um dorthin zu springen.</li>
+<li><b>Tags.</b> Ordnen Sie dem Eintrag kurze Tags zu (bis zu 100 Zeichen): <i>globale</i> Tags in Rot, Gelb, Grün oder Blau oder <i>Fall</i>-Tags in Petrol. Klicken Sie auf einen vorhandenen Tag, um ihn zu ändern, oder auf sein ×, um ihn zu entfernen. Das Tag-Symbol nimmt die Farbe des ersten Tags an.</li>
+<li><b>Arbeitsmappen.</b> Listet die Mappen jedes Sachverhalts auf, zu dem der Fall gehört; haken Sie eine Mappe an, um den Eintrag darin abzulegen, oder legen Sie eine <i>Neue Mappe</i> an. Gehört der Fall zu keinem Sachverhalt, weist ein Hinweis darauf hin.</li>
+<li><b>Bearbeiten.</b> Ein Eintrag ohne Dokument öffnet das Chronik-Eintragsformular. Ein Eintrag mit PDF öffnet das Dokumentformular: Klassifizierung (Land, Sprache, Rechtsgebiet, Dokumenttyp, Stadium, Institutionstyp, Dokumentdatum), die Eintragsart (Beweis, eingehend oder ausgehend), ein Kontrollkästchen für Gerichtsentscheid und dieselben Eintragsfelder wie unten; Schaltflächen dort lassen Sie das PDF ansehen und seinen extrahierten Text lesen.</li>
+<li><b>In einen anderen Fall kopieren.</b> Wählen Sie einen Zielfall desselben Mandanten; der Eintrag wird mit seinen Dokumenten, Bildern und Transkripten kopiert. <i>Kopieren</i> wird aktiv, sobald ein Fall gewählt ist.</li>
+<li><b>Löschen.</b> Entfernt den Eintrag nach einer Bestätigung.</li>
+</ul>
+<p class="grp"><b>Formular Neuer Eintrag</b></p>
+<ul>
+<li><b>Eintragsdetails.</b> Titel, Datum, Schlüsselwörter, Uhrzeit von und bis sowie eine Beschreibung. Entweder ein Titel oder eine Beschreibung ist erforderlich.</li>
+<li><b>Beteiligte Personen.</b> Geben Sie einen Teil eines Namens ein, um die diesem Fall zugeordneten Personen und Institutionen zu durchsuchen; klicken Sie auf einen Treffer, um ihn als Chip hinzuzufügen, auf sein ×, um ihn zu entfernen.</li>
+<li><b>Frist.</b> Legen Sie ein Fristdatum fest und haken Sie an, ob sie aktiv ist; aktive Fristen erscheinen in der Fristenübersicht und in der Glocke.</li>
+<li><b>Ort.</b> Schalten Sie die Geokoordinaten ein, geben Sie eine Adresse ein und klicken Sie auf die Lupe, um sie nachzuschlagen, oder klicken Sie direkt auf die Karte; Breiten- und Längengrad werden für Sie ausgefüllt.</li>
+<li><b>Bilder.</b> Schalten Sie Medien ein, um bis zu vier Bilder hinzuzufügen (JPEG, PNG, WebP): Ziehen Sie sie auf den Ablagebereich oder klicken Sie darauf, um Dateien auszuwählen. Ziehen Sie ein Bild auf einen anderen Platz, um die Reihenfolge zu ändern; das × entfernt es.</li>
+<li><b>Speichern oder abbrechen.</b> Die Schaltflächen unten speichern den Eintrag oder schließen das Formular ohne Speichern.</li>
+</ul>
+
+<h3>Dokumente, Bilder und Aufnahmen öffnen</h3>
+<figure><img src="img/screens/5%20case%20chronicle%202.png" alt="Chronik mit einem angehängten PDF in einem separaten Fenster und dem Bildbetrachter mit vier Fotos"><figcaption>Ein angehängtes PDF öffnet sich in einem eigenen Fenster; Fotos öffnen sich im Bildbetrachter.</figcaption></figure>
+<p class="scr-intro">Jede an einen Eintrag angehängte Datei öffnet sich direkt aus der Chronik. Im Bild hat die Büroklammer des ersten Eintrags sein PDF in einem separaten Fenster geöffnet, und das Bildsymbol eines anderen Eintrags hat seine vier Fotos geöffnet.
+Das Datumsfeld oben hilft Ihnen, sich in langen Chroniken zurechtzufinden.</p>
+<ol class="marks">
+<li><b>Zu einem Datum springen.</b> Erscheint, wenn die Chronik mehr als drei Seiten hat. Klicken Sie in das Feld und wählen Sie ein Datum — wählbar sind nur Daten, die im Fall vorkommen —, dann klicken Sie auf die Lupe daneben, um zur Seite mit diesem Datum zu gehen.</li>
+</ol>
+
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Dateien eines Eintrags</b></p>
+<ul>
+<li><b>Dokumente.</b> Die blaue Büroklammer öffnet das angehängte Dokument in einem eigenen Fenster — in dem Programm, das Ihr Computer für PDFs verwendet, andernfalls in Ihrem Webbrowser.</li>
+<li><b>Eintrag als PDF.</b> Bei einem Eintrag ohne Dokument, Bilder oder Aufnahme erstellt die Büroklammer ein PDF des Eintrags selbst und speichert es für Sie.</li>
+<li><b>Bilder.</b> Das violette Bildsymbol (beim Daraufzeigen sehen Sie die Anzahl) öffnet den Bildbetrachter mit allen Fotos des Eintrags, nummeriert. Klicken Sie auf ein Foto, um es im Vollbild mit Zoom zu sehen; ein erneuter Klick oder das × schließt es. <i>Dokument exportieren</i> speichert die Fotos mit der Beschreibung als PDF.</li>
+<li><b>Transkripte und Chats.</b> Ein violettes Symbol öffnet das Transkript eines Telefonats oder einer Aufnahme oder einen Chat, mit Datum, Uhrzeit von–bis, Typ und der Zeilenanzahl; jeder Sprecher hat eine Farbe. <i>Dokument exportieren</i> speichert es als PDF.</li>
+<li><b>Audio.</b> Die blaue Note spielt die Originalaufnahme im Mediaplayer Ihres Computers ab.</li>
+<li><b>Ort.</b> Die grüne Markierung öffnet eine kleine Karte mit dem Ort des Eintrags und einer Schaltfläche, um ihn in Google Maps anzuzeigen.</li>
+</ul>
+<p class="grp"><b>Verknüpfungen zwischen Dokumenten</b></p>
+<ul>
+<li><b>Beilagen und wo ein Dokument eingereicht wurde.</b> Ein ausgehender Brief listet seine Beilagen als blaue Nummern auf; ein eingehendes Dokument oder ein Beweisstück zeigt, in welchen Briefen es eingereicht wurde, gruppiert nach Fall mit der Fallnummer dahinter. Klicken Sie auf eine Nummer, um diesen Eintrag zu öffnen, oder auf die Fallnummer, um diesen Fall zu öffnen.</li>
+<li><b>Referenznummern.</b> Tragen andere Dokumente dieselbe Registrierungs- oder Briefnummer, wird diese Nummer unterstrichen angezeigt. Klicken Sie darauf, um alle Dokumente mit dieser Nummer zu sehen und eines davon zu öffnen.</li>
+</ul>
+
+<h3>Registerkarte Dokumentation</h3>
+<figure><img src="img/screens/5%20case%20documentation.png" alt="Registerkarte Dokumentation eines Falls mit Richtungsfilter, Datumssprung und daneben geöffnetem Chronologie-Diagramm"><figcaption>Die Registerkarte Dokumentation listet jeden Eintrag mit einem Dokument; das Chronologie-Diagramm zeigt den Schriftverkehr als Ablauf.</figcaption></figure>
+<p class="scr-intro">Die Registerkarte <b>Dokumentation</b> ist die Papierseite des Falls: Sie listet nur die Einträge, die ein Dokument tragen (Briefe, Schriftsätze, Entscheidungen, Scans), neueste zuerst, 20 pro Seite.
+Jede Zeile zeigt Eintragsnummer, Datum, Titel, eine kurze Zusammenfassung, die Klassifizierungs-Tags und die Werkzeuge für dieses Dokument.
+Die blaue Schaltfläche rechts auf der Karte öffnet die <b>Chronologie</b> — die eingehenden und ausgehenden Dokumente als Flussdiagramm von oben nach unten gezeichnet, wie rechts im Bild gezeigt.</p>
+<ol class="marks">
+<li><b>Richtungsfilter.</b> <i>Alle</i> zeigt jedes Dokument, <i>IN</i> (gelb) nur eingehende Dokumente, <i>OUT</i> (grün) nur Dokumente, die Sie gesendet haben. Der aktive Chip wird fett mit Rahmen dargestellt.</li>
+<li><b>Zu Datum springen.</b> Wählen Sie im Kalenderfeld ein Datum und klicken Sie auf die Lupe, um zur Seite mit diesem Datum zu springen. Das Feld erscheint nur, wenn die Liste länger als drei Seiten ist; der Kalender bietet nur Daten an, die im Fall vorkommen.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Die Liste</b></p>
+<ul>
+<li><b>Sortieren.</b> Klicken Sie auf die Spaltenüberschrift <i>Datum</i>, um zwischen neueste und älteste zuerst zu wechseln. Klicken Sie auf <i>Frist</i>, um nach offenen Fristen zu sortieren, die nächste zuerst (erneut klicken, um umzukehren).</li>
+<li><b>Eintragsnummer.</b> Die violette Nummer über dem Datum ist die <span class="irs">IRONSTICK</span>-Nummer des Eintrags. Klicken Sie darauf, um sie in die Zwischenablage zu kopieren.</li>
+<li><b>Tags unter der Zusammenfassung.</b> Die kleinen Chips zeigen Land, Rechtsgebiet, Verfahrensstadium, Richtung (IN orange, OUT grün), Institutionstyp, Dokumentsprache und weitere Klassifizierung. Zeigen Sie auf Rechtsgebiet oder Stadium, um den vollen Namen zu sehen.</li>
+<li><b>Beilagen und „Eingereicht in“.</b> Bei einem von Ihnen gesendeten Dokument listet <i>Beilagen</i> die mitgesandten Einträge auf. Bei einem eingehenden Dokument oder einem Beweisstück listet <i>Eingereicht in</i> auf, wo es eingereicht wurde, gruppiert nach Fall mit der Fallnummer hinter jeder Gruppe. Klicken Sie auf eine Nummer, um diesen Eintrag in der Chronik zu öffnen, oder auf die Fallnummer, um diesen Fall zu öffnen — auch wenn er zu einem anderen Fall gehört.</li>
+<li><b>Referenznummern.</b> Blaue unterstrichene Nummern sind Brief- oder Registrierungsnummern, die auch in anderen Dokumenten vorkommen. Klicken Sie auf eine, um alle Dokumente mit derselben Nummer zu sehen und eines davon zu öffnen.</li>
+<li><b>Frist.</b> Eine Glocke erscheint, wenn der Eintrag eine offene Frist trägt: orange, wenn sie innerhalb von 10 Tagen fällig ist, rot, wenn sie überschritten ist. Zeigen Sie darauf, um die verbleibenden Tage oder das Überschreitungsdatum zu sehen.</li>
+</ul>
+<p class="grp"><b>Werkzeuge in jeder Zeile</b></p>
+<ul>
+<li><b>Text verfassen.</b> Das Notiz-Symbol neben dem Titel öffnet eine Auswahl: einen Brief mit Hilfe der KI schreiben (der Chat öffnet sich mit diesem Fall und diesem Dokument bereits als Bezug) oder ein leeres Textdokument in der Textverarbeitung öffnen. Eine Zahl vor dem Symbol zeigt, wie viele Texte zu diesem Eintrag bereits existieren. Auf dem Android-Tablet nicht verfügbar.</li>
+<li><b>Das Dokument öffnen.</b> Die Büroklammer öffnet das Dokument im <span class="irs">IRONSTICK</span>-Browserfenster; zeigen Sie darauf, um den Dateinamen zu sehen. Eine grüne Markierung erscheint, wenn der Eintrag einen Ort hat — klicken Sie darauf, um den Ort auf einer Karte zu sehen.</li>
+<li><b>Arbeitsmappen.</b> Das Mappen-Symbol legt das Dokument in den Arbeitsmappen der Sachverhalte ab, zu denen dieser Fall gehört: Haken Sie eine Mappe an oder ab, oder legen Sie eine neue Mappe an. Ist der Eintrag bereits abgelegt, zeigt das Symbol eine gefüllte Mappe und sein Tooltip die Anzahl der Mappen.</li>
+<li><b>Relevanz-Radar.</b> Das Radar-Symbol findet die inhaltlich ähnlichsten Einträge in diesem und in anderen Fällen. Klicken Sie auf einen Treffer, um in der Chronik dorthin zu springen.</li>
+<li><b>Tags.</b> Das Label-Symbol ordnet dem Dokument Ihre eigenen Tags zu — allgemeine farbige Tags oder Tags, die nur für diesen Fall gelten. Sobald getaggt, nimmt das Symbol die Farbe des ersten Tags an.</li>
+<li><b>Bearbeiten.</b> Der Stift öffnet den Dokumenteintrag zur Bearbeitung (Titel, Datum, Klassifizierung, Frist und so weiter).</li>
+<li><b>In einen anderen Fall kopieren.</b> Das Kopieren-Symbol kopiert den Eintrag zusammen mit seinem Dokument in einen anderen Fall desselben Mandanten. Wählen Sie den Zielfall und klicken Sie dann auf <i>Kopieren</i>.</li>
+<li><b>Löschen.</b> Das Kreuz löscht den Eintrag, nachdem Sie bestätigt haben.</li>
+</ul>
+<p class="grp"><b>Chronologie-Diagramm</b></p>
+<ul>
+<li><b>Den Verlauf des Falls lesen.</b> Das Diagramm zeigt alle eingehenden und ausgehenden PDF-Dokumente in zeitlicher Reihenfolge, durch Pfeile verbunden. Von Ihnen gesendete Dokumente haben eine schwarze Überschrift, Dokumente mit offener Frist einen dicken Rahmen. Die Beilagen eines ausgehenden Briefs erscheinen als separate Kästen daneben.</li>
+<li><b>Einen Eintrag öffnen.</b> Klicken Sie auf die unterstrichene Eintragsnummer in einem Kasten, um direkt zu diesem Eintrag zu gehen.</li>
+<li><b>Zoomen und scrollen.</b> Verwenden Sie die beiden Lupen-Schaltflächen zum Hinein- und Herauszoomen; lange Chronologien laufen über mehrere Seiten, durch die Sie scrollen.</li>
+<li><b>Als Dokument erfassen.</b> <i>Erfassen</i> macht aus dem Diagramm ein PDF und öffnet die Dokumentenerfassung, wo Sie es dem Fall zuordnen und wie jedes andere Dokument speichern. Auf dem Android-Tablet nicht verfügbar, dort kann das Diagramm nur angesehen werden. Schließen Sie das Diagramm mit dem X.</li>
+</ul>
+
+<h3>Dossier: Einträge und Seiten auswählen</h3>
+<figure><img src="img/screens/5%20case%20dossier%201.png" alt="Bildschirm Dossier vorbereiten mit ausgeschlossenen Einträgen, der Seitenauswahl und einer Bildvorschau"><figcaption>Erster Schritt des Dossiers: Entscheiden Sie, welche Einträge und welche Seiten hineinkommen.</figcaption></figure>
+<p class="scr-intro">Die Schaltfläche <b>Dossier</b> oben im Fall (nur angezeigt, wenn der Fall Chronik-Einträge hat) öffnet einen Assistenten, der eine vollständige, paginierte Akte des Falls erstellt — als PDF oder als EDRM-Produktionspaket.
+Im ersten Schritt, <b>Dossier vorbereiten</b>, gehen Sie alle Chronik-Einträge durch und entscheiden, was hineinkommt. Das Bild zeigt einen ausgeschlossenen Eintrag (rotes Zeichen), ein teilweise ausgeschlossenes Dokument (gelber Kreis), die Seitenauswahl eines Dokuments und die Bildvorschau eines Foto-Eintrags.</p>
+<h4>Was Sie hier tun können</h4>
+<ul>
+<li><b>Einen Eintrag weglassen.</b> Klicken Sie irgendwo auf eine Zeile, um den Eintrag auszuschließen: Er wird blass, und in der Mitte erscheint ein rotes Zeichen. Klicken Sie erneut, um ihn wieder aufzunehmen.</li>
+<li><b>Einzelne Seiten weglassen.</b> Die blaue runde Schaltfläche eines Dokuments öffnet <i>Seiten auswählen</i> mit einer Vorschau jeder Seite. Klicken Sie auf eine Seite, um sie auszuschließen (rotes Zeichen) oder wieder aufzunehmen. Sind einige Seiten ausgeschlossen, wird die Schaltfläche gelb, und die Zeile wird abgedunkelt mit einem gelben Kreis in der Mitte; klicken Sie auf den Kreis, um die Seitenauswahl zu ändern.</li>
+<li><b>Ansehen, bevor Sie entscheiden.</b> Die Büroklammer öffnet das Dokument im <span class="irs">IRONSTICK</span>-Browserfenster. Das Bildsymbol zeigt die Fotos des Eintrags (bis zu vier), das Mikrofon- oder Chat-Symbol das Transkript oder den Chat. Diese Vorschauen ändern nichts.</li>
+<li><b>Einen Eintrag finden.</b> Geben Sie im Suchfeld mindestens zwei Zeichen ein; passende Einträge erscheinen in einer Liste. Klicken Sie auf einen, um dorthin zu springen — die richtige Seite öffnet sich, und der Eintrag leuchtet auf. Sie können auch einen <span class="irs">IRONSTICK</span>-Dokumentstempel eingeben; gehört dieses Dokument zu einem anderen Fall, öffnet sich die Dossier-Vorbereitung jenes Falls bei dem Dokument.</li>
+<li><b>Sortieren.</b> Klicken Sie auf die Überschrift <i>Datum</i>, um zwischen neueste und älteste zuerst zu wechseln. Die Kopfzeile zeigt Falltitel, Fallnummer und Anzahl der Einträge.</li>
+<li><b>Weiter oder abbrechen.</b> <i>Weiter zu Dossier-Daten</i> führt zum nächsten Schritt; <i>Abbrechen</i> geht zurück zum Fall. Ihre Auswahl für diesen Fall bleibt erhalten, solange das Programm geöffnet bleibt, sodass Sie zwischen den Schritten hin- und hergehen können.</li>
+</ul>
+
+<h3>Dossier: Daten, Druckvorschau und Export</h3>
+<figure><img src="img/screens/5%20case%20dossier%202.png" alt="Bildschirm Dossier-Daten, Druckvorschau mit Seiten-Miniaturen und der Export-Dialog"><figcaption>Legen Sie Deckblatt und Struktur fest, prüfen Sie jede Seite und exportieren Sie das Dossier dann als PDF oder EDRM-ZIP.</figcaption></figure>
+<p class="scr-intro">Im zweiten Schritt, <b>Dossier-Daten</b> (links), füllen Sie das Deckblatt aus, prüfen den Rechtsraum und entscheiden, welche Themenblöcke das Dossier enthält und in welcher Reihenfolge.
+<i>Weiter zur Druckvorbereitung</i> öffnet die <b>Druckvorschau</b> (Mitte), die jede einzelne Seite des fertigen Dossiers zeigt. Von dort exportieren Sie es als PDF-Dossier oder als EDRM-ZIP; der Export-Dialog (oben rechts) speichert die Datei.</p>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Dossier-Daten</b></p>
+<ul>
+<li><b>Deckblatt-Adresse.</b> Wählen Sie eine der Institutionen des Falls aus der Liste, um den Empfänger automatisch auszufüllen, oder geben Sie Name, Adresse, Postleitzahl, Ort und Land selbst ein.</li>
+<li><b>Rechtsraum.</b> Land und Rechtsgebiet werden aus dem Fall übernommen. Hat das Land mehr als eine Rechtssprache, wählen Sie die Sprache, in der die eigenen Seiten des Dossiers verfasst werden.</li>
+<li><b>EDRM-Exportoptionen.</b> Nur für das EDRM-ZIP nötig, nicht für das PDF-Dossier. Geben Sie ein Bates-Präfix ein — die Zeile darunter zeigt die resultierenden Nummern — und, wenn Sie möchten, den Produktionszweck (zum Beispiel ein Herausgabeverlangen im Discovery-Verfahren oder eine Beweiseinreichung).</li>
+<li><b>Themenblöcke.</b> Das Dossier besteht aus Blöcken: Deckblatt, Themenverzeichnis, Chronologie, Dokumente, Medien, Transkripte, Chats, Personenverzeichnis und Institutionenverzeichnis. Ziehen Sie einen Block am Griff, um die Reihenfolge zu ändern; klicken Sie auf einen Block, um ihn aufzunehmen (grünes Häkchen) oder wegzulassen (rotes Zeichen). Blöcke, für die der Fall keinen Inhalt hat, werden automatisch weggelassen.</li>
+<li><b>Zurück oder weiter.</b> <i>Zurück</i> kehrt zur Eintragsauswahl zurück; <i>Weiter zur Druckvorbereitung</i> erstellt die Vorschau.</li>
+</ul>
+<p class="grp"><b>Druckvorschau</b></p>
+<ul>
+<li><b>Beim Aufbau zusehen.</b> Ein Fortschrittsbalken zeigt, wie weit die Vorschau ist. Der Aufbau läuft im Hintergrund weiter, auch wenn Sie den Bildschirm verlassen.</li>
+<li><b>Jede Seite prüfen.</b> Alle Seiten erscheinen als nummerierte Miniaturen, nach Block gruppiert. Jedes Dokument beginnt mit einer gestrichelten Linie, die seinen Dateinamen zeigt. Die Kopfzeile zählt die Seiten und Blöcke des Dossiers.</li>
+<li><b>Seiten entfernen.</b> Klicken Sie auf eine Seite eines Dokuments, um sie aus dem Dossier zu entfernen (rotes Zeichen, keine Seitennummer), und klicken Sie erneut, um sie wiederherzustellen. Leere Seiten in Dokumenten werden automatisch erkannt und entfernt. Seiten, die <span class="irs">IRONSTICK</span> selbst erzeugt, wie das Deckblatt oder die Verzeichnisse, können hier nicht entfernt werden. Das Themenverzeichnis wird mit den tatsächlichen Seitenzahlen aktualisiert.</li>
+<li><b>PDF-Dossier.</b> Erstellt das fertige, paginierte Dossier. Ist es fertig, öffnet sich der Export-Dialog von selbst; <i>Zurück zur Vorschau</i> kehrt zu den Seiten zurück.</li>
+<li><b>EDRM-ZIP.</b> Erstellt ein elektronisches Produktionspaket mit Bates-Nummern, den nativen Dokumenten, ihrem Text und den üblichen Ladedateien. Danach sehen Sie die Anzahl der Dokumente, die Gesamtseiten und den Bates-Bereich, und <i>EDRM ZIP herunterladen</i> speichert das Paket.</li>
+</ul>
+<p class="grp"><b>Export-Dialog</b></p>
+<ul>
+<li><b>Die Datei speichern.</b> Der Dialog zeigt Dateiname, Größe und Fall. <i>Download</i> speichert die Datei in Ihrem Ordner Dokumente und zeigt sie an. <i>Google Drive</i> erscheint nur, wenn auf diesem Computer ein Google-Drive-Ordner synchronisiert ist, und lässt Sie die Datei in einem seiner Ordner speichern. <i>Abbrechen</i> oder das X schließt den Dialog.</li>
+</ul>
+
+<h3>Registerkarte KI-Bewertung</h3>
+<figure><img src="img/screens/5%20case%20assesment.png" alt="Registerkarte KI-Bewertung mit den Abschnitten der Bewertung und der Erfolgsaussichten-Anzeige"><figcaption>Die KI-Bewertung des Falls mit der Erfolgsaussichten-Anzeige.</figcaption></figure>
+<p class="scr-intro">Die Registerkarte <b>KI-Bewertung</b> gibt eine schriftliche Beurteilung des Falls durch die KI. Die beschreibenden Abschnitte stützen sich auf Ihre gesamte Fallakte; die Erfolgsaussichten werden nur danach beurteilt, was dem Gericht in seiner Akte vorliegt. Sie zeigt die Grundlage des Verfahrens, den Stand der Behördenakte mit einer Schätzung der Erfolgsaussichten, den Stand der vollständigen <span class="irs">IRONSTICK</span>-Akte, kritische Hinweise, Stärken und Risiken sowie Links zu verwandten Fällen.
+Jede Eintragsnummer, jeder Fallbezug und jedes Aktenzeichen im Text ist ein Link. Das Datum unter dem Titel zeigt, wann die Bewertung erstellt wurde.</p>
+<ol class="marks">
+<li><b>Neu bewerten.</b> Startet eine neue Bewertung. Ohne Bewertung lautet die Schaltfläche <i>Bewertung anfordern</i>. Sie ist ausgegraut, wie im Bild, wenn seit der letzten Bewertung keine neuen Dokumente eingegangen sind (es sei denn, Sie schreiben unten einen Kommentar) oder wenn der Fall nicht aktiv ist.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Eine Bewertung starten</b></p>
+<ul>
+<li><b>Anfordern oder erneuern.</b> Klicken Sie auf <i>Bewertung anfordern</i> oder <i>Neu bewerten</i>. Bevor etwas gesendet wird, fragt <span class="irs">IRONSTICK</span>, ob die externe KI verwendet werden darf; bis zu Ihrer Bestätigung verlässt nichts Ihren Computer.</li>
+<li><b>Nachführen statt von vorn beginnen.</b> Kurz nach einer vollständigen Bewertung (innerhalb eines Tages und höchstens dreimal hintereinander) wird die Schaltfläche zu einem Menü mit <i>Nachführen</i> und <i>Neu bewerten</i>. <i>Nachführen</i> fügt nur die seither eingegangenen Dokumente hinzu und schreibt die Abschnitte neu, die sich ändern, was deutlich schneller geht.</li>
+<li><b>Nur aktive Fälle.</b> Inaktive oder pausierte Fälle werden nicht bewertet. Die Schaltflächen sind gesperrt, und ein Hinweis bittet Sie, den Fall zuerst auf aktiv zu setzen.</li>
+<li><b>Den Fortschritt verfolgen.</b> Während des Laufs zeigt die Karte die aktuelle Phase — Vorbereiten, Text aus Dokumenten lesen, die noch keinen haben (lokal erledigt), die Akten durchsuchen, die Bewertung schreiben, die Erfolgsaussichten schätzen — und ein Live-Protokoll jedes Schritts.</li>
+<li><b>Weiterarbeiten.</b> Die Bewertung läuft im Hintergrund. Sie können Registerkarten wechseln, andere Fälle öffnen oder Bewertungen für mehrere Fälle gleichzeitig starten; ein Hinweis meldet, wenn eine fertig ist.</li>
+</ul>
+<p class="grp"><b>Die Bewertung lesen</b></p>
+<ul>
+<li><b>Grundlage des Verfahrens.</b> Wer was gegen wen vor welchem Gericht oder welcher Behörde geltend macht.</li>
+<li><b>Stand der Behördenakte und Erfolgsaussichten.</b> Beschreibt nur, was dem Gericht oder der Behörde in ihrer Akte vorliegt — alles, was beide Seiten ihr gesendet oder von ihr erhalten haben. Die Anzeige daneben zeigt die Schätzung der KI in Prozent, das Urteil (von klar verloren bis klar gewonnen) und, wo verfügbar, die getrennten Werte für den Stand der Beweise, den Hauptanspruch und die übrigen Ansprüche. Lässt sich keine Behördenakte ermitteln, fehlt dieser Abschnitt, und die Anzeige bleibt leer („nicht schätzbar“).</li>
+<li><b>Stand der IRONSTICK-Akte.</b> Das Bild aus Ihrer vollständigen Akte, einschließlich Dokumenten, die das Gericht nicht gesehen hat.</li>
+<li><b>Kritischer Hinweis, Stärken und Risiken.</b> Ein oranger Kasten weist auf die wichtigste Gefahr hin. Der grüne Kasten listet die Stärken Ihrer Position, der rote Kasten Risiken und offene Punkte.</li>
+<li><b>Verwandte Fälle.</b> <i>Fallübergreifende Verknüpfungen</i> zeigen, wie andere Fälle desselben Mandanten diesen beeinflussen (von, nach, Wirkung — gekennzeichnet als präjudiziell, Beweis oder strategisch). Ein gelber Kasten listet Fälle anderer Mandanten mit demselben Gegner oder denselben Beteiligten und erklärt, wie Sie über das Kommentarfeld einen davon in die Bewertung einbeziehen.</li>
+<li><b>Einen Abschnitt kopieren.</b> Das kleine Kopieren-Symbol vor einer Überschrift kopiert die Überschrift und ihren Text in die Zwischenablage.</li>
+<li><b>Den Links folgen.</b> Eine violette Eintragsnummer öffnet diesen Eintrag in der Chronik. Ein blauer Fallbezug oder ein Aktenzeichen öffnet diesen Fall, sofern er in <span class="irs">IRONSTICK</span> existiert.</li>
+<li><b>Warnungen und zusätzliche Lektüre.</b> Ein gelber Hinweis oben warnt, wenn die Bewertung unvollständig sein könnte (Recherchegrenze erreicht oder technischer Fehler bei der Recherche). <i>Nachgeladene Volltexte</i> listet die Dokumente auf, die die KI vollständig gelesen hat; klicken Sie auf eines, um es zu öffnen.</li>
+</ul>
+<p class="grp"><b>Einwände und Ergänzungen</b></p>
+<ul>
+<li><b>Die Bewertung korrigieren oder ergänzen.</b> Schreiben Sie Ihre Einwände, fehlenden Tatsachen oder Anweisungen in das Feld unten. Sobald Sie mindestens drei Wörter geschrieben haben, wird <i>Neu bewerten</i> verfügbar, und die KI bewertet den Fall erneut unter Berücksichtigung Ihres Kommentars.</li>
+</ul>
+
+<h3>Wie die KI-Bewertung entsteht</h3>
+<figure><img src="img/screens/5%20case%20assesment%20detail.png" alt="KI-Bewertung mit den aus der gesamten Fallakte gespeisten Abschnitten grün markiert und dem Abschnitt der Behördenakte mit der Erfolgsaussichten-Anzeige rot markiert"><figcaption>Grün: aus der gesamten Fallakte gezogen. Rot: nur der Teil der Akte, den das Gericht hat.</figcaption></figure>
+<p class="scr-intro">Die Bewertung arbeitet mit zwei verschiedenen Quellen, die im Bild markiert sind.
+Die <b>grünen</b> Abschnitte werden aus der gesamten Akte in <span class="irs">IRONSTICK</span> geschrieben — jedes Dokument, jeder Eintrag, jede E-Mail und jedes Transkript des Falls — sowie aus den Nachbarfällen desselben Mandanten.
+Der <b>rote</b> Abschnitt mit der Anzeige beurteilt nur den Teil der Akte, der dem Gericht vorliegt: was Sie ihm eingereicht haben und was es oder die Gegenseite Ihnen gesendet hat. Dokumente, die das Gericht nie gesehen hat, zählen nicht für die Erfolgsaussichten.</p>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Die grünen Abschnitte — Ihre gesamte Akte</b></p>
+<ul>
+<li><b>Grundlage des Verfahrens.</b> Wer was gegen wen vor welchem Gericht oder welcher Behörde geltend macht, wie es sich aus der gesamten Akte ergibt.</li>
+<li><b>Stand der IRONSTICK-Akte.</b> Das vollständige Bild des Falls, wie er in <span class="irs">IRONSTICK</span> steht, einschließlich Ihrer eigenen Notizen, Beweise und des Schriftverkehrs, von dem das Gericht nichts weiß, und der Auswirkungen der übrigen Fälle des Mandanten.</li>
+<li><b>Kritischer Hinweis, Stärken und Risiken.</b> Ebenfalls aus der gesamten Akte und den Nachbarfällen geschrieben.</li>
+</ul>
+<p class="grp"><b>Der rote Abschnitt — nur die Gerichtsakte</b></p>
+<ul>
+<li><b>Stand der Behördenakte.</b> Beschreibt nur, was dem Gericht in seiner Akte vorliegt — jede Eingabe und jedes von Gericht oder Gegenseite in diesem Verfahren erhaltene Dokument.</li>
+<li><b>Erfolgsaussichten.</b> Die Anzeige reicht von Rot (verloren) unten bis Grün (gewonnen) oben; der Pfeil und die Prozentzahl zeigen die Schätzung der KI, und das Urteil darunter (zum Beispiel <i>eher gewonnen</i>) bringt sie in Worte. Wo verfügbar, folgen getrennte Werte für den Stand der Beweise, den Hauptanspruch und die übrigen Ansprüche.</li>
+<li><b>Warum nur die Gerichtsakte.</b> Das Gericht entscheidet nach dem, was ihm vorliegt. Ein starkes Dokument in Ihrer Akte, das nie eingereicht wurde, verbessert die Schätzung nicht, bis es das Gericht erreicht — die grünen Abschnitte zeigen Ihnen solche Lücken.</li>
+<li><b>Keine Gerichtsakte, keine Schätzung.</b> Kann <span class="irs">IRONSTICK</span> das Gericht oder die ihm vorliegenden Dokumente nicht ermitteln, fehlt der rote Abschnitt, und die Anzeige bleibt leer.</li>
+</ul>
+
+<h2 id="s6">6. Personen / Entitäten</h2>
+
+<h3>Personenliste, Details und Beziehungsnetzwerk</h3>
+<figure><img src="img/screens/6%20entities%201.png" alt="Liste Personen / Entitäten mit dem Detailfenster, dem Telefon-QR-Code und dem Beziehungsnetzwerk eines Unternehmens"><figcaption>Die Personenliste mit dem Detailfenster, einem Telefon-QR-Code und dem Beziehungsnetzwerk eines Unternehmens.</figcaption></figure>
+<p class="scr-intro">Dieser Bildschirm enthält jede natürliche Person und jede juristische Person (Unternehmen, Verein, Behörde als Partei), die in Ihren Fällen vorkommt.
+Das Bild zeigt die Liste mit ihren Filterschaltflächen und dem Suchfeld, das Detailfenster eines Unternehmens, den QR-Code, der sich beim Klick auf ein Telefonsymbol öffnet,
+und das Beziehungsnetzwerk, das sich über das Netzwerksymbol einer Zeile öffnet.</p>
+<ol class="marks">
+<li><b>Referenznummer.</b> Jede Person oder jedes Unternehmen hat eine eigene Referenz in der Form <i>@E0000279</i>. Klicken Sie darauf, um sie in die Zwischenablage zu kopieren, zum Beispiel um die Person in einem Chronik-Eintrag, einer Notiz oder einem Chat mit der KI zu zitieren.</li>
+<li><b>Suchfeld.</b> Grenzt die Liste beim Tippen ein: nach Name, Telefonnummer, E-Mail-Adresse oder Stadt. Mehrere Wörter müssen alle passen; <i>*</i> funktioniert als Platzhalter, und auch Namen, die nur ähnlich klingen, werden gefunden.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Seitenkopf</b></p>
+<ul>
+<li><b>Anzahl der Einträge.</b> Unter dem Titel sehen Sie, wie viele Einträge angezeigt werden; ist ein Filter aktiv, wird dies neben der Zahl vermerkt.</li>
+<li><b>Importieren.</b> Öffnet ein Fenster, in das Sie eine Datenpaket-Datei ziehen, die Sie von einem anderen <span class="irs">IRONSTICK</span>-Benutzer erhalten haben (Personen, Unternehmen, Institutionen, ihre Beziehungen und Personenanalysen). Während des Imports läuft ein Fortschrittsbalken; danach sehen Sie, wie viele Einträge neu waren, wie viele bereits bekannt waren und wie viele Beziehungen hinzugefügt wurden. Bringt das Paket zusätzliche Details zu Personen, die Sie bereits haben, erscheinen diese als Vorschläge im Datenkonsistenz-Monitor, statt Ihre Daten zu überschreiben. Eine beschädigte oder falsche Datei wird mit einer Meldung abgelehnt.</li>
+<li><b>Universe.</b> Die schwarze Schaltfläche öffnet die drei visuellen Karten all Ihrer Parteien: 3D-Karte, 2D-Karte und Geokarte.</li>
+<li><b>Neue Person / Entität.</b> Öffnet das Eingabeformular für eine neue Person oder ein neues Unternehmen.</li>
+</ul>
+<p class="grp"><b>Filter und Liste</b></p>
+<ul>
+<li><b>Alle / Natürliche Personen / Juristische Personen.</b> Die drei Schaltflächen über der Liste zeigen die Anzahl in jeder Gruppe. Klicken Sie auf eine, um nur natürliche Personen oder nur juristische Personen zu sehen; die Liste kehrt zu Seite 1 zurück.</li>
+<li><b>Seiten.</b> Die Liste zeigt 20 Einträge pro Seite. Gibt es mehr als eine Seite, erscheint die Seitennavigation über und unter der Liste.</li>
+<li><b>Spalten.</b> Jede Zeile zeigt die Referenznummer, ein blaues Personensymbol oder ein violettes Unternehmenssymbol, den Namen (bei Personen auch den Beruf), die Stadt, Kontaktsymbole, die Anzahl der Fälle, an denen der Eintrag beteiligt ist (grün) oder <i>Keine</i> (grau), das Netzwerksymbol, das Analysesymbol und die Aktionen.</li>
+<li><b>Kontaktsymbole.</b> Das Telefonsymbol und das E-Mail-Symbol öffnen jeweils einen QR-Code: Scannen Sie ihn mit Ihrem Telefon, um sofort anzurufen oder eine E-Mail zu schreiben. Ein Klick auf den QR-Code selbst öffnet das passende Programm auf diesem Computer; gibt es keines, wird die Nummer oder Adresse in die Zwischenablage kopiert. Ein Buchsymbol zeigt, dass Social-Media-Profile oder eine Website hinterlegt sind.</li>
+<li><b>Netzwerksymbol.</b> Öffnet das Beziehungsnetzwerk dieser Person oder dieses Unternehmens.</li>
+<li><b>Analysesymbol.</b> Das violette Symbol erscheint nur bei natürlichen Personen, die bereits eine Personenanalyse haben. Klicken Sie darauf, um die Analyse zu öffnen.</li>
+<li><b>Bearbeiten und löschen.</b> Der Stift öffnet das Eingabeformular. Das Kreuz löscht den Eintrag nach einer Bestätigung; ist der Eintrag noch mit Fällen, Beziehungen oder einer Personenanalyse verknüpft, listet die Bestätigung diese Verknüpfungen in einer gelben Warnung auf. Das Löschen einer Person entfernt auch alle Beziehungen dieser Person.</li>
+<li><b>Von anderen Bildschirmen zurückkommen.</b> Springen Sie aus der Suche, einem Fall oder einer der Karten hierher, wird der Eintrag auf der richtigen Seite gefunden und leuchtet einige Sekunden gelb auf.</li>
+</ul>
+<p class="grp"><b>Detailfenster</b></p>
+<ul>
+<li><b>Die Details öffnen.</b> Klicken Sie irgendwo auf eine Zeile. Das Fenster zeigt ein Tag <i>Natürliche Person</i> oder <i>Jurist. Person</i> und alle ausgefüllten Felder, gruppiert in Stammdaten, Adresse, Kontakt, Online / Social, Beruf (nur Personen), Fahrzeug und Systemdaten (Eintragsnummer und Anlagedatum). Leere Felder werden weggelassen.</li>
+<li><b>Visitenkarte als QR-Code.</b> Klicken Sie auf den Namen im Titel, die Straße oder die Stadt: Ein QR-Code mit der vollständigen Visitenkarte erscheint, den Sie direkt in das Adressbuch Ihres Telefons scannen können.</li>
+<li><b>Telefon-, E-Mail- und Web-Links.</b> Die blaue Telefonnummer und E-Mail-Adresse öffnen ihre QR-Codes. Facebook-, LinkedIn-, Instagram- und Website-Links öffnen sich im <span class="irs">IRONSTICK</span>-Browserfenster.</li>
+<li><b>PDF-Export.</b> Erstellt ein Personenblatt als PDF: Stammdaten, Fallbeteiligungen, Personenanalyse und Beziehungen, nur mit den Feldern, die ausgefüllt sind. Sie können es anschließend in Ihrem Ordner Dokumente oder in Ihrem Google-Drive-Ordner speichern.</li>
+</ul>
+<p class="grp"><b>Beziehungsnetzwerk</b></p>
+<ul>
+<li><b>Wer mit wem verbunden ist.</b> Das Netzwerk zeigt die Person oder das Unternehmen in der Mitte mit ihren direkten Beziehungen und den Beziehungen dieser Kontakte (zwei Ebenen), als Diagramm auf einer oder mehreren Seiten.</li>
+<li><b>Sich durch das Netzwerk bewegen.</b> Klicken Sie im Diagramm auf eine andere Person, ein anderes Unternehmen oder eine andere Institution: Das Fenster baut sich um diese Partei neu auf. Seitenverweise im Diagramm springen zur passenden Seite; die Lupen-Schaltflächen zoomen hinein und heraus.</li>
+<li><b>Erfassen.</b> Macht aus dem Diagramm ein PDF und öffnet es direkt in <i>Dokument erfassen</i>, sodass Sie es mit dem üblichen Stempel in einem Fall ablegen können. Diese Schaltfläche ist auf dem Android-Tablet nicht verfügbar.</li>
+</ul>
+<p class="grp"><b>Eine Person erfassen oder bearbeiten</b></p>
+<ul>
+<li><b>Art des Eintrags.</b> Wählen Sie zuerst <i>Natürliche Person</i> oder <i>Jurist. Person</i>; das Formular passt sich an. Nur der Name ist erforderlich. Für Personen kommen außerdem Personenkennzahl, Geburtsdatum (Datumsauswahl), Staatsangehörigkeit und Religion hinzu; für Unternehmen stattdessen die Handelsregisternummer.</li>
+<li><b>Adresse und Position auf der Karte.</b> Geben Sie Straße, Postleitzahl, Ort, Bezirk und Land ein (bei einem neuen Eintrag ist das Land aus Ihrer Konfiguration vorbelegt). Schalten Sie die Geokoordinaten ein, um die Adresse auf der Karte zu suchen, Breiten- und Längengrad einzugeben oder einfach auf die richtige Stelle auf der Karte zu klicken.</li>
+<li><b>Kontakt, Online, Beruf, Fahrzeug.</b> Telefon, Fax, E-Mail (auf gültiges Format geprüft), Kontaktdetails, Beschreibung, Social-Media-Links und Website, Beruf und Arbeitgeber (nur Personen), Auto und Kennzeichen.</li>
+<li><b>KI-Autofill und Google-Suche.</b> Für eine juristische Person mit Name und Land erscheint eine Schaltfläche in der Kopfzeile. Ist ein KI-Schlüssel konfiguriert, fragt <i>KI-Autofill</i> nach Ihrer Zustimmung und lässt dann die externe KI das Unternehmen im Internet nachschlagen; sie füllt nur leere Felder und markiert sie mit einem violetten Rahmen. Danach, oder ohne KI-Schlüssel, wird die Schaltfläche zu <i>Google Suche</i>, die die Suche im <span class="irs">IRONSTICK</span>-Browserfenster öffnet.</li>
+<li><b>Speichern oder abbrechen.</b> Die Speichern-Schaltfläche speichert den Eintrag und kehrt zur Liste zurück. Bearbeiten Sie eine bestehende natürliche Person, erscheint unten links zusätzlich eine Schaltfläche <i>Personenanalyse</i>.</li>
+<li><b>Einträge anderer Benutzer auf dem IRONSTICK SERVER.</b> Gehört ein Eintrag einem anderen Benutzer des IRONSTICK SERVERs, weist ein Banner darauf hin. Das Speichern sendet Ihre Änderungen dann als Änderungsvorschlag an den Eigentümer, und das Löschen sendet statt zu löschen einen Löschvorschlag.</li>
+</ul>
+<p class="grp"><b>Personenanalyse und Web-Recherche (nur natürliche Personen)</b></p>
+<ul>
+<li><b>Personenanalyse.</b> Ein strukturiertes Profil einer Person: Rolle im Fall (zum Beispiel Gegner, Zeuge, Dritter), Verlässlichkeit (unbestätigt, teilweise bestätigt, bestätigt — als farbiges Tag angezeigt) und Datum der Analyse; Identität und Standort mit bis zu drei Wohnsitzen, jeweils mit eigener Kartenposition; Hintergrund (Familie, Steuern, Schulden, Geschäft, Online-Präsenz, soziales Umfeld); und eine Einschätzung (Rolle im Netzwerk, Schwachstellen, strategische Gesamteinschätzung, Quellen). Die Fußzeile zeigt, wann zuletzt gespeichert wurde. Unternehmen haben keine Personenanalyse.</li>
+<li><b>Beziehungen.</b> Am Ende der Analyse fügen Sie Beziehungen hinzu: Suchen Sie eine Person oder Institution, wählen Sie eine Kategorie (Familie, Arbeit, Religion, Ort, Straftat, Finanzen, Soziales, Politik, Bildung, Militär/Polizei, digital/online) und fügen Sie eine kurze Beschreibung hinzu wie „ist die Ehefrau von“. Bestehende Beziehungen können bearbeitet oder gelöscht werden; sie speisen das Netzwerk und die Karten.</li>
+<li><b>Web-Recherche.</b> Die Schaltfläche <i>Web-Recherche</i> in der Analyse durchsucht das Internet nach der Person und listet die Treffer auf. Entfernen Sie unerwünschte Treffer, lassen Sie dann die übrigen Seiten laden und zusammenfassen, haken Sie die Quellen an, denen Sie vertrauen, und klicken Sie auf <i>Auswahl analysieren</i>. Das Ergebnis erscheint als bearbeitbare Vorschau der Analysefelder, die Sie in der Personenanalyse speichern. Die externe KI wird erst nach Ihrer Zustimmung verwendet; jeder Link kann im <span class="irs">IRONSTICK</span>-Browserfenster geöffnet werden.</li>
+</ul>
+
+<h3>Universe: 3D-Karte, 2D-Karte und Geokarte</h3>
+<figure><img src="img/screens/6%20entities%20universe.png" alt="Die Schaltfläche Universe mit ihrem Menü und den drei Karten: 3D-Karte, 2D-Karte und Geokarte"><figcaption>Die Schaltfläche Universe öffnet drei Ansichten all Ihrer Parteien.</figcaption></figure>
+<p class="scr-intro">Die Schaltfläche <b>Universe</b> in der Kopfzeile der Personenliste öffnet drei verschiedene Bilder aller Personen in Ihren Akten und wie sie verbunden sind.
+Die <b>3D-Karte</b> ist ein Raum, durch den Sie fliegen können, die <b>2D-Karte</b> legt dasselbe Netzwerk wie eine technische Zeichnung auf kariertem Papier aus,
+und die <b>Geokarte</b> platziert alle Personen und Unternehmen mit bekanntem Standort auf einer Satellitenkarte. Jede Ansicht öffnet sich im Vollbild und schließt mit dem X oder Escape.</p>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>3D-Karte</b></p>
+<ul>
+<li><b>Das Universum baut sich selbst auf.</b> Ein Fortschrittsbalken zeigt, wie weit das Bild ist; Gruppen eng verbundener Parteien (Cliquen) erscheinen nacheinander, jede in einer eigenen Farbe. Auffällig wirkende Gruppen flackern rot. Die Zeile oben links zählt Parteien, Verbindungen und Cliquen.</li>
+<li><b>Fliegen.</b> W/A/S/D fliegen vorwärts, links, rückwärts und rechts; R und F steigen und sinken; ziehen Sie mit der Maus oder verwenden Sie die Pfeiltasten zum Drehen; das Mausrad bewegt vor oder zurück; Shift beschleunigt, Leertaste bremst. Das Feld unten links listet diese Tasten, und eine kleine Leiste unten rechts zeigt Ihre Geschwindigkeit.</li>
+<li><b>Eine Partei finden und ansteuern.</b> Klicken Sie auf einen Punkt, um ihn zu markieren und automatisch zu ihm zu fliegen; klicken Sie erneut darauf, um die Markierung zu entfernen. Das Suchfeld unten rechts findet den bestpassenden Namen und fliegt ebenfalls dorthin.</li>
+<li><b>Zurück zur Liste.</b> Doppelklicken Sie auf einen Punkt: Die Karte schließt sich, und die Person leuchtet in der Personenliste gelb auf. Bei einer Institution öffnet sich stattdessen die Institutionenliste, auf dieselbe Weise hervorgehoben.</li>
+<li><b>Fall-Verbindungen und getrennte Ebenen.</b> <i>Fall-Verbindungen</i> verbindet zusätzlich Parteien, die im selben Fall vorkommen. <i>Ebenen trennen</i> platziert Institutionen oben, Personen in der Mitte und Unternehmen unten. Beide Schalter bauen das Bild neu auf und werden gemerkt.</li>
+</ul>
+<figure class="vid"><video src="img/universe_entities.mp4" controls preload="metadata" playsinline></video><figcaption>Flug durch die 3D-Karte aller Parteien.</figcaption></figure>
+<p>Die Cliquen — Gruppen eng verbundener Parteien — werden von einem hochkomplexen Algorithmus automatisch berechnet. Die Berechnung erstreckt sich stets über alle Personen, Unternehmen und Institutionen in <span class="irs">IRONSTICK</span>, ohne dass Sie etwas tun müssen. Je mehr qualifizierte Verbindungen eine Partei hat, desto größer wird ihre Kugel gezeichnet.</p>
+<p class="grp"><b>2D-Karte</b></p>
+<ul>
+<li><b>Sich wie auf einem Blatt Papier bewegen.</b> Ziehen Sie mit der Maus oder verwenden Sie W/A/S/D, um das Blatt zu verschieben; das Mausrad zoomt auf den Zeiger zu.</li>
+<li><b>Eine Partei ansehen.</b> Zeigen Sie auf einen Knoten, um seine Verbindungen und Namensschilder zu sehen. Ein Klick markiert ihn (er pulsiert), ein Klick auf das leere Blatt entfernt die Markierung, und ein Doppelklick kehrt mit hervorgehobenem Eintrag zur Liste zurück.</li>
+<li><b>Suche und Schalter.</b> Das Suchfeld unten rechts findet eine Partei nach Namen; <i>Fall-Verbindungen</i> und <i>Ebenen trennen</i> funktionieren wie in der 3D-Karte.</li>
+</ul>
+<p class="grp"><b>Geokarte</b></p>
+<ul>
+<li><b>Alle mit Adresse auf der Karte.</b> Personen erscheinen blau, Unternehmen violett. Nur Einträge mit bekannten Koordinaten werden angezeigt; <span class="irs">IRONSTICK</span> füllt diese im Hintergrund aus den Adressen. Das Label unten links zeigt, wie viele Markierungen es gibt.</li>
+<li><b>Gebündelte Markierungen.</b> Parteien, die sehr nah beieinander liegen, werden zu einer nummerierten Markierung zusammengefasst. Klicken Sie darauf, um hineinzuzoomen oder, wenn sie am selben Ort liegen, sie aufzulisten.</li>
+<li><b>Details.</b> Klicken Sie auf eine Markierung, um Name, Typ und Adresse zu sehen; <i>Details</i> schließt die Karte und hebt den Eintrag in der Personenliste hervor.</li>
+</ul>
+
+<h2 id="s7">7. Institutionen</h2>
+<figure><img src="img/screens/7%20institutions.png" alt="Institutionenliste mit Detailfenster und Telefon-QR-Code"><figcaption>Die Institutionenliste mit dem Detailfenster einer Behörde und ihrem Telefon-QR-Code.</figcaption></figure>
+<p class="scr-intro">Institutionen sind Gerichte, Behörden, öffentliche Stellen und ähnliche Einrichtungen, mit denen Sie in Ihren Fällen zu tun haben.
+Die Liste zeigt jede Institution mit ihren Klassifizierungs-Tags, Ort, Kontakt-Symbolen und der Anzahl der Fälle, an denen sie beteiligt ist.
+Das Bild zeigt außerdem das Detailfenster einer Behörde und den QR-Code, der sich beim Klick auf ihr Telefon-Symbol öffnet.</p>
+<ol class="marks">
+<li><b>Referenznummer.</b> Jede Institution hat eine eigene Referenz in der Form <i>@I0000030</i>. Mit einem Klick darauf kopieren Sie sie in die Zwischenablage, zum Beispiel um die Institution in einem Eintrag oder in einem Chat mit der KI zu zitieren.</li>
+<li><b>Suchfeld.</b> Schränkt die Liste während der Eingabe ein: nach Name, Telefonnummer, E-Mail-Adresse oder Ort. Mehrere Wörter müssen alle passen, <i>*</i> funktioniert als Platzhalter, und auch Namen, die nur ähnlich klingen, werden gefunden.</li>
+</ol>
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Liste</h4>
+<ul>
+<li><b>Überblick.</b> Der Titel zeigt die Gesamtzahl der Institutionen, die Kartenkopfzeile die Zahl der aktuell gelisteten. Die Liste zeigt 20 Einträge pro Seite; bei mehr als einer Seite erscheint die Seitennavigation oberhalb und unterhalb der Liste.</li>
+<li><b>Klassifizierung auf einen Blick.</b> Unter jedem Namen zeigen kleine graue Tags den Ländercode, den Typcode und die Region, gefolgt vom Typnamen.</li>
+<li><b>Kontakt-Symbole.</b> Die Symbole für Telefon und E-Mail öffnen einen QR-Code, mit dem Sie mit Ihrem Telefon anrufen oder schreiben können; ein Klick auf den QR-Code öffnet das passende Programm auf diesem Computer (oder kopiert den Wert, falls es keines gibt). Das Globus-Symbol öffnet die Website im <span class="irs">IRONSTICK</span>-Browserfenster.</li>
+<li><b>Fälle.</b> Ein grünes Tag zeigt, an wie vielen Fällen die Institution beteiligt ist; <i>Keine</i> bedeutet, dass sie noch mit keinem Fall verknüpft ist.</li>
+<li><b>Bearbeiten und löschen.</b> Der Stift öffnet das Eingabeformular. Das Kreuz löscht die Institution nach einer Bestätigung; ist sie noch mit Fällen oder Beziehungen verknüpft, listet eine gelbe Warnung diese auf. Beim Löschen werden auch die Beziehungen der Institution entfernt.</li>
+<li><b>Aufruf von anderen Screens.</b> Wenn Sie von den Universum-Karten oder einem anderen Screen kommen, wird die Institution auf der richtigen Seite gefunden und leuchtet einige Sekunden lang gelb auf.</li>
+</ul>
+
+<h4>Detailfenster</h4>
+<ul>
+<li><b>Details öffnen.</b> Klicken Sie auf eine Zeile. Das Fenster zeigt Klassifizierung (Typ, Typcode, Region), Adresse, Kontakt und Systemdaten (Institutionsnummer und Erstellungsdatum); leere Felder werden weggelassen.</li>
+<li><b>Kontaktkarte als QR-Code.</b> Klicken Sie auf den Namen im Titel oder auf einen beliebigen Teil der Adresse, um einen QR-Code mit der vollständigen Kontaktkarte für Ihr Telefon zu erhalten.</li>
+<li><b>Telefon, E-Mail, Website.</b> Telefon und E-Mail öffnen ihre QR-Codes; die Website öffnet sich im <span class="irs">IRONSTICK</span>-Browserfenster. <i>Schließen</i> schließt das Fenster.</li>
+</ul>
+
+<h4>Neue Institution oder Institution bearbeiten</h4>
+<ul>
+<li><b>Neue Institution.</b> Die blaue Schaltfläche oben rechts öffnet das Eingabeformular; der Stift in einer Zeile öffnet dasselbe Formular für eine bestehende Institution.</li>
+<li><b>Klassifizierung.</b> Der Name ist erforderlich. Wählen Sie den Institutionstyp und die Region aus den Listen.</li>
+<li><b>Adresse und Kartenposition.</b> Straße, Postleitzahl, Ort, Bezirk und Land. Schalten Sie die Geokoordinaten ein, um die Adresse auf der Karte zu suchen, Breiten- und Längengrad einzugeben oder die Stelle auf der Karte anzuklicken.</li>
+<li><b>Kontakt.</b> Telefon, Fax, E-Mail und Website.</li>
+<li><b>KI-Ausfüllhilfe und Google-Suche.</b> Sobald ein Name und ein Land eingegeben sind, erscheint in der Kopfzeile eine Schaltfläche. Ist ein KI-Schlüssel eingerichtet, fragt die <i>KI-Ausfüllhilfe</i> um Ihre Zustimmung und lässt die externe KI die Institution im Internet nachschlagen; sie füllt nur leere Felder und markiert diese mit einem violetten Rahmen. Danach, oder ohne Schlüssel, öffnet die Schaltfläche eine Google-Suche im <span class="irs">IRONSTICK</span>-Browserfenster.</li>
+<li><b>Institutionen anderer Benutzer auf dem IRONSTICK SERVER.</b> Gehört die Institution einem anderen Benutzer des IRONSTICK SERVERs, sendet das Speichern einen Änderungsvorschlag und das Löschen einen Löschvorschlag an den Eigentümer.</li>
+</ul>
+
+<h2 id="s8">8. Dokumente erfassen</h2>
+
+<h3>Dokumenten-Posteingang und Erfassungsformular</h3>
+<figure><img src="img/screens/8%20capture%20documents.png" alt="Posteingang für Dokumente, das Fenster zur Seitenauswahl und das Formular Dokument erfassen mit der Textansicht"><figcaption>Der Dokumenten-Posteingang, die Seitenauswahl und das Erfassungsformular mit seiner Textansicht.</figcaption></figure>
+<p class="scr-intro">Jedes PDF, das in einen Fall gelangen soll, läuft über diesen Posteingang. Links sehen Sie den Posteingang mit seinem Ablagebereich und der Liste der wartenden Dateien;
+rechts das Formular <b>Dokument erfassen</b>, in dem das Dokument einem Fall zugeordnet und beschrieben wird. Davor liegt das Fenster zur Seitenauswahl,
+das sich bei Dokumenten mit mehreren Seiten zuerst öffnet, sowie die Textansicht, die zeigt, was <span class="irs">IRONSTICK</span> aus der Datei gelesen hat.</p>
+<ol class="marks">
+<li><b>Ablagebereich.</b> Ziehen Sie PDF- oder Markdown-Dateien hierher oder klicken Sie, um sie auszuwählen. Markdown-Dateien werden automatisch in PDF umgewandelt; andere Dateitypen werden mit einer Meldung abgelehnt.</li>
+<li><b>Posteingangs-Anzeige.</b> Solange unbearbeitete Dokumente im Posteingang warten, erscheint in der Menüleiste ein rotes, wackelndes Posteingangs-Symbol; beim Daraufzeigen sehen Sie, wie viele es sind. Mit einem Klick gelangen Sie direkt zu diesem Screen. Es verschwindet, wenn der Posteingang leer ist.</li>
+<li><b>Ansehen.</b> Öffnet das PDF mit dem Programm, das auf diesem Computer für PDFs eingerichtet ist.</li>
+<li><b>Erfassen.</b> Startet die Erfassung dieser Datei: Seitenauswahl, Lesen des Textes, KI-Klassifizierung und danach das Erfassungsformular.</li>
+<li><b>Löschen.</b> Löscht die Datei nach einer Bestätigung aus dem Posteingang. Das lässt sich nicht rückgängig machen.</li>
+<li><b>Ansehen (im Formular).</b> Öffnet das Dokument, das Sie gerade erfassen, im <span class="irs">IRONSTICK</span>-Browserfenster, damit Sie es beim Ausfüllen des Formulars lesen können.</li>
+<li><b>Textansicht.</b> Zeigt den aus dem PDF gelesenen Text in einem Fenster, in dem Sie ihn markieren und kopieren können.</li>
+<li><b>Geheim.</b> Markiert das Dokument als geheim. Geheime Dokumente sind überall in <span class="irs">IRONSTICK</span> ausgeblendet, bis Sie <b>Ctrl + Shift + S + D</b> drücken (nur Windows); dieselbe Kombination blendet sie wieder aus. Der Geheim-Modus wird nie gespeichert: Er schaltet sich beim Neustart des Programms sowie bei Bildschirmschoner, Standby oder Bildschirmsperre selbst aus. Solange er eingeschaltet ist, zeigt die Konfiguration die Karte, in der das Passwort für geheime Dokumente einmalig festgelegt wird — es kann nicht mehr geändert werden, sobald ein geheimes Dokument existiert. Ein so markiertes Dokument wird als passwortgeschütztes PDF (AES-256) gespeichert und kann keine Frist haben.
+<br><b>Geheime Dokumente verlassen <span class="irs">IRONSTICK</span> nie:</b> Sie werden nie an die KI gesendet — weder an die eingebaute noch an eine externe —, nie in erzeugte PDFs oder Beilagen aufgenommen und können nicht über das <span class="irs">IRONSTICK</span>-Browserfenster abgerufen werden.
+<br><b>Notfall:</b> <b>Ctrl + Shift + S + D + K</b> beendet den Geheim-Modus sofort und vernichtet alle geheimen Dokumente (Dateien und Einträge) unwiderruflich. Das lässt sich nicht rückgängig machen.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Posteingang</b></p>
+<ul>
+<li><b>Posteingangs-Ordner.</b> Die Karte listet jedes PDF im Posteingangs-Ordner mit seiner Größe auf, 20 pro Seite. Unter Windows wird der genaue Ordnerpfad neben dem Titel angezeigt, mit Schaltflächen zum Kopieren und zum Öffnen im Explorer — praktisch, wenn Sie Ihren Scanner direkt in diesen Ordner speichern lassen.</li>
+<li><b>Weitere Wege hinein.</b> Dokumente gelangen auch aus dem E-Mail-Monitor und aus Diagrammen hierher, die Sie zur Erfassung senden (zum Beispiel ein Beziehungsnetzwerk).</li>
+<li><b>Nach dem Erfassen.</b> Sobald ein Dokument in einem Fall gespeichert wurde, verschwindet es aus dem Posteingang.</li>
+</ul>
+<p class="grp"><b>Seitenauswahl</b></p>
+<ul>
+<li><b>Hauptdokument und Beilagen.</b> Bei einem PDF mit zwei oder mehr Seiten zeigt das Fenster <i>Seiten auswählen</i> eine Vorschau jeder Seite. Geben Sie ein, bis zu welcher Seite das Hauptdokument reicht; diese Seiten werden blau markiert und immer behalten. Die Zeile daneben sagt Ihnen, auf welchen Seiten die Beilagen folgen oder dass es keine gibt.</li>
+<li><b>Seiten einbeziehen oder weglassen.</b> Klicken Sie auf eine beliebige weitere Seite, um sie zwischen behalten (blauer Rahmen) und weggelassen (roter Rahmen, durchgestrichen) umzuschalten. Nur die behaltenen Seiten werden gelesen und mit durchsuchbarem Text gespeichert — nützlich bei langen Beilagen, die Sie nicht vollständig benötigen. <i>Übernehmen</i> startet das Lesen.</li>
+</ul>
+<p class="grp"><b>Lesen und KI-Klassifizierung</b></p>
+<ul>
+<li><b>Der Text wird lokal gelesen.</b> Ein Fortschrittsbildschirm zeigt jeden Schritt. <span class="irs">IRONSTICK</span> liest die Textebene jeder behaltenen Seite; nur Seiten ohne brauchbaren Text (Scans) durchlaufen die Texterkennung.</li>
+<li><b>Parteien und Fall werden automatisch gefunden.</b> Personen und Institutionen, die Sie bereits erfasst haben, werden im Text erkannt und als Beteiligte vorgeschlagen. Ein Aktenzeichen im Kopf, eine bekannte Briefnummer oder ein Bezug auf eine Ihrer gesendeten E-Mails legt den passenden Fall nahe. Ihre eigenen Textverarbeitungs-Dokumente werden an ihrem Stempel erkannt.</li>
+<li><b>KI-Klassifizierung mit Ihrer Zustimmung.</b> Bevor Text an die externe KI geht, werden Sie einmal pro Programmstart gefragt. Die KI schlägt dann Titel, Datum, Beschreibung, Schlagwörter, Dokumenttyp, Richtung und mehr vor. Lehnen Sie ab, bleibt das Formular für dieses Dokument leer und Sie füllen es selbst aus.</li>
+<li><b>Feststehende Tatsachen gehen vor.</b> Bei Dokumenten aus dem E-Mail-Monitor ergibt sich die Richtung aus dem Mail-Ordner (Posteingang oder Gesendete); bei Importen aus der Gerichtspost legt die Zustellbestätigung Fall, Datum und Richtung fest. Die KI überschreibt dies nicht.</li>
+</ul>
+<p class="grp"><b>Fall &amp; Klassifizierung zuordnen</b></p>
+<ul>
+<li><b>Mandant und Fall.</b> Suchen Sie den Mandanten nach Name, Telefon oder E-Mail; nachdem Sie einen ausgewählt haben, zeigt die Fallliste nur dessen Fälle, aktive zuerst. Mit der Wahl eines Falls werden dessen Land, Rechtsgebiet und Verfahrensstadium übernommen.</li>
+<li><b>Zuerst das Land.</b> Rechtsgebiet und Verfahrensstadium lassen sich erst nach dem Land wählen, da sie aus der Liste dieses Landes stammen. Dokumentsprache, Dokumenttyp und Institutionstyp vervollständigen die Klassifizierung; Dokumenttyp und Institution werden während der Eingabe gesucht.</li>
+</ul>
+<p class="grp"><b>Dokumentdetails</b></p>
+<ul>
+<li><b>Beweis, Eingang oder Ausgang.</b> Wählen Sie, um welche Art von Eintrag es sich handelt. <i>Gerichtsentscheid</i> wird automatisch angehakt, wenn <span class="irs">IRONSTICK</span> einen Gerichtsentscheid erkennt; Sie können das jederzeit ändern.</li>
+<li><b>Daten und Titel.</b> Wirksames Dokumentdatum, Titel (erforderlich, bis zu 120 Zeichen), Datum des Eintrags (erforderlich), Schlagwörter und eine optionale Uhrzeit von / bis.</li>
+<li><b>Zuordnung zur Textverarbeitung.</b> Verknüpft das Dokument mit einem Ihrer eigenen Textverarbeitungs-Texte — zum Beispiel mit der unterschriebenen Fassung eines von Ihnen verfassten Briefes. Texte desselben Falls werden zuerst aufgelistet; eingehende Dokumente werden nie verknüpft.</li>
+<li><b>Beschreibung und Beteiligte.</b> Die Beschreibung lässt sich frei bearbeiten. Beteiligte erscheinen als Chips: Entfernen Sie einen mit seinem Kreuz, fügen Sie einen per Suche hinzu. Ist ein Name unbekannt, lässt sich über eine Schaltfläche sofort eine neue Person, Firma oder Institution anlegen. Parteien, die <span class="irs">IRONSTICK</span> bekannt sind, werden beim Speichern mit dem Fall verknüpft.</li>
+<li><b>Frist.</b> Geben Sie ein Fristdatum ein und haken Sie das Kästchen daneben an, um daraus eine aktive Frist zu machen.</li>
+</ul>
+<p class="grp"><b>Speichern</b></p>
+<ul>
+<li><b>Speichern.</b> Titel und Fall sind erforderlich; andernfalls teilt Ihnen ein roter Hinweis mit, was fehlt. Das Speichern kann bei langen Dokumenten eine Weile dauern; währenddessen ist die Menüleiste gesperrt, damit nichts unterbrochen wird.</li>
+<li><b>Was beim Speichern geschieht.</b> Das PDF erhält den <span class="irs">IRONSTICK</span>-Stempel, bekommt auf den behaltenen Seiten eine durchsuchbare Textebene, wird verschlüsselt im Fall abgelegt und aus dem Posteingang entfernt. Eine kurze Zusammenfassung und Querverweise auf andere Einträge werden einige Sekunden später im Hintergrund ergänzt.</li>
+<li><b>Abbrechen.</b> Verlässt das Formular; die Datei bleibt im Posteingang.</li>
+</ul>
+
+<h3>Wie ein Dokument durch die Erfassung läuft</h3>
+<figure><img src="img/screens/8%20capture%20documents%20proces.png" alt="Diagramm: PDF, Seitenauswahl, lokale Verarbeitung, externe KI im Internet, Erfassungsformular, AES-256-Verschlüsselung, Datenbank und gestempeltes PDF"><figcaption>Vom PDF im Posteingang bis zum verschlüsselten Eintrag im Fall.</figcaption></figure>
+<p class="scr-intro">Das Diagramm zeigt den Weg eines Dokuments von links nach rechts. Das PDF wird zuerst auf Ihrem Computer verarbeitet (Seitenauswahl und Lesen des Textes),
+dann geht nur der Text über das Internet zur Klassifizierung an die externe KI, und das Ergebnis kommt in das Erfassungsformular zurück.
+Nach dem Speichern wird das Dokument mit AES-256 verschlüsselt und zusammen mit dem gestempelten PDF als Eintrag in der Datenbank abgelegt.</p>
+<h4>Was Sie hier tun können</h4>
+<ul>
+<li><b>Schritt 1 — auf Ihrem Computer.</b> Sie wählen die Seiten; <span class="irs">IRONSTICK</span> liest deren Text und erkennt bekannte Parteien und den Fall ohne jede Internetverbindung.</li>
+<li><b>Schritt 2 — externe KI, nur mit Zustimmung.</b> Der extrahierte Text wird an die externe KI gesendet, die die Klassifizierung vorschlägt. Vor Ihrer Zustimmung wird nichts gesendet, und Sie können das Formular jederzeit selbst ausfüllen.</li>
+<li><b>Schritt 3 — Ihre Prüfung.</b> Sie prüfen und korrigieren jeden Vorschlag im Erfassungsformular; gespeichert wird nur, was Sie speichern.</li>
+<li><b>Schritt 4 — verschlüsselte Ablage.</b> Das gestempelte PDF und seine Daten werden AES-256-verschlüsselt im Fall abgelegt.</li>
+</ul>
+
+<h2 id="s9">9. Globale Suche</h2>
+<figure><img src="img/screens/9%20global%20search.png" alt="Globale Suche mit Ergebnissen für das Wort Vertrag und einer vergrößerten Ergebniszeile"><figcaption>Suchergebnisse über alle Fälle, mit einer vergrößert dargestellten Zeile.</figcaption></figure>
+<p class="scr-intro">Die globale Suche durchsucht alle Einträge aller Ihrer Fälle auf einmal: Titel, Schlagwörter, Zusammenfassungen, Beschreibungen, Beteiligte,
+Dokumentinhalte und den Volltext von Dokumenten, Chats und Transkripten. Das Bild zeigt die Ergebnisse für das Wort <i>Vertrag</i>;
+eine Ergebniszeile ist vergrößert, damit ihre Bestandteile gut zu erkennen sind.</p>
+<ol class="marks">
+<li><b>Suchfeld.</b> Geben Sie ein oder mehrere Wörter ein und drücken Sie Enter oder klicken Sie auf <i>Suchen</i>. Bei mehreren Wörtern muss jedes Wort im Eintrag vorkommen. Akzente werden ignoriert, und kleine Lesefehler im gescannten Text werden toleriert.</li>
+<li><b>Datum.</b> Das Datum des Eintrags.</li>
+<li><b>Richtung.</b> <i>IN</i> (blau) kennzeichnet ein eingehendes Dokument, <i>OUT</i> (rot) ein ausgehendes. Beweiseinträge haben kein Tag.</li>
+<li><b>Genaue Wortfolge.</b> Der grüne Stern erscheint hinter dem Titel, wenn Ihre Wörter genau in dieser Reihenfolge zusammen gefunden wurden — in der Regel die relevantesten Treffer.</li>
+<li><b>Fall.</b> Die Fallnummer und darunter der Mandant, zu dem der Eintrag gehört.</li>
+<li><b>Fundstelle.</b> Das farbige Tag zeigt das Feld, in dem der beste Treffer gefunden wurde, zum Beispiel Titel, Schlagwörter, Zusammenfassung, Beschreibung, Beteiligte, Dokumentinhalt, Volltext oder Briefnummer. <i>Ähnlichkeit ~N %</i> bedeutet, dass der Eintrag gefunden wurde, weil er sinngemäß ähnlich ist, nicht über das genaue Wort.</li>
+</ol>
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Suchen</h4>
+<ul>
+<li><b>Beste Treffer zuerst.</b> Die Ergebnisse sind nach Relevanz sortiert — ein Treffer im Titel zählt mehr als einer im Volltext — und danach nach Datum, neueste zuerst. Die Kartenkopfzeile zeigt, wie viele Ergebnisse für Ihre Suche gefunden wurden.</li>
+<li><b>Ähnliche Einträge.</b> Bei einem einzelnen Wort mit vier oder mehr Buchstaben werden Einträge mit ähnlichem Titel oder ähnlicher Beschreibung hinzugefügt, auch wenn das genaue Wort nicht vorkommt.</li>
+<li><b>Direkt zu einem Eintrag springen.</b> Geben Sie eine Eintragsnummer wie <i>#1234</i> oder nur die Nummer ein oder fügen Sie den Dateinamen / die Kennung aus einem <span class="irs">IRONSTICK</span>-Stempel ein: Die Suche zeigt genau diesen Eintrag.</li>
+<li><b>Nichts gefunden.</b> Ein Hinweis teilt Ihnen mit, dass es keine Ergebnisse für Ihre Suche gibt; versuchen Sie es mit weniger oder anderen Wörtern.</li>
+</ul>
+
+<h4>Ergebnisse</h4>
+<ul>
+<li><b>Seiten.</b> 20 Ergebnisse pro Seite; bei mehr als einer Seite erscheint die Seitennavigation oberhalb und unterhalb der Liste.</li>
+<li><b>Ein Ergebnis öffnen.</b> Klicken Sie auf eine Zeile: Der Fall öffnet sich auf seinem Chronik-Tab, und der Eintrag leuchtet auf, damit Sie ihn sofort sehen.</li>
+<li><b>Leerer Titel.</b> Ein Eintrag ohne Titel wird als „Eintrag #“ gefolgt von seiner Nummer angezeigt.</li>
+</ul>
+
+<h2 id="s10">10. Kalender</h2>
+<figure><img src="img/screens/10%20calendar.png" alt="Kalender mit zwei Monaten, dem ausgewählten Tag und seinen Terminen sowie dem Export-Dialog für die .ics-Datei"><figcaption>Zwei Monate auf einen Blick, die Termine des ausgewählten Tages und der Kalender-Export.</figcaption></figure>
+<p class="scr-intro">Der Kalender enthält Ihre Gerichtstermine, Zeugenvernehmungen, Besprechungen, Telefonate und Aufgaben.
+Zwei Monate werden nebeneinander angezeigt; farbige Zahlen und Punkte zeigen, an welchen Tagen etwas geplant ist.
+Unter den Monaten sehen Sie alles, was für den ausgewählten Tag geplant ist. Das Bild zeigt auch den Export-Dialog, der sich beim Export des Kalenders als .ics-Datei öffnet.</p>
+<ol class="marks">
+<li><b>Einen Tag auswählen.</b> Klicken Sie auf einen beliebigen Tag, um darunter seine Termine anzuzeigen. Der ausgewählte Tag wird blau; heute hat einen grauen Kreis.</li>
+<li><b>Tagesfeld.</b> Zeigt das ausgewählte Datum, die Anzahl der Termine und die Schaltfläche <i>Neuer Eintrag</i>. Darunter sind die Termine dieses Tages aufgelistet, gefolgt von den Gerichtssitzungen aus dem Online-Gerichtsportal.</li>
+<li><b>.ics exportieren.</b> Speichert Ihre Termine und Gerichtssitzungen ab heute als Kalenderdatei, die andere Kalenderprogramme importieren können.</li>
+</ol>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Im Kalender navigieren</h4>
+<ul>
+<li><b>Monate durchblättern.</b> Die Pfeile verschieben die Zwei-Monats-Ansicht zurück oder vor; <i>Heute</i> springt zum aktuellen Monat zurück und wählt den heutigen Tag aus.</li>
+<li><b>Die Farben lesen.</b> Ein Tag mit Einträgen zeigt seine Zahl farbig und pro Typ einen kleinen Punkt: orange für eine Sitzung aus dem Gerichtsportal oder eine Zeugenvernehmung, rot für einen Gerichtstermin, blau für eine Besprechung, grün für ein Telefonat, grau für sonstige Einträge und violett für eine Aufgabe. Die Zahl übernimmt die Farbe des wichtigsten Eintrags.</li>
+</ul>
+
+<h4>Die Termine eines Tages</h4>
+<ul>
+<li><b>Tagesliste.</b> Jeder Termin zeigt seine Uhrzeit, den Titel, den Ort, den Anfang der Beschreibung, den Fall und den Mandanten sowie ein farbiges Typ-Label. Hat ein Tag viele Einträge, wird die Liste in Seiten mit Seitenschaltflächen oberhalb und unterhalb aufgeteilt.</li>
+<li><b>Details öffnen.</b> Klicken Sie auf einen Termin, um Datum, Uhrzeit, Typ, Ort, die vollständige Beschreibung und den Fall zu sehen. Unter <i>Vorbereitete Dokumente</i> finden Sie die Chronik-Einträge, die Sie dem Termin angehängt haben: Die violette Nummer öffnet die Fall-Chronik mit hervorgehobenem Eintrag, die Büroklammer öffnet das Dokument selbst.</li>
+<li><b>Termin als PDF.</b> Die Drucken-Schaltfläche im Detailfenster erzeugt ein PDF mit einem Deckblatt für den Termin, gefolgt von allen vorbereiteten Dokumenten, mit durchlaufender Seitennummerierung.</li>
+<li><b>Bearbeiten oder löschen.</b> Der Stift öffnet den Termin zum Bearbeiten; der rote Papierkorb löscht ihn nach einer Bestätigung.</li>
+<li><b>Aufgaben.</b> Ein Klick auf einen Eintrag vom Typ <i>Aufgabe</i> (zum Beispiel ein zuvor notierter Schriftsatz) öffnet den KI-Chat für diesen Fall mit der Bitte, den Schriftsatz zu entwerfen.</li>
+<li><b>Leerer Tag.</b> Ist nichts geplant, sagt das Feld dies, und Sie können sofort einen Eintrag anlegen.</li>
+</ul>
+
+<h4>Gerichtssitzungen aus dem Gerichtsportal</h4>
+<ul>
+<li><b>Bereich Sitzungen.</b> Sind die Gerichtsportal-Funktionen für Ihr Land eingeschaltet, erscheinen Sitzungen, die <span class="irs">IRONSTICK</span> für Ihre Fälle erfasst hat, in einem eigenen orangen Bereich unterhalb der Termine.</li>
+<li><b>Den Fall oder die Portalakte öffnen.</b> Das unterstrichene Aktenzeichen und der Link <i>Fall</i> öffnen die Fall-Chronik. Ein Klick an anderer Stelle der Zeile öffnet die Portalakte mit Gegenstand, Parteien, Rechtsmitteln und dem Verlauf aller Sitzungen; von dort bringt Sie <i>Fall öffnen</i> zum Fall. Eine Sitzung zu einer Akte, die noch nicht mit einem Fall verknüpft ist, ist mit <i>neu/unerfasst</i> gekennzeichnet.</li>
+</ul>
+
+<h4>Neuer Eintrag und Bearbeiten</h4>
+<ul>
+<li><b>Termin.</b> Geben Sie einen Titel und ein Datum ein (beides erforderlich), wählen Sie den Typ (Gerichtstermin, Zeugenvernehmung, Besprechung, Telefonat, Sonstiges oder Aufgabe), legen Sie die Uhrzeit von und bis fest und fügen Sie eine Beschreibung hinzu.</li>
+<li><b>Ort.</b> Die aufklappbare Ortskarte nimmt Adresse, Postleitzahl, Ort, Bezirk und Land auf. Schalten Sie <i>Geokoordinaten</i> ein, um eine Adresse zu suchen oder auf die Karte zu klicken und den genauen Punkt festzulegen.</li>
+<li><b>Zuordnung.</b> Verknüpfen Sie den Termin mit einem Fall und fügen Sie die beteiligten Personen und Institutionen hinzu, indem Sie einen Teil ihres Namens eingeben und sie aus der Liste wählen; entfernen Sie eine mit dem kleinen Kreuz auf ihrem Chip.</li>
+<li><b>Vorbereitungsmappe.</b> Sobald ein Fall gewählt ist, haken Sie die Chronik-Einträge an, die Sie für den Termin zur Hand haben möchten. Sie erscheinen später unter <i>Vorbereitete Dokumente</i> und im Termin-PDF.</li>
+<li><b>Speichern.</b> <i>Speichern</i> (oder <i>Anlegen</i> bei einem neuen Eintrag) bringt Sie zum Kalender an dem Datum des Termins zurück; <i>Abbrechen</i> verwirft die Änderungen.</li>
+</ul>
+
+<h4>Export und Synchronisierung</h4>
+<ul>
+<li><b>Datenschutz-Warnung.</b> Vor dem ersten .ics-Export nach jedem Programmstart erinnert <span class="irs">IRONSTICK</span> Sie daran, dass Kalendereinträge in diesem Format das geschützte Programm verlassen. Wählen Sie <i>Weiter</i>, um fortzufahren.</li>
+<li><b>Export-Dialog.</b> <i>Download</i> speichert die Datei in Ihrem Ordner Dokumente und öffnet diesen Ordner. <i>Google Drive</i> erscheint nur, wenn auf diesem Computer ein Google-Drive-Ordner existiert, und speichert die Datei dort.</li>
+<li><b>Tablet-Kalender.</b> Existiert auf dem Android-Tablet im Kalenderkonto des Geräts ein Kalender namens IRONSTICK, werden Termine in beide Richtungen abgeglichen; Fristen und Sitzungen werden einseitig dorthin kopiert.</li>
+</ul>
+
+<h2 id="s11">11. Fristen</h2>
+<figure><img src="img/screens/11%20deadlines.png" alt="Fristenliste mit Kontrollkästchen, Fristdaten und dem Export-Dialog für das Fristenübersichts-PDF"><figcaption>Alle offenen Fristen, Gerichtssitzungen und datierten KI-Erinnerungen in einer Liste.</figcaption></figure>
+<p class="scr-intro">Die Fristenliste sammelt in Datumsreihenfolge alles, was fällig ist: Fristen aus Ihren Fall-Chroniken, anstehende Gerichtssitzungen (aus dem Gerichtsportal und aus Ihrem Kalender) und Erinnerungen, die die KI mit einem Fälligkeitsdatum notiert hat.
+Die Glocke in der oberen Leiste öffnet immer diesen Screen. Das Bild zeigt die Liste und den Export-Dialog des Fristenübersichts-PDFs.</p>
+<ol class="marks">
+<li><b>Referenznummern.</b> Die Nummer <i>#0000000</i> eines Dokuments und die Nummer <i>@mem0000</i> einer KI-Erinnerung werden mit einem Klick in die Zwischenablage kopiert — zum Beispiel, um sie in den Chat einzufügen.</li>
+<li><b>Fristen entfernen — bewusst an zwei Stellen.</b> Wo Sie eine Frist entfernen, hängt davon ab, woher sie stammt. Fristen aus der App (Dokumente und Chronik-Einträge) werden über ihr Kontrollkästchen angehakt und gemeinsam entfernt. Erinnerungen, die die KI in ihrem Gedächtnis abgelegt hat (Gehirn-Symbol), werden mit <i>Termin löschen</i> entfernt: Nur das Fälligkeitsdatum wird weggenommen, sodass die Erinnerung die Liste verlässt.</li>
+</ol>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Die Liste lesen</h4>
+<ul>
+<li><b>Drei Arten von Zeilen.</b> Fristen haben ein Kontrollkästchen; Gerichtssitzungen zeigen einen orangen Richterhammer und das Wort <i>Sitzung</i>; KI-Erinnerungen zeigen ein blaues Gehirn-Symbol.</li>
+<li><b>Farbige Datums-Pille.</b> Die rechte Spalte zeigt das Fälligkeitsdatum: rot, wenn es heute oder überfällig ist, orange, wenn es innerhalb von zehn Tagen fällig ist, grün, wenn mehr Zeit bleibt. Darunter lesen Sie, wie viele Tage noch verbleiben oder wie viele Tage die Frist her abgelaufen ist.</li>
+<li><b>Was jede Zeile mitteilt.</b> Datum und Uhrzeit des Eintrags, seinen Titel, den Mandanten, die Fallnummer und den Falltitel. Sitzungen zeigen Gericht, Abteilung und Gerichtssaal.</li>
+<li><b>Geburtstage.</b> Ein kleiner Kuchen vor dem Namen zeigt an, dass der Mandant heute Geburtstag hat oder in den letzten zwei Tagen hatte.</li>
+<li><b>Seiten.</b> Bei mehr als 20 Einträgen wird die Liste in Seiten aufgeteilt; die Seitenschaltflächen erscheinen oberhalb und unterhalb der Liste, und die Kopfzeile zeigt die aktuelle Seite.</li>
+</ul>
+
+<h4>Mit Einträgen arbeiten</h4>
+<ul>
+<li><b>Den Fall öffnen.</b> Klicken Sie auf eine Zeile, um die Fall-Chronik auf der richtigen Seite zu öffnen, mit gelb hervorgehobenem Eintrag. Sitzungen ohne verknüpften Fall haben kein Ziel.</li>
+<li><b>Das Dokument öffnen.</b> Die Büroklammer öffnet das Dokument, das zur Frist gehört.</li>
+<li><b>Die Eintragsnummer kopieren.</b> Klicken Sie auf die violette Nummer unter dem Datum (oder auf die Referenz einer KI-Erinnerung), um sie zu kopieren; an ihrer Stelle erscheint kurz eine Bestätigung. Fügen Sie sie in den KI-Chat ein, statt den Eintrag zu beschreiben.</li>
+<li><b>Fristen entfernen.</b> Nach dem Anhaken von Fristen zeigt eine Leiste, wie viele ausgewählt sind. Ihre rote Entfernen-Schaltfläche fragt nach einer Bestätigung und nimmt sie dann aus der Liste und aus der Zählung der Glocke. Die Chronik-Einträge selbst bleiben im Fall.</li>
+<li><b>Die Übersicht drucken.</b> Die Drucken-Schaltfläche oben rechts erzeugt die Fristenübersicht als PDF und öffnet den Export-Dialog: <i>Download</i> speichert sie in Ihrem Ordner Dokumente, <i>Google Drive</i> erscheint, wenn auf diesem Computer ein Google-Drive-Ordner existiert.</li>
+<li><b>Nichts fällig.</b> Gibt es keine offenen Fristen, teilt Ihnen ein grünes Häkchen dies mit.</li>
+</ul>
+
+<h2 id="s12">12. Tagesprotokoll</h2>
+<figure><img src="img/screens/12%20dailyprotocol.png" alt="Liste des Tagesprotokolls, das Fenster für einen neuen Tageseintrag und ein geöffnetes Tagesprotokoll mit der Fallchronik dieses Tages"><figcaption>Das Tagesprotokoll, ein neuer Eintrag, der gerade eingefügt wird, und ein geöffneter Tag.</figcaption></figure>
+<p class="scr-intro">Das Tagesprotokoll ist Ihr Arbeitsjournal über alle Fälle hinweg: ein Eintrag pro Tag mit dem, was getan, gesendet, entschieden oder vorbereitet wurde.
+Die Einträge stammen aus Texten, die Sie einfügen oder ablegen, oder werden von der KI über den <span class="irs">IRONSTICK</span>-Konnektor am Ende einer Arbeitssitzung geschrieben.
+Das Bild zeigt die Liste, das Fenster für einen neuen Eintrag und einen geöffneten Tag mit der Fallchronik dieses Tages.</p>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Die Liste</h4>
+<ul>
+<li><b>Eine Zeile pro Tag.</b> Jede Zeile zeigt das Datum, den Titel des Tages und wie viele Fälle er betrifft. Zwanzig Zeilen passen auf eine Seite; bei mehr erscheinen oberhalb und unterhalb Seitenschaltflächen.</li>
+<li><b>Tage ohne Tagesprotokoll.</b> Graue Zeilen mit der Kennzeichnung <i>Fallchronik (kein Tagesprotokoll)</i> decken Tage ab, an denen in Ihren Fällen etwas geschah, aber kein Tagesprotokoll geschrieben wurde. Klicken Sie auf eine, um die Chronik-Einträge dieses Zeitraums zu sehen und jeden davon in seinem Fall zu öffnen.</li>
+<li><b>Einen Tag löschen.</b> Das kleine Kreuz am Ende einer Zeile löscht das Protokoll dieses Tages nach einer Bestätigung.</li>
+</ul>
+
+<h4>Einen Tag öffnen</h4>
+<ul>
+<li><b>Überblick.</b> Das Fenster zeigt das Datum und die Fälle dieses Tages als Chips.</li>
+<li><b>Ereignisse.</b> Jedes Ereignis zeigt sein Datum, den Text und Links zu Fallnummern oder Einträgen; ein blauer Link öffnet die Fall-Chronik mit hervorgehobenem Eintrag.</li>
+<li><b>In die Chronik.</b> Wo angeboten, lässt Sie die blaue Chronik-Schaltfläche an einem Ereignis einen Fall wählen und öffnet dann einen neuen Chronik-Eintrag für diesen Fall, sodass das Ereignis Teil der Fallakte wird.</li>
+<li><b>Fallchronik für diesen Tag.</b> Listet die Chronik-Einträge aller Fälle an diesem Tag mit Uhrzeit, Titel und Fallnummer auf; klicken Sie auf einen, um ihn in seinem Fall zu öffnen.</li>
+<li><b>Volltext.</b> <i>Volltext anzeigen</i> klappt den vollständigen Text des Tages auf, den Sie markieren und kopieren können.</li>
+</ul>
+
+<h4>Einen neuen Eintrag generieren</h4>
+<ul>
+<li><b>Den Text einbringen.</b> <i>Neuer Eintrag generieren</i> öffnet ein Fenster, in das Sie eine .txt- oder .md-Datei ablegen (oder zum Auswählen klicken) oder den Text direkt einfügen. Diese Schaltfläche ist am PC verfügbar, nicht auf dem Android-Tablet.</li>
+<li><b>Analysieren.</b> Ein Text im Format des Tagesprotokolls wird direkt in Tage aufgeteilt. Jeder andere Text kann an die externe KI übergeben werden, die Datum, Titel und die genannten Fälle findet; <span class="irs">IRONSTICK</span> fragt zuvor um Ihre Zustimmung. Lehnen Sie ab, erklärt ein Hinweis das erwartete Format.</li>
+<li><b>Vor dem Import prüfen.</b> Für jeden erkannten Tag sehen Sie eine Karte: Haken Sie sie an oder ab, korrigieren Sie das Datum und den Tagestitel, schalten Sie die zugeordneten Fälle ein oder aus und lesen Sie die gefundenen Ereignisse. Ein Badge <i>Merge</i> bedeutet, dass für dieses Datum bereits ein Protokoll existiert; der neue Text wird ihm hinzugefügt, nichts wird überschrieben.</li>
+<li><b>Importieren oder zurückgehen.</b> Die Import-Schaltfläche speichert die angehakten Tage; die linke Schaltfläche bringt Sie zum Text zurück. Vor der Analyse schließt <i>Verwerfen</i> das Fenster ohne Speichern.</li>
+<li><b>Einträge von der KI.</b> Bitten Sie die KI, das Tagesprotokoll zu aktualisieren, ergänzt sie die an diesem Tag gesendeten E-Mails, Schriftsätze und Entscheidungen; ein bestehender Tag wird immer erweitert, nie ersetzt.</li>
+</ul>
+
+<h2 id="s13">13. Texte und Textverarbeitung</h2>
+
+<h3>Die Liste der Texte</h3>
+<figure><img src="img/screens/13%20texts.png" alt="Liste der Texte, gruppiert nach Mandant und Fall, mit einem in der Textverarbeitung geöffneten Dokument"><figcaption>Alle Ihre Briefe und Schriftsätze, gruppiert nach Mandant und Fall.</figcaption></figure>
+<p class="scr-intro">Dieser Screen listet jeden in <span class="irs">IRONSTICK</span> geschriebenen Brief und Schriftsatz auf, immer in seiner neuesten Version.
+Dokumente sind nach Mandant, Fall und Chronik-Eintrag gruppiert, sodass zusammengehörige Texte beisammen bleiben.
+Ein Klick öffnet das Dokument in der Textverarbeitung, die auf der rechten Seite des Bildes zu sehen ist.</p>
+<ol class="marks">
+<li><b>Text verfassen.</b> Öffnet die Textverarbeitung mit einer leeren Seite für ein neues Dokument.</li>
+<li><b>Ein Dokument öffnen — Versionen gruppiert.</b> Klicken Sie auf ein Dokument, um es in der Textverarbeitung zu öffnen. Jedes Dokument erscheint einmal, mit seiner neuesten Versionsnummer und dem Datum der letzten Speicherung; Dokumente desselben Mandanten, Falls und Eintrags sind unter einer Überschrift gruppiert, die Sie mit einem Klick zu- und aufklappen.</li>
+<li><b>Löschen.</b> Der Papierkorb entfernt das Dokument nach einer Bestätigung aus der Liste.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<ul>
+<li><b>Gruppen.</b> Hat ein Mandant, Fall oder Chronik-Eintrag mehrere Dokumente, werden sie in einer Zeile mit der Anzahl der Dokumente zusammengefasst. Klicken Sie auf die Zeile, um sie auf- oder zuzuklappen. Ein einzelnes Dokument wird direkt mit seinem Mandanten und Fall angezeigt.</li>
+<li><b>Aufruf aus der Suche.</b> Öffnen Sie einen Text aus den Suchergebnissen, klappt seine Gruppe auf, und das Dokument leuchtet einige Sekunden lang gelb auf.</li>
+<li><b>Immer aktuell.</b> Wenn Sie aus der Textverarbeitung zurückkehren, wird die Liste neu geladen und zeigt die neue Version.</li>
+<li><b>Nur am PC.</b> Die Textverarbeitung läuft auf dem Windows-PC. Auf dem Android-Tablet ist die Liste sichtbar, aber das Öffnen eines Dokuments zeigt stattdessen einen Hinweis.</li>
+</ul>
+
+<h3>Bearbeiten, Vorlesen und Beilagen</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20attachements.png" alt="Textverarbeitung mit ihrer Symbolleiste und der geöffneten Beilagenliste"><figcaption>Der Editor mit seiner Symbolleiste und der Beilagenliste.</figcaption></figure>
+<p class="scr-intro">Die Textverarbeitung zeigt Ihr Dokument als A4-Seiten, genau so, wie es gedruckt wird.
+Die Symbolleiste über der Seite enthält die Formatierungswerkzeuge, das Vorlesen, die Beilagenliste und den KI-Schalter.
+Die Statusleiste unten zählt Wörter, Zeichen und Seiten. Das Bild zeigt die über dem Editor geöffnete Beilagenliste.</p>
+<ol class="marks">
+<li><b>Vorlesen.</b> Liest das Dokument absatzweise laut vor, in der Sprache des Landes des Falls, und hebt den gerade gelesenen Teil hervor. Klicken Sie erneut, um zu pausieren, und noch einmal, um fortzufahren. Funktioniert bei Dokumenten, die zu einem Fall gehören.</li>
+<li><b>Beilagenliste.</b> Öffnet die Liste der Beilagen für dieses Dokument. Die kleine blaue Zahl an der Büroklammer zeigt, wie viele Beilagen angehängt sind.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Symbolleiste</b></p>
+<ul>
+<li><b>Formatierung.</b> Rückgängig und Wiederholen, Absatzformat (normaler Text, drei Überschriftsebenen, Zitat), Schriftgröße, fett, kursiv, unterstrichen, durchgestrichen, Textfarbe und Hervorhebungsfarbe.</li>
+<li><b>Layout.</b> Linksbündige, zentrierte, rechtsbündige oder Blocksatz-Ausrichtung, Aufzählungs- und nummerierte Listen, Einzug verkleinern und vergrößern sowie <i>Formatierung löschen</i>.</li>
+<li><b>Briefkopf.</b> Haben Sie in der Konfiguration eine Briefkopf-Vorlage hochgeladen, schaltet eine Schaltfläche sie ein oder aus. Standardmäßig ist sie eingeschaltet und reserviert den oberen Seitenrand für Ihren Briefkopf.</li>
+<li><b>Tastatur.</b> Die Tab-Taste fügt einen Tabulator ein. Ctrl+S speichert und schließt, Ctrl+P öffnet die Druckvorschau.</li>
+</ul>
+<p class="grp"><b>Schreiben und Einfügen</b></p>
+<ul>
+<li><b>Aus anderen Programmen einfügen.</b> Aus Word, LibreOffice oder einer Webseite kopierter Text wird auf die vom Editor unterstützte Formatierung bereinigt. Reiner Text, der wie Markdown aussieht, wird in Überschriften, Listen und Fettdruck umgewandelt.</li>
+<li><b>Eine Datei ablegen.</b> Das Ziehen einer .md- oder .txt-Datei auf den Editor ersetzt den gesamten Inhalt durch den Text der Datei, umgewandelt in formatierten Text.</li>
+<li><b>Platzhalter.</b> Entwürfe der KI können Lücken in eckigen Klammern enthalten. Sie erscheinen als Chips, und ein Banner zählt sie. Klicken Sie auf einen Chip, geben Sie den Text ein und drücken Sie Enter; Escape lässt die Lücke offen. Ein Doppelklick verwandelt einen Chip in normalen Text ohne Klammern.</li>
+<li><b>Seitenumbrüche.</b> Gestrichelte Linien zeigen, wo jede Seite endet. Ziehen Sie eine Linie nach oben, um die nächste Seite früher beginnen zu lassen; sie rastet zwischen zwei Zeilen ein und wird orange, wenn sie verschoben wurde. Ein Doppelklick setzt sie zurück. Ihre Umbrüche werden mit dem Dokument gespeichert.</li>
+</ul>
+<p class="grp"><b>KI-Überarbeitung</b></p>
+<ul>
+<li><b>Die KI einschalten.</b> Der Schalter <i>KI aus / KI ein</i> zeigt farbige Balken neben der Seite: dunkelblau für die Themen, die die KI im Dokument erkennt, mittelblau für jeden Absatz und hellblau für jeden Satz. Beim Daraufzeigen wird der zugehörige Text hervorgehoben.</li>
+<li><b>Eine Passage überarbeiten.</b> Klicken Sie auf einen Balken, beschreiben Sie im Feld, was sich ändern soll, und drücken Sie Enter oder <i>Überarbeiten</i>. Die KI schreibt genau dieses Thema, diesen Absatz oder Satz neu und setzt den neuen Text an seine Stelle. Namen, Ausweisnummern und Fallnummern werden durch neutrale Platzhalter ersetzt, bevor der Text an die externe KI gesendet wird.</li>
+</ul>
+<p class="grp"><b>Beilagenliste</b></p>
+<ul>
+<li><b>Über die Beweis-ID hinzufügen.</b> Geben Sie die Nummer eines Chronik-Eintrags ein (zum Beispiel 357 oder 0000357) und drücken Sie Enter oder <i>Hinzufügen</i>. Das PDF des Eintrags wird angehängt; bei Fotos, Aufnahmen, Transkripten oder Einträgen ohne PDF erstellt <span class="irs">IRONSTICK</span> ein PDF für die Beilage.</li>
+<li><b>Manuell hinzufügen.</b> Geben Sie auf dem Tab <i>Manuell</i> einen Titel und eine optionale Notiz für eine Beilage ein, die nicht in <span class="irs">IRONSTICK</span> liegt, zum Beispiel ein Papierdokument, das Sie selbst einreichen.</li>
+<li><b>Reihenfolge und Entfernen.</b> Jede Beilage zeigt ihre Nummer, ein Badge DB oder MAN, den Titel und einen Link zu ihrem PDF. Ziehen Sie eine Beilage am Griff, um die Reihenfolge zu ändern; das Kreuz entfernt sie.</li>
+<li><b>In den Text einfügen.</b> Schreibt die nummerierte Beilagenliste an das Ende Ihres Dokuments oder ersetzt die dort bereits vorhandene Liste. Jede Zeile zeigt den Beilagentitel, die <span class="irs">IRONSTICK</span>-Stempelreferenz des Dokuments, falls es eine hat, und seinen Seitenbereich, der in der Druckvorschau automatisch ausgefüllt wird.</li>
+<li><b>Aus dem Text übernommene Beilagen.</b> Ist die Liste leer, Ihr Dokument enthält aber bereits einen Beilagenabschnitt mit Eintragsnummern, bietet <span class="irs">IRONSTICK</span> an, diese Einträge in einem Schritt als Beilagen zu übernehmen.</li>
+</ul>
+
+<h3>Bearbeiten, Vorschau und Speichern</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20preview.png" alt="Textverarbeitung im Tab Bearbeiten und im Tab Vorschau mit den Schaltflächen Druckvorschau und Speichern und schließen"><figcaption>Die Tabs Bearbeiten und Vorschau; die Vorschau bietet Druckvorschau und Speichern.</figcaption></figure>
+<p class="scr-intro">Zwei Tabs liegen über der Symbolleiste. <i>Bearbeiten</i> ist der Ort, an dem Sie schreiben; <i>Vorschau</i> zeigt die fertigen Seiten untereinander, schreibgeschützt, mit Seitenzahlen.
+In der Vorschau sind die Formatierungswerkzeuge ausgeblendet, und es erscheinen die Schaltflächen für die Druckvorschau und fürs Speichern.</p>
+<ol class="marks">
+<li><b>Bearbeiten.</b> Kehrt zur bearbeitbaren Seite mit der vollständigen Symbolleiste zurück.</li>
+<li><b>Vorschau.</b> Teilt das Dokument in einzelne A4-Seiten, genau so, wie sie gedruckt werden, damit Sie die Seitenumbrüche prüfen können.</li>
+<li><b>Druckvorschau.</b> Speichert das Dokument und öffnet die Druckvorschau mit dem Dokument und allen Beilagen.</li>
+<li><b>Speichern &amp; schließen.</b> Speichert das Dokument und kehrt zur Liste der Texte zurück.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<ul>
+<li><b>Erstes Speichern.</b> Ein neues Dokument fragt nach einem Titel. Wird der Titel bereits von einem anderen Dokument verwendet, erscheint eine Warnung, und Sie wählen einen anderen.</li>
+<li><b>Versionen.</b> Jedes weitere Speichern legt eine neue Version desselben Dokuments ab; die Liste der Texte zeigt die neueste Versionsnummer.</li>
+<li><b>Beilagen in der Vorschau.</b> Die Schaltfläche der Beilagenliste bleibt auch im Tab Vorschau verfügbar.</li>
+</ul>
+
+<h3>Druckvorschau, Unterschrift und Stempel</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png" alt="Druckvorschau mit dem Schriftsatz, einer Beilage mit Stempelschalter, einer vergrößerten und einer ausgeschlossenen Beilagenseite sowie dem Fenster zum Platzieren der Unterschrift"><figcaption>Die Druckvorschau fügt das Dokument und alle Beilagen zu einem PDF zusammen.</figcaption></figure>
+<p class="scr-intro">Die Druckvorschau zeigt jede Seite des endgültigen PDFs: zuerst Ihr Dokument, dann jede Beilage mit ihrer Titelzeile.
+Die Kopfzeile zählt alle Seiten, die aktiven Seiten und die ausgeschlossenen Seiten. Hier platzieren Sie Ihre Unterschrift, lassen nicht benötigte Beilagenseiten weg und schalten den Beglaubigungsstempel ein.
+Das Bild zeigt eine vergrößerte Beilagenseite (Linksklick), eine ausgeschlossene Seite (Rechtsklick) und das Unterschriftenfenster (Klick auf eine Seite des Dokuments).</p>
+<ol class="marks">
+<li><b>Ihr Dokument.</b> Die Seiten des Briefes oder Schriftsatzes. Klicken Sie auf eine, um Ihre Unterschrift darauf zu platzieren.</li>
+<li><b>Titelzeile der Beilage.</b> Jede Beilage beginnt mit einer Zeile, die ihre Eintragsnummer, ihre Beilagennummer und ihren Titel zeigt.</li>
+<li><b>Beglaubigungsstempel.</b> Der Schalter am Anfang der Zeile (hier <i>Conform cu originalul</i>) schaltet den Stempel „Beglaubigte Abschrift“ für diese Beilage ein oder aus. Grau bedeutet aus, schwarz bedeutet ein.</li>
+<li><b>DOCX.</b> Exportiert Ihr Dokument (ohne Beilagen) als Word-Datei.</li>
+<li><b>PDF-Download.</b> Erstellt das endgültige PDF aus allen aktiven Seiten und öffnet den Export-Dialog.</li>
+</ol>
+<h4>Was Sie hier tun können</h4>
+<p class="grp"><b>Beilagenseiten</b></p>
+<ul>
+<li><b>Eine Seite vergrößern.</b> Ein Linksklick auf eine Beilagenseite zeigt sie groß; klicken Sie irgendwohin oder drücken Sie Escape, um sie zu schließen.</li>
+<li><b>Eine Seite weglassen.</b> Ein Rechtsklick schließt eine Beilagenseite vom PDF aus; sie wird ausgegraut und mit einem roten Zeichen markiert. Klicken Sie sie erneut mit rechts an, um sie zurückzunehmen. Die Seitenzahlen zählen nur die aktiven Seiten.</li>
+<li><b>Mindestens eine Seite pro Beilage.</b> Die letzte verbleibende Seite einer Beilage kann nicht ausgeschlossen werden; ein kurzer Hinweis teilt Ihnen dies mit.</li>
+<li><b>Leere Seiten.</b> Praktisch leere Beilagenseiten werden erkannt und automatisch ausgeschlossen. Mit einem Rechtsklick können Sie sie zurücknehmen.</li>
+<li><b>Seitenbereiche.</b> Sooft Sie eine Seite ausschließen oder wiederherstellen, werden die Seitenbereiche in der Beilagenliste Ihres Dokuments neu berechnet, sodass sie immer zum endgültigen PDF passen.</li>
+<li><b>Mit Beschreibung.</b> Beilagen, die <span class="irs">IRONSTICK</span> aus Chronik-Einträgen erstellt, haben in ihrer Titelzeile einen Schalter <i>mit Beschreibung</i>. Schalten Sie ihn aus, um die Beschreibung wegzulassen, zum Beispiel bei internen Notizen, die nicht an das Gericht gehen sollen; nur diese Beilage wird neu erstellt.</li>
+</ul>
+<p class="grp"><b>Unterschrift und Stempel</b></p>
+<ul>
+<li><b>Ihre Unterschrift platzieren.</b> Klicken Sie auf eine Seite Ihres Dokuments. Ihr Unterschriftsbild erscheint auf der Seite; ziehen Sie es an die richtige Stelle. Ziehen Sie am Eckpunkt, um es zu vergrößern oder zu verkleinern und leicht zu neigen. <i>Übernehmen</i> markiert die Stelle auf der Seite. Dazu muss in der Konfiguration ein Unterschriftsbild hochgeladen sein.</li>
+<li><b>Noch keine Unterschrift.</b> Starten Sie den PDF-Download, ohne eine Unterschrift platziert zu haben, fragt <span class="irs">IRONSTICK</span>, ob Sie ohne fortfahren möchten.</li>
+<li><b>Beglaubigungsstempel.</b> Bei Beilagen mit eingeschaltetem Stempel erhält jede Seite den Stempel in der Sprache des Landes des Falls, mit dem heutigen Datum, an einer freien Stelle im unteren Teil der Seite. Haben Sie Ihre Unterschrift auf dem Dokument platziert, wird sie auch dem Stempel hinzugefügt.</li>
+</ul>
+<p class="grp"><b>Das PDF erstellen</b></p>
+<ul>
+<li><b>Ein PDF.</b> <i>PDF-Download</i> fügt das Dokument und alle aktiven Beilagenseiten zu einem PDF mit durchlaufenden Seitenzahlen am unteren Rand jeder Seite und der Beilagennummer auf den Beilagenseiten zusammen. Der Text bleibt durchsuchbar. Ein Fortschrittsfenster zeigt, wie weit der Vorgang ist; Seiten, die nicht verarbeitet werden konnten, werden in einem Hinweis aufgelistet.</li>
+<li><b>Export-Dialog.</b> <i>Download</i> speichert das PDF in Ihrem Ordner Dokumente; <i>Google Drive</i> erscheint, wenn auf diesem Computer ein Google-Drive-Ordner existiert. <i>Mail vorbereiten</i> speichert das Dokument, bereitet das PDF für den Versand vor und öffnet den Screen für den Mailversand mit dem angehängten PDF.</li>
+<li><b>Abbrechen.</b> Schließt die Druckvorschau und kehrt zum Editor zurück.</li>
+</ul>
+
+<h2 id="s14">14. E-Mail-Monitor</h2>
+<figure><img src="img/screens/14%20email%20monitor.png" alt="E-Mail-Monitor mit der Posteingangsliste und einer geöffneten E-Mail mit ihren Anhängen"><figcaption>Der Posteingang mit Priorität und Fallzuordnung sowie eine geöffnete E-Mail mit ihren Anhängen.</figcaption></figure>
+<p class="scr-intro">Der E-Mail-Monitor bringt das Postfach, das Sie in der Konfiguration eingerichtet haben, in <span class="irs">IRONSTICK</span>.
+Neue Mails werden automatisch im Hintergrund abgeholt, nach Priorität bewertet und, wo möglich, dem richtigen Fall zugeordnet.
+Das Bild zeigt links die Posteingangsliste und rechts eine geöffnete E-Mail mit ihren Anhängen und der Schaltfläche, die die E-Mail in ein Falldokument verwandelt.</p>
+<ol class="marks">
+<li><b>Posteingang und Gesendete.</b> Wechseln Sie zwischen empfangenen und gesendeten E-Mails. Alle Filter, Zähler und die Liste beziehen sich dann auf den gewählten Ordner.</li>
+<li><b>Datum, Erfasst-Häkchen und Mailnummer.</b> Wann die E-Mail eingegangen ist, in Ihrer Ortszeit. Ein <b>grünes Häkchen</b> bedeutet, dass die E-Mail bereits als Dokument erfasst wurde. Die violette Nummer (zum Beispiel <i>@M0000519</i>) kennzeichnet die E-Mail; klicken Sie darauf, um sie in die Zwischenablage zu kopieren.</li>
+<li><b>Priorität.</b> Die Bewertung <i>Hoch</i> (rot), <i>Mittel</i> (orange) oder <i>Niedrig</i> (grau). Ein Strich bedeutet, dass die E-Mail als unwichtig beurteilt wurde (zum Beispiel ein Newsletter) oder noch nicht bewertet ist.</li>
+<li><b>Fallerkennung.</b> Der Fall, zu dem diese E-Mail gehört, angezeigt als Mandant und Fallnummer; ein Strich bedeutet, dass kein Fall gefunden wurde. Die kleine graue Zeile darunter sagt, wie der Fall erkannt wurde. Die Erkennung läuft in dieser Reihenfolge:
+<ol>
+<li><b>Ohne KI, direkt aus dem Text:</b> das gerichtliche Aktenzeichen eines Ihrer Fälle (<i>über Aktenzeichen</i>), eine aus einem Ihrer Dokumente bekannte Registrier- oder Briefnummer (<i>über Briefnummer</i>), eine Mandantennummer (<i>über Mandantennummer</i>) oder ein Bezug auf etwas, das Sie gesendet haben (<i>Antwort auf unsere Einsendung</i>).</li>
+<li><b>Andernfalls die KI</b> bewertet nur die Priorität und schreibt eine Begründung in einem Satz — sie ordnet keinen Fall zu.</li>
+<li><b>Dann der Rückgriff:</b> Der Absender ist eine mit einem Fall verknüpfte Institution oder Person (<i>über Institution</i>, <i>über Person</i>) oder ein bekannter Absender (<i>bekannter Absender</i>).</li>
+</ol>
+Ältere E-Mails zeigen möglicherweise <i>durch KI</i> oder <i>über Textabgleich</i> aus der früheren Erkennung.</li>
+<li><b>Anhänge.</b> Die geöffnete E-Mail listet ihre Anhänge mit Name und Größe auf. Klicken Sie auf einen Anhang, um ihn anzusehen: PDFs und Bilder öffnen sich im <span class="irs">IRONSTICK</span>-Browserfenster, andere Dateitypen in dem Programm, das Ihr Computer dafür verwendet.</li>
+<li><b>Als Dokument hinzufügen.</b> Verwandelt die E-Mail samt ihren Anhängen in ein PDF und öffnet die Dokumenten-Erfassung, in der Sie sie in einem Fall ablegen.</li>
+</ol>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Mails abholen und bewerten</h4>
+<ul>
+<li><b>Automatisches Abholen.</b> <span class="irs">IRONSTICK</span> holt neue Mails beim Start und danach alle paar Minuten selbstständig ab. Trifft eine neue E-Mail ein, während der Monitor geöffnet ist, aktualisiert sich die Liste von selbst. Das Öffnen des Monitors löscht das Neue-Mail-Signal am Umschlag-Symbol in der oberen Leiste.</li>
+<li><b>Mails abholen.</b> Die blaue Schaltfläche oben rechts holt sofort neue E-Mails aus dem Posteingang und dem Ordner Gesendete ab. Eine kurze Meldung teilt Ihnen mit, wie viele neue E-Mails eingetroffen sind.</li>
+<li><b>Automatische Bewertung.</b> Nach dem Abholen wird jede neue E-Mail geprüft. Enthält der Text eine Ihrer Fallnummern, wird der Fall direkt zugeordnet. Andernfalls bewertet die KI die Priorität und schreibt eine Begründung in einem Satz, die in violetter Kursivschrift unter dem Betreff erscheint. Der Fortschritt wird unten auf dem Bildschirm angezeigt.</li>
+<li><b>Postfach nicht eingerichtet.</b> Ist noch kein Postfach konfiguriert, weist ein gelber Hinweis oben darauf hin, es in der Konfiguration einzurichten. Die Kopfzeile zeigt Ihre Postfach-Adresse und die Anzahl der aktiven E-Mails.</li>
+</ul>
+
+<h4>Filter und Liste</h4>
+<ul>
+<li><b>Aktiv.</b> Alle E-Mails, die Sie nicht ausgeblendet haben — das ist die Standardansicht.</li>
+<li><b>Wichtig.</b> Nur aktive E-Mails mit der Bewertung <i>Hoch</i>.</li>
+<li><b>Alle.</b> Jede E-Mail im Ordner, einschließlich der ausgeblendeten.</li>
+<li><b>Ausgeblendet.</b> Nur die E-Mails, die Sie ausgeblendet haben. Jeder Filter zeigt seine Anzahl in Klammern.</li>
+<li><b>Die Liste lesen.</b> Jede Zeile zeigt Datum, Absender (bei <i>Gesendete</i>: Empfänger), Betreff mit einer einzeiligen Vorschau, die Begründung der KI, die Anzahl der Anhänge (Büroklammer), Priorität und Fall. Ungelesene E-Mails sind fett dargestellt. Bei mehr als 50 E-Mails erscheint die Seitennavigation oberhalb und unterhalb der Liste.</li>
+<li><b>Eine E-Mail ausblenden.</b> Das durchgestrichene Auge am Ende einer Zeile blendet die E-Mail aus der aktiven Liste aus. Sie finden sie weiterhin unter <i>Ausgeblendet</i> und <i>Alle</i>.</li>
+</ul>
+
+<h4>Eine E-Mail lesen</h4>
+<ul>
+<li><b>Öffnen.</b> Klicken Sie auf eine Zeile, um die E-Mail in einem Fenster zu öffnen. Es zeigt Absender, Empfänger, Kopie-Empfänger, Datum, die Anhangsliste und den vollständigen Text. Durch das Öffnen wird die E-Mail als gelesen markiert.</li>
+<li><b>Nach dem ersten Mal schnell.</b> Der Text wird beim ersten Öffnen einer E-Mail heruntergeladen und aufbewahrt, sodass sie später sofort öffnet, ohne den Mailserver zu kontaktieren.</li>
+<li><b>Datenschutz.</b> Bilder, die aus dem Internet geladen würden, werden nie geladen, sodass der Absender nicht sehen kann, wann Sie die E-Mail geöffnet haben. Ein kleiner Hinweis über dem Text teilt Ihnen mit, wenn Bilder blockiert wurden.</li>
+<li><b>Wenn der Mailserver nicht erreichbar ist.</b> Das Fenster zeigt stattdessen den gespeicherten Vorschautext, mit einem kurzen Hinweis.</li>
+<li><b>Erneut erfassen.</b> Bei einer bereits erfassten E-Mail wird die Schaltfläche rot und lautet <i>Erneut als Dokument hinzufügen</i>, damit Sie dieselbe E-Mail nicht versehentlich zweimal ablegen.</li>
+<li><b>Aus dem Chat.</b> Verweist der Chat auf eine E-Mail, öffnet sich der Monitor mit dieser bereits angezeigten E-Mail, im richtigen Ordner.</li>
+</ul>
+
+<h4>Wie Anhänge in das Dokument gelangen</h4>
+<ul>
+<li><b>Ein PDF.</b> Wenn Sie eine E-Mail erfassen, werden PDF-Anhänge Seite für Seite hinzugefügt, Bilder werden zu eigenen Seiten, und Word-, OpenDocument- und Markdown-Anhänge werden als Text hinzugefügt. Eine Datei, die nicht umgewandelt werden kann, erhält eine Platzhalterseite und wird zusätzlich separat neben dem PDF gespeichert.</li>
+</ul>
+
+<h2 id="s15">15. Zeiterfassung</h2>
+<figure><img src="img/screens/15%20time%20tracking.png" alt="Zeiterfassung mit Übersicht, Zeit pro Fall, Zeit pro Mandant und Tagesübersicht"><figcaption>Automatisch erfasste Arbeitszeit, pro Fall, pro Mandant und pro Tag.</figcaption></figure>
+<p class="scr-intro">Die Zeiterfassung zeichnet Ihre Arbeitszeit ohne Stoppuhr auf: <span class="irs">IRONSTICK</span> vermerkt, welche Screens Sie öffnen und für welchen Mandanten und Fall.
+Daraus berechnet es, wie lange Sie gearbeitet haben, und zeigt die Summen pro Fall, pro Mandant und pro Tag.
+Das Bild zeigt die Ansicht für heute; ist ein IRONSTICK SERVER verbunden, werden die Tagessummen pro Fall auch an diesen gemeldet.</p>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Den Zeitraum wählen</h4>
+<ul>
+<li><b>Zeitraum-Schaltflächen.</b> <i>Heute</i>, <i>7 Tage</i>, <i>30 Tage</i>, <i>90 Tage</i> oder <i>Total</i>. Alle Tabellen darunter folgen dem gewählten Zeitraum. Beim Öffnen des Screens werden die letzten 30 Tage angezeigt.</li>
+</ul>
+
+<h4>Übersicht</h4>
+<ul>
+<li><b>Drei Kennzahlen.</b> Die heute gearbeitete Zeit, die diese Woche gearbeitete Zeit und die Summe für den gewählten Zeitraum. Heute und diese Woche bleiben immer gleich, welchen Zeitraum Sie auch wählen.</li>
+</ul>
+
+<h4>Tabellen</h4>
+<ul>
+<li><b>Zeit pro Fall.</b> Jeder Fall mit Nummer, Titel, Mandant und Zeit, mit einem Balken zum Vergleich. Die Anzahl der Fälle erscheint oben rechts auf der Karte.</li>
+<li><b>Zeit pro Mandant.</b> Dasselbe, pro Mandant addiert.</li>
+<li><b>Tagesübersicht.</b> Datum, Wochentag und Zeit für jeden Tag (bis zu 60 Tage), mit der Summe für den Zeitraum oben rechts. Die Zeile von heute ist hellblau hervorgehoben.</li>
+</ul>
+
+<h4>Wie die Zeit gezählt wird</h4>
+<ul>
+<li><b>Automatisch.</b> Jeder Screen, den Sie öffnen, zählt, bis Sie den nächsten öffnen. Eine Lücke von mehr als 30 Minuten zählt höchstens 30 Minuten, sodass eine Pause die Zahlen nicht aufbläht. Der letzte Screen des Tages zählt eine Minute.</li>
+<li><b>Noch keine Daten.</b> Unmittelbar nach dem ersten Start teilt Ihnen der Screen mit, dass die Zeiterfassung gerade erst eingeschaltet wurde und noch keine Daten vorliegen.</li>
+<li><b>IRONSTICK SERVER.</b> Ist ein IRONSTICK SERVER verbunden, meldet <span class="irs">IRONSTICK</span> Ihre Tageszeit pro Fall alle fünf Minuten an ihn, sodass das Büro einen vollständigen Überblick hat. Zeit, die keinem Fall zugeordnet ist, wird nicht gemeldet.</li>
+</ul>
+
+<h2 id="s16">16. Gesetze</h2>
+<figure><img src="img/screens/16%20statutes.png" alt="Gesetzesbibliothek mit Suchfeld, dem Fenster Anlegen und einem geöffneten Gesetz"><figcaption>Die Gesetzesbibliothek, das Fenster zum Hinzufügen eines Gesetzes und ein geöffneter Gesetzestext.</figcaption></figure>
+<p class="scr-intro">Der Screen Gesetze ist Ihre Gesetzesbibliothek: die Volltexte von Gesetzen, Verordnungen, Entscheidungen und Normen, auf Ihrem Computer gespeichert und vollständig durchsuchbar.
+Sie fügen ein Gesetz über einen Weblink oder eine PDF-/Markdown-Datei hinzu; <span class="irs">IRONSTICK</span> holt, bereinigt und klassifiziert den Text dann im Hintergrund.
+Die KI nutzt diese Bibliothek zuerst, wann immer sie eine Rechtsvorschrift benötigt. Das Bild zeigt die Liste, das Fenster zum Hinzufügen eines Gesetzes und ein geöffnetes Gesetz mit eigener Suche.</p>
+<ol class="marks">
+<li><b>Alle Gesetze durchsuchen.</b> Geben Sie einen Begriff ein und drücken Sie Enter oder <i>Suchen</i>. Die Ergebnisse öffnen sich auf einem eigenen Screen, nach Gesetz sortiert, mit einem Textauszug für jede Fundstelle.</li>
+<li><b>Anlegen.</b> Öffnet das Fenster zum Hinzufügen eines Gesetzes: Fügen Sie einen Weblink in das Feld ein oder ziehen Sie eine oder mehrere PDF- oder Markdown-Dateien auf den Bereich darunter und klicken Sie dann auf <i>Anlegen</i>.</li>
+<li><b>Geöffnetes Gesetz.</b> Klicken Sie in der Liste auf ein Gesetz, um seinen vollständigen Text zu lesen. Das Suchfeld unter dem Titel durchsucht nur dieses Gesetz.</li>
+</ol>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Gesetze hinzufügen</h4>
+<ul>
+<li><b>Per Link oder Datei.</b> Geben Sie im Fenster <i>Anlegen</i> eine Webadresse ein oder legen Sie PDF-/MD-Dateien ab; abgelegte Dateien werden aufgelistet und lassen sich mit dem kleinen Kreuz entfernen. Ein Link, der in der Bibliothek bereits vorhanden ist, wird nicht doppelt hinzugefügt; ein ungültiger Link zeigt <i>Fehlgeschlagen</i>.</li>
+<li><b>Im Hintergrund geholt.</b> Während ein Gesetz aufbereitet wird, zeigt ein Fortschrittsbalken die erreichte Stufe. Wurde das Laden unterbrochen, klicken Sie auf den Balken, um es neu zu starten. Die Liste aktualisiert sich von selbst, sobald das Gesetz bereit ist.</li>
+<li><b>Von der KI vorgeschlagen.</b> Findet die KI ein Gesetz, das in der Bibliothek fehlt, fügt sie es nicht stillschweigend hinzu. Sie erhalten ein Fenster mit den Vorschlägen und haken diejenigen an, die Sie behalten möchten.</li>
+</ul>
+
+<h4>Die Liste</h4>
+<ul>
+<li><b>Jeder Eintrag.</b> Titel, Datum des Hinzufügens, Rechtsgebiet und eine kurze Beschreibung, der Quell-Link sowie Labels für das Land und die Art des Rechtsakts (Gesetz, Verordnung, Entscheidung …). Klicken Sie auf den Quell-Link, um die Originalseite im <span class="irs">IRONSTICK</span>-Browserfenster zu öffnen. Gesetze, die Sie als Datei hochgeladen haben, zeigen statt eines Links den Dateinamen.</li>
+<li><b>Rote Einträge oben.</b> Ein rot dargestelltes Gesetz konnte nicht geladen werden oder wurde seit mehr als einem Monat nicht erneut geprüft. Klicken Sie auf einen fehlgeschlagenen Eintrag, um das Laden erneut zu versuchen.</li>
+<li><b>Ausgegraute Einträge.</b> Ein Gesetz, dessen Quelle nicht mehr verifiziert werden kann, wird ausgegraut und mit <i>nicht verifizierbar</i> gekennzeichnet. Klicken Sie auf dieses Label, um die Quelle im <span class="irs">IRONSTICK</span>-Browserfenster zu öffnen und selbst zu prüfen; der geöffnete Text zeigt dann oben einen roten Hinweis.</li>
+<li><b>Freigabe ausstehend.</b> Ein neu aufbereitetes Gesetz wartet im Datenkonsistenz-Monitor auf Ihre Bestätigung. Klicken Sie auf das Label, um dorthin zu gelangen. Nur freigegebene Gesetze werden mit dem IRONSTICK SERVER geteilt.</li>
+<li><b>Löschen.</b> Das Papierkorb-Symbol entfernt eines Ihrer eigenen Gesetze nach einer Bestätigung. Ist ein IRONSTICK SERVER verbunden, wird das Gesetz auch dort entfernt.</li>
+<li><b>Seiten.</b> Bei mehr als 20 Gesetzen erscheint die Seitennavigation oberhalb und unterhalb der Liste.</li>
+</ul>
+
+<h4>Filter</h4>
+<ul>
+<li><b>Alle, Eigene, Fremde.</b> <i>Eigene</i> zeigt die Gesetze, die Sie hinzugefügt haben; <i>Fremde</i> zeigt Gesetze, die andere Benutzer auf dem IRONSTICK SERVER hinzugefügt haben. Diese tragen unter dem Titel die ID und den Namen ihres Eigentümers und können von Ihnen nicht gelöscht werden.</li>
+<li><b>Abgelaufen.</b> Zeigt nur die Gesetze, deren Quelle nicht mehr verifiziert werden kann.</li>
+<li><b>Land.</b> Die Auswahlliste neben den Filtern beschränkt die Liste auf ein Land.</li>
+</ul>
+
+<h4>Suchen</h4>
+<ul>
+<li><b>In der ganzen Bibliothek.</b> Die Suche ignoriert Akzente und Sonderbuchstaben und findet auch Wörter, die mit Ihrem Suchbegriff beginnen; Artikelnummern werden exakt abgeglichen. Klicken Sie auf dem Ergebnis-Screen auf den Titel eines Gesetzes, um es an der ersten Fundstelle zu öffnen, oder klicken Sie auf einen Auszug, um direkt zu dieser Stelle zu springen.</li>
+<li><b>Innerhalb eines Gesetzes.</b> Geben Sie im geöffneten Gesetz einen Begriff ein und drücken Sie Enter oder <i>Suchen</i>. Alle Fundstellen werden gelb markiert, und der Text springt zur ersten. Klicken Sie auf den Zähler (zum Beispiel <i>1/12</i>), um zur nächsten Stelle zu gelangen; nach der letzten beginnt er wieder bei der ersten.</li>
+</ul>
+
+<h2 id="s17">17. Server-Fälle</h2>
+<figure><img src="img/screens/17%20server%20cases.png" alt="Server-Fälle mit der Karte Meine geteilten Fälle und ihren Abonnenten"><figcaption>Fälle, die Sie auf dem IRONSTICK SERVER teilen, mit ihren Abonnenten.</figcaption></figure>
+<p class="scr-intro">Server-Fälle ist der Ort, an dem Sie mit Fällen arbeiten, die zwischen Benutzern des IRONSTICK SERVERs geteilt werden.
+Sie sehen, welche Ihrer eigenen Fälle Sie geteilt haben und wer ihnen folgt, und Sie können Fälle abonnieren, die andere Benutzer teilen.
+Dieser Screen und seine Kachel im Hauptmenü erscheinen nur, wenn ein IRONSTICK SERVER verbunden ist. Das Bild zeigt einen geteilten Fall mit zwei Abonnenten.</p>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Eingehende Übergaben</h4>
+<ul>
+<li><b>Einen Fall übernehmen.</b> Übergibt ein anderer Benutzer Ihnen einen Fall, erscheint er in dieser Karte ganz oben. Klicken Sie auf <i>Importieren</i>, um ihn in Ihre eigenen Daten zu übernehmen.</li>
+<li><b>Geprüfter Import.</b> Das Fallpaket wird heruntergeladen und zuerst auf Vollständigkeit geprüft. Anschließend wählen Sie, ob der Mandant bei Ihnen bereits existiert oder als neuer Mandant angelegt wird. Haben Sie bereits einen Fall mit derselben Nummer, wird Ihnen angeboten, die beiden zusammenzuführen. Wo die Daten abweichen, wird eine Liste der Unterschiede angezeigt, und am Ende bestätigt eine Meldung, wie viele Einträge und Dateien importiert wurden.</li>
+</ul>
+
+<h4>Meine geteilten Fälle</h4>
+<ul>
+<li><b>Ihre geteilten Fälle.</b> Listet jeden Fall auf, den Sie vom Fall-Screen aus geteilt haben, mit Fallnummer und Mandant. Klicken Sie auf den Fall, um ihn zu öffnen.</li>
+<li><b>Teilen beenden.</b> Beendet das Teilen dieses Falls auf dem IRONSTICK SERVER.</li>
+<li><b>Abonnenten.</b> Die Benutzer, die dem Fall folgen, sind darunter aufgelistet. Ein Benutzer, der darum gebeten hat, folgen zu dürfen, ist mit <i>Angefragt</i> gekennzeichnet; klicken Sie auf <i>Zulassen</i>, um ihn hineinzulassen. <i>Entfernen</i> beendet ein aktives Abonnement oder lehnt eine Anfrage ab. Folgt dem Fall noch niemand, sagt die Karte dies.</li>
+</ul>
+
+<h4>Von anderen geteilte Fälle</h4>
+<ul>
+<li><b>Die Liste.</b> Zeigt die Fälle, die andere Benutzer mit allen oder persönlich mit Ihnen geteilt haben, mit Fall, Eigentümer und Büro. Gibt es keine, zeigt die Karte <i>Keine Einträge vorhanden</i>.</li>
+<li><b>Abonnement anfragen.</b> Bei einem mit allen geteilten Fall bitten Sie den Eigentümer, Ihnen das Folgen zu erlauben. Das Label <i>Angefragt</i> erscheint, bis der Eigentümer zulässt.</li>
+<li><b>Abonnieren.</b> Bei einem persönlich mit Ihnen geteilten Fall ist das Abonnement sofort aktiv; das Label wechselt zu <i>Abonniert</i>.</li>
+<li><b>Abbestellen.</b> Beendet Ihr Abonnement oder zieht Ihre Anfrage zurück.</li>
+<li><b>Server nicht erreichbar.</b> Geht die Verbindung zum IRONSTICK SERVER verloren, zeigt die Karte, dass kein Server verbunden ist.</li>
+</ul>
+
+<h2 id="s18">18. Backup</h2>
+<figure><img src="img/screens/18%20backup.png" alt="Backup-Screen mit Datensicherung, letzten Backups und Wiederherstellung"><figcaption>Eine Datensicherung erstellen, die letzten Backups ansehen oder eines wiederherstellen.</figcaption></figure>
+<p class="scr-intro">Der Backup-Screen sichert alle Ihre Falldaten in einer einzigen ZIP-Datei und spielt sie bei Bedarf wieder ein.
+Sie entscheiden, wohin die Datei geht — ein lokaler Ordner, eine externe SSD oder ein USB-Stick.
+Die Datenbank und die gespeicherten Falldateien behalten ihre AES-256-Verschlüsselung innerhalb des Backups. Das Bild zeigt die Backup-Karte, die Liste der letzten Backups und die Wiederherstellungs-Karte.</p>
+
+<h3 class="do">Was Sie hier tun können</h3>
+
+<h4>Sichern</h4>
+<ul>
+<li><b>Datensicherung erstellen.</b> Sichert Ihre Datenbank, Ihre Dokumente und Dateien sowie Ihre Konfiguration und Lizenz in einer ZIP-Datei. Sprachmodelle für die lokale KI und die Sprachausgabe bleiben ausgenommen, da sie erneut heruntergeladen werden können.</li>
+<li><b>Fortschritt.</b> Ein Fenster zeigt, wie weit die Sicherung ist (Datei X von Y) und welche Datei gerade gepackt wird. Selbst sehr große Datenbestände bremsen das Programm während der Sicherung nicht aus.</li>
+<li><b>Speicherort wählen.</b> Ist die ZIP-Datei fertig, fragt ein Speichern-Dialog nach Ort und Dateiname. Brechen Sie ab, wird keine Datei behalten. Ist das Speichern abgeschlossen, zeigt eine Meldung Dateiname, Größe und Anzahl der Dateien.</li>
+<li><b>Letzte Backups.</b> Die letzten fünf Backups werden mit Datum und Uhrzeit, Dateiname und Größe aufgelistet, sodass Sie auf einen Blick sehen, wann Sie zuletzt gesichert haben.</li>
+<li><b>Aus dem Chat.</b> Bitten Sie den Chat, ein Backup zu erstellen, öffnet sich dieser Screen und startet die Datensicherung sofort.</li>
+<li><b>IRONSTICK SERVER.</b> Ist ein IRONSTICK SERVER verbunden, wird jedes Backup und jede Wiederherstellung an ihn gemeldet: <b>wer</b> es gemacht hat, <b>wann</b>, von welcher IP-Adresse, der Typ, Dateiname und Größe — nie die Backup-Daten selbst. Der Administrator sieht dies auf einer Seite des IRONSTICK SERVERs, zusammen mit dem Datum des letzten Backups jedes Benutzers (nach mehr als fünf Tagen rot dargestellt), und kann Benutzer an ihre Backup-Pflicht erinnern.</li>
+</ul>
+
+<h4>Wiederherstellen</h4>
+<ul>
+<li><b>Backup wählen.</b> Wählen Sie eine Backup-ZIP-Datei. <span class="irs">IRONSTICK</span> prüft zuerst, ob es sich wirklich um ein <span class="irs">IRONSTICK</span>-Backup handelt; jede andere Datei wird mit einem Hinweis abgelehnt.</li>
+<li><b>Bestätigen.</b> Das Wiederherstellen überschreibt Ihre aktuellen Daten. Ein Fenster bittet Sie um Bestätigung; klicken Sie auf <i>Abbrechen</i>, um zu stoppen, oder auf <i>Wiederherstellen</i>, um fortzufahren.</li>
+<li><b>Fortschritt und Ergebnis.</b> Ein Fortschrittsfenster zeigt jede Datei, während sie zurückgespielt wird, und eine Meldung teilt Ihnen mit, ob die Wiederherstellung gelungen ist. Da das Backup Ihre Konfiguration und Lizenz enthält, werden diese ebenfalls wiederhergestellt.</li>
+</ul>
+
+<footer class="sd-foot"><p>IRONSTICK ist eine Software für die juristische Praxis. Diese Website dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. © 2026 IRONSTICK.</p></footer>
+</body></html>
