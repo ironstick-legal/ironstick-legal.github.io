@@ -1,26 +1,26 @@
 # Download & licenze
 
-> Scarica IRONSTICK: Client-App, Bridge, Server e Central Scan-App — con ordine di installazione, regole di licenza e modello d'ordine. Chiave di licenza su richiesta, prova la Client-App gratis per un mese.
+> Scarica IRONSTICK: Client-App, Bridge, Server e Central Scan-App — con ordine di installazione, regole di licenza e modello d'ordine. Chiave di licenza su richiesta, prova gratuita di 30 giorni della Client-App.
 
 Pagina originale: https://www.ironstick.legal/download_it.html
 
 ---
 
-Scarichi direttamente il software, ci richieda la chiave di licenza.
+Scarica direttamente il software, richiedici la chiave di licenza.
 
 ## App client
 
 ### Postazione di lavoro Windows
 
-L'app client e i Bridge vengono eseguiti sullo stesso computer Windows con **un'unica chiave di licenza IRONSTICK** — i Bridge non necessitano di una chiave propria. Inoltre viene collegata un'IA (vedi Collegamento dell'IA).
+L'App client e i Bridge vengono eseguiti sulla stessa postazione Windows con **un'unica chiave di licenza IRONSTICK**. Ogni Bridge ha una licenza separata e viene sbloccato nella chiave di licenza della tua App client: non è necessaria alcuna chiave Bridge separata. In aggiunta viene collegato un fornitore di IA.
 
-### IRONSTICK Client-App
+### IRONSTICK App client
 
-L'applicazione principale per la postazione di lavoro: casi, clienti, scadenze, documenti, lavoro sulle prove e la chat IA — tutto in locale sul Suo computer Windows.
+L'applicazione principale per la postazione di lavoro: casi, clienti, scadenze, documenti, lavoro sulle prove e la chat IA — tutto conservato in locale sulla tua postazione Windows.
 
-### Bridge (MCP-Server)
+### Bridge (server MCP)
 
-Connettori che collegano in modo sicuro i desktop IA esterni alla Sua Client-App tramite il server MCP — l'IA lavora direttamente sul fascicolo. Ogni Bridge richiede una licenza Client-App.
+Connettori che collegano le app desktop dell'IA alla tua App client tramite un server MCP locale, così che l'IA possa lavorare direttamente sul fascicolo. Ogni Bridge richiede una licenza dell'App client.
 
 #### Claude Desktop
 
@@ -34,57 +34,57 @@ Connettore per l'app ChatGPT Desktop.
 [Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-chatgpt-setup-2.16.15.exe)
 #### Qwen
 
-Connettore per il desktop Qwen.
+Connettore per l'app desktop Qwen.
 
 [Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-qwen-setup-2.16.15.exe)
 #### Kimi
 
-Connettore per il desktop Kimi.
+Connettore per l'app desktop Kimi.
 
 [Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-kimi-setup-2.16.15.exe)
 
 ## Collegamento dell'IA
 
-![La postazione di lavoro Windows con una licenza IRONSTICK per il client e il server MCP, più, esternamente, una chiave API dell'IA oppure un'app desktop dell'IA con abbonamento.](https://www.ironstick.legal/img/dl_client.png)
+![Postazione Windows con una licenza IRONSTICK che copre l'App client e il server MCP, collegata a una chiave API dell'IA oppure a un'app desktop dell'IA con abbonamento.](https://www.ironstick.legal/img/dl_client.png)
 
-Con una **chiave API dell'IA** sono disponibili tutte le funzioni IA dell'app client. Gli importi per attivare le chiavi API variano da fornitore a fornitore, ma vanno da una ricarica minima di 1 $ a 5 $ per l'attivazione iniziale. Si consiglia di utilizzare almeno **due chiavi API** per aumentare l'affidabilità in caso di guasto. La fatturazione avviene comunque in base all'utilizzo; le chiavi API non utilizzate non comportano quindi alcun costo. L'app client è programmata per evitare per quanto possibile i costi e per attivare le chiavi API solo in caso di necessità. Dopo l'accesso, l'utente vi accede tramite la schermata di configurazione e può richiedere le chiavi API direttamente ai fornitori (i link diretti sono inclusi).
+Con una **chiave API dell'IA** sono disponibili tutte le funzioni IA dell'App client. Si consiglia una ricarica di almeno 20 dollari/euro per fornitore. Si consiglia di utilizzare almeno **due chiavi API** per la continuità in caso di guasto. La fatturazione avviene in base all'utilizzo, quindi una chiave inutilizzata non costa nulla. L'App client è concepita per evitare i costi e chiama un'API a pagamento solo quando un'attività lo richiede. Le chiavi API si inseriscono nella schermata di configurazione, che rimanda direttamente alle pagine delle chiavi e della fatturazione di ciascun fornitore.
 
-Le **app desktop dell'IA** possono essere utilizzate per le prove anche senza abbonamento. I costi mensili di abbonamento presso i fornitori partono da circa 20 $ al mese. Se vi accorgete che l'abbonamento presso un fornitore non basta, i fornitori offrono estensioni. Se esiste già un abbonamento, può semplicemente essere mantenuto con la configurazione esistente — l'utente non deve modificare nulla. Esistono due modi per utilizzare le app desktop dell'IA esistenti: a) esportando i file di istruzioni dell'IA (con forti perdite) oppure b) tramite il Bridge (server MCP). Una volta che l'utente si è abituato alla propria app desktop dell'IA, si consiglia, per motivi di affidabilità, di installare una seconda app desktop di un altro fornitore. I link per il download sono disponibili direttamente nella schermata di configurazione.
+Le **app desktop dell'IA** si possono provare anche senza abbonamento. Un abbonamento è la tariffa mensile fissa del fornitore, e i fornitori offrono estensioni per una capacità aggiuntiva. Un abbonamento esistente può essere usato così com'è, senza modificarne la configurazione. Le app desktop si collegano in due modi: tramite il Bridge (server MCP) oppure esportando i file di istruzioni dell'IA. Una volta preso confidenza con un'app desktop, si consiglia di aggiungere l'app di un secondo fornitore per la continuità in caso di guasto. I link per il download si trovano nella schermata di configurazione.
 
 ## Server e postazione di scansione
 
-![Il server IRONSTICK è composto da un NAS Synology (il vostro hardware) e dalla licenza IRONSTICK Server.](https://www.ironstick.legal/img/dl_server.png)
-Il server IRONSTICK è un file SPK preconfezionato che si installa sul vostro NAS Synology con 3 clic del mouse. Tutto ciò che serve è un NAS Synology; i modelli economici partono da circa 180 €. Anche qui: nessuno sforzo di installazione. Collegatelo e lasciatelo funzionare.
+![IRONSTICK SERVER: il tuo NAS Synology più una licenza IRONSTICK SERVER.](https://www.ironstick.legal/img/dl_server.png)
+IRONSTICK SERVER, il server di studio, viene fornito come pacchetto Synology (SPK) già pronto e si installa sul tuo NAS in tre clic. Serve solo un normale NAS Synology, ad es. un DS223j da circa 180 €. Una volta installato, funziona in background; l'amministrazione avviene in un browser.
 
-### IRONSTICK Server
+### IRONSTICK SERVER
 
-Funziona su un comune NAS Synology e condivide casi, documenti e scadenze tra più postazioni di lavoro — archivio centrale e cifrato con autoriparazione e backup. A partire da almeno due licenze Client-App.
+Funziona su un normale NAS Synology e collega più postazioni: casi condivisi, una biblioteca normativa comune a tutto lo studio e l'acquisizione centrale della scansione sul tuo NAS. Si ricostruisce da solo a partire dalle postazioni e mostra l'ultimo backup di ogni utente. Il server lavora interamente all'interno della rete dello studio, senza alcun cloud e senza traffico IA. Disponibile a partire da due licenze dell'App client.
 
 [Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-server-synology-1.0.0.spk)
-### Central Scan-App
+### Central Scan App
 
-La postazione di acquisizione allo scanner: scansiona posta e documenti in modo centralizzato, li assegna ai casi e li inserisce automaticamente. Richiede un Server.
+La postazione di acquisizione allo scanner: la posta in arrivo e i documenti vengono scansionati in modo centralizzato, assegnati ai casi e inseriti automaticamente. Richiede IRONSTICK SERVER.
 
 [Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-centralscan-setup-1.0.3.exe)
 
 ## Ordine di installazione
 
-1. Installare la prima **Client-App** e attivarla con la chiave di licenza.
-2. Installare la/le **Bridge** sullo stesso computer.
-3. Installare il **Server** sul NAS (Synology).
-4. Installare la **Scan-App** sulla postazione di scansione.
-5. Installare e attivare le **ulteriori Client-App**.
+1. Installare la prima **App client** e attivarla con la tua chiave di licenza.
+2. Installare il/i **Bridge** sulla stessa postazione.
+3. Installare **IRONSTICK SERVER** sul NAS Synology.
+4. Installare la **Central Scan App** sulla postazione di scansione.
+5. Installare e attivare le **restanti App client**.
 
 ## Regole di licenza
 
-- Ogni licenza è intestata a **un solo utente** (una persona).
-- Una **licenza Server** non è disponibile senza almeno **due licenze Client-App**.
-- Una **licenza Scan-App** non è disponibile senza almeno **una licenza Server**.
-- Una **licenza Bridge** non è disponibile senza **licenza Client-App**.
+- Ogni licenza è intestata a **un utente nominativo** (una persona).
+- Una **licenza IRONSTICK SERVER** richiede almeno **due licenze dell'App client**.
+- Una **licenza Central Scan App** richiede almeno **una licenza IRONSTICK SERVER**.
+- Una **licenza Bridge** richiede una **licenza dell'App client**; viene sbloccata nella chiave dell'App client.
 
 ## Ordinare una licenza
 
-Copi il modello seguente, compili i campi e lo invii insieme a una **copia PDF del Suo documento d'identità** (passaporto, carta d'identità o buletin) tramite i [recapiti indicati qui sotto](#contact) (WhatsApp / Telegram).
+Copia il modello, compila i campi e invialo, insieme a una **copia PDF del tuo passaporto o della tua carta d'identità nazionale**, tramite uno dei nostri [recapiti](#contact) (WhatsApp / Telegram).
 
 ```
 Oggetto: Ordine chiave di licenza – [Nome] [Cognome]
@@ -92,62 +92,62 @@ Oggetto: Ordine chiave di licenza – [Nome] [Cognome]
 Con la presente ordino le chiavi di licenza per IRONSTICK:
 
 Studio legale / Studio / Azienda (se presente): [……]
-CUI / USt-IdNr. (se azienda): [……]
+Partita IVA / numero di registrazione della società (se applicabile): [……]
 Appellativo / Titolo: [……]
 Nome: [……]
 Cognome: [……]
 Via e n.: [……]
 CAP / Città: [……]
-Distretto / Provincia: [……]
+Regione / provincia: [……]
 Paese: [……]
 Telefono: [……]
 Cellulare: [……]
 WhatsApp: [ ] sì
 E-mail per la/le chiave/i: [……]
-Lingua di corrispondenza (DE / EN / FR / IT / ES / RO): [……]
+Lingua di corrispondenza (EN / DE / FR / IT / ES / RO): [……]
 Data di nascita (AAAA-MM-GG): [……]
-CNP (se applicabile): [……]
+Numero di identificazione nazionale (se applicabile): [……]
 
 Licenza/e desiderata/e:
-[ ] IRONSTICK Client-App   (licenza di base)
-[ ] Bridge                 (attivate nella chiave Client-App)
-[ ] IRONSTICK Server       (solo con min. 2 licenze Client-App)
-[ ] Central Scan-App       (solo con min. 1 licenza Server)
+[ ] IRONSTICK App client   (licenza di base)
+[ ] Bridge                 (sbloccati nella chiave dell'App client)
+[ ] IRONSTICK SERVER       (richiede almeno 2 licenze dell'App client)
+[ ] Central Scan App       (richiede almeno 1 licenza IRONSTICK SERVER)
 
-Per ogni utente esiste esattamente una licenza (la persona sopra indicata).
+Ogni licenza è intestata a un utente nominativo (la persona sopra indicata).
 
 Allego in formato PDF:
-• una copia del mio documento d'identità (passaporto / carta d'identità / buletin)
+• una copia del mio passaporto o della mia carta d'identità nazionale
 
-Vi prego di inviarmi le chiavi di licenza. Per eventuali domande potete
-contattarmi tramite i recapiti indicati qui sotto (WhatsApp / Telegram).
+Ti prego di inviarmi le chiavi di licenza. Per eventuali domande puoi
+contattarmi per telefono o via e-mail ai recapiti indicati in questo ordine.
 
 Cordiali saluti
 [Nome] [Cognome]
 ```
 
-Il documento d'identità è necessario perché ogni chiave di licenza è intestata in modo vincolante a una persona.
-## Dove si inserisce la chiave di licenza
+Ogni chiave di licenza è legata in modo permanente a una persona nominativa, quindi verifichiamo l'identità del titolare prima di rilasciarla.
+## Inserimento della chiave di licenza
 
-### Client-App
+### App client
 
-La chiave si inserisce all'avvio del programma nella finestra della licenza (modificabile in seguito nella configurazione). Essa sblocca al contempo i **Bridge** — questi non necessitano di una chiave propria.
+Inserisci la chiave nella finestra della licenza all'avvio dell'App client; potrai modificarla in seguito nella configurazione. La stessa chiave attiva i **Bridge** con licenza; non è necessaria alcuna chiave Bridge separata.
 
-### IRONSTICK Server
+### IRONSTICK SERVER
 
-La chiave del Server si registra nella configurazione del Server.
+La chiave di IRONSTICK SERVER si inserisce durante la configurazione del server.
 
-### Central Scan-App
+### Central Scan App
 
-La chiave si inserisce all'avvio della Scan-App nella finestra della licenza.
+Inserisci la chiave nella finestra della licenza all'avvio della Central Scan App.
 
 ## Prova gratuita
 
-Per la **Client-App** è disponibile su richiesta una **chiave di licenza gratuita per un mese**, per conoscere con calma il prodotto. Per **Server** e **Scan-App** non è previsto alcun periodo di prova.
+Per l'**App client** è disponibile su richiesta una **prova gratuita di 30 giorni**, per valutare il prodotto con calma.
 
 ## Rinnovo della licenza
 
-Cosa succede quando la licenza scade? Circa **10 giorni prima della scadenza** della vostra licenza, l'app client vi avvisa (se avete in funzione il server IRONSTICK, vedete una panoramica delle licenze di tutti i client collegati). Potete quindi ordinare molto semplicemente le chiavi di licenza necessarie via e-mail o WhatsApp. La vostra richiesta viene verificata rispetto ai dati esistenti e si attende il pagamento. Non appena il pagamento è stato ricevuto, ricevete la nuova chiave di licenza via e-mail / WhatsApp. Si tratta di una stringa di caratteri che dovete semplicemente copiare nella vostra app client (copia e incolla). Fatto.
+Circa **10 giorni prima** della scadenza di una licenza, l'App client mostra un promemoria; con IRONSTICK SERVER, la pagina di amministrazione mostra anche una panoramica della licenza dell'App client di ogni utente. Ordina il rinnovo via e-mail o WhatsApp. Una volta verificato l'ordine rispetto ai tuoi dati cliente e ricevuto il pagamento, ricevi la nuova chiave di licenza via e-mail o WhatsApp e la incolli nell'App client.
 
 ##### Contatti
 
@@ -155,7 +155,7 @@ Cosa succede quando la licenza scade? Circa **10 giorni prima della scadenza** d
 
 ![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Scansiona il codice per salvare la nostra scheda contatto — telefono, e-mail e sito.
 
-Contattate direttamente via WhatsApp o Telegram — anche una chiamata è benvenuta. Lingue parlate: tedesco, inglese, rumeno.
+Contattaci direttamente via WhatsApp o Telegram, oppure chiamaci. Parliamo inglese, tedesco e rumeno.
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
@@ -163,8 +163,8 @@ Contattate direttamente via WhatsApp o Telegram — anche una chiamata è benven
 
 ### IRONSTICK o una demo ti interessano? Scrivici.
 
-### Scaricare l'app client IRONSTICK
+### Scaricare l'App client IRONSTICK
 
-Scarichi **ironstick-setup-1.0.6.exe** e lo esegua. Il programma di installazione scarica da sé gli altri file di installazione (circa 6,7 GB) e mostra l’avanzamento: durante l’installazione è necessaria una connessione a Internet.
+Scarica **ironstick-setup-1.0.6.exe** ed eseguilo. Il programma di installazione scarica poi i componenti restanti (circa 6,7 GB) e mostra l’avanzamento. Durante l’installazione è necessaria una connessione a Internet.
 
-ironstick-setup-1.0.6.exe **← avviare questo**2,8 MB[Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-setup-1.0.6.exe)
+ironstick-setup-1.0.6.exe **(avvia questo file)**2,8 MB[Scarica](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-setup-1.0.6.exe)

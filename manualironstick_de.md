@@ -8,7 +8,7 @@ Originalseite: https://www.ironstick.legal/manualironstick_de.html
 
 Benutzerhandbuch — jeder Screen: was Sie sehen und was Sie tun können.
 
-## 0. Menüleiste
+## Menüleiste
 
 ![Die Menüleiste mit Burger-Menü, Brotkrumenpfad, Ressourcenanzeige und den Symbolen rechts sowie das IRONSTICK-Browserfenster](https://www.ironstick.legal/img/screens/0%20menubar.png)
 
@@ -17,20 +17,20 @@ Die Menüleiste, die oben auf jedem Bildschirm sitzt, und das IRONSTICK-Browserf
 Die Menüleiste sitzt oben auf jedem Bildschirm von IRONSTICK, sodass Sie die wichtigen Funktionen von überall erreichen.
 Links befinden sich das Navigationsmenü und der Programmname samt kleinen Live-Anzeigen. In der Mitte steht das Tagesbriefing. Rechts liegen die
 Anzeigen für neue E-Mails, Fristen und Nachrichten, der KI-Chat, das Browserfenster, die Konfiguration und die Power-Taste. Unter der Leiste zeigt der Brotkrumenpfad, wo Sie sich befinden.
-Viele Symbole erscheinen nur, wenn es etwas anzuzeigen gibt. Ein rotes Symbol, das wackelt, bedeutet immer, dass etwas Neues auf Sie wartet.
+Viele Symbole erscheinen nur, wenn es etwas anzuzeigen gibt. Ein rotes, animiertes Symbol bedeutet, dass etwas Neues auf Sie wartet.
 
 1. **Brotkrumenpfad.** Zeigt den Weg zum aktuellen Bildschirm, zum Beispiel *Hauptmenü › Institutionen*. Der letzte Teil ist der Bildschirm, auf dem Sie sich befinden. Klicken Sie auf einen früheren Teil, um direkt dorthin zurückzukehren.
 2. **Navigationsmenü (Burger).** Öffnet das Seitenmenü mit Hauptmenü, Mandanten, Institutionen, Personen, Fristen, Tags, Texten und Suche. Der Bildschirm, auf dem Sie sich befinden, ist blau hervorgehoben. Das rote Power-Symbol unten im Menü schließt das Programm, genau wie die Power-Taste.
 3. **Ressourcenanzeige (nur Windows).** Ein kleiner Balken und der Text *(CPU / RAM)* zeigen, wie viel Prozessorleistung und Speicher IRONSTICK selbst gerade verbraucht. Der Balken ist grün, wird ab 50 % orange und ab 80 % rot. Zeigen Sie darauf, um zu sehen, welche Hintergrundaufgaben gerade laufen, mit Fortschritt und Laufzeit. Aufgaben, die gestoppt werden können, tragen ein rotes X.
 4. **KI-Gedächtnis (rosa Gehirn).** Erscheint, sobald die KI Notizen in ihrem Gedächtnis gespeichert hat. Es pulsiert, während die KI das Gedächtnis liest oder beschreibt. Klicken Sie darauf, um die gespeicherten Notizen zu prüfen. Sie können alle Notizen eines Mandanten auf einmal löschen oder einzelne Notizen unter den letzten 100 ankreuzen und löschen.
 5. **Tagesbriefing (Lautsprecher).** Öffnet jederzeit das Tagesbriefing: was heute ansteht (Fristen, Gerichtstermine, Termine, E-Mails), was heute bereits erledigt wurde und ein kurzer Rückblick. Klicken Sie auf eine Zeile, um den passenden Bildschirm zu öffnen, zum Beispiel die Fristen, den Kalender, den E-Mail-Monitor oder den Fall. *Vorlesen* spielt die gesprochene Fassung ab, und *Stopp* beendet sie. Ein Schalter ändert nur den Stil des gesprochenen Textes. Ist Ihr letztes Backup älter als fünf Tage, warnt Sie das Briefing.
-6. **Datenkonsistenz-Monitor.** Öffnet die Liste der Änderungsvorschläge zu Ihren Mandanten- und Kontaktdaten, die IRONSTICK in Ihren E-Mails gefunden hat. Bei jedem Vorschlag wählen Sie *Zulassen* oder *Ablehnen*. Das Symbol ist grau, wenn nichts wartet, und rot, wenn es Vorschläge gibt. Es wackelt auch, wenn neue Fälle aus dem Gerichtsportal vorgeschlagen wurden (Länderfunktion).
-7. **E-Mail.** Nur sichtbar, wenn die E-Mail-Prüfung im Hintergrund in der Konfiguration eingeschaltet ist. Grau bedeutet keine neuen E-Mails. Rot und wackelnd bedeutet, dass neue E-Mails eingegangen sind; der Tooltip zeigt, wie viele. Klicken Sie, um den E-Mail-Monitor zu öffnen, in dem alles als gesehen gilt.
+6. **Datenkonsistenz-Monitor.** Öffnet die Liste der Änderungsvorschläge zu Ihren Mandanten- und Kontaktdaten, die IRONSTICK in Ihren E-Mails gefunden hat. Bei jedem Vorschlag wählen Sie *Zulassen* oder *Ablehnen*. Das Symbol ist grau, wenn nichts wartet, und rot, wenn es Vorschläge gibt. Es ist auch animiert, wenn ein nationales Gerichtsportal neue Fälle vorgeschlagen hat (länderspezifische Funktion).
+7. **E-Mail.** Nur sichtbar, wenn die E-Mail-Prüfung im Hintergrund in der Konfiguration eingeschaltet ist. Grau bedeutet keine neuen E-Mails. Rot und animiert bedeutet, dass neue E-Mails eingegangen sind; der Tooltip zeigt, wie viele. Klicken Sie, um den E-Mail-Monitor zu öffnen, in dem alles als gesehen gilt.
 8. **KI-Chat (Roboter).** Klicken Sie, um den KI-Chat zu öffnen. Unter Windows öffnet er sich in einem eigenen Fenster. Befinden Sie sich in einem Fall oder bei einem Mandanten, zeigt ein kleiner violetter Punkt, dass der Chat diesen Fall oder Mandanten bereits kennt. Klicken Sie mit der rechten Maustaste darauf (auf dem Tablet: gedrückt halten), um die Spracherkennung ein- oder auszuschalten. Solange sie eingeschaltet ist, bewegt sich der Roboter, und der Chat hört zu und antwortet laut. Der Roboter ist ausgeblendet, solange eine externe Desktop-KI mit IRONSTICK verbunden ist. Auf dem Tablet ist er ausgegraut, wenn keine Internetverbindung besteht.
-9. **Server-Chat.** Erscheint nur, wenn ein Büro-Server verbunden ist. Er öffnet einen Chat mit den anderen Benutzern des Büro-Servers. Ein grüner Punkt bedeutet, dass der Benutzer online ist, rot bedeutet offline. Sie können Ihre eigenen Nachrichten löschen, und ein Schalter stummt den Chat, sodass er nicht mehr von selbst aufpoppt. Das Symbol wird rot und wackelt, wenn eine ungelesene Nachricht vorliegt.
-10. **Fristenglocke.** Rot, wenn mindestens eine Frist heute fällig oder überfällig ist. Orange, wenn Fristen in den nächsten zehn Tagen fällig werden. Grau, wenn nichts ansteht. Zeigen Sie auf die Glocke, um die Anzahl zu sehen. Die Glocke wackelt auch, wenn eine Gerichtssitzung aus dem Gerichtsportal auf heute fällt (Länderfunktion). Ein Klick öffnet immer die Fristenübersicht.
-11. **Power-Taste.** Schließt IRONSTICK sofort, ohne Rückfrage. Sie löscht temporäre Dateien und den Browser-Cache und beendet alle Hilfsprogramme, sodass nichts vom Programm im Speicher weiterläuft.
-12. **Konfiguration (Zahnrad).** Öffnet den Konfigurationsbildschirm mit Systeminformationen, Speicherort, Benutzerprofil, KI-Einstellungen, E-Mail-Konto, Büro-Server, Unterschrift und Briefkopf.
+9. **Server-Chat.** Erscheint nur, wenn der IRONSTICK SERVER verbunden ist. Er öffnet einen Chat mit den anderen Benutzern des Servers. Ein grüner Punkt bedeutet, dass der Benutzer online ist, rot bedeutet offline. Sie können Ihre eigenen Nachrichten löschen, und ein Schalter stummt den Chat, sodass er nicht mehr von selbst aufpoppt. Das Symbol wird rot und ist animiert, wenn eine ungelesene Nachricht vorliegt.
+10. **Fristenglocke.** Rot, wenn mindestens eine Frist heute fällig oder überfällig ist. Orange, wenn Fristen in den nächsten zehn Tagen fällig werden. Grau, wenn nichts ansteht. Zeigen Sie auf die Glocke, um die Anzahl zu sehen. Die Glocke ist auch animiert, wenn eine aus einem nationalen Gerichtsportal abgerufene Sitzung für heute angesetzt ist (länderspezifische Funktion). Ein Klick öffnet immer die Fristenübersicht.
+11. **Power-Taste.** Schließt IRONSTICK sofort, ohne Bestätigungsabfrage. Sie löscht ihre temporären Dateien und den Browser-Cache und beendet IRONSTICK und alle Prozesse, die es gestartet hat.
+12. **Konfiguration (Zahnrad).** Öffnet den Konfigurationsbildschirm mit Systeminformationen, Speicherort, Benutzerprofil, KI-Einstellungen, E-Mail-Konto, Serververbindung, Unterschrift und Briefkopf.
 
 ### Was Sie hier tun können
 
@@ -43,9 +43,9 @@ Viele Symbole erscheinen nur, wenn es etwas anzuzeigen gibt. Ein rotes Symbol, d
 
 #### Symbole, die nur bei Bedarf erscheinen
 
-- **Dokumenteneingang (nur Windows).** Ein rotes, wackelndes Eingangssymbol erscheint, solange unbearbeitete Dokumente im Dokumenteneingang warten. Der Tooltip zeigt, wie viele. Klicken Sie darauf, um die Dokumentenerfassung zu öffnen. Wartet nichts, verschwindet das Symbol.
-- **Notiz-Pin (Büro-Server).** Haben Kollegen am Büro-Server neue Notizen zu einem Fall hinterlassen, erscheint ein roter, wackelnder Pin. Jeder Klick führt Sie zum Fall mit der nächsten ungelesenen Notiz und öffnet dessen Pinnwand.
-- **KI-Dienst nicht verfügbar.** Ist ein von Ihnen eingerichteter externer KI-Dienst heute nicht verfügbar, erscheint ein roter Kreis mit Ausrufezeichen. Klicken Sie darauf, um für jeden Dienst den Grund und den nächsten Versuchszeitpunkt zu sehen. Wurde ein Dienst gestoppt, weil sein Guthaben aufgebraucht ist, führt *Aufladen* Sie direkt zu diesem Dienst in der KI-Konfiguration.
+- **Dokumenteneingang (nur Windows).** Ein rotes, animiertes Eingangssymbol erscheint, solange unbearbeitete Dokumente im Dokumenteneingang warten. Der Tooltip zeigt, wie viele. Klicken Sie darauf, um die Dokumentenerfassung zu öffnen. Wartet nichts, verschwindet das Symbol.
+- **Notiz-Pin (IRONSTICK SERVER).** Haben Kollegen auf dem Server neue Notizen zu einem Fall hinterlassen, erscheint ein roter, animierter Pin. Jeder Klick führt Sie zum Fall mit der nächsten ungelesenen Notiz und öffnet dessen Pinnwand.
+- **KI-Dienst nicht verfügbar.** Ist ein von Ihnen eingerichteter externer KI-Dienst derzeit nicht verfügbar, erscheint ein roter Kreis mit Ausrufezeichen. Klicken Sie darauf, um für jeden Dienst den Grund und den nächsten Versuchszeitpunkt zu sehen. Wurde ein Dienst gestoppt, weil sein Guthaben aufgebraucht ist, führt *Aufladen* Sie direkt zu diesem Dienst in der KI-Konfiguration.
 - **Verbundene Desktop-KI (nur Windows).** Arbeitet eine externe Desktop-KI-App mit Ihren Daten, erscheint ihr Symbol rechts neben der Ressourcenanzeige. Es pulsiert, während eine Anfrage läuft. Zeigen Sie darauf, um zu sehen, welche Fälle sie in dieser Sitzung gelesen hat und wie weit, ob sie die IRONSTICK-Instruktionen bestätigt hat und wie viele Regelverstöße sie begangen hat.
 
 #### Allgemeines Verhalten
@@ -71,12 +71,12 @@ und **Heatmap** zeigt, wie aktiv Ihre Kanzlei in den letzten zwölf Monaten war.
 
 - **Fristen auf einen Blick.** Die Fristenkarte zeigt ein grünes Häkchen, wenn nichts überfällig ist, zusammen mit der Anzahl der Fristen in den nächsten 30 Tagen. Überfällige Fristen erscheinen rot mit den ersten aufgelisteten Einträgen. *Fristenübersicht* öffnet die vollständige Liste.
 - **Mandanten-Geburtstage.** Am Geburtstag eines Mandanten und für zwei Tage danach erscheint unter der Fristenkarte eine Torte. Klicken Sie auf einen Namen, um direkt zu diesem Mandanten zu gelangen.
-- **Stille Fälle.** Die zweite Karte zählt die Fälle ohne Aktivität seit 14 Tagen und listet die ersten drei auf. Klicken Sie auf die Karte, um alle zu sehen, damit kein Fall unbemerkt einschläft.
+- **Stille Fälle.** Die zweite Karte zählt die Fälle ohne Aktivität seit 14 Tagen und listet die ersten drei auf. Klicken Sie auf die Karte, um alle zu sehen, damit kein Fall unbeachtet bleibt.
 - **Jedes Modul öffnen.** Jede Kachel öffnet einen Teil des Programms – Mandanten, Personen, Institutionen, Dokumentenerfassung, Suche, Kalender, Tagesprotokoll, Textverarbeitung, E-Mail-Monitor, Zeiterfassung, Gesetze, Backup und mehr. Jede Kachel trägt eine kurze Beschreibung ihrer Funktion.
 - **Die Kacheln nach Ihren Wünschen anordnen.** Ziehen Sie eine Kachel an ihrem Griff an eine neue Position. Die Reihenfolge wird auf diesem Computer gespeichert.
 - **Tags und Sicherheit.** Die Tags-Kachel zeigt Ihre farbigen Tags und öffnet die Tag-Verwaltung. Die Sicherheitskachel zeigt den Zustand dieses Computers (System, Laufwerke, Netzwerk) und öffnet die Konfiguration.
 - **Audio.** Die Audio-Kachel öffnet den Audio-Schneider für bereits vorhandene Aufnahmen; ihr zweiter Link startet eine Live-Aufnahme mit KI-Transkription.
-- **Kacheln, die nur bei Bedarf erscheinen.** *Server-Fälle* erscheint nur, wenn ein Büro-Server verbunden ist. Länderspezifische Kacheln erscheinen nur, wenn diese Funktionen eingeschaltet sind. Einige Kacheln, die einen PC brauchen (zum Beispiel Dokumentenerfassung und Textverarbeitung), werden auf dem Android-Tablet nicht angezeigt.
+- **Kacheln, die nur bei Bedarf erscheinen.** *Server-Fälle* erscheint nur, wenn der IRONSTICK SERVER verbunden ist. Länderspezifische Kacheln erscheinen nur, wenn diese Funktionen eingeschaltet sind. Einige Kacheln, die einen PC brauchen (zum Beispiel Dokumentenerfassung und Textverarbeitung), werden auf dem Android-Tablet nicht angezeigt.
 
 #### Reiter Agenda
 
@@ -94,7 +94,7 @@ und **Heatmap** zeigt, wie aktiv Ihre Kanzlei in den letzten zwölf Monaten war.
 #### Hinweise beim Start
 
 - **Tagesbriefing.** Beim ersten Start des Tages fragt IRONSTICK, ob Sie das Tagesbriefing hören möchten – einen kurzen gesprochenen Überblick über Ihren Tag.
-- **Büro-Server.** Wird ein Büro-Server gefunden, aber dieser Arbeitsplatz hat keinen Zugriff darauf, weist Sie bei jedem Programmstart ein Hinweis darauf hin; Sie können normal weiterarbeiten.
+- **IRONSTICK SERVER.** Wird der Server gefunden, aber dieser Arbeitsplatz hat keinen Zugriff darauf, weist Sie bei jedem Programmstart ein Hinweis darauf hin; Sie können normal weiterarbeiten.
 
 ## 2. Konfiguration
 
@@ -120,13 +120,13 @@ Die Programmversion und der Lizenzschlüssel stehen am Ende der Seite.
 
 - **Ihre Daten in Zahlen.** Der Kartentitel zeigt die Größe der Datenbank. Darin sehen Sie die Anzahl der Mandanten, Fälle, Beweiseinträge, Dokumente, Entitäten, Dateien, Protokolleinträge und Logins sowie den gesamten und den freien Speicherplatz des Laufwerks.
 - **Aktuell in Verwendung.** Ein graues Feld zeigt den Ordner, mit dem IRONSTICK gerade arbeitet. Alle Daten liegen in diesem einen Ordner: Datenbank, Lizenz, Konfiguration und jede Datei.
-- **Den Speicherort ändern (PC).** Mit *Ordner wählen* wählen Sie einen neuen Speicherort, etwa einen USB-Stick, ein anderes Laufwerk oder einen Cloud-synchronisierten Ordner. Der Ordner *IRONSTICK* wird dort automatisch angelegt. Klicken Sie auf *Speichern*, um den Umzug zu starten. IRONSTICK teilt Ihnen zuerst mit, wie viele Daten verschoben werden. Danach testet es das gewählte Laufwerk (zum Beispiel Geschwindigkeit, freien Speicherplatz und Schreibschutz) und fährt nur fort, wenn das Laufwerk den Test besteht. Wenn Sie bestätigen, wird der Umzug beim nächsten Programmstart durchgeführt, und das Programm schließt sich.
+- **Den Speicherort ändern (PC).** Mit *Ordner wählen* wählen Sie einen neuen Speicherort, etwa einen USB-Stick oder ein anderes Laufwerk. Der Ordner *IRONSTICK* wird dort automatisch angelegt. Klicken Sie auf *Speichern*, um den Umzug zu starten. IRONSTICK teilt Ihnen zuerst mit, wie viele Daten verschoben werden. Danach testet es das gewählte Laufwerk (zum Beispiel Geschwindigkeit, freien Speicherplatz und Schreibschutz) und fährt nur fort, wenn das Laufwerk den Test besteht. Wenn Sie bestätigen, schließt sich IRONSTICK und verschiebt die Daten beim nächsten Start.
 - **Daten bereits am neuen Speicherort.** Enthält der gewählte Ordner bereits IRONSTICK-Daten, wird nichts ohne Rückfrage überschrieben. Beide Kopien werden verglichen, und Sie wählen, ob die dort gefundene Kopie verwendet oder durch Ihre aktuellen Daten ersetzt wird.
 - **Auf dem Android-Tablet.** Der Datenordner ist fest vorgegeben (es ist der Ordner, in den die USB-Synchronisation kopiert), sodass dort nichts zu wählen ist.
 
 **Benutzer (nur PC)**
 
-- **Ihr Profil.** Die dritte Karte enthält Ihre Angaben: Firma, Funktion, Anrede, Vor- und Nachname, Adresse, Land, Telefon, Mobiltelefon, E-Mail, Facebook, Geburtsdatum und welche Messenger Sie nutzen (WhatsApp, Signal, Telegram, Viber). Klicken Sie auf *Speichern*, um sie zu speichern. Ihr Geburtsdatum wird, falls Sie einen Büro-Server nutzen, für Geburtstagsgrüße mit diesem geteilt.
+- **Ihr Profil.** Die dritte Karte enthält Ihre Angaben: Firma, Funktion, Anrede, Vor- und Nachname, Adresse, Land, Telefon, Mobiltelefon, E-Mail, Facebook, Geburtsdatum und welche Messaging-Apps Sie nutzen (WhatsApp, Signal, Telegram, Viber). Klicken Sie auf *Speichern*, um sie zu speichern. Wenn Sie den IRONSTICK SERVER nutzen, wird Ihr Geburtsdatum für Geburtstagsgrüße mit ihm geteilt.
 - **Aus Ihrer Lizenz übernommene Felder.** Bei aktiver Lizenz stammen Firma, Anrede und Name aus dem Lizenzschlüssel und können hier nicht geändert werden.
 - **Ihre Nummer.** Ihre Benutzernummer steht in Klammern neben dem Kartentitel. Das Kopiersymbol legt sie in die Zwischenablage, zum Beispiel für eine Lizenzanfrage.
 - **Programmsprache.** Wählen Sie die Sprache des Programms und speichern Sie. IRONSTICK lädt dann in der neuen Sprache neu und kehrt zum Hauptmenü zurück. Ein geöffnetes Chat-Fenster schließt sich und öffnet sich beim nächsten Mal in der neuen Sprache.
@@ -147,16 +147,16 @@ In der **KI-Konfiguration** tragen Sie Ihre Zugangsschlüssel für die externen 
 - **Wann die Karte erscheint.** Die Karte wird nur am PC angezeigt, und nur, wenn mindestens eine Desktop-KI-App zu Ihrer Lizenz gehört.
 - **Zugriff erlauben.** Der erste Schalter entscheidet, ob die verbundene Desktop-KI überhaupt auf IRONSTICK zugreifen darf. Ist er aus, kann der externe Konnektor das Programm nicht erreichen.
 - **Navigation erlauben.** Der zweite Schalter lässt die Desktop-KI das Programm steuern, zum Beispiel um Dokumente zu öffnen oder einen Export zu starten. Er funktioniert nur, wenn der Zugriff erlaubt ist.
-- **Eine App einrichten.** Für jede lizenzierte Desktop-KI-App gibt es eine farbige Schaltfläche *… einrichten*. Ein Klick registriert IRONSTICK in dieser App und erklärt die restlichen Schritte, meist einen Neustart der App. Bei einer App wird der Einrichtungstext in die Zwischenablage kopiert, und Sie fügen ihn in den eigenen Dialog dieser App ein.
+- **Eine App einrichten.** Für jede lizenzierte Desktop-KI-App gibt es eine farbige Schaltfläche *… einrichten*. Ein Klick registriert IRONSTICK in dieser App und erklärt die restlichen Schritte, meist einen Neustart der App. Bei Qwen Desktop wird der Einrichtungstext in die Zwischenablage kopiert, und Sie fügen ihn in den Einstellungsdialog der App ein.
 - **Skill-Plugins.** *IRONSTICK-Skill-Plugin erzeugen* und *… Plugin erzeugen* erstellen ein Skill-Paket für die Desktop-KI-App. Eine Meldung zeigt, wo die Datei gespeichert wurde, damit Sie sie in die App ziehen können.
 - **Desktop-KI recyceln (Windows).** Die hellrote Schaltfläche schließt die aufgelisteten Desktop-KI-Apps und startet sie nach Ihrer Bestätigung neu. Verwenden Sie sie, wenn eine App die Verbindung zu IRONSTICK verloren hat.
 - **Links.** Die Links unter den Schaltflächen öffnen die Download-Seite, die Nutzungsbedingungen und die Datenschutzerklärung jeder App im IRONSTICK-Browserfenster.
 
 **KI-Konfiguration**
 
-- **Automatische Reihenfolge.** Sie wählen nicht einen einzelnen Dienst. Jeder Dienst mit hinterlegtem Schlüssel wird automatisch verwendet, in fester Reihenfolge, der günstigste zuerst. Geht einem Dienst im Laufe des Tages das Kontingent oder Guthaben aus, wechselt IRONSTICK für den Rest des Tages zum nächsten und versucht es am nächsten Tag erneut.
-- **Statusanzeige.** Die runde Anzeige vor jedem Dienst zeigt seinen Platz in der Reihenfolge. Grün bedeutet verfügbar, rot heute nicht verfügbar, und grau bedeutet, dass kein Schlüssel hinterlegt ist. Zeigen Sie auf eine rote Anzeige, um den Grund und den nächsten Versuchszeitpunkt zu sehen.
-- **Kostenlose Dienste für Hintergrundaufgaben.** Die Dienste oberhalb der dicken Linie sind kostenlose Angebote, die nur für Hintergrundaufgaben verwendet werden, etwa die E-Mail-Zuordnung, den Datenkonsistenz-Monitor, das Tagesbriefing und das Lagebild. Ihre Anzeige zeigt eine Uhr. Jeder hat einen eigenen Ein/Aus-Schalter, und ein roter Warntext erinnert Sie daran, dass Ihre Daten an diesen Anbieter gehen. Lesen Sie dessen Bedingungen im Hinblick auf den Datenschutz (DSGVO) sorgfältig, bevor Sie ihn einschalten.
+- **Automatische Reihenfolge.** Sie wählen nicht einen einzelnen Dienst. Jeder Dienst mit hinterlegtem Schlüssel wird automatisch verwendet, in fester Reihenfolge, der günstigste zuerst. Fällt ein Dienst aus, gibt IRONSTICK die Anfrage an den nächsten weiter. Der ausgefallene Dienst wird nach einer vom Fehler abhängigen Wartezeit erneut versucht; er wird nur dann für den Rest des Tages übersprungen, wenn sein Guthaben aufgebraucht oder die Ursache unbekannt ist.
+- **Statusanzeige.** Die runde Anzeige vor jedem Dienst zeigt seinen Platz in der Reihenfolge. Grün bedeutet verfügbar, rot derzeit nicht verfügbar, und grau bedeutet, dass kein Schlüssel hinterlegt ist. Zeigen Sie auf eine rote Anzeige, um den Grund und den nächsten Versuchszeitpunkt zu sehen.
+- **Kostenlose Dienste für Hintergrundaufgaben.** Die Dienste oberhalb der dicken Linie sind kostenlose Angebote, die nur für Hintergrundaufgaben verwendet werden, etwa die E-Mail-Priorisierung, den Datenkonsistenz-Monitor, das Tagesbriefing und das Lagebild. Ihre Anzeige zeigt eine Uhr. Jeder hat einen eigenen Ein/Aus-Schalter, und ein roter Warntext erinnert Sie daran, dass Ihre Daten an diesen Anbieter gehen. Lesen Sie dessen Bedingungen im Hinblick auf den Datenschutz (DSGVO) sorgfältig, bevor Sie ihn einschalten.
 - **Kostenpflichtige Dienste.** Die Dienste unterhalb der dicken Linie werden in der angezeigten Reihenfolge verwendet. Ihr Schalter *Red/Blue Team erlauben* lässt die KI einen fertigen Schriftsatz ein zweites Mal als kritischer Prüfer lesen und alles markieren, was vom Text nicht gedeckt ist. Wesentliche Befunde halten das Ergebnis zurück. Der Schalter ist erst benutzbar, wenn für diesen Dienst ein Schlüssel gespeichert ist.
 - **Einen Schlüssel eintragen.** Fügen Sie den Zugangsschlüssel in das Schlüsselfeld ein und klicken Sie auf *Speichern*. Das Augensymbol zeigt oder verbirgt den Schlüssel. Reihenfolge und Anzeigen werden sofort aktualisiert.
 - **Konto-Links.** Unter jedem Dienst gibt es Links zum Erstellen eines Kontos und eines Zugangsschlüssels, zur Kontostandsabfrage (bei einigen Diensten) und zu den Nutzungsbedingungen und der Datenschutzerklärung. Sie öffnen sich im IRONSTICK-Browserfenster.
@@ -183,25 +183,25 @@ Die **Hintergrundaufgaben** fassen die automatisch laufenden Aufgaben mit je ein
 **Hintergrundaufgaben**
 
 - **Fallbeschreibungen automatisch aktualisieren (externe KI).** Bringt einmal täglich die Fallbeschreibungen auf den Stand neuer Dokumente und Termine. Dies verwendet externe KI. Mit dem Einschalten stimmen Sie ausdrücklich der Verarbeitung durch externe KI zu.
-- **Gerichtsportal automatisch abrufen.** Ruft neue Aktendaten und Termine aus dem Gerichtsportal ab. Es ruft nur Daten ab und verwendet keine KI. Dieser Schalter erscheint nur, wenn die Länderfunktionen für Rumänien aktiv sind.
-- **E-Mails automatisch abrufen.** Prüft im Hintergrund auf neue E-Mails und ordnet sie Fällen zu, wobei externe KI zum Sortieren verwendet wird. Dies ist derselbe Schalter wie oben in der Karte E-Mail-Monitor.
+- **Gerichtsportal automatisch abrufen.** Ruft neue Aktendaten und Termine aus dem nationalen Gerichtsportal ab. Es ruft nur Daten ab und verwendet keine KI. Dieser länderspezifische Schalter erscheint nur, wenn die Länderfunktionen für Rumänien aktiv sind.
+- **E-Mails automatisch abrufen.** Prüft im Hintergrund auf neue E-Mails und ordnet sie Fällen zu; externe KI bewertet nur deren Dringlichkeit. Dies ist derselbe Schalter wie oben in der Karte E-Mail-Monitor.
 
-### Büro-Server und Unterschriften
+### IRONSTICK SERVER und Unterschriften
 
-![Konfiguration mit den geöffneten Karten Büro-Server und Unterschriften](https://www.ironstick.legal/img/screens/2%20konfig%207-8.png)
+![Konfiguration mit den geöffneten Karten IRONSTICK SERVER und Unterschriften](https://www.ironstick.legal/img/screens/2%20konfig%207-8.png)
 
-Die Verbindung zum Büro-Server und das Unterschriftenfeld.
+Die Verbindung zum IRONSTICK SERVER und das Unterschriftenfeld.
 
-Der **Büro-Server** verbindet diesen Arbeitsplatz mit dem gemeinsamen Server Ihres Büros und zeigt, wer sonst noch darauf arbeitet.
+Der **IRONSTICK SERVER** verbindet diesen Arbeitsplatz mit dem IRONSTICK SERVER — dem gemeinsamen Server Ihres Büros — und zeigt, wer sonst noch darauf arbeitet.
 In **Unterschriften** hinterlegen Sie Ihre handschriftliche Unterschrift, die IRONSTICK in Ihre Dokumente einsetzen kann. Unter diesen Karten folgen die Briefkopf-Vorlage, das Login-Protokoll und die Versionszeile.
 
 #### Was Sie hier tun können
 
-**Büro-Server**
+**IRONSTICK SERVER**
 
 - **Serververbindung.** Der Schalter schaltet die Verbindung ein oder aus. Die Suche nach dem Server läuft nur, solange er ein ist. Die Statuszeile zeigt, ob Sie verbunden sind, ob der Zugriff angefragt wurde und auf Genehmigung wartet oder ob kein Server gefunden wurde. Der Rest der Karte ist ausgegraut, bis Sie verbunden sind.
-- **Server-Seiten.** Bei bestehender Verbindung öffnet ein Klick auf die grüne Statuszeile die Webseite des Servers. Zwei Schaltflächen öffnen die Verwaltungsseite des Speichersystems und die IRONSTICK-Serververwaltung. Dort melden Sie sich mit den jeweiligen Passwörtern an.
-- **Benutzer.** Die Liste zeigt jeden auf dem Büro-Server registrierten Benutzer. Ein grüner Punkt bedeutet, dass der Benutzer online ist.
+- **Server-Seiten.** Bei bestehender Verbindung öffnet ein Klick auf die grüne Statuszeile die Webseite des Servers. Zwei Schaltflächen öffnen die Verwaltungsseite des Server-Speichers und die Verwaltung des IRONSTICK SERVER. Jede Seite verlangt eigene Zugangsdaten.
+- **Benutzer.** Die Liste zeigt jeden auf dem Server registrierten Benutzer. Ein grüner Punkt bedeutet, dass der Benutzer online ist.
 
 **Unterschriften (nur PC)**
 
@@ -231,11 +231,11 @@ Von hier aus legen Sie neue Mandanten an, importieren bestehende Kontakte, druck
 Das Bild zeigt außerdem das QR-Code-Fenster, das sich über das WhatsApp-Symbol öffnet, und das Social-Media-Fenster, das sich über das Social-Symbol öffnet.
 
 1. **Suche.** Grenzt die Liste beim Tippen ein. Sie durchsucht Namen, Telefonnummern und E-Mail-Adressen; ein Sternchen (\*) funktioniert als Platzhalter.
-2. **Mandant importieren.** Übernimmt Mandanten aus einer CSV-Datei oder einer vCard-Datei.
+2. **Mandant importieren.** Importiert Mandanten aus einer CSV-Datei oder einer vCard-Datei.
 3. **Neuer Mandant.** Öffnet ein leeres Mandantenformular.
 4. **Liste drucken.** Erstellt ein PDF der ganzen Mandantenliste, das Sie in Ihrem Ordner Dokumente oder in Google Drive speichern.
 5. **Mandantenreferenz.** Die violette Nummer (zum Beispiel *@C0000001*) ist die Referenznummer des Mandanten. Klicken Sie darauf, um sie in die Zwischenablage zu kopieren, zum Beispiel um sie in den Chat oder ein Dokument einzufügen.
-6. **Fälle.** Die Anzahl der Fälle dieses Mandanten. Eine rote Wolke bedeutet, dass mindestens ein Fall auf dem Büro-Server geteilt ist; eine rote Flamme bedeutet, dass mindestens ein Fall kürzlich aufgeflammt ist.
+6. **Fälle.** Die Anzahl der Fälle dieses Mandanten. Eine rote Wolke bedeutet, dass mindestens ein Fall über den IRONSTICK SERVER geteilt ist; eine rote Flamme bedeutet, dass mindestens ein Fall kürzlich aufgeflammt ist.
 7. **Bearbeiten.** Öffnet das Mandantenformular mit den Angaben dieses Mandanten.
 8. **Löschen.** Entfernt den Mandanten nach einer Bestätigung.
 
@@ -243,7 +243,7 @@ Das Bild zeigt außerdem das QR-Code-Fenster, das sich über das WhatsApp-Symbol
 
 #### Einen Mandanten finden
 
-- **Suche beim Tippen.** Die Suche prüft Vor- und Nachnamen getrennt und findet auch ähnlich klingende Namen, sodass kleine Tippfehler trotzdem ein Ergebnis liefern. Akzente werden ignoriert, „Stefan“ findet also auch „Ștefan“.
+- **Suche beim Tippen.** Die Suche prüft Vor- und Nachnamen getrennt und findet auch ähnlich klingende Namen, sodass kleine Tippfehler trotzdem ein Ergebnis liefern. Akzente werden ignoriert, „Francois“ findet also auch „François“.
 - **Telefon und E-Mail.** Tippen Sie einen Teil einer Telefonnummer (Leerzeichen und Bindestriche spielen keine Rolle) oder einen Teil einer E-Mail-Adresse. Tippen Sie mehrere Wörter, muss ein Mandant alle erfüllen.
 - **Die Suche zurücksetzen.** Das kleine X im Suchfeld zeigt wieder die volle Liste. Passt nichts, sagt die Liste das.
 - **Das Dringendste zuerst.** Mandanten mit einem aufgeflammten Fall stehen oben, dann Mandanten mit den meisten Fällen, dann die mit der jüngsten Aktivität, dann alphabetisch.
@@ -294,7 +294,7 @@ Das Bild zeigt außerdem das Nucleu-Fenster und das Snakes-Fenster, die sich üb
 1. **Notizen.** Öffnet die Notizwand für diesen Mandanten.
 2. **Drucken.** Erstellt eine PDF-Übersicht aller Fälle dieses Mandanten, mit oder ohne KI-Zusammenfassung des jüngsten Stands.
 3. **Neuer Sachverhalt.** Legt eine neue Gruppe für zusammengehörige Fälle an.
-4. **Universum.** Zeigt die Fälle des Mandanten als Netzwerk, als 3D-Karte oder als 2D-Karte. Erscheint ab drei Fällen.
+4. **Universum.** Zeigt die Fälle des Mandanten als Netzwerk, als 3D-Karte oder als 2D-Karte. Verfügbar, sobald der Mandant drei oder mehr Fälle hat.
 5. **Neuer Fall.** Öffnet das Formular für einen neuen Fall dieses Mandanten.
 6. **Sachverhalt.** Die Titelleiste eines Sachverhalts. Klicken Sie darauf, um den Sachverhalt ein- oder auszuklappen. Die beiden Symbole in der Mitte öffnen den Nucleu und die Snakes des Sachverhalts; rechts sehen Sie die Anzahl der Fälle, Umbenennen (Stift) und Löschen (X).
 7. **Nucleu des Sachverhalts.** Eine allgemeine KI-Instruktion, die für jeden Fall dieses Sachverhalts gilt. Schreiben Sie hier, was jedes für diese Fälle verfasste Dokument berücksichtigen muss, und speichern Sie dann.
@@ -309,12 +309,12 @@ Das Bild zeigt außerdem das Nucleu-Fenster und das Snakes-Fenster, die sich üb
 
 - **Einen Fall öffnen.** Klicken Sie auf eine Zeile, um den Fall in seinem Reiter Chronik zu öffnen.
 - **Nummern und Tags.** Jede Zeile beginnt mit der Mandanten-/Fallnummer, gefolgt von blauen Tags für Land, Rechtsgebiet und Verfahrensstadium. Zeigen Sie auf einen Tag, um seinen vollen Namen zu sehen.
-- **Fallnummer in Orange.** Wurde der Fall im Gerichtsportal gefunden (Länderfunktionen), wird das Aktenzeichen des Gerichts in Orange angezeigt. Klicken Sie darauf, um die Portaldetails zu sehen: Gericht, Abteilung, Gegenstand, Parteien, Rechtsmittel und alle Verhandlungen mit ihren Ergebnissen. Von dort können Sie auch den Fall öffnen.
+- **Fallnummer in Orange.** Wurde der Fall in einem nationalen Gerichtsportal gefunden (länderspezifische Funktion), wird das Aktenzeichen des Gerichts in Orange angezeigt. Klicken Sie darauf, um die Portaldetails zu sehen: Gericht, Abteilung, Gegenstand, Parteien, Rechtsmittel und alle Verhandlungen mit ihren Ergebnissen. Von dort können Sie auch den Fall öffnen.
 - **Titel und Gegner.** Auf den Falltitel folgt der Gegner in Grau; bei mehreren Gegnern wird nur der erste angezeigt, plus die Anzahl der weiteren. Inaktive Fälle werden hellgrau dargestellt.
 - **Flamme.** Eine rote Flamme markiert einen Fall, der kürzlich aufgeflammt ist.
 - **Priorität und Status.** Die erste Pille zeigt die Priorität (Dringend und Hoch in Rot, Normal in Grau, Niedrig in Grün); die zweite zeigt den Status (Aktiv in Grün, Pausiert in Rot, Inaktiv in Grau).
 - **Fälle eines anderen Mandanten.** Gehört ein Fall zu einem anderen Ihrer Mandanten, der im Verfahren auf derselben Seite steht, zeigt die Zeile *Originalakte* mit der Nummer und dem Namen dieses Mandanten sowie der Rolle in einer bernsteinfarbenen Pille. Klicken Sie auf die Nummer, um zur Fallliste dieses Mandanten zu gelangen.
-- **Rote Wolke.** Erscheint, wenn ein Büro-Server verbunden ist und der Fall dort geteilt ist. Klicken Sie darauf, um den Fall in seinem Reiter Fall zu öffnen.
+- **Rote Wolke.** Erscheint, wenn der IRONSTICK SERVER verbunden ist und der Fall dort geteilt ist. Klicken Sie darauf, um den Fall in seinem Reiter Fall zu öffnen.
 
 **Fälle in Sachverhalten organisieren**
 
@@ -341,9 +341,9 @@ Das Bild zeigt außerdem das Nucleu-Fenster und das Snakes-Fenster, die sich üb
 - **Neuer Fall.** Das Formular verlangt einen Titel (Pflichtfeld), Priorität und Status. Haken Sie *Kläger ist der Mandant* an, um den Namen des Mandanten automatisch einzutragen, oder tippen Sie einen anderen Kläger ein, und erfassen Sie den Gegner.
 - **Weitere Mandanten im selben Verfahren.** Haben Sie weitere Mandanten, können Sie diese nach Name oder *@C*-Nummer suchen und dem Fall hinzufügen. Der Fall erscheint dann auch in deren Falllisten.
 - **Interessenkonflikt-Prüfung.** Sobald Ihre eigene Seite und der Gegner ausgefüllt sind, vergleicht diese Schaltfläche die Namen mit Ihren eigenen Mandanten, Parteien und Fällen und zeigt das Ergebnis. Nichts verlässt diesen Computer.
-- **Weitere Optionen.** Markieren Sie einen Fall als öffentlich (in den Medien bekannt) oder sperren Sie ihn, sodass kein anderer Fall mit ihm verknüpft werden kann, weder von Hand noch automatisch noch durch die KI.
+- **Weitere Optionen.** Markieren Sie einen Fall als öffentlich (in den Medien berichtet) oder sperren Sie ihn, sodass kein anderer Fall mit ihm verknüpft werden kann, weder von Hand noch automatisch noch durch die KI.
 - **Rechtliche Angaben.** Die Eingabe eines Aktenzeichens des Gerichts setzt *hat ein Aktenzeichen* und trägt das heutige Datum ein, das Sie ändern können. Wählen Sie zuerst das Land; die Rechtsgebiete und Verfahrensstadien für dieses Land werden dann angeboten. Ein freies Beschreibungsfeld vervollständigt das Formular.
-- **Abonnierte Fälle.** Ist ein Büro-Server verbunden und Sie folgen Fällen eines Kollegen, erscheinen sie in einer eigenen Karte mit einer blauen Wolke, dem Namen des Inhabers und der letzten Änderung des Inhabers. Klicken Sie auf einen, um ihn zu öffnen.
+- **Abonnierte Fälle.** Ist der IRONSTICK SERVER verbunden und Sie folgen Fällen eines Kollegen, erscheinen sie in einer eigenen Karte mit einer blauen Wolke, dem Namen des Inhabers und der letzten Änderung des Inhabers. Klicken Sie auf einen, um ihn zu öffnen.
 - **Noch keine Fälle.** Ein Mandant ohne Fälle zeigt einen kurzen Hinweis mit einer Schaltfläche *Neuer Fall*.
 
 ### Notizen und das Fall-Universum
@@ -364,7 +364,7 @@ Das Bild zeigt die Notizwand, das geöffnete Universum-Menü und beide Karten.
 **Notizwand**
 
 - **Eine Notiz hinzufügen.** Die erste, blassgelbe Karte *Neue Notiz* öffnet ein Textfeld (bis zu 1.000 Zeichen) mit einem optionalen Datum. Speichern heftet die Notiz an die Wand; die neuesten Notizen stehen oben.
-- **Drei Arten von Notizen.** Gelbe Notizen sind Ihre eigenen; klicken Sie auf eine, um sie zu bearbeiten. Zettel auf kariertem Papier sind Einträge, die sich die KI für diesen Mandanten gemerkt hat. Weiße Karten sind Notizen von Kollegen, die einem geteilten Fall auf dem Büro-Server folgen.
+- **Drei Arten von Notizen.** Gelbe Notizen sind Ihre eigenen; klicken Sie auf eine, um sie zu bearbeiten. KI-Notizen erscheinen auf kariertem Papier: Einträge, die sich die KI für diesen Mandanten gemerkt hat. Weiße Karten sind Notizen von Kollegen, die einem geteilten Fall über den IRONSTICK SERVER folgen.
 - **Kopieren und löschen.** Jede Notiz hat eine kleine Kopieren-Schaltfläche und eine Löschen-Schaltfläche. Eine Notiz mit Datum zeigt es mit einem kleinen Wecker.
 - **Notizen aus der Fallliste gehören dem Mandanten.** Hier geöffnete Notizen sind nicht an einen einzelnen Fall gebunden.
 
@@ -372,7 +372,7 @@ Das Bild zeigt die Notizwand, das geöffnete Universum-Menü und beide Karten.
 
 - **Was Sie sehen.** Jeder Fall ist ein Sechseck, Institutionen sind Dreiecke. Fälle sind verbunden, wenn sie Personen, Firmen oder Institutionen teilen, wenn ein Dokument des einen Falls im anderen genannt wird oder wenn ein Fall die Fallnummer des anderen erwähnt. Fälle desselben Sachverhalts bilden eine farbige Wolke.
 - **Aufbau der Karte.** Die Karte baut sich vor Ihren Augen auf, während ein Fortschrittsbalken läuft. Die Zeile oben links zeigt die Anzahl der Fälle, Verbindungen und Sachverhalte.
-- **Hindurchfliegen.** W/A/S/D bewegen vorwärts, rückwärts und seitwärts, R/F nach oben und unten; die Pfeiltasten oder Ziehen mit der Maus drehen die Ansicht. Umschalt beschleunigt, die Leertaste bremst, und das Mausrad bewegt vor oder zurück. Das Feld unten links listet die Tasten; der Balken unten rechts zeigt Ihre Geschwindigkeit.
+- **Hindurchfliegen.** W/A/S/D bewegen vorwärts, rückwärts und seitwärts, R/F nach oben und unten; die Pfeiltasten oder Ziehen mit der Maus drehen die Ansicht. Umschalt bewegt schneller, die Leertaste verlangsamt, und das Mausrad bewegt vor oder zurück. Das Feld unten links listet die Tasten; der Balken unten rechts zeigt Ihre Geschwindigkeit.
 - **Einen Punkt markieren und anfliegen.** Klicken Sie auf einen Fall oder eine Institution: Die Ansicht fliegt dorthin, und er bleibt markiert, zusammen mit seinen Verbindungen und dem Grund jeder Verbindung. Klicken Sie erneut darauf, um die Markierung zu entfernen.
 - **Von der Karte aus öffnen.** Doppelklicken Sie auf einen Fall, um ihn zu öffnen. Ein Doppelklick auf eine Person oder Firma öffnet die Personenliste, eine Institution öffnet die Institutionenliste; der Eintrag ist dort gelb hervorgehoben.
 - **Suche.** Das Suchfeld unten rechts findet einen Namen, eine Telefonnummer oder eine E-Mail und markiert den besten Treffer, genau wie ein Klick.
@@ -383,7 +383,7 @@ Das Bild zeigt die Notizwand, das geöffnete Universum-Menü und beide Karten.
 
 - **Eine Zeichnung auf kariertem Papier.** Dasselbe Netzwerk wird flach gezeichnet, wie eine technische Zeichnung. Namen erscheinen, wenn Sie auf einen Punkt zeigen oder ihn markieren.
 - **Verschieben und zoomen.** Ziehen Sie mit der Maus oder verwenden Sie W/A/S/D oder die Pfeiltasten, um das Blatt zu verschieben. Das Mausrad zoomt auf den Zeiger zu.
-- **Markieren, öffnen, suchen.** Ein Klick auf einen Punkt bewegt ihn in die Mitte und markiert ihn (er pulsiert); ein Klick auf leeres Papier entfernt die Markierung und zoomt heraus. Ein Doppelklick öffnet den Fall, die Person oder die Institution, wie auf der 3D-Karte. Das Suchfeld und der Schalter *Fall-Verbindungen* funktionieren auf dieselbe Weise.
+- **Markieren, öffnen, suchen.** Ein Klick auf einen Punkt bewegt ihn in die Mitte und markiert ihn (er pulsiert); ein Klick auf leeres Papier entfernt die Markierung und zoomt heraus. Ein Doppelklick öffnet den Fall, die Person oder die Institution. Das Suchfeld markiert den besten Treffer; der Schalter *Fall-Verbindungen* fügt die Personen und Firmen der Fälle hinzu.
 - **Schließen.** Das X oben rechts oder die Escape-Taste schließt die Karte.
 
 ## 5. Fall
@@ -407,22 +407,22 @@ Ist ein IRONSTICK SERVER verbunden, kann ein Fall mit Kolleginnen und Kollegen g
 
 **Falldaten**
 
-- **Nummer, Titel und Aktenzeichen.** Die Karte zeigt die interne Mandanten-/Fallnummer, den Titel und das amtliche Aktenzeichen. Ist dem Fall eine Gerichtsportal-Akte zugeordnet, erscheint das Aktenzeichen orange mit gepunkteter Unterstreichung; ein Klick darauf öffnet die Details der Portal-Akte (nur Länderfunktionen).
-- **Priorität und Temperatur.** Die von Ihnen gesetzte Priorität erscheint als farbiges Label. Eine kleine rote Flamme daneben zeigt, dass der Fall zuletzt aufgeflammt ist (neue Fristen, Verhandlungen, Einträge oder E-Mails in den letzten 14 Tagen); Ihre eigene Priorität ändert sie nie.
-- **Parteien und rechtliche Einordnung.** Öffentlich ja/nein, Kläger (markiert, wenn es Ihr Mandant ist), Gegner, Land, Rechtsgebiet und Stadium, ob eine Dossiernummer vergeben wurde (mit Datum), Falltyp, Startdatum und die Beschreibung.
+- **Nummer, Titel und Aktenzeichen.** Die Karte zeigt die interne Mandanten-/Fallnummer, den Titel und das amtliche Aktenzeichen. Ist dem Fall eine Gerichtsportal-Akte zugeordnet, erscheint das Aktenzeichen orange mit gepunkteter Unterstreichung; ein Klick darauf öffnet die Details der Portal-Akte (länderspezifische Funktion).
+- **Priorität und Aktivität.** Die von Ihnen gesetzte Priorität erscheint als farbiges Label. Eine kleine rote Flamme daneben zeigt, dass der Fall zuletzt aufgeflammt ist (neue Fristen, Verhandlungen, Einträge oder E-Mails in den letzten 14 Tagen); Ihre eigene Priorität ändert sie nie.
+- **Parteien und rechtliche Einordnung.** Öffentlich ja/nein, Kläger (markiert, wenn es Ihr Mandant ist), Gegner, Land, Rechtsgebiet und Stadium, ob eine Gerichtsaktennummer vergeben wurde (mit Datum), Falltyp, Startdatum und die Beschreibung.
 - **Umfang des Falls.** Unter der Beschreibung zählt eine Tabelle die eingehenden, ausgehenden und Beweis-PDFs, Bilder und Audiodateien, mit Wortanzahl und Dateigröße, einer Fallsumme und einer Schätzung, wie viel Text die KI lesen müsste.
 
 **Schaltflächen auf der Fallkarte**
 
 - **Drucken.** Wählen Sie *Chronologie* oder *Dokumentation*, und der Fall wird als PDF exportiert.
-- **Bearbeiten.** Öffnet das Fallformular: Titel, Priorität, Status, Kläger (oder „der Mandant ist Kläger“), weitere eigene Mandanten im selben Verfahren, Gegner, eine Interessenkonfliktprüfung (aktiv, sobald beide Seiten ausgefüllt sind), öffentlicher Fall, ein Schalter, der verhindert, dass diesem Fall etwas zugeordnet wird (von Hand, automatisch oder durch die KI), Aktenzeichen, Dossiernummer mit Datum, Land, Rechtsgebiet, Stadium und Beschreibung.
+- **Bearbeiten.** Öffnet das Fallformular: Titel, Priorität, Status, Kläger (oder *Kläger ist der Mandant*), weitere eigene Mandanten im selben Verfahren, Gegner, eine Interessenkonfliktprüfung (aktiv, sobald beide Seiten ausgefüllt sind), öffentlicher Fall, ein Schalter, der verhindert, dass diesem Fall etwas zugeordnet wird (von Hand, automatisch oder durch die KI), Aktenzeichen, Gerichtsaktennummer mit Datum, Land, Rechtsgebiet, Stadium und Beschreibung.
 - **Löschen.** Nach einer Bestätigung wird der Fall vollständig aus IRONSTICK entfernt. Zuvor wird eine vollständige Sicherung des Falls erstellt; schlägt die Sicherung fehl, wird nichts gelöscht.
 
 **Teilen und Übergeben (nur bei verbundenem IRONSTICK SERVER)**
 
 - **Teilen.** Teilen Sie den Fall *für alle Benutzer* oder *für ausgewählte Benutzer*, die Sie in der Liste anhaken. Der Fall wird dann im Hintergrund auf den IRONSTICK SERVER hochgeladen. Sobald er geteilt ist, wird dieselbe Schaltfläche rot und lautet *Freigabe widerrufen*, womit die Freigabe sofort zurückgezogen wird.
 - **Freigabekarte.** Unter den Falldaten zeigt eine Karte den Upload-Fortschritt und danach die Abonnenten, jeweils mit Online-Punkt und der Zeit des letzten Zugriffs. Anfragen von Kolleginnen und Kollegen erscheinen hervorgehoben mit *Zulassen* und *Ablehnen*; jeder Abonnent kann einzeln entfernt werden.
-- **Fall übergeben.** Wählen Sie den Empfänger aus der Liste der Benutzer des IRONSTICK SERVERs und klicken Sie auf *Übergeben*. Der Fall wird gepackt und über den IRONSTICK SERVER gesendet; sobald der Empfänger ihn angenommen hat, wird der Fall von Ihrem Computer entfernt (eine Sicherung bleibt erhalten). Ohne IRONSTICK SERVER gibt es keine Übergabe.
+- **Fall übergeben.** Wählen Sie den Empfänger aus der Liste der Benutzer des IRONSTICK SERVERs und klicken Sie auf *Übergeben*. Der Fall wird gepackt und über den IRONSTICK SERVER gesendet; sobald der Empfänger ihn angenommen hat, wird der Fall von Ihrem Computer entfernt (eine Sicherung bleibt erhalten).
 - **Mit Ihnen geteilte Fälle.** Ein abonnierter Fall kann gelesen, aber nicht geändert werden; Bearbeitungsschaltflächen zeigen stattdessen einen Hinweis. Unter der Beschreibung sehen Sie den Eigentümer und die anderen Abonnenten. *Abonnement löschen* beendet das Abonnement und entfernt die Kopie.
 
 ### Die Registerkarten im Überblick: Mandant bis Karte
@@ -455,7 +455,7 @@ Jede Linie im Bild führt von einer Registerkarte zur Ansicht, die sie öffnet.
 **Verbindungen**
 
 - **Beziehungsdiagramm.** Zeigt die Personen und Institutionen des Falls und wie sie verknüpft sind, auf einer oder mehreren Seiten; die Kopfzeile zählt Entitäten und Verbindungen. Wo es viele sind, werden die dringendsten angezeigt.
-- **Mit dem Diagramm arbeiten.** Zoomen Sie mit den Lupen-Schaltflächen hinein und heraus. Klicken Sie auf einen Namen, um diese Person oder Institution zu öffnen. *Wallpaper* lädt das Diagramm als großes Poster-PDF herunter; *Erfassen* übergibt es an die Dokumentenerfassung, wo Sie es einem Fall zuordnen. Beide Export-Schaltflächen sind auf dem Android-Tablet nicht verfügbar.
+- **Mit dem Diagramm arbeiten.** Zoomen Sie mit den Lupen-Schaltflächen hinein und heraus. Klicken Sie auf einen Namen, um diese Person oder Institution zu öffnen. *Wallpaper* lädt das Diagramm als großes Poster-PDF herunter; *Erfassen* übergibt es an die Dokumentenerfassung, wo Sie es einem Fall zuordnen. Keine der beiden Export-Schaltflächen ist auf dem Android-Tablet verfügbar.
 
 **Karte**
 
@@ -489,7 +489,7 @@ Die Registerkarte Chronik: die Chronik des Falls, neueste Einträge zuerst.
 Die Chronik listet jeden Eintrag des Falls — Ereignisse, Briefe, E-Mails, Telefonate, Fotos, Aufnahmen — mit den neuesten zuerst. Jede Zeile zeigt Nummer und Datum, Titel, Beschreibung und Labels, die angehängten Dateien, eine Fristmarkierung und die Aktionen.
 Die vergrößerte Zeile unten im Bild zeigt die Teile eines einzelnen Eintrags.
 
-1. **Notizen.** Öffnet die Pinnwand des Falls. Ihre eigenen Notizen sind gelb, Notizen von Abonnenten eines geteilten Falls sind weiße Karten, und Notizen, die sich die KI für diesen Fall gemerkt hat, erscheinen als kleine karierte Zettel. Klicken Sie auf *Neue Notiz*, um eine zu schreiben (bis zu 1.000 Zeichen, optional mit Datum), klicken Sie auf eine gelbe Notiz, um sie zu bearbeiten, auf eine beliebige Notiz, um sie vollständig zu lesen; jede hat kleine Schaltflächen zum Kopieren und Löschen.
+1. **Notizen.** Öffnet die Pinnwand des Falls. Ihre eigenen Notizen sind gelb, Notizen von Abonnenten eines geteilten Falls sind weiße Karten, und Notizen, die sich die KI für diesen Fall gemerkt hat, erscheinen auf kariertem Papier. Klicken Sie auf *Neue Notiz*, um eine zu schreiben (bis zu 1.000 Zeichen, optional mit Datum), klicken Sie auf eine gelbe Notiz, um sie zu bearbeiten, auf eine beliebige Notiz, um sie vollständig zu lesen; jede hat kleine Schaltflächen zum Kopieren und Löschen.
 2. **Dossier.** Öffnet den Dossier-Assistenten, der ein vollständiges Dossier des Falls erstellt. Er erscheint nur, wenn die Chronik Einträge hat.
 3. **Text verfassen.** Wählen Sie *Mit KI Hilfe*, um den KI-Chat mit der Bitte zu öffnen, ein Dokument für diesen Fall zu entwerfen, oder *Leeres Textdokument*, um in der Textverarbeitung zu schreiben. Auf dem Android-Tablet nicht sichtbar.
 4. **Zu einem Datum springen.** Wählen Sie ein Datum und klicken Sie auf die Lupe, um zur Seite zu gehen, die es enthält.
@@ -523,7 +523,7 @@ Bei geheimen Dokumenten sind Tag, Stift und Kopieren ausgegraut; nur Löschen bl
 - **Relevanz-Radar.** Zeigt, welche anderen Einträge — in diesem und in anderen Fällen — inhaltlich am ähnlichsten sind. Klicken Sie auf einen Treffer, um dorthin zu springen.
 - **Tags.** Ordnen Sie dem Eintrag kurze Tags zu (bis zu 100 Zeichen): *globale* Tags in Rot, Gelb, Grün oder Blau oder *Fall*-Tags in Petrol. Klicken Sie auf einen vorhandenen Tag, um ihn zu ändern, oder auf sein ×, um ihn zu entfernen. Das Tag-Symbol nimmt die Farbe des ersten Tags an.
 - **Arbeitsmappen.** Listet die Mappen jedes Sachverhalts auf, zu dem der Fall gehört; haken Sie eine Mappe an, um den Eintrag darin abzulegen, oder legen Sie eine *Neue Mappe* an. Gehört der Fall zu keinem Sachverhalt, weist ein Hinweis darauf hin.
-- **Bearbeiten.** Ein Eintrag ohne Dokument öffnet das Chronik-Eintragsformular. Ein Eintrag mit PDF öffnet das Dokumentformular: Klassifizierung (Land, Sprache, Rechtsgebiet, Dokumenttyp, Stadium, Institutionstyp, Dokumentdatum), die Eintragsart (Beweis, eingehend oder ausgehend), ein Kontrollkästchen für Gerichtsentscheid und dieselben Eintragsfelder wie unten; Schaltflächen dort lassen Sie das PDF ansehen und seinen extrahierten Text lesen.
+- **Bearbeiten.** Ein Eintrag ohne Dokument öffnet das Chronik-Eintragsformular. Ein Eintrag mit PDF öffnet das Dokumentformular: Klassifizierung (Land, Sprache, Rechtsgebiet, Dokumenttyp, Stadium, Institutionstyp, Dokumentdatum), die Eintragsart (Beweis, eingehend oder ausgehend), ein Kontrollkästchen für Gerichtsentscheid und die üblichen Eintragsfelder (Titel, Datum, Schlagwörter, Zeiten, Beschreibung, beteiligte Personen, Frist); Schaltflächen dort lassen Sie das PDF ansehen und seinen extrahierten Text lesen.
 - **In einen anderen Fall kopieren.** Wählen Sie einen Zielfall desselben Mandanten; der Eintrag wird mit seinen Dokumenten, Bildern und Transkripten kopiert. *Kopieren* wird aktiv, sobald ein Fall gewählt ist.
 - **Löschen.** Entfernt den Eintrag nach einer Bestätigung.
 
@@ -573,7 +573,7 @@ Die Registerkarte **Dokumentation** ist die Papierseite des Falls: Sie listet nu
 Jede Zeile zeigt Eintragsnummer, Datum, Titel, eine kurze Zusammenfassung, die Klassifizierungs-Tags und die Werkzeuge für dieses Dokument.
 Die blaue Schaltfläche rechts auf der Karte öffnet die **Chronologie** — die eingehenden und ausgehenden Dokumente als Flussdiagramm von oben nach unten gezeichnet, wie rechts im Bild gezeigt.
 
-1. **Richtungsfilter.** *Alle* zeigt jedes Dokument, *IN* (gelb) nur eingehende Dokumente, *OUT* (grün) nur Dokumente, die Sie gesendet haben. Der aktive Chip wird fett mit Rahmen dargestellt.
+1. **Richtungsfilter.** *Alle* zeigt jedes Dokument, *IN* (orange) nur eingehende Dokumente, *OUT* (grün) nur Dokumente, die Sie gesendet haben. Der aktive Chip wird fett mit Rahmen dargestellt.
 2. **Zu Datum springen.** Wählen Sie im Kalenderfeld ein Datum und klicken Sie auf die Lupe, um zur Seite mit diesem Datum zu springen. Das Feld erscheint nur, wenn die Liste länger als drei Seiten ist; der Kalender bietet nur Daten an, die im Fall vorkommen.
 
 #### Was Sie hier tun können
@@ -660,7 +660,7 @@ Im zweiten Schritt, **Dossier-Daten** (links), füllen Sie das Deckblatt aus, pr
 
 Die KI-Bewertung des Falls mit der Erfolgsaussichten-Anzeige.
 
-Die Registerkarte **KI-Bewertung** gibt eine schriftliche Beurteilung des Falls durch die KI. Die beschreibenden Abschnitte stützen sich auf Ihre gesamte Fallakte; die Erfolgsaussichten werden nur danach beurteilt, was dem Gericht in seiner Akte vorliegt. Sie zeigt die Grundlage des Verfahrens, den Stand der Behördenakte mit einer Schätzung der Erfolgsaussichten, den Stand der vollständigen IRONSTICK-Akte, kritische Hinweise, Stärken und Risiken sowie Links zu verwandten Fällen.
+Die Registerkarte **KI-Bewertung** gibt eine schriftliche Beurteilung des Falls durch die KI. Die beschreibenden Abschnitte stützen sich auf Ihre gesamte Fallakte; die Erfolgsaussichten werden nur danach beurteilt, was dem Gericht in seiner Akte vorliegt. Sie zeigt die Grundlage des Verfahrens, den Stand der Gerichtsakte (der bei Gericht oder Behörde geführten Akte) mit einer Schätzung der Erfolgsaussichten, den Stand der vollständigen IRONSTICK-Akte, kritische Hinweise, Stärken und Risiken sowie Links zu verwandten Fällen.
 Jede Eintragsnummer, jeder Fallbezug und jedes Aktenzeichen im Text ist ein Link. Das Datum unter dem Titel zeigt, wann die Bewertung erstellt wurde.
 
 1. **Neu bewerten.** Startet eine neue Bewertung. Ohne Bewertung lautet die Schaltfläche *Bewertung anfordern*. Sie ist ausgegraut, wie im Bild, wenn seit der letzten Bewertung keine neuen Dokumente eingegangen sind (es sei denn, Sie schreiben unten einen Kommentar) oder wenn der Fall nicht aktiv ist.
@@ -678,7 +678,7 @@ Jede Eintragsnummer, jeder Fallbezug und jedes Aktenzeichen im Text ist ein Link
 **Die Bewertung lesen**
 
 - **Grundlage des Verfahrens.** Wer was gegen wen vor welchem Gericht oder welcher Behörde geltend macht.
-- **Stand der Behördenakte und Erfolgsaussichten.** Beschreibt nur, was dem Gericht oder der Behörde in ihrer Akte vorliegt — alles, was beide Seiten ihr gesendet oder von ihr erhalten haben. Die Anzeige daneben zeigt die Schätzung der KI in Prozent, das Urteil (von klar verloren bis klar gewonnen) und, wo verfügbar, die getrennten Werte für den Stand der Beweise, den Hauptanspruch und die übrigen Ansprüche. Lässt sich keine Behördenakte ermitteln, fehlt dieser Abschnitt, und die Anzeige bleibt leer („nicht schätzbar“).
+- **Stand der Gerichtsakte und Erfolgsaussichten.** Beschreibt nur, was dem Gericht oder der Behörde in ihrer Akte vorliegt — alles, was beide Seiten ihr gesendet oder von ihr erhalten haben. Die Anzeige daneben zeigt die Schätzung der KI in Prozent, das Urteil (von klar verloren bis klar gewonnen) und, wo verfügbar, die getrennten Werte für den Stand der Beweise, den Hauptanspruch und die übrigen Ansprüche. Lässt sich keine Gerichtsakte ermitteln, fehlt dieser Abschnitt, und die Anzeige bleibt leer („nicht schätzbar“).
 - **Stand der IRONSTICK-Akte.** Das Bild aus Ihrer vollständigen Akte, einschließlich Dokumenten, die das Gericht nicht gesehen hat.
 - **Kritischer Hinweis, Stärken und Risiken.** Ein oranger Kasten weist auf die wichtigste Gefahr hin. Der grüne Kasten listet die Stärken Ihrer Position, der rote Kasten Risiken und offene Punkte.
 - **Verwandte Fälle.** *Fallübergreifende Verknüpfungen* zeigen, wie andere Fälle desselben Mandanten diesen beeinflussen (von, nach, Wirkung — gekennzeichnet als präjudiziell, Beweis oder strategisch). Ein gelber Kasten listet Fälle anderer Mandanten mit demselben Gegner oder denselben Beteiligten und erklärt, wie Sie über das Kommentarfeld einen davon in die Bewertung einbeziehen.
@@ -692,7 +692,7 @@ Jede Eintragsnummer, jeder Fallbezug und jedes Aktenzeichen im Text ist ein Link
 
 ### Wie die KI-Bewertung entsteht
 
-![KI-Bewertung mit den aus der gesamten Fallakte gespeisten Abschnitten grün markiert und dem Abschnitt der Behördenakte mit der Erfolgsaussichten-Anzeige rot markiert](https://www.ironstick.legal/img/screens/5%20case%20assesment%20detail.png)
+![KI-Bewertung mit den aus der gesamten Fallakte gespeisten Abschnitten grün markiert und dem Abschnitt der Gerichtsakte mit der Erfolgsaussichten-Anzeige rot markiert](https://www.ironstick.legal/img/screens/5%20case%20assesment%20detail.png)
 
 Grün: aus der gesamten Fallakte gezogen. Rot: nur der Teil der Akte, den das Gericht hat.
 
@@ -710,7 +710,7 @@ Der **rote** Abschnitt mit der Anzeige beurteilt nur den Teil der Akte, der dem 
 
 **Der rote Abschnitt — nur die Gerichtsakte**
 
-- **Stand der Behördenakte.** Beschreibt nur, was dem Gericht in seiner Akte vorliegt — jede Eingabe und jedes von Gericht oder Gegenseite in diesem Verfahren erhaltene Dokument.
+- **Stand der Gerichtsakte.** Beschreibt nur, was dem Gericht in seiner Akte vorliegt — jede Eingabe und jedes von Gericht oder Gegenseite in diesem Verfahren erhaltene Dokument.
 - **Erfolgsaussichten.** Die Anzeige reicht von Rot (verloren) unten bis Grün (gewonnen) oben; der Pfeil und die Prozentzahl zeigen die Schätzung der KI, und das Urteil darunter (zum Beispiel *eher gewonnen*) bringt sie in Worte. Wo verfügbar, folgen getrennte Werte für den Stand der Beweise, den Hauptanspruch und die übrigen Ansprüche.
 - **Warum nur die Gerichtsakte.** Das Gericht entscheidet nach dem, was ihm vorliegt. Ein starkes Dokument in Ihrer Akte, das nie eingereicht wurde, verbessert die Schätzung nicht, bis es das Gericht erreicht — die grünen Abschnitte zeigen Ihnen solche Lücken.
 - **Keine Gerichtsakte, keine Schätzung.** Kann IRONSTICK das Gericht oder die ihm vorliegenden Dokumente nicht ermitteln, fehlt der rote Abschnitt, und die Anzeige bleibt leer.
@@ -792,8 +792,8 @@ und die **Geokarte** platziert alle Personen und Unternehmen mit bekanntem Stand
 
 **3D-Karte**
 
-- **Das Universum baut sich selbst auf.** Ein Fortschrittsbalken zeigt, wie weit das Bild ist; Gruppen eng verbundener Parteien (Cliquen) erscheinen nacheinander, jede in einer eigenen Farbe. Auffällig wirkende Gruppen flackern rot. Die Zeile oben links zählt Parteien, Verbindungen und Cliquen.
-- **Fliegen.** W/A/S/D fliegen vorwärts, links, rückwärts und rechts; R und F steigen und sinken; ziehen Sie mit der Maus oder verwenden Sie die Pfeiltasten zum Drehen; das Mausrad bewegt vor oder zurück; Shift beschleunigt, Leertaste bremst. Das Feld unten links listet diese Tasten, und eine kleine Leiste unten rechts zeigt Ihre Geschwindigkeit.
+- **Das Universum baut sich selbst auf.** Ein Fortschrittsbalken zeigt, wie weit das Bild ist; Gruppen eng verbundener Parteien (Cliquen) erscheinen nacheinander, jede in einer eigenen Farbe. Gruppen mit auffälligen Verbindungsmustern werden rot blinkend hervorgehoben. Die Zeile oben links zählt Parteien, Verbindungen und Cliquen.
+- **Fliegen.** W/A/S/D fliegen vorwärts, links, rückwärts und rechts; R und F steigen und sinken; ziehen Sie mit der Maus oder verwenden Sie die Pfeiltasten zum Drehen; das Mausrad bewegt vor oder zurück; Shift bewegt schneller, Leertaste verlangsamt. Das Feld unten links listet diese Tasten, und eine kleine Leiste unten rechts zeigt Ihre Geschwindigkeit.
 - **Eine Partei finden und ansteuern.** Klicken Sie auf einen Punkt, um ihn zu markieren und automatisch zu ihm zu fliegen; klicken Sie erneut darauf, um die Markierung zu entfernen. Das Suchfeld unten rechts findet den bestpassenden Namen und fliegt ebenfalls dorthin.
 - **Zurück zur Liste.** Doppelklicken Sie auf einen Punkt: Die Karte schließt sich, und die Person leuchtet in der Personenliste gelb auf. Bei einer Institution öffnet sich stattdessen die Institutionenliste, auf dieselbe Weise hervorgehoben.
 - **Fall-Verbindungen und getrennte Ebenen.** *Fall-Verbindungen* verbindet zusätzlich Parteien, die im selben Fall vorkommen. *Ebenen trennen* platziert Institutionen oben, Personen in der Mitte und Unternehmen unten. Beide Schalter bauen das Bild neu auf und werden gemerkt.
@@ -802,13 +802,13 @@ und die **Geokarte** platziert alle Personen und Unternehmen mit bekanntem Stand
 
 Flug durch die 3D-Karte aller Parteien.
 
-Die Cliquen — Gruppen eng verbundener Parteien — werden von einem hochkomplexen Algorithmus automatisch berechnet. Die Berechnung erstreckt sich stets über alle Personen, Unternehmen und Institutionen in IRONSTICK, ohne dass Sie etwas tun müssen. Je mehr qualifizierte Verbindungen eine Partei hat, desto größer wird ihre Kugel gezeichnet.
+Die Cliquen — Gruppen eng verbundener Parteien — werden automatisch durch eine deterministische Community-Erkennung (ohne KI) berechnet. Die Berechnung erstreckt sich stets über alle Personen, Unternehmen und Institutionen in IRONSTICK, ohne dass Sie etwas tun müssen. Je mehr qualifizierte Verbindungen eine Partei hat, desto größer wird ihre Kugel gezeichnet.
 
 **2D-Karte**
 
 - **Sich wie auf einem Blatt Papier bewegen.** Ziehen Sie mit der Maus oder verwenden Sie W/A/S/D, um das Blatt zu verschieben; das Mausrad zoomt auf den Zeiger zu.
 - **Eine Partei ansehen.** Zeigen Sie auf einen Knoten, um seine Verbindungen und Namensschilder zu sehen. Ein Klick markiert ihn (er pulsiert), ein Klick auf das leere Blatt entfernt die Markierung, und ein Doppelklick kehrt mit hervorgehobenem Eintrag zur Liste zurück.
-- **Suche und Schalter.** Das Suchfeld unten rechts findet eine Partei nach Namen; *Fall-Verbindungen* und *Ebenen trennen* funktionieren wie in der 3D-Karte.
+- **Suche und Schalter.** Das Suchfeld unten rechts findet eine Partei nach Namen; *Fall-Verbindungen* verbindet Parteien aus demselben Fall; *Ebenen trennen* stapelt Institutionen, Personen und Unternehmen.
 
 **Geokarte**
 
@@ -868,7 +868,7 @@ rechts das Formular **Dokument erfassen**, in dem das Dokument einem Fall zugeor
 das sich bei Dokumenten mit mehreren Seiten zuerst öffnet, sowie die Textansicht, die zeigt, was IRONSTICK aus der Datei gelesen hat.
 
 1. **Ablagebereich.** Ziehen Sie PDF- oder Markdown-Dateien hierher oder klicken Sie, um sie auszuwählen. Markdown-Dateien werden automatisch in PDF umgewandelt; andere Dateitypen werden mit einer Meldung abgelehnt.
-2. **Posteingangs-Anzeige.** Solange unbearbeitete Dokumente im Posteingang warten, erscheint in der Menüleiste ein rotes, wackelndes Posteingangs-Symbol; beim Daraufzeigen sehen Sie, wie viele es sind. Mit einem Klick gelangen Sie direkt zu diesem Screen. Es verschwindet, wenn der Posteingang leer ist.
+2. **Posteingangs-Anzeige.** Solange unbearbeitete Dokumente im Posteingang warten, erscheint in der Menüleiste ein rotes, animiertes Posteingangs-Symbol; beim Daraufzeigen sehen Sie, wie viele es sind. Mit einem Klick gelangen Sie direkt zu diesem Screen. Es verschwindet, wenn der Posteingang leer ist.
 3. **Ansehen.** Öffnet das PDF mit dem Programm, das auf diesem Computer für PDFs eingerichtet ist.
 4. **Erfassen.** Startet die Erfassung dieser Datei: Seitenauswahl, Lesen des Textes, KI-Klassifizierung und danach das Erfassungsformular.
 5. **Löschen.** Löscht die Datei nach einer Bestätigung aus dem Posteingang. Das lässt sich nicht rückgängig machen.
@@ -876,15 +876,15 @@ das sich bei Dokumenten mit mehreren Seiten zuerst öffnet, sowie die Textansich
 7. **Textansicht.** Zeigt den aus dem PDF gelesenen Text in einem Fenster, in dem Sie ihn markieren und kopieren können.
 8. **Geheim.** Markiert das Dokument als geheim. Geheime Dokumente sind überall in IRONSTICK ausgeblendet, bis Sie **Ctrl + Shift + S + D** drücken (nur Windows); dieselbe Kombination blendet sie wieder aus. Der Geheim-Modus wird nie gespeichert: Er schaltet sich beim Neustart des Programms sowie bei Bildschirmschoner, Standby oder Bildschirmsperre selbst aus. Solange er eingeschaltet ist, zeigt die Konfiguration die Karte, in der das Passwort für geheime Dokumente einmalig festgelegt wird — es kann nicht mehr geändert werden, sobald ein geheimes Dokument existiert. Ein so markiertes Dokument wird als passwortgeschütztes PDF (AES-256) gespeichert und kann keine Frist haben.
 
-**Geheime Dokumente verlassen IRONSTICK nie:** Sie werden nie an die KI gesendet — weder an die eingebaute noch an eine externe —, nie in erzeugte PDFs oder Beilagen aufgenommen und können nicht über das IRONSTICK-Browserfenster abgerufen werden.
+**Geheime Dokumente bleiben in IRONSTICK:** Jede KI-Funktion, ob eingebaut oder extern, filtert sie heraus; sie sind von erzeugten PDFs und Beilagen ausgeschlossen; das IRONSTICK-Browserfenster kann sie nicht öffnen; und eine Fallübergabe an einen Kollegen enthält sie nur nach Ihrer ausdrücklichen Bestätigung.
 
-**Notfall:** **Ctrl + Shift + S + D + K** beendet den Geheim-Modus sofort und vernichtet alle geheimen Dokumente (Dateien und Einträge) unwiderruflich. Das lässt sich nicht rückgängig machen.
+**Notfall-Löschung:** **Ctrl + Shift + S + D + K** beendet den Geheim-Modus sofort und löscht alle geheimen Dokumente (Dateien und Einträge) endgültig. Das lässt sich nicht rückgängig machen.
 
 #### Was Sie hier tun können
 
 **Posteingang**
 
-- **Posteingangs-Ordner.** Die Karte listet jedes PDF im Posteingangs-Ordner mit seiner Größe auf, 20 pro Seite. Unter Windows wird der genaue Ordnerpfad neben dem Titel angezeigt, mit Schaltflächen zum Kopieren und zum Öffnen im Explorer — praktisch, wenn Sie Ihren Scanner direkt in diesen Ordner speichern lassen.
+- **Posteingangs-Ordner.** Die Karte listet jedes PDF im Posteingangs-Ordner mit seiner Größe auf, 20 pro Seite. Unter Windows wird der genaue Ordnerpfad neben dem Titel angezeigt, mit Schaltflächen zum Kopieren und zum Öffnen im Explorer — nützlich, wenn Ihr Scanner direkt in diesen Ordner speichert.
 - **Weitere Wege hinein.** Dokumente gelangen auch aus dem E-Mail-Monitor und aus Diagrammen hierher, die Sie zur Erfassung senden (zum Beispiel ein Beziehungsnetzwerk).
 - **Nach dem Erfassen.** Sobald ein Dokument in einem Fall gespeichert wurde, verschwindet es aus dem Posteingang.
 
@@ -946,7 +946,7 @@ Die globale Suche durchsucht alle Einträge aller Ihrer Fälle auf einmal: Titel
 Dokumentinhalte und den Volltext von Dokumenten, Chats und Transkripten. Das Bild zeigt die Ergebnisse für das Wort *Vertrag*;
 eine Ergebniszeile ist vergrößert, damit ihre Bestandteile gut zu erkennen sind.
 
-1. **Suchfeld.** Geben Sie ein oder mehrere Wörter ein und drücken Sie Enter oder klicken Sie auf *Suchen*. Bei mehreren Wörtern muss jedes Wort im Eintrag vorkommen. Akzente werden ignoriert, und kleine Lesefehler im gescannten Text werden toleriert.
+1. **Suchfeld.** Geben Sie ein oder mehrere Wörter ein und drücken Sie Enter oder klicken Sie auf *Suchen*. Bei mehreren Wörtern muss jedes Wort im Eintrag vorkommen. Akzente werden ignoriert, und kleine OCR-Fehler im gescannten Text werden toleriert.
 2. **Datum.** Das Datum des Eintrags.
 3. **Richtung.** *IN* (blau) kennzeichnet ein eingehendes Dokument, *OUT* (rot) ein ausgehendes. Beweiseinträge haben kein Tag.
 4. **Genaue Wortfolge.** Der grüne Stern erscheint hinter dem Titel, wenn Ihre Wörter genau in dieser Reihenfolge zusammen gefunden wurden — in der Regel die relevantesten Treffer.
@@ -979,7 +979,7 @@ Zwei Monate werden nebeneinander angezeigt; farbige Zahlen und Punkte zeigen, an
 Unter den Monaten sehen Sie alles, was für den ausgewählten Tag geplant ist. Das Bild zeigt auch den Export-Dialog, der sich beim Export des Kalenders als .ics-Datei öffnet.
 
 1. **Einen Tag auswählen.** Klicken Sie auf einen beliebigen Tag, um darunter seine Termine anzuzeigen. Der ausgewählte Tag wird blau; heute hat einen grauen Kreis.
-2. **Tagesfeld.** Zeigt das ausgewählte Datum, die Anzahl der Termine und die Schaltfläche *Neuer Eintrag*. Darunter sind die Termine dieses Tages aufgelistet, gefolgt von den Gerichtssitzungen aus dem Online-Gerichtsportal.
+2. **Tagesfeld.** Zeigt das ausgewählte Datum, die Anzahl der Termine und die Schaltfläche *Neuer Eintrag*. Darunter sind die Termine dieses Tages aufgelistet, gefolgt von Gerichtssitzungen aus einem nationalen Gerichtsportal.
 3. **.ics exportieren.** Speichert Ihre Termine und Gerichtssitzungen ab heute als Kalenderdatei, die andere Kalenderprogramme importieren können.
 
 ### Was Sie hier tun können
@@ -998,7 +998,7 @@ Unter den Monaten sehen Sie alles, was für den ausgewählten Tag geplant ist. D
 - **Aufgaben.** Ein Klick auf einen Eintrag vom Typ *Aufgabe* (zum Beispiel ein zuvor notierter Schriftsatz) öffnet den KI-Chat für diesen Fall mit der Bitte, den Schriftsatz zu entwerfen.
 - **Leerer Tag.** Ist nichts geplant, sagt das Feld dies, und Sie können sofort einen Eintrag anlegen.
 
-#### Gerichtssitzungen aus dem Gerichtsportal
+#### Gerichtssitzungen aus einem nationalen Gerichtsportal
 
 - **Bereich Sitzungen.** Sind die Gerichtsportal-Funktionen für Ihr Land eingeschaltet, erscheinen Sitzungen, die IRONSTICK für Ihre Fälle erfasst hat, in einem eigenen orangen Bereich unterhalb der Termine.
 - **Den Fall oder die Portalakte öffnen.** Das unterstrichene Aktenzeichen und der Link *Fall* öffnen die Fall-Chronik. Ein Klick an anderer Stelle der Zeile öffnet die Portalakte mit Gegenstand, Parteien, Rechtsmitteln und dem Verlauf aller Sitzungen; von dort bringt Sie *Fall öffnen* zum Fall. Eine Sitzung zu einer Akte, die noch nicht mit einem Fall verknüpft ist, ist mit *neu/unerfasst* gekennzeichnet.
@@ -1023,11 +1023,11 @@ Unter den Monaten sehen Sie alles, was für den ausgewählten Tag geplant ist. D
 
 Alle offenen Fristen, Gerichtssitzungen und datierten KI-Erinnerungen in einer Liste.
 
-Die Fristenliste sammelt in Datumsreihenfolge alles, was fällig ist: Fristen aus Ihren Fall-Chroniken, anstehende Gerichtssitzungen (aus dem Gerichtsportal und aus Ihrem Kalender) und Erinnerungen, die die KI mit einem Fälligkeitsdatum notiert hat.
+Die Fristenliste sammelt in Datumsreihenfolge alles, was fällig ist: Fristen aus Ihren Fall-Chroniken, anstehende Gerichtssitzungen (aus einem nationalen Gerichtsportal und aus Ihrem Kalender) und Erinnerungen, die die KI mit einem Fälligkeitsdatum notiert hat.
 Die Glocke in der oberen Leiste öffnet immer diesen Screen. Das Bild zeigt die Liste und den Export-Dialog des Fristenübersichts-PDFs.
 
 1. **Referenznummern.** Die Nummer *#0000000* eines Dokuments und die Nummer *@mem0000* einer KI-Erinnerung werden mit einem Klick in die Zwischenablage kopiert — zum Beispiel, um sie in den Chat einzufügen.
-2. **Fristen entfernen — bewusst an zwei Stellen.** Wo Sie eine Frist entfernen, hängt davon ab, woher sie stammt. Fristen aus der App (Dokumente und Chronik-Einträge) werden über ihr Kontrollkästchen angehakt und gemeinsam entfernt. Erinnerungen, die die KI in ihrem Gedächtnis abgelegt hat (Gehirn-Symbol), werden mit *Termin löschen* entfernt: Nur das Fälligkeitsdatum wird weggenommen, sodass die Erinnerung die Liste verlässt.
+2. **Fristen entfernen.** Fristen und KI-Erinnerungen werden an unterschiedlichen Stellen entfernt, weil sie aus unterschiedlichen Quellen stammen. Fristen aus der App (Dokumente und Chronik-Einträge) werden über ihr Kontrollkästchen angehakt und gemeinsam entfernt. Erinnerungen, die die KI in ihrem Gedächtnis abgelegt hat (Gehirn-Symbol), werden mit *Termin löschen* entfernt: Nur das Fälligkeitsdatum wird weggenommen, sodass die Erinnerung die Liste verlässt.
 
 ### Was Sie hier tun können
 
@@ -1055,7 +1055,7 @@ Die Glocke in der oberen Leiste öffnet immer diesen Screen. Das Bild zeigt die 
 Das Tagesprotokoll, ein neuer Eintrag, der gerade eingefügt wird, und ein geöffneter Tag.
 
 Das Tagesprotokoll ist Ihr Arbeitsjournal über alle Fälle hinweg: ein Eintrag pro Tag mit dem, was getan, gesendet, entschieden oder vorbereitet wurde.
-Die Einträge stammen aus Texten, die Sie einfügen oder ablegen, oder werden von der KI über den IRONSTICK-Konnektor am Ende einer Arbeitssitzung geschrieben.
+Die Einträge stammen aus Texten, die Sie einfügen oder ablegen, oder werden auf Ihre Anforderung von einer verbundenen Desktop-KI über die IRONSTICK-Bridge am Ende einer Arbeitssitzung geschrieben.
 Das Bild zeigt die Liste, das Fenster für einen neuen Eintrag und einen geöffneten Tag mit der Fallchronik dieses Tages.
 
 ### Was Sie hier tun können
@@ -1137,13 +1137,13 @@ Die Statusleiste unten zählt Wörter, Zeichen und Seiten. Das Bild zeigt die ü
 **KI-Überarbeitung**
 
 - **Die KI einschalten.** Der Schalter *KI aus / KI ein* zeigt farbige Balken neben der Seite: dunkelblau für die Themen, die die KI im Dokument erkennt, mittelblau für jeden Absatz und hellblau für jeden Satz. Beim Daraufzeigen wird der zugehörige Text hervorgehoben.
-- **Eine Passage überarbeiten.** Klicken Sie auf einen Balken, beschreiben Sie im Feld, was sich ändern soll, und drücken Sie Enter oder *Überarbeiten*. Die KI schreibt genau dieses Thema, diesen Absatz oder Satz neu und setzt den neuen Text an seine Stelle. Namen, Ausweisnummern und Fallnummern werden durch neutrale Platzhalter ersetzt, bevor der Text an die externe KI gesendet wird.
+- **Eine Passage überarbeiten.** Klicken Sie auf einen Balken, beschreiben Sie im Feld, was sich ändern soll, und drücken Sie Enter oder *Überarbeiten*. Die KI schreibt genau dieses Thema, diesen Absatz oder Satz neu und setzt den neuen Text an seine Stelle. Namen, Fallnummern und andere Kennungen aus Ihren Unterlagen werden durch neutrale Platzhalter ersetzt, bevor der Text an die externe KI gesendet wird.
 
 **Beilagenliste**
 
 - **Über die Beweis-ID hinzufügen.** Geben Sie die Nummer eines Chronik-Eintrags ein (zum Beispiel 357 oder 0000357) und drücken Sie Enter oder *Hinzufügen*. Das PDF des Eintrags wird angehängt; bei Fotos, Aufnahmen, Transkripten oder Einträgen ohne PDF erstellt IRONSTICK ein PDF für die Beilage.
 - **Manuell hinzufügen.** Geben Sie auf dem Tab *Manuell* einen Titel und eine optionale Notiz für eine Beilage ein, die nicht in IRONSTICK liegt, zum Beispiel ein Papierdokument, das Sie selbst einreichen.
-- **Reihenfolge und Entfernen.** Jede Beilage zeigt ihre Nummer, ein Badge DB oder MAN, den Titel und einen Link zu ihrem PDF. Ziehen Sie eine Beilage am Griff, um die Reihenfolge zu ändern; das Kreuz entfernt sie.
+- **Reihenfolge und Entfernen.** Jede Beilage zeigt ihre Nummer, ein Kennzeichen (*DB* für einen Eintrag aus IRONSTICK, *MAN* für eine manuelle Beilage), den Titel und einen Link zu ihrem PDF. Ziehen Sie eine Beilage am Griff, um die Reihenfolge zu ändern; das Kreuz entfernt sie.
 - **In den Text einfügen.** Schreibt die nummerierte Beilagenliste an das Ende Ihres Dokuments oder ersetzt die dort bereits vorhandene Liste. Jede Zeile zeigt den Beilagentitel, die IRONSTICK-Stempelreferenz des Dokuments, falls es eine hat, und seinen Seitenbereich, der in der Druckvorschau automatisch ausgefüllt wird.
 - **Aus dem Text übernommene Beilagen.** Ist die Liste leer, Ihr Dokument enthält aber bereits einen Beilagenabschnitt mit Eintragsnummern, bietet IRONSTICK an, diese Einträge in einem Schritt als Beilagen zu übernehmen.
 
@@ -1179,7 +1179,7 @@ Das Bild zeigt eine vergrößerte Beilagenseite (Linksklick), eine ausgeschlosse
 
 1. **Ihr Dokument.** Die Seiten des Briefes oder Schriftsatzes. Klicken Sie auf eine, um Ihre Unterschrift darauf zu platzieren.
 2. **Titelzeile der Beilage.** Jede Beilage beginnt mit einer Zeile, die ihre Eintragsnummer, ihre Beilagennummer und ihren Titel zeigt.
-3. **Beglaubigungsstempel.** Der Schalter am Anfang der Zeile (hier *Conform cu originalul*) schaltet den Stempel „Beglaubigte Abschrift“ für diese Beilage ein oder aus. Grau bedeutet aus, schwarz bedeutet ein.
+3. **Beglaubigungsstempel.** Der Schalter am Anfang der Zeile schaltet den Beglaubigungsstempel für diese Beilage ein oder aus; der Stempeltext folgt der Sprache des Landes des Falls. Grau bedeutet aus, schwarz bedeutet ein.
 4. **DOCX.** Exportiert Ihr Dokument (ohne Beilagen) als Word-Datei.
 5. **PDF-Download.** Erstellt das endgültige PDF aus allen aktiven Seiten und öffnet den Export-Dialog.
 
@@ -1223,7 +1223,6 @@ Das Bild zeigt links die Posteingangsliste und rechts eine geöffnete E-Mail mit
 	1. **Ohne KI, direkt aus dem Text:** das gerichtliche Aktenzeichen eines Ihrer Fälle (*über Aktenzeichen*), eine aus einem Ihrer Dokumente bekannte Registrier- oder Briefnummer (*über Briefnummer*), eine Mandantennummer (*über Mandantennummer*) oder ein Bezug auf etwas, das Sie gesendet haben (*Antwort auf unsere Einsendung*).
 	2. **Andernfalls die KI** bewertet nur die Priorität und schreibt eine Begründung in einem Satz — sie ordnet keinen Fall zu.
 	3. **Dann der Rückgriff:** Der Absender ist eine mit einem Fall verknüpfte Institution oder Person (*über Institution*, *über Person*) oder ein bekannter Absender (*bekannter Absender*).
-Ältere E-Mails zeigen möglicherweise *durch KI* oder *über Textabgleich* aus der früheren Erkennung.
 5. **Anhänge.** Die geöffnete E-Mail listet ihre Anhänge mit Name und Größe auf. Klicken Sie auf einen Anhang, um ihn anzusehen: PDFs und Bilder öffnen sich im IRONSTICK-Browserfenster, andere Dateitypen in dem Programm, das Ihr Computer dafür verwendet.
 6. **Als Dokument hinzufügen.** Verwandelt die E-Mail samt ihren Anhängen in ein PDF und öffnet die Dokumenten-Erfassung, in der Sie sie in einem Fall ablegen.
 
@@ -1249,7 +1248,7 @@ Das Bild zeigt links die Posteingangsliste und rechts eine geöffnete E-Mail mit
 
 - **Öffnen.** Klicken Sie auf eine Zeile, um die E-Mail in einem Fenster zu öffnen. Es zeigt Absender, Empfänger, Kopie-Empfänger, Datum, die Anhangsliste und den vollständigen Text. Durch das Öffnen wird die E-Mail als gelesen markiert.
 - **Nach dem ersten Mal schnell.** Der Text wird beim ersten Öffnen einer E-Mail heruntergeladen und aufbewahrt, sodass sie später sofort öffnet, ohne den Mailserver zu kontaktieren.
-- **Datenschutz.** Bilder, die aus dem Internet geladen würden, werden nie geladen, sodass der Absender nicht sehen kann, wann Sie die E-Mail geöffnet haben. Ein kleiner Hinweis über dem Text teilt Ihnen mit, wenn Bilder blockiert wurden.
+- **Datenschutz.** Externe Bilder werden blockiert, sodass Tracking-Bilder nicht melden können, wann Sie die E-Mail geöffnet haben. Ein kleiner Hinweis über dem Text teilt Ihnen mit, wenn Bilder blockiert wurden.
 - **Wenn der Mailserver nicht erreichbar ist.** Das Fenster zeigt stattdessen den gespeicherten Vorschautext, mit einem kurzen Hinweis.
 - **Erneut erfassen.** Bei einer bereits erfassten E-Mail wird die Schaltfläche rot und lautet *Erneut als Dokument hinzufügen*, damit Sie dieselbe E-Mail nicht versehentlich zweimal ablegen.
 - **Aus dem Chat.** Verweist der Chat auf eine E-Mail, öffnet sich der Monitor mit dieser bereits angezeigten E-Mail, im richtigen Ordner.
@@ -1264,9 +1263,9 @@ Das Bild zeigt links die Posteingangsliste und rechts eine geöffnete E-Mail mit
 
 Automatisch erfasste Arbeitszeit, pro Fall, pro Mandant und pro Tag.
 
-Die Zeiterfassung zeichnet Ihre Arbeitszeit ohne Stoppuhr auf: IRONSTICK vermerkt, welche Screens Sie öffnen und für welchen Mandanten und Fall.
+Die Zeiterfassung arbeitet automatisch: IRONSTICK erfasst, welche Screens Sie öffnen und für welchen Mandanten und Fall.
 Daraus berechnet es, wie lange Sie gearbeitet haben, und zeigt die Summen pro Fall, pro Mandant und pro Tag.
-Das Bild zeigt die Ansicht für heute; ist ein IRONSTICK SERVER verbunden, werden die Tagessummen pro Fall auch an diesen gemeldet.
+Das Bild zeigt die Ansicht für heute; ist der IRONSTICK SERVER verbunden, werden die Tagessummen pro Fall auch an den Server gemeldet.
 
 ### Was Sie hier tun können
 
@@ -1288,7 +1287,7 @@ Das Bild zeigt die Ansicht für heute; ist ein IRONSTICK SERVER verbunden, werde
 
 - **Automatisch.** Jeder Screen, den Sie öffnen, zählt, bis Sie den nächsten öffnen. Eine Lücke von mehr als 30 Minuten zählt höchstens 30 Minuten, sodass eine Pause die Zahlen nicht aufbläht. Der letzte Screen des Tages zählt eine Minute.
 - **Noch keine Daten.** Unmittelbar nach dem ersten Start teilt Ihnen der Screen mit, dass die Zeiterfassung gerade erst eingeschaltet wurde und noch keine Daten vorliegen.
-- **IRONSTICK SERVER.** Ist ein IRONSTICK SERVER verbunden, meldet IRONSTICK Ihre Tageszeit pro Fall alle fünf Minuten an ihn, sodass das Büro einen vollständigen Überblick hat. Zeit, die keinem Fall zugeordnet ist, wird nicht gemeldet.
+- **IRONSTICK SERVER.** Ist der Server verbunden, meldet IRONSTICK Ihre Tageszeit pro Fall alle fünf Minuten an ihn. Zeit, die keinem Fall zugeordnet ist, wird nicht gemeldet.
 
 ## 16. Gesetze
 
@@ -1340,7 +1339,7 @@ Fälle, die Sie auf dem IRONSTICK SERVER teilen, mit ihren Abonnenten.
 
 Server-Fälle ist der Ort, an dem Sie mit Fällen arbeiten, die zwischen Benutzern des IRONSTICK SERVERs geteilt werden.
 Sie sehen, welche Ihrer eigenen Fälle Sie geteilt haben und wer ihnen folgt, und Sie können Fälle abonnieren, die andere Benutzer teilen.
-Dieser Screen und seine Kachel im Hauptmenü erscheinen nur, wenn ein IRONSTICK SERVER verbunden ist. Das Bild zeigt einen geteilten Fall mit zwei Abonnenten.
+Dieser Screen und seine Kachel im Hauptmenü erscheinen nur, wenn der Server verbunden ist. Das Bild zeigt einen geteilten Fall mit zwei Abonnenten.
 
 ### Was Sie hier tun können
 
@@ -1378,11 +1377,11 @@ Die Datenbank und die gespeicherten Falldateien behalten ihre AES-256-Verschlüs
 #### Sichern
 
 - **Datensicherung erstellen.** Sichert Ihre Datenbank, Ihre Dokumente und Dateien sowie Ihre Konfiguration und Lizenz in einer ZIP-Datei. Sprachmodelle für die lokale KI und die Sprachausgabe bleiben ausgenommen, da sie erneut heruntergeladen werden können.
-- **Fortschritt.** Ein Fenster zeigt, wie weit die Sicherung ist (Datei X von Y) und welche Datei gerade gepackt wird. Selbst sehr große Datenbestände bremsen das Programm während der Sicherung nicht aus.
+- **Fortschritt.** Ein Fenster zeigt, wie weit die Sicherung ist (Datei X von Y) und welche Datei gerade gepackt wird. Die Sicherung läuft in einem separaten Hintergrundprozess, sodass Sie weiterarbeiten können.
 - **Speicherort wählen.** Ist die ZIP-Datei fertig, fragt ein Speichern-Dialog nach Ort und Dateiname. Brechen Sie ab, wird keine Datei behalten. Ist das Speichern abgeschlossen, zeigt eine Meldung Dateiname, Größe und Anzahl der Dateien.
 - **Letzte Backups.** Die letzten fünf Backups werden mit Datum und Uhrzeit, Dateiname und Größe aufgelistet, sodass Sie auf einen Blick sehen, wann Sie zuletzt gesichert haben.
 - **Aus dem Chat.** Bitten Sie den Chat, ein Backup zu erstellen, öffnet sich dieser Screen und startet die Datensicherung sofort.
-- **IRONSTICK SERVER.** Ist ein IRONSTICK SERVER verbunden, wird jedes Backup und jede Wiederherstellung an ihn gemeldet: **wer** es gemacht hat, **wann**, von welcher IP-Adresse, der Typ, Dateiname und Größe — nie die Backup-Daten selbst. Der Administrator sieht dies auf einer Seite des IRONSTICK SERVERs, zusammen mit dem Datum des letzten Backups jedes Benutzers (nach mehr als fünf Tagen rot dargestellt), und kann Benutzer an ihre Backup-Pflicht erinnern.
+- **IRONSTICK SERVER.** Ist der Server verbunden, wird jedes Backup und jede Wiederherstellung an ihn gemeldet: **wer** es gemacht hat, **wann**, von welcher IP-Adresse, der Typ, Dateiname und Größe — nie die Backup-Daten selbst. Der Administrator sieht dies auf einer Seite des Servers, zusammen mit dem Datum des letzten Backups jedes Benutzers (nach mehr als fünf Tagen rot dargestellt), und kann Benutzer erinnern, ein Backup zu erstellen.
 
 #### Wiederherstellen
 

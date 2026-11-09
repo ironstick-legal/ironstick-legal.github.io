@@ -14,10 +14,10 @@ Para abogados que quieren recuperar sus tardes.
 
 Cada documento, correo electrónico, foto y palabra hablada se vuelve consultable, incluidos los escaneos y las transcripciones de llamadas telefónicas.
 
-Pregunte en lenguaje natural, con el teclado o con la voz: cada respuesta está fundamentada en los documentos reales, con fuentes en las que puede hacer clic.
+Pregunte en lenguaje natural, con el teclado o con la voz. Cada documento que cita una respuesta es un enlace en el que puede hacer clic y que lleva al registro de su expediente.
 
 - ●
-Los plazos y los casos inactivos afloran por sí solos
+Los plazos y los casos inactivos se señalan automáticamente
 - ●
 Borradores de escritos a partir del expediente
 - ●
@@ -25,15 +25,15 @@ OCR, búsqueda de texto completo, transcripción de audio y vídeo
 
 ## Así es IRONSTICK
 
-Vistas de la aplicación. Los datos de clientes están ocultos.
+Capturas de pantalla de la aplicación, con los datos de clientes anonimizados. [Ver todas las capturas](https://www.ironstick.legal/screenshots.html)
 
 [![Menú principal](https://www.ironstick.legal/img/lp_shot_main.jpg)](https://www.ironstick.legal/img/lp_shot_main.jpg)
 
-**Menú principal**Plazos, casos inactivos y todas las áreas de un vistazo.
+**Menú principal**Plazos, casos inactivos y todas las áreas de trabajo de un vistazo.
 
 [![Agenda](https://www.ironstick.legal/img/lp_shot_agenda.jpg)](https://www.ironstick.legal/img/lp_shot_agenda.jpg)
 
-**Agenda**Todo lo ocurrido en todos los casos, en un solo flujo.
+**Agenda**La actividad reciente y próxima de todos los casos, en un solo flujo.
 
 [![Plazos](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)
 
@@ -45,7 +45,7 @@ Vistas de la aplicación. Los datos de clientes están ocultos.
 
 [![Universo de partes](https://www.ironstick.legal/img/lp_shot_universe.jpg)](https://www.ironstick.legal/img/lp_shot_universe.jpg)
 
-**Universo de partes**La red de todas las partes, para recorrer en 3D.
+**Universo de partes**La red de todas las partes de sus casos, explorable en 3D.
 
 [![Mapa geográfico](https://www.ironstick.legal/img/lp_shot_map.jpg)](https://www.ironstick.legal/img/lp_shot_map.jpg)
 
@@ -55,39 +55,39 @@ Vistas de la aplicación. Los datos de clientes están ocultos.
 
 ## 01
 
-**Abogados individuales y despachos pequeños.** Sin departamento de TI, sin presupuesto para técnicos: IRONSTICK funciona en un ordenador Windows corriente y se mantiene solo.
+**Abogados individuales y despachos pequeños.** No necesita departamento de TI: IRONSTICK funciona en un PC Windows estándar y realiza su mantenimiento rutinario en segundo plano; las actualizaciones se instalan ejecutando el nuevo instalador.
 
 ## 02
 
-**Abogados litigantes con expedientes voluminosos.** Quien maneja miles de páginas de pruebas consulta el expediente en lenguaje natural y obtiene respuestas fundamentadas, con fuentes.
+**Abogados litigantes con expedientes voluminosos.** Consulte miles de páginas de pruebas en lenguaje natural y reciba respuestas con enlaces a los documentos que citan.
 
 ## 03
 
-**Abogados mercantilistas, concursalistas y penalistas.** Muchas personas, empresas y entramados: la red de todos los expedientes hace visibles conexiones imposibles de seguir a mano.
+**Abogados mercantilistas, concursalistas y penalistas.** Muchas personas, empresas y relaciones entrelazadas: una red de todos los expedientes revela conexiones que resulta poco práctico rastrear a mano.
 
 ## 04
 
-**Despachos con varios abogados.** El IRONSTICK SERVER conecta los puestos de trabajo a través de un NAS Synology en su propia red: comparta casos, sin nube y sin renunciar al expediente local.
+**Despachos con varios abogados.** IRONSTICK SERVER, el servidor de despacho, conecta sus puestos de trabajo a través de un NAS Synology en su propia red: los casos se comparten sin ningún servicio en la nube y cada puesto conserva localmente sus expedientes completos.
 
 ## Borradores de escritos en minutos, no en horas
 
-Los escritos y las cartas nacen en diálogo con la IA, directamente del expediente. Antes de la entrega, un verificador determinista coteja el borrador con el expediente vivo: cada referencia de prueba, cada parte, cada cita normativa.
+Los escritos y las cartas nacen en diálogo con la IA, directamente del expediente. Antes de que usted reciba el borrador, una comprobación automática basada en reglas coteja cada referencia de prueba, cada parte y cada cita normativa con el expediente actual.
 
-El resultado es una plantilla apta para su presentación, nunca un escrito judicial terminado: usted revisa, corrige y firma, y la responsabilidad sigue siendo suya. Exportación a PDF o DOCX. Probado: 3000 páginas de escritos y anexos, selladas y paginadas, en un solo PDF en menos de 20 minutos.
+El resultado es una plantilla apta para su presentación, que usted revisa, finaliza y firma. Exportación a PDF o DOCX. En las pruebas, 3.000 páginas de escritos y anexos se sellaron, se paginaron y se reunieron en un solo PDF en menos de 20 minutos.
 
 ## Su IA, su cuenta
 
-A través del Bridge, Claude, ChatGPT, Qwen y Kimi trabajan directamente sobre su expediente, cada una con las mismas herramientas y con su propia suscripción al proveedor. El Bridge es un módulo adicional con licencia independiente.
+A través del Bridge, Claude, ChatGPT, Qwen y Kimi trabajan directamente sobre su expediente, cada una con las mismas herramientas y con su propia suscripción al proveedor. Cada Bridge se licencia por separado y se desbloquea en su clave de licencia de la App cliente.
 
 ##### IA de escritorio en el Bridge
 
 4
 
-##### Herramientas del Bridge
+##### Herramientas de expediente para la IA
 
-209
+200+
 
-##### Idiomas
+##### Idiomas de la interfaz
 
 11
 
@@ -97,9 +97,9 @@ A través del Bridge, Claude, ChatGPT, Qwen y Kimi trabajan directamente sobre s
 
 ## Su secreto profesional queda con usted
 
-La base de datos está cifrada en su propio soporte; el proveedor del software nunca ve datos de clientes. El consentimiento antes de cada llamada externa a la IA, la seudonimización y el registro de auditoría vienen incorporados.
+La base de datos y los documentos de expediente registrados se almacenan cifrados con AES-256 en su propio hardware, el acceso exige un código de autenticación de seis dígitos (TOTP) e IRONSTICK no envía datos de clientes al proveedor. La IA externa funciona con su propia clave de API; las llamadas a través del enrutador central de IA se seudonimizan y se registran.
 
-El Bridge transfiere deliberadamente datos reales, con su propia suscripción al proveedor. Su despacho no depende de ningún centro de datos ajeno: la licencia se comprueba sin conexión en su ordenador y todo lo que registre puede exportarlo en cualquier momento.
+Un Bridge conecta al proveedor de IA elegido directamente con su expediente, con su propia suscripción a ese proveedor. Su despacho sigue siendo independiente de centros de datos externos: la licencia se valida sin conexión en su ordenador, cada caso puede exportarse en cualquier momento como dosier en PDF o ZIP de pruebas EDRM, y se puede hacer una copia de seguridad completa con un solo clic.
 
 [Leer la declaración RGPD de flujos de datos](https://www.ironstick.legal/gdpr_es.html)
 
@@ -111,11 +111,11 @@ Todos los precios indicados en este sitio web no incluyen el IVA legal.
 
 ##### 220 €
 
-por usuario y mes, Europa Occidental. Europa del Este: 110 €.
+por usuario y mes (Europa Occidental). Europa del Este: 110 €.
 
 Incluye:
 
-- Sistema de gestión completo
+- Sistema de gestión de casos completo
 - Asistente de casos y borradores de escritos
 - Local y cifrado
 
@@ -125,12 +125,12 @@ Incluye:
 
 ##### 790 €
 
-IRONSTICK SERVER al mes, módulo adicional con hasta 5 clientes incluidos, Europa Occidental. Europa del Este: 518 €.
+Módulo adicional IRONSTICK SERVER al mes, con hasta 5 conexiones de la App cliente incluidas (Europa Occidental). Europa del Este: 518 €.
 
 Incluye:
 
-- Comparta casos, conserve el expediente
-- En su propia red, sin nube
+- Casos compartidos, archivos en local
+- En su propia red, sin servicio en la nube
 - Funciona en un NAS Synology
 
 [Todos los precios](https://www.ironstick.legal/pricing_es.html)
@@ -141,7 +141,7 @@ Incluye:
 
 ![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Escanee el código para guardar nuestra tarjeta de contacto — teléfono, e-mail y sitio web.
 
-Contacte directamente por WhatsApp o Telegram — también es bienvenida una llamada. Idiomas hablados: alemán, inglés, rumano.
+Contáctenos directamente por WhatsApp o Telegram, o llámenos. Hablamos inglés, alemán y rumano.
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 

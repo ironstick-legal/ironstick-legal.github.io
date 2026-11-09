@@ -1,5 +1,7 @@
 # Declaración RGPD de flujos de datos
 
+> Declaración RGPD de flujos de datos de IRONSTICK: cada vía por la que los datos salen de IRONSTICK hacia un proveedor externo de IA, qué se transmite y dónde se aplica la seudonimización.
+
 Página original: https://www.ironstick.legal/gdpr_es.html
 
 ---
@@ -11,20 +13,52 @@ IRONSTICK hacia un LLM externo, de qué se transmite exactamente, en qué forma 
 dónde se aplica la capa de seudonimización. Edición de escritorio para Windows. El presente documento
 describe únicamente el comportamiento de IRONSTICK — **lo que el proveedor de IA hace con los datos
 recibidos se rige exclusivamente por las condiciones propias del proveedor** (las condiciones y
-políticas de privacidad de los proveedores que el usuario haya configurado — Google, Alibaba Cloud,
-Moonshot AI, OpenAI y/o Anthropic), que el usuario debe revisar por separado.
+políticas de privacidad de los proveedores que el usuario haya configurado: Alibaba Cloud (Qwen),
+Moonshot AI (Kimi), OpenAI, Anthropic y, si se han activado, Groq, OpenRouter y
+Mistral; Google solo si se utiliza Google Drive para exportaciones), que el
+usuario debe revisar por separado.
+
+Versión 1.0.6 — a noviembre de 2026
+
+**Resumen.**
+- **Almacenamiento.** Todos los datos residen en un único directorio de datos local. La base de datos,
+el almacén de documentos, el archivo de configuración y el almacén temporal de IA están cifrados con AES-256
+en reposo. Permanecen en texto claro únicamente las copias de trabajo temporales de los documentos abiertos,
+la bandeja de entrada de escaneos, las exportaciones y los archivos salientes, el búfer de revisión por pares
+de corta duración y, si se ha activado, el registro de diagnóstico (sección 8).
+- **IA externa.** Las llamadas de IA dentro de la aplicación existen únicamente con la propia clave API del usuario.
+Las llamadas a través del router central se seudonimizan de forma predeterminada y se anotan en un
+registro de auditoría local; las excepciones deliberadas en texto claro se enumeran en 2.3.
+- **Consentimiento.** El chat de IA, el registro de documentos y la investigación de personas piden consentimiento una vez
+por sesión o por ejecución del programa; en el procesador de textos, iniciar una función de IA constituye
+el consentimiento. Varias funciones en segundo plano llaman a la IA en la nube sin cuadro de diálogo propio:
+la clasificación de correo electrónico, el Monitor de coherencia de datos, el informe diario, el resumen del diálogo
+y la revisión Red/Blue Team (sección 3).
+- **Bridge de IA de escritorio.** Un complemento opcional que transmite datos de expedientes sin procesar y
+sin seudonimizar al proveedor de la propia IA de escritorio del usuario, tras
+un cuadro de diálogo de consentimiento por ejecución del programa (sección 4.9).
+- **Otros servicios.** Las direcciones de las partes se geocodifican a diario con
+OpenStreetMap Nominatim (solo la dirección, sin nombres); tras el inicio y cada seis horas se descarga un archivo de noticias de
+www.ironstick.legal; no se envía ningún dato de expedientes ni personal al fabricante del software
+(secciones 1 y 7).
+- **IRONSTICK SERVER.** Opcional, en el NAS propio del despacho dentro de su red local, sin conexiones
+a internet; los puestos de trabajo acceden a él mediante HTTP sin cifrar con autenticación por token, y los datos del servidor no están
+cifrados en reposo por IRONSTICK. El tiempo de trabajo por expediente
+y los eventos de copia de seguridad de cada puesto de trabajo son visibles para el administrador del despacho
+(sección 9).
 
 ## 1. Ámbito y endpoints
 
 ![API de IA, aplicación de IA de escritorio y servidor MCP a la izquierda, IRONSTICK Client en el centro, caja fuerte de datos con AES-256, IRONSTICK Server y aplicación de escaneo a la derecha](https://www.ironstick.legal/img/65_ai_client_vault.png)
 Las llamadas externas de IA dentro de la aplicación se dirigen **al proveedor que la cascada automática
-esté utilizando en ese momento**. El usuario puede configurar hasta cuatro proveedores; cada
-proveedor configurado se utiliza automáticamente en este orden fijo y orientado al ahorro de costes:
+esté utilizando en ese momento**. El usuario puede configurar hasta cuatro proveedores; se utilizan
+los proveedores para los que se ha introducido una clave, en este orden fijo, empezando por el de menor coste:
 **Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
 ChatGPT (OpenAI) → Claude (Anthropic)**. En cada inicio del programa, IRONSTICK
-comprueba cuáles de ellos responden; si una cuota o un crédito se agota a lo largo del día, o
-un proveedor deja de responder, la misma solicitud se repite con el siguiente
-proveedor, que se utiliza a continuación durante el resto del día. El contenido transmitido
+comprueba cuáles de ellos responden. Si un proveedor falla, la misma solicitud pasa al
+siguiente. El proveedor que ha fallado se vuelve a intentar tras un tiempo de espera que depende del
+error (de 5 a 60 minutos, o la hora de restablecimiento que anuncie el proveedor); solo se
+omite durante el resto del día cuando su crédito se ha agotado o se desconoce la causa. El contenido transmitido
 es idéntico con todos los proveedores (a partir de la sección 3: seudonimizado por el
 router, consentimiento, registro de auditoría). Los endpoints son:
 
@@ -40,11 +74,11 @@ con la propia clave API del usuario.
 **Proveedores gratuitos para tareas en segundo plano (opcional).** Además, el usuario puede
 configurar las ofertas gratuitas de **Groq**, **OpenRouter** y **Mistral**.
 IRONSTICK las utiliza exclusivamente para tareas que se ejecutan en segundo plano:
-clasificación de correo electrónico, monitor de datos, informe diario, resumen del diálogo,
+clasificación de correo electrónico, Monitor de coherencia de datos, informe diario, resumen del diálogo,
 asignación de interlocutores en las transcripciones, obtención de textos legales y panorama de
 situación. Cada uno de estos proveedores tiene en la configuración su propio interruptor
-ACTIVADO/DESACTIVADO; solo se utiliza si hay una clave guardada y su interruptor está
-ACTIVADO. Para el chat, para los escritos y para la revisión Red/Blue Team **nunca** se
+de activación/desactivación; solo se utiliza si hay una clave guardada y su interruptor está
+activado. Para el chat, para los escritos y para la revisión Red/Blue Team **nunca** se
 utilizan. Si ninguno de ellos está disponible, se encarga la cascada descrita más arriba.
 La seudonimización, el consentimiento y el registro de auditoría se rigen por la tarea
 correspondiente (sección 4). Los endpoints son:
@@ -61,21 +95,23 @@ cada uno de estos proveedores figura textualmente: «PRECAUCIÓN: se trata de un
 gratuita del proveedor <proveedor>. Si guarda la clave API y pone el interruptor en ON,
 IRONSTICK utiliza este proveedor para tareas en segundo plano como resúmenes, clasificación
 de correos, etc. Con ello se envían inevitablemente datos a este proveedor. Lea
-detenidamente sus condiciones en relación con el RGPD.» Un despacho cuyas normas
-profesionales exijan un contrato de encargo del tratamiento para cada encargado debería
-activar estos interruptores solo después de revisar las condiciones del proveedor
-correspondiente — un proveedor desactivado nunca se utiliza.
+detenidamente sus condiciones en relación con el RGPD.» Antes de activar cualquiera de
+estos proveedores, compruebe si sus condiciones prevén el contrato de encargo del tratamiento
+exigido para los encargados y cumplen sus normas profesionales. Un proveedor
+desactivado no se utiliza.
 Se utilizan tres niveles de modelo configurables por proveedor (pequeño / mediano /
 grande). Un canal independiente y opcional es el
 **Bridge de IA de escritorio** (sección 4.9): en él, los datos fluyen hacia la IA de escritorio
 local propia del usuario (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
 Desktop **o** Kimi Desktop), es decir, hacia el proveedor de esa IA (Anthropic, OpenAI,
 Alibaba Cloud/Qwen o Moonshot AI/Kimi), en el marco de la propia suscripción/cuenta del usuario con dicho proveedor. Los
-Bridges pueden funcionar en paralelo — el mismo servidor MCP local puede registrarse
-simultáneamente en Claude, ChatGPT, Qwen y Kimi, y estos pueden trabajar al mismo tiempo en el mismo
-expediente. IRONSTICK no opera ningún servidor
-propio; nunca fluyen datos hacia el fabricante del software. El servidor LAN del despacho
-opcional (**IRONSTICK SERVER**, sección 9) no altera esta situación: es
+Bridges pueden funcionar en paralelo: cada IA de escritorio tiene su propio pequeño programa de Bridge,
+todos ellos se conectan al mismo endpoint local de la aplicación en ejecución, y
+pueden trabajar al mismo tiempo en el mismo expediente. No se envía ningún dato de expedientes ni personal
+al fabricante del software. El único contacto con el fabricante es una descarga simple de un archivo de noticias
+desde www.ironstick.legal (tras el inicio y cada seis horas, sección 7),
+que no transporta datos aparte de la propia conexión técnica.
+**IRONSTICK SERVER** (sección 9) no altera esta situación: es
 operado por el propio despacho, en el hardware propio del despacho, dentro de la
 red propia del despacho — nunca contacta con el fabricante ni con ningún proveedor
 de IA.
@@ -99,25 +135,27 @@ cadenas de cartas, la generación de dosieres/PDF, la pasada local del buscador 
 
 ## 2. La capa de seudonimización
 
-Cada ejecución de agente dentro de la aplicación puede llevar un seudonimizador que tokeniza el texto saliente,
-retraduce los argumentos de las herramientas para su ejecución local, vuelve a tokenizar los resultados de las herramientas
-y destokeniza localmente la respuesta final. La correspondencia existe únicamente en memoria, con una
-correspondencia nueva por operación; nunca se almacena de forma persistente.
+Toda llamada dentro de la aplicación a través del router central de IA se seudonimiza de forma predeterminada:
+el seudonimizador sustituye los identificadores del texto saliente por tokens, retraduce
+los argumentos de las herramientas para su ejecución local, vuelve a tokenizar los resultados de las herramientas
+y restituye localmente la respuesta final. Si el seudonimizador no puede construirse
+por completo, no se envía nada. Las excepciones se enumeran en 2.3. La correspondencia existe
+únicamente en memoria, con una correspondencia nueva por operación; nunca se almacena.
 
 ![Arriba: IRONSTICK Client, figura anonimizada con engranajes, API de IA; abajo: IRONSTICK Client, usuario, aplicación de IA de escritorio](https://www.ironstick.legal/img/66_pseudonymization.png)
 ### 2.1 Qué se sustituye
 
-| Origen | Campos | Token |
+| Origen | Campos | Familia de tokens (identificadores internos) |
 | --- | --- | --- |
-| Registros de clientes | nombre, CNP, teléfono, correo electrónico, dirección+localidad | `$PARTEI_A$`, `$CNP_A$`, `$TEL_A$`, `$MAIL_A$`, `$ADRESSE_A$` |
-| Personas / entidades | nombre completo (persona o empresa), CNP | `$PARTEI_B$` / `$FIRMA_A$`, `$CNP_B$` |
-| Expedientes | número de expediente, parte contraria, demandante | `$FALL_A$`, `$PARTEI_C$`… |
-| Capa de patrones (valores desconocidos en texto libre) | números de expediente judicial (n/nnn/yyyy), CNP de 13 dígitos, IBAN, direcciones de correo electrónico, números de teléfono plausibles | las mismas familias de tokens |
+| Registros de clientes | nombre, número de identificación nacional del campo de identificación (p. ej., el CNP rumano), teléfono, correo electrónico, dirección y localidad | `$PARTEI_A$` (parte), `$CNP_A$` (n.º de identificación), `$TEL_A$` (teléfono), `$MAIL_A$` (correo electrónico), `$ADRESSE_A$` (dirección) |
+| Personas / entidades | nombre completo (persona o empresa), número de identificación nacional o de empresa del campo de identificación (p. ej., el CNP o el CUI rumanos) | `$PARTEI_B$` (parte) / `$FIRMA_A$` (empresa), `$CNP_B$` (n.º de identificación) |
+| Expedientes | número de expediente, parte contraria, demandante | `$FALL_A$` (expediente), `$PARTEI_C$` (parte)… |
+| Capa de patrones (valores desconocidos en texto libre) | números de expediente judicial en el formato n/nnn/yyyy, números personales de 13 dígitos en el formato del CNP rumano, IBAN, direcciones de correo electrónico y números de teléfono. Otros números de identificación nacionales solo se sustituyen si están almacenados en el registro del cliente o de la persona. | las mismas familias de tokens |
 
 ### 2.2 Qué permanece real de forma deliberada
 
 - **Fechas, horas e importes monetarios** — se consideró más
-peligroso falsearlos que transmitirlos.
+arriesgado sustituirlos que transmitirlos.
 - **Nombres de instituciones** (tribunales, autoridades) — no figuran en el
 diccionario y son organismos públicos.
 - **Terceros desconocidos en texto libre** — los testigos, médicos, abogados,
@@ -146,13 +184,16 @@ claro.
 Las llamadas encaminadas a través del router central están sujetas a consentimiento y se registran: cada
 ronda del modelo escribe una fila en la tabla de auditoría local con
 la solicitud y la respuesta completas **en la forma tokenizada que realmente salió del
-equipo**; los intentos rechazados/bloqueados se registran sin contenido. El cuadro de diálogo de
-consentimiento indica el nivel de modelo y el tamaño aproximado de la solicitud, y una aprobación cubre
+equipo**; los intentos rechazados o bloqueados se registran sin contenido. Cuando una función
+pide consentimiento, el cuadro de diálogo indica el nivel de modelo y el tamaño aproximado de la solicitud, y una aprobación cubre
 la sesión de pantalla actual (en el registro de documentos: la ejecución actual del programa).
 
-**Flujos con consentimiento automático (sin cuadro de diálogo):** la clasificación
-de correo electrónico en segundo plano (funcionamiento continuo), la ejecución de análisis del monitor de datos
-y el buscador de IA de anonimización (activar su interruptor constituye el consentimiento). Estos
+**Flujos del router sin cuadro de diálogo de consentimiento propio:**
+la clasificación de correo electrónico (tanto en funcionamiento en segundo plano como en una recuperación manual
+en la pantalla de correo, sección 4.2), la ejecución de análisis del Monitor de coherencia de datos (4.5),
+el informe diario (4.4a), el resumen del diálogo del chat de API y la revisión Red/Blue
+Team (4.7), y el buscador de IA de anonimización (activar su interruptor constituye el
+consentimiento). Estos
 siguen estando seudonimizados (salvo las respuestas con nombres reales previstas del buscador de anonimización)
 y siguen siendo auditados.
 **Flujos que eluden el router:** las funciones de IA del procesador de textos,
@@ -188,15 +229,18 @@ del usuario).
 
 ### 4.2 Monitor de correo (clasificación)
 
-La asignación al expediente se realiza **de forma local y sin IA**. Para evaluar la
-urgencia se realiza **una llamada de nivel pequeño por correo electrónico** con exactamente: nombre y
-dirección del remitente, asunto y el fragmento de vista previa almacenado como texto sin formato (limitado
-estrictamente a 1.500 caracteres) — **nunca el cuerpo completo**, ningún adjunto y
-**ninguna lista de expedientes**. Respuesta: prioridad + justificación. Si están activados
+La asignación al expediente se realiza **de forma local y sin IA**. El correo nuevo se recupera
+en segundo plano al iniciar y, después, cada cinco minutos. Un correo cuyo expediente
+ya identifica el reconocimiento local (número de expediente, número de carta, número de cliente
+o referencia a un escrito propio) no provoca ninguna llamada de IA. Para cada uno de los demás
+correos, **una llamada de nivel pequeño** evalúa la urgencia con exactamente: nombre y
+dirección del remitente, asunto y el fragmento de vista previa almacenado como texto sin formato
+(limitado estrictamente a 1.500 caracteres) — **nunca el cuerpo completo**, ningún adjunto y
+**ninguna lista de expedientes**. Respuesta: prioridad y justificación. Si están activados
 proveedores gratuitos para tareas en segundo plano (sección 1), esta llamada puede realizarse a
-través de ellos. En la pantalla de correo electrónico está sujeta a consentimiento una vez por sesión; en
-**funcionamiento en segundo plano se ejecuta sin cuadro de diálogo** (activar el monitor constituye
-el consentimiento). Seudonimizada y auditada en ambos modos.
+través de ellos. **No se muestra ningún cuadro de diálogo de consentimiento**, ni en funcionamiento en segundo plano ni
+en una recuperación manual en la pantalla de correo: la clasificación se ejecuta automáticamente en cuanto se han configurado una cuenta de correo
+y un proveedor de IA. Seudonimizada y auditada.
 
 **Sin píxeles de seguimiento.** Abrir un correo en el monitor nunca contacta con
 el servidor del remitente: las imágenes referenciadas mediante una dirección de internet (incluidos
@@ -206,9 +250,10 @@ leyó un correo. Solo se muestran las imágenes incrustadas en el propio correo.
 
 ### 4.3 Análisis de personas (investigación web)
 
-Tres fases tras un consentimiento único por sesión:
+Tres fases, tras un consentimiento único por sesión:
 
-- **Fase 1 — búsqueda:** se consultan directamente los motores locales; adicionalmente, se
+- **Fase 1 — búsqueda:** los motores de búsqueda se consultan directamente desde el
+ordenador del usuario; adicionalmente, se
 invoca la herramienta de búsqueda web del lado del servidor del proveedor con el **nombre real
 de la persona en texto claro** (inevitable para una búsqueda; registrado en texto claro).
 - **Fase 2 — resúmenes de páginas** (nivel mediano): por página, el nombre de la persona
@@ -220,11 +265,11 @@ El resultado se almacena localmente con la fiabilidad «no confirmado». Los bot
 **autocompletado** correspondientes en los formularios de persona/institución envían igualmente el
 nombre introducido en texto claro (excepción documentada).
 
-### 4.3a Comprobación OSINT de una parte (`osint_entity`)
+### 4.3a Comprobación de una parte en fuentes públicas
 
-La comprobación OSINT de una parte es un procedimiento fijo que la propia aplicación
+La comprobación de una parte en fuentes públicas es un procedimiento fijo que la propia aplicación
 ejecuta cuando una IA conectada la invoca con nombre, localidad, distrito, país y
-condición de persona física/jurídica:
+la clase de parte (persona física o persona jurídica):
 
 - **Expedientes:** una búsqueda de texto completo del nombre en la base de datos
 local — **puramente local**, nada sale del equipo.
@@ -237,19 +282,32 @@ documentos. Los motores ven las consultas como las de cualquier usuario de un na
 
 El resultado se devuelve a la IA que realizó la llamada como perfil preparado y no verificado.
 No se escribe nada en los datos maestros: cada hallazgo pasa por el control de revisión
-del monitor de datos (sección 4.5) y solo se adopta cuando el
+del Monitor de coherencia de datos (sección 4.5) y solo se adopta cuando el
 usuario lo acepta. Solo se evalúan fuentes de acceso público.
 
-### 4.4 Protocolo diario
+### 4.4 Diario diario
 
 La pantalla en sí es local. La importación de texto libre ejecuta en primer lugar un analizador
-**local**; solo cuando no se encuentra ningún marcador de formato de protocolo, una alternativa de IA
+**local**; solo cuando no se encuentra ningún marcador de formato de diario diario, una alternativa de IA
 normaliza el texto sin procesar: el texto pegado se envía completo (se interrumpe por encima de 200.000
-caracteres), nivel pequeño, sujeto a consentimiento, seudonimizado, auditado. Los protocolos
-almacenados solo salen del equipo como resultados de herramientas del chat/Bridge
-(extractos limitados) o dentro del paquete de instrucciones de IA (sección 5).
+caracteres), nivel pequeño, sujeto a consentimiento, seudonimizado, auditado. Las entradas
+almacenadas del diario diario solo salen del equipo como resultados de herramientas del chat o del Bridge
+de IA de escritorio (extractos limitados) o dentro del paquete de instrucciones de IA (sección 5).
 
-### 4.5 Monitor de datos
+### 4.4a Informe diario
+
+En el primer inicio del programa de cada día (Windows), IRONSTICK
+prepara en segundo plano un informe diario hablado, ya durante el arranque y
+antes de que la ventana del informe pregunte si el usuario desea escucharlo. El texto del
+informe — recuento de plazos, vistas judiciales de hoy y de mañana con número de expediente,
+nombre del cliente, localidad y tribunal, y los títulos de las citas de hoy — se envía
+una vez (nivel pequeño) a la IA en la nube, que lo reformula como prosa hablada en el
+idioma del sistema. Seudonimizado a través del router, auditado, **sin cuadro de diálogo de
+consentimiento**. Si están activados proveedores gratuitos para tareas en segundo plano (sección 1), esta llamada
+puede realizarse a través de ellos. Si no hay ningún proveedor disponible, se utiliza en su lugar un texto
+compuesto localmente.
+
+### 4.5 Monitor de coherencia de datos
 
 La fase 1 (correo electrónico ↔ datos maestros) es completamente determinista. La fase 2 envía
 **por cada nuevo documento entrante una llamada** de nivel pequeño (seudonimizada, auditada,
@@ -258,7 +316,7 @@ La fase 1 (correo electrónico ↔ datos maestros) es completamente determinista
 **ese** documento, los nombres de las partes de ese documento y de su expediente, así como, para
 cada parte, los **nombres** de las posibles coincidencias en los datos maestros almacenados
 (tokenizados cuando figuran en el diccionario; nombres de instituciones en claro).
-**Los datos de contacto y el CNP de los datos maestros almacenados no se transmiten.** Si
+**Los datos de contacto y los números de identificación de los datos maestros almacenados no se transmiten.** Si
 están activados proveedores gratuitos para tareas en segundo plano (sección 1), esta llamada
 puede realizarse a través de ellos. La respuesta solo llega a ser una sugerencia que el
 usuario debe aceptar en el monitor.
@@ -284,20 +342,20 @@ propio ni escribe filas en el registro de auditoría (elusión del router, véas
 
 Otros dos flujos de API forman parte de la redacción. **Red/Blue Team:** si el usuario
 lo ha activado para el proveedor activo (interruptor junto a la clave API; se requiere una clave
-guardada), cada documento formal entregado mediante
-`deliver_file` — tanto desde el chat de la aplicación como desde el Bridge
+guardada), cada documento formal entregado a través del cuadro de diálogo de
+entrega — tanto desde el chat de la aplicación como desde el Bridge
 de IA de escritorio — es leído una vez más por el mismo proveedor en el papel de letrado de la parte contraria
-(nivel mediano). Se transmite: el texto del borrador, la fecha y la
+en una pasada de revisión independiente (nivel mediano). Se transmite: el texto del borrador, la fecha y la
 jurisdicción del expediente; seudonimizado a través del router y auditado como cualquier llamada
-del router; sin cuadro de diálogo propio — el interruptor constituye el consentimiento; como máximo dos rondas por
+del router; **sin cuadro de diálogo de consentimiento** — el interruptor constituye el consentimiento; como máximo dos rondas por
 archivo; tras la segunda ronda, el archivo se entrega en cualquier caso, con el
 informe del revisor adjunto para el usuario. La revisión Red/Blue Team **nunca** se realiza
-a través de los proveedores gratuitos para tareas en segundo plano (sección 1). **Resumen del diálogo:** en sesiones de chat
-largas, la parte más antigua del diálogo (solo las preguntas del usuario y las
+a través de los proveedores gratuitos para tareas en segundo plano (sección 1). **Resumen del diálogo:** en sesiones
+largas del chat de API, la parte más antigua del diálogo (solo las preguntas del usuario y las
 respuestas finales del modelo, nunca resultados de herramientas) es condensada por el proveedor activo
-(nivel pequeño, en segundo plano) en un resumen de 2.000 caracteres que sustituye al historial
+(nivel pequeño, en segundo plano, **sin cuadro de diálogo de consentimiento propio**) en un resumen de 2.000 caracteres que sustituye al historial
 sin procesar; se almacena cifrado en el almacén temporal y se sobrescribe cada
-vez. Si están activados proveedores gratuitos para tareas en segundo plano (sección 1), el
+vez. Seudonimizado y auditado. Si están activados proveedores gratuitos para tareas en segundo plano (sección 1), el
 resumen puede realizarse a través de ellos.
 
 ### 4.8 Chat de IA (externo, API)
@@ -312,97 +370,104 @@ limitado a 6.000 caracteres más un resumen de 2.000 caracteres de los turnos an
 devuelve su resultado a la conversación de la API — incluidos los textos completos de documentos
 (limitados a 10.000 caracteres por elemento; los resultados mayores se escriben en el
 almacén temporal cifrado y se leen por partes), los cuerpos de correo electrónico y
-los extractos del protocolo diario. Desde septiembre de 2026, el chat utiliza la misma capa de
+los extractos del diario diario. El chat utiliza la misma capa de
 herramientas y los mismos controles de entrega que el Bridge de IA de escritorio (4.9): verificación
 de escritos, Red/Blue Team (4.7) y entrega a través del cuadro de diálogo de exportación —
 lo que sale del sistema es una plantilla lista para su presentación. La capa de chat local
 responde a las solicitudes rutinarias sin transmisión alguna.
 
-Dos herramientas de conveniencia merecen mención expresa. **`get_weather`**
+Dos funciones auxiliares merecen mención expresa. La **consulta meteorológica**
 obtiene datos meteorológicos actuales de un lugar indicado del servicio no LLM
 Open-Meteo (sección 7) — a dicho servicio solo se transmite el nombre del lugar / sus coordenadas,
-nunca datos de expedientes ni de personas. **`get_my_location`**
+nunca datos de expedientes ni de personas. La **consulta de ubicación**
 responde exclusivamente a partir de la **instantánea de seguridad más reciente almacenada
 localmente** (sección 8): la solicitud de la IA **no desencadena ninguna nueva consulta externa** —
-solo lee lo que ya está en el disco. Como con cualquier herramienta, lo que estas herramientas
+solo lee lo que ya está en el disco. Como con cualquier herramienta, lo que estas funciones
 devuelven fluye de vuelta a la conversación de IA, es decir, al proveedor de IA.
 
-### 4.9 Bridge hacia una IA de escritorio local (Claude Desktop / Claude Code / ChatGPT
-Desktop / Qwen Desktop / Kimi Desktop) — módulos adicionales OPCIONALES
+### 4.9 Bridge de IA de escritorio (módulos adicionales opcionales)
 
 **Cada acceso a una IA de escritorio es un módulo opcional que se adquiere por separado.**
 Solo existe cuando el despacho ha adquirido e instalado el correspondiente
 módulo de Bridge; sin ningún módulo, la sección del Bridge permanece bloqueada en la
 configuración, el endpoint local nunca se inicia y no puede producirse ninguno de los flujos
-descritos en esta sección. El mismo servidor MCP STDIO local puede
-registrarse en **Claude Desktop/Claude Code**, **ChatGPT Desktop**,
-**Qwen Desktop** y/o **Kimi Desktop** — la mecánica que se describe a continuación es idéntica para todos; solo
+descritos en esta sección. Existen Bridges para
+**Claude Desktop/Claude Code**, **ChatGPT Desktop**,
+**Qwen Desktop** y **Kimi Desktop**; cada uno tiene su propio pequeño programa de
+Bridge, y todos ellos se conectan al mismo endpoint local de la aplicación en
+ejecución. Los flujos de datos que se describen a continuación son idénticos para todos; solo
 difiere el proveedor receptor.
 
 **Este canal transmite datos de expedientes sin procesar y sin
 seudonimizar.** Esa es su finalidad: la propia sesión de IA de escritorio del usuario redacta
 plantillas listas para su presentación y, por ello, necesita nombres y números reales.
-- La IA de escritorio (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop o Kimi Desktop) se conecta a través de un Bridge local con la aplicación en ejecución; la conexión no sale del ordenador.
+- La IA de escritorio (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop o Kimi Desktop) se conecta a través de su programa de Bridge con la aplicación en ejecución; esta conexión permanece en el ordenador (bucle local, protegida por token). Solo las herramientas de búsqueda web, de lectura de páginas y de registros acceden a internet.
 - **Sitios web con verificación de acceso.** Si un sitio web exige una confirmación antes de
 mostrar su contenido, IRONSTICK abre la página en una ventana propia; el usuario
 confirma allí él mismo. A continuación, el contenido de la página lo lee la IA de escritorio —
 y llega a su proveedor como cualquier otro resultado de herramienta.
-- En el primer acceso a datos por ejecución del programa, IRONSTICK muestra un cuadro modal de
-consentimiento bloqueante; el rechazo bloquea el canal durante 10 minutos. Tras la aprobación, el canal permanece
-abierto durante el resto de la ejecución del programa.
+- El primer acceso a datos de cualquier IA de escritorio en una ejecución del programa abre un único cuadro de diálogo
+de consentimiento bloqueante. La aprobación abre el acceso a todas las IA de escritorio durante el resto de la
+ejecución del programa; el rechazo las bloquea a todas durante 10 minutos.
 - Más de 200 herramientas — más de 100 de ellas de lectura — dan acceso a crónicas, textos completos, correos electrónicos,
-protocolos diarios, plazos, datos maestros, expedientes completos (por partes) y formatos
-de salida; los documentos marcados como secretos quedan excluidos. Las vías de escritura están sujetas a control de revisión
-(las sugerencias de datos maestros/relaciones llegan al monitor de datos;
-los cambios propuestos por la IA a las notas de instrucciones de IA vinculadas a un expediente se presentan como
-diff rojo/verde dentro de IRONSTICK y solo se aplican después de que el usuario los acepte
-expresamente — la decisión se comunica de vuelta a la IA) o son explícitas (entrega al
-procesador de textos, entrega de archivos, navegación solo si se ha
-permitido por separado). El mismo patrón de control de revisión cubre las dos vías de escritura más recientes:
-la IA nunca escribe entradas de crónica — solo RELLENA PREVIAMENTE el formulario de
-registro, que el usuario completa y guarda él mismo; y un texto completo de documento
-sanado por la IA (nuevo escaneo OCR, punto siguiente) sustituye al texto completo almacenado solo después de que
+diarios diarios, plazos, datos maestros, expedientes completos (por partes) y formatos
+de salida; los documentos marcados como secretos quedan excluidos. Los cambios en los datos maestros,
+la crónica, el calendario, la memoria de IA, los textos completos y la biblioteca jurídica solo surten efecto
+después de que el usuario los apruebe, en un formulario de IRONSTICK,
+un cuadro de diálogo o el Monitor de coherencia de datos: las sugerencias de datos maestros y de relaciones
+llegan al monitor; los cambios propuestos por la IA a las notas de instrucciones de IA vinculadas a un expediente se
+presentan como diff rojo/verde y solo se aplican después de que el usuario los acepte
+expresamente; la IA nunca escribe entradas de crónica — solo rellena previamente el formulario de
+registro, que el usuario completa y guarda; y un texto completo de documento
+sanado por la IA (nuevo escaneo OCR) sustituye al texto completo almacenado solo después de que
 el usuario haya visto el texto completo en un cuadro de diálogo de confirmación y lo haya guardado.
+Sin un cuadro de diálogo de ese tipo, la IA solo escribe en sus propias áreas de trabajo: el almacén temporal
+cifrado, el diario diario a petición del usuario y su propia evaluación del expediente tras las comprobaciones
+deterministas. Las etiquetas y los mensajes del chat del despacho requieren la confirmación del usuario en el chat.
+En un expediente suscrito de un compañero, la IA puede fijar una nota (de hasta 1.000 caracteres) que viaja a través de
+IRONSTICK SERVER hasta el titular del expediente y todos los suscriptores
+(sección 9). La entrega al procesador de textos y la entrega de archivos son pasos
+explícitos del usuario; la navegación, solo si se ha permitido por separado.
 - **Sanación mediante nuevo escaneo OCR (local) y entrega del PDF (iniciada por el usuario).**
 Cuando un texto completo almacenado está truncado o estropeado por una ejecución de OCR antigua, la IA puede
 solicitar un nuevo escaneo: el usuario elige las páginas, el nuevo escaneo se ejecuta **localmente**
-(sin nuevo destinatario externo) y ambas versiones del texto se depositan en el espacio temporal
+(sin nuevo destinatario externo) y ambas versiones del texto se depositan en el almacén temporal
 local; lo que la IA lea de ellas fluye hacia su proveedor como cualquier
 otro resultado de herramienta. Como último recurso absoluto — solo tras dicho nuevo escaneo y
 solo dentro de límites estrictos impuestos por el Bridge (≤ 10 MB, ≤ 90 páginas) —
 la IA puede pedir al usuario que le entregue el **archivo PDF original**: IRONSTICK
-solo abre la entrada; el propio usuario guarda el PDF mediante el icono del clip
+solo abre la entrada; el usuario guarda el PDF mediante el icono del clip
 y lo arrastra al chat de la IA de escritorio. Con ello, el documento se transfiere
 **como archivo** (incluidos sellos, firmas e imágenes) al proveedor de esa
 IA — esto sucede exclusivamente por acción propia y deliberada del usuario, nunca
 de forma automática, y los documentos marcados como secretos quedan excluidos desde el principio de todo el
 canal de nuevo escaneo.
-- **Espacio temporal local de la IA (minimización de datos).** Cualquier llamada a una herramienta puede desviar
-su resultado completo a un archivo temporal local y efímero (`to_scratch`);
+- **Almacén temporal local de la IA (minimización de datos).** Cualquier llamada a una herramienta puede desviar
+su resultado completo a un archivo temporal local y cifrado;
 la IA recibe entonces solo la ruta del archivo y su tamaño — sin vista previa — en lugar del texto completo. Las herramientas de edición locales
 (buscar/reemplazar/insertar/diff/normalizar) reelaboran esos archivos en el equipo del
 usuario, y las herramientas de entrega/actualización los consumen por su ruta — de este modo, los contenidos extensos pueden
 transportarse y reelaborarse **sin transmitirse en absoluto al proveedor
-de IA**. Los volcados completos de expedientes (`dump_case_to_scratch`)
-y el protocolo de inicio de sesión en una sola llamada se escriben igualmente directamente en esta
-zona local; solo las partes que la IA lee posteriormente fluyen hacia su proveedor.
+de IA**. Las exportaciones completas de expedientes para la IA y la visión general de inicio de sesión
+en una sola llamada se escriben igualmente directamente en este almacén local; solo
+las partes que la IA lee posteriormente fluyen hacia su proveedor.
 IRONSTICK vigila además la actualidad de estos archivos y los invalida
-cuando cambian los datos subyacentes. La carpeta temporal se encuentra dentro de la carpeta
-de datos y persiste entre sesiones (es el contexto de trabajo de la IA);
-los archivos no utilizados se eliminan al cabo de 180 días, y no se crea ningún nuevo destinatario
-externo.
-- **El almacén temporal es una caja fuerte cifrada (desde septiembre de 2026).**
+cuando cambian los datos subyacentes. El almacén temporal se encuentra dentro de la carpeta
+de datos y persiste entre sesiones (es el contexto de trabajo de la IA); los archivos
+que no se leen ni se escriben durante 180 días se eliminan automáticamente (la versión
+final de un escrito, a los 360 días), y no se crea ningún nuevo destinatario externo.
+- **El almacén temporal está cifrado.**
 Cada archivo del almacén temporal está cifrado en reposo con AES-256, con la misma
 derivación de clave que la base de datos y el almacén de documentos. La lectura y la escritura
 pasan únicamente por el control de acceso de IRONSTICK; un archivo en texto plano colocado en el almacén por
 cualquier otra vía (una herramienta de sistema de archivos de la IA de escritorio, una copia manual) es
 rechazado, eliminado y comunicado a la IA como infracción de las reglas; los archivos solo salen del
 almacén a través del cuadro de diálogo de exportación de IRONSTICK, nunca hacia una carpeta de descargas.
-Junto con la base de datos cifrada, el almacén de documentos y el archivo de configuración,
-esto cierra la última brecha en el equipo local: **ningún dato de expedientes se encuentra
-sin cifrar en el disco del usuario — ni siquiera los archivos de trabajo de la IA**. Un disco
-copiado, un lápiz extraviado o un archivo de copia de seguridad en manos equivocadas solo proporcionan texto
-cifrado.
+La base de datos, el almacén de documentos, el archivo de configuración y el almacén
+temporal están, por tanto, cifrados en reposo con AES-256. Las copias de trabajo temporales de los documentos
+abiertos (se borran en cada inicio y al cerrar), el búfer de revisión por pares de corta duración,
+la bandeja de entrada de escaneos, las exportaciones y los archivos salientes permanecen en texto claro
+(sección 8).
 - Los resultados de las herramientas se entregan al cliente de IA de escritorio del usuario y, desde allí,
 a **su proveedor**: Anthropic para Claude (en el marco de la suscripción de Claude del usuario
 y de las condiciones de Anthropic), OpenAI para ChatGPT (en el marco de la suscripción de
@@ -411,13 +476,18 @@ Desktop (en el marco de la cuenta de Qwen del usuario y de las condiciones de Qw
 Desktop (en el marco de la cuenta de Kimi del usuario y de las condiciones de Moonshot AI). IRONSTICK no escribe
 filas en el registro de auditoría para el tráfico del Bridge; la barra superior muestra un logotipo pulsante por cada
 IA activa (marca de Claude, marca de ChatGPT, marca de Qwen, marca de Kimi) — el acceso simultáneo es
-posible y cada uno se señaliza por separado. El propio Bridge lleva un
-**registro de diagnóstico puramente local** de sus llamadas a herramientas — marca de tiempo, nombre de la herramienta,
-éxito/fallo y tamaño de la respuesta, **nunca contenido alguno** — en un archivo de texto plano
-junto al programa del Bridge. Este registro no se transmite a ninguna parte y sirve
-únicamente para la resolución de problemas.
+posible y cada uno se señaliza por separado. Cada programa de Bridge lleva un
+**registro local** junto a sí mismo con la hora, el nombre de la herramienta, el éxito/fallo y el
+tamaño de la respuesta, y **nunca contenido**. Un segundo **registro de diagnóstico**
+más detallado en la carpeta de datos está **desactivado de forma predeterminada**; cuando se
+activa para resolver problemas, puede contener en texto claro los parámetros de las llamadas (hasta 300
+caracteres cada uno, que pueden incluir nombres) y se recorta cuando
+supera los 2 MB. Ninguno de los dos registros se transmite a ninguna parte.
 - La memoria de IA compartida almacena localmente conocimientos destilados (≤1.000 caracteres cada uno,
-vinculados a un cliente/expediente, con caducidad automática); su contenido es visible para todos los canales
+vinculados a un cliente o a un expediente). La IA puede proponer guardar, modificar o eliminar una
+entrada; cada cambio surte efecto solo después de que el usuario lo apruebe. Las entradas vinculadas a un
+expediente nunca se eliminan automáticamente; las entradas sin expediente se eliminan
+tras un año sin uso. El contenido de la memoria es visible para todos los canales
 de IA y se transmite siempre que esos canales lo leen.
 - La revisión por pares entre las IA de escritorio se realiza a través de IRONSTICK, no directamente
 entre los proveedores: una IA deja un producto de trabajo (p. ej., un borrador) en un
@@ -426,7 +496,7 @@ eliminados cuando se cierra la tarea y borrados por completo en cada reinicio de
 nota de tarea; la otra IA lo lee cuando el usuario se lo indica. Esto no crea
 **ningún nuevo destinatario externo** — lo que lee la IA revisora se transmite
 a **su propio** proveedor exactamente igual que cualquier otro resultado de herramienta descrito anteriormente, en el marco de las condiciones de ese
-proveedor. El contenido nunca pasa de un proveedor al otro.
+proveedor. Los proveedores nunca intercambian datos directamente; lo que lee la IA revisora solo llega a su propio proveedor.
 
 ### 4.10 Transcripción de audio (asignación de interlocutores)
 
@@ -451,47 +521,48 @@ usuario lo cargue en un LLM externo de su elección. Contenido:
 | Archivo | Contenido |
 | --- | --- |
 | Expedientes | todos los expedientes del cliente seleccionado con partes, estado e índice de ID de pruebas (sin textos completos) |
-| Entidades | **todas las personas/entidades de todo el despacho** (no solo de este cliente), incl. CNP/CUI, fecha de nacimiento, datos de contacto completos, profesión, vehículo — más los bloques de análisis almacenados (valoración, vulnerabilidades, domicilios, finanzas, entorno social, fuentes) |
+| Entidades | **todas las personas/entidades de todo el despacho** (no solo de este cliente), incl. números de identificación personal y de empresa nacionales (p. ej., CNP/CUI rumanos), fecha de nacimiento, datos de contacto completos, profesión, vehículo — más los bloques de análisis almacenados (valoración, vulnerabilidades, domicilios, finanzas, entorno social, fuentes) |
 | Instituciones, plazos | todas las instituciones; plazos activos con números de expediente y nombre del cliente |
 | Correo | los 100 correos electrónicos más recientes **de todo el despacho**: remitente, destinatario, asunto, nombres de archivos adjuntos, fragmento ≤500 caracteres (sin cuerpos completos) |
-| Protocolo diario | últimos 10 días, de todo el despacho, incl. la cronología de expedientes de ese periodo |
-| Por expediente | un dosier por expediente: la crónica completa **con los textos completos de los documentos** (presupuesto ~170 KB por archivo, después forma compacta), identificadores del cliente y de las partes, incl. CNP; más todas las notas de antecedentes del expediente sin límite |
+| Diario diario | últimos 10 días, de todo el despacho, incl. la cronología de expedientes de ese periodo |
+| Por expediente | un dosier por expediente: la crónica completa **con los textos completos de los documentos** (presupuesto ~170 KB por archivo, después forma compacta), identificadores del cliente y de las partes, incl. números de identificación; más todas las notas de antecedentes del expediente sin límite |
 | Archivos de instrucciones | cinco documentos de reglas de trabajo — sin datos personales |
 
-**Qué ocurre cuando este ZIP se introduce en un LLM ajeno:**
+**Qué ocurre cuando este ZIP se carga en un servicio de IA de terceros:**
 el usuario transfiere personalmente, en texto claro, partes sustanciales de todo el
 despacho — identidades de clientes con números de identificación nacionales, perfiles de terceros
 incluidas valoraciones sensibles, metadatos de la correspondencia de todo el despacho y expedientes
 — a ese proveedor. A partir de ese momento, los datos se tratan conforme a las condiciones
-del proveedor ajeno (uso para entrenamiento, conservación, jurisdicción), completamente
+de ese proveedor (uso para entrenamiento, conservación, jurisdicción), completamente
 fuera del control de IRONSTICK. IRONSTICK muestra una advertencia de privacidad antes de la
 exportación (una vez por ejecución del programa) y ofrece la exportación también a Google Drive, lo que
 deposita además los archivos en Google. El usuario actúa como responsable
 transmisor en el sentido del RGPD y debe garantizar una base jurídica (p. ej., art. 6, normas de secreto
 profesional) antes de la carga.
-Los documentos marcados como secretos quedan excluidos de los plazos, los protocolos diarios y los dosieres
+Los documentos marcados como secretos quedan excluidos de los plazos, los diarios diarios y los dosieres
 de expedientes.
 
 ## 6. Matriz resumen
 
 | Flujo | Qué sale (forma) | Seudonimizado | Cuadro de diálogo de consentimiento propio | Registro de auditoría |
 | --- | --- | --- | --- | --- |
-| Registro de documentos (4 llamadas) | texto OCR/del documento ≤30k, listas de expedientes/nombres | sí | sí — una vez por ejecución del programa | sí |
-| Clasificación de correo electrónico (pantalla) | remitente/asunto/fragmento ≤1,5k (sin lista de expedientes) | sí | sí — una vez por sesión | sí |
-| Clasificación de correo electrónico (segundo plano) | ídem | sí | no (interruptor del monitor = consentimiento) | sí |
-| Investigación de personas fase 1 | nombre real (búsqueda web) | no — por diseño | sí — una vez por sesión | sí (en claro) |
-| Investigación de personas fases 2/3 | textos de páginas ≤8k / ≤6k por fuente | sí | mismo consentimiento | sí |
-| Autocompletado de persona/institución | nombre introducido (búsqueda web) | no — por diseño | sí — una vez por sesión | sí (en claro) |
-| Importación por IA del protocolo diario | texto sin procesar pegado ≤200k | sí | sí | sí |
-| Monitor de datos | por cada nuevo documento: sus zonas de contacto + nombres de posibles coincidencias (sin datos de contacto/CNP de los datos maestros) | sí (nombres de instit. en claro) | no (segundo plano limitado) | sí |
-| Procesador de textos: revisar / estructura | selección + 6k de contexto / líneas del doc. ≤40k | sí | no (botón = consentimiento) | no |
+| Registro de documentos (4 llamadas) | texto OCR y del documento hasta 30.000 caracteres, listas de expedientes y de nombres | sí | sí — una vez por ejecución del programa | sí |
+| Clasificación de correo electrónico (recuperación manual en la pantalla de correo) | remitente, asunto, fragmento hasta 1.500 caracteres (sin lista de expedientes); solo para correos no asignados localmente | sí | no | sí |
+| Clasificación de correo electrónico (segundo plano, cada cinco minutos) | ídem | sí | no | sí |
+| Informe diario (API) | texto del informe: recuento de plazos, vistas judiciales con número de expediente, nombre del cliente, localidad y tribunal, títulos de citas | sí | no (primer inicio del día, preparado durante el arranque) | sí |
+| Investigación de personas, fase 1 | nombre real (búsqueda web) | no — por diseño | sí — una vez por sesión | sí (en texto claro) |
+| Investigación de personas, fases 2 y 3 | textos de páginas hasta 8.000 / 6.000 caracteres por fuente | sí | mismo consentimiento | sí |
+| Autocompletado de persona/institución | nombre introducido (búsqueda web) | no — por diseño | sí — una vez por sesión | sí (en texto claro) |
+| Importación por IA del diario diario | texto sin procesar pegado hasta 200.000 caracteres | sí | sí | sí |
+| Monitor de coherencia de datos | por cada nuevo documento: sus zonas de contacto y nombres de posibles coincidencias (sin datos de contacto ni números de identificación de los datos maestros) | sí (nombres de instituciones en texto claro) | no (segundo plano limitado) | sí |
+| Procesador de textos: revisar / estructura | selección y 6.000 caracteres de contexto / líneas del documento hasta 40.000 caracteres | sí | no (botón = consentimiento) | no |
 | Preprocesamiento de lectura en voz alta | cada frase, texto claro | no | no (inicio = consentimiento) | no |
-| Revisión Red/Blue Team (API) | texto del borrador + fecha + jurisdicción, por ronda (máx. 2) | sí | no (interruptor = consentimiento) | sí |
-| Resumen del diálogo (API) | turnos de diálogo anteriores (solo usuario/asistente) | sí | no (parte del consentimiento del chat) | sí |
+| Revisión Red/Blue Team (API) | texto del borrador, fecha y jurisdicción, por ronda (máx. 2) | sí | no (interruptor = consentimiento) | sí |
+| Resumen del diálogo (API) | turnos de diálogo anteriores (solo preguntas del usuario y respuestas finales) | sí | no (pasada en segundo plano del chat de API) | sí |
 | Corrección por IA de File→Markdown | texto convertido | sí | no | no |
 | Buscador de IA de anonimización | texto ya anonimizado; las respuestas contienen nombres reales de terceros | desactivado — por diseño | interruptor = consentimiento | sí |
-| Chat de IA (externo) | instrucción + contexto de la interfaz + memoria + 6k finales + resumen de 2k + resultados de herramientas ≤10k/elemento | sí | sí — una vez por sesión | sí |
-| Bridge de IA de escritorio (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) | resultados de herramientas sin procesar (datos completos del expediente) | no — por diseño | sí — una vez por ejecución del programa, bloqueo de 10 min en caso de rechazo | no (lado de la aplicación) |
+| Chat de IA (externo) | instrucción, contexto de la pantalla, memoria, últimos 6.000 caracteres del diálogo, resumen de 2.000 caracteres, resultados de herramientas hasta 10.000 caracteres por elemento | sí | sí — una vez por sesión | sí |
+| Bridge de IA de escritorio (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) | resultados de herramientas sin procesar (datos completos del expediente) | no — por diseño | sí — una vez por ejecución del programa para todas las IA de escritorio, bloqueo de 10 minutos en caso de rechazo | no (lado de la aplicación) |
 | Transcripción de audio: asignación de interlocutores | texto reconocido, por llamada ≤60 líneas + 12 líneas de contexto — nunca la grabación | sí | sí | sí |
 | Proveedores gratuitos para tareas en segundo plano (Groq, OpenRouter, Mistral) — solo si están activados | los mismos contenidos que la tarea en segundo plano correspondiente; nunca chat, escritos ni Red/Blue Team | según la tarea correspondiente | no (interruptor por proveedor = consentimiento) | sí |
 | ZIP de instrucciones de IA | exportación del despacho en texto claro (carga iniciada por el usuario) | no | advertencia una vez por ejecución del programa | n/a |
@@ -501,24 +572,40 @@ de expedientes.
 ![IRONSTICK Client, internet, símbolo de ubicación y símbolo del tiempo](https://www.ironstick.legal/img/68_external_services.png)
 Con independencia de cualquier LLM, las siguientes funciones contactan con servicios externos con
 los datos mínimos necesarios: validación de números (EU VIES, EORI, GLEIF, registros
-mercantiles — el número que se comprueba), geocodificación de direcciones (OpenStreetMap
-Nominatim — la dirección), las consultas web directas de la búsqueda de personas (el nombre), IMAP (su servidor de correo) y
-las exportaciones opcionales a Google Drive (los archivos exportados). Ninguno de ellos implica al
+mercantiles — el número que se comprueba), las consultas web directas de la búsqueda de personas (el nombre),
+IMAP (su servidor de correo) y las exportaciones opcionales a Google Drive (los archivos exportados). Ninguno de ellos implica al
 proveedor de IA.
 
-Otros dos servicios reciben datos igualmente mínimos:
+Se contacta con los siguientes servicios en segundo plano o con datos igualmente
+mínimos:
 
+- **OpenStreetMap Nominatim (geocodificación de direcciones)** — una vez al día, un
+trabajo en segundo plano recorre las personas y empresas de los registros de partes
+que tienen dirección o localidad, y envía calle, distrito, localidad y país
+(nunca el nombre) a Nominatim para situarlas en el mapa; una dirección ya
+situada solo se vuelve a enviar cuando cambia, y una que no se encontró se reintenta
+tras un periodo de espera. El nombre del lugar de la consulta meteorológica se geocodifica del
+mismo modo. Sin cuadro de diálogo de consentimiento; las coordenadas se almacenan localmente.
 - **ipwho.is (consulta de geo-IP)** — una vez por inicio del programa, como parte de la
 instantánea de seguridad local (sección 8), IRONSTICK solicita a este servicio la
 dirección IP **pública** del equipo y una ubicación aproximada (ciudad, país, ISP).
-La solicitud HTTPS saliente **no contiene ningún dato personal de ningún tipo** —
-como cualquier servidor web, el servicio solo ve la dirección IP desde la que llega
-la solicitud. La respuesta se almacena exclusivamente de forma local y no se transmite
+La solicitud no contiene ningún dato; el servicio recibe la dirección IP pública desde la
+que llega la solicitud. La respuesta se almacena exclusivamente de forma local y no se transmite
 a ninguna otra parte.
-- **Open-Meteo (meteorología)** — a petición, la herramienta meteorológica de IA
-(`get_weather`, sección 4.8) consulta datos meteorológicos actuales de un
-lugar indicado. Solo se transmite el nombre del lugar / sus coordenadas — nunca
+- **Open-Meteo (meteorología)** — a petición, la consulta meteorológica de IA (sección
+4.8) obtiene datos meteorológicos actuales de un lugar indicado; el informe diario hace lo
+mismo para la localidad almacenada en la configuración cuando está activado su modo opcional con
+referencia meteorológica. Solo se transmiten las coordenadas del lugar — nunca
 datos de expedientes, clientes ni personas.
+- **www.ironstick.legal (archivo de noticias)** — una vez introducido el código de acceso
+y, después, cada seis horas, la aplicación descarga del sitio web del fabricante del software un archivo de noticias con
+avisos y advertencias, además de cualquier imagen a la que haga referencia. La solicitud no contiene datos; como cualquier servidor web, el servidor
+del fabricante ve la dirección IP y la hora de la solicitud.
+- **Calendario en la tableta Android (opcional)** — en la tableta, las
+citas, los plazos y las vistas judiciales se reflejan en un calendario llamado
+IRONSTICK en la cuenta de Google del dispositivo, y solo una vez que
+el usuario ha creado ese calendario; al eliminarlo cesa el reflejo. A partir de ahí,
+Google conserva las entradas bajo las condiciones de la cuenta del usuario.
 
 Ninguno de estos servicios implica al proveedor de IA.
 
@@ -530,8 +617,9 @@ datos que conserva IRONSTICK:
 
 - **Almacenamiento exclusivamente local.** La totalidad del conjunto de datos — base de datos, archivos
 de documentos, medios, transcripciones, configuración — reside en un único directorio de datos en
-una ruta que define el usuario. IRONSTICK no requiere ninguna cuenta en la nube ni opera ningún
-servidor; el fabricante nunca conserva una copia de ningún dato del usuario. Cuando un despacho utiliza
+una ruta que define el usuario. IRONSTICK no requiere ninguna cuenta en la nube,
+y ninguna función envía datos del usuario al fabricante (el único contacto con el fabricante es la
+descarga de noticias, sección 7). Cuando un despacho utiliza
 el IRONSTICK SERVER opcional (sección 9), también ese servidor es un dispositivo propio del despacho
 en la red propia del despacho — nada cambia en cuanto al acceso del fabricante.
 - **Base de datos cifrada en reposo (AES-256).** La base de datos — el registro
@@ -539,7 +627,7 @@ de clientes, expedientes, crónica, correos electrónicos, plazos, texto de las 
 memoria de las IA — se almacena cifrada con AES-256, cada página por separado y
 con un sello de integridad por página. La clave la deriva la aplicación en
 tiempo de ejecución y nunca se escribe en el disco ni en la configuración, de modo que un archivo de base de datos
-obtenido del soporte o de un archivo de copia de seguridad no proporciona nada sin
+copiado del soporte de almacenamiento o de un archivo de copia de seguridad no puede leerse sin
 IRONSTICK. Se trata de una medida técnica en el sentido del art. 32 RGPD que
 se aplica sin configuración alguna por parte del usuario y no puede desactivarse.
 - **Documentos cifrados en reposo (AES-256).** El almacén de documentos — los
@@ -551,8 +639,13 @@ aplicación se cierra o se inicia. Las copias de seguridad y los paquetes de exp
 en su forma cifrada. Límites, expresados con claridad: las copias de trabajo de la
 sesión actual están en texto claro en la carpeta temporal (en Android, dicha
 carpeta se encuentra en el almacenamiento compartido); las exportaciones y el correo saliente están en texto claro
-por diseño; y el cifrado protege frente a la lectura del soporte fuera de
+por diseño; y el cifrado protege frente a la lectura del soporte de almacenamiento fuera de
 IRONSTICK, no frente a un usuario autorizado de la aplicación.
+- **Qué permanece en texto claro.** Además de las copias de trabajo y de las
+exportaciones recién mencionadas: los escaneos que esperan en la bandeja de entrada de escaneos antes de registrarse;
+el búfer de revisión por pares de corta duración entre IA de escritorio (sección 4.9, se elimina
+al cerrar la tarea y se borra en cada inicio); y, solo si se ha activado,
+el registro de diagnóstico detallado del Bridge (sección 4.9).
 - **Control de acceso al inicio (TOTP).** Una vez aceptada la clave de
 licencia, la aplicación no muestra más que una solicitud de código hasta que el usuario
 introduce el código de un solo uso basado en tiempo de seis dígitos vigente de una
@@ -571,12 +664,9 @@ la instalación y puede modificarse en cualquier momento — incluso a un soport
 una unidad USB cifrada o un disco externo cifrado. La aplicación simplemente
 sigue la ubicación configurada; el cifrado del soporte (p. ej., con el
 cifrado de disco del sistema operativo) está en manos del usuario y se
-recomienda para soportes portátiles. Una consecuencia que debe sopesarse deliberadamente: si el
-directorio de datos elegido se encuentra dentro de una carpeta sincronizada con la nube (p. ej., Google
-Drive), la totalidad del conjunto de datos, **incluido el archivo de configuración con la clave de acceso
-de IA y las credenciales de correo electrónico**, se sincroniza con ese proveedor de nube
-conforme a las condiciones propias del proveedor — ubicar allí el directorio de datos es
-decisión y responsabilidad del usuario. Al cambiar la ubicación de almacenamiento en la configuración, IRONSTICK comprueba el destino y rechaza las unidades de red y las carpetas sincronizadas con la nube (OneDrive, Google Drive, Dropbox); la copia se realiza con comparación de sumas de verificación, el cambio solo se produce tras una verificación satisfactoria y la carpeta antigua se conserva con otro nombre.
+recomienda para soportes portátiles. Las unidades de red y las carpetas sincronizadas con la nube
+(OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) se rechazan como ubicación de
+datos. Al cambiar la ubicación de almacenamiento en la configuración, IRONSTICK comprueba el destino conforme a estas reglas; la copia se realiza con comparación de sumas de verificación, el cambio solo se produce tras una verificación satisfactoria y la carpeta antigua se conserva con otro nombre.
 - **Sincronización de dispositivos sin ninguna nube.** La sincronización
 opcional Windows ↔ tableta Android se realiza a través de una conexión directa por cable
 USB — no interviene ningún servicio de terceros, las transferencias se
@@ -607,14 +697,14 @@ una copia completa de los datos (copia de seguridad completa o solo de datos) co
 ZIP en cualquier destino que el usuario seleccione, y restaura a partir de dicho archivo
 cuando se solicita. La frecuencia con que se realizan las copias de seguridad, dónde se guardan, cuánto tiempo se
 conservan y si los archivos se cifran adicionalmente es decisión exclusiva del
-usuario (la base de datos y los archivos de documentos contenidos en cada archivo están cifrados con AES-256
-en todo caso) —
+usuario. Dentro de cada archivo, la base de datos, los documentos, la
+configuración y el almacén temporal de IA están cifrados con AES-256 en todo caso; solo
+los escaneos que aún esperan en la bandeja de entrada de escaneos se incluyen tal cual —
 IRONSTICK no impone ningún calendario y no transmite las copias de seguridad a ninguna parte.
 - **Los documentos generados pertenecen al usuario.** El usuario puede generar
 documentos en cualquier momento — escritos, cartas, dosieres, listas, exportaciones — y
 descargarlos: se escriben en la carpeta local Documentos o, cuando el
-usuario ha ubicado el directorio de datos en una carpeta de Google Drive o selecciona expresamente
-Google Drive como destino, en la propia cuenta de Google Drive del usuario.
+usuario selecciona expresamente Google Drive como destino, en la propia cuenta de Google Drive del usuario.
 **La función de IRONSTICK termina con la generación del archivo.** Lo que ocurra con un
 documento generado a continuación — impresión, presentación ante un tribunal, envío por correo electrónico,
 carga en cualquier servicio, comunicación a terceros — lo realiza el usuario y
@@ -622,8 +712,8 @@ es responsabilidad exclusiva del usuario.
 
 **Atribución de responsabilidades.** Dado que IRONSTICK almacena
 todo localmente y transmite datos únicamente por las vías documentadas en las secciones
-1–7 — cada una de ellas seudonimizada, sujeta a consentimiento o desencadenada por una
-acción deliberada del usuario —, el operador del despacho es el único responsable
+1–7 y 9 — incluidas las funciones en segundo plano que se ejecutan sin cuadro de diálogo
+propio (secciones 3 y 7) —, el operador del despacho es el único responsable
 del tratamiento: elige el soporte de almacenamiento y su cifrado, gestiona y
 conserva las copias de seguridad, decide qué funciones de IA están activadas, otorga o deniega cada
 consentimiento y decide por sí solo qué se hace con cada documento, exportación o copia de seguridad
@@ -632,7 +722,7 @@ clasificaciones — es siempre una **propuesta** que el usuario debe revisar pro
 antes de basarse en ella o de remitirla. El presente documento existe para que cada
 una de esas decisiones pueda adoptarse con pleno conocimiento de los flujos de datos
 reales.
-## 9. El servidor LAN del despacho opcional (IRONSTICK SERVER)
+## 9. IRONSTICK SERVER (opcional, en la red propia del despacho)
 
 ![IRONSTICK Server e IRONSTICK Client conectados por LAN; el servidor no tiene conexión a internet](https://www.ironstick.legal/img/70_server_lan.png)
 Los despachos con varios puestos de trabajo IRONSTICK pueden operar el
@@ -645,6 +735,11 @@ del despacho. Solo acepta conexiones desde direcciones de red privadas (locales)
 y **nunca inicia ninguna conexión con internet** — sin telemetría, sin
 comprobaciones de actualizaciones, sin contacto con el fabricante. El fabricante del software no tiene acceso de ningún
 tipo.
+- **Transporte y almacenamiento.** Los puestos de trabajo acceden al servidor dentro de la
+red local mediante HTTP sin cifrar con autenticación por token; la conexión no está cifrada en el transporte. Los datos del servidor
+no están cifrados en reposo por IRONSTICK: residen en el NAS propio del despacho dentro de la
+red del despacho, y el despacho los protege como cualquier servidor de archivos de oficina (cifrado del volumen del NAS,
+control de acceso, política de copias de seguridad).
 - **Sin intervención de IA.** El servidor no transporta tráfico de IA, no almacena ninguna clave
 de IA y nunca se comunica con ningún proveedor de modelos de lenguaje. Todos los canales de IA
 descritos en las secciones 1–6 permanecen estrictamente vinculados a cada puesto de trabajo; la
@@ -663,7 +758,7 @@ inicios/finalizaciones de suscripciones y exportaciones, cada uno con fecha, hor
 IP de la LAN; (f) un **registro de seguridad** con eventos administrativos y de inicio de sesión,
 incluidas las direcciones IP de la LAN; (g) **paquetes de traspaso de expedientes** — cuando un usuario
 transfiere la titularidad de un expediente a un compañero, el expediente completo viaja como un único
-archivo a través de una zona de estacionamiento del servidor («spool»); el paquete se elimina del
+archivo a través de una zona de transferencia temporal del servidor; el paquete se elimina del
 servidor después de que el destinatario haya confirmado la importación, y los documentos
 marcados como secretos solo viajan tras una confirmación adicional expresa del titular
 (en caso contrario, se interrumpe la transferencia); (h) la **recepción central de
@@ -677,10 +772,10 @@ el puesto de escaneo, sin ninguna IA; (i) **registros de eventos de copia de seg
 cada puesto de trabajo comunica sus eventos de copia de seguridad y restauración de datos (tipo, nombre de
 archivo, tamaño, hora, IP de la LAN), de modo que el administrador puede ver por usuario cuándo se realizó la
 última copia de seguridad y recordárselo a los usuarios que se retrasen; (j) el **directorio de partes
-de todo el despacho** («red de entidades») — los registros maestros de
+de todo el despacho** — los registros maestros de
 **personas y empresas, instituciones, las relaciones entre ellas y los
 análisis de personas** que llevan los puestos de trabajo, junto con la cola de
-propuestas de cambio intercambiadas entre usuarios; (k) las **valoraciones de resoluciones judiciales** — por puesto de trabajo y resolución: tribunal, órgano juzgador y composición, los nombres de los jueces y letrados, número de resolución, fecha, número de procedimiento, los números internos de caso y de cliente del puesto que valora, las proporciones de texto medidas y el análisis en inglés de la resolución y de los escritos de ambas partes redactado por la IA. Véanse los puntos siguientes.
+propuestas de cambio intercambiadas entre usuarios; (k) las **valoraciones de resoluciones judiciales** — por puesto de trabajo y resolución: tribunal, órgano juzgador y composición, los nombres de los jueces y letrados, número de resolución, fecha, número de procedimiento, los números internos de caso y de cliente del puesto que valora, las proporciones de texto medidas y el análisis en inglés de la resolución y de los escritos de ambas partes redactado por la IA; (l) el **chat del despacho** — mensajes entre los usuarios registrados (se eliminan al cabo de un año) — y las notas fijadas en un expediente compartido, visibles para su titular y para todos los suscriptores.
 - **El directorio de partes de todo el despacho.** En cuanto un puesto de trabajo se
 conecta al servidor, sus datos maestros de partes (quién es quién: nombres,
 identificadores, datos de contacto, relaciones, análisis de personas) se **cargan
@@ -689,7 +784,7 @@ de modo que cada abogado ve con quién está tratando ya el despacho y el despac
 obtiene una visión de conflictos de intereses de todo el despacho. Cada registro tiene exactamente un
 titular — el usuario que lo introdujo primero; todos los demás usuarios tienen una copia
 de solo lectura y únicamente pueden enviar una **propuesta de cambio**, que el titular acepta o
-rechaza en el monitor de datos. Si no es posible contactar con el titular durante 48 horas,
+rechaza en el Monitor de coherencia de datos. Si no es posible contactar con el titular durante 48 horas,
 la titularidad pasa al usuario que formuló la propuesta. **Los contenidos de los expedientes no forman parte de
 este directorio** — los documentos, la cronología, la correspondencia y las asignaciones de
 expedientes siguen rigiéndose por las acciones expresas de compartición y traspaso
@@ -703,7 +798,7 @@ actividades de tratamiento.
 - **Solo acciones deliberadas — para el contenido de los expedientes.** El contenido de los expedientes llega
 al servidor exclusivamente mediante una acción expresa de compartición o de traspaso
 confirmada por el usuario; los textos de la biblioteca jurídica solo después de que el usuario acepte la
-entrada en el monitor de datos; el correo entrante escaneado solo después de que el empleado administrativo
+entrada en el Monitor de coherencia de datos; el correo entrante escaneado solo después de que el empleado administrativo
 haya revisado el documento y haya pulsado enviar a un destinatario elegido. El directorio de partes y las valoraciones guardadas de resoluciones judiciales son las excepciones deliberadas: se sincronizan en segundo plano sin confirmación por registro. Los registros de tiempo, presencia, eventos y
 copias de seguridad son metadatos operativos generados por el propio funcionamiento multiusuario
 y son visibles para el administrador del despacho en la administración web.
@@ -712,11 +807,16 @@ responsable del tratamiento. El administrador controla la aprobación de registr
 suscripciones, eliminar entradas de la biblioteca jurídica y desinstalar el paquete —
 lo que deja el directorio de datos del servidor bajo el control del administrador en
 el NAS.
+- **Datos de los empleados.** Con IRONSTICK SERVER, cada
+puesto de trabajo comunica al servidor su tiempo de trabajo medido por día y expediente (número de expediente,
+nombre del cliente) y cada evento de copia de seguridad y de restauración (archivo, tamaño, hora, dirección IP),
+y el administrador del despacho puede verlos. El despacho debe informar de ello a su
+personal.
 - **Nombres completos de clientes en los registros de tiempo.** La vista general del control horario
 muestra el tiempo de trabajo por expediente y por cliente, lo que significa que los nombres de los clientes se
 almacenan en el NAS. Esto permanece dentro de la infraestructura propia del despacho y de su
 régimen de confidencialidad existente — pero los despachos deberían incluir el NAS en su
-inventario de medidas técnicas y organizativas (control de acceso en DSM,
+inventario de medidas técnicas y organizativas (control de acceso en el sistema operativo del NAS,
 cifrado del volumen, política de copias de seguridad), exactamente igual que lo harían con cualquier servidor
 de archivos de oficina.
 
@@ -754,7 +854,7 @@ las normas deontológicas de su colegio de abogados y a la práctica local en ma
 el software de gestión IRONSTICK, que incluye funciones asistidas por
 inteligencia artificial. Para estas funciones, determinados datos de su
 expediente pueden transmitirse a un proveedor externo de servicios de IA
-(según disponibilidad: Alibaba Cloud, Moonshot AI, OpenAI o Anthropic, a través de sus interfaces de programación), que los trata
+(según disponibilidad: Alibaba Cloud, Moonshot AI, OpenAI o Anthropic, a través de sus API), que los trata
 por cuenta nuestra sobre la base de un contrato de encargo de tratamiento.
 Utilizamos estas funciones para: la clasificación y el registro de documentos
 entrantes, la priorización del correo electrónico entrante, la comprobación de
@@ -779,10 +879,12 @@ voz alta; las utilizamos únicamente mediante una acción individual deliberada.
 [Opcional — suprimir si no se utiliza: Para la redacción de escritos procesales
 utilizamos además un espacio de trabajo de IA en el que los datos del
 expediente se tratan sin sustitución por marcadores; este canal se emplea
-exclusivamente bajo nuestra supervisión directa.]
+exclusivamente bajo nuestra supervisión directa.] Con independencia de las funciones de IA,
+el software envía las direcciones postales almacenadas en nuestros registros — sin nombres — al servicio
+público de mapas OpenStreetMap para poder mostrarlas en un mapa.
 
 **El proveedor.** Según las condiciones del proveedor que nos son
-aplicables, los contenidos transmitidos a través de la interfaz de programación
+aplicables, los contenidos transmitidos a través de la API
 no se utilizan para entrenar modelos de IA y solo se conservan durante un
 periodo limitado. El tratamiento puede tener lugar fuera del Espacio Económico
 Europeo; en tal caso, la transferencia está protegida por las garantías
@@ -800,19 +902,21 @@ autoridad de control.
 
 La presente declaración se ha derivado del código fuente de la aplicación
 (seudonimizador, router externo, registro de auditoría y la vía de transmisión de cada
-función) y refleja el comportamiento entregado de la versión descrita. El tratamiento por parte
+función) y refleja el comportamiento entregado de la versión 1.0.6 (a noviembre de 2026). El tratamiento por parte
 del propio proveedor de IA — conservación, uso para entrenamiento, subencargados, jurisdicción —
-se rige exclusivamente por las condiciones del proveedor — los enlaces a las condiciones y a la
-política de privacidad de cada proveedor figuran en la sección correspondiente de la configuración
-de IA (Groq: groq.com/terms-of-use; OpenRouter: openrouter.ai/terms; Mistral: legal.mistral.ai/terms/commercial-terms-of-service; Alibaba Cloud:
-alibabacloud.com/help/en/legal; Moonshot AI: platform.kimi.ai/docs/agreement;
-OpenAI: openai.com/policies). Para los servicios de Anthropic, consulte, en
-sus versiones vigentes: los Commercial Terms of Service
-([anthropic.com/legal/commercial-terms](https://www.anthropic.com/legal/commercial-terms)),
-la Usage Policy
-([anthropic.com/legal/aup](https://www.anthropic.com/legal/aup)) y
-la Privacy Policy
-([anthropic.com/legal/privacy](https://www.anthropic.com/legal/privacy)).
+se rige exclusivamente por las condiciones del proveedor, en sus versiones vigentes. Los
+enlaces a las condiciones y a la política de privacidad de cada proveedor figuran también en la sección
+correspondiente de la configuración de IA.
+
+| Proveedor | Condiciones y privacidad |
+| --- | --- |
+| Alibaba Cloud (Qwen) | [alibabacloud.com/help/en/legal](https://www.alibabacloud.com/help/en/legal) |
+| Moonshot AI (Kimi) | [platform.kimi.ai/docs/agreement](https://platform.kimi.ai/docs/agreement) |
+| OpenAI (ChatGPT) | [openai.com/policies](https://openai.com/policies) |
+| Anthropic (Claude) | Condiciones comerciales de servicio: [anthropic.com/legal/commercial-terms](https://www.anthropic.com/legal/commercial-terms); política de uso: [anthropic.com/legal/aup](https://www.anthropic.com/legal/aup); política de privacidad: [anthropic.com/legal/privacy](https://www.anthropic.com/legal/privacy) |
+| Groq | [groq.com/terms-of-use](https://groq.com/terms-of-use) |
+| OpenRouter | [openrouter.ai/terms](https://openrouter.ai/terms) |
+| Mistral | [legal.mistral.ai/terms/commercial-terms-of-service](https://legal.mistral.ai/terms/commercial-terms-of-service) |
 
 ##### Contacto
 

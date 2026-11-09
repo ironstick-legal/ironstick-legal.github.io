@@ -1,55 +1,57 @@
 # Prezzi
 
+> Prezzi IRONSTICK: licenze mensili modulari per l’app client, i Bridge per l’IA desktop e il server di studio, più moduli di formazione in sede. Tutti i prezzi al netto dell’IVA.
+
 Pagina originale: https://www.ironstick.legal/pricing_it.html
 
 ---
 
-Licenze modulari: pagate solo ciò che il vostro studio utilizza effettivamente — e scalate in qualsiasi momento verso l’alto o verso il basso.
+Licenze modulari: paghi solo ciò che il tuo studio utilizza effettivamente — e scali in qualsiasi momento verso l’alto o verso il basso.
 
-Tutti i prezzi sono **netti** (IVA esclusa). Le licenze sono fatturate mensilmente; i moduli di formazione sono servizi una tantum in sede. Il ruolo dei singoli componenti è descritto nel documento commerciale IRONSTICK che li accompagna.
+Tutti i prezzi sono **netti** (IVA esclusa). Le licenze sono fatturate mensilmente; i moduli di formazione sono servizi una tantum in sede. Ogni componente è descritto nel [compendio dell’App client](https://www.ironstick.legal/kompendium_it.html) e nel [compendio del Bridge](https://www.ironstick.legal/bridge_it.html).
 
 ## 1. Prezzi delle licenze
-
-### Europa dell’Est
-
-| Componente | Prezzo (netto) | Modalità di fatturazione |
-| --- | --- | --- |
-| **IRONSTICK Client** (app di base) | 110 € | per utente / mese |
-| **Bridge singolo** (Claude, ChatGPT, Qwen *o* Kimi) | 50 € | per postazione / mese |
-| **Pacchetto All-Bridge** (tutti e 4 i Bridge: Claude, ChatGPT, Qwen e Kimi) | 90 € | per postazione / mese |
-| **IRONSTICK Office Server** (fino a 5 client inclusi) | 518 € | per studio / server / mese |
-| **Client aggiuntivo sul server** (dal 6° client) | 10 € | per client aggiuntivo / mese |
-| **Central Scan App** (max. 3 licenze) | 25 € | per postazione di scansione / mese |
 
 ### Europa occidentale
 
 | Componente | Prezzo (netto) | Modalità di fatturazione |
 | --- | --- | --- |
-| **IRONSTICK Client** (app di base) | 220 € | per utente / mese |
+| **IRONSTICK App client** (licenza di base) | 220 € | per utente / mese |
 | **Bridge singolo** (Claude, ChatGPT, Qwen *o* Kimi) | 70 € | per postazione / mese |
 | **Pacchetto All-Bridge** (tutti e 4 i Bridge: Claude, ChatGPT, Qwen e Kimi) | 130 € | per postazione / mese |
-| **IRONSTICK Office Server** (fino a 5 client inclusi) | 790 € | per studio / server / mese |
-| **Client aggiuntivo sul server** (dal 6° client) | 20 € | per client aggiuntivo / mese |
+| **IRONSTICK SERVER** (fino a 5 connessioni dell’App client incluse) | 790 € | per studio / server / mese |
+| **Connessione aggiuntiva dell’App client** (dalla 6ª connessione) | 20 € | per connessione aggiuntiva / mese |
 | **Central Scan App** (max. 3 licenze) | 40 € | per postazione di scansione / mese |
 
-- **Moduli aggiuntivi e dipendenze.** I Bridge e l’Office Server sono moduli aggiuntivi dell’app di base con licenza separata. La Central Scan App richiede una licenza Office Server attiva (massimo 3 postazioni di scansione per server).
-- **Bring your own AI.** I Bridge per le IA desktop richiedono un abbonamento utente attivo o un accesso API presso il rispettivo fornitore (ad es. Anthropic, OpenAI). Mantenete il pieno controllo sui vostri account e sui costi presso i fornitori di IA.
-- **Scalabilità.** Aggiungete o disdite licenze man mano che lo studio cresce o si riduce. Nessun sovradimensionamento dell’infrastruttura a lungo termine.
+### Europa dell’Est
 
-IRONSTICK può essere provato gratuitamente per 30 giorni. I download sono disponibili nella [pagina di download](https://www.ironstick.legal/download_it.html).
+| Componente | Prezzo (netto) | Modalità di fatturazione |
+| --- | --- | --- |
+| **IRONSTICK App client** (licenza di base) | 110 € | per utente / mese |
+| **Bridge singolo** (Claude, ChatGPT, Qwen *o* Kimi) | 50 € | per postazione / mese |
+| **Pacchetto All-Bridge** (tutti e 4 i Bridge: Claude, ChatGPT, Qwen e Kimi) | 90 € | per postazione / mese |
+| **IRONSTICK SERVER** (fino a 5 connessioni dell’App client incluse) | 518 € | per studio / server / mese |
+| **Connessione aggiuntiva dell’App client** (dalla 6ª connessione) | 10 € | per connessione aggiuntiva / mese |
+| **Central Scan App** (max. 3 licenze) | 25 € | per postazione di scansione / mese |
+
+- **Moduli aggiuntivi e dipendenze.** I Bridge e IRONSTICK SERVER sono moduli aggiuntivi dell’App client con licenza separata. Ogni Bridge viene sbloccato nella chiave di licenza della tua App client: non è necessaria alcuna chiave Bridge separata. La Central Scan App richiede una licenza IRONSTICK SERVER attiva (massimo 3 postazioni di scansione per server).
+- **Porta la tua IA.** L’IA integrata dell’App client funziona con la tua chiave API presso il fornitore: per la sola App client una chiave API è tutto ciò che serve. Un Bridge è diverso: funziona attraverso l’app desktop del fornitore e il tuo account presso di esso (ad es. Anthropic, OpenAI). Mantieni il pieno controllo sui tuoi account e sui costi presso i fornitori di IA.
+- **Scala flessibile.** Aggiungi o disdici licenze al variare delle dimensioni dello studio, senza dover acquistare capacità in anticipo.
+
+Prova IRONSTICK gratuitamente per 30 giorni: i download e la licenza di prova si trovano nella [pagina di download](https://www.ironstick.legal/download_it.html).
 
 ## 2. Account presso i fornitori di IA
 
-**Consigliato per l’uso di IRONSTICK: un account API presso Anthropic**
-([console.anthropic.com](https://console.anthropic.com)). Funziona come un conto prepagato che ricaricate secondo necessità e sostiene le funzioni IA di base di IRONSTICK. IRONSTICK mostra nell’app un avviso ben visibile non appena il credito di un fornitore configurato è esaurito. **Con i Bridge questi costi API si riducono sensibilmente** — tutte le richieste più onerose passano allora attraverso l’abbonamento anziché l’account API.
+**Consigliato: un account API presso Anthropic**
+([console.anthropic.com](https://console.anthropic.com)). L’IA integrata di IRONSTICK funziona con una chiave API di Anthropic, OpenAI, Qwen o Kimi; si consiglia una chiave Anthropic perché alimenta anche funzioni come la ricerca di link web con l’IA. Un account API è un conto prepagato che ricarichi secondo necessità. IRONSTICK ti avvisa nell’app non appena il credito di un fornitore configurato è esaurito. **Con un Bridge, il lavoro che svolgi con la tua IA desktop passa sul tuo abbonamento anziché sull’account API**: un abbonamento è la tariffa mensile fissa del fornitore, mentre l’accesso API è fatturato dal fornitore in base all’uso. Le attività in background dell’App client usano le chiavi API oppure, se configurati, i livelli gratuiti di Groq, OpenRouter e Mistral.
 
-**Gli abbonamenti presso Anthropic, OpenAI, Qwen e Kimi sono facoltativi per l’uso di IRONSTICK — ma diventano obbligatori per l’uso del rispettivo Bridge.** Piani di abbonamento:
+**Un abbonamento presso Anthropic, OpenAI, Qwen o Kimi è facoltativo per IRONSTICK stesso; l’App client da sola richiede solo una chiave API; il Bridge corrispondente funziona attraverso l’app desktop di quel fornitore e il tuo account presso di esso.** Piani di abbonamento:
 [Anthropic](https://claude.com/pricing) ·
 [OpenAI](https://openai.com/chatgpt/pricing) ·
 [Qwen](https://www.qwencloud.com/pricing/token-plan) ·
 [Kimi](https://www.kimi.com/membership/pricing).
 
-Potete provare le app desktop già da ora — download:
+Puoi provare prima le app desktop dei fornitori:
 [Claude Desktop](https://claude.ai/download) ·
 [ChatGPT Desktop](https://openai.com/chatgpt/download) ·
 [Qwen Desktop](https://chat.qwen.ai) ·
@@ -64,49 +66,49 @@ Potete provare le app desktop già da ora — download:
 | Qwen | Token Plan Lite | da ca. 6 € / mese |
 | Kimi | Moderato | da ca. 17 € / mese |
 
-**Raccomandazione attuale.** In base all’esperienza pratica raccomandiamo attualmente un abbonamento Anthropic — i suoi modelli rispondono in modo più affidabile — oppure un abbonamento OpenAI. Qwen va considerato per ora come soluzione di riserva.
+**Raccomandazione.** Secondo la nostra esperienza, gli abbonamenti Anthropic e OpenAI offrono i risultati più costanti; Qwen è meglio usarlo come fornitore di riserva.
 ## 3. Moduli di formazione
 
-La formazione è concessa in licenza separatamente, in tre moduli, tutti **in sede** e tenuti da un formatore — negli studi con uno o due avvocati direttamente sui fascicoli in corso, con il formatore vincolato da NDA; negli studi più grandi prima in gruppo, come presentazione con esempi svolti.
+La formazione è offerta separatamente, in tre moduli, tutti svolti **in sede** da un formatore. Negli studi con uno o due avvocati il formatore lavora direttamente sui tuoi fascicoli in corso, vincolato da un accordo di riservatezza; negli studi più grandi la formazione parte da sessioni di gruppo ed esempi svolti.
 
-| Modulo | Formato | Europa dell’Est (netto) \* | Europa occidentale (netto) \* |
+| Modulo | Formato | Europa occidentale (netto) \* | Europa dell’Est (netto) \* |
 | --- | --- | --- | --- |
-| **Formazione di base IA** | 1 giorno in sede | ca. 1.500 € | ca. 2.200 € |
-| **Formazione avanzata IA** | 1 giorno in sede, estendibile a giornate | ca. 1.800 € al giorno | ca. 2.500 € al giorno |
-| **Modulo speciale OSINT** | in sede, a giornate | ca. 1.800 € al giorno | ca. 2.500 € al giorno |
+| **Formazione di base IA** | 1 giorno in sede | 2.200 € | 1.500 € |
+| **Formazione avanzata IA** | 1 giorno in sede, estendibile a giornate | 2.500 € al giorno | 1.800 € al giorno |
+| **Modulo speciale OSINT** | in sede, a giornate | 2.500 € al giorno | 1.800 € al giorno |
 
-\* Viaggio e alloggio sono a carico del committente.
+\* Più spese di viaggio e alloggio.
 
-**Nota sulla formazione avanzata IA.** La formazione avanzata può essere estesa a giornate per ottimizzare workflow multi-modello avanzati, la redazione in contraddittorio e il prompt engineering specifico dello studio.
+**Nota sulla formazione avanzata IA.** È possibile prenotare giornate aggiuntive per workflow multi-modello avanzati, la redazione in contraddittorio e istruzioni IA specifiche dello studio.
 ## 4. Configurazioni di esempio
-
-### Europa dell’Est
-
-| Dimensione dello studio | Configurazione | Sconto client \* | Mensile (netto) | Annuale (netto) |
-| --- | --- | --- | --- | --- |
-| **1 avvocato** — studio individuale | 1× Client + 1× Bridge singolo | 0 % | 160 € | 1.920 € |
-| **2 avvocati** — studio associato | 2× Client + 2× Bridge singolo + Office Server | 0 % | 838 € | 10.056 € |
-| **3 avvocati** — studio | 3× Client + 3× Bridge singolo + Office Server + 1× Central Scan | 5 % | 1.007 € | 12.084 € |
-| **10 avvocati** — studio | 10× Client + 10× Bridge singolo + Office Server (5 client aggiuntivi) + 1× Central Scan | 10 % | 2.083 € | 24.996 € |
-| **20 avvocati** — studio più grande | 20× Client + 20× Bridge singolo + Office Server (15 client aggiuntivi) + 2× Central Scan | 15 % | 3.588 € | 43.056 € |
-| **30 avvocati** — studio più grande | 30× Client + 30× Bridge singolo + Office Server (25 client aggiuntivi) + 3× Central Scan | 20 % | 4.983 € | 59.796 € |
 
 ### Europa occidentale
 
-| Dimensione dello studio | Configurazione | Sconto client \* | Mensile (netto) | Annuale (netto) |
+| Dimensione dello studio | Configurazione | Sconto App client \* | Mensile (netto) | Annuale (netto) |
 | --- | --- | --- | --- | --- |
-| **1 avvocato** — studio individuale | 1× Client + 1× Bridge singolo | 0 % | 290 € | 3.480 € |
-| **2 avvocati** — studio associato | 2× Client + 2× Bridge singolo + Office Server | 0 % | 1.370 € | 16.440 € |
-| **3 avvocati** — studio | 3× Client + 3× Bridge singolo + Office Server + 1× Central Scan | 5 % | 1.667 € | 20.004 € |
-| **10 avvocati** — studio | 10× Client + 10× Bridge singolo + Office Server (5 client aggiuntivi) + 1× Central Scan | 10 % | 3.610 € | 43.320 € |
-| **20 avvocati** — studio più grande | 20× Client + 20× Bridge singolo + Office Server (15 client aggiuntivi) + 2× Central Scan | 15 % | 6.310 € | 75.720 € |
-| **30 avvocati** — studio più grande | 30× Client + 30× Bridge singolo + Office Server (25 client aggiuntivi) + 3× Central Scan | 20 % | 8.790 € | 105.480 € |
+| **1 avvocato** — studio individuale | 1× App client + 1× Bridge singolo | 0 % | 290 € | 3.480 € |
+| **2 avvocati** — studio associato | 2× App client + 2× Bridge singolo + IRONSTICK SERVER | 0 % | 1.370 € | 16.440 € |
+| **3 avvocati** — studio | 3× App client + 3× Bridge singolo + IRONSTICK SERVER + 1× Central Scan | 5 % | 1.667 € | 20.004 € |
+| **10 avvocati** — studio | 10× App client + 10× Bridge singolo + IRONSTICK SERVER (5 connessioni aggiuntive) + 1× Central Scan | 10 % | 3.610 € | 43.320 € |
+| **20 avvocati** — studio più grande | 20× App client + 20× Bridge singolo + IRONSTICK SERVER (15 connessioni aggiuntive) + 2× Central Scan | 15 % | 6.310 € | 75.720 € |
+| **30 avvocati** — studio più grande | 30× App client + 30× Bridge singolo + IRONSTICK SERVER (25 connessioni aggiuntive) + 3× Central Scan | 20 % | 8.790 € | 105.480 € |
 
-\* Sconti solo con pagamento annuale anticipato.
+### Europa dell’Est
 
-- Lo sconto di volume si applica **solo alla licenza client** (110 € o 220 €) — Bridge, server, client aggiuntivi e Central Scan sono sempre fatturati a prezzo di listino.
-- Il prezzo dell’Office Server (518 € o 790 €) include i primi 5 client; ogni client aggiuntivo costa 10 € o 20 € in più al mese.
-- Le postazioni Central Scan crescono con il volume della posta: fino a circa 10 avvocati di norma basta una postazione di scansione, gli studi più grandi ne usano due o tre (il massimo).
+| Dimensione dello studio | Configurazione | Sconto App client \* | Mensile (netto) | Annuale (netto) |
+| --- | --- | --- | --- | --- |
+| **1 avvocato** — studio individuale | 1× App client + 1× Bridge singolo | 0 % | 160 € | 1.920 € |
+| **2 avvocati** — studio associato | 2× App client + 2× Bridge singolo + IRONSTICK SERVER | 0 % | 838 € | 10.056 € |
+| **3 avvocati** — studio | 3× App client + 3× Bridge singolo + IRONSTICK SERVER + 1× Central Scan | 5 % | 1.007 € | 12.084 € |
+| **10 avvocati** — studio | 10× App client + 10× Bridge singolo + IRONSTICK SERVER (5 connessioni aggiuntive) + 1× Central Scan | 10 % | 2.083 € | 24.996 € |
+| **20 avvocati** — studio più grande | 20× App client + 20× Bridge singolo + IRONSTICK SERVER (15 connessioni aggiuntive) + 2× Central Scan | 15 % | 3.588 € | 43.056 € |
+| **30 avvocati** — studio più grande | 30× App client + 30× Bridge singolo + IRONSTICK SERVER (25 connessioni aggiuntive) + 3× Central Scan | 20 % | 4.983 € | 59.796 € |
+
+\* Gli sconti si applicano solo con pagamento annuale anticipato.
+
+- Lo sconto di volume si applica **solo alla licenza dell’App client** (220 € o 110 €) — Bridge, IRONSTICK SERVER, connessioni aggiuntive e Central Scan sono sempre fatturati a prezzo di listino.
+- Il prezzo di IRONSTICK SERVER (790 € o 518 €) include le prime cinque connessioni dell’App client; ogni connessione aggiuntiva costa 20 € o 10 € al mese.
+- Il numero di postazioni Central Scan dipende dal volume della posta in arrivo: fino a circa 10 avvocati di norma basta una postazione di scansione; gli studi più grandi ne usano due o tre (il massimo).
 
 ##### Contatti
 
@@ -114,7 +116,7 @@ La formazione è concessa in licenza separatamente, in tre moduli, tutti **in se
 
 ![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Scansiona il codice per salvare la nostra scheda contatto — telefono, e-mail e sito.
 
-Contattate direttamente via WhatsApp o Telegram — anche una chiamata è benvenuta. Lingue parlate: tedesco, inglese, rumeno.
+Contattaci direttamente via WhatsApp o Telegram, oppure chiamaci. Parliamo inglese, tedesco e rumeno.
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 

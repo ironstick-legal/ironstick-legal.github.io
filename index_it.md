@@ -14,10 +14,10 @@ Per gli avvocati che rivogliono le loro serate.
 
 Ogni documento, e-mail, foto e parola pronunciata diventa ricercabile, comprese le scansioni e le trascrizioni delle telefonate.
 
-Chiedi in linguaggio naturale, da tastiera o a voce: ogni risposta è fondata sui documenti reali, con fonti cliccabili.
+Chiedi in linguaggio naturale, da tastiera o a voce. Ogni documento citato in una risposta è un link cliccabile al record nel tuo fascicolo.
 
 - ●
-Le scadenze e i casi silenti emergono da soli
+Scadenze e casi dormienti vengono segnalati automaticamente
 - ●
 Bozze di atti ricavate dal fascicolo
 - ●
@@ -25,15 +25,15 @@ OCR, ricerca a testo pieno, trascrizione di audio e video
 
 ## Ecco IRONSTICK
 
-Viste dell'applicazione. I dati dei clienti sono oscurati.
+Schermate dell'applicazione, con i dati dei clienti resi anonimi. [Vedi tutte le schermate](https://www.ironstick.legal/screenshots.html)
 
 [![Menu principale](https://www.ironstick.legal/img/lp_shot_main.jpg)](https://www.ironstick.legal/img/lp_shot_main.jpg)
 
-**Menu principale**Scadenze, casi silenti e ogni area a colpo d'occhio.
+**Menu principale**Scadenze, casi dormienti e ogni area di lavoro a colpo d'occhio.
 
 [![Agenda](https://www.ironstick.legal/img/lp_shot_agenda.jpg)](https://www.ironstick.legal/img/lp_shot_agenda.jpg)
 
-**Agenda**Tutto ciò che è accaduto in tutti i casi, in un unico flusso.
+**Agenda**Attività recenti e imminenti di tutti i casi, in un unico flusso.
 
 [![Scadenze](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)
 
@@ -45,7 +45,7 @@ Viste dell'applicazione. I dati dei clienti sono oscurati.
 
 [![Universo delle parti](https://www.ironstick.legal/img/lp_shot_universe.jpg)](https://www.ironstick.legal/img/lp_shot_universe.jpg)
 
-**Universo delle parti**La rete di tutte le parti, da esplorare in 3D.
+**Universo delle parti**La rete di tutte le parti dei tuoi casi, da esplorare in 3D.
 
 [![Mappa geografica](https://www.ironstick.legal/img/lp_shot_map.jpg)](https://www.ironstick.legal/img/lp_shot_map.jpg)
 
@@ -55,39 +55,39 @@ Viste dell'applicazione. I dati dei clienti sono oscurati.
 
 ## 01
 
-**Avvocati singoli e piccoli studi.** Nessun reparto IT, nessun budget per tecnici: IRONSTICK gira su un normale computer Windows e si mantiene da solo.
+**Avvocati singoli e piccoli studi.** Non serve un reparto IT: IRONSTICK gira su un normale PC Windows e svolge in background la propria manutenzione ordinaria; gli aggiornamenti si installano eseguendo il nuovo programma di installazione.
 
 ## 02
 
-**Avvocati processualisti con fascicoli voluminosi.** Chi gestisce migliaia di pagine di prove interroga il fascicolo in linguaggio naturale e ottiene risposte documentate, con le fonti.
+**Avvocati processualisti con fascicoli voluminosi.** Interroga migliaia di pagine di prove in linguaggio naturale e ricevi risposte con link ai documenti citati.
 
 ## 03
 
-**Avvocati d'impresa, fallimentaristi e penalisti.** Molte persone, società e intrecci: la rete su tutti i fascicoli rende visibili collegamenti che a mano sarebbe impossibile seguire.
+**Avvocati d'impresa, fallimentaristi e penalisti.** Molte persone, società e rapporti intrecciati: una rete su tutti i fascicoli rende visibili collegamenti che a mano sarebbe impraticabile ricostruire.
 
 ## 04
 
-**Studi con più avvocati.** L'IRONSTICK SERVER collega le postazioni tramite un NAS Synology nella tua rete: condividi i casi, senza cloud e senza rinunciare al fascicolo locale.
+**Studi con più avvocati.** IRONSTICK SERVER, il server di studio, collega le postazioni tramite un NAS Synology nella tua rete: i casi si condividono senza servizio cloud e ogni postazione conserva in locale i propri fascicoli completi.
 
 ## Bozze di atti in minuti, non in ore
 
-Atti e lettere nascono in dialogo con l'IA, direttamente dal fascicolo. Prima della consegna, un verificatore deterministico confronta la bozza con il fascicolo vivo: ogni riferimento di prova, ogni parte, ogni citazione normativa.
+Atti e lettere nascono in dialogo con l'IA, direttamente dal fascicolo. Prima che tu riceva la bozza, un controllo automatico basato su regole confronta ogni riferimento di prova, ogni parte e ogni citazione normativa con il fascicolo attuale.
 
-Il risultato è un modello pronto per il deposito, mai un atto giudiziario finito: controlli, correggi e firmi, e la responsabilità resta tua. Esportazione in PDF o DOCX. Provato: 3000 pagine di atti e allegati, timbrate e impaginate, in un unico PDF in meno di 20 minuti.
+Il risultato è un modello pronto per il deposito che controlli, finalizzi e firmi. Esportazione in PDF o DOCX. Nei test, 3.000 pagine di atti e allegati sono state timbrate, impaginate e riunite in un unico PDF in meno di 20 minuti.
 
 ## La tua IA, il tuo account
 
-Attraverso il Bridge, Claude, ChatGPT, Qwen e Kimi lavorano direttamente sul tuo fascicolo, ciascuna con gli stessi strumenti e con il tuo abbonamento presso il fornitore. Il Bridge è un modulo aggiuntivo con licenza separata.
+Attraverso il Bridge, Claude, ChatGPT, Qwen e Kimi lavorano direttamente sul tuo fascicolo, ciascuna con gli stessi strumenti e con il tuo abbonamento presso il fornitore. Ogni Bridge ha una licenza separata e viene sbloccato nella chiave di licenza della tua App client.
 
 ##### IA desktop sul Bridge
 
 4
 
-##### Strumenti del Bridge
+##### Strumenti del fascicolo per l'IA
 
-209
+200+
 
-##### Lingue
+##### Lingue dell'interfaccia
 
 11
 
@@ -97,9 +97,9 @@ Attraverso il Bridge, Claude, ChatGPT, Qwen e Kimi lavorano direttamente sul tuo
 
 ## Il tuo segreto professionale resta da te
 
-La banca dati è cifrata sul tuo supporto; il fornitore del software non vede mai i dati dei clienti. Il consenso prima di ogni chiamata esterna all'IA, la pseudonimizzazione e il registro di audit sono integrati.
+La banca dati e i documenti acquisiti dei casi sono conservati cifrati AES-256 sul tuo hardware, l'accesso richiede un codice di autenticazione a sei cifre (TOTP) e IRONSTICK non invia alcun dato dei clienti al fornitore. L'IA esterna funziona con la tua chiave API; le chiamate attraverso il router IA centrale sono pseudonimizzate e registrate.
 
-Il Bridge trasmette deliberatamente dati reali, con il tuo abbonamento presso il fornitore. Il tuo studio non dipende da alcun centro dati esterno: la licenza viene verificata offline sul tuo computer e tutto ciò che acquisisci si esporta in qualsiasi momento.
+Un Bridge collega direttamente il fornitore di IA da te scelto al tuo fascicolo, con il tuo abbonamento presso tale fornitore. Il tuo studio resta indipendente dai centri dati esterni: la licenza viene convalidata offline sul tuo computer, ogni caso si esporta in qualsiasi momento come dossier PDF o ZIP di prove EDRM e un backup completo si crea con un clic.
 
 [Leggi la dichiarazione GDPR sui flussi di dati](https://www.ironstick.legal/gdpr_it.html)
 
@@ -111,7 +111,7 @@ Tutti i prezzi indicati su questo sito web non includono l'IVA di legge.
 
 ##### 220 €
 
-per utente al mese, Europa occidentale. Europa orientale: 110 €.
+per utente al mese (Europa occidentale). Europa orientale: 110 €.
 
 Comprende:
 
@@ -125,12 +125,12 @@ Comprende:
 
 ##### 790 €
 
-IRONSTICK SERVER al mese, modulo aggiuntivo con fino a 5 client inclusi, Europa occidentale. Europa orientale: 518 €.
+Modulo aggiuntivo IRONSTICK SERVER al mese, con fino a 5 connessioni dell'App client incluse (Europa occidentale). Europa orientale: 518 €.
 
 Comprende:
 
-- Condividi i casi, tieni il fascicolo
-- Nella tua rete, senza cloud
+- Casi condivisi, fascicoli conservati in locale
+- Nella tua rete, nessun servizio cloud
 - Funziona su un NAS Synology
 
 [Tutti i prezzi](https://www.ironstick.legal/pricing_it.html)
@@ -141,7 +141,7 @@ Comprende:
 
 ![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Scansiona il codice per salvare la nostra scheda contatto — telefono, e-mail e sito.
 
-Contattate direttamente via WhatsApp o Telegram — anche una chiamata è benvenuta. Lingue parlate: tedesco, inglese, rumeno.
+Contattaci direttamente via WhatsApp o Telegram, oppure chiamaci. Parliamo inglese, tedesco e rumeno.
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 

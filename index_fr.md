@@ -14,10 +14,10 @@ Pour les avocats qui veulent retrouver leurs soirées.
 
 Chaque document, courriel, photo et parole prononcée devient consultable, y compris les scans et les transcriptions d'appels téléphoniques.
 
-Posez vos questions en langage courant, au clavier ou à la voix : chaque réponse est ancrée dans les documents réels, avec des sources cliquables.
+Posez vos questions en langage courant, au clavier ou à la voix. Chaque document cité dans une réponse est un lien cliquable vers l'enregistrement dans votre dossier.
 
 - ●
-Les délais et les dossiers dormants remontent d'eux-mêmes
+Les délais et les dossiers dormants sont signalés automatiquement
 - ●
 Projets d'écritures tirés du dossier
 - ●
@@ -25,15 +25,15 @@ OCR, recherche plein texte, transcription audio et vidéo
 
 ## IRONSTICK en images
 
-Vues de l'application. Les données des clients sont masquées.
+Captures d'écran de l'application, données des clients anonymisées. [Voir toutes les captures d'écran](https://www.ironstick.legal/screenshots.html)
 
 [![Menu principal](https://www.ironstick.legal/img/lp_shot_main.jpg)](https://www.ironstick.legal/img/lp_shot_main.jpg)
 
-**Menu principal**Délais, dossiers dormants et chaque domaine d'un coup d'œil.
+**Menu principal**Délais, dossiers dormants et chaque domaine de travail d'un coup d'œil.
 
 [![Agenda](https://www.ironstick.legal/img/lp_shot_agenda.jpg)](https://www.ironstick.legal/img/lp_shot_agenda.jpg)
 
-**Agenda**Tout ce qui s'est passé dans tous les dossiers, en un seul flux.
+**Agenda**Activité récente et à venir de tous les dossiers, en un seul flux.
 
 [![Délais](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)
 
@@ -45,7 +45,7 @@ Vues de l'application. Les données des clients sont masquées.
 
 [![Univers des parties](https://www.ironstick.legal/img/lp_shot_universe.jpg)](https://www.ironstick.legal/img/lp_shot_universe.jpg)
 
-**Univers des parties**Le réseau de toutes les parties, à parcourir en 3D.
+**Univers des parties**Le réseau de toutes les parties de vos dossiers, à explorer en 3D.
 
 [![Carte géographique](https://www.ironstick.legal/img/lp_shot_map.jpg)](https://www.ironstick.legal/img/lp_shot_map.jpg)
 
@@ -55,39 +55,39 @@ Vues de l'application. Les données des clients sont masquées.
 
 ## 01
 
-**Avocats exerçant seuls et petits cabinets.** Pas de service informatique, pas de budget pour des techniciens : IRONSTICK tourne sur un ordinateur Windows ordinaire et s'entretient lui-même.
+**Avocats exerçant seuls et petits cabinets.** Aucun service informatique requis : IRONSTICK tourne sur un PC Windows standard et assure sa maintenance courante en arrière-plan ; les mises à jour s'installent en lançant le nouvel installateur.
 
 ## 02
 
-**Avocats plaidants aux dossiers volumineux.** Qui gère des milliers de pages de pièces interroge le dossier en langage naturel et obtient des réponses étayées, avec leurs sources.
+**Avocats plaidants aux dossiers volumineux.** Interrogez des milliers de pages de pièces en langage courant et obtenez des réponses qui renvoient par lien aux documents cités.
 
 ## 03
 
-**Avocats en droit des affaires, des procédures collectives et en droit pénal.** Beaucoup de personnes, de sociétés et d'imbrications : le réseau sur tous les dossiers rend visibles des liens impossibles à suivre à la main.
+**Avocats en droit des affaires, des procédures collectives et en droit pénal.** Beaucoup de personnes, de sociétés et de relations imbriquées : un réseau couvrant tous les dossiers fait apparaître des liens qu'il serait irréaliste de reconstituer à la main.
 
 ## 04
 
-**Cabinets de plusieurs avocats.** L'IRONSTICK SERVER relie les postes de travail via un NAS Synology sur votre propre réseau : partagez des dossiers, sans cloud et sans renoncer au dossier local.
+**Cabinets de plusieurs avocats.** L'IRONSTICK SERVER, le serveur de cabinet, relie vos postes de travail via un NAS Synology sur votre propre réseau : les dossiers sont partagés sans service cloud, et chaque poste conserve localement son dossier complet.
 
 ## Des projets d'écritures en minutes, pas en heures
 
-Écritures et courriers naissent en dialogue avec l'IA, directement à partir du dossier. Avant la remise, un vérificateur déterministe confronte le projet au dossier vivant : chaque référence de pièce, chaque partie, chaque citation de texte.
+Écritures et courriers naissent en dialogue avec l'IA, directement à partir du dossier. Avant que vous ne receviez le projet, un contrôle automatisé fondé sur des règles confronte chaque référence de pièce, chaque partie et chaque citation juridique au dossier actuel.
 
-Le résultat est un modèle prêt à être déposé, jamais une pièce de procédure achevée : vous vérifiez, corrigez et signez, et la responsabilité reste la vôtre. Export en PDF ou DOCX. Testé : 3000 pages d'écritures et de pièces, tamponnées et paginées, en un seul PDF en moins de 20 minutes.
+Le résultat est un modèle prêt à être déposé que vous vérifiez, finalisez et signez. Export en PDF ou DOCX. Lors des tests, 3 000 pages d'écritures et de pièces ont été tamponnées, paginées et réunies en un seul PDF en moins de 20 minutes.
 
 ## Votre IA, votre compte
 
-Grâce au Bridge, Claude, ChatGPT, Qwen et Kimi travaillent directement sur votre dossier, chacune avec les mêmes outils et sous votre propre abonnement auprès du fournisseur. Le Bridge est un module complémentaire sous licence séparée.
+Grâce au Bridge, Claude, ChatGPT, Qwen et Kimi travaillent directement sur votre dossier, chacune avec les mêmes outils et sous votre propre abonnement auprès du fournisseur. Chaque Bridge fait l'objet d'une licence distincte et se débloque dans la clé de licence de votre application client.
 
 ##### IA de bureau sur le Bridge
 
 4
 
-##### Outils du Bridge
+##### Outils de dossier pour l'IA
 
-209
+200+
 
-##### Langues
+##### Langues de l'interface
 
 11
 
@@ -97,9 +97,9 @@ Grâce au Bridge, Claude, ChatGPT, Qwen et Kimi travaillent directement sur votr
 
 ## Votre secret professionnel reste chez vous
 
-La base de données est chiffrée sur votre propre support ; l'éditeur du logiciel ne voit jamais les données des clients. Le consentement avant chaque appel externe à l'IA, la pseudonymisation et le journal d'audit sont intégrés.
+La base de données et les documents saisis du dossier sont stockés chiffrés en AES-256 sur votre propre matériel, l'accès exige un code d'authentification à six chiffres (TOTP), et IRONSTICK n'envoie aucune donnée de client à l'éditeur. L'IA externe fonctionne avec votre propre clé API ; les appels via le routeur IA central sont pseudonymisés et journalisés.
 
-Le Bridge transmet délibérément des données réelles, sous votre propre abonnement auprès du fournisseur. Votre cabinet ne dépend d'aucun centre de données tiers : la licence est vérifiée hors ligne sur votre ordinateur et tout ce que vous saisissez s'exporte à tout moment.
+Un Bridge relie directement le fournisseur d'IA de votre choix à votre dossier, sous votre propre abonnement auprès de lui. Votre cabinet reste indépendant de tout centre de données externe : la licence est validée hors ligne sur votre ordinateur, chaque dossier peut être exporté à tout moment sous forme de dossier PDF ou de ZIP de preuves EDRM, et une sauvegarde complète se fait en un clic.
 
 [Lire la déclaration RGPD des flux de données](https://www.ironstick.legal/gdpr_fr.html)
 
@@ -111,11 +111,11 @@ Tous les prix affichés sur ce site s'entendent hors TVA légale.
 
 ##### 220 €
 
-par utilisateur et par mois, Europe de l'Ouest. Europe de l'Est : 110 €.
+par utilisateur et par mois (Europe de l'Ouest). Europe de l'Est : 110 €.
 
 Comprend :
 
-- Système de gestion complet
+- Système de gestion de dossiers complet
 - Assistant de dossier et projets d'écritures
 - Local et chiffré
 
@@ -125,12 +125,12 @@ Comprend :
 
 ##### 790 €
 
-IRONSTICK SERVER par mois, module complémentaire incluant jusqu'à 5 clients, Europe de l'Ouest. Europe de l'Est : 518 €.
+Module complémentaire IRONSTICK SERVER par mois, incluant jusqu'à 5 connexions d'application client (Europe de l'Ouest). Europe de l'Est : 518 €.
 
 Comprend :
 
-- Partager des dossiers, garder le vôtre
-- Sur votre réseau, sans cloud
+- Dossiers partagés, fichiers conservés localement
+- Sur votre réseau, sans service cloud
 - Fonctionne sur un NAS Synology
 
 [Tous les prix](https://www.ironstick.legal/pricing_fr.html)
@@ -141,7 +141,7 @@ Comprend :
 
 ![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Scannez le code pour enregistrer notre carte de contact — téléphone, e-mail et site.
 
-N'hésitez pas à prendre contact directement via WhatsApp ou Telegram — un appel est également le bienvenu. Langues parlées : allemand, anglais, roumain.
+Contactez-nous directement par WhatsApp ou Telegram, ou appelez-nous. Nous parlons anglais, allemand et roumain.
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 

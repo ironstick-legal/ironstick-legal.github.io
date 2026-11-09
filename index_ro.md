@@ -14,10 +14,10 @@ Pentru avocații care își vor serile înapoi.
 
 Fiecare document, e-mail, fotografie și cuvânt rostit poate fi căutat, inclusiv scanările și transcrierile convorbirilor telefonice.
 
-Întrebați în limbaj natural, de la tastatură sau cu vocea: fiecare răspuns este ancorat în documentele reale, cu surse pe care puteți da clic.
+Întrebați în limbaj natural, de la tastatură sau cu vocea. Fiecare document citat într-un răspuns este un link pe care puteți da clic, către înregistrarea din dosarul dumneavoastră.
 
 - ●
-Termenele și dosarele amuțite ies singure la suprafață
+Termenele și dosarele inactive sunt semnalate automat
 - ●
 Proiecte de acte generate din dosar
 - ●
@@ -25,15 +25,15 @@ OCR, căutare în text integral, transcriere audio și video
 
 ## Așa arată IRONSTICK
 
-Imagini din aplicație. Datele clienților sunt mascate.
+Capturi de ecran din aplicație, cu datele clienților anonimizate. [Vedeți toate capturile de ecran](https://www.ironstick.legal/screenshots.html)
 
 [![Meniul principal](https://www.ironstick.legal/img/lp_shot_main.jpg)](https://www.ironstick.legal/img/lp_shot_main.jpg)
 
-**Meniul principal**Termene, dosare amuțite și fiecare zonă dintr-o privire.
+**Meniul principal**Termene, dosare inactive și fiecare zonă de lucru dintr-o privire.
 
 [![Agenda](https://www.ironstick.legal/img/lp_shot_agenda.jpg)](https://www.ironstick.legal/img/lp_shot_agenda.jpg)
 
-**Agenda**Tot ce s-a întâmplat în toate dosarele, într-un singur flux.
+**Agenda**Activitatea recentă și cea următoare din toate dosarele, într-un singur flux.
 
 [![Termene](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)](https://www.ironstick.legal/img/lp_shot_deadlines.jpg)
 
@@ -45,7 +45,7 @@ Imagini din aplicație. Datele clienților sunt mascate.
 
 [![Universul părților](https://www.ironstick.legal/img/lp_shot_universe.jpg)](https://www.ironstick.legal/img/lp_shot_universe.jpg)
 
-**Universul părților**Rețeaua tuturor părților, de parcurs în 3D.
+**Universul părților**Rețeaua tuturor părților din dosarele dumneavoastră, de explorat în 3D.
 
 [![Harta geografică](https://www.ironstick.legal/img/lp_shot_map.jpg)](https://www.ironstick.legal/img/lp_shot_map.jpg)
 
@@ -55,39 +55,39 @@ Imagini din aplicație. Datele clienților sunt mascate.
 
 ## 01
 
-**Avocați individuali și cabinete mici.** Fără departament IT, fără buget pentru tehnicieni: IRONSTICK rulează pe un calculator Windows obișnuit și se întreține singur.
+**Avocați individuali și cabinete mici.** Nu este nevoie de departament IT: IRONSTICK rulează pe un PC Windows obișnuit și își efectuează singur întreținerea de rutină în fundal; actualizările se instalează rulând noul program de instalare.
 
 ## 02
 
-**Avocați litigatori cu dosare voluminoase.** Cine gestionează mii de pagini de probe interoghează dosarul în limbaj natural și primește răspunsuri argumentate, cu surse.
+**Avocați litigatori cu dosare voluminoase.** Interogați mii de pagini de probe în limbaj natural și primiți răspunsuri care trimit prin link la documentele citate.
 
 ## 03
 
-**Avocați de drept comercial, insolvență și drept penal.** Multe persoane, firme și legături încrucișate: rețeaua din toate dosarele face vizibile conexiuni imposibil de urmărit manual.
+**Avocați de drept comercial, insolvență și drept penal.** Multe persoane, firme și raporturi încrucișate: o rețea care cuprinde toate dosarele scoate la iveală conexiuni greu de urmărit manual.
 
 ## 04
 
-**Cabinete cu mai mulți avocați.** IRONSTICK SERVER conectează posturile de lucru printr-un NAS Synology în propria rețea: partajați dosare, fără cloud și fără a renunța la dosarul local.
+**Cabinete cu mai mulți avocați.** IRONSTICK SERVER, serverul de cabinet, conectează posturile de lucru printr-un NAS Synology în propria rețea: dosarele se partajează fără serviciu cloud, iar fiecare post de lucru își păstrează local dosarele complete.
 
 ## Proiecte de acte în minute, nu în ore
 
-Actele și scrisorile se nasc în dialog cu IA, direct din dosar. Înainte de predare, un verificator determinist compară proiectul cu dosarul viu: fiecare referință de probă, fiecare parte, fiecare citare de normă.
+Actele și scrisorile se nasc în dialog cu IA, direct din dosar. Înainte de a primi proiectul, o verificare automată, bazată pe reguli, compară fiecare referință de probă, fiecare parte și fiecare citare de normă cu dosarul actual.
 
-Rezultatul este un șablon apt de depunere, niciodată un act de instanță finalizat: dumneavoastră verificați, corectați și semnați, iar răspunderea rămâne a dumneavoastră. Export în PDF sau DOCX. Testat: 3000 de pagini de acte și anexe, ștampilate și paginate, într-un singur PDF în mai puțin de 20 de minute.
+Rezultatul este un șablon apt de depunere, pe care îl verificați, îl finalizați și îl semnați. Export în PDF sau DOCX. În test, 3.000 de pagini de acte și anexe au fost ștampilate, paginate și reunite într-un singur PDF în mai puțin de 20 de minute.
 
 ## IA dumneavoastră, contul dumneavoastră
 
-Prin Bridge, Claude, ChatGPT, Qwen și Kimi lucrează direct pe dosarul dumneavoastră, fiecare cu aceleași instrumente și sub propriul abonament la furnizor. Bridge este un modul suplimentar, licențiat separat.
+Prin Bridge, Claude, ChatGPT, Qwen și Kimi lucrează direct pe dosarul dumneavoastră, fiecare cu aceleași instrumente și sub propriul abonament la furnizor. Fiecare Bridge se licențiază separat și se deblochează în cheia de licență a aplicației client.
 
 ##### IA de desktop pe Bridge
 
 4
 
-##### Instrumente Bridge
+##### Instrumente de dosar pentru IA
 
-209
+200+
 
-##### Limbi
+##### Limbi de interfață
 
 11
 
@@ -97,9 +97,9 @@ Prin Bridge, Claude, ChatGPT, Qwen și Kimi lucrează direct pe dosarul dumneavo
 
 ## Secretul profesional rămâne la dumneavoastră
 
-Baza de date se află criptată pe propriul dumneavoastră mediu de stocare; furnizorul software nu vede niciodată datele clienților. Consimțământul înaintea fiecărui apel extern către IA, pseudonimizarea și jurnalul de audit sunt încorporate.
+Baza de date și documentele de dosar înregistrate sunt stocate criptat AES-256 pe propriul dumneavoastră hardware, accesul necesită un cod de autentificare din șase cifre (TOTP), iar IRONSTICK nu trimite furnizorului nicio dată a clienților. IA externă rulează cu propria cheie API; apelurile prin routerul central de IA sunt pseudonimizate și consemnate în jurnal.
 
-Bridge transmite în mod deliberat date reale, sub propriul abonament la furnizor. Cabinetul dumneavoastră nu depinde de niciun centru de date străin: licența se verifică offline pe calculatorul dumneavoastră, iar tot ce înregistrați puteți exporta oricând.
+Un Bridge conectează furnizorul de IA ales direct la dosarul dumneavoastră, sub propriul abonament la acel furnizor. Cabinetul dumneavoastră rămâne independent de centrele de date externe: licența se validează offline pe calculatorul dumneavoastră, fiecare dosar poate fi exportat oricând ca dosar PDF sau ca ZIP de probe EDRM, iar o copie de siguranță completă se face dintr-un singur clic.
 
 [Citiți declarația GDPR privind fluxurile de date](https://www.ironstick.legal/gdpr_ro.html)
 
@@ -111,7 +111,7 @@ Toate prețurile afișate pe acest site sunt fără TVA-ul legal.
 
 ##### 220 €
 
-per utilizator pe lună, Europa de Vest. Europa de Est: 110 €.
+per utilizator pe lună (Europa de Vest). Europa de Est: 110 €.
 
 Include:
 
@@ -125,12 +125,12 @@ Include:
 
 ##### 790 €
 
-IRONSTICK SERVER pe lună, modul suplimentar cu până la 5 clienți incluși, Europa de Vest. Europa de Est: 518 €.
+Modul suplimentar IRONSTICK SERVER pe lună, cu până la 5 conexiuni ale aplicației client incluse (Europa de Vest). Europa de Est: 518 €.
 
 Include:
 
-- Partajați dosare, păstrați dosarul
-- În propria rețea, fără cloud
+- Dosare partajate, fișiere păstrate local
+- În propria rețea, fără serviciu cloud
 - Rulează pe un NAS Synology
 
 [Toate prețurile](https://www.ironstick.legal/pricing_ro.html)
@@ -141,7 +141,7 @@ Include:
 
 ![IRONSTICK contact card (QR)](https://www.ironstick.legal/img/contact_qr.png)![Tobias Werren](https://www.ironstick.legal/img/tobias_werren.webp)Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.
 
-Contactați direct prin WhatsApp sau Telegram — și un apel este binevenit. Limbi vorbite: germană, engleză, română.
+Contactați-ne direct prin WhatsApp sau Telegram ori sunați-ne. Vorbim engleză, germană și română.
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 

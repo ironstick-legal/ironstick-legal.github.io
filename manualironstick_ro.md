@@ -8,7 +8,7 @@ Pagina originală: https://www.ironstick.legal/manualironstick_ro.html
 
 Manual de utilizare — fiecare ecran: ce vedeți și ce puteți face.
 
-## 0. Bara de meniu
+## Bara de meniu
 
 ![Bara de meniu cu meniul burger, breadcrumb, afișajul resurselor și simbolurile din dreapta, plus fereastra de browser IRONSTICK](https://www.ironstick.legal/img/screens/0%20menubar.png)
 
@@ -17,20 +17,20 @@ Bara de meniu aflată în partea de sus a fiecărui ecran și fereastra de brows
 Bara de meniu se află în partea de sus a fiecărui ecran din IRONSTICK, astfel încât puteți ajunge de oriunde la funcțiile importante.
 În stânga sunt meniul de navigare și numele programului, împreună cu mici indicatoare în timp real. La mijloc este briefingul zilnic. În dreapta sunt
 indicatoarele pentru e-mailuri noi, termene și mesaje, chatul IA, fereastra de browser, configurarea și butonul de oprire. Sub bară, linia breadcrumb arată unde vă aflați.
-Multe simboluri apar doar când există ceva de afișat. Un simbol roșu care se clatină înseamnă întotdeauna că vă așteaptă ceva nou.
+Multe simboluri apar doar când există ceva de afișat. Un simbol roșu, animat, înseamnă că vă așteaptă ceva nou.
 
 1. **Breadcrumb.** Arată calea către ecranul curent, de exemplu *Meniul principal › Instituții*. Ultima parte este ecranul pe care vă aflați. Faceți clic pe o parte anterioară pentru a reveni direct la ea.
 2. **Meniul de navigare (burger).** Deschide meniul lateral cu Meniul principal, Clienți, Instituții, Persoane, Termene, Etichete, Texte și Căutare. Ecranul pe care vă aflați este evidențiat cu albastru. Simbolul roșu de oprire din partea de jos a meniului închide programul, la fel ca butonul de oprire.
 3. **Afișajul resurselor (doar Windows).** O bară mică și textul *(CPU / RAM)* arată câtă putere de procesor și câtă memorie folosește chiar IRONSTICK. Bara este verde, devine portocalie de la 50 % și roșie de la 80 %. Treceți cu mouse-ul peste ea pentru a vedea ce procese în fundal rulează chiar acum, cu progresul și timpul lor de rulare. Sarcinile care pot fi oprite au un X roșu.
 4. **Memoria IA (creierul roz).** Apare imediat ce IA a stocat notițe în memoria sa. Pulsează cât timp IA citește sau scrie în memorie. Faceți clic pe el pentru a verifica notițele stocate. Puteți șterge dintr-o dată toate notițele unui client sau puteți bifa notițe individuale dintre ultimele 100 și le puteți șterge.
-5. **Briefingul zilnic (difuzor).** Deschide briefingul zilnic oricând: ce vă așteaptă astăzi (termene, ședințe de judecată, programări, e-mailuri), ce s-a făcut deja astăzi și o scurtă privire în urmă. Faceți clic pe o linie pentru a deschide ecranul corespunzător, de exemplu termenele, calendarul, monitorul de e-mail sau dosarul. *Citește cu voce tare* redă versiunea vorbită, iar *Oprește* o încheie. Un comutator schimbă doar stilul textului vorbit. Dacă ultima dumneavoastră copie de siguranță are mai mult de cinci zile, briefingul vă avertizează.
-6. **Monitorul de consistență a datelor.** Deschide lista modificărilor propuse la datele clienților și contactelor dumneavoastră pe care IRONSTICK le-a găsit în e-mailurile dumneavoastră. Pentru fiecare propunere alegeți *Permiteți* sau *Respinge*. Simbolul este gri când nu așteaptă nimic și roșu când există propuneri. Se clatină și când au fost propuse dosare noi din portalul instanțelor (funcție specifică țării).
-7. **E-mail.** Vizibil doar când verificarea de fundal a e-mailurilor este activată în configurare. Gri înseamnă că nu există e-mailuri noi. Roșu și clătinându-se înseamnă că au sosit e-mailuri noi, iar tooltipul arată câte. Faceți clic pentru a deschide monitorul de e-mail, unde totul se consideră văzut.
+5. **Briefingul zilnic (difuzor).** Deschide briefingul zilnic oricând: ce vă așteaptă astăzi (termene, ședințe de judecată, programări, e-mailuri), ce s-a făcut deja astăzi și o scurtă privire în urmă. Faceți clic pe o linie pentru a deschide ecranul corespunzător, de exemplu termenele, calendarul, Monitorul de e-mail sau dosarul. *Citește cu voce tare* redă versiunea vorbită, iar *Oprește* o încheie. Un comutator schimbă doar stilul textului vorbit. Dacă ultima dumneavoastră copie de siguranță are mai mult de cinci zile, briefingul vă avertizează.
+6. **Monitorul de consistență a datelor.** Deschide lista modificărilor propuse la datele clienților și contactelor dumneavoastră pe care IRONSTICK le-a găsit în e-mailurile dumneavoastră. Pentru fiecare propunere alegeți *Permiteți* sau *Respinge*. Simbolul este gri când nu așteaptă nimic și roșu când există propuneri. Este animat și când un portal național al instanțelor a propus dosare noi (funcție specifică țării).
+7. **E-mail.** Vizibil doar când verificarea de fundal a e-mailurilor este activată în configurare. Gri înseamnă că nu există e-mailuri noi. Roșu și animat înseamnă că au sosit e-mailuri noi, iar tooltipul arată câte. Faceți clic pentru a deschide Monitorul de e-mail, unde totul se consideră văzut.
 8. **Chatul IA (robot).** Faceți clic pentru a deschide chatul IA. Pe Windows se deschide în propria fereastră. Dacă vă aflați într-un dosar sau la un client, un mic punct violet arată că chatul cunoaște deja acest dosar sau acest client. Faceți clic dreapta pe el (sau țineți apăsat pe tabletă) pentru a activa sau dezactiva recunoașterea vocală. Cât timp este activată, robotul se mișcă, iar chatul ascultă și răspunde cu voce tare. Robotul este ascuns cât timp o IA desktop externă este conectată la IRONSTICK. Pe tabletă este estompat când nu există internet.
-9. **Chatul serverului.** Apare doar când este conectat un server de cabinet. Deschide un chat cu ceilalți utilizatori ai serverului de cabinet. Un punct verde înseamnă că utilizatorul este online, iar roșu înseamnă offline. Vă puteți șterge propriile mesaje, iar un comutator dezactivează sunetul chatului, astfel încât să nu mai apară de la sine. Simbolul devine roșu și se clatină când există un mesaj necitit.
-10. **Clopoțelul de termene.** Roșu când cel puțin un termen scade astăzi sau este depășit. Portocaliu când termene scad în următoarele zece zile. Gri când nu este nimic în așteptare. Treceți cu mouse-ul peste clopoțel pentru a vedea numărul. Clopoțelul se clatină și când o ședință de judecată din portalul instanțelor cade astăzi (funcție specifică țării). Un clic deschide întotdeauna prezentarea generală a termenelor.
-11. **Butonul de oprire.** Închide IRONSTICK imediat, fără nicio întrebare. Șterge fișierele temporare și memoria cache a browserului și încheie toate programele auxiliare, astfel încât nimic din program nu rămâne pornit în memorie.
-12. **Configurare (roata dințată).** Deschide ecranul de configurare cu informațiile de sistem, locul de stocare, profilul de utilizator, setările IA, contul de e-mail, serverul de cabinet, semnătura și antetul.
+9. **Chatul serverului.** Apare doar când este conectat IRONSTICK SERVER — serverul de cabinet. Deschide un chat cu ceilalți utilizatori ai serverului. Un punct verde înseamnă că utilizatorul este online, iar roșu înseamnă offline. Vă puteți șterge propriile mesaje, iar un comutator dezactivează sunetul chatului, astfel încât să nu mai apară de la sine. Simbolul devine roșu și este animat când există un mesaj necitit.
+10. **Clopoțelul de termene.** Roșu când cel puțin un termen scade astăzi sau este depășit. Portocaliu când termene scad în următoarele zece zile. Gri când nu este nimic în așteptare. Treceți cu mouse-ul peste clopoțel pentru a vedea numărul. Clopoțelul este animat și când o ședință preluată dintr-un portal național al instanțelor este programată astăzi (funcție specifică țării). Un clic deschide întotdeauna prezentarea generală a termenelor.
+11. **Butonul de oprire.** Închide IRONSTICK imediat, fără solicitare de confirmare. Șterge fișierele sale temporare și memoria cache a browserului și încheie IRONSTICK și toate procesele pornite de acesta.
+12. **Configurare (roata dințată).** Deschide ecranul de configurare cu informațiile de sistem, locul de stocare, profilul de utilizator, setările IA, contul de e-mail, conexiunea la server, semnătura și antetul.
 
 ### Ce puteți face aici
 
@@ -43,9 +43,9 @@ Multe simboluri apar doar când există ceva de afișat. Un simbol roșu care se
 
 #### Simboluri care apar doar când este nevoie
 
-- **Căsuța de documente (doar Windows).** Un simbol de căsuță roșu, care se clatină, apare cât timp în căsuța de documente așteaptă documente neprelucrate. Tooltipul arată câte. Faceți clic pe el pentru a deschide înregistrarea documentelor. Când nu așteaptă nimic, simbolul dispare.
-- **Piuneza de notițe (server de cabinet).** Când colegii de pe serverul de cabinet au lăsat notițe noi la un dosar, apare o piuneză roșie care se clatină. Fiecare clic vă duce la dosarul cu următoarea notiță necitită și îi deschide avizierul.
-- **Serviciu IA indisponibil.** Dacă un serviciu IA extern configurat de dumneavoastră este indisponibil astăzi, apare un cerc roșu cu semn de exclamare. Faceți clic pe el pentru a vedea, pentru fiecare serviciu, motivul și când se va încerca din nou. Dacă un serviciu s-a oprit fiindcă i s-a epuizat creditul, *Reîncărcare* vă duce direct la acel serviciu în configurarea IA.
+- **Căsuța de documente (doar Windows).** Un simbol de căsuță roșu, animat, apare cât timp în căsuța de documente așteaptă documente neprelucrate. Tooltipul arată câte. Faceți clic pe el pentru a deschide înregistrarea documentelor. Când nu așteaptă nimic, simbolul dispare.
+- **Piuneza de notițe (IRONSTICK SERVER).** Când colegii de pe server au lăsat notițe noi la un dosar, apare o piuneză roșie, animată. Fiecare clic vă duce la dosarul cu următoarea notiță necitită și îi deschide avizierul.
+- **Serviciu IA indisponibil.** Dacă un serviciu IA extern configurat de dumneavoastră este indisponibil în prezent, apare un cerc roșu cu semn de exclamare. Faceți clic pe el pentru a vedea, pentru fiecare serviciu, motivul și când se va încerca din nou. Dacă un serviciu s-a oprit fiindcă i s-a epuizat creditul, *Reîncărcare* vă duce direct la acel serviciu în configurarea IA.
 - **IA desktop conectată (doar Windows).** Când o aplicație IA desktop externă lucrează cu datele dumneavoastră, simbolul ei apare în dreapta afișajului resurselor. Pulsează cât timp rulează o cerere. Treceți cu mouse-ul peste el pentru a vedea ce dosare a citit în această sesiune și cât de departe, dacă a confirmat instrucțiunile IRONSTICK și câte încălcări de reguli a comis.
 
 #### Comportament general
@@ -71,18 +71,18 @@ iar **Heatmap** arată cât de activă a fost practica dumneavoastră în ultime
 
 - **Termenele dintr-o privire.** Cardul de termene arată o bifă verde când nimic nu este depășit, împreună cu numărul de termene din următoarele 30 de zile. Termenele depășite apar în roșu, cu primele înregistrări listate. *Prezentare generală termene* deschide lista completă.
 - **Zilele de naștere ale clienților.** În ziua de naștere a unui client și două zile după ea, sub cardul de termene apare o prăjitură. Faceți clic pe un nume pentru a ajunge direct la acel client.
-- **Dosare amuțite.** Al doilea card numără dosarele fără activitate de 14 zile și le listează pe primele trei. Faceți clic pe card pentru a le vedea pe toate, astfel încât niciun dosar să nu adoarmă pe tăcute.
-- **Deschideți orice modul.** Fiecare dală deschide o parte a programului — clienți, persoane, instituții, înregistrarea documentelor, căutare, calendar, jurnal zilnic, procesare de text, monitor de e-mail, evidența timpului, legi, copie de siguranță și altele. Fiecare dală poartă o scurtă descriere a ceea ce face.
+- **Dosare amuțite.** Al doilea card numără dosarele fără activitate de 14 zile și le listează pe primele trei. Faceți clic pe card pentru a le vedea pe toate, astfel încât niciun dosar să nu rămână nesupravegheat.
+- **Deschideți orice modul.** Fiecare dală deschide o parte a programului — clienți, persoane, instituții, înregistrarea documentelor, căutare, calendar, jurnal zilnic, procesare de text, Monitor de e-mail, evidența timpului, legi, copie de siguranță și altele. Fiecare dală poartă o scurtă descriere a ceea ce face.
 - **Aranjați dalele după placul dumneavoastră.** Trageți o dală de mâner într-o poziție nouă. Ordinea este reținută pe acest calculator.
 - **Etichete și securitate.** Dala de etichete arată etichetele dumneavoastră colorate și deschide gestionarea etichetelor. Dala de securitate arată starea acestui calculator (sistem, unități, rețea) și deschide configurarea.
 - **Audio.** Dala audio deschide tăietorul audio pentru înregistrările pe care le aveți deja; al doilea link al ei pornește o înregistrare live cu transcriere IA.
-- **Dale care apar doar când se aplică.** *Dosare de pe server* apare doar când este conectat un server de cabinet. Dalele specifice țării apar doar când acele funcții sunt activate. Câteva dale care necesită un PC (de exemplu înregistrarea documentelor și procesarea de text) nu se afișează pe tableta Android.
+- **Dale care apar doar când se aplică.** *Dosare de pe server* apare doar când este conectat IRONSTICK SERVER. Dalele specifice țării apar doar când acele funcții sunt activate. Câteva dale care necesită un PC (de exemplu înregistrarea documentelor și procesarea de text) nu se afișează pe tableta Android.
 
 #### Fila Agenda
 
 - **Totul într-o singură cronologie.** Fluxul acoperă trei zile în urmă și zece zile înainte: înregistrări de cronologie, e-mailuri, ședințe de judecată, termene, acte de procedură, fotografii și transcrieri din toate dosarele. Astăzi se afișează integral; zilele viitoare și cele trecute sunt strânse într-o bară fiecare. Derulați în sus pentru a deschide zilele viitoare una câte una; faceți clic pe bara de astăzi pentru a reveni la astăzi.
 - **Fiecare înregistrare trimite mai departe.** Numerele gri (client / dosar / document), numele albastru al clientului și numărul verde al dosarului deschid fiecare ecranul corespunzător. Documentele PDF arată până la patru previzualizări de pagină — faceți clic pe una pentru a parcurge întregul document. Imaginile se deschid pe tot ecranul cu zoom; fișierele atașate se deschid în fereastra de browser IRONSTICK. O înregistrare din jurnalul zilnic își deschide textul integral.
-- **Linkuri rapide și filtre.** Bara din stânga deschide clienți, persoane, instituții, căutare, calendar, termene, jurnal zilnic, monitor de e-mail și evidența timpului. Bifați *Termene și ședințe de judecată* pentru a vedea doar înregistrările legate de un termen, sau *Previzualizare dezactivată* pentru o listă compactă, doar cu text.
+- **Linkuri rapide și filtre.** Bara din stânga deschide clienți, persoane, instituții, căutare, calendar, termene, jurnal zilnic, Monitor de e-mail și evidența timpului. Bifați *Termene și ședințe de judecată* pentru a vedea doar înregistrările legate de un termen, sau *Previzualizare dezactivată* pentru o listă compactă, doar cu text.
 
 #### Fila Heatmap
 
@@ -94,7 +94,7 @@ iar **Heatmap** arată cât de activă a fost practica dumneavoastră în ultime
 #### Notificări la pornire
 
 - **Briefingul zilnic.** La prima pornire a zilei, IRONSTICK întreabă dacă doriți să ascultați briefingul zilnic — o scurtă prezentare vorbită a zilei dumneavoastră.
-- **Serverul de birou.** Dacă un server de cabinet este găsit, dar această stație de lucru nu are acces la el, o notificare vă spune acest lucru la fiecare pornire a programului; puteți continua să lucrați normal.
+- **IRONSTICK SERVER.** Dacă serverul este găsit, dar această stație de lucru nu are acces la el, o notificare vă spune acest lucru la fiecare pornire a programului; puteți continua să lucrați normal.
 
 ## 2. Configurare
 
@@ -120,13 +120,13 @@ Versiunea programului și cheia de licență se află în partea de jos a pagini
 
 - **Datele dumneavoastră în cifre.** Titlul cardului arată dimensiunea bazei de date. În interior vedeți numărul de clienți, dosare, înregistrări de probe, documente, entități, fișiere, înregistrări de jurnal și autentificări, precum și spațiul total și liber al unității.
 - **În uz în prezent.** O casetă gri arată dosarul cu care lucrează chiar acum IRONSTICK. Toate datele se află în acest unic dosar: baza de date, licența, configurarea și fiecare fișier.
-- **Schimbați locul de stocare (PC).** Folosiți *Alege dosar* pentru a alege un loc nou, precum un stick USB, o altă unitate sau un dosar sincronizat în cloud. Dosarul *IRONSTICK* se creează acolo automat. Faceți clic pe *Salvează* pentru a porni mutarea. IRONSTICK vă spune mai întâi câte date vor fi mutate. Apoi testează unitatea aleasă (de exemplu viteza, spațiul liber și protecția la scriere) și continuă doar dacă unitatea trece testul. Dacă confirmați, mutarea se efectuează la următoarea pornire a programului, iar programul se închide.
+- **Schimbați locul de stocare (PC).** Folosiți *Alege dosar* pentru a alege un loc nou, precum un stick USB sau o altă unitate. Dosarul *IRONSTICK* se creează acolo automat. Faceți clic pe *Salvează* pentru a porni mutarea. IRONSTICK vă spune mai întâi câte date vor fi mutate. Apoi testează unitatea aleasă (de exemplu viteza, spațiul liber și protecția la scriere) și continuă doar dacă unitatea trece testul. Dacă confirmați, IRONSTICK se închide și mută datele la următoarea pornire.
 - **Date deja prezente la noul loc.** Dacă dosarul ales conține deja date IRONSTICK, nimic nu se suprascrie fără a vă întreba. Ambele copii se compară, iar dumneavoastră alegeți fie să folosiți copia găsită acolo, fie să o înlocuiți cu datele dumneavoastră actuale.
 - **Pe tableta Android.** Dosarul de date este fix (este dosarul în care copiază sincronizarea USB), deci acolo nu aveți nimic de ales.
 
 **Utilizator (doar PC)**
 
-- **Profilul dumneavoastră.** Al treilea card conține datele dumneavoastră: firma, funcția, formula de adresare, prenumele și numele, adresa, țara, telefonul, mobilul, e-mailul, Facebook, data nașterii și mesageria pe care o folosiți (WhatsApp, Signal, Telegram, Viber). Faceți clic pe *Salvează* pentru a le stoca. Data dumneavoastră de naștere este partajată cu serverul de cabinet, dacă folosiți unul, pentru urări de ziua de naștere.
+- **Profilul dumneavoastră.** Al treilea card conține datele dumneavoastră: firma, funcția, formula de adresare, prenumele și numele, adresa, țara, telefonul, mobilul, e-mailul, Facebook, data nașterii și aplicațiile de mesagerie pe care le folosiți (WhatsApp, Signal, Telegram, Viber). Faceți clic pe *Salvează* pentru a le stoca. Dacă folosiți IRONSTICK SERVER, data dumneavoastră de naștere este partajată cu acesta pentru urări de ziua de naștere.
 - **Câmpuri preluate din licența dumneavoastră.** Cu o licență activă, firma, formula de adresare și numele provin din cheia de licență și nu pot fi modificate aici.
 - **Numărul dumneavoastră.** Numărul dumneavoastră de utilizator este afișat între paranteze lângă titlul cardului. Simbolul de copiere îl pune în clipboard, de exemplu pentru o cerere de licență.
 - **Limba programului.** Alegeți limba programului și salvați. IRONSTICK se reîncarcă apoi în noua limbă și revine la meniul principal. O fereastră de chat deschisă se închide și se deschide data viitoare în noua limbă.
@@ -147,16 +147,16 @@ Aceste două carduri controlează modul în care IA lucrează cu datele dumneavo
 - **Când apare cardul.** Cardul se afișează doar pe PC și doar când cel puțin o aplicație IA desktop face parte din licența dumneavoastră.
 - **Permiteți accesul.** Primul comutator decide dacă IA desktop conectată are voie să acceseze IRONSTICK în general. Când este dezactivat, conectorul extern nu poate ajunge la program.
 - **Permiteți navigarea.** Al doilea comutator permite IA desktop să controleze programul, de exemplu pentru a deschide documente sau a porni un export. Funcționează doar când accesul este permis.
-- **Configurați o aplicație.** Există câte un buton colorat *Configurează …* pentru fiecare aplicație IA desktop licențiată. Un clic înregistrează IRONSTICK în acea aplicație și explică pașii rămași, de obicei repornirea aplicației. Pentru o aplicație, textul de configurare este copiat în clipboard, iar dumneavoastră îl lipiți în dialogul propriu al aplicației.
+- **Configurați o aplicație.** Există câte un buton colorat *Configurează …* pentru fiecare aplicație IA desktop licențiată. Un clic înregistrează IRONSTICK în acea aplicație și explică pașii rămași, de obicei repornirea aplicației. Pentru Qwen Desktop, textul de configurare este copiat în clipboard, iar dumneavoastră îl lipiți în dialogul de setări propriu al aplicației.
 - **Pluginuri de competențe.** *Creează pluginul de competențe IRONSTICK* și *Creează pluginul …* construiesc un pachet de competențe pentru aplicația IA desktop. Un mesaj arată unde a fost salvat fișierul, ca să îl puteți trage în aplicație.
 - **Reciclați IA desktop (Windows).** Butonul roșu deschis închide aplicațiile IA desktop listate și le repornește după ce confirmați. Folosiți-l când o aplicație și-a pierdut conexiunea la IRONSTICK.
 - **Linkuri.** Linkurile de sub butoane deschid pagina de descărcare, termenii de utilizare și politica de confidențialitate ale fiecărei aplicații în fereastra de browser IRONSTICK.
 
 **Configurare IA**
 
-- **Ordine automată.** Nu alegeți un singur serviciu. Fiecare serviciu cu o cheie stocată este folosit automat, într-o ordine fixă, cel mai ieftin primul. Dacă un serviciu rămâne fără cotă sau credit în cursul zilei, IRONSTICK trece la următorul pentru restul zilei și încearcă din nou a doua zi.
-- **Insigna de stare.** Insigna rotundă din fața fiecărui serviciu arată locul său în ordine. Verde înseamnă disponibil, roșu înseamnă indisponibil astăzi, iar gri înseamnă că nu este stocată nicio cheie. Treceți cu mouse-ul peste o insignă roșie pentru a vedea motivul și când se va încerca din nou.
-- **Servicii gratuite pentru procese în fundal.** Serviciile de deasupra liniei groase sunt oferte gratuite folosite doar pentru procese în fundal, precum repartizarea e-mailurilor, monitorul de date, briefingul zilnic și raportul de situație. Insigna lor arată un ceas. Fiecare are propriul comutator pornit/oprit, iar un text roșu de atenționare vă amintește că datele dumneavoastră merg la acel furnizor. Citiți cu atenție termenii acestuia în privința protecției datelor (GDPR) înainte de a-l activa.
+- **Ordine automată.** Nu alegeți un singur serviciu. Fiecare serviciu cu o cheie stocată este folosit automat, într-o ordine fixă, cel mai ieftin primul. Dacă un serviciu eșuează, IRONSTICK trece cererea la următorul. Serviciul eșuat este încercat din nou după un timp de așteptare care depinde de eroare; este omis pentru restul zilei doar când creditul său este epuizat sau cauza este necunoscută.
+- **Insigna de stare.** Insigna rotundă din fața fiecărui serviciu arată locul său în ordine. Verde înseamnă disponibil, roșu înseamnă indisponibil în prezent, iar gri înseamnă că nu este stocată nicio cheie. Treceți cu mouse-ul peste o insignă roșie pentru a vedea motivul și când se va încerca din nou.
+- **Servicii gratuite pentru procese în fundal.** Serviciile de deasupra liniei groase sunt oferte gratuite folosite doar pentru procese în fundal, precum prioritizarea e-mailurilor, monitorul de date, briefingul zilnic și raportul de situație. Insigna lor arată un ceas. Fiecare are propriul comutator pornit/oprit, iar un text roșu de atenționare vă amintește că datele dumneavoastră merg la acel furnizor. Citiți cu atenție termenii acestuia în privința protecției datelor (GDPR) înainte de a-l activa.
 - **Servicii cu plată.** Serviciile de sub linia groasă sunt folosite în ordinea afișată. Comutatorul lor *Permite Red/Blue Team* face ca IA să citească a doua oară un act de procedură finalizat, în rolul unui revizor critic, și să marcheze tot ce nu este susținut de text. Constatările substanțiale rețin rezultatul. Comutatorul poate fi folosit abia după ce o cheie pentru acel serviciu este salvată.
 - **Introduceți o cheie.** Lipiți cheia de acces în câmpul cheii și faceți clic pe *Salvează*. Simbolul ochiului afișează sau ascunde cheia. Ordinea și insignele se actualizează imediat.
 - **Linkuri către cont.** Sub fiecare serviciu există linkuri pentru a crea un cont și o cheie de acces, pentru a verifica soldul (la unele servicii) și pentru a citi termenii și politica de confidențialitate. Se deschid în fereastra de browser IRONSTICK.
@@ -183,16 +183,16 @@ Setările contului de e-mail și comutatoarele pentru sarcinile automate de fund
 **Procese în fundal**
 
 - **Actualizare automată a descrierilor de dosar (IA externă).** O dată pe zi, aduce descrierile dosarelor la zi cu documentele și datele noi. Aceasta folosește IA externă. Prin activare, vă dați acordul explicit pentru prelucrarea de către IA externă.
-- **Preluare automată din portalul instanțelor.** Preia date noi ale dosarelor și termene din portalul instanțelor. Doar preia date și nu folosește IA. Acest comutator apare doar când funcțiile specifice țării pentru România sunt active.
-- **Preluare automată a e-mailurilor.** Verifică în fundal e-mailurile noi și le repartizează pe dosare, folosind IA externă pentru a le sorta. Este același comutator ca cel din partea de sus a cardului Monitor e-mail.
+- **Preluare automată din portalul instanțelor.** Preia date noi ale dosarelor și termene din portalul național al instanțelor. Doar preia date și nu folosește IA. Acest comutator specific țării apare doar când funcțiile specifice țării pentru România sunt active.
+- **Preluare automată a e-mailurilor.** Verifică în fundal e-mailurile noi și le repartizează pe dosare; IA externă doar le evaluează urgența. Este același comutator ca cel din partea de sus a cardului Monitor e-mail.
 
 ### Serverul de birou și semnăturile
 
 ![Configurarea cu cardurile Server de cabinet și Semnături deschise](https://www.ironstick.legal/img/screens/2%20konfig%207-8.png)
 
-Conexiunea la serverul de cabinet și câmpul de semnătură.
+Conexiunea la IRONSTICK SERVER și câmpul de semnătură.
 
-**Server de cabinet** conectează această stație de lucru la serverul de cabinet al dumneavoastră și arată cine mai lucrează pe el.
+**Server de cabinet** conectează această stație de lucru la IRONSTICK SERVER — serverul de cabinet al firmei dumneavoastră — și arată cine mai lucrează pe el.
 În **Semnături** stocați semnătura dumneavoastră olografă, pe care IRONSTICK o poate plasa în documentele dumneavoastră. Sub aceste carduri se află șablonul de antet, jurnalul de autentificări și linia versiunii.
 
 #### Ce puteți face aici
@@ -200,8 +200,8 @@ Conexiunea la serverul de cabinet și câmpul de semnătură.
 **Server de cabinet**
 
 - **Conexiunea la server.** Comutatorul activează sau dezactivează conexiunea. Căutarea serverului rulează doar cât timp este activat. Linia de stare arată dacă sunteți conectat, dacă accesul a fost solicitat și așteaptă aprobare sau dacă nu a fost găsit niciun server. Restul cardului este estompat până când sunteți conectat.
-- **Paginile serverului.** Când sunteți conectat, faceți clic pe linia de stare verde pentru a deschide pagina web a serverului. Două butoane deschid pagina de administrare a sistemului de stocare și administrarea serverului IRONSTICK. Vă autentificați acolo cu parolele pentru fiecare.
-- **Utilizatori.** Lista arată fiecare utilizator înregistrat pe serverul de cabinet. Un punct verde înseamnă că utilizatorul este online.
+- **Paginile serverului.** Când sunteți conectat, faceți clic pe linia de stare verde pentru a deschide pagina web a serverului. Două butoane deschid pagina de administrare a stocării serverului și administrarea IRONSTICK SERVER. Fiecare pagină cere propriile date de autentificare.
+- **Utilizatori.** Lista arată fiecare utilizator înregistrat pe server. Un punct verde înseamnă că utilizatorul este online.
 
 **Semnături (doar PC)**
 
@@ -231,11 +231,11 @@ De aici creați clienți noi, importați contacte existente, tipăriți lista ș
 Imaginea arată și fereastra cu cod QR care se deschide de la simbolul WhatsApp și fereastra de social media care se deschide de la simbolul social.
 
 1. **Căutare.** Restrânge lista pe măsură ce tastați. Caută în nume, numere de telefon și adrese de e-mail; un asterisc (\*) funcționează ca metacaracter.
-2. **Importă client.** Aduce clienți dintr-un fișier CSV sau dintr-un fișier vCard.
+2. **Importă client.** Importă clienți dintr-un fișier CSV sau dintr-un fișier vCard.
 3. **Client nou.** Deschide un formular de client gol.
 4. **Tipărește lista.** Creează un PDF al întregii liste de clienți, pe care îl salvați în dosarul Documente sau în Google Drive.
 5. **Referința clientului.** Numărul violet (de exemplu *@C0000001*) este numărul de referință al clientului. Faceți clic pe el pentru a-l copia în clipboard, de exemplu pentru a-l lipi în chat sau într-un document.
-6. **Dosare.** Numărul de dosare ale acestui client. Un nor roșu înseamnă că cel puțin un dosar este partajat pe serverul de cabinet; o flacără roșie înseamnă că cel puțin un dosar s-a reaprins recent.
+6. **Dosare.** Numărul de dosare ale acestui client. Un nor roșu înseamnă că cel puțin un dosar este partajat prin IRONSTICK SERVER; o flacără roșie înseamnă că cel puțin un dosar s-a reaprins recent.
 7. **Editează.** Deschide formularul clientului cu datele acestui client.
 8. **Șterge.** Elimină clientul după o confirmare.
 
@@ -243,7 +243,7 @@ Imaginea arată și fereastra cu cod QR care se deschide de la simbolul WhatsApp
 
 #### Găsiți un client
 
-- **Căutare pe măsură ce tastați.** Căutarea verifică separat prenumele și numele și găsește și nume care sună asemănător, astfel încât mici greșeli de tastare dau totuși un rezultat. Diacriticele sunt ignorate, deci „Stefan” găsește și „Ștefan”.
+- **Căutare pe măsură ce tastați.** Căutarea verifică separat prenumele și numele și găsește și nume care sună asemănător, astfel încât mici greșeli de tastare dau totuși un rezultat. Diacriticele sunt ignorate, deci „Francois” găsește și „François”.
 - **Telefon și e-mail.** Tastați o parte dintr-un număr de telefon (spațiile și cratimele nu contează) sau o parte dintr-o adresă de e-mail. Dacă tastați mai multe cuvinte, un client trebuie să se potrivească cu toate.
 - **Ștergeți căutarea.** X-ul mic din câmpul de căutare arată din nou lista completă. Dacă nimic nu se potrivește, lista spune acest lucru.
 - **Cele mai urgente primele.** Clienții cu un dosar reaprins sunt în partea de sus, apoi clienții cu cele mai multe dosare, apoi cei cu cea mai recentă activitate, apoi în ordine alfabetică.
@@ -294,7 +294,7 @@ Imaginea arată și fereastra nucleului și fereastra snake-urilor, care se desc
 1. **Note.** Deschide avizierul de note al acestui client.
 2. **Tipărește.** Creează o prezentare generală PDF a tuturor dosarelor acestui client, cu sau fără un rezumat IA al ultimei stări.
 3. **Cauză nouă.** Creează un nou grup pentru dosarele care aparțin laolaltă.
-4. **Universul.** Arată dosarele clientului ca o rețea, ca hartă 3D sau ca hartă 2D. Apare începând de la trei dosare.
+4. **Universul.** Arată dosarele clientului ca o rețea, ca hartă 3D sau ca hartă 2D. Disponibil când clientul are trei sau mai multe dosare.
 5. **Dosar nou.** Deschide formularul pentru un dosar nou al acestui client.
 6. **Cauza comună.** Bara de titlu a unei cauze comune. Faceți clic pe ea pentru a restrânge sau extinde cauza comună. Cele două simboluri din mijloc deschid nucleul și snake-urile cauzei comune; în dreapta vedeți numărul de dosare, redenumirea (creion) și ștergerea (X).
 7. **Nucleul cauzei comune.** O instrucțiune generală pentru IA care se aplică fiecărui dosar al acestei cauze comune. Scrieți aici ce trebuie să țină cont fiecare document redactat pentru aceste dosare, apoi salvați.
@@ -307,14 +307,14 @@ Imaginea arată și fereastra nucleului și fereastra snake-urilor, care se desc
 
 **Citiți un rând de dosar**
 
-- **Deschideți un dosar.** Faceți clic pe un rând pentru a deschide dosarul la fila sa de cronologie.
+- **Deschideți un dosar.** Faceți clic pe un rând pentru a deschide dosarul la fila sa Cronologie.
 - **Numere și etichete.** Fiecare rând începe cu numărul client/dosar, urmat de etichete albastre pentru țară, domeniu juridic și stadiu procedural. Treceți cu mouse-ul peste o etichetă pentru a vedea numele ei complet.
-- **Numărul dosarului în portocaliu.** Dacă dosarul a fost găsit în portalul instanțelor (funcții specifice țării), numărul dosarului de instanță este afișat în portocaliu. Faceți clic pe el pentru a vedea detaliile din portal: instanța, secția, obiectul, părțile, căile de atac și toate ședințele cu rezultatele lor. De acolo puteți deschide și dosarul.
+- **Numărul dosarului în portocaliu.** Dacă dosarul a fost găsit într-un portal național al instanțelor (funcție specifică țării), numărul dosarului de instanță este afișat în portocaliu. Faceți clic pe el pentru a vedea detaliile din portal: instanța, secția, obiectul, părțile, căile de atac și toate ședințele cu rezultatele lor. De acolo puteți deschide și dosarul.
 - **Titlu și adversar.** Titlul dosarului este urmat de adversar în gri; cu mai mulți adversari se afișează doar primul, plus numărul celorlalți. Dosarele inactive sunt afișate în gri deschis.
 - **Flacără.** O flacără roșie marchează un dosar care s-a reaprins recent.
 - **Prioritate și statut.** Prima pastilă arată prioritatea (Urgentă și Ridicată în roșu, Medie în gri, Scăzută în verde); a doua arată statutul (Activ în verde, Suspendat în roșu, Inactiv în gri).
 - **Dosare ale altui client.** Dacă un dosar aparține unui alt client al dumneavoastră care se află de aceeași parte în procedură, rândul arată *Dosar original* cu numărul și numele acelui client și rolul într-o pastilă chihlimbar. Faceți clic pe număr pentru a ajunge la lista de dosare a acelui client.
-- **Nor roșu.** Apare când este conectat un server de cabinet și dosarul este partajat acolo. Faceți clic pe el pentru a deschide dosarul la fila sa de dosar.
+- **Nor roșu.** Apare când este conectat IRONSTICK SERVER și dosarul este partajat acolo. Faceți clic pe el pentru a deschide dosarul la fila sa de dosar.
 
 **Organizați dosarele în cauze comune**
 
@@ -341,9 +341,9 @@ Imaginea arată și fereastra nucleului și fereastra snake-urilor, care se desc
 - **Dosar nou.** Formularul cere un titlu (obligatoriu), prioritate și statut. Bifați *Reclamantul este clientul* pentru a completa automat numele clientului sau tastați alt reclamant și introduceți adversarul.
 - **Alți clienți în aceeași procedură.** Dacă aveți alți clienți, îi puteți căuta după nume sau număr *@C* și îi puteți adăuga la dosar. Dosarul apare atunci și în listele lor de dosare.
 - **Verificarea conflictului de interese.** De îndată ce propria parte și adversarul sunt completate, acest buton compară numele cu proprii dumneavoastră clienți, părți și dosare și arată rezultatul. Nimic nu părăsește acest calculator.
-- **Alte opțiuni.** Marcați un dosar ca public (cunoscut în media) sau blocați-l astfel încât niciun alt dosar să nu poată fi legat de el, fie manual, automat sau de IA.
+- **Alte opțiuni.** Marcați un dosar ca public (relatat în media) sau blocați-l astfel încât niciun alt dosar să nu poată fi legat de el, fie manual, automat sau de IA.
 - **Detalii juridice.** Introducerea unui număr de dosar de instanță bifează *are număr de dosar* și stabilește data de astăzi, pe care o puteți schimba. Alegeți mai întâi țara; domeniile juridice și stadiile procedurale pentru acea țară sunt apoi oferite. Un câmp liber de descriere completează formularul.
-- **Dosare la care sunteți abonat.** Când este conectat un server de cabinet și urmăriți dosarele unui coleg, ele apar într-un card propriu cu un nor albastru, numele proprietarului și ultima modificare a proprietarului. Faceți clic pe unul pentru a-l deschide.
+- **Dosare la care sunteți abonat.** Când este conectat IRONSTICK SERVER și urmăriți dosarele unui coleg, ele apar într-un card propriu cu un nor albastru, numele proprietarului și ultima modificare a proprietarului. Faceți clic pe unul pentru a-l deschide.
 - **Încă niciun dosar.** Un client fără dosare arată o scurtă notificare cu un buton *Dosar nou*.
 
 ### Note și universul dosarelor
@@ -364,7 +364,7 @@ Imaginea arată avizierul de note, meniul Universul deschis și ambele hărți.
 **Avizierul de note**
 
 - **Adăugați o notă.** Primul card, galben pal, *Notă nouă* deschide un câmp de text (până la 1.000 de caractere) cu o dată opțională. Salvarea fixează nota pe avizier; cele mai noi note sunt în partea de sus.
-- **Trei feluri de note.** Notele galbene sunt ale dumneavoastră; faceți clic pe una pentru a o edita. Petecele de hârtie milimetrică sunt înregistrări pe care IA le-a reținut pentru acest client. Cardurile albe sunt notițe de la colegi care urmăresc un dosar partajat pe serverul de cabinet.
+- **Trei feluri de note.** Notele galbene sunt ale dumneavoastră; faceți clic pe una pentru a o edita. Notițele IA apar pe hârtie milimetrică: înregistrări pe care IA le-a reținut pentru acest client. Cardurile albe sunt notițe de la colegi care urmăresc un dosar partajat prin IRONSTICK SERVER.
 - **Copiați și ștergeți.** Fiecare notă are un mic buton de copiere și un buton de ștergere. O notă cu dată o arată cu un mic ceas deșteptător.
 - **Notele din lista de dosare aparțin clientului.** Notele deschise aici nu sunt legate de un singur dosar.
 
@@ -372,7 +372,7 @@ Imaginea arată avizierul de note, meniul Universul deschis și ambele hărți.
 
 - **Ce vedeți.** Fiecare dosar este un hexagon, instituțiile sunt triunghiuri. Dosarele sunt legate când au în comun persoane, firme sau instituții, când un document al unui dosar este menționat în celălalt sau când un dosar menționează numărul dosarului celuilalt. Dosarele aceleiași cauze comune formează un nor colorat.
 - **Construirea hărții.** Harta se construiește în fața dumneavoastră cât timp rulează o bară de progres. Linia din stânga sus arată numărul de dosare, de conexiuni și de cauze comune.
-- **Zburați prin ea.** W/A/S/D vă mișcă înainte, înapoi și lateral, R/F în sus și în jos; tastele săgeți sau tragerea cu mouse-ul rotesc vederea. Shift accelerează, bara de spațiu frânează, iar rotița mouse-ului vă mișcă înainte sau înapoi. Panoul din stânga jos listează tastele; bara din dreapta jos arată viteza dumneavoastră.
+- **Zburați prin ea.** W/A/S/D vă mișcă înainte, înapoi și lateral, R/F în sus și în jos; tastele săgeți sau tragerea cu mouse-ul rotesc vederea. Shift mișcă mai repede, bara de spațiu încetinește, iar rotița mouse-ului vă mișcă înainte sau înapoi. Panoul din stânga jos listează tastele; bara din dreapta jos arată viteza dumneavoastră.
 - **Marcați un punct și zburați la el.** Faceți clic pe un dosar sau pe o instituție: vederea zboară la el și rămâne marcat, împreună cu conexiunile sale și motivul fiecărei conexiuni. Faceți din nou clic pe el pentru a elimina marcajul.
 - **Deschideți de pe hartă.** Faceți dublu clic pe un dosar pentru a-l deschide. Dublu clic pe o persoană sau o firmă deschide lista de persoane, iar o instituție deschide lista de instituții; înregistrarea este evidențiată acolo cu galben.
 - **Căutare.** Câmpul de căutare din dreapta jos găsește un nume, un număr de telefon sau un e-mail și marchează cea mai bună potrivire, exact ca un clic.
@@ -383,46 +383,46 @@ Imaginea arată avizierul de note, meniul Universul deschis și ambele hărți.
 
 - **Un desen pe hârtie milimetrică.** Aceeași rețea este desenată plat, ca un desen tehnic. Numele apar când treceți cu mouse-ul peste un punct sau îl marcați.
 - **Mutați și măriți.** Trageți cu mouse-ul sau folosiți W/A/S/D ori tastele săgeți pentru a muta foaia. Rotița mouse-ului mărește spre cursor.
-- **Marcați, deschideți, căutați.** Un clic pe un punct îl mută în centru și îl marchează (pulsează); un clic pe hârtia goală elimină marcajul și micșorează. Dublu clic deschide dosarul, persoana sau instituția, ca pe harta 3D. Câmpul de căutare și comutatorul *Conexiuni între dosare* funcționează la fel.
+- **Marcați, deschideți, căutați.** Un clic pe un punct îl mută în centru și îl marchează (pulsează); un clic pe hârtia goală elimină marcajul și micșorează. Dublu clic deschide dosarul, persoana sau instituția. Câmpul de căutare marchează cea mai bună potrivire; comutatorul *Conexiuni între dosare* adaugă persoanele și firmele din dosare.
 - **Închideți.** X-ul din dreapta sus sau tasta Escape închide harta.
 
 ## 5. Dosarul
 
 ### Fila Dosar, partajarea și predarea
 
-![Ecranul dosarului pe fila Dosar, cu ferestrele Partajează și Predă dosarul și serverul de cabinet](https://www.ironstick.legal/img/screens/5%20case%20case.png)
+![Ecranul dosarului pe fila Dosar, cu ferestrele Partajează și Predă dosarul și IRONSTICK SERVER](https://www.ironstick.legal/img/screens/5%20case%20case.png)
 
-Fila Dosar, cu ferestrele pentru partajarea unui dosar și predarea lui prin serverul de cabinet.
+Fila Dosar, cu ferestrele pentru partajarea unui dosar și predarea lui prin IRONSTICK SERVER.
 
 Ecranul dosarului cuprinde tot ce ține de un singur dosar. În partea de sus vedeți titlul dosarului și clientul, trei butoane (*Note*, *Dosar*, *Redactează text*) și un rând de file. Imaginea arată fila **Dosar**, cu datele dosarului și o sinteză a fișierelor din dosar.
-Când este conectat un server de cabinet, un dosar poate fi partajat cu colegii sau predat altui utilizator; în acest scop apar cele două ferestre din imagine.
+Când este conectat IRONSTICK SERVER, un dosar poate fi partajat cu colegii sau predat altui utilizator; în acest scop apar cele două ferestre din imagine.
 
 #### Ce puteți face aici
 
 **Antet și navigare**
 
 - **Calea de navigare (breadcrumb).** Calea din partea de sus duce înapoi la meniul principal, la lista de clienți sau la lista de dosare a clientului. Ultima parte arată numărul dosarului împreună cu țara, domeniul juridic și stadiul.
-- **Norul din fața titlului.** Un nor roșu înseamnă că ați partajat acest dosar pe serverul de cabinet; un nor albastru înseamnă că este un dosar partajat cu dumneavoastră de altcineva. Faceți clic pe nor pentru a trece la fila Dosar.
+- **Norul din fața titlului.** Un nor roșu înseamnă că ați partajat acest dosar prin IRONSTICK SERVER; un nor albastru înseamnă că este un dosar partajat cu dumneavoastră de altcineva. Faceți clic pe nor pentru a trece la fila Dosar.
 - **Trecerea între file.** Faceți clic pe o filă pentru a comuta. Dacă părăsiți fila nucleul cauzei sau snake-ul cauzei cu modificări nesalvate, IRONSTICK vă întreabă dacă le renunțați.
 
 **Datele dosarului**
 
-- **Număr, titlu și număr de dosar.** Cardul arată numărul intern client/dosar, titlul și numărul oficial al dosarului. Dacă dosarului i-a fost asociat un dosar din portalul instanțelor, numărul dosarului apare în portocaliu, subliniat cu puncte; faceți clic pe el pentru a deschide detaliile dosarului din portal (doar funcții specifice țării).
-- **Prioritate și temperatură.** Prioritatea setată de dumneavoastră apare ca o etichetă colorată. O mică flacără roșie alături arată că dosarul s-a aprins recent (termene noi, ședințe, înregistrări sau e-mailuri în ultimele 14 zile); ea nu modifică niciodată prioritatea dumneavoastră.
-- **Părți și încadrare juridică.** Public da/nu, reclamant (marcat dacă este clientul dumneavoastră), adversar, țară, domeniu juridic și stadiu, dacă a fost atribuit un număr de dosar intern (cu data lui), tipul dosarului, data de început și descrierea.
+- **Număr, titlu și număr de dosar.** Cardul arată numărul intern client/dosar, titlul și numărul oficial al dosarului. Dacă dosarului i-a fost asociat un dosar din portalul instanțelor, numărul dosarului apare în portocaliu, subliniat cu puncte; faceți clic pe el pentru a deschide detaliile dosarului din portal (funcție specifică țării).
+- **Prioritate și activitate.** Prioritatea setată de dumneavoastră apare ca o etichetă colorată. O mică flacără roșie alături arată că dosarul s-a aprins recent (termene noi, ședințe, înregistrări sau e-mailuri în ultimele 14 zile); ea nu modifică niciodată prioritatea dumneavoastră.
+- **Părți și încadrare juridică.** Public da/nu, reclamant (marcat dacă este clientul dumneavoastră), adversar, țară, domeniu juridic și stadiu, dacă a fost atribuit un număr de dosar de instanță (cu data lui), tipul dosarului, data de început și descrierea.
 - **Dimensiunea dosarului.** Sub descriere, un tabel numără PDF-urile primite, trimise și de probă, imaginile și fișierele audio, cu numărul de cuvinte și dimensiunea fișierelor, un total al dosarului și o estimare a cantității de text pe care ar trebui să o citească IA.
 
 **Butoanele de pe cardul Dosar**
 
 - **Tipărește.** Alegeți *Cronologie* sau *Documentație* și dosarul este exportat ca PDF.
-- **Editează.** Deschide formularul dosarului: titlu, prioritate, stare, reclamant (sau „clientul este reclamant"), alți clienți proprii în aceeași procedură, adversar, o verificare a conflictului de interese (activă după ce ambele părți sunt completate), dosar public, un comutator care împiedică atașarea oricărui element la acest dosar (manual, automat sau de către IA), număr de dosar, număr de dosar intern cu dată, țară, domeniu juridic, stadiu și descriere.
+- **Editează.** Deschide formularul dosarului: titlu, prioritate, stare, reclamant (sau *Reclamantul este clientul*), alți clienți proprii în aceeași procedură, adversar, o verificare a conflictului de interese (activă după ce ambele părți sunt completate), dosar public, un comutator care împiedică atașarea oricărui element la acest dosar (manual, automat sau de către IA), număr de dosar, număr de dosar de instanță cu dată, țară, domeniu juridic, stadiu și descriere.
 - **Șterge.** După o confirmare, dosarul este eliminat complet din IRONSTICK. Mai întâi se face o copie de siguranță completă a dosarului; dacă aceasta eșuează, nu se șterge nimic.
 
-**Partajare și predare (doar cu server al cabinetului conectat)**
+**Partajare și predare (doar cu IRONSTICK SERVER conectat)**
 
-- **Partajează.** Partajați dosarul *pentru toți utilizatorii* sau *pentru utilizatorii selectați*, pe care îi bifați în listă. Dosarul este apoi încărcat în fundal pe serverul de cabinet. Odată partajat, același buton devine roșu și afișează *Revocă partajarea*, care retrage imediat partajarea.
+- **Partajează.** Partajați dosarul *pentru toți utilizatorii* sau *pentru utilizatorii selectați*, pe care îi bifați în listă. Dosarul este apoi încărcat în fundal pe server. Odată partajat, același buton devine roșu și afișează *Revocă partajarea*, care retrage imediat partajarea.
 - **Cardul de partajare.** Sub datele dosarului, un card arată progresul încărcării și apoi abonații, fiecare cu un punct online și ora ultimului acces. Solicitările colegilor apar evidențiate cu *Permiteți* și *Respinge*; orice abonat poate fi eliminat individual.
-- **Predă dosarul.** Alegeți destinatarul din lista utilizatorilor cabinetului și faceți clic pe *Predă*. Dosarul este împachetat și trimis prin serverul de cabinet; după ce destinatarul l-a acceptat, dosarul este eliminat de pe calculatorul dumneavoastră (se păstrează o copie de siguranță). Nu există predare fără serverul de cabinet.
+- **Predă dosarul.** Alegeți destinatarul din lista utilizatorilor cabinetului și faceți clic pe *Predă*. Dosarul este împachetat și trimis prin IRONSTICK SERVER; după ce destinatarul l-a acceptat, dosarul este eliminat de pe calculatorul dumneavoastră (se păstrează o copie de siguranță).
 - **Dosare partajate cu dumneavoastră.** Un dosar la care sunteți abonat poate fi citit, dar nu modificat; butoanele de editare afișează în schimb o notificare. Sub descriere vedeți proprietarul și ceilalți abonați. *Șterge abonamentul* încheie abonamentul și elimină copia.
 
 ### Filele pe scurt: de la client la hartă
@@ -455,7 +455,7 @@ Fiecare linie din imagine indică de la o filă către vizualizarea pe care o de
 **Conexiuni**
 
 - **Diagrama relațiilor.** Arată persoanele și instituțiile dosarului și cum sunt legate, pe una sau mai multe pagini; antetul numără entitățile și conexiunile. Când sunt multe, sunt afișate cele mai urgente.
-- **Lucrul cu diagrama.** Măriți și micșorați cu butoanele lupă. Faceți clic pe un nume pentru a deschide persoana sau instituția respectivă. *Wallpaper* descarcă diagrama ca PDF mare, în format afiș; *Înregistrează* o transmite către înregistrarea documentelor, unde o atribuiți unui dosar. Ambele butoane de export nu sunt disponibile pe tableta Android.
+- **Lucrul cu diagrama.** Măriți și micșorați cu butoanele lupă. Faceți clic pe un nume pentru a deschide persoana sau instituția respectivă. *Wallpaper* descarcă diagrama ca PDF mare, în format afiș; *Înregistrează* o transmite către înregistrarea documentelor, unde o atribuiți unui dosar. Niciunul dintre butoanele de export nu este disponibil pe tableta Android.
 
 **Hartă**
 
@@ -478,7 +478,7 @@ Atomul și snake-ul sunt afișate doar ca simboluri; poziționați cursorul pest
 - **Cronologie.** Cronologia dosarului: fiecare eveniment, document, fotografie, apel și notă, în ordine cronologică.
 - **Nucleul cauzei (atom).** Direcția obligatorie pentru toată activitatea de redactare din acest dosar — ceea ce trebuie să respecte fiecare act de procedură. Scrieți sau modificați textul și faceți clic pe *Salvează*; fiecare salvare creează o versiune nouă, iar codul copiabil cu numărul versiunii arată care este cea curentă. Un contor arată lungimea (până la 20.000 de caractere). Dedesubt, doar pentru citire, vedeți nucleul fiecărei cauze comune din care face parte acest dosar.
 - **Snake-ul cauzei.** Un registru al afirmațiilor false sau contradictorii făcute de partea adversă în acest dosar, pentru a putea fi folosite în actele de procedură. Se editează și se salvează la fel ca nucleul, cu propriul număr de versiune.
-- **Evaluare IA.** O evaluare a perspectivelor dosarului realizată de IA: șansele de succes, temeiul procedurii, starea dosarului la autoritate și starea dosarului IRONSTICK, punctele forte, punctele slabe și o notă critică.
+- **Evaluare IA.** O evaluare a perspectivelor dosarului realizată de IA: șansele de succes, temeiul procedurii, starea dosarului la instanță și starea dosarului IRONSTICK, punctele forte, punctele slabe și o notă critică.
 
 ### Cronologia
 
@@ -489,7 +489,7 @@ Fila Cronologie: cronologia dosarului, cu cele mai noi înregistrări primele.
 Cronologia listează fiecare înregistrare a dosarului — evenimente, scrisori, e-mailuri, apeluri, fotografii, înregistrări audio — cu cele mai noi primele. Fiecare rând arată numărul și data, titlul, descrierea și etichetele, fișierele atașate, un marcaj de termen și acțiunile.
 Rândul mărit din partea de jos a imaginii arată părțile unei singure înregistrări.
 
-1. **Note.** Deschide panoul de notițe al dosarului. Notele dumneavoastră sunt galbene, notele abonaților unui dosar partajat sunt cartonașe albe, iar notele reținute de IA pentru acest dosar apar ca mici petice în carouri. Faceți clic pe *Notă nouă* pentru a scrie una (până la 1.000 de caractere, opțional cu o dată), faceți clic pe o notă galbenă pentru a o edita, pe orice notă pentru a o citi integral; fiecare are mici butoane de copiere și ștergere.
+1. **Note.** Deschide panoul de notițe al dosarului. Notele dumneavoastră sunt galbene, notele abonaților unui dosar partajat sunt cartonașe albe, iar notele reținute de IA pentru acest dosar apar pe hârtie milimetrică. Faceți clic pe *Notă nouă* pentru a scrie una (până la 1.000 de caractere, opțional cu o dată), faceți clic pe o notă galbenă pentru a o edita, pe orice notă pentru a o citi integral; fiecare are mici butoane de copiere și ștergere.
 2. **Dosar.** Deschide asistentul de dosar, care construiește un dosar complet al cauzei. Apare numai când Cronologia are înregistrări.
 3. **Redactează text.** Alegeți *Cu ajutorul IA* pentru a deschide chatul IA cu o cerere de redactare a unui document pentru acest dosar, sau *Document text gol* pentru a începe să scrieți în procesorul de text. Nu este afișat pe tableta Android.
 4. **Salt la o dată.** Alegeți o dată și faceți clic pe lupă pentru a merge la pagina care o conține.
@@ -523,7 +523,7 @@ Pentru documentele secrete, eticheta, creionul și copierea sunt estompate; răm
 - **Radarul de relevanță.** Arată care alte înregistrări — din acest dosar și din alte dosare — sunt cele mai asemănătoare ca înțeles. Faceți clic pe un rezultat pentru a sări la el.
 - **Etichete.** Atașați înregistrării etichete scurte (până la 100 de caractere): etichete *globale* roșii, galbene, verzi sau albastre, ori etichete de *dosar* în turcoaz. Faceți clic pe o etichetă existentă pentru a o modifica sau pe × al ei pentru a o elimina. Simbolul etichetei preia culoarea primei etichete.
 - **Mape de lucru.** Listează mapele fiecărei cauze comune din care face parte dosarul; bifați o mapă pentru a pune înregistrarea în ea sau creați o *Mapă nouă*. Dacă dosarul nu face parte dintr-o cauză comună, o notificare spune acest lucru.
-- **Editează.** O înregistrare fără document deschide formularul înregistrării de cronologie. O înregistrare cu PDF deschide formularul documentului: clasificare (țară, limbă, domeniu juridic, tip de document, stadiu, tip de instituție, data documentului), tipul înregistrării (probă, primită sau trimisă), o casetă de bifat pentru hotărâre judecătorească și aceleași câmpuri ale înregistrării ca mai jos; butoanele de acolo vă permit să vizualizați PDF-ul și să citiți textul extras din el.
+- **Editează.** O înregistrare fără document deschide formularul înregistrării de cronologie. O înregistrare cu PDF deschide formularul documentului: clasificare (țară, limbă, domeniu juridic, tip de document, stadiu, tip de instituție, data documentului), tipul înregistrării (probă, primită sau trimisă), o casetă de bifat pentru hotărâre judecătorească și câmpurile obișnuite ale înregistrării (titlu, dată, cuvinte-cheie, ore, descriere, persoane implicate, termen); butoanele de acolo vă permit să vizualizați PDF-ul și să citiți textul extras din el.
 - **Copiere în alt dosar.** Alegeți un dosar țintă al aceluiași client; înregistrarea este copiată cu documentele, imaginile și transcrierile ei. *Copiază* devine activ după ce este selectat un dosar.
 - **Șterge.** Elimină înregistrarea după o confirmare.
 
@@ -573,7 +573,7 @@ Fila **Documentație** este partea de hârtie a dosarului: listează numai înre
 Fiecare rând arată numărul înregistrării, data, titlul, un scurt rezumat, etichetele de clasificare și instrumentele pentru acel document.
 Butonul albastru din dreapta cardului deschide **cronologia** — documentele primite și trimise desenate ca o diagramă de flux de sus în jos, așa cum se vede în dreapta imaginii.
 
-1. **Filtrul de direcție.** *Toate* arată fiecare document, *IN* (galben) doar documentele primite, *OUT* (verde) doar documentele trimise de dumneavoastră. Chipul activ este afișat îngroșat, cu un chenar.
+1. **Filtrul de direcție.** *Toate* arată fiecare document, *IN* (portocaliu) doar documentele primite, *OUT* (verde) doar documentele trimise de dumneavoastră. Chipul activ este afișat îngroșat, cu un chenar.
 2. **Salt la dată.** Alegeți o dată în câmpul calendar și faceți clic pe lupă pentru a sări la pagina care conține acea dată. Câmpul apare numai când lista depășește trei pagini; calendarul oferă doar datele care există în dosar.
 
 #### Ce puteți face aici
@@ -660,7 +660,7 @@ Setați coperta și structura, verificați fiecare pagină, apoi exportați dosa
 
 Evaluarea IA a dosarului, cu indicatorul șanselor de succes.
 
-Fila **Evaluare IA** oferă o evaluare scrisă a dosarului realizată de IA. Secțiunile descriptive se bazează pe întregul dumneavoastră dosar; șansele de succes sunt apreciate numai pe baza a ceea ce se află la dosarul instanței. Fila arată temeiul procedurii, starea dosarului la autoritate cu o estimare a șanselor de succes, starea dosarului IRONSTICK complet, note critice, puncte forte și riscuri, și linkuri către dosare conexe.
+Fila **Evaluare IA** oferă o evaluare scrisă a dosarului realizată de IA. Secțiunile descriptive se bazează pe întregul dumneavoastră dosar; șansele de succes sunt apreciate numai pe baza a ceea ce se află la dosarul instanței. Fila arată temeiul procedurii, starea dosarului la instanță (dosarul aflat la instanță sau la autoritate) cu o estimare a șanselor de succes, starea dosarului IRONSTICK complet, note critice, puncte forte și riscuri, și linkuri către dosare conexe.
 Fiecare număr de înregistrare, referință de dosar și număr de dosar din text este un link. Data de sub titlu arată când a fost făcută evaluarea.
 
 1. **Reevaluează.** Pornește o nouă evaluare. Fără o evaluare, butonul afișează *Solicită evaluare*. Este estompat, ca în imagine, când nu au sosit documente noi de la ultima evaluare (cu excepția cazului în care scrieți un comentariu mai jos) sau când dosarul nu este activ.
@@ -678,7 +678,7 @@ Fiecare număr de înregistrare, referință de dosar și număr de dosar din te
 **Citirea evaluării**
 
 - **Temeiul procedurii.** Cine pretinde ce împotriva cui, în fața cărei instanțe sau autorități.
-- **Starea dosarului la autoritate și șansele de succes.** Descrie numai ceea ce se află la dosarul instanței sau al autorității — tot ce i-a fost trimis sau ce a primit de la ambele părți. Indicatorul de alături arată estimarea IA în procente, verdictul (de la clar pierdut la clar câștigat) și, acolo unde sunt disponibile, cifrele separate pentru starea probelor, cererea principală și celelalte cereri. Dacă nu poate fi identificat niciun dosar al autorității, această secțiune lipsește, iar indicatorul rămâne gol („nu poate fi estimat").
+- **Starea dosarului la instanță și șansele de succes.** Descrie numai ceea ce se află la dosarul instanței sau al autorității — tot ce i-a fost trimis sau ce a primit de la ambele părți. Indicatorul de alături arată estimarea IA în procente, verdictul (de la clar pierdut la clar câștigat) și, acolo unde sunt disponibile, cifrele separate pentru starea probelor, cererea principală și celelalte cereri. Dacă nu poate fi identificat niciun dosar la instanță, această secțiune lipsește, iar indicatorul rămâne gol („nu poate fi estimat").
 - **Starea dosarului IRONSTICK.** Imaginea rezultată din dosarul dumneavoastră complet, inclusiv documentele pe care instanța nu le-a văzut.
 - **Notă critică, puncte forte și riscuri.** O casetă portocalie semnalează cel mai important pericol. Caseta verde listează punctele forte ale poziției dumneavoastră, caseta roșie riscurile și punctele deschise.
 - **Dosare conexe.** *Legăturile între dosare* arată cum influențează acest dosar celelalte dosare ale aceluiași client (de la, către, efect — marcat ca prejudiciabil, probă sau strategic). O casetă galbenă listează dosare ale altor clienți cu același adversar sau aceiași participanți și explică cum puteți aduce unul dintre ele în evaluare prin câmpul de comentariu.
@@ -692,7 +692,7 @@ Fiecare număr de înregistrare, referință de dosar și număr de dosar din te
 
 ### Cum se realizează evaluarea IA
 
-![Evaluarea IA cu secțiunile alimentate de întregul dosar marcate în verde și secțiunea Starea dosarului la autoritate cu indicatorul șanselor marcată în roșu](https://www.ironstick.legal/img/screens/5%20case%20assesment%20detail.png)
+![Evaluarea IA cu secțiunile alimentate de întregul dosar marcate în verde și secțiunea Starea dosarului la instanță cu indicatorul șanselor marcată în roșu](https://www.ironstick.legal/img/screens/5%20case%20assesment%20detail.png)
 
 Verde: preluat din întregul dosar. Roșu: doar partea din dosar pe care o are instanța.
 
@@ -710,7 +710,7 @@ Secțiunea **roșie** cu indicatorul apreciază numai partea din dosar care se a
 
 **Secțiunea roșie — numai dosarul instanței**
 
-- **Starea dosarului la autoritate.** Descrie numai ceea ce se află la dosarul instanței — fiecare act depus și fiecare document primit de la instanță sau de la cealaltă parte în această procedură.
+- **Starea dosarului la instanță.** Descrie numai ceea ce se află la dosarul instanței — fiecare act depus și fiecare document primit de la instanță sau de la cealaltă parte în această procedură.
 - **Șansele de succes.** Indicatorul merge de la roșu (pierdut) în partea de jos la verde (câștigat) în partea de sus; săgeata și procentul arată estimarea IA, iar verdictul de dedesubt (de exemplu *mai degrabă câștigat*) o exprimă în cuvinte. Acolo unde sunt disponibile, urmează cifre separate pentru starea probelor, cererea principală și celelalte cereri.
 - **De ce numai dosarul instanței.** Instanța hotărăște pe baza a ceea ce are în față. Un document puternic din dosarul dumneavoastră care nu a fost niciodată depus nu îmbunătățește estimarea până nu ajunge la instanță — secțiunile verzi vă arată astfel de lacune.
 - **Fără dosarul instanței, fără estimare.** Dacă IRONSTICK nu poate identifica instanța sau documentele aflate în fața ei, secțiunea roșie lipsește, iar indicatorul rămâne gol.
@@ -735,7 +735,7 @@ Imaginea arată lista cu butoanele de filtrare și câmpul de căutare, fereastr
 **Antetul paginii**
 
 - **Numărul de înregistrări.** Sub titlu vedeți câte înregistrări sunt afișate; când un filtru este activ, acest lucru este menționat lângă număr.
-- **Importă.** Deschide o fereastră în care trageți un fișier-pachet de date primit de la un alt utilizator IRONSTICK (persoane, firme, instituții, relațiile lor și analize de persoane). O bară de progres rulează în timpul importului; apoi vedeți câte înregistrări au fost noi, câte erau deja cunoscute și câte relații au fost adăugate. Dacă pachetul aduce detalii suplimentare pentru persoane pe care le aveți deja, acestea apar ca sugestii în monitorul de date, în loc să vă suprascrie datele. Un fișier deteriorat sau greșit este respins cu un mesaj.
+- **Importă.** Deschide o fereastră în care trageți un fișier-pachet de date primit de la un alt utilizator IRONSTICK (persoane, firme, instituții, relațiile lor și analize de persoane). O bară de progres rulează în timpul importului; apoi vedeți câte înregistrări au fost noi, câte erau deja cunoscute și câte relații au fost adăugate. Dacă pachetul aduce detalii suplimentare pentru persoane pe care le aveți deja, acestea apar ca sugestii în Monitorul de consistență a datelor, în loc să vă suprascrie datele. Un fișier deteriorat sau greșit este respins cu un mesaj.
 - **Univers.** Butonul negru deschide cele trei hărți vizuale ale tuturor părților dumneavoastră: harta 3D, harta 2D și harta geo.
 - **Persoană / entitate nouă.** Deschide formularul de introducere pentru o persoană sau o firmă nouă.
 
@@ -770,7 +770,7 @@ Imaginea arată lista cu butoanele de filtrare și câmpul de căutare, fereastr
 - **Contact, online, profesie, vehicul.** Telefon, fax, e-mail (verificat pentru un format valid), date de contact, descriere, linkuri către rețele sociale și site web, profesie și angajator (numai persoane), automobil și număr de înmatriculare.
 - **Completare automată prin IA și căutare Google.** Pentru o entitate juridică cu nume și țară, un buton apare în antet. Dacă este configurată o cheie IA, *Completare automată prin IA* cere consimțământul dumneavoastră și apoi lasă IA externă să caute firma pe internet; completează numai câmpurile goale și le marchează cu un chenar violet. Ulterior, sau fără cheie IA, butonul devine *Căutare Google*, care deschide căutarea în fereastra de browser IRONSTICK.
 - **Salvare sau anulare.** Butonul de salvare memorează înregistrarea și revine la listă. Când editați o persoană fizică existentă, în stânga jos apare și un buton *Analiza persoanei*.
-- **Înregistrări ale altor utilizatori de pe serverul de cabinet.** Dacă o înregistrare aparține altui utilizator al serverului de cabinet, un banner spune acest lucru. Salvarea trimite atunci modificările dumneavoastră ca propunere de modificare proprietarului, iar ștergerea trimite o propunere de ștergere în loc să șteargă.
+- **Înregistrări ale altor utilizatori de pe IRONSTICK SERVER.** Dacă o înregistrare aparține altui utilizator al serverului, un banner spune acest lucru. Salvarea trimite atunci modificările dumneavoastră ca propunere de modificare proprietarului, iar ștergerea trimite o propunere de ștergere în loc să șteargă.
 
 **Analiza persoanei și cercetarea web (numai persoane fizice)**
 
@@ -792,8 +792,8 @@ iar **harta geo** plasează toate persoanele și firmele cu locație cunoscută 
 
 **Harta 3D**
 
-- **Universul se construiește singur.** O bară de progres arată cât de departe a ajuns imaginea; grupurile de părți strâns conectate (clici) apar pe rând, fiecare în propria culoare. Grupurile care par suspecte pâlpâie în roșu. Rândul din stânga sus numără părțile, legăturile și clicile.
-- **Zburați.** W/A/S/D zboară înainte, la stânga, înapoi și la dreapta; R și F urcă și coboară; trageți cu mouse-ul sau folosiți tastele săgeți pentru a vă întoarce; rotița mouse-ului se deplasează înainte sau înapoi; Shift accelerează, Space frânează. Panoul din stânga jos listează aceste taste, iar o mică bară din dreapta jos arată viteza dumneavoastră.
+- **Universul se construiește singur.** O bară de progres arată cât de departe a ajuns imaginea; grupurile de părți strâns conectate (clici) apar pe rând, fiecare în propria culoare. Grupurile cu tipare de conexiune vizibile sunt evidențiate în roșu intermitent. Rândul din stânga sus numără părțile, legăturile și clicile.
+- **Zburați.** W/A/S/D zboară înainte, la stânga, înapoi și la dreapta; R și F urcă și coboară; trageți cu mouse-ul sau folosiți tastele săgeți pentru a vă întoarce; rotița mouse-ului se deplasează înainte sau înapoi; Shift mișcă mai repede, Space încetinește. Panoul din stânga jos listează aceste taste, iar o mică bară din dreapta jos arată viteza dumneavoastră.
 - **Găsiți o parte și apropiați-vă de ea.** Faceți clic pe un punct pentru a-l marca și a zbura automat la el; faceți clic din nou pe el pentru a elimina marcajul. Câmpul de căutare din dreapta jos găsește numele cel mai potrivit și zboară și el acolo.
 - **Înapoi la listă.** Faceți dublu clic pe un punct: harta se închide, iar persoana se luminează în galben în lista de persoane. O instituție deschide în schimb lista de instituții, evidențiată la fel.
 - **Legături de dosar și niveluri separate.** *Legături de dosar* conectează și părțile care apar în același dosar. *Separă nivelurile* plasează instituțiile sus, persoanele la mijloc și firmele jos. Ambele comutatoare reconstruiesc imaginea și sunt reținute.
@@ -802,13 +802,13 @@ iar **harta geo** plasează toate persoanele și firmele cu locație cunoscută 
 
 Zbor prin harta 3D a tuturor părților.
 
-Cliciile — grupuri de părți strâns conectate — sunt calculate automat de un algoritm extrem de complex. Calculul se extinde întotdeauna asupra tuturor persoanelor, firmelor și instituțiilor din IRONSTICK, fără nicio acțiune din partea dumneavoastră. Cu cât o parte are mai multe legături calificate, cu atât sfera ei este desenată mai mare.
+Cliciile — grupuri de părți strâns conectate — sunt calculate automat prin detectare deterministă a comunităților (fără IA). Calculul acoperă întotdeauna tuturor persoanelor, firmelor și instituțiilor din IRONSTICK, fără nicio acțiune din partea dumneavoastră. Cu cât o parte are mai multe legături calificate, cu atât sfera ei este desenată mai mare.
 
 **Harta 2D**
 
 - **Deplasați-vă ca pe o foaie de hârtie.** Trageți cu mouse-ul sau folosiți W/A/S/D pentru a deplasa foaia; rotița mouse-ului face zoom către cursor.
 - **Priviți o parte.** Poziționați cursorul peste un nod pentru a vedea legăturile și etichetele de nume ale acestuia. Un clic îl marchează (pulsează), un clic pe foaia goală elimină marcajul, iar un dublu clic revine la listă cu înregistrarea evidențiată.
-- **Căutare și comutatoare.** Câmpul de căutare din dreapta jos găsește o parte după nume; *Legături de dosar* și *Separă nivelurile* funcționează ca în harta 3D.
+- **Căutare și comutatoare.** Câmpul de căutare din dreapta jos găsește o parte după nume; *Legături de dosar* conectează părțile din același dosar; *Separă nivelurile* suprapune instituțiile, persoanele și firmele pe niveluri.
 
 **Harta geo**
 
@@ -853,7 +853,7 @@ Imaginea arată și fereastra de detalii a unei autorități și codul QR care s
 - **Adresă și poziție pe hartă.** Stradă, cod poștal, oraș, district și țară. Activați geocoordonatele pentru a căuta adresa pe hartă, tastați latitudinea și longitudinea sau faceți clic pe locul de pe hartă.
 - **Contact.** Telefon, fax, e-mail și site web.
 - **Completare cu IA și căutare Google.** Odată introduse un nume și o țară, în antet apare un buton. Dacă este configurată o cheie de IA, *Completare cu IA* vă cere acordul și lasă IA externă să caute instituția pe internet; completează doar câmpurile goale și le marchează cu un cadru violet. După aceea, sau fără cheie, butonul deschide o căutare Google în fereastra de browser IRONSTICK.
-- **Instituții ale altor utilizatori de pe serverul de cabinet.** Dacă instituția aparține unui alt utilizator al serverului de cabinet, salvarea trimite proprietarului o propunere de modificare, iar ștergerea o propunere de ștergere.
+- **Instituții ale altor utilizatori de pe IRONSTICK SERVER.** Dacă instituția aparține unui alt utilizator al serverului, salvarea trimite proprietarului o propunere de modificare, iar ștergerea o propunere de ștergere.
 
 ## 8. Înregistrare documente
 
@@ -868,7 +868,7 @@ Fiecare PDF care urmează să intre într-un dosar trece prin această căsuță
 care se deschide mai întâi pentru documentele cu mai multe pagini, și vizualizarea textului, care arată ce a citit IRONSTICK din fișier.
 
 1. **Zona de depunere.** Trageți aici fișiere PDF sau Markdown sau faceți clic pentru a le alege. Fișierele Markdown sunt convertite automat în PDF; alte tipuri de fișiere sunt refuzate printr-un mesaj.
-2. **Indicatorul căsuței.** Cât timp în căsuță așteaptă documente neprelucrate, în bara de meniu apare o pictogramă roșie de căsuță, care se agită; indicând-o, vedeți câte sunt. Faceți clic pe ea pentru a ajunge direct pe acest ecran. Dispare când căsuța este goală.
+2. **Indicatorul căsuței.** Cât timp în căsuță așteaptă documente neprelucrate, în bara de meniu apare o pictogramă roșie de căsuță, animată; indicând-o, vedeți câte sunt. Faceți clic pe ea pentru a ajunge direct pe acest ecran. Dispare când căsuța este goală.
 3. **Vizualizare.** Deschide PDF-ul cu programul setat pentru PDF-uri pe acest calculator.
 4. **Înregistrează.** Pornește înregistrarea acestui fișier: selectarea paginilor, citirea textului, clasificarea cu IA și apoi formularul de înregistrare.
 5. **Șterge.** Șterge fișierul din căsuță după o confirmare. Acțiunea nu poate fi anulată.
@@ -876,16 +876,16 @@ care se deschide mai întâi pentru documentele cu mai multe pagini, și vizuali
 7. **Vizualizarea textului.** Arată într-o fereastră textul citit din PDF, unde îl puteți selecta și copia.
 8. **Secret.** Marchează documentul ca secret. Documentele secrete sunt ascunse peste tot în IRONSTICK până când apăsați **Ctrl + Shift + S + D** (doar Windows); aceeași combinație le ascunde din nou. Modul secret nu este niciodată reținut: se dezactivează singur la repornirea programului și la screen saver, standby sau blocarea ecranului. Cât timp este activ, configurația arată cardul în care se stabilește o singură dată parola pentru documentele secrete — ea nu mai poate fi schimbată de îndată ce există un document secret. Un document bifat este stocat ca PDF protejat prin parolă (AES-256) și nu poate avea termen.
 
-**Documentele secrete nu părăsesc niciodată IRONSTICK:** nu sunt trimise niciodată către IA — nici cea încorporată, nici una externă —, nu sunt adăugate niciodată la PDF-urile generate sau la anexe și nu pot fi accesate prin fereastra de browser IRONSTICK.
+**Documentele secrete rămân în IRONSTICK:** fiecare funcție IA, încorporată sau externă, le filtrează; sunt excluse din PDF-urile generate și din anexe; fereastra de browser IRONSTICK nu le poate deschide; iar predarea unui dosar către un coleg le include numai după confirmarea dumneavoastră explicită.
 
-**Urgență:** **Ctrl + Shift + S + D + K** încheie imediat modul secret și distruge definitiv toate documentele secrete (fișiere și înregistrări). Acțiunea nu poate fi anulată.
+**Ștergere de urgență:** **Ctrl + Shift + S + D + K** încheie imediat modul secret și șterge definitiv toate documentele secrete (fișiere și înregistrări). Acțiunea nu poate fi anulată.
 
 #### Ce puteți face aici
 
 **Căsuța**
 
-- **Dosarul căsuței.** Cardul listează fiecare PDF din dosarul căsuței cu mărimea lui, câte 20 pe pagină. Pe Windows, calea exactă a dosarului este afișată lângă titlu, cu butoane pentru a o copia și a o deschide în Explorer — practic dacă lăsați scannerul să salveze direct în acest dosar.
-- **Alte căi de intrare.** Documentele ajung aici și din monitorul de e-mail și din diagramele pe care le trimiteți la înregistrare (de exemplu o rețea de relații).
+- **Dosarul căsuței.** Cardul listează fiecare PDF din dosarul căsuței cu mărimea lui, câte 20 pe pagină. Pe Windows, calea exactă a dosarului este afișată lângă titlu, cu butoane pentru a o copia și a o deschide în Explorer — util dacă scannerul dumneavoastră salvează direct în acest dosar.
+- **Alte căi de intrare.** Documentele ajung aici și din Monitorul de e-mail și din diagramele pe care le trimiteți la înregistrare (de exemplu o rețea de relații).
 - **După înregistrare.** Odată ce un document a fost salvat într-un dosar, el dispare din căsuță.
 
 **Selectarea paginilor**
@@ -898,7 +898,7 @@ care se deschide mai întâi pentru documentele cu mai multe pagini, și vizuali
 - **Textul este citit local.** Un ecran de progres arată fiecare pas. IRONSTICK citește stratul de text al fiecărei pagini păstrate; doar paginile fără text utilizabil (scanări) trec prin recunoașterea textului.
 - **Părțile și dosarul sunt găsite automat.** Persoanele și instituțiile pe care le aveți deja sunt recunoscute în text și propuse ca părți implicate. Un număr de dosar din antet, un număr de înregistrare cunoscut sau o referire la unul dintre e-mailurile dumneavoastră trimise sugerează dosarul potrivit. Propriile dumneavoastră documente din procesorul de text sunt recunoscute după ștampila lor.
 - **Clasificare cu IA, cu acordul dumneavoastră.** Înainte ca vreun text să ajungă la IA externă, vi se cere acordul o dată la fiecare pornire a programului. IA propune apoi titlul, data, descrierea, cuvintele-cheie, tipul documentului, direcția și altele. Dacă refuzați, formularul rămâne gol pentru acest document și îl completați singur.
-- **Faptele stabilite au prioritate.** Pentru documentele din monitorul de e-mail, direcția provine din dosarul de e-mail (primite sau trimise); pentru importurile de poștă judiciară, confirmarea de primire stabilește dosarul, data și direcția. IA nu le înlocuiește.
+- **Faptele stabilite au prioritate.** Pentru documentele din Monitorul de e-mail, direcția provine din dosarul de e-mail (primite sau trimise); pentru importurile de poștă judiciară, confirmarea de primire stabilește dosarul, data și direcția. IA nu le înlocuiește.
 
 **Atribuirea dosarului și clasificarea**
 
@@ -946,7 +946,7 @@ Căutarea globală parcurge dintr-o dată toate înregistrările din toate dosar
 conținutul documentelor și textul integral al documentelor, chaturilor și transcrierilor. Imaginea arată rezultatele pentru cuvântul *contract*;
 un rând de rezultat este mărit pentru ca părțile lui să fie ușor de văzut.
 
-1. **Câmp de căutare.** Tastați unul sau mai multe cuvinte și apăsați Enter sau faceți clic pe *Caută*. Cu mai multe cuvinte, fiecare cuvânt trebuie să apară în înregistrare. Accentele sunt ignorate, iar micile erori de citire din textul scanat sunt tolerate.
+1. **Câmp de căutare.** Tastați unul sau mai multe cuvinte și apăsați Enter sau faceți clic pe *Caută*. Cu mai multe cuvinte, fiecare cuvânt trebuie să apară în înregistrare. Accentele sunt ignorate, iar erorile minore de OCR din textul scanat sunt tolerate.
 2. **Data.** Data înregistrării.
 3. **Direcția.** *IN* (albastru) marchează un document primit, *OUT* (roșu) unul expediat. Înregistrările de tip probă nu au etichetă.
 4. **Expresie exactă.** Steaua verde apare după titlu când cuvintele dumneavoastră au fost găsite împreună exact în această ordine — de obicei cele mai relevante rezultate.
@@ -965,7 +965,7 @@ un rând de rezultat este mărit pentru ca părțile lui să fie ușor de văzut
 #### Rezultate
 
 - **Pagini.** 20 de rezultate pe pagină; dacă există mai multe pagini, navigarea între pagini apare deasupra și dedesubtul listei.
-- **Deschiderea unui rezultat.** Faceți clic pe un rând: dosarul se deschide la fila lui de cronologie, iar înregistrarea se luminează pentru a o vedea imediat.
+- **Deschiderea unui rezultat.** Faceți clic pe un rând: dosarul se deschide la fila lui Cronologie, iar înregistrarea se luminează pentru a o vedea imediat.
 - **Titlu gol.** O înregistrare fără titlu este afișată ca „Înregistrare #" urmat de numărul ei.
 
 ## 10. Calendar
@@ -979,7 +979,7 @@ Două luni sunt afișate una lângă alta; numerele și punctele colorate arată
 Sub luni vedeți tot ce este planificat pentru ziua selectată. Imaginea arată și dialogul de export care se deschide când exportați calendarul ca fișier .ics.
 
 1. **Selectarea unei zile.** Faceți clic pe orice zi pentru a-i afișa programările dedesubt. Ziua selectată devine albastră; ziua de azi are un cerc gri.
-2. **Panoul zilei.** Arată data selectată, numărul de programări și butonul *Înregistrare nouă*. Dedesubt sunt listate programările acelei zile, urmate de ședințele de judecată din portalul online al instanțelor.
+2. **Panoul zilei.** Arată data selectată, numărul de programări și butonul *Înregistrare nouă*. Dedesubt sunt listate programările acelei zile, urmate de ședințele de judecată dintr-un portal național al instanțelor.
 3. **Exportă .ics.** Salvează programările și ședințele de judecată de astăzi încolo ca fișier de calendar pe care alte programe de calendar îl pot importa.
 
 ### Ce puteți face aici
@@ -992,16 +992,16 @@ Sub luni vedeți tot ce este planificat pentru ziua selectată. Imaginea arată 
 #### Programările unei zile
 
 - **Lista zilei.** Fiecare programare arată ora, titlul, locul, începutul descrierii, dosarul și clientul și o etichetă colorată de tip. Dacă o zi are multe înregistrări, lista este împărțită în pagini, cu butoane de pagină deasupra și dedesubt.
-- **Deschiderea detaliilor.** Faceți clic pe o programare pentru a vedea data, ora, tipul, locul, descrierea completă și dosarul. Sub *Documente pregătite* găsiți înregistrările din cronologie pe care le-ați atașat programării: numărul violet deschide cronologia dosarului cu acea înregistrare evidențiată, agrafa deschide documentul însuși.
+- **Deschiderea detaliilor.** Faceți clic pe o programare pentru a vedea data, ora, tipul, locul, descrierea completă și dosarul. Sub *Documente pregătite* găsiți înregistrările din cronologie pe care le-ați atașat programării: numărul violet deschide Cronologia dosarului cu acea înregistrare evidențiată, agrafa deschide documentul însuși.
 - **Programarea ca PDF.** Butonul de tipărire din fereastra de detalii creează un PDF cu o pagină de gardă pentru programare, urmată de toate documentele pregătite, cu numerotare continuă a paginilor.
 - **Editare sau ștergere.** Creionul deschide programarea pentru editare; coșul roșu o șterge după o confirmare.
 - **Sarcini.** Un clic pe o înregistrare de tip *Sarcină* (de exemplu un act de procedură notat mai devreme) deschide chatul IA pentru dosarul respectiv, cu o cerere de redactare a actului.
 - **Zi goală.** Dacă nu este planificat nimic, panoul o spune și puteți crea imediat o înregistrare.
 
-#### Ședințe de judecată din portalul instanțelor
+#### Ședințe de judecată dintr-un portal național al instanțelor
 
 - **Secțiunea de ședințe.** Acolo unde funcțiile portalului instanțelor pentru țara dumneavoastră sunt activate, ședințele pe care IRONSTICK le-a preluat pentru dosarele dumneavoastră apar într-o secțiune portocalie proprie, sub programări.
-- **Deschiderea dosarului sau a dosarului din portal.** Numărul de dosar subliniat și linkul *Dosar* deschid cronologia dosarului. Un clic în altă parte a rândului deschide dosarul din portal cu obiectul, părțile, căile de atac și istoricul tuturor ședințelor; de acolo *Deschide dosarul* vă duce la dosar. O ședință pentru un dosar din portal care nu este încă legat de un dosar propriu este marcată *nou/neînregistrat*.
+- **Deschiderea dosarului sau a dosarului din portal.** Numărul de dosar subliniat și linkul *Dosar* deschid Cronologia dosarului. Un clic în altă parte a rândului deschide dosarul din portal cu obiectul, părțile, căile de atac și istoricul tuturor ședințelor; de acolo *Deschide dosarul* vă duce la dosar. O ședință pentru un dosar din portal care nu este încă legat de un dosar propriu este marcată *nou/neînregistrat*.
 
 #### Înregistrare nouă și editare
 
@@ -1023,11 +1023,11 @@ Sub luni vedeți tot ce este planificat pentru ziua selectată. Imaginea arată 
 
 Toate termenele deschise, ședințele de judecată și mementourile IA datate, într-o singură listă.
 
-Lista de termene adună tot ce este scadent, în ordinea datei: termene din cronologiile dosarelor dumneavoastră, ședințe de judecată viitoare (din portalul instanțelor și din calendarul dumneavoastră) și mementouri pe care IA le-a notat cu o dată scadentă.
+Lista de termene adună tot ce este scadent, în ordinea datei: termene din cronologiile dosarelor dumneavoastră, ședințe de judecată viitoare (dintr-un portal național al instanțelor și din calendarul dumneavoastră) și mementouri pe care IA le-a notat cu o dată scadentă.
 Clopoțelul din bara de sus deschide întotdeauna acest ecran. Imaginea arată lista și dialogul de export al PDF-ului de prezentare generală a termenelor.
 
 1. **Numere de referință.** Numărul *#0000000* al unui document și numărul *@mem0000* al unui memento IA se copiază în clipboard cu un clic — de exemplu pentru a le lipi în chat.
-2. **Eliminarea termenelor — în două locuri, intenționat.** Locul în care eliminați un termen depinde de proveniența lui. Termenele din aplicație (documente și înregistrări din cronologie) se bifează cu căsuța lor și se elimină împreună. Mementourile pe care IA le-a stocat în memoria ei (simbolul creierului) se elimină cu *Șterge data*: se îndepărtează doar data scadentă, astfel încât mementoul părăsește lista.
+2. **Eliminarea termenelor.** Termenele și mementourile IA se elimină în locuri diferite, deoarece provin din surse diferite. Termenele din aplicație (documente și înregistrări din cronologie) se bifează cu căsuța lor și se elimină împreună. Mementourile pe care IA le-a stocat în memoria ei (simbolul creierului) se elimină cu *Șterge data*: se îndepărtează doar data scadentă, astfel încât mementoul părăsește lista.
 
 ### Ce puteți face aici
 
@@ -1041,7 +1041,7 @@ Clopoțelul din bara de sus deschide întotdeauna acest ecran. Imaginea arată l
 
 #### Lucrul cu înregistrările
 
-- **Deschiderea dosarului.** Faceți clic pe un rând pentru a deschide cronologia dosarului la pagina potrivită, cu înregistrarea evidențiată în galben. Ședințele fără dosar legat nu au destinație.
+- **Deschiderea dosarului.** Faceți clic pe un rând pentru a deschide Cronologia dosarului la pagina potrivită, cu înregistrarea evidențiată în galben. Ședințele fără dosar legat nu au destinație.
 - **Deschiderea documentului.** Agrafa deschide documentul care aparține termenului.
 - **Copierea numărului înregistrării.** Faceți clic pe numărul violet de sub dată (sau pe referința unui memento IA) pentru a-l copia; în locul lui apare o scurtă confirmare. Lipiți-l în chatul IA în loc să descrieți înregistrarea.
 - **Eliminarea termenelor.** După bifarea termenelor, o bară arată câte sunt selectate. Butonul ei roșu de eliminare cere confirmare și apoi le scoate din listă și din numărătoarea clopoțelului. Înregistrările din cronologie rămân în dosar.
@@ -1055,7 +1055,7 @@ Clopoțelul din bara de sus deschide întotdeauna acest ecran. Imaginea arată l
 Jurnalul zilnic, o înregistrare nouă în curs de lipire și o zi deschisă.
 
 Jurnalul zilnic este jurnalul dumneavoastră de lucru pentru toate dosarele: o înregistrare pe zi cu ceea ce s-a făcut, trimis, decis sau pregătit.
-Înregistrările provin din texte pe care le lipiți sau le trageți aici ori sunt scrise de IA prin conectorul IRONSTICK la sfârșitul unei sesiuni de lucru.
+Înregistrările provin din texte pe care le lipiți sau le trageți aici ori sunt scrise, la cererea dumneavoastră, de o IA desktop conectată prin bridge-ul IRONSTICK la sfârșitul unei sesiuni de lucru.
 Imaginea arată lista, fereastra pentru o înregistrare nouă și o zi deschisă cu cronologia dosarelor din ziua respectivă.
 
 ### Ce puteți face aici
@@ -1069,7 +1069,7 @@ Imaginea arată lista, fereastra pentru o înregistrare nouă și o zi deschisă
 #### Deschiderea unei zile
 
 - **Prezentare generală.** Fereastra arată data și dosarele zilei respective ca etichete.
-- **Evenimente.** Fiecare eveniment arată data, textul și linkuri către numere de dosar sau către înregistrări; un link albastru deschide cronologia dosarului cu înregistrarea evidențiată.
+- **Evenimente.** Fiecare eveniment arată data, textul și linkuri către numere de dosar sau către înregistrări; un link albastru deschide Cronologia dosarului cu înregistrarea evidențiată.
 - **În cronologie.** Acolo unde este oferit, butonul albastru de cronologie de pe un eveniment vă lasă să alegeți un dosar și apoi deschide o înregistrare nouă în cronologia acelui dosar, astfel încât evenimentul devine parte din dosar.
 - **Cronologia dosarelor pentru această zi.** Listează înregistrările din cronologie ale tuturor dosarelor din acea zi, cu ora, titlul și numărul dosarului; faceți clic pe una pentru a o deschide în dosarul ei.
 - **Text integral.** *Afișează textul integral* desfășoară textul complet al zilei, pe care îl puteți selecta și copia.
@@ -1137,13 +1137,13 @@ Bara de stare din partea de jos numără cuvintele, caracterele și paginile. Im
 **Revizuirea cu IA**
 
 - **Activarea IA.** Comutatorul *IA oprită / IA pornită* arată bare colorate lângă pagină: albastru închis pentru temele pe care IA le recunoaște în document, albastru mediu pentru fiecare paragraf și albastru deschis pentru fiecare propoziție. Indicarea unei bare evidențiază textul corespunzător.
-- **Revizuirea unui pasaj.** Faceți clic pe o bară, descrieți în căsuță ce trebuie schimbat și apăsați Enter sau *Revizuiește*. IA rescrie exact acea temă, acel paragraf sau acea propoziție și pune textul nou în locul ei. Numele, numerele de identificare și numerele de dosar sunt înlocuite cu substituenți neutri înainte ca textul să fie trimis la IA externă.
+- **Revizuirea unui pasaj.** Faceți clic pe o bară, descrieți în căsuță ce trebuie schimbat și apăsați Enter sau *Revizuiește*. IA rescrie exact acea temă, acel paragraf sau acea propoziție și pune textul nou în locul ei. Numele, numerele de dosar și alți identificatori din evidențele dumneavoastră sunt înlocuite cu substituenți neutri înainte ca textul să fie trimis la IA externă.
 
 **Lista de anexe**
 
 - **Adăugare după ID-ul probei.** Tastați numărul unei înregistrări din cronologie (de exemplu 357 sau 0000357) și apăsați Enter sau *Adaugă*. PDF-ul înregistrării este atașat; pentru fotografii, înregistrări audio, transcrieri sau înregistrări fără PDF, IRONSTICK creează un PDF pentru anexă.
 - **Adăugare manuală.** În fila *Manual* introduceți un titlu și o notă opțională pentru o anexă care nu se află în IRONSTICK, de exemplu un document pe hârtie pe care îl depuneți dumneavoastră înșivă.
-- **Ordonare și eliminare.** Fiecare anexă arată numărul ei, o insignă DB sau MAN, titlul și un link către PDF-ul ei. Trageți o anexă de mâner pentru a schimba ordinea; crucea o elimină.
+- **Ordonare și eliminare.** Fiecare anexă arată numărul ei, o insignă (*DB* pentru o înregistrare din IRONSTICK, *MAN* pentru o anexă manuală), titlul și un link către PDF-ul ei. Trageți o anexă de mâner pentru a schimba ordinea; crucea o elimină.
 - **Inserare în text.** Scrie lista numerotată de anexe la sfârșitul documentului dumneavoastră sau înlocuiește lista deja existentă. Fiecare rând arată titlul anexei, referința ștampilei IRONSTICK a documentului, dacă există, și intervalul ei de pagini, care se completează automat în previzualizarea de tipărire.
 - **Anexe preluate din text.** Dacă lista este goală, dar documentul dumneavoastră are deja o secțiune de anexe cu numere de înregistrări, IRONSTICK se oferă să preia acele înregistrări ca anexe dintr-un singur pas.
 
@@ -1179,7 +1179,7 @@ Imaginea arată o pagină de anexă mărită (clic stânga), o pagină exclusă 
 
 1. **Documentul dumneavoastră.** Paginile scrisorii sau ale actului de procedură. Faceți clic pe una pentru a plasa pe ea semnătura.
 2. **Rândul de titlu al anexei.** Fiecare anexă începe cu un rând care arată numărul ei de înregistrare, numărul anexei și titlul.
-3. **Ștampila de certificare.** Comutatorul de la începutul rândului (aici *Conform cu originalul*) activează sau dezactivează ștampila „conform cu originalul" pentru această anexă. Gri înseamnă oprit, negru înseamnă pornit.
+3. **Ștampila de certificare.** Comutatorul de la începutul rândului activează sau dezactivează ștampila de copie certificată pentru această anexă; textul ștampilei urmează limba țării dosarului. Gri înseamnă oprit, negru înseamnă pornit.
 4. **DOCX.** Exportă documentul dumneavoastră (fără anexe) ca fișier Word.
 5. **Descarcă PDF.** Construiește PDF-ul final din toate paginile active și deschide dialogul de export.
 
@@ -1223,7 +1223,6 @@ Imaginea arată lista căsuței de primire în stânga și un e-mail deschis în
 	1. **Fără IA, direct din text:** numărul de dosar de instanță al unuia dintre dosarele dumneavoastră (*după numărul dosarului*), un număr de înregistrare sau de scrisoare cunoscut dintr-unul dintre documentele dumneavoastră (*după numărul de înregistrare*), un număr de client (*după numărul clientului*) sau o referire la ceva ce ați trimis (*răspuns la depunerea noastră*).
 	2. **Altfel, IA** evaluează doar prioritatea și scrie un motiv dintr-o propoziție — ea nu atribuie niciun dosar.
 	3. **Apoi varianta de rezervă:** expeditorul este o instituție sau o persoană legată de un dosar (*după instituție*, *după persoană*) sau un expeditor cunoscut (*expeditor cunoscut*).
-E-mailurile mai vechi pot arăta *prin IA* sau *prin potrivire de text* din recunoașterea anterioară.
 5. **Atașamente.** E-mailul deschis își listează atașamentele cu nume și mărime. Faceți clic pe un atașament pentru a-l vizualiza: PDF-urile și imaginile se deschid în fereastra de browser IRONSTICK, alte tipuri de fișiere în programul pe care îl folosește calculatorul dumneavoastră pentru ele.
 6. **Adaugă ca document.** Transformă e-mailul, inclusiv atașamentele lui, într-un singur PDF și deschide înregistrarea documentelor, unde îl arhivați într-un dosar.
 
@@ -1249,7 +1248,7 @@ E-mailurile mai vechi pot arăta *prin IA* sau *prin potrivire de text* din recu
 
 - **Deschidere.** Faceți clic pe un rând pentru a deschide e-mailul într-o fereastră. Ea arată expeditorul, destinatarul, destinatarii în copie, data, lista de atașamente și textul integral. Deschiderea marchează e-mailul ca citit.
 - **Rapid după prima dată.** Textul este descărcat prima dată când deschideți un e-mail și este păstrat, astfel încât ulterior se deschide instantaneu, fără a contacta serverul de e-mail.
-- **Confidențialitate.** Imaginile care ar fi încărcate de pe internet nu sunt încărcate niciodată, astfel încât expeditorul nu poate vedea când ați deschis e-mailul. O mică notificare deasupra textului vă spune când imaginile au fost blocate.
+- **Confidențialitate.** Imaginile externe sunt blocate, astfel încât imaginile de urmărire nu pot raporta când ați deschis e-mailul. O mică notificare deasupra textului vă spune când imaginile au fost blocate.
 - **Dacă serverul de e-mail nu poate fi atins.** Fereastra arată în schimb textul de previzualizare stocat, cu o scurtă notificare.
 - **Înregistrare din nou.** Pentru un e-mail care a fost deja înregistrat, butonul devine roșu și scrie *Adaugă ca document din nou*, astfel încât să nu arhivați din greșeală același e-mail de două ori.
 - **Din chat.** Când chatul face trimitere la un e-mail, monitorul se deschide cu acel e-mail deja afișat, în dosarul corect.
@@ -1264,9 +1263,9 @@ E-mailurile mai vechi pot arăta *prin IA* sau *prin potrivire de text* din recu
 
 Timp de lucru înregistrat automat, pe dosar, pe client și pe zi.
 
-Evidența timpului înregistrează timpul dumneavoastră de lucru fără niciun cronometru: IRONSTICK notează ce ecrane deschideți și pentru ce client și dosar.
+Evidența timpului funcționează automat: IRONSTICK înregistrează ce ecrane deschideți și pentru ce client și dosar.
 Din aceasta calculează cât ați lucrat și arată totalurile pe dosar, pe client și pe zi.
-Imaginea arată vizualizarea pentru astăzi; când este conectat un server de cabinet, totalurile zilnice pe dosar îi sunt raportate și lui.
+Imaginea arată vizualizarea pentru astăzi; când este conectat IRONSTICK SERVER, totalurile zilnice pe dosar sunt raportate și serverului.
 
 ### Ce puteți face aici
 
@@ -1288,7 +1287,7 @@ Imaginea arată vizualizarea pentru astăzi; când este conectat un server de ca
 
 - **Automat.** Fiecare ecran pe care îl deschideți se numără până când deschideți următorul. Un interval de peste 30 de minute se numără cel mult ca 30 de minute, astfel încât o pauză nu umflă cifrele. Ultimul ecran al zilei se numără ca un minut.
 - **Încă fără date.** Imediat după prima pornire, ecranul vă spune că evidența timpului tocmai a fost activată și nu există încă date.
-- **Serverul cabinetului.** Când este conectat un server de cabinet, IRONSTICK îi raportează timpul dumneavoastră zilnic pe dosar la fiecare cinci minute, astfel încât cabinetul să aibă o imagine completă. Timpul care nu este legat de un dosar nu este raportat.
+- **IRONSTICK SERVER.** Când serverul este conectat, IRONSTICK îi raportează timpul dumneavoastră zilnic pe dosar la fiecare cinci minute. Timpul care nu este legat de un dosar nu este raportat.
 
 ## 16. Legi
 
@@ -1317,13 +1316,13 @@ IA folosește mai întâi această bibliotecă ori de câte ori are nevoie de o 
 - **Fiecare intrare.** Titlul, data adăugării, domeniul juridic și o scurtă descriere, linkul sursei și etichete pentru țară și pentru tipul actului (lege, ordonanță, hotărâre …). Faceți clic pe linkul sursei pentru a deschide pagina originală în fereastra de browser IRONSTICK. Legile pe care le-ați încărcat ca fișier arată numele fișierului în loc de link.
 - **Intrări roșii în partea de sus.** O lege afișată în roșu nu a putut fi încărcată sau nu a fost reverificată de mai mult de o lună. Faceți clic pe o intrare eșuată pentru a încerca din nou încărcarea.
 - **Intrări estompate.** O lege a cărei sursă nu mai poate fi verificată este estompată și etichetată *neverificabil*. Faceți clic pe acea etichetă pentru a deschide sursa în fereastra de browser IRONSTICK și a o verifica singur; textul deschis arată apoi o notificare roșie în partea de sus.
-- **Acceptare în așteptare.** O lege nou pregătită așteaptă confirmarea dumneavoastră în monitorul de date. Faceți clic pe etichetă pentru a ajunge acolo. Doar legile acceptate sunt partajate cu serverul de cabinet.
-- **Șterge.** Pictograma coșului elimină una dintre propriile dumneavoastră legi după o confirmare. Dacă este conectat un server de cabinet, legea este eliminată și de acolo.
+- **Acceptare în așteptare.** O lege nou pregătită așteaptă confirmarea dumneavoastră în monitorul de date. Faceți clic pe etichetă pentru a ajunge acolo. Doar legile acceptate sunt partajate prin IRONSTICK SERVER.
+- **Șterge.** Pictograma coșului elimină una dintre propriile dumneavoastră legi după o confirmare. Dacă este conectat IRONSTICK SERVER, legea este eliminată și de acolo.
 - **Pagini.** La mai mult de 20 de legi, navigarea între pagini apare deasupra și dedesubtul listei.
 
 #### Filtre
 
-- **Toate, Proprii, Ale altora.** *Proprii* arată legile pe care le-ați adăugat; *Ale altora* arată legile adăugate de alți utilizatori pe serverul de cabinet. Acestea poartă sub titlu ID-ul și numele proprietarului lor și nu pot fi șterse de dumneavoastră.
+- **Toate, Proprii, Ale altora.** *Proprii* arată legile pe care le-ați adăugat; *Ale altora* arată legile adăugate de alți utilizatori prin IRONSTICK SERVER. Acestea poartă sub titlu ID-ul și numele proprietarului lor și nu pot fi șterse de dumneavoastră.
 - **Expirate.** Arată doar legile a căror sursă nu mai poate fi verificată.
 - **Țara.** Lista derulantă de lângă filtre limitează lista la o singură țară.
 
@@ -1336,11 +1335,11 @@ IA folosește mai întâi această bibliotecă ori de câte ori are nevoie de o 
 
 ![Dosare de pe server cu cardul Dosarele mele partajate și abonații lor](https://www.ironstick.legal/img/screens/17%20server%20cases.png)
 
-Dosarele pe care le partajați pe serverul de cabinet, cu abonații lor.
+Dosarele pe care le partajați prin IRONSTICK SERVER, cu abonații lor.
 
-Dosare de pe server este locul în care lucrați cu dosare partajate între utilizatorii serverului de cabinet.
+Dosare de pe server este locul în care lucrați cu dosare partajate între utilizatorii IRONSTICK SERVER — serverul de cabinet.
 Vedeți care dintre propriile dosare le-ați partajat și cine le urmărește și vă puteți abona la dosare pe care alți utilizatori le partajează.
-Acest ecran, și tuila lui din meniul principal, apar doar când este conectat un server de cabinet. Imaginea arată un dosar partajat cu doi abonați.
+Acest ecran, și tuila lui din meniul principal, apar doar când este conectat serverul. Imaginea arată un dosar partajat cu doi abonați.
 
 ### Ce puteți face aici
 
@@ -1352,7 +1351,7 @@ Acest ecran, și tuila lui din meniul principal, apar doar când este conectat u
 #### Dosarele mele partajate
 
 - **Dosarele dumneavoastră partajate.** Listează fiecare dosar pe care l-ați partajat din ecranul dosarului, cu numărul dosarului și clientul. Faceți clic pe dosar pentru a-l deschide.
-- **Elimină partajarea.** Încheie partajarea acestui dosar pe serverul de cabinet.
+- **Elimină partajarea.** Încheie partajarea acestui dosar pe server.
 - **Abonați.** Utilizatorii care urmăresc dosarul sunt listați sub el. Un utilizator care a cerut să urmărească este marcat *Solicitat*; faceți clic pe *Permiteți* pentru a-l lăsa să intre. *Elimină* încheie un abonament activ sau respinge o solicitare. Dacă nimeni nu urmărește încă dosarul, cardul spune acest lucru.
 
 #### Dosare partajate de alții
@@ -1361,7 +1360,7 @@ Acest ecran, și tuila lui din meniul principal, apar doar când este conectat u
 - **Solicită abonare.** Pentru un dosar partajat cu toată lumea, cereți proprietarului să vă lase să-l urmăriți. Eticheta *Solicitat* apare până când proprietarul acceptă.
 - **Abonează-te.** Pentru un dosar partajat personal cu dumneavoastră, abonarea este activă imediat; eticheta se schimbă în *Abonat*.
 - **Dezabonează-te.** Încheie abonarea dumneavoastră sau retrage solicitarea.
-- **Server inaccesibil.** Dacă se pierde conexiunea cu serverul de cabinet, cardul arată că nu este conectat niciun server.
+- **Server inaccesibil.** Dacă se pierde conexiunea cu serverul, cardul arată că nu este conectat niciun server.
 
 ## 18. Copie de siguranță
 
@@ -1378,11 +1377,11 @@ Baza de date și fișierele de dosar stocate își păstrează criptarea AES-256
 #### Copie de siguranță
 
 - **Creează copie de siguranță a datelor.** Salvează baza dumneavoastră de date, documentele și fișierele, precum și configurația și licența într-un singur fișier ZIP. Modelele de limbaj pentru IA locală și sinteza vocală sunt lăsate deoparte, deoarece pot fi descărcate din nou.
-- **Progres.** O fereastră arată cât a avansat copia de siguranță (fișierul X din Y) și ce fișier este împachetat. Chiar și seturi de date foarte mari nu încetinesc programul cât timp rulează copia de siguranță.
+- **Progres.** O fereastră arată cât a avansat copia de siguranță (fișierul X din Y) și ce fișier este împachetat. Copia de siguranță rulează într-un proces separat în fundal, astfel încât puteți continua să lucrați.
 - **Alegerea locului de salvare.** Când ZIP-ul este gata, o fereastră de salvare cere locația și numele fișierului. Dacă anulați, nu se păstrează niciun fișier. Când salvarea s-a încheiat, un mesaj arată numele fișierului, mărimea și numărul de fișiere.
 - **Copii de siguranță recente.** Ultimele cinci copii de siguranță sunt listate cu data și ora, numele fișierului și mărimea, astfel încât vedeți dintr-o privire când ați făcut ultima copie.
 - **Din chat.** Dacă cereți chatului să facă o copie de siguranță, acest ecran se deschide și pornește imediat copia de siguranță a datelor.
-- **Serverul cabinetului.** Când este conectat un server de cabinet, fiecare copie de siguranță și fiecare restaurare îi sunt raportate: **cine** a făcut-o, **când**, de la ce adresă IP, tipul, numele fișierului și mărimea — niciodată datele copiei de siguranță în sine. Administratorul vede aceasta pe o pagină a serverului de cabinet, împreună cu data ultimei copii de siguranță a fiecărui utilizator (afișată în roșu după mai mult de cinci zile), și poate reaminti utilizatorilor obligația lor de a face copii de siguranță.
+- **IRONSTICK SERVER.** Când serverul este conectat, fiecare copie de siguranță și fiecare restaurare îi sunt raportate: **cine** a făcut-o, **când**, de la ce adresă IP, tipul, numele fișierului și mărimea — niciodată datele copiei de siguranță în sine. Administratorul vede aceasta pe o pagină a serverului, împreună cu data ultimei copii de siguranță a fiecărui utilizator (afișată în roșu după mai mult de cinci zile), și poate reaminti utilizatorilor să facă copii de siguranță.
 
 #### Restaurare
 

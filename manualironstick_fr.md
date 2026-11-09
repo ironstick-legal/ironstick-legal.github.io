@@ -8,7 +8,7 @@ Page d’origine: https://www.ironstick.legal/manualironstick_fr.html
 
 Manuel d’utilisation — chaque écran : ce que vous voyez et ce que vous pouvez faire.
 
-## 0. Barre de menu
+## Barre de menu
 
 ![La barre de menu avec menu burger, fil d'Ariane, affichage des ressources et les symboles à droite, ainsi que la fenêtre de navigation IRONSTICK](https://www.ironstick.legal/img/screens/0%20menubar.png)
 
@@ -17,20 +17,20 @@ La barre de menu qui se trouve en haut de chaque écran, et la fenêtre de navig
 La barre de menu se trouve en haut de chaque écran d'IRONSTICK, afin que vous puissiez accéder aux fonctions importantes depuis n'importe où.
 À gauche se trouvent le menu de navigation et le nom du programme, avec de petits indicateurs en direct. Au milieu se trouve le briefing quotidien. À droite se trouvent les
 indicateurs des nouveaux e-mails, des délais et des messages, le chat IA, la fenêtre de navigation, la configuration et le bouton d'arrêt. Sous la barre, le fil d'Ariane indique où vous vous trouvez.
-De nombreux symboles n'apparaissent que lorsqu'il y a quelque chose à afficher. Un symbole rouge qui tremble signifie toujours que quelque chose de nouveau vous attend.
+De nombreux symboles n'apparaissent que lorsqu'il y a quelque chose à afficher. Un symbole rouge animé signifie que quelque chose de nouveau vous attend.
 
 1. **Fil d'Ariane.** Affiche le chemin vers l'écran actuel, par exemple *Menu principal › Institutions*. La dernière partie est l'écran sur lequel vous vous trouvez. Cliquez sur une partie précédente pour y revenir directement.
 2. **Menu de navigation (burger).** Ouvre le menu latéral avec Menu principal, Clients, Institutions, Personnes, Délais, Tags, Textes et Recherche. L'écran sur lequel vous vous trouvez est surligné en bleu. Le symbole d'arrêt rouge en bas du menu ferme le programme, comme le bouton d'arrêt.
 3. **Affichage des ressources (Windows uniquement).** Une petite barre et le texte *(CPU / RAM)* indiquent la puissance du processeur et la mémoire qu'IRONSTICK utilise lui-même. La barre est verte, passe à l'orange à partir de 50 % et au rouge à partir de 80 %. Pointez dessus pour voir quelles tâches d'arrière-plan s'exécutent en ce moment, avec leur progression et leur durée. Les tâches qui peuvent être arrêtées portent un X rouge.
 4. **Mémoire de l'IA (cerveau rose).** Apparaît dès que l'IA a enregistré des notes dans sa mémoire. Il pulse pendant que l'IA lit ou écrit dans la mémoire. Cliquez dessus pour contrôler les notes enregistrées. Vous pouvez supprimer d'un coup toutes les notes d'un client, ou cocher des notes individuelles parmi les 100 dernières et les supprimer.
-5. **Briefing quotidien (haut-parleur).** Ouvre à tout moment le briefing quotidien : ce qui vous attend aujourd'hui (délais, audiences, rendez-vous, e-mails), ce qui a déjà été fait aujourd'hui, et un bref regard en arrière. Cliquez sur une ligne pour ouvrir l'écran correspondant, par exemple les délais, le calendrier, le moniteur d'e-mails ou le dossier. *Lire à voix haute* lance la version parlée et *Arrêter* l'interrompt. Un interrupteur change uniquement le style du texte parlé. Si votre dernière sauvegarde date de plus de cinq jours, le briefing vous en avertit.
-6. **Moniteur de cohérence des données.** Ouvre la liste des modifications proposées pour les données de vos clients et contacts qu'IRONSTICK a trouvées dans vos e-mails. Pour chaque proposition, vous choisissez *Accepter* ou *Rejeter*. Le symbole est gris quand rien n'attend et rouge quand il y a des propositions. Il tremble aussi lorsque de nouveaux dossiers du portail des tribunaux ont été proposés (fonction pays).
-7. **E-mail.** Visible uniquement lorsque la vérification des e-mails en arrière-plan est activée dans la configuration. Gris signifie aucun nouvel e-mail. Rouge et tremblant signifie que de nouveaux e-mails sont arrivés, et l'infobulle indique combien. Cliquez pour ouvrir le moniteur d'e-mails, où tout est compté comme vu.
+5. **Briefing quotidien (haut-parleur).** Ouvre à tout moment le briefing quotidien : ce qui vous attend aujourd'hui (délais, audiences, rendez-vous, e-mails), ce qui a déjà été fait aujourd'hui, et un bref regard en arrière. Cliquez sur une ligne pour ouvrir l'écran correspondant, par exemple les délais, le calendrier, le Moniteur d'e-mails ou le dossier. *Lire à voix haute* lance la version parlée et *Arrêter* l'interrompt. Un interrupteur change uniquement le style du texte parlé. Si votre dernière sauvegarde date de plus de cinq jours, le briefing vous en avertit.
+6. **Moniteur de cohérence des données.** Ouvre la liste des modifications proposées pour les données de vos clients et contacts qu'IRONSTICK a trouvées dans vos e-mails. Pour chaque proposition, vous choisissez *Accepter* ou *Rejeter*. Le symbole est gris quand rien n'attend et rouge quand il y a des propositions. Il est également animé lorsqu'un portail judiciaire national a proposé de nouveaux dossiers (fonction propre à un pays).
+7. **E-mail.** Visible uniquement lorsque la vérification des e-mails en arrière-plan est activée dans la configuration. Gris signifie aucun nouvel e-mail. Rouge et animé signifie que de nouveaux e-mails sont arrivés, et l'infobulle indique combien. Cliquez pour ouvrir le Moniteur d'e-mails, où tout est compté comme vu.
 8. **Chat IA (robot).** Cliquez pour ouvrir le chat IA. Sous Windows, il s'ouvre dans sa propre fenêtre. Si vous êtes dans un dossier ou chez un client, un petit point violet indique que le chat connaît déjà ce dossier ou ce client. Faites un clic droit dessus (ou maintenez-le sur la tablette) pour activer ou désactiver la reconnaissance vocale. Tant qu'elle est activée, le robot bouge et le chat écoute et répond à voix haute. Le robot est masqué tant qu'une IA de bureau externe est connectée à IRONSTICK. Sur la tablette, il est grisé lorsqu'il n'y a pas d'internet.
-9. **Chat du serveur.** N'apparaît que lorsqu'un serveur de cabinet est connecté. Il ouvre un chat avec les autres utilisateurs du serveur de cabinet. Un point vert signifie que l'utilisateur est en ligne et rouge qu'il est hors ligne. Vous pouvez supprimer vos propres messages, et un interrupteur coupe le son du chat pour qu'il n'apparaisse plus tout seul. Le symbole devient rouge et tremble en cas de message non lu.
-10. **Cloche des délais.** Rouge lorsqu'au moins un délai est échu aujourd'hui ou dépassé. Orange lorsque des délais échoient dans les dix prochains jours. Grise lorsque rien n'est en attente. Pointez la cloche pour voir le nombre. La cloche tremble aussi lorsqu'une audience du portail des tribunaux tombe aujourd'hui (fonction pays). Un clic ouvre toujours l'aperçu des délais.
-11. **Bouton d'arrêt.** Ferme IRONSTICK immédiatement, sans poser de question. Il supprime les fichiers temporaires et le cache du navigateur et termine tous les programmes auxiliaires, de sorte que rien du programme ne reste en cours d'exécution en mémoire.
-12. **Configuration (roue dentée).** Ouvre l'écran de configuration avec les informations système, l'emplacement de stockage, le profil utilisateur, les paramètres d'IA, le compte e-mail, le serveur de cabinet, la signature et l'en-tête.
+9. **Chat du serveur.** N'apparaît que lorsque IRONSTICK SERVER — le serveur de cabinet — est connecté. Il ouvre un chat avec les autres utilisateurs du serveur. Un point vert signifie que l'utilisateur est en ligne et rouge qu'il est hors ligne. Vous pouvez supprimer vos propres messages, et un interrupteur coupe le son du chat pour qu'il n'apparaisse plus tout seul. Le symbole devient rouge et animé en cas de message non lu.
+10. **Cloche des délais.** Rouge lorsqu'au moins un délai est échu aujourd'hui ou dépassé. Orange lorsque des délais échoient dans les dix prochains jours. Grise lorsque rien n'est en attente. Pointez la cloche pour voir le nombre. La cloche est également animée lorsqu'une audience récupérée depuis un portail judiciaire national est fixée à aujourd'hui (fonction propre à un pays). Un clic ouvre toujours l'aperçu des délais.
+11. **Bouton d'arrêt.** Ferme IRONSTICK immédiatement, sans demande de confirmation. Il supprime ses fichiers temporaires et le cache du navigateur et termine IRONSTICK ainsi que tous les processus qu'il a lancés.
+12. **Configuration (roue dentée).** Ouvre l'écran de configuration avec les informations système, l'emplacement de stockage, le profil utilisateur, les paramètres d'IA, le compte e-mail, la connexion au serveur, la signature et l'en-tête.
 
 ### Ce que vous pouvez faire ici
 
@@ -43,9 +43,9 @@ De nombreux symboles n'apparaissent que lorsqu'il y a quelque chose à afficher.
 
 #### Symboles qui n'apparaissent qu'en cas de besoin
 
-- **Boîte de réception de documents (Windows uniquement).** Un symbole de boîte de réception rouge et tremblant apparaît tant que des documents non traités attendent dans la boîte de réception de documents. L'infobulle indique combien. Cliquez dessus pour ouvrir la saisie de documents. Quand rien n'attend, le symbole disparaît.
-- **Épingle de notes (serveur de cabinet).** Lorsque des collègues du serveur de cabinet ont laissé de nouvelles notes sur un dossier, une épingle rouge et tremblante apparaît. Chaque clic vous mène au dossier avec la prochaine note non lue et ouvre son tableau d'affichage.
-- **Service d'IA non disponible.** Si un service d'IA externe que vous avez configuré est indisponible aujourd'hui, un cercle rouge avec un point d'exclamation apparaît. Cliquez dessus pour voir, pour chaque service, la raison et le moment où il sera réessayé. Si un service s'est arrêté parce que son crédit est épuisé, *Recharger* vous mène directement à ce service dans la configuration de l'IA.
+- **Boîte de réception de documents (Windows uniquement).** Un symbole de boîte de réception rouge et animé apparaît tant que des documents non traités attendent dans la boîte de réception de documents. L'infobulle indique combien. Cliquez dessus pour ouvrir la saisie de documents. Quand rien n'attend, le symbole disparaît.
+- **Épingle de notes (IRONSTICK SERVER).** Lorsque des collègues du serveur ont laissé de nouvelles notes sur un dossier, une épingle rouge et animée apparaît. Chaque clic vous mène au dossier avec la prochaine note non lue et ouvre son tableau d'affichage.
+- **Service d'IA non disponible.** Si un service d'IA externe que vous avez configuré est actuellement indisponible, un cercle rouge avec un point d'exclamation apparaît. Cliquez dessus pour voir, pour chaque service, la raison et le moment où il sera réessayé. Si un service s'est arrêté parce que son crédit est épuisé, *Recharger* vous mène directement à ce service dans la configuration de l'IA.
 - **IA de bureau connectée (Windows uniquement).** Lorsqu'une application d'IA de bureau externe travaille avec vos données, son symbole apparaît à droite de l'affichage des ressources. Il pulse pendant qu'une requête est en cours. Pointez dessus pour voir quels dossiers elle a lus dans cette session et jusqu'où, si elle a confirmé les instructions d'IRONSTICK, et combien de violations de règles elle a commises.
 
 #### Comportement général
@@ -71,18 +71,18 @@ et **Heatmap** montre l'activité de votre cabinet au cours des douze derniers m
 
 - **Les délais en un coup d'œil.** La carte des délais affiche une coche verte quand rien n'est dépassé, avec le nombre de délais des 30 prochains jours. Les délais dépassés apparaissent en rouge avec les premières entrées listées. *Aperçu des délais* ouvre la liste complète.
 - **Anniversaires de clients.** Le jour de l'anniversaire d'un client, et pendant deux jours après, un gâteau apparaît sous la carte des délais. Cliquez sur un nom pour aller directement chez ce client.
-- **Dossiers silencieux.** La deuxième carte compte les dossiers sans activité depuis 14 jours et liste les trois premiers. Cliquez sur la carte pour tous les voir, afin qu'aucun dossier ne s'endorme sans bruit.
-- **Ouvrir n'importe quel module.** Chaque tuile ouvre une partie du programme — clients, personnes, institutions, saisie de documents, recherche, calendrier, journal quotidien, traitement de texte, moniteur d'e-mails, saisie du temps, lois, sauvegarde et plus encore. Chaque tuile porte une courte description de ce qu'elle fait.
+- **Dossiers silencieux.** La deuxième carte compte les dossiers sans activité depuis 14 jours et liste les trois premiers. Cliquez sur la carte pour tous les voir, afin qu'aucun dossier ne reste sans suivi.
+- **Ouvrir n'importe quel module.** Chaque tuile ouvre une partie du programme — clients, personnes, institutions, saisie de documents, recherche, calendrier, journal quotidien, traitement de texte, Moniteur d'e-mails, saisie du temps, lois, sauvegarde et plus encore. Chaque tuile porte une courte description de ce qu'elle fait.
 - **Disposer les tuiles à votre façon.** Faites glisser une tuile par sa poignée vers une nouvelle position. L'ordre est mémorisé sur cet ordinateur.
 - **Tags et sécurité.** La tuile des tags affiche vos tags colorés et ouvre la gestion des tags. La tuile de sécurité affiche l'état de cet ordinateur (système, lecteurs, réseau) et ouvre la configuration.
 - **Audio.** La tuile audio ouvre le découpeur audio pour les enregistrements que vous possédez déjà ; son second lien lance un enregistrement en direct avec transcription par l'IA.
-- **Tuiles qui n'apparaissent que lorsqu'elles s'appliquent.** *Dossiers du serveur* n'apparaît que lorsqu'un serveur de cabinet est connecté. Les tuiles propres à un pays n'apparaissent que lorsque ces fonctions sont activées. Quelques tuiles qui nécessitent un PC (par exemple la saisie de documents et le traitement de texte) ne sont pas affichées sur la tablette Android.
+- **Tuiles qui n'apparaissent que lorsqu'elles s'appliquent.** *Dossiers du serveur* n'apparaît que lorsque IRONSTICK SERVER est connecté. Les tuiles propres à un pays n'apparaissent que lorsque ces fonctions sont activées. Quelques tuiles qui nécessitent un PC (par exemple la saisie de documents et le traitement de texte) ne sont pas affichées sur la tablette Android.
 
 #### Onglet Agenda
 
 - **Tout dans une seule chronologie.** Le fil couvre trois jours en arrière et dix jours en avant : entrées de chronique, e-mails, audiences, délais, actes de procédure, photos et transcriptions de tous les dossiers. Aujourd'hui est affiché en entier ; les jours à venir et passés sont repliés chacun dans une barre. Faites défiler vers le haut pour ouvrir les jours à venir un à un ; cliquez sur la barre d'aujourd'hui pour revenir à aujourd'hui.
 - **Chaque entrée renvoie plus loin.** Les numéros gris (client / dossier / document) ainsi que le nom du client en bleu et le numéro de dossier en vert ouvrent chacun l'écran correspondant. Les documents PDF affichent jusqu'à quatre aperçus de pages — cliquez sur l'un d'eux pour feuilleter tout le document. Les images s'ouvrent en plein écran avec zoom ; les fichiers joints s'ouvrent dans la fenêtre de navigation IRONSTICK. Une entrée du journal quotidien ouvre son texte intégral.
-- **Liens rapides et filtres.** La barre à gauche ouvre les clients, personnes, institutions, la recherche, le calendrier, les délais, le journal quotidien, le moniteur d'e-mails et la saisie du temps. Cochez *Délais et audiences* pour ne voir que les entrées liées à une date, ou *Aperçu désactivé* pour une liste compacte en texte seul.
+- **Liens rapides et filtres.** La barre à gauche ouvre les clients, personnes, institutions, la recherche, le calendrier, les délais, le journal quotidien, le Moniteur d'e-mails et la saisie du temps. Cochez *Délais et audiences* pour ne voir que les entrées liées à une date, ou *Aperçu désactivé* pour une liste compacte en texte seul.
 
 #### Onglet Heatmap
 
@@ -94,7 +94,7 @@ et **Heatmap** montre l'activité de votre cabinet au cours des douze derniers m
 #### Avis au démarrage
 
 - **Briefing quotidien.** Au premier démarrage de la journée, IRONSTICK demande si vous souhaitez entendre le briefing quotidien — un court aperçu parlé de votre journée.
-- **Serveur de cabinet.** Si un serveur de cabinet est trouvé mais que ce poste de travail n'y a pas accès, un avis vous le signale à chaque démarrage du programme ; vous pouvez continuer à travailler normalement.
+- **IRONSTICK SERVER.** Si le serveur est trouvé mais que ce poste de travail n'y a pas accès, un avis vous le signale à chaque démarrage du programme ; vous pouvez continuer à travailler normalement.
 
 ## 2. Configuration
 
@@ -120,13 +120,13 @@ La version du programme et la clé de licence se trouvent en bas de la page.
 
 - **Vos données en chiffres.** Le titre de la carte indique la taille de la base de données. À l'intérieur, vous voyez le nombre de clients, de dossiers, d'entrées de preuves, de documents, d'entités, de fichiers, d'entrées de journal et de connexions, ainsi que l'espace total et libre du lecteur.
 - **Actuellement utilisé.** Une zone grise indique le dossier avec lequel IRONSTICK travaille en ce moment. Toutes les données se trouvent dans ce seul dossier : base de données, licence, configuration et chaque fichier.
-- **Changer l'emplacement de stockage (PC).** Utilisez *Choisir un dossier* pour choisir un nouvel emplacement, par exemple une clé USB, un autre lecteur ou un dossier synchronisé avec le cloud. Le dossier *IRONSTICK* y est créé automatiquement. Cliquez sur *Enregistrer* pour lancer le déplacement. IRONSTICK vous indique d'abord le volume de données qui sera déplacé. Il teste ensuite le lecteur choisi (par exemple sa vitesse, son espace libre et la protection en écriture) et ne continue que si le lecteur réussit le test. Si vous confirmez, le déplacement est effectué au prochain démarrage du programme, et le programme se ferme.
+- **Changer l'emplacement de stockage (PC).** Utilisez *Choisir un dossier* pour choisir un nouvel emplacement, par exemple une clé USB ou un autre lecteur. Le dossier *IRONSTICK* y est créé automatiquement. Cliquez sur *Enregistrer* pour lancer le déplacement. IRONSTICK vous indique d'abord le volume de données qui sera déplacé. Il teste ensuite le lecteur choisi (par exemple sa vitesse, son espace libre et la protection en écriture) et ne continue que si le lecteur réussit le test. Si vous confirmez, IRONSTICK se ferme et déplace les données au prochain démarrage.
 - **Données déjà présentes au nouvel emplacement.** Si le dossier choisi contient déjà des données IRONSTICK, rien n'est écrasé sans demander. Les deux copies sont comparées, et vous choisissez soit d'utiliser la copie trouvée là, soit de la remplacer par vos données actuelles.
 - **Sur la tablette Android.** Le dossier de données est fixe (c'est le dossier dans lequel la synchronisation USB copie), il n'y a donc rien à choisir.
 
 **Utilisateur (PC uniquement)**
 
-- **Votre profil.** La troisième carte contient vos données : entreprise, fonction, civilité, prénom et nom, adresse, pays, téléphone, mobile, e-mail, Facebook, date de naissance, et les messageries que vous utilisez (WhatsApp, Signal, Telegram, Viber). Cliquez sur *Enregistrer* pour les mémoriser. Votre date de naissance est partagée avec le serveur de cabinet, si vous en utilisez un, pour les vœux d'anniversaire.
+- **Votre profil.** La troisième carte contient vos données : entreprise, fonction, civilité, prénom et nom, adresse, pays, téléphone, mobile, e-mail, Facebook, date de naissance, et les applications de messagerie que vous utilisez (WhatsApp, Signal, Telegram, Viber). Cliquez sur *Enregistrer* pour les mémoriser. Si vous utilisez IRONSTICK SERVER, votre date de naissance lui est transmise pour les vœux d'anniversaire.
 - **Champs repris de votre licence.** Avec une licence active, l'entreprise, la civilité et le nom proviennent de la clé de licence et ne peuvent pas être modifiés ici.
 - **Votre numéro.** Votre numéro d'utilisateur est affiché entre parenthèses à côté du titre de la carte. Le symbole de copie le place dans le presse-papiers, par exemple pour une demande de licence.
 - **Langue du programme.** Choisissez la langue du programme et enregistrez. IRONSTICK se recharge alors dans la nouvelle langue et revient au menu principal. Une fenêtre de chat ouverte se ferme et s'ouvrira dans la nouvelle langue la prochaine fois.
@@ -147,16 +147,16 @@ Ces deux cartes contrôlent la manière dont l'IA travaille avec vos données. *
 - **Quand la carte apparaît.** La carte n'est affichée que sur le PC, et seulement lorsqu'au moins une application d'IA de bureau fait partie de votre licence.
 - **Autoriser l'accès.** Le premier interrupteur décide si l'IA de bureau connectée peut accéder à IRONSTICK. Lorsqu'il est désactivé, le connecteur externe ne peut pas atteindre le programme.
 - **Autoriser la navigation.** Le deuxième interrupteur permet à l'IA de bureau de piloter le programme, par exemple pour ouvrir des documents ou lancer une exportation. Il ne fonctionne que lorsque l'accès est autorisé.
-- **Configurer une application.** Il y a un bouton coloré *Configurer …* pour chaque application d'IA de bureau sous licence. Un clic enregistre IRONSTICK dans cette application et explique les étapes restantes, généralement un redémarrage de l'application. Pour une application, le texte de configuration est copié dans le presse-papiers et vous le collez dans la boîte de dialogue propre à cette application.
+- **Configurer une application.** Il y a un bouton coloré *Configurer …* pour chaque application d'IA de bureau sous licence. Un clic enregistre IRONSTICK dans cette application et explique les étapes restantes, généralement un redémarrage de l'application. Pour Qwen Desktop, le texte de configuration est copié dans le presse-papiers et vous le collez dans la boîte de dialogue des paramètres de l'application.
 - **Plugins de compétences.** *Créer le plugin de compétences IRONSTICK* et *Créer le plugin …* génèrent un paquet de compétences pour l'application d'IA de bureau. Un message indique où le fichier a été enregistré, afin que vous puissiez le faire glisser dans l'application.
 - **Recycler l'IA de bureau (Windows).** Le bouton rouge clair ferme les applications d'IA de bureau listées et les redémarre après votre confirmation. Utilisez-le lorsqu'une application a perdu sa connexion à IRONSTICK.
 - **Liens.** Les liens sous les boutons ouvrent la page de téléchargement, les conditions d'utilisation et la politique de confidentialité de chaque application dans la fenêtre de navigation IRONSTICK.
 
 **Configuration de l'IA**
 
-- **Ordre automatique.** Vous ne choisissez pas un service. Chaque service dont une clé est enregistrée est utilisé automatiquement, dans un ordre fixe, le moins cher en premier. Si un service épuise son quota ou son crédit en cours de journée, IRONSTICK passe au suivant pour le reste de la journée et réessaie le lendemain.
-- **Pastille d'état.** La pastille ronde devant chaque service indique sa place dans l'ordre. Vert signifie disponible, rouge indisponible aujourd'hui, et gris aucune clé enregistrée. Pointez une pastille rouge pour voir la raison et le moment où il sera réessayé.
-- **Services gratuits pour les tâches d'arrière-plan.** Les services au-dessus du trait épais sont des offres gratuites utilisées uniquement pour les tâches d'arrière-plan, telles que l'affectation des e-mails, le moniteur de données, le briefing quotidien et le rapport de situation. Leur pastille affiche une horloge. Chacun a son propre interrupteur marche/arrêt, et un texte d'avertissement rouge vous rappelle que vos données vont chez ce fournisseur. Lisez attentivement ses conditions au regard de la protection des données (RGPD) avant de l'activer.
+- **Ordre automatique.** Vous ne choisissez pas un service. Chaque service dont une clé est enregistrée est utilisé automatiquement, dans un ordre fixe, le moins cher en premier. Si un service échoue, IRONSTICK transmet la requête au suivant. Le service en échec est réessayé après un délai d'attente qui dépend de l'erreur ; il n'est ignoré pour le reste de la journée que lorsque son crédit est épuisé ou que la cause est inconnue.
+- **Pastille d'état.** La pastille ronde devant chaque service indique sa place dans l'ordre. Vert signifie disponible, rouge actuellement indisponible, et gris aucune clé enregistrée. Pointez une pastille rouge pour voir la raison et le moment où il sera réessayé.
+- **Services gratuits pour les tâches d'arrière-plan.** Les services au-dessus du trait épais sont des offres gratuites utilisées uniquement pour les tâches d'arrière-plan, telles que la priorisation des e-mails, le moniteur de données, le briefing quotidien et le rapport de situation. Leur pastille affiche une horloge. Chacun a son propre interrupteur marche/arrêt, et un texte d'avertissement rouge vous rappelle que vos données vont chez ce fournisseur. Lisez attentivement ses conditions au regard de la protection des données (RGPD) avant de l'activer.
 - **Services payants.** Les services sous le trait épais sont utilisés dans l'ordre indiqué. Leur interrupteur *Autoriser Red/Blue Team* fait relire par l'IA un acte de procédure terminé une seconde fois, en relecteur critique, et marquer tout ce que le texte n'étaye pas. Les constats substantiels retiennent le résultat. L'interrupteur n'est utilisable qu'une fois qu'une clé de ce service est enregistrée.
 - **Saisir une clé.** Collez la clé d'accès dans le champ de la clé et cliquez sur *Enregistrer*. Le symbole en forme d'œil affiche ou masque la clé. L'ordre et les pastilles se mettent à jour immédiatement.
 - **Liens de compte.** Sous chaque service se trouvent des liens pour créer un compte et une clé d'accès, pour vérifier votre solde (pour certains services), et pour lire les conditions d'utilisation et la politique de confidentialité. Ils s'ouvrent dans la fenêtre de navigation IRONSTICK.
@@ -183,8 +183,8 @@ Dans **Moniteur d'e-mails**, vous connectez votre boîte aux lettres afin qu'IRO
 **Tâches d'arrière-plan**
 
 - **Mise à jour automatique des descriptions de dossiers (IA externe).** Une fois par jour, met à jour les descriptions de dossiers avec les nouveaux documents et dates. Cela utilise une IA externe. En l'activant, vous consentez explicitement au traitement par une IA externe.
-- **Récupération automatique du portail des tribunaux.** Récupère les nouvelles données de dossier et les dates depuis le portail des tribunaux. Elle ne fait que récupérer des données et n'utilise aucune IA. Cet interrupteur n'apparaît que lorsque les fonctions pays pour la Roumanie sont actives.
-- **Récupération automatique des e-mails.** Vérifie les nouveaux e-mails en arrière-plan et les affecte aux dossiers, en utilisant une IA externe pour les trier. C'est le même interrupteur que celui en haut de la carte Moniteur d'e-mails.
+- **Récupération automatique du portail des tribunaux.** Récupère les nouvelles données de dossier et les dates depuis le portail judiciaire national. Elle ne fait que récupérer des données et n'utilise aucune IA. Cet interrupteur propre à un pays n'apparaît que lorsque les fonctions pays pour la Roumanie sont actives.
+- **Récupération automatique des e-mails.** Vérifie les nouveaux e-mails en arrière-plan et les affecte aux dossiers ; une IA externe n'en évalue que l'urgence. C'est le même interrupteur que celui en haut de la carte Moniteur d'e-mails.
 
 ### Serveur de cabinet et signatures
 
@@ -192,7 +192,7 @@ Dans **Moniteur d'e-mails**, vous connectez votre boîte aux lettres afin qu'IRO
 
 La connexion au serveur de cabinet et le champ de signature.
 
-**Serveur de cabinet** connecte ce poste de travail au serveur partagé de votre cabinet et montre qui d'autre y travaille.
+**Serveur de cabinet** connecte ce poste de travail à IRONSTICK SERVER — le serveur de cabinet de votre structure — et montre qui d'autre y travaille.
 Dans **Signatures**, vous enregistrez votre signature manuscrite, qu'IRONSTICK peut placer dans vos documents. Sous ces cartes se trouvent le modèle d'en-tête, le journal des connexions et la ligne de version.
 
 #### Ce que vous pouvez faire ici
@@ -200,8 +200,8 @@ Dans **Signatures**, vous enregistrez votre signature manuscrite, qu'IRONSTICK p
 **Serveur de cabinet**
 
 - **Connexion au serveur.** L'interrupteur active ou désactive la connexion. La recherche du serveur ne s'exécute que lorsqu'il est activé. La ligne d'état indique si vous êtes connecté, si l'accès a été demandé et attend une approbation, ou si aucun serveur n'a été trouvé. Le reste de la carte est grisé tant que vous n'êtes pas connecté.
-- **Pages du serveur.** Une fois connecté, cliquez sur la ligne d'état verte pour ouvrir la page web du serveur. Deux boutons ouvrent la page de gestion du système de stockage et l'administration du serveur IRONSTICK. Vous vous y connectez avec les mots de passe de chacun.
-- **Utilisateurs.** La liste montre chaque utilisateur enregistré sur le serveur de cabinet. Un point vert signifie que l'utilisateur est en ligne.
+- **Pages du serveur.** Une fois connecté, cliquez sur la ligne d'état verte pour ouvrir la page web du serveur. Deux boutons ouvrent la page de gestion du stockage du serveur et l'administration d'IRONSTICK SERVER. Chaque page exige ses propres identifiants.
+- **Utilisateurs.** La liste montre chaque utilisateur enregistré sur le serveur. Un point vert signifie que l'utilisateur est en ligne.
 
 **Signatures (PC uniquement)**
 
@@ -235,7 +235,7 @@ L'image montre aussi la fenêtre de code QR qui s'ouvre depuis le symbole WhatsA
 3. **Nouveau client.** Ouvre un formulaire client vide.
 4. **Imprimer la liste.** Crée un PDF de toute la liste des clients, que vous enregistrez dans votre dossier Documents ou dans Google Drive.
 5. **Référence du client.** Le numéro violet (par exemple *@C0000001*) est le numéro de référence du client. Cliquez dessus pour le copier dans le presse-papiers, par exemple pour le coller dans le chat ou dans un document.
-6. **Dossiers.** Le nombre de dossiers de ce client. Un nuage rouge signifie qu'au moins un dossier est partagé sur le serveur de cabinet ; une flamme rouge signifie qu'au moins un dossier s'est enflammé récemment.
+6. **Dossiers.** Le nombre de dossiers de ce client. Un nuage rouge signifie qu'au moins un dossier est partagé via IRONSTICK SERVER ; une flamme rouge signifie qu'au moins un dossier s'est enflammé récemment.
 7. **Modifier.** Ouvre le formulaire client avec les données de ce client.
 8. **Supprimer.** Supprime le client après confirmation.
 
@@ -243,7 +243,7 @@ L'image montre aussi la fenêtre de code QR qui s'ouvre depuis le symbole WhatsA
 
 #### Trouver un client
 
-- **Recherche pendant la saisie.** La recherche vérifie séparément les prénoms et les noms et trouve aussi des noms à la sonorité proche, de sorte que de petites fautes de frappe donnent quand même un résultat. Les accents sont ignorés, ainsi « Stefan » trouve aussi « Ștefan ».
+- **Recherche pendant la saisie.** La recherche vérifie séparément les prénoms et les noms et trouve aussi des noms à la sonorité proche, de sorte que de petites fautes de frappe donnent quand même un résultat. Les accents sont ignorés, ainsi « Francois » trouve aussi « François ».
 - **Téléphone et e-mail.** Saisissez une partie d'un numéro de téléphone (les espaces et les tirets n'ont pas d'importance) ou une partie d'une adresse e-mail. Si vous saisissez plusieurs mots, un client doit tous les satisfaire.
 - **Effacer la recherche.** Le petit X dans le champ de recherche affiche à nouveau la liste complète. Si rien ne correspond, la liste l'indique.
 - **Les plus urgents en premier.** Les clients avec un dossier enflammé sont en haut, puis les clients avec le plus de dossiers, puis ceux avec l'activité la plus récente, puis par ordre alphabétique.
@@ -294,12 +294,12 @@ L'image montre aussi la fenêtre Nucleu et la fenêtre des snakes qui s'ouvrent 
 1. **Notes.** Ouvre le tableau de notes de ce client.
 2. **Imprimer.** Crée un aperçu PDF de tous les dossiers de ce client, avec ou sans résumé de l'IA sur le dernier état.
 3. **Nouvelle affaire.** Crée un nouveau groupe pour des dossiers qui vont ensemble.
-4. **Univers.** Montre les dossiers du client sous forme de réseau, de carte 3D ou de carte 2D. Apparaît à partir de trois dossiers.
+4. **Univers.** Montre les dossiers du client sous forme de réseau, de carte 3D ou de carte 2D. Disponible dès que le client compte trois dossiers ou plus.
 5. **Nouveau dossier.** Ouvre le formulaire d'un nouveau dossier de ce client.
 6. **Affaire.** La barre de titre d'une affaire. Cliquez dessus pour replier ou déplier l'affaire. Les deux symboles au milieu ouvrent le Nucleu et les snakes de l'affaire ; à droite, vous voyez le nombre de dossiers, renommer (crayon) et supprimer (X).
 7. **Nucleu de l'affaire.** Une instruction générale pour l'IA qui s'applique à chaque dossier de cette affaire. Écrivez ici ce que chaque document rédigé pour ces dossiers doit prendre en compte, puis enregistrez.
 8. **Snakes de l'affaire.** Les snakes de tous les dossiers de cette affaire, dans l'ordre de la liste. Cliquez sur un dossier pour l'ouvrir sur son onglet snake.
-9. **Poignée de déplacement.** Saisissez la poignée pointillée et faites glisser le dossier dans un groupe d'affaire, ou déposez-le sur un dossier existant pour en faire un sous-dossier de ce dossier.
+9. **Poignée de déplacement.** Saisissez la poignée pointillée et faites glisser le dossier dans une affaire, ou déposez-le sur un dossier existant pour en faire un sous-dossier de ce dossier.
 10. **Retirer de l'affaire.** Sort le dossier de cette affaire. Le dossier lui-même est conservé et apparaît sous *Dossiers non affectés*, sauf s'il se trouve aussi dans une autre affaire.
 11. **Chances de succès.** Une petite jauge montrant le résultat de la dernière évaluation du dossier par l'IA. Pointez dessus pour lire le pourcentage ; cliquez dessus pour ouvrir le dossier sur l'onglet d'évaluation.
 
@@ -307,14 +307,14 @@ L'image montre aussi la fenêtre Nucleu et la fenêtre des snakes qui s'ouvrent 
 
 **Lire une ligne de dossier**
 
-- **Ouvrir un dossier.** Cliquez sur une ligne pour ouvrir le dossier sur son onglet chronique.
+- **Ouvrir un dossier.** Cliquez sur une ligne pour ouvrir le dossier sur son onglet Chronologie.
 - **Numéros et tags.** Chaque ligne commence par le numéro client/dossier, suivi de tags bleus pour le pays, le domaine du droit et le stade de la procédure. Pointez un tag pour voir son nom complet.
-- **Numéro de dossier en orange.** Si le dossier a été trouvé sur le portail des tribunaux (fonctions pays), le numéro de dossier du tribunal est affiché en orange. Cliquez dessus pour voir les détails du portail : tribunal, section, objet, parties, voies de recours et toutes les audiences avec leurs résultats. De là, vous pouvez aussi ouvrir le dossier.
+- **Numéro de dossier en orange.** Si le dossier a été trouvé sur un portail judiciaire national (fonction propre à un pays), le numéro de dossier du tribunal est affiché en orange. Cliquez dessus pour voir les détails du portail : tribunal, section, objet, parties, voies de recours et toutes les audiences avec leurs résultats. De là, vous pouvez aussi ouvrir le dossier.
 - **Titre et partie adverse.** Le titre du dossier est suivi de la partie adverse en gris ; avec plusieurs parties adverses, seule la première est affichée, plus le nombre des autres. Les dossiers inactifs sont affichés en gris clair.
 - **Flamme.** Une flamme rouge marque un dossier qui s'est enflammé récemment.
 - **Priorité et statut.** La première pastille montre la priorité (Urgente et Élevée en rouge, Normale en gris, Faible en vert) ; la seconde montre le statut (Actif en vert, En pause en rouge, Inactif en gris).
 - **Dossiers d'un autre client.** Si un dossier appartient à un autre de vos clients qui se trouve du même côté dans la procédure, la ligne affiche *Dossier d'origine* avec le numéro et le nom de ce client, et le rôle dans une pastille ambre. Cliquez sur le numéro pour aller à la liste des dossiers de ce client.
-- **Nuage rouge.** Apparaît lorsqu'un serveur de cabinet est connecté et que le dossier y est partagé. Cliquez dessus pour ouvrir le dossier sur son onglet dossier.
+- **Nuage rouge.** Apparaît lorsque IRONSTICK SERVER est connecté et que le dossier y est partagé. Cliquez dessus pour ouvrir le dossier sur son onglet dossier.
 
 **Organiser les dossiers en affaires**
 
@@ -341,9 +341,9 @@ L'image montre aussi la fenêtre Nucleu et la fenêtre des snakes qui s'ouvrent 
 - **Nouveau dossier.** Le formulaire demande un titre (obligatoire), une priorité et un statut. Cochez *Le demandeur est le client* pour renseigner automatiquement le nom du client, ou saisissez un autre demandeur, et indiquez la partie adverse.
 - **Autres clients dans la même procédure.** Si vous avez d'autres clients, vous pouvez les rechercher par nom ou par numéro *@C* et les ajouter au dossier. Le dossier apparaît alors aussi dans leurs listes de dossiers.
 - **Contrôle des conflits d'intérêts.** Dès que votre propre partie et la partie adverse sont renseignées, ce bouton compare les noms avec vos propres clients, parties et dossiers et affiche le résultat. Rien ne quitte cet ordinateur.
-- **Autres options.** Marquez un dossier comme public (connu des médias), ou verrouillez-le pour qu'aucun autre dossier ne puisse y être lié, que ce soit à la main, automatiquement ou par l'IA.
+- **Autres options.** Marquez un dossier comme public (dont les médias ont rendu compte), ou verrouillez-le pour qu'aucun autre dossier ne puisse y être lié, que ce soit à la main, automatiquement ou par l'IA.
 - **Détails juridiques.** La saisie d'un numéro de dossier de tribunal coche *a un numéro de dossier* et définit la date du jour, que vous pouvez modifier. Choisissez d'abord le pays ; les domaines du droit et les stades de procédure de ce pays sont alors proposés. Un champ de description libre complète le formulaire.
-- **Dossiers suivis.** Lorsqu'un serveur de cabinet est connecté et que vous suivez les dossiers d'un collègue, ils apparaissent dans leur propre carte avec un nuage bleu, le nom du propriétaire et la dernière modification du propriétaire. Cliquez sur l'un d'eux pour l'ouvrir.
+- **Dossiers suivis.** Lorsque IRONSTICK SERVER est connecté et que vous suivez les dossiers d'un collègue, ils apparaissent dans leur propre carte avec un nuage bleu, le nom du propriétaire et la dernière modification du propriétaire. Cliquez sur l'un d'eux pour l'ouvrir.
 - **Pas encore de dossiers.** Un client sans dossier affiche un court avis avec un bouton *Nouveau dossier*.
 
 ### Notes et l'univers des dossiers
@@ -364,7 +364,7 @@ L'image montre le tableau de notes, le menu Univers ouvert et les deux cartes.
 **Tableau de notes**
 
 - **Ajouter une note.** La première carte, jaune pâle, *Nouvelle note* ouvre un champ de texte (jusqu'à 1 000 caractères) avec une date facultative. Enregistrer épingle la note au tableau ; les notes les plus récentes sont en haut.
-- **Trois sortes de notes.** Les notes jaunes sont les vôtres ; cliquez sur l'une pour la modifier. Les bouts de papier quadrillé sont des entrées que l'IA a mémorisées pour ce client. Les cartes blanches sont des notes de collègues qui suivent un dossier partagé sur le serveur de cabinet.
+- **Trois sortes de notes.** Les notes jaunes sont les vôtres ; cliquez sur l'une pour la modifier. Les notes de l'IA apparaissent sur du papier quadrillé : ce sont des entrées que l'IA a mémorisées pour ce client. Les cartes blanches sont des notes de collègues qui suivent un dossier partagé via IRONSTICK SERVER.
 - **Copier et supprimer.** Chaque note a un petit bouton de copie et un bouton de suppression. Une note avec une date l'affiche avec un petit réveil.
 - **Les notes de la liste des dossiers appartiennent au client.** Les notes ouvertes ici ne sont pas liées à un seul dossier.
 
@@ -372,7 +372,7 @@ L'image montre le tableau de notes, le menu Univers ouvert et les deux cartes.
 
 - **Ce que vous voyez.** Chaque dossier est un hexagone, les institutions sont des triangles. Les dossiers sont reliés lorsqu'ils partagent des personnes, des sociétés ou des institutions, lorsqu'un document de l'un est cité dans l'autre, ou lorsque l'un mentionne le numéro de dossier de l'autre. Les dossiers de la même affaire forment un nuage coloré.
 - **Construction de la carte.** La carte se construit devant vous pendant qu'une barre de progression défile. La ligne en haut à gauche indique le nombre de dossiers, de liens et d'affaires.
-- **La survoler.** W/A/S/D font avancer, reculer et se déplacer sur les côtés, R/F monter et descendre ; les touches fléchées ou le glissement de la souris font tourner la vue. Maj accélère, la barre d'espace freine, et la molette de la souris avance ou recule. Le panneau en bas à gauche liste les touches ; la barre en bas à droite montre votre vitesse.
+- **La survoler.** W/A/S/D font avancer, reculer et se déplacer sur les côtés, R/F monter et descendre ; les touches fléchées ou le glissement de la souris font tourner la vue. Maj va plus vite, la barre d'espace ralentit, et la molette de la souris avance ou recule. Le panneau en bas à gauche liste les touches ; la barre en bas à droite montre votre vitesse.
 - **Marquer un point et y voler.** Cliquez sur un dossier ou une institution : la vue y vole et il reste marqué, avec ses liens et la raison de chaque lien. Cliquez à nouveau dessus pour retirer le marquage.
 - **Ouvrir depuis la carte.** Double-cliquez sur un dossier pour l'ouvrir. Double-cliquer sur une personne ou une société ouvre la liste des personnes, et une institution ouvre la liste des institutions ; l'entrée y est surlignée en jaune.
 - **Recherche.** Le champ de recherche en bas à droite trouve un nom, un numéro de téléphone ou un e-mail et marque la meilleure correspondance, comme un clic.
@@ -383,46 +383,46 @@ L'image montre le tableau de notes, le menu Univers ouvert et les deux cartes.
 
 - **Un dessin sur papier quadrillé.** Le même réseau est dessiné à plat, comme un dessin technique. Les noms apparaissent lorsque vous pointez un point ou le marquez.
 - **Déplacer et zoomer.** Faites glisser avec la souris, ou utilisez W/A/S/D ou les touches fléchées, pour déplacer la feuille. La molette de la souris zoome vers le pointeur.
-- **Marquer, ouvrir, rechercher.** Un clic sur un point le déplace au centre et le marque (il pulse) ; un clic sur le papier vide retire le marquage et dézoome. Un double-clic ouvre le dossier, la personne ou l'institution, comme sur la carte 3D. Le champ de recherche et l'interrupteur *Liens de dossier* fonctionnent de la même manière.
+- **Marquer, ouvrir, rechercher.** Un clic sur un point le déplace au centre et le marque (il pulse) ; un clic sur le papier vide retire le marquage et dézoome. Un double-clic ouvre le dossier, la personne ou l'institution. Le champ de recherche marque le meilleur résultat ; l'interrupteur *Liens de dossier* ajoute les personnes et les entreprises des dossiers.
 - **Fermer.** Le X en haut à droite ou la touche Échap ferme la carte.
 
 ## 5. Dossier
 
 ### Onglet Dossier, partage et transmission
 
-![Écran du dossier sur l'onglet Dossier avec les boîtes de dialogue Partager et Transmettre le dossier et le serveur du cabinet](https://www.ironstick.legal/img/screens/5%20case%20case.png)
+![Écran du dossier sur l'onglet Dossier avec les boîtes de dialogue Partager et Transmettre le dossier et <span class=](https://www.ironstick.legal/img/screens/5%20case%20case.png)IRONSTICK SERVER">
 
-L'onglet Dossier avec les boîtes de dialogue pour partager un dossier et le transmettre par le serveur du cabinet.
+L'onglet Dossier avec les boîtes de dialogue pour partager un dossier et le transmettre par IRONSTICK SERVER.
 
 L'écran du dossier réunit tout ce qui appartient à un dossier. En haut, vous voyez le titre du dossier et le client, trois boutons (*Notes*, *Dossier*, *Rédiger un texte*) et une rangée d'onglets. L'image montre l'onglet **Dossier** avec les données du dossier et un récapitulatif des fichiers qu'il contient.
-Lorsqu'un serveur de cabinet est connecté, un dossier peut être partagé avec des collègues ou transmis à un autre utilisateur ; les deux boîtes de dialogue de l'image servent à cela.
+Lorsque IRONSTICK SERVER est connecté, un dossier peut être partagé avec des collègues ou transmis à un autre utilisateur ; les deux boîtes de dialogue de l'image servent à cela.
 
 #### Ce que vous pouvez faire ici
 
 **En-tête et navigation**
 
 - **Fil d'Ariane.** Le chemin en haut ramène au menu principal, à la liste des clients ou à la liste des dossiers du client. La dernière partie indique le numéro du dossier avec le pays, le domaine du droit et le stade.
-- **Nuage devant le titre.** Un nuage rouge signifie que vous avez partagé ce dossier sur le serveur du cabinet ; un nuage bleu signifie qu'il s'agit d'un dossier que quelqu'un d'autre a partagé avec vous. Cliquez sur le nuage pour accéder à l'onglet Dossier.
+- **Nuage devant le titre.** Un nuage rouge signifie que vous avez partagé ce dossier via IRONSTICK SERVER ; un nuage bleu signifie qu'il s'agit d'un dossier que quelqu'un d'autre a partagé avec vous. Cliquez sur le nuage pour accéder à l'onglet Dossier.
 - **Passer d'un onglet à l'autre.** Cliquez sur un onglet pour changer. Si vous quittez l'onglet Nucleu du dossier ou snake du dossier avec des modifications non enregistrées, IRONSTICK demande s'il faut les abandonner.
 
 **Données du dossier**
 
-- **Numéro, titre et numéro de procédure.** La carte affiche le numéro interne client/dossier, le titre et le numéro officiel de la procédure. Si un dossier d'un portail judiciaire est lié au dossier, le numéro de procédure apparaît en orange, souligné en pointillés ; cliquez dessus pour ouvrir les détails du dossier du portail (fonctions propres à certains pays uniquement).
-- **Priorité et température.** La priorité que vous avez définie apparaît sous forme d'étiquette colorée. Une petite flamme rouge à côté indique que le dossier s'est récemment enflammé (nouveaux délais, audiences, entrées ou courriels au cours des 14 derniers jours) ; elle ne modifie jamais votre propre priorité.
-- **Parties et classification juridique.** Public oui/non, demandeur (marqué s'il s'agit de votre client), adversaire, pays, domaine du droit et stade, attribution ou non d'un numéro de dossier (avec sa date), type de dossier, date d'ouverture et description.
+- **Numéro, titre et numéro de procédure.** La carte affiche le numéro interne client/dossier, le titre et le numéro officiel de la procédure. Si un dossier d'un portail judiciaire est lié au dossier, le numéro de procédure apparaît en orange, souligné en pointillés ; cliquez dessus pour ouvrir les détails du dossier du portail (fonction propre à un pays).
+- **Priorité et activité.** La priorité que vous avez définie apparaît sous forme d'étiquette colorée. Une petite flamme rouge à côté indique que le dossier s'est récemment enflammé (nouveaux délais, audiences, entrées ou courriels au cours des 14 derniers jours) ; elle ne modifie jamais votre propre priorité.
+- **Parties et classification juridique.** Public oui/non, demandeur (marqué s'il s'agit de votre client), adversaire, pays, domaine du droit et stade, attribution ou non d'un numéro de dossier judiciaire (avec sa date), type de dossier, date d'ouverture et description.
 - **Taille du dossier.** Sous la description, un tableau compte les PDF, images et fichiers audio entrants, sortants et de preuve, avec le nombre de mots et la taille des fichiers, un total du dossier et une estimation de la quantité de texte que l'IA devrait lire.
 
 **Boutons de la carte Dossier**
 
 - **Imprimer.** Choisissez *Chronologie* ou *Documentation* et le dossier est exporté en PDF.
-- **Modifier.** Ouvre le formulaire du dossier : titre, priorité, statut, demandeur (ou « le client est le demandeur »), autres clients propres dans la même procédure, adversaire, contrôle de conflit d'intérêts (actif dès que les deux côtés sont renseignés), dossier public, un interrupteur qui empêche tout rattachement à ce dossier (à la main, automatiquement ou par l'IA), numéro de procédure, numéro de dossier avec date, pays, domaine du droit, stade et description.
+- **Modifier.** Ouvre le formulaire du dossier : titre, priorité, statut, demandeur (ou *Le demandeur est le client*), autres clients propres dans la même procédure, adversaire, contrôle de conflit d'intérêts (actif dès que les deux côtés sont renseignés), dossier public, un interrupteur qui empêche tout rattachement à ce dossier (à la main, automatiquement ou par l'IA), numéro de procédure, numéro de dossier judiciaire avec date, pays, domaine du droit, stade et description.
 - **Supprimer.** Après une confirmation, le dossier est entièrement retiré d'IRONSTICK. Une sauvegarde complète du dossier est faite au préalable ; si la sauvegarde échoue, rien n'est supprimé.
 
-**Partage et transmission (uniquement avec un serveur de cabinet connecté)**
+**Partage et transmission (uniquement avec IRONSTICK SERVER connecté)**
 
-- **Partager.** Partagez le dossier *pour tous les utilisateurs* ou *pour des utilisateurs choisis* que vous cochez dans la liste. Le dossier est alors téléversé en arrière-plan sur le serveur du cabinet. Une fois partagé, le même bouton devient rouge et affiche *Révoquer le partage*, ce qui retire le partage aussitôt.
+- **Partager.** Partagez le dossier *pour tous les utilisateurs* ou *pour des utilisateurs choisis* que vous cochez dans la liste. Le dossier est alors téléversé en arrière-plan sur le serveur. Une fois partagé, le même bouton devient rouge et affiche *Révoquer le partage*, ce qui retire le partage aussitôt.
 - **Carte de partage.** Sous les données du dossier, une carte affiche la progression du téléversement, puis les abonnés, chacun avec un point de présence et l'heure du dernier accès. Les demandes de collègues apparaissent en surbrillance avec *Accepter* et *Refuser* ; chaque abonné peut être retiré individuellement.
-- **Transmettre le dossier.** Choisissez le destinataire dans la liste des utilisateurs du cabinet et cliquez sur *Transmettre*. Le dossier est empaqueté et envoyé par le serveur du cabinet ; dès que le destinataire l'a accepté, le dossier est retiré de votre ordinateur (une sauvegarde est conservée). Il n'y a pas de transmission sans serveur de cabinet.
+- **Transmettre le dossier.** Choisissez le destinataire dans la liste des utilisateurs du cabinet et cliquez sur *Transmettre*. Le dossier est empaqueté et envoyé par IRONSTICK SERVER ; dès que le destinataire l'a accepté, le dossier est retiré de votre ordinateur (une sauvegarde est conservée).
 - **Dossiers partagés avec vous.** Un dossier auquel vous êtes abonné peut être lu mais pas modifié ; les boutons de modification affichent un avis à la place. Sous la description, vous voyez le propriétaire et les autres abonnés. *Supprimer l'abonnement* met fin à l'abonnement et supprime la copie.
 
 ### Les onglets en un coup d'œil : du client à la carte
@@ -455,42 +455,42 @@ Chaque ligne de l'image relie un onglet à la vue qu'il ouvre.
 **Connexions**
 
 - **Graphique des relations.** Montre les personnes et institutions du dossier et leurs liens, sur une ou plusieurs pages ; l'en-tête compte les entités et les connexions. Lorsqu'il y en a beaucoup, les plus urgentes sont affichées.
-- **Travailler avec le graphique.** Zoomez avant et arrière avec les boutons loupe. Cliquez sur un nom pour ouvrir cette personne ou cette institution. *Wallpaper* télécharge le graphique sous forme de grand poster PDF ; *Saisir* le transmet à la saisie de documents, où vous l'affectez à un dossier. Les deux boutons d'export ne sont pas disponibles sur la tablette Android.
+- **Travailler avec le graphique.** Zoomez avant et arrière avec les boutons loupe. Cliquez sur un nom pour ouvrir cette personne ou cette institution. *Wallpaper* télécharge le graphique sous forme de grand poster PDF ; *Saisir* le transmet à la saisie de documents, où vous l'affectez à un dossier. Aucun des deux boutons d'export n'est disponible sur la tablette Android.
 
 **Carte**
 
 - **Tout sur la carte.** Les personnes (bleu), les sociétés (violet), les institutions (rouge) et les événements (vert) apparaissent sur une carte satellite ; une légende en dessous explique les couleurs. Des anneaux blancs marquent des distances de 5, 15 et 30 km autour du centre du dossier.
 - **Positions manquantes.** Les adresses sans coordonnées sont recherchées automatiquement tant que la carte est ouverte ; un petit avis indique la progression, et la position trouvée est mémorisée.
-- **Détails et impression.** Cliquez sur un marqueur pour voir nom, type et adresse ; son lien de détail ouvre la personne, l'institution ou l'entrée de la chronique (en surbrillance dans la Chronique). Le bouton d'impression exporte la carte en PDF.
+- **Détails et impression.** Cliquez sur un marqueur pour voir nom, type et adresse ; son lien de détail ouvre la personne, l'institution ou l'entrée de la chronique (en surbrillance dans la Chronologie). Le bouton d'impression exporte la carte en PDF.
 
 ### Les onglets en un coup d'œil : de la documentation à l'évaluation IA
 
-![Les onglets Documentation, Chronique, Nucleu du dossier, snake du dossier et évaluation IA](https://www.ironstick.legal/img/screens/5%20case%20tab2.png)
+![Les onglets Documentation, Chronologie, Nucleu du dossier, snake du dossier et évaluation IA](https://www.ironstick.legal/img/screens/5%20case%20tab2.png)
 
-Les onglets Documentation, Chronique, Nucleu du dossier (atome), snake du dossier et évaluation IA.
+Les onglets Documentation, Chronologie, Nucleu du dossier (atome), snake du dossier et évaluation IA.
 
-Les onglets restants contiennent le contenu du dossier : les documents classés, la chronique de tout ce qui s'est passé, deux zones de texte qui guident tout le travail rédactionnel sur le dossier, et l'évaluation IA.
+Les onglets restants contiennent le contenu du dossier : les documents classés, la chronologie de tout ce qui s'est passé, deux zones de texte qui guident tout le travail rédactionnel sur le dossier, et l'évaluation IA.
 L'atome et le snake ne sont représentés que par des symboles ; pointez-les pour voir leurs noms.
 
 #### Ce que vous pouvez faire ici
 
 - **Documentation.** Tous les documents du dossier avec un PDF — entrants, sortants et preuves — avec des filtres par direction, un saut vers une date et le graphique de chronologie.
-- **Chronique.** La chronique du dossier : chaque événement, document, photo, appel et note par ordre de date.
-- **Nucleu du dossier (atome).** La directive contraignante pour tout travail rédactionnel sur ce dossier — ce que chaque acte de procédure doit respecter. Rédigez ou modifiez le texte et cliquez sur *Enregistrer* ; chaque enregistrement crée une nouvelle version, et le code copiable avec son numéro de version indique laquelle est la version actuelle. Un compteur indique la longueur (jusqu'à 20 000 caractères). En dessous, en lecture seule, vous voyez le nucleu de chaque groupe d'affaires auquel ce dossier appartient.
+- **Chronologie.** La chronique du dossier : chaque événement, document, photo, appel et note par ordre de date.
+- **Nucleu du dossier (atome).** La directive contraignante pour tout travail rédactionnel sur ce dossier — ce que chaque acte de procédure doit respecter. Rédigez ou modifiez le texte et cliquez sur *Enregistrer* ; chaque enregistrement crée une nouvelle version, et le code copiable avec son numéro de version indique laquelle est la version actuelle. Un compteur indique la longueur (jusqu'à 20 000 caractères). En dessous, en lecture seule, vous voyez le nucleu de chaque affaire à laquelle ce dossier appartient.
 - **Snake du dossier.** Un registre des affirmations mensongères ou contradictoires de la partie adverse dans ce dossier, afin de pouvoir les utiliser dans les actes de procédure. Il se modifie et s'enregistre comme le nucleu, avec son propre numéro de version.
 - **Évaluation IA.** Une évaluation du dossier par l'IA : chances de succès, fondement de la procédure, dossier de l'autorité et dossier IRONSTICK, points forts, points faibles et remarque critique.
 
-### Chronique
+### Chronologie
 
-![Onglet Chronique avec des repères numérotés sur les boutons de l'en-tête, le champ de date, Nouvelle entrée et une ligne d'entrée](https://www.ironstick.legal/img/screens/5%20case%20chronicle%201.png)
+![Onglet Chronologie avec des repères numérotés sur les boutons de l'en-tête, le champ de date, Nouvelle entrée et une ligne d'entrée](https://www.ironstick.legal/img/screens/5%20case%20chronicle%201.png)
 
-L'onglet Chronique : la chronique du dossier, entrées les plus récentes en premier.
+L'onglet Chronologie : la chronique du dossier, entrées les plus récentes en premier.
 
-La Chronique liste chaque entrée du dossier — événements, courriers, courriels, appels, photos, enregistrements — avec la plus récente en premier. Chaque ligne affiche son numéro et sa date, le titre, la description et les étiquettes, les fichiers joints, un repère de délai et les actions.
+La Chronologie liste chaque entrée du dossier — événements, courriers, courriels, appels, photos, enregistrements — avec la plus récente en premier. Chaque ligne affiche son numéro et sa date, le titre, la description et les étiquettes, les fichiers joints, un repère de délai et les actions.
 La ligne agrandie en bas de l'image montre les parties d'une entrée isolée.
 
-1. **Notes.** Ouvre le tableau d'affichage du dossier. Vos propres notes sont jaunes, les notes des abonnés d'un dossier partagé sont des cartes blanches, et les notes que l'IA a retenues pour ce dossier apparaissent sous forme de petits papillons quadrillés. Cliquez sur *Nouvelle note* pour en écrire une (jusqu'à 1 000 caractères, éventuellement avec une date), cliquez sur une note jaune pour la modifier, sur n'importe quelle note pour la lire en entier ; chacune a de petits boutons de copie et de suppression.
-2. **Dossier.** Ouvre l'assistant de dossier, qui constitue un dossier complet de l'affaire. Il n'apparaît que lorsque la Chronique contient des entrées.
+1. **Notes.** Ouvre le tableau d'affichage du dossier. Vos propres notes sont jaunes, les notes des abonnés d'un dossier partagé sont des cartes blanches, et les notes que l'IA a retenues pour ce dossier apparaissent sur du papier quadrillé. Cliquez sur *Nouvelle note* pour en écrire une (jusqu'à 1 000 caractères, éventuellement avec une date), cliquez sur une note jaune pour la modifier, sur n'importe quelle note pour la lire en entier ; chacune a de petits boutons de copie et de suppression.
+2. **Dossier.** Ouvre l'assistant de dossier, qui constitue un dossier complet de l'affaire. Il n'apparaît que lorsque la Chronologie contient des entrées.
 3. **Rédiger un texte.** Choisissez *Avec l'aide de l'IA* pour ouvrir le chat IA avec une demande de rédaction d'un document pour ce dossier, ou *Document texte vide* pour commencer à écrire dans le traitement de texte. Non affiché sur la tablette Android.
 4. **Aller à une date.** Choisissez une date et cliquez sur la loupe pour accéder à la page qui la contient.
 5. **Nouvelle entrée.** Ouvre le formulaire d'une nouvelle entrée de la chronique.
@@ -516,14 +516,14 @@ Pour les documents secrets, l'étiquette, le crayon et la copie sont grisés ; s
 - **Ce que dit une ligne.** Sous le titre, vous voyez la description, des étiquettes colorées (pays, domaine du droit, stade, IN en orange ou OUT en vert, type d'institution, langue, type de document) et les personnes impliquées.
 - **Rédiger un texte sur une entrée.** Le petit symbole crayon-et-lignes à côté du titre lance *Rédiger un texte* pour cette entrée précise ; un nombre devant lui compte les textes déjà rédigés à son sujet. Non affiché sur la tablette Android.
 - **Colonne des délais.** Une cloche orange signifie que le délai de l'entrée arrive à échéance dans les 10 jours, une cloche rouge qui sonne qu'il est dépassé. Pointez la cloche pour voir les jours restants ou la date.
-- **Arrivée depuis la recherche ou le radar.** Lorsque vous ouvrez le dossier à partir d'un résultat de recherche ou du radar de pertinence, la Chronique se rend à la bonne page et l'entrée s'illumine en jaune pendant quelques secondes.
+- **Arrivée depuis la recherche ou le radar.** Lorsque vous ouvrez le dossier à partir d'un résultat de recherche ou du radar de pertinence, la Chronologie se rend à la bonne page et l'entrée s'illumine en jaune pendant quelques secondes.
 
 **Actions sur une entrée**
 
 - **Radar de pertinence.** Montre quelles autres entrées — dans ce dossier et dans d'autres dossiers — sont les plus proches par le contenu. Cliquez sur un résultat pour y accéder.
 - **Étiquettes.** Attachez de courtes étiquettes (jusqu'à 100 caractères) à l'entrée : étiquettes *globales* en rouge, jaune, vert ou bleu, ou étiquettes de *dossier* en turquoise. Cliquez sur une étiquette existante pour la modifier, ou sur son × pour la retirer. Le symbole d'étiquette prend la couleur de la première étiquette.
-- **Classeurs de travail.** Liste les classeurs de chaque groupe d'affaires auquel le dossier appartient ; cochez un classeur pour y ranger l'entrée, ou créez un *Nouveau classeur*. Si le dossier ne fait partie d'aucun groupe d'affaires, un avis l'indique.
-- **Modifier.** Une entrée sans document ouvre le formulaire d'entrée de la chronique. Une entrée avec un PDF ouvre le formulaire du document : classification (pays, langue, domaine du droit, type de document, stade, type d'institution, date du document), le type d'entrée (preuve, entrant ou sortant), une case décision de justice et les mêmes champs d'entrée que ci-dessous ; des boutons permettent d'y voir le PDF et de lire son texte extrait.
+- **Classeurs de travail.** Liste les classeurs de chaque affaire à laquelle le dossier appartient ; cochez un classeur pour y ranger l'entrée, ou créez un *Nouveau classeur*. Si le dossier ne fait partie d'aucune affaire, un avis l'indique.
+- **Modifier.** Une entrée sans document ouvre le formulaire d'entrée de la chronique. Une entrée avec un PDF ouvre le formulaire du document : classification (pays, langue, domaine du droit, type de document, stade, type d'institution, date du document), le type d'entrée (preuve, entrant ou sortant), une case décision de justice et les champs d'entrée habituels (titre, date, mots-clés, heures, description, personnes impliquées, délai) ; des boutons permettent d'y voir le PDF et de lire son texte extrait.
 - **Copier dans un autre dossier.** Choisissez un dossier cible du même client ; l'entrée est copiée avec ses documents, images et transcriptions. *Copier* devient actif dès qu'un dossier est sélectionné.
 - **Supprimer.** Retire l'entrée après une confirmation.
 
@@ -538,14 +538,14 @@ Pour les documents secrets, l'étiquette, le crayon et la copie sont grisés ; s
 
 ### Ouvrir des documents, des images et des enregistrements
 
-![Chronique avec un PDF joint ouvert dans une fenêtre séparée et la visionneuse d'images avec quatre photos](https://www.ironstick.legal/img/screens/5%20case%20chronicle%202.png)
+![Chronologie avec un PDF joint ouvert dans une fenêtre séparée et la visionneuse d'images avec quatre photos](https://www.ironstick.legal/img/screens/5%20case%20chronicle%202.png)
 
 Un PDF joint s'ouvre dans sa propre fenêtre ; les photos s'ouvrent dans la visionneuse d'images.
 
-Chaque fichier joint à une entrée s'ouvre directement depuis la Chronique. Sur l'image, le trombone de la première entrée a ouvert son PDF dans une fenêtre séparée, et le symbole d'image d'une autre entrée a ouvert ses quatre photos.
-Le champ de date en haut vous aide à vous repérer dans les longues chroniques.
+Chaque fichier joint à une entrée s'ouvre directement depuis la Chronologie. Sur l'image, le trombone de la première entrée a ouvert son PDF dans une fenêtre séparée, et le symbole d'image d'une autre entrée a ouvert ses quatre photos.
+Le champ de date en haut vous aide à vous repérer dans les longues chronologies.
 
-1. **Aller à une date.** Apparaît lorsque la Chronique compte plus de trois pages. Cliquez sur le champ et choisissez une date — seules les dates existant dans le dossier peuvent être choisies — puis cliquez sur la loupe à côté pour accéder à la page contenant cette date.
+1. **Aller à une date.** Apparaît lorsque la Chronologie compte plus de trois pages. Cliquez sur le champ et choisissez une date — seules les dates existant dans le dossier peuvent être choisies — puis cliquez sur la loupe à côté pour accéder à la page contenant cette date.
 
 #### Ce que vous pouvez faire ici
 
@@ -573,7 +573,7 @@ L'onglet **Documentation** est le côté papier du dossier : il liste uniquement
 Chaque ligne affiche le numéro d'entrée, la date, le titre, un court résumé, les étiquettes de classification et les outils de ce document.
 Le bouton bleu à droite de la carte ouvre la **chronologie** — les documents entrants et sortants dessinés sous forme d'organigramme de haut en bas, comme on le voit à droite de l'image.
 
-1. **Filtre de direction.** *Toutes* affiche chaque document, *IN* (jaune) uniquement les documents entrants, *OUT* (vert) uniquement les documents que vous avez envoyés. La pastille active est affichée en gras avec un cadre.
+1. **Filtre de direction.** *Toutes* affiche chaque document, *IN* (orange) uniquement les documents entrants, *OUT* (vert) uniquement les documents que vous avez envoyés. La pastille active est affichée en gras avec un cadre.
 2. **Aller à une date.** Choisissez une date dans le champ calendrier et cliquez sur la loupe pour accéder à la page qui contient cette date. Le champ n'apparaît que lorsque la liste dépasse trois pages ; le calendrier ne propose que les dates existant dans le dossier.
 
 #### Ce que vous pouvez faire ici
@@ -583,7 +583,7 @@ Le bouton bleu à droite de la carte ouvre la **chronologie** — les documents 
 - **Trier.** Cliquez sur l'en-tête de colonne *Date* pour passer du plus récent au plus ancien en premier, et inversement. Cliquez sur *Délai* pour trier par délais ouverts, le plus proche d'abord (cliquez à nouveau pour inverser).
 - **Numéro d'entrée.** Le numéro violet au-dessus de la date est le numéro IRONSTICK de l'entrée. Cliquez dessus pour le copier dans le presse-papiers.
 - **Étiquettes sous le résumé.** Les petites pastilles indiquent le pays, le domaine du droit, le stade de la procédure, la direction (IN orange, OUT vert), le type d'institution, la langue du document et d'autres éléments de classification. Pointez le domaine du droit ou le stade pour voir le nom complet.
-- **Annexes et « déposé dans ».** Pour un document que vous avez envoyé, *Annexes* liste les entrées jointes. Pour un document entrant ou une pièce de preuve, *Déposé dans* liste où il a été déposé, regroupé par dossier avec le numéro de procédure derrière chaque groupe. Cliquez sur un numéro pour ouvrir cette entrée dans la chronique, ou sur le numéro de procédure pour ouvrir ce dossier — même s'il s'agit d'un autre dossier.
+- **Annexes et « déposé dans ».** Pour un document que vous avez envoyé, *Annexes* liste les entrées jointes. Pour un document entrant ou une pièce de preuve, *Déposé dans* liste où il a été déposé, regroupé par dossier avec le numéro de procédure derrière chaque groupe. Cliquez sur un numéro pour ouvrir cette entrée dans la chronologie, ou sur le numéro de procédure pour ouvrir ce dossier — même s'il s'agit d'un autre dossier.
 - **Numéros de référence.** Les numéros bleus soulignés sont des numéros de courrier ou d'enregistrement qui figurent aussi dans d'autres documents. Cliquez sur l'un d'eux pour voir tous les documents portant le même numéro et ouvrir l'un d'eux.
 - **Délai.** Une cloche apparaît lorsque l'entrée porte un délai ouvert : orange lorsqu'il arrive à échéance dans les 10 jours, rouge lorsqu'il est dépassé. Pointez-la pour voir les jours restants ou la date de dépassement.
 
@@ -592,7 +592,7 @@ Le bouton bleu à droite de la carte ouvre la **chronologie** — les documents 
 - **Rédiger un texte.** L'icône de note à côté du titre ouvre un choix : rédiger un courrier avec l'aide de l'IA (le chat s'ouvre avec ce dossier et ce document déjà référencés) ou ouvrir un document texte vide dans le traitement de texte. Un nombre devant l'icône indique combien de textes existent déjà pour cette entrée. Non disponible sur la tablette Android.
 - **Ouvrir le document.** Le trombone ouvre le document dans la fenêtre de navigateur d'IRONSTICK ; pointez-le pour voir le nom du fichier. Une épingle verte apparaît lorsque l'entrée a un lieu — cliquez dessus pour voir l'endroit sur une carte.
 - **Classeurs de travail.** L'icône de classeur range le document dans les classeurs de travail des affaires auxquelles ce dossier appartient : cochez ou décochez un classeur, ou créez un nouveau classeur. Lorsque l'entrée est déjà rangée, l'icône affiche un classeur plein et son infobulle le nombre de classeurs.
-- **Radar de pertinence.** L'icône radar trouve les entrées dont le contenu est le plus proche, dans ce dossier et dans d'autres dossiers. Cliquez sur un résultat pour y accéder dans la chronique.
+- **Radar de pertinence.** L'icône radar trouve les entrées dont le contenu est le plus proche, dans ce dossier et dans d'autres dossiers. Cliquez sur un résultat pour y accéder dans la chronologie.
 - **Étiquettes.** L'icône d'étiquette attache vos propres étiquettes au document — des étiquettes colorées générales ou des étiquettes valables uniquement pour ce dossier. Une fois étiqueté, l'icône prend la couleur de la première étiquette.
 - **Modifier.** Le crayon ouvre l'entrée du document pour modification (titre, date, classification, délai, etc.).
 - **Copier dans un autre dossier.** L'icône de copie copie l'entrée avec son document dans un autre dossier du même client. Choisissez le dossier cible, puis cliquez sur *Copier*.
@@ -611,8 +611,8 @@ Le bouton bleu à droite de la carte ouvre la **chronologie** — les documents 
 
 Première étape du dossier : décider quelles entrées et quelles pages y figurent.
 
-Le bouton **Dossier** en haut du dossier (affiché uniquement lorsque le dossier contient des entrées de chronique) ouvre un assistant qui constitue un dossier complet et paginé de l'affaire — sous forme de PDF ou de paquet de production EDRM.
-Dans la première étape, **Préparer le dossier**, vous parcourez toutes les entrées de la chronique et décidez de ce qui y figure. L'image montre une entrée exclue (signe rouge), un document partiellement exclu (cercle jaune), la sélection de pages d'un document et l'aperçu d'image d'une entrée photo.
+Le bouton **Dossier** en haut du dossier (affiché uniquement lorsque le dossier contient des entrées de chronologie) ouvre un assistant qui constitue un dossier complet et paginé de l'affaire — sous forme de PDF ou de paquet de production EDRM.
+Dans la première étape, **Préparer le dossier**, vous parcourez toutes les entrées de la chronologie et décidez de ce qui y figure. L'image montre une entrée exclue (signe rouge), un document partiellement exclu (cercle jaune), la sélection de pages d'un document et l'aperçu d'image d'une entrée photo.
 
 #### Ce que vous pouvez faire ici
 
@@ -660,7 +660,7 @@ Dans la deuxième étape, **Données du dossier** (à gauche), vous remplissez l
 
 L'évaluation IA du dossier avec la jauge des chances de succès.
 
-L'onglet **Évaluation IA** fournit une évaluation écrite du dossier par l'IA. Les sections descriptives s'appuient sur l'ensemble de votre dossier ; les chances de succès ne sont jugées que sur ce que le tribunal a dans son dossier. Il présente le fondement de la procédure, l'état du dossier de l'autorité avec une estimation des chances de succès, l'état du dossier IRONSTICK complet, les notes critiques, les points forts et les risques, ainsi que des liens vers des dossiers connexes.
+L'onglet **Évaluation IA** fournit une évaluation écrite du dossier par l'IA. Les sections descriptives s'appuient sur l'ensemble de votre dossier ; les chances de succès ne sont jugées que sur ce que le tribunal a dans son dossier. Il présente le fondement de la procédure, l'état du dossier judiciaire (le dossier détenu par le tribunal ou l'autorité) avec une estimation des chances de succès, l'état du dossier IRONSTICK complet, les notes critiques, les points forts et les risques, ainsi que des liens vers des dossiers connexes.
 Chaque numéro d'entrée, référence de dossier et numéro de procédure du texte est un lien. La date sous le titre indique quand l'évaluation a été faite.
 
 1. **Réévaluer.** Lance une nouvelle évaluation. Sans évaluation, le bouton affiche *Demander une évaluation*. Il est grisé, comme sur l'image, lorsqu'aucun nouveau document n'est arrivé depuis la dernière évaluation (sauf si vous écrivez un commentaire ci-dessous) ou lorsque le dossier n'est pas actif.
@@ -678,12 +678,12 @@ Chaque numéro d'entrée, référence de dossier et numéro de procédure du tex
 **Lire l'évaluation**
 
 - **Fondement de la procédure.** Qui réclame quoi contre qui, devant quel tribunal ou quelle autorité.
-- **État du dossier de l'autorité et chances de succès.** Décrit uniquement ce que le tribunal ou l'autorité a dans son dossier — tout ce qui lui a été envoyé ou qu'il a reçu, des deux côtés. La jauge à côté montre l'estimation de l'IA en pourcentage, le verdict (de clairement perdu à clairement gagné) et, lorsqu'ils sont disponibles, les chiffres distincts pour l'état des preuves, la demande principale et les autres demandes. Si aucun dossier de l'autorité ne peut être identifié, cette section est absente et la jauge reste vide (« non estimable »).
+- **État du dossier judiciaire et chances de succès.** Décrit uniquement ce que le tribunal ou l'autorité a dans son dossier — tout ce qui lui a été envoyé ou qu'il a reçu, des deux côtés. La jauge à côté montre l'estimation de l'IA en pourcentage, le verdict (de clairement perdu à clairement gagné) et, lorsqu'ils sont disponibles, les chiffres distincts pour l'état des preuves, la demande principale et les autres demandes. Si aucun dossier judiciaire ne peut être identifié, cette section est absente et la jauge reste vide (« non estimable »).
 - **État du dossier IRONSTICK.** Le tableau issu de votre dossier complet, y compris les documents que le tribunal n'a pas vus.
 - **Remarque critique, points forts et risques.** Un encadré orange signale le danger le plus important. L'encadré vert liste les points forts de votre position, l'encadré rouge les risques et les points ouverts.
 - **Dossiers connexes.** Les *Liens entre dossiers* montrent comment d'autres dossiers du même client influent sur celui-ci (de, vers, effet — marqué comme préjudiciable, preuve ou stratégique). Un encadré jaune liste des dossiers d'autres clients avec le même adversaire ou les mêmes participants, et explique comment en intégrer un dans l'évaluation via le champ de commentaire.
 - **Copier une section.** La petite icône de copie devant un titre copie le titre et son texte dans le presse-papiers.
-- **Suivre les liens.** Un numéro d'entrée violet ouvre cette entrée dans la chronique. Une référence de dossier ou un numéro de procédure bleu ouvre ce dossier, s'il existe dans IRONSTICK.
+- **Suivre les liens.** Un numéro d'entrée violet ouvre cette entrée dans la chronologie. Une référence de dossier ou un numéro de procédure bleu ouvre ce dossier, s'il existe dans IRONSTICK.
 - **Avertissements et lectures supplémentaires.** Un avis jaune en haut avertit lorsque l'évaluation peut être incomplète (limite de recherche atteinte ou erreur technique pendant la recherche). *Textes intégraux rechargés* liste les documents que l'IA a lus en entier ; cliquez sur l'un d'eux pour l'ouvrir.
 
 **Objections et compléments**
@@ -692,7 +692,7 @@ Chaque numéro d'entrée, référence de dossier et numéro de procédure du tex
 
 ### Comment l'évaluation IA est établie
 
-![Évaluation IA avec les sections alimentées par tout le dossier marquées en vert et la section du dossier de l'autorité avec la jauge des chances marquée en rouge](https://www.ironstick.legal/img/screens/5%20case%20assesment%20detail.png)
+![Évaluation IA avec les sections alimentées par tout le dossier marquées en vert et la section du dossier judiciaire avec la jauge des chances marquée en rouge](https://www.ironstick.legal/img/screens/5%20case%20assesment%20detail.png)
 
 Vert : tiré de l'ensemble du dossier. Rouge : uniquement la partie du dossier que détient le tribunal.
 
@@ -710,7 +710,7 @@ La section **rouge** avec la jauge ne juge que la partie du dossier qui se trouv
 
 **La section rouge — uniquement le dossier du tribunal**
 
-- **État du dossier de l'autorité.** Décrit uniquement ce que le tribunal a dans son dossier — chaque acte déposé et chaque document reçu du tribunal ou de l'autre partie dans cette procédure.
+- **État du dossier judiciaire.** Décrit uniquement ce que le tribunal a dans son dossier — chaque acte déposé et chaque document reçu du tribunal ou de l'autre partie dans cette procédure.
 - **Chances de succès.** La jauge va du rouge (perdu) en bas au vert (gagné) en haut ; la flèche et le pourcentage montrent l'estimation de l'IA, et le verdict en dessous (par exemple *plutôt gagné*) la met en mots. Lorsqu'ils sont disponibles, des chiffres distincts suivent pour l'état des preuves, la demande principale et les autres demandes.
 - **Pourquoi uniquement le dossier du tribunal.** Le tribunal décide sur ce qu'il a sous les yeux. Un document solide de votre dossier qui n'a jamais été déposé n'améliore pas l'estimation tant qu'il n'est pas parvenu au tribunal — les sections vertes vous montrent de telles lacunes.
 - **Pas de dossier du tribunal, pas d'estimation.** Si IRONSTICK ne peut identifier ni le tribunal ni les documents qui lui sont soumis, la section rouge est absente et la jauge reste vide.
@@ -735,7 +735,7 @@ et le réseau de relations qui s'ouvre depuis l'icône de réseau d'une ligne.
 **En-tête de la page**
 
 - **Nombre d'entrées.** Sous le titre, vous voyez combien d'entrées sont affichées ; lorsqu'un filtre est actif, cela est indiqué à côté du nombre.
-- **Importer.** Ouvre une fenêtre dans laquelle vous glissez un fichier de paquet de données reçu d'un autre utilisateur d'IRONSTICK (personnes, sociétés, institutions, leurs relations et analyses de personnes). Une barre de progression s'affiche pendant l'import ; ensuite, vous voyez combien d'entrées étaient nouvelles, combien étaient déjà connues et combien de relations ont été ajoutées. Si le paquet apporte des détails supplémentaires pour des personnes que vous avez déjà, ils apparaissent comme suggestions dans le moniteur de cohérence des données au lieu d'écraser vos données. Un fichier endommagé ou erroné est rejeté avec un message.
+- **Importer.** Ouvre une fenêtre dans laquelle vous glissez un fichier de paquet de données reçu d'un autre utilisateur d'IRONSTICK (personnes, sociétés, institutions, leurs relations et analyses de personnes). Une barre de progression s'affiche pendant l'import ; ensuite, vous voyez combien d'entrées étaient nouvelles, combien étaient déjà connues et combien de relations ont été ajoutées. Si le paquet apporte des détails supplémentaires pour des personnes que vous avez déjà, ils apparaissent comme suggestions dans le Moniteur de cohérence des données au lieu d'écraser vos données. Un fichier endommagé ou erroné est rejeté avec un message.
 - **Univers.** Le bouton noir ouvre les trois cartes visuelles de toutes vos parties : carte 3D, carte 2D et carte géographique.
 - **Nouvelle personne / entité.** Ouvre le formulaire de saisie d'une nouvelle personne ou société.
 
@@ -770,7 +770,7 @@ et le réseau de relations qui s'ouvre depuis l'icône de réseau d'une ligne.
 - **Contact, en ligne, profession, véhicule.** Téléphone, télécopie, courriel (format valide vérifié), coordonnées de contact, description, liens vers les réseaux sociaux et site web, profession et employeur (personnes uniquement), voiture et plaque d'immatriculation.
 - **Remplissage IA et recherche Google.** Pour une personne morale avec un nom et un pays, un bouton apparaît dans l'en-tête. Si une clé IA est configurée, *Remplissage IA* demande votre consentement puis laisse l'IA externe rechercher la société sur Internet ; il ne remplit que les champs vides et les marque d'un cadre violet. Ensuite, ou sans clé IA, le bouton devient *Recherche Google*, qui ouvre la recherche dans la fenêtre de navigateur d'IRONSTICK.
 - **Enregistrer ou annuler.** Le bouton d'enregistrement stocke l'entrée et revient à la liste. Lorsque vous modifiez une personne physique existante, un bouton *Analyse de personne* apparaît aussi en bas à gauche.
-- **Entrées d'autres utilisateurs sur le serveur du cabinet.** Si une entrée appartient à un autre utilisateur du serveur du cabinet, une bannière l'indique. L'enregistrement envoie alors vos modifications comme proposition de modification au propriétaire, et la suppression envoie une proposition de suppression au lieu de supprimer.
+- **Entrées d'autres utilisateurs sur IRONSTICK SERVER.** Si une entrée appartient à un autre utilisateur du serveur, une bannière l'indique. L'enregistrement envoie alors vos modifications comme proposition de modification au propriétaire, et la suppression envoie une proposition de suppression au lieu de supprimer.
 
 **Analyse de personne et recherche web (personnes physiques uniquement)**
 
@@ -792,8 +792,8 @@ et la **carte géographique** place toutes les personnes et sociétés dont le l
 
 **Carte 3D**
 
-- **L'univers se construit tout seul.** Une barre de progression indique où en est l'image ; des groupes de parties étroitement liées (cliques) apparaissent l'un après l'autre, chacun dans sa propre couleur. Les groupes qui semblent suspects scintillent en rouge. La ligne en haut à gauche compte les parties, les liens et les cliques.
-- **Voler.** W/A/S/D font avancer, aller à gauche, reculer et aller à droite ; R et F font monter et descendre ; faites glisser la souris ou utilisez les touches fléchées pour tourner ; la molette de la souris avance ou recule ; Maj accélère, Espace freine. Le panneau en bas à gauche liste ces touches, et une petite barre en bas à droite indique votre vitesse.
+- **L'univers se construit tout seul.** Une barre de progression indique où en est l'image ; des groupes de parties étroitement liées (cliques) apparaissent l'un après l'autre, chacun dans sa propre couleur. Les groupes aux schémas de liens remarquables sont mis en évidence par un rouge clignotant. La ligne en haut à gauche compte les parties, les liens et les cliques.
+- **Voler.** W/A/S/D font avancer, aller à gauche, reculer et aller à droite ; R et F font monter et descendre ; faites glisser la souris ou utilisez les touches fléchées pour tourner ; la molette de la souris avance ou recule ; Maj va plus vite, Espace ralentit. Le panneau en bas à gauche liste ces touches, et une petite barre en bas à droite indique votre vitesse.
 - **Trouver une partie et s'en approcher.** Cliquez sur un point pour le marquer et vous y rendre automatiquement ; cliquez à nouveau dessus pour retirer le marquage. Le champ de recherche en bas à droite trouve le nom le plus proche et vous y emmène aussi.
 - **Retour à la liste.** Double-cliquez sur un point : la carte se ferme et la personne s'illumine en jaune dans la liste des personnes. Une institution ouvre à la place la liste des institutions, en surbrillance de la même façon.
 - **Liens de dossier et niveaux séparés.** *Liens de dossier* relie aussi des parties qui apparaissent dans le même dossier. *Séparer les niveaux* place les institutions en haut, les personnes au milieu et les sociétés en bas. Les deux interrupteurs reconstruisent l'image et sont mémorisés.
@@ -802,13 +802,13 @@ et la **carte géographique** place toutes les personnes et sociétés dont le l
 
 Vol à travers la carte 3D de toutes les parties.
 
-Les cliques — groupes de parties étroitement liées — sont calculées automatiquement par un algorithme extrêmement complexe. Le calcul porte toujours sur toutes les personnes, sociétés et institutions d'IRONSTICK, sans aucune action de votre part. Plus une partie a de liens qualifiés, plus sa sphère est dessinée grande.
+Les cliques — groupes de parties étroitement liées — sont calculées automatiquement par une détection déterministe de communautés (sans IA). Le calcul porte toujours sur toutes les personnes, sociétés et institutions d'IRONSTICK, sans aucune action de votre part. Plus une partie a de liens qualifiés, plus sa sphère est dessinée grande.
 
 **Carte 2D**
 
 - **Se déplacer comme sur une feuille de papier.** Faites glisser avec la souris ou utilisez W/A/S/D pour déplacer la feuille ; la molette de la souris zoome vers le pointeur.
 - **Examiner une partie.** Pointez un nœud pour voir ses liens et ses étiquettes de nom. Un clic le marque (il pulse), un clic sur la feuille vide retire le marquage, et un double-clic revient à la liste avec l'entrée en surbrillance.
-- **Recherche et interrupteurs.** Le champ de recherche en bas à droite trouve une partie par son nom ; *Liens de dossier* et *Séparer les niveaux* fonctionnent comme dans la carte 3D.
+- **Recherche et interrupteurs.** Le champ de recherche en bas à droite trouve une partie par son nom ; *Liens de dossier* relie les parties d'un même dossier ; *Séparer les niveaux* empile les institutions, les personnes et les sociétés.
 
 **Carte géographique**
 
@@ -853,7 +853,7 @@ L'image montre aussi la fenêtre de détail d'une autorité et le code QR qui s'
 - **Adresse et position sur la carte.** Rue, code postal, ville, district et pays. Activez les géocoordonnées pour rechercher l'adresse sur la carte, saisir la latitude et la longitude, ou cliquer sur l'endroit voulu sur la carte.
 - **Contact.** Téléphone, télécopie, e-mail et site web.
 - **Remplissage par l'IA et recherche Google.** Dès qu'un nom et un pays sont saisis, un bouton apparaît dans l'en-tête. Avec une clé d'IA configurée, *Remplissage par l'IA* demande votre consentement et laisse l'IA externe rechercher l'institution sur Internet ; elle ne remplit que les champs vides et les marque d'un cadre violet. Ensuite, ou sans clé, le bouton ouvre une recherche Google dans la fenêtre de navigateur d'IRONSTICK.
-- **Institutions d'autres utilisateurs du serveur de cabinet.** Si l'institution appartient à un autre utilisateur du serveur de cabinet, l'enregistrement envoie une proposition de modification et la suppression envoie une proposition de suppression à son propriétaire.
+- **Institutions d'autres utilisateurs sur IRONSTICK SERVER.** Si l'institution appartient à un autre utilisateur du serveur, l'enregistrement envoie une proposition de modification et la suppression envoie une proposition de suppression à son propriétaire.
 
 ## 8. Saisir des documents
 
@@ -868,7 +868,7 @@ Chaque PDF destiné à un dossier passe par cette boîte de réception. À gauch
 qui s'ouvre d'abord pour les documents de plusieurs pages, et la vue du texte qui montre ce qu'IRONSTICK a lu dans le fichier.
 
 1. **Zone de dépôt.** Glissez ici des fichiers PDF ou Markdown, ou cliquez pour les choisir. Les fichiers Markdown sont convertis automatiquement en PDF ; les autres types de fichiers sont refusés avec un message.
-2. **Indicateur de la boîte de réception.** Tant que des documents non traités attendent dans la boîte de réception, une icône de boîte rouge qui se trémousse apparaît dans la barre de menus ; en la survolant, vous voyez combien. Cliquez dessus pour accéder directement à cet écran. Elle disparaît lorsque la boîte de réception est vide.
+2. **Indicateur de la boîte de réception.** Tant que des documents non traités attendent dans la boîte de réception, une icône de boîte rouge et animée apparaît dans la barre de menus ; en la survolant, vous voyez combien. Cliquez dessus pour accéder directement à cet écran. Elle disparaît lorsque la boîte de réception est vide.
 3. **Afficher.** Ouvre le PDF avec le programme configuré pour les PDF sur cet ordinateur.
 4. **Saisir.** Lance la saisie de ce fichier : sélection des pages, lecture du texte, classification par l'IA, puis le formulaire de saisie.
 5. **Supprimer.** Supprime le fichier de la boîte de réception après confirmation. Cette action est irréversible.
@@ -876,16 +876,16 @@ qui s'ouvre d'abord pour les documents de plusieurs pages, et la vue du texte qu
 7. **Vue du texte.** Affiche dans une fenêtre le texte lu dans le PDF, où vous pouvez le sélectionner et le copier.
 8. **Secret.** Marque le document comme secret. Les documents secrets sont masqués partout dans IRONSTICK jusqu'à ce que vous appuyiez sur **Ctrl + Shift + S + D** (Windows uniquement) ; la même combinaison les masque de nouveau. Le mode secret n'est jamais mémorisé : il se désactive de lui-même au redémarrage du programme, ainsi qu'à l'économiseur d'écran, à la mise en veille ou au verrouillage de l'écran. Tant qu'il est activé, la configuration affiche la carte où le mot de passe des documents secrets est défini une seule fois — il ne peut plus être modifié dès qu'un document secret existe. Un document coché est enregistré sous forme de PDF protégé par mot de passe (AES-256) et ne peut pas avoir de délai.
 
-**Les documents secrets ne quittent jamais IRONSTICK :** ils ne sont jamais envoyés à l'IA — ni à celle qui est intégrée, ni à une IA externe —, ne sont jamais ajoutés aux PDF générés ni aux annexes, et ne peuvent pas être récupérés via la fenêtre de navigateur d'IRONSTICK.
+**Les documents secrets restent dans IRONSTICK :** toute fonction d'IA, intégrée ou externe, les filtre ; ils sont exclus des PDF générés et des annexes ; la fenêtre de navigateur d'IRONSTICK ne peut pas les ouvrir ; et la transmission d'un dossier à un collègue ne les inclut qu'après votre confirmation explicite.
 
-**Urgence :** **Ctrl + Shift + S + D + K** met fin immédiatement au mode secret et détruit définitivement tous les documents secrets (fichiers et entrées). Cette action est irréversible.
+**Effacement d'urgence :** **Ctrl + Shift + S + D + K** met fin immédiatement au mode secret et supprime définitivement tous les documents secrets (fichiers et entrées). Cette action est irréversible.
 
 #### Ce que vous pouvez faire ici
 
 **Boîte de réception**
 
-- **Dossier de la boîte de réception.** La carte énumère chaque PDF du dossier de la boîte de réception avec sa taille, 20 par page. Sous Windows, le chemin exact du dossier est affiché à côté du titre, avec des boutons pour le copier et l'ouvrir dans l'Explorateur — pratique si vous laissez votre scanner enregistrer directement dans ce dossier.
-- **Autres voies d'entrée.** Des documents arrivent aussi ici depuis le moniteur de courriels et depuis les graphiques que vous envoyez à la saisie (par exemple un réseau de relations).
+- **Dossier de la boîte de réception.** La carte énumère chaque PDF du dossier de la boîte de réception avec sa taille, 20 par page. Sous Windows, le chemin exact du dossier est affiché à côté du titre, avec des boutons pour le copier et l'ouvrir dans l'Explorateur — utile si votre scanner enregistre directement dans ce dossier.
+- **Autres voies d'entrée.** Des documents arrivent aussi ici depuis le Moniteur d'e-mails et depuis les graphiques que vous envoyez à la saisie (par exemple un réseau de relations).
 - **Après la saisie.** Une fois un document enregistré dans un dossier, il disparaît de la boîte de réception.
 
 **Sélection des pages**
@@ -898,7 +898,7 @@ qui s'ouvre d'abord pour les documents de plusieurs pages, et la vue du texte qu
 - **Le texte est lu localement.** Un écran de progression montre chaque étape. IRONSTICK lit la couche de texte de chaque page conservée ; seules les pages sans texte exploitable (scans) passent par la reconnaissance de texte.
 - **Parties et dossier trouvés automatiquement.** Les personnes et institutions que vous avez déjà sont reconnues dans le texte et proposées comme parties concernées. Un numéro de dossier dans l'en-tête, un numéro de courrier connu ou une référence à l'un de vos e-mails envoyés suggère le dossier correspondant. Vos propres documents de traitement de texte sont reconnus grâce à leur tampon.
 - **Classification par l'IA avec votre consentement.** Avant que le moindre texte ne parte vers l'IA externe, votre accord est demandé une fois par démarrage du programme. L'IA propose ensuite le titre, la date, la description, les mots-clés, le type de document, le sens et plus encore. Si vous refusez, le formulaire reste vide pour ce document et vous le remplissez vous-même.
-- **Les faits établis priment.** Pour les documents issus du moniteur de courriels, le sens provient du dossier de messagerie (réception ou envoi) ; pour les importations de courrier judiciaire, l'accusé de réception fixe le dossier, la date et le sens. L'IA ne les remplace pas.
+- **Les faits établis priment.** Pour les documents issus du Moniteur d'e-mails, le sens provient du dossier de messagerie (réception ou envoi) ; pour les importations de courrier judiciaire, l'accusé de réception fixe le dossier, la date et le sens. L'IA ne les remplace pas.
 
 **Affecter le dossier & classification**
 
@@ -946,7 +946,7 @@ La recherche globale parcourt en une seule fois toutes les entrées de tous vos 
 contenus de documents ainsi que le texte intégral des documents, des échanges et des transcriptions. L'image montre les résultats pour le mot *contrat* ;
 une ligne de résultat est agrandie afin que ses éléments se distinguent facilement.
 
-1. **Champ de recherche.** Saisissez un ou plusieurs mots et appuyez sur Entrée ou cliquez sur *Rechercher*. Avec plusieurs mots, chaque mot doit figurer dans l'entrée. Les accents sont ignorés, et les petites erreurs de lecture dans un texte numérisé sont tolérées.
+1. **Champ de recherche.** Saisissez un ou plusieurs mots et appuyez sur Entrée ou cliquez sur *Rechercher*. Avec plusieurs mots, chaque mot doit figurer dans l'entrée. Les accents sont ignorés, et les erreurs mineures de reconnaissance de texte (OCR) dans un texte numérisé sont tolérées.
 2. **Date.** La date de l'entrée.
 3. **Sens.** *IN* (bleu) désigne un document entrant, *OUT* (rouge) un document sortant. Les entrées de preuve n'ont pas d'étiquette.
 4. **Expression exacte.** L'étoile verte apparaît après le titre lorsque vos mots ont été trouvés ensemble exactement dans cet ordre — en général les résultats les plus pertinents.
@@ -965,7 +965,7 @@ une ligne de résultat est agrandie afin que ses éléments se distinguent facil
 #### Résultats
 
 - **Pages.** 20 résultats par page ; s'il y a plus d'une page, la navigation entre les pages apparaît au-dessus et au-dessous de la liste.
-- **Ouvrir un résultat.** Cliquez sur une ligne : le dossier s'ouvre sur son onglet de chronique et l'entrée s'illumine pour que vous la voyiez immédiatement.
+- **Ouvrir un résultat.** Cliquez sur une ligne : le dossier s'ouvre sur son onglet Chronologie et l'entrée s'illumine pour que vous la voyiez immédiatement.
 - **Titre vide.** Une entrée sans titre est affichée sous la forme « Entrée # » suivie de son numéro.
 
 ## 10. Calendrier
@@ -979,7 +979,7 @@ Deux mois sont affichés côte à côte ; des numéros colorés et des points mo
 Sous les mois, vous voyez tout ce qui est prévu pour le jour sélectionné. L'image montre aussi la boîte de dialogue d'exportation qui s'ouvre lorsque vous exportez le calendrier sous forme de fichier .ics.
 
 1. **Sélectionner un jour.** Cliquez sur un jour quelconque pour afficher ses rendez-vous en dessous. Le jour sélectionné devient bleu ; aujourd'hui porte un cercle gris.
-2. **Panneau du jour.** Affiche la date sélectionnée, le nombre de rendez-vous et le bouton *Nouvelle entrée*. Dessous sont listés les rendez-vous de ce jour, suivis des audiences issues du portail judiciaire en ligne.
+2. **Panneau du jour.** Affiche la date sélectionnée, le nombre de rendez-vous et le bouton *Nouvelle entrée*. Dessous sont listés les rendez-vous de ce jour, suivis des audiences issues d'un portail judiciaire national.
 3. **Exporter en .ics.** Enregistre vos rendez-vous et audiences à partir d'aujourd'hui sous forme de fichier de calendrier que d'autres programmes de calendrier peuvent importer.
 
 ### Ce que vous pouvez faire ici
@@ -992,16 +992,16 @@ Sous les mois, vous voyez tout ce qui est prévu pour le jour sélectionné. L'i
 #### Les rendez-vous d'un jour
 
 - **Liste du jour.** Chaque rendez-vous indique son heure, son titre, son lieu, le début de la description, le dossier et le client, ainsi qu'une étiquette de type colorée. Si un jour comporte de nombreuses entrées, la liste est répartie en pages avec des boutons de page au-dessus et au-dessous.
-- **Ouvrir les détails.** Cliquez sur un rendez-vous pour voir la date, l'heure, le type, le lieu, la description complète et le dossier. Sous *Documents préparés*, vous trouvez les entrées de chronique que vous avez jointes au rendez-vous : le numéro violet ouvre la chronique du dossier avec cette entrée en surbrillance, le trombone ouvre le document lui-même.
+- **Ouvrir les détails.** Cliquez sur un rendez-vous pour voir la date, l'heure, le type, le lieu, la description complète et le dossier. Sous *Documents préparés*, vous trouvez les entrées de chronique que vous avez jointes au rendez-vous : le numéro violet ouvre la Chronologie du dossier avec cette entrée en surbrillance, le trombone ouvre le document lui-même.
 - **Rendez-vous en PDF.** Le bouton d'impression de la fenêtre de détails crée un PDF avec une page de garde pour le rendez-vous suivie de tous les documents préparés, avec une numérotation continue des pages.
 - **Modifier ou supprimer.** Le crayon ouvre le rendez-vous pour modification ; la corbeille rouge le supprime après confirmation.
 - **Tâches.** Un clic sur une entrée de type *Tâche* (par exemple une écriture notée plus tôt) ouvre le chat avec l'IA pour ce dossier, avec une demande de rédiger l'écriture.
 - **Jour vide.** Si rien n'est prévu, le panneau l'indique et vous pouvez créer une entrée tout de suite.
 
-#### Audiences issues du portail judiciaire
+#### Audiences issues d'un portail judiciaire national
 
 - **Section des audiences.** Lorsque les fonctions du portail judiciaire de votre pays sont activées, les audiences qu'IRONSTICK a relevées pour vos dossiers apparaissent dans leur propre section orange sous les rendez-vous.
-- **Ouvrir le dossier ou le dossier du portail.** Le numéro de dossier souligné et le lien *Dossier* ouvrent la chronique du dossier. Un clic ailleurs sur la ligne ouvre le dossier du portail avec l'objet, les parties, les recours et l'historique de toutes les audiences ; de là, *Ouvrir le dossier* vous mène au dossier. Une audience pour un numéro de dossier qui n'est pas encore lié à un dossier est marquée *nouveau/non enregistré*.
+- **Ouvrir le dossier ou le dossier du portail.** Le numéro de dossier souligné et le lien *Dossier* ouvrent la Chronologie du dossier. Un clic ailleurs sur la ligne ouvre le dossier du portail avec l'objet, les parties, les recours et l'historique de toutes les audiences ; de là, *Ouvrir le dossier* vous mène au dossier. Une audience pour un numéro de dossier qui n'est pas encore lié à un dossier est marquée *nouveau/non enregistré*.
 
 #### Nouvelle entrée et modification
 
@@ -1023,11 +1023,11 @@ Sous les mois, vous voyez tout ce qui est prévu pour le jour sélectionné. L'i
 
 Tous les délais ouverts, audiences et rappels de l'IA datés dans une seule liste.
 
-La liste des délais rassemble tout ce qui est à échéance, par ordre de date : les délais issus des chroniques de vos dossiers, les prochaines audiences (du portail judiciaire et de votre calendrier) et les rappels que l'IA a notés avec une date d'échéance.
+La liste des délais rassemble tout ce qui est à échéance, par ordre de date : les délais issus des chroniques de vos dossiers, les prochaines audiences (d'un portail judiciaire national et de votre calendrier) et les rappels que l'IA a notés avec une date d'échéance.
 La cloche de la barre supérieure ouvre toujours cet écran. L'image montre la liste et la boîte de dialogue d'exportation du PDF d'aperçu des délais.
 
 1. **Numéros de référence.** Le numéro *#0000000* d'un document et le numéro *@mem0000* d'un rappel de l'IA sont copiés dans le presse-papiers d'un clic — par exemple pour les coller dans le chat.
-2. **Retirer des délais — à deux endroits, volontairement.** L'endroit où vous retirez un délai dépend de son origine. Les délais issus de l'application (documents et entrées de chronique) se cochent avec leur case et sont retirés ensemble. Les rappels que l'IA a enregistrés dans sa mémoire (symbole du cerveau) se retirent avec *Supprimer la date* : seule la date d'échéance est supprimée, de sorte que le rappel quitte la liste.
+2. **Retirer des délais.** Les délais et les rappels de l'IA se retirent à des endroits différents, car ils ont des origines différentes. Les délais issus de l'application (documents et entrées de chronique) se cochent avec leur case et sont retirés ensemble. Les rappels que l'IA a enregistrés dans sa mémoire (symbole du cerveau) se retirent avec *Supprimer la date* : seule la date d'échéance est supprimée, de sorte que le rappel quitte la liste.
 
 ### Ce que vous pouvez faire ici
 
@@ -1041,7 +1041,7 @@ La cloche de la barre supérieure ouvre toujours cet écran. L'image montre la l
 
 #### Travailler avec les entrées
 
-- **Ouvrir le dossier.** Cliquez sur une ligne pour ouvrir la chronique du dossier sur la bonne page, avec l'entrée surlignée en jaune. Les audiences sans dossier lié n'ont pas de destination.
+- **Ouvrir le dossier.** Cliquez sur une ligne pour ouvrir la Chronologie du dossier sur la bonne page, avec l'entrée surlignée en jaune. Les audiences sans dossier lié n'ont pas de destination.
 - **Ouvrir le document.** Le trombone ouvre le document qui correspond au délai.
 - **Copier le numéro d'entrée.** Cliquez sur le numéro violet sous la date (ou sur la référence d'un rappel de l'IA) pour le copier ; une brève confirmation apparaît à sa place. Collez-le dans le chat avec l'IA au lieu de décrire l'entrée.
 - **Retirer des délais.** Après avoir coché des délais, une barre indique combien sont sélectionnés. Son bouton rouge de retrait demande confirmation, puis les retire de la liste et du décompte de la cloche. Les entrées de chronique elles-mêmes restent dans le dossier.
@@ -1055,7 +1055,7 @@ La cloche de la barre supérieure ouvre toujours cet écran. L'image montre la l
 Le journal quotidien, une nouvelle entrée en cours de collage et un jour ouvert.
 
 Le journal quotidien est votre journal de travail pour tous les dossiers : une entrée par jour avec ce qui a été fait, envoyé, décidé ou préparé.
-Les entrées proviennent de textes que vous collez ou déposez, ou sont rédigées par l'IA via le connecteur IRONSTICK à la fin d'une session de travail.
+Les entrées proviennent de textes que vous collez ou déposez, ou sont rédigées, à votre demande, par une IA de bureau connectée via le bridge IRONSTICK à la fin d'une session de travail.
 L'image montre la liste, la fenêtre d'une nouvelle entrée et un jour ouvert avec la chronologie des dossiers de ce jour.
 
 ### Ce que vous pouvez faire ici
@@ -1069,7 +1069,7 @@ L'image montre la liste, la fenêtre d'une nouvelle entrée et un jour ouvert av
 #### Ouvrir un jour
 
 - **Vue d'ensemble.** La fenêtre montre la date et les dossiers de ce jour sous forme de pastilles.
-- **Événements.** Chaque événement indique sa date, son texte et des liens vers des numéros de dossier ou des entrées ; un lien bleu ouvre la chronique du dossier avec l'entrée en surbrillance.
+- **Événements.** Chaque événement indique sa date, son texte et des liens vers des numéros de dossier ou des entrées ; un lien bleu ouvre la Chronologie du dossier avec l'entrée en surbrillance.
 - **Vers la chronique.** Lorsqu'il est proposé, le bouton bleu de chronique d'un événement vous permet de choisir un dossier, puis ouvre une nouvelle entrée de chronique pour ce dossier, de sorte que l'événement devienne partie du dossier.
 - **Chronologie des dossiers pour ce jour.** Énumère les entrées de chronique de tous les dossiers de ce jour avec l'heure, le titre et le numéro de dossier ; cliquez sur l'une d'elles pour l'ouvrir dans son dossier.
 - **Texte intégral.** *Afficher le texte intégral* déplie le texte complet du jour, que vous pouvez sélectionner et copier.
@@ -1137,13 +1137,13 @@ La barre d'état en bas compte les mots, les caractères et les pages. L'image m
 **Révision par l'IA**
 
 - **Activer l'IA.** L'interrupteur *IA désactivée / IA activée* affiche des barres colorées à côté de la page : bleu foncé pour les thèmes que l'IA reconnaît dans le document, bleu moyen pour chaque paragraphe et bleu clair pour chaque phrase. Survoler une barre met en surbrillance le texte correspondant.
-- **Réviser un passage.** Cliquez sur une barre, décrivez dans la zone ce qui doit changer et appuyez sur Entrée ou sur *Réviser*. L'IA réécrit exactement ce thème, ce paragraphe ou cette phrase et met le nouveau texte à sa place. Les noms, numéros d'identification et numéros de dossier sont remplacés par des espaces réservés neutres avant l'envoi du texte à l'IA externe.
+- **Réviser un passage.** Cliquez sur une barre, décrivez dans la zone ce qui doit changer et appuyez sur Entrée ou sur *Réviser*. L'IA réécrit exactement ce thème, ce paragraphe ou cette phrase et met le nouveau texte à sa place. Les noms, numéros de dossier et autres identifiants issus de vos données sont remplacés par des espaces réservés neutres avant l'envoi du texte à l'IA externe.
 
 **Liste des annexes**
 
 - **Ajouter par numéro de preuve.** Saisissez le numéro d'une entrée de chronique (par exemple 357 ou 0000357) et appuyez sur Entrée ou sur *Ajouter*. Le PDF de l'entrée est joint ; pour les photos, enregistrements, transcriptions ou entrées sans PDF, IRONSTICK crée un PDF pour l'annexe.
 - **Ajouter manuellement.** Dans l'onglet *Manuel*, saisissez un titre et une note facultative pour une annexe qui ne se trouve pas dans IRONSTICK, par exemple un document papier que vous remettrez vous-même.
-- **Ordre et retrait.** Chaque annexe indique son numéro, un badge DB ou MAN, le titre et un lien vers son PDF. Faites glisser une annexe par sa poignée pour changer l'ordre ; la croix la retire.
+- **Ordre et retrait.** Chaque annexe indique son numéro, un badge (*DB* pour une entrée d'IRONSTICK, *MAN* pour une annexe manuelle), le titre et un lien vers son PDF. Faites glisser une annexe par sa poignée pour changer l'ordre ; la croix la retire.
 - **Insérer dans le texte.** Écrit la liste numérotée des annexes à la fin de votre document, ou remplace la liste déjà présente. Chaque ligne indique le titre de l'annexe, la référence du tampon IRONSTICK du document s'il en a un, et sa plage de pages, qui est renseignée automatiquement dans l'aperçu avant impression.
 - **Annexes reprises du texte.** Si la liste est vide mais que votre document comporte déjà une section d'annexes avec des numéros d'entrée, IRONSTICK propose de reprendre ces entrées comme annexes en une seule étape.
 
@@ -1179,7 +1179,7 @@ L'image montre une page d'annexe agrandie (clic gauche), une page exclue (clic d
 
 1. **Votre document.** Les pages du courrier ou de l'écriture. Cliquez sur l'une d'elles pour y placer votre signature.
 2. **Ligne de titre de l'annexe.** Chaque annexe commence par une ligne indiquant son numéro d'entrée, son numéro d'annexe et son titre.
-3. **Tampon de certification.** L'interrupteur au début de la ligne (ici *Conform cu originalul*) active ou désactive le tampon « copie conforme » pour cette annexe. Gris signifie désactivé, noir signifie activé.
+3. **Tampon de certification.** L'interrupteur au début de la ligne active ou désactive le tampon de copie certifiée conforme pour cette annexe ; le texte du tampon suit la langue du pays du dossier. Gris signifie désactivé, noir signifie activé.
 4. **DOCX.** Exporte votre document (sans les annexes) sous forme de fichier Word.
 5. **Télécharger le PDF.** Construit le PDF final à partir de toutes les pages actives et ouvre la boîte de dialogue d'exportation.
 
@@ -1206,13 +1206,13 @@ L'image montre une page d'annexe agrandie (clic gauche), une page exclue (clic d
 - **Boîte de dialogue d'exportation.** *Télécharger* enregistre le PDF dans votre dossier Documents ; *Google Drive* apparaît lorsqu'un dossier Google Drive existe sur cet ordinateur. *Préparer l'envoi* enregistre le document, prépare le PDF pour l'envoi et ouvre l'écran d'expédition des e-mails avec le PDF en pièce jointe.
 - **Annuler.** Ferme l'aperçu avant impression et revient à l'éditeur.
 
-## 14. Moniteur de courriels
+## 14. Moniteur d'e-mails
 
-![Moniteur de courriels avec la liste de la boîte de réception et un e-mail ouvert avec ses pièces jointes](https://www.ironstick.legal/img/screens/14%20email%20monitor.png)
+![Moniteur d'e-mails avec la liste de la boîte de réception et un e-mail ouvert avec ses pièces jointes](https://www.ironstick.legal/img/screens/14%20email%20monitor.png)
 
 La boîte de réception avec priorité et affectation au dossier, et un e-mail ouvert avec ses pièces jointes.
 
-Le moniteur de courriels intègre dans IRONSTICK la boîte aux lettres que vous avez configurée.
+Le Moniteur d'e-mails intègre dans IRONSTICK la boîte aux lettres que vous avez configurée.
 Les nouveaux e-mails sont récupérés automatiquement en arrière-plan, évalués selon leur priorité et, dans la mesure du possible, affectés au bon dossier.
 L'image montre la liste de la boîte de réception à gauche et un e-mail ouvert à droite, avec ses pièces jointes et le bouton qui transforme l'e-mail en document de dossier.
 
@@ -1223,7 +1223,6 @@ L'image montre la liste de la boîte de réception à gauche et un e-mail ouvert
 	1. **Sans IA, directement à partir du texte :** le numéro de dossier judiciaire de l'un de vos dossiers (*par numéro de dossier*), un numéro d'enregistrement ou de courrier connu par l'un de vos documents (*par numéro de courrier*), un numéro de client (*par numéro de client*), ou une référence à quelque chose que vous avez envoyé (*réponse à notre envoi*).
 	2. **Sinon, l'IA** n'évalue que la priorité et rédige une justification d'une phrase — elle n'affecte aucun dossier.
 	3. **Ensuite, le repli :** l'expéditeur est une institution ou une personne liée à un dossier (*par institution*, *par personne*) ou un expéditeur connu (*expéditeur connu*).
-Les e-mails plus anciens peuvent afficher *par l'IA* ou *par correspondance de texte*, issus de la reconnaissance antérieure.
 5. **Pièces jointes.** L'e-mail ouvert énumère ses pièces jointes avec leur nom et leur taille. Cliquez sur une pièce jointe pour l'afficher : les PDF et les images s'ouvrent dans la fenêtre de navigateur d'IRONSTICK, les autres types de fichiers dans le programme que votre ordinateur utilise pour eux.
 6. **Ajouter comme document.** Transforme l'e-mail, pièces jointes comprises, en un seul PDF et ouvre la saisie de documents, où vous le classez dans un dossier.
 
@@ -1249,7 +1248,7 @@ Les e-mails plus anciens peuvent afficher *par l'IA* ou *par correspondance de t
 
 - **Ouvrir.** Cliquez sur une ligne pour ouvrir l'e-mail dans une fenêtre. Elle montre l'expéditeur, le destinataire, les destinataires en copie, la date, la liste des pièces jointes et le texte complet. L'ouverture marque l'e-mail comme lu.
 - **Rapide après la première fois.** Le texte est téléchargé la première fois que vous ouvrez un e-mail et conservé, de sorte qu'ensuite il s'ouvre instantanément sans contacter le serveur de messagerie.
-- **Confidentialité.** Les images qui seraient chargées depuis Internet ne sont jamais chargées, de sorte que l'expéditeur ne peut pas voir quand vous avez ouvert l'e-mail. Un petit avis au-dessus du texte vous indique lorsque des images ont été bloquées.
+- **Confidentialité.** Les images distantes sont bloquées, de sorte que les images espionnes ne peuvent pas signaler quand vous avez ouvert l'e-mail. Un petit avis au-dessus du texte vous indique lorsque des images ont été bloquées.
 - **Si le serveur de messagerie est injoignable.** La fenêtre affiche à la place le texte d'aperçu enregistré, avec un bref avis.
 - **Saisir de nouveau.** Pour un e-mail déjà saisi, le bouton devient rouge et indique *Ajouter de nouveau comme document*, afin que vous ne classiez pas le même e-mail deux fois par mégarde.
 - **Depuis le chat.** Lorsque le chat renvoie vers un e-mail, le moniteur s'ouvre avec cet e-mail déjà affiché, dans le bon dossier de messagerie.
@@ -1258,15 +1257,15 @@ Les e-mails plus anciens peuvent afficher *par l'IA* ou *par correspondance de t
 
 - **Un seul PDF.** Lorsque vous saisissez un e-mail, les pièces jointes PDF sont ajoutées page par page, les images deviennent leurs propres pages, et les pièces jointes Word, OpenDocument et Markdown sont ajoutées sous forme de texte. Un fichier qui ne peut pas être converti reçoit une page de remplacement et est aussi enregistré séparément à côté du PDF.
 
-## 15. Suivi du temps
+## 15. Saisie du temps
 
-![Suivi du temps avec vue d'ensemble, temps par dossier, temps par client et aperçu journalier](https://www.ironstick.legal/img/screens/15%20time%20tracking.png)
+![Saisie du temps avec vue d'ensemble, temps par dossier, temps par client et aperçu journalier](https://www.ironstick.legal/img/screens/15%20time%20tracking.png)
 
 Temps de travail enregistré automatiquement, par dossier, par client et par jour.
 
-Le suivi du temps enregistre votre temps de travail sans aucun chronomètre : IRONSTICK note les écrans que vous ouvrez et pour quel client et quel dossier.
+Le saisie du temps fonctionne automatiquement : IRONSTICK enregistre les écrans que vous ouvrez et pour quel client et quel dossier.
 Il en calcule la durée de votre travail et affiche les totaux par dossier, par client et par jour.
-L'image montre la vue d'aujourd'hui ; lorsqu'un serveur de cabinet est connecté, les totaux journaliers par dossier lui sont également transmis.
+L'image montre la vue d'aujourd'hui ; lorsque IRONSTICK SERVER est connecté, les totaux journaliers par dossier sont également transmis au serveur.
 
 ### Ce que vous pouvez faire ici
 
@@ -1287,8 +1286,8 @@ L'image montre la vue d'aujourd'hui ; lorsqu'un serveur de cabinet est connecté
 #### Comment le temps est compté
 
 - **Automatique.** Chaque écran que vous ouvrez compte jusqu'à l'ouverture du suivant. Un intervalle de plus de 30 minutes compte pour 30 minutes au maximum, de sorte qu'une pause ne gonfle pas les chiffres. Le dernier écran de la journée compte une minute.
-- **Pas encore de données.** Juste après le premier démarrage, l'écran vous indique que le suivi du temps vient d'être activé et qu'il n'existe pas encore de données.
-- **Serveur de cabinet.** Lorsqu'un serveur de cabinet est connecté, IRONSTICK lui transmet votre temps journalier par dossier toutes les cinq minutes, de sorte que le cabinet dispose d'une vue d'ensemble complète. Le temps qui n'est pas lié à un dossier n'est pas transmis.
+- **Pas encore de données.** Juste après le premier démarrage, l'écran vous indique que le saisie du temps vient d'être activé et qu'il n'existe pas encore de données.
+- **IRONSTICK SERVER.** Lorsque le serveur est connecté, IRONSTICK lui transmet votre temps journalier par dossier toutes les cinq minutes. Le temps qui n'est pas lié à un dossier n'est pas transmis.
 
 ## 16. Lois
 
@@ -1317,13 +1316,13 @@ L'IA utilise d'abord cette bibliothèque chaque fois qu'elle a besoin d'une disp
 - **Chaque entrée.** Titre, date d'ajout, domaine juridique et courte description, le lien source, ainsi que des étiquettes pour le pays et le type d'acte (loi, ordonnance, décision …). Cliquez sur le lien source pour ouvrir la page d'origine dans la fenêtre de navigateur d'IRONSTICK. Les lois que vous avez téléversées sous forme de fichier affichent le nom du fichier au lieu d'un lien.
 - **Entrées rouges en haut.** Une loi affichée en rouge n'a pas pu être chargée, ou n'a pas été revérifiée depuis plus d'un mois. Cliquez sur une entrée en échec pour essayer de la recharger.
 - **Entrées grisées.** Une loi dont la source ne peut plus être vérifiée est grisée et porte l'étiquette *non vérifiable*. Cliquez sur cette étiquette pour ouvrir la source dans la fenêtre de navigateur d'IRONSTICK et la vérifier vous-même ; le texte ouvert affiche alors un avis rouge en haut.
-- **Acceptation en attente.** Une loi nouvellement préparée attend votre confirmation dans le moniteur de données. Cliquez sur l'étiquette pour y aller. Seules les lois acceptées sont partagées avec le serveur de cabinet.
-- **Supprimer.** L'icône de corbeille retire l'une de vos propres lois après confirmation. Si un serveur de cabinet est connecté, la loi y est également retirée.
+- **Acceptation en attente.** Une loi nouvellement préparée attend votre confirmation dans le moniteur de données. Cliquez sur l'étiquette pour y aller. Seules les lois acceptées sont partagées via IRONSTICK SERVER.
+- **Supprimer.** L'icône de corbeille retire l'une de vos propres lois après confirmation. Si IRONSTICK SERVER est connecté, la loi y est également retirée.
 - **Pages.** Au-delà de 20 lois, la navigation entre les pages apparaît au-dessus et au-dessous de la liste.
 
 #### Filtres
 
-- **Toutes, Les miens, Des autres.** *Les miens* montre les lois que vous avez ajoutées ; *Des autres* montre les lois que d'autres utilisateurs ont ajoutées sur le serveur de cabinet. Celles-ci portent sous le titre l'identifiant et le nom de leur propriétaire et ne peuvent pas être supprimées par vous.
+- **Toutes, Les miens, Des autres.** *Les miens* montre les lois que vous avez ajoutées ; *Des autres* montre les lois que d'autres utilisateurs ont ajoutées via IRONSTICK SERVER. Celles-ci portent sous le titre l'identifiant et le nom de leur propriétaire et ne peuvent pas être supprimées par vous.
 - **Expirées.** Montre uniquement les lois dont la source ne peut plus être vérifiée.
 - **Pays.** La liste déroulante à côté des filtres limite la liste à un seul pays.
 
@@ -1336,11 +1335,11 @@ L'IA utilise d'abord cette bibliothèque chaque fois qu'elle a besoin d'une disp
 
 ![Dossiers du serveur avec la carte Mes dossiers partagés et ses abonnés](https://www.ironstick.legal/img/screens/17%20server%20cases.png)
 
-Dossiers que vous partagez sur le serveur de cabinet, avec leurs abonnés.
+Dossiers que vous partagez via IRONSTICK SERVER, avec leurs abonnés.
 
-Dossiers du serveur est l'endroit où vous travaillez avec des dossiers partagés entre utilisateurs du serveur de cabinet.
+Dossiers du serveur est l'endroit où vous travaillez avec des dossiers partagés entre utilisateurs d'IRONSTICK SERVER — le serveur de cabinet.
 Vous voyez lesquels de vos propres dossiers vous avez partagés et qui les suit, et vous pouvez vous abonner à des dossiers que d'autres utilisateurs partagent.
-Cet écran, ainsi que sa tuile dans le menu principal, n'apparaît que lorsqu'un serveur de cabinet est connecté. L'image montre un dossier partagé avec deux abonnés.
+Cet écran, ainsi que sa tuile dans le menu principal, n'apparaît que lorsque le serveur est connecté. L'image montre un dossier partagé avec deux abonnés.
 
 ### Ce que vous pouvez faire ici
 
@@ -1352,7 +1351,7 @@ Cet écran, ainsi que sa tuile dans le menu principal, n'apparaît que lorsqu'un
 #### Mes dossiers partagés
 
 - **Vos dossiers partagés.** Énumère chaque dossier que vous avez partagé depuis l'écran du dossier, avec numéro de dossier et client. Cliquez sur le dossier pour l'ouvrir.
-- **Retirer le partage.** Met fin au partage de ce dossier sur le serveur de cabinet.
+- **Retirer le partage.** Met fin au partage de ce dossier sur le serveur.
 - **Abonnés.** Les utilisateurs qui suivent le dossier sont listés en dessous. Un utilisateur qui a demandé à suivre est marqué *Demandé* ; cliquez sur *Accepter* pour l'admettre. *Retirer* met fin à un abonnement actif ou rejette une demande. Si personne ne suit encore le dossier, la carte l'indique.
 
 #### Dossiers partagés par d'autres
@@ -1361,7 +1360,7 @@ Cet écran, ainsi que sa tuile dans le menu principal, n'apparaît que lorsqu'un
 - **Demander l'abonnement.** Pour un dossier partagé avec tout le monde, vous demandez au propriétaire de vous laisser le suivre. L'étiquette *Demandé* apparaît jusqu'à ce que le propriétaire accepte.
 - **S'abonner.** Pour un dossier partagé avec vous personnellement, l'abonnement est actif immédiatement ; l'étiquette devient *Abonné*.
 - **Se désabonner.** Met fin à votre abonnement ou retire votre demande.
-- **Serveur injoignable.** Si la connexion au serveur de cabinet est perdue, la carte indique qu'aucun serveur n'est connecté.
+- **Serveur injoignable.** Si la connexion au serveur est perdue, la carte indique qu'aucun serveur n'est connecté.
 
 ## 18. Sauvegarde
 
@@ -1378,11 +1377,11 @@ La base de données et les fichiers de dossier stockés conservent leur chiffrem
 #### Sauvegarder
 
 - **Créer une sauvegarde des données.** Enregistre votre base de données, vos documents et fichiers, ainsi que votre configuration et votre licence dans un seul fichier ZIP. Les modèles de langage de l'IA locale et de la sortie vocale sont exclus, car ils peuvent être téléchargés de nouveau.
-- **Progression.** Une fenêtre indique l'avancement de la sauvegarde (fichier X sur Y) et quel fichier est en cours d'empaquetage. Même de très grands volumes de données ne ralentissent pas le programme pendant la sauvegarde.
+- **Progression.** Une fenêtre indique l'avancement de la sauvegarde (fichier X sur Y) et quel fichier est en cours d'empaquetage. La sauvegarde s'exécute dans un processus d'arrière-plan distinct, de sorte que vous pouvez continuer à travailler.
 - **Choisir où enregistrer.** Lorsque le ZIP est prêt, une boîte de dialogue d'enregistrement demande l'emplacement et le nom du fichier. Si vous annulez, aucun fichier n'est conservé. Une fois l'enregistrement terminé, un message indique le nom du fichier, sa taille et le nombre de fichiers.
 - **Sauvegardes récentes.** Les cinq dernières sauvegardes sont listées avec la date et l'heure, le nom du fichier et la taille, de sorte que vous voyez d'un coup d'œil quand vous avez sauvegardé pour la dernière fois.
 - **Depuis le chat.** Si vous demandez au chat de faire une sauvegarde, cet écran s'ouvre et lance aussitôt la sauvegarde des données.
-- **Serveur de cabinet.** Lorsqu'un serveur de cabinet est connecté, chaque sauvegarde et chaque restauration lui est signalée : **qui** l'a faite, **quand**, depuis quelle adresse IP, le type, le nom du fichier et la taille — jamais les données de la sauvegarde elles-mêmes. L'administrateur le voit sur une page du serveur de cabinet, avec la date de dernière sauvegarde de chaque utilisateur (affichée en rouge au-delà de cinq jours), et peut rappeler aux utilisateurs leur devoir de sauvegarde.
+- **IRONSTICK SERVER.** Lorsque le serveur est connecté, chaque sauvegarde et chaque restauration lui est signalée : **qui** l'a faite, **quand**, depuis quelle adresse IP, le type, le nom du fichier et la taille — jamais les données de la sauvegarde elles-mêmes. L'administrateur le voit sur une page du serveur, avec la date de dernière sauvegarde de chaque utilisateur (affichée en rouge au-delà de cinq jours), et peut rappeler aux utilisateurs de faire leur sauvegarde.
 
 #### Restaurer
 
