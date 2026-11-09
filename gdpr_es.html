@@ -75,8 +75,8 @@ OpenStreetMap Nominatim (solo la dirección, sin nombres); tras el inicio y cada
 www.ironstick.legal; no se envía ningún dato de expedientes ni personal al fabricante del software
 (secciones 1 y 7).</li>
 <li><b><span class="irs">IRONSTICK</span> SERVER.</b> Opcional, en el NAS propio del despacho dentro de su red local, sin conexiones
-a internet; los puestos de trabajo acceden a él mediante HTTP sin cifrar con autenticación por token, y los datos del servidor no están
-cifrados en reposo por <span class="irs">IRONSTICK</span>. El tiempo de trabajo por expediente
+a internet. Los documentos llegan al servidor y residen en él solo como archivos cifrados con AES-256;
+el servidor nunca ve su texto en claro. El tiempo de trabajo por expediente
 y los eventos de copia de seguridad de cada puesto de trabajo son visibles para el administrador del despacho
 (sección 9).</li>
 </ul></div>
@@ -760,11 +760,9 @@ del despacho. Solo acepta conexiones desde direcciones de red privadas (locales)
 y <b>nunca inicia ninguna conexión con internet</b> — sin telemetría, sin
 comprobaciones de actualizaciones, sin contacto con el fabricante. El fabricante del software no tiene acceso de ningún
 tipo.</li>
-<li><b>Transporte y almacenamiento.</b> Los puestos de trabajo acceden al servidor dentro de la
-red local mediante HTTP sin cifrar con autenticación por token; la conexión no está cifrada en el transporte. Los datos del servidor
-no están cifrados en reposo por <span class="irs">IRONSTICK</span>: residen en el NAS propio del despacho dentro de la
-red del despacho, y el despacho los protege como cualquier servidor de archivos de oficina (cifrado del volumen del NAS,
-control de acceso, política de copias de seguridad).</li>
+<li><b>Transporte y almacenamiento.</b> Los documentos llegan al servidor y residen en él solo como archivos cifrados con AES-256, en el
+mismo formato de caja fuerte que en el puesto de trabajo; el servidor nunca ve su texto en claro.
+El servidor funciona en el NAS propio del despacho dentro de la red del despacho, sin conexiones a internet.</li>
 <li><b>Sin intervención de IA.</b> El servidor no transporta tráfico de IA, no almacena ninguna clave
 de IA y nunca se comunica con ningún proveedor de modelos de lenguaje. Todos los canales de IA
 descritos en las secciones 1–6 permanecen estrictamente vinculados a cada puesto de trabajo; la

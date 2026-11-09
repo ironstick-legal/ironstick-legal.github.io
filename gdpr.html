@@ -75,9 +75,9 @@ OpenStreetMap Nominatim (address only, no names); a news file is downloaded from
 www.ironstick.legal after start-up and every six hours; no case or personal data
 is sent to the software vendor (sections 1 and 7).</li>
 <li><b><span class="irs">IRONSTICK</span> SERVER.</b> Optional, on the firm's
-own NAS inside its local network, without internet connections; workstations
-reach it over plain HTTP with token authentication, and the server data is not
-encrypted at rest by <span class="irs">IRONSTICK</span>. Working time per case
+own NAS inside its local network, without internet connections. Documents travel
+to the server and rest there only as AES-256-encrypted files; the server never
+sees their plain text. Working time per case
 and backup events of each workstation are visible to the firm's administrator
 (section 9).</li>
 </ul></div>
@@ -771,12 +771,10 @@ device. It accepts connections only from private (local) network addresses
 and <b>never initiates any connection to the internet</b> — no telemetry, no
 update checks, no vendor contact. The software vendor has no access of any
 kind.</li>
-<li><b>Transport and storage.</b> Workstations reach the server inside the
-local network over plain HTTP with token authentication; the connection is not
-transport-encrypted. The server data is not encrypted at rest by
-<span class="irs">IRONSTICK</span>: it lies on the firm's own NAS inside the
-firm's network, and the firm protects it like any office file server (NAS volume
-encryption, access control, backup policy).</li>
+<li><b>Transport and storage.</b> Documents travel to the server and rest there
+only as AES-256-encrypted files in the same vault format as on the workstation;
+the server never sees their plain text. The server runs on the firm's own NAS
+inside the firm's network, without internet connections.</li>
 <li><b>No AI involvement.</b> The server carries no AI traffic, stores no AI
 key and never communicates with any language-model provider. All AI channels
 described in sections 1–6 remain strictly per-workstation; the
