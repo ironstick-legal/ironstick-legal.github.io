@@ -4,6 +4,30 @@
 
 IRONSTICK is legal case-management software for Windows and Android that runs locally on the lawyer's computer. Every page of www.ironstick.legal is available below as Markdown; the HTML page named in each file is the original.
 
+## Key facts (each stated on the linked pages)
+
+### Built per jurisdiction, not translated
+- Every case carries its own jurisdiction: the country is chosen first, then the areas of law and procedural stages from that country's own list ([manual](https://www.ironstick.legal/manualironstick.md)).
+- Institutions are classified by country, institution type and region; documents by country, language, area of law, document type, stage and institution type ([manual](https://www.ironstick.legal/manualironstick.md)).
+- Pleadings, court e-mails and chronicle entries are written in the official language of the case's jurisdiction; certification stamps and read-aloud use the language of the case's country. Without a jurisdiction set, the document format is refused ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- The legal library stores statute texts tagged with jurisdiction, source link and review date; the jurisdiction is a mandatory search input, so legal orders are never mixed, and the AI cites the stored verified wording, not its training memory ([compendium](https://www.ironstick.legal/kompendium.md)).
+- Web access for statutes is refused until the internal legal library has been consulted ([bridge](https://www.ironstick.legal/bridge.md)).
+- Country functions connect national court portals (court, section, subject, parties, legal remedies and all hearings), currently for Romania ([manual](https://www.ironstick.legal/manualironstick.md)).
+
+### Data protection by construction
+- The database lies AES-256 encrypted on the user's own medium; the software vendor never sees client data. Together with the encrypted document store and configuration, no case data lies unencrypted on disk ([compendium](https://www.ironstick.legal/kompendium.md), [bridge](https://www.ironstick.legal/bridge.md)).
+- Access requires a six-digit code from an authenticator app (two-factor) ([quick start](https://www.ironstick.legal/manualquickstart.md)); the licence is checked offline, and everything captured can be exported at any time ([home](https://www.ironstick.legal/index.md)).
+- Evidence records flagged as secret are excluded from every reading, searching, dumping and stamping function of the bridge without exception ([bridge](https://www.ironstick.legal/bridge.md)).
+- E-mail-to-case assignment runs locally and without AI; in-app AI runs can carry a pseudonymizer that tokenizes outgoing text and de-tokenizes the answer locally. Every external data flow is listed in the GDPR declaration ([GDPR](https://www.ironstick.legal/gdpr.md)).
+- The only thing the AI can do in IRONSTICK without the user's consent is read; writing needs the user's approval in IRONSTICK or in the data monitor ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
+
+### Verifiable reliability
+- Seventeen deterministic gates (pure logic, no AI checking AI) guard the AI: a case is prepared before work, statutes come from the legal library first, and delivery of a formal document is blocked without a fresh verification of the exact file state ([bridge](https://www.ironstick.legal/bridge.md)).
+- Before handover, a deterministic checker compares the draft with the live file: every evidence reference, every party, every legal citation ([home](https://www.ironstick.legal/index.md)).
+
+### Usability, documented screen by screen
+- The quick start leads from installation to the first clients in six steps; the user manual explains every screen with a screenshot; the bridge manual gives eight workflows as plain-language prompts. All in eight languages, with a free one-month trial of the client app ([download](https://www.ironstick.legal/download.md)).
+
 ## English
 
 - [The Case File That Works With You](https://www.ironstick.legal/index.md): Complete offline-first legal case-management for Windows & Android with a built-in AI that knows your files: clients, cases, evidence, deadlines, e-mail, documents.
