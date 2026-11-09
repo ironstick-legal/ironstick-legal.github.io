@@ -9,6 +9,7 @@ Original page: https://www.ironstick.legal/
 The case-management system with built-in file intelligence.
 Deadlines, evidence, pleadings and e-mail in one place, local on your computer.
 For lawyers who want their evenings back.
+**In daily production use — hundreds of pleadings drafted so far.**
 
 ## Hours become minutes. You review instead of searching.
 

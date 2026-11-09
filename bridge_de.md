@@ -95,10 +95,7 @@ Vorbereitungsstand, Parteienprüfungen und Auslieferungs-Verfolgung werden
 Im Aufklappmenü am Claude-Symbol erscheint jeder Chat unter dem Namen, den Sie
 ihm in Claude Desktop gegeben haben. Dazu liest IRONSTICK aus Claudes lokalem
 Sitzungsprotokoll nur die strukturierten Werkzeug-Ereignisse (Werkzeugname und
-Argumente), nie den Gesprächstext. Ein Aufruf, der sich nicht zuordnen lässt,
-weil zwei Chats im selben Moment rufen, wird durchgelassen, solange irgendein
-Chat dieses Claude eine gültige Bestätigung hält, und nicht als Regelverstoß
-verbucht.
+Argumente), nie den Gesprächstext.
 - **Kontext-Verdichtung wird erkannt.** Verdichtet Claude ein langes
 Gespräch, stehen die früher gelesenen Instruktionen nicht mehr sicher in seinem
 Kontext. IRONSTICK sperrt diesen Chat sofort und ohne Strafe, bis er die
@@ -289,7 +286,7 @@ Tor, das ein Werkzeug sichert.
 | **14. Analyse-Lese-Tor** | Ungeprüfte „Fakten“, die in die Beschreibung oder die Kontaktfelder einer Person eingetragen werden. | Ein Vorschlag, der die Freitextfelder einer Person berührt, wird verweigert, solange die KI das Profil dieser Person nicht innerhalb der letzten 30 Minuten gelesen hat. |
 | **15. Digest-Tor** | Fallinhalt, der stückweise zusammengetragen wird (Suchen, Zeitleisten, Volltexte, Fristen) zu einem Fall, dessen Digest die KI nicht gelesen hat. | Jedes Fallinhalts-Werkzeug (Chronik, Zeitleiste, Suchen, Volltexte, Widersprüche, Pflichten, Fristen, Korrespondenz, Medien, Institutionen, Tags, Bewertung, Instruktionsnotizen) wird verweigert, bis der Digest des Falls gelesen ist; die Verweigerung nennt den Vorbereitungsaufruf. Der dritte verweigerte Versuch am selben Fall wird als Regelverstoß gebucht. |
 | **16. Tor ähnlicher Parteien** | Doppelte Personen, Firmen oder Institutionen, die entstehen, weil eine abweichende Schreibweise nicht erkannt wurde. | Ein Vorschlag für einen neuen Datensatz wird mit einer Liste ähnlicher bestehender Datensätze beantwortet, und nichts wird gespeichert. Die KI muss entweder bei einem bestehenden Datensatz ablegen oder ausdrücklich bestätigen, dass die Partei wirklich neu ist. Jede gespeicherte neue Partei löst den verpflichtenden Folgeauftrag aus, ihre Verbindungen zu recherchieren und abzulegen, Webrecherche eingeschlossen. |
-| **17. Wiederholungs-Sperre** | Wiederholtes Abrufen identischer Daten, das Zeit und Tokens kostet, ohne Information hinzuzufügen. | Ein Aufruf, der exakt denselben Inhalt liefert wie ein früherer, wird abgewiesen. Verglichen wird der Inhalt, nicht der Aufruf; ein anderer Parameter, der dasselbe Ergebnis liefert, wird daher ebenfalls abgewiesen. Die Sperre wird zurückgesetzt, wenn ein anderes Dokument ausgeliefert oder vorgelegt wurde, wenn sich das KI-Programm neu verbindet, wenn die KI zwischendurch eine andere Aufgabe erledigt hat oder wenn die KI ihre Instruktionen neu gelesen und bestätigt hat. Bei Claude gilt die Sperre je Chat, bei ChatGPT, Qwen und Kimi über alle Sitzungen; der integrierte Chat ist ausgenommen. |
+| **17. Wiederholungs-Sperre** | Wiederholtes Abrufen identischer Daten, das Zeit und Tokens kostet, ohne Information hinzuzufügen. | Ein Aufruf, der exakt denselben Inhalt liefert wie ein früherer, wird abgewiesen. Verglichen wird der Inhalt, nicht der Aufruf; ein anderer Parameter, der dasselbe Ergebnis liefert, wird daher ebenfalls abgewiesen. Die Sperre wird zurückgesetzt, wenn ein anderes Dokument ausgeliefert oder vorgelegt wurde, wenn sich das KI-Programm neu verbindet, wenn die KI zwischendurch eine andere Aufgabe erledigt hat oder wenn die KI ihre Instruktionen neu gelesen und bestätigt hat. |
 
 ## 5. Was Sie damit tun — Beispiele
 

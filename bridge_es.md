@@ -96,10 +96,7 @@ llevan **por chat**; lo que un chat ha leído no cuenta nunca para otro. En el
 menú desplegable del símbolo de Claude, cada chat aparece con el nombre que usted
 le ha dado en Claude Desktop. Para ello IRONSTICK lee, del registro local de sesión
 de Claude, únicamente los eventos estructurados de herramientas (nombre de la
-herramienta y argumentos), nunca el texto de la conversación. Una llamada que no
-puede asignarse, porque dos chats llaman en el mismo instante, se acepta si algún
-chat de ese Claude tiene una confirmación válida, y no se anota como infracción de
-las reglas.
+herramienta y argumentos), nunca el texto de la conversación.
 - **Se detecta la compactación del contexto.** Cuando Claude compacta una
 conversación larga, las instrucciones leídas anteriormente ya no están con
 seguridad en su contexto. IRONSTICK bloquea ese chat de inmediato, sin penalización,
@@ -297,7 +294,7 @@ herramienta.
 | **14. Compuerta de lectura de análisis** | “Hechos” no verificados introducidos en la descripción o en los campos de contacto de una persona. | Una propuesta que toca los campos de texto libre de una persona se rechaza salvo que la IA haya leído el perfil de esa persona en los últimos 30 minutos. |
 | **15. Compuerta de compendio** | Contenido de un caso reunido a retazos (búsquedas, líneas de tiempo, textos completos, plazos) en un caso cuyo compendio la IA no ha leído. | Toda herramienta de contenido de casos (crónica, cronología, búsquedas, textos completos, contradicciones, obligaciones, plazos, correspondencia, medios, instituciones, etiquetas, valoración, notas de instrucción) se rechaza hasta que se haya leído el compendio del caso; el rechazo nombra la llamada de preparación. El tercer intento rechazado en el mismo caso se anota como infracción de las reglas. |
 | **16. Compuerta de partes similares** | Personas, empresas o instituciones duplicadas, creadas porque no se reconoció una variante ortográfica. | Una propuesta de registro nuevo se responde con una lista de registros existentes similares, y no se guarda nada. La IA debe archivar contra un registro existente o confirmar expresamente que la parte es realmente nueva. Cada parte nueva guardada devuelve la tarea de seguimiento obligatoria: investigar y archivar sus conexiones, incluida la investigación en la web. |
-| **17. Bloqueo de repeticiones** | La obtención repetida de datos idénticos, que cuesta tiempo y tokens sin aportar información. | Una llamada que devuelve exactamente el mismo contenido que una anterior se rechaza. Se compara el contenido, no la llamada, de modo que también se rechaza un parámetro distinto que da el mismo resultado. El bloqueo se restablece cuando se ha entregado o presentado otro documento, cuando el programa de IA se vuelve a conectar, cuando la IA ha realizado entretanto otra tarea o cuando ha vuelto a leer y confirmar sus instrucciones. En Claude el bloqueo rige por chat; en ChatGPT, Qwen y Kimi, para todas las sesiones; el chat integrado queda exento. |
+| **17. Bloqueo de repeticiones** | La obtención repetida de datos idénticos, que cuesta tiempo y tokens sin aportar información. | Una llamada que devuelve exactamente el mismo contenido que una anterior se rechaza. Se compara el contenido, no la llamada, de modo que también se rechaza un parámetro distinto que da el mismo resultado. El bloqueo se restablece cuando se ha entregado o presentado otro documento, cuando el programa de IA se vuelve a conectar, cuando la IA ha realizado entretanto otra tarea o cuando ha vuelto a leer y confirmar sus instrucciones. |
 
 ## 5. Qué puede hacer con él — ejemplos
 

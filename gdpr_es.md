@@ -649,14 +649,12 @@ el registro de diagnóstico detallado del Bridge (sección 4.9).
 - **Control de acceso al inicio (TOTP).** Una vez aceptada la clave de
 licencia, la aplicación no muestra más que una solicitud de código hasta que el usuario
 introduce el código de un solo uso basado en tiempo de seis dígitos vigente de una
-aplicación de autenticación (RFC 6238). El secreto en que se basan los códigos se deriva de
-la clave de licencia en tiempo de ejecución y nunca se escribe en el disco; solo se almacena una
+aplicación de autenticación (RFC 6238). El secreto en que se basan los códigos
+nunca se escribe en el disco; solo se almacena una
 huella no secreta de la configuración confirmada, para que el código QR vuelva a
 mostrarse tras un cambio de clave. Los códigos erróneos repetidos provocan una espera
 creciente. Los Bridges de IA de escritorio no reciben ningún dato de expedientes mientras la aplicación
-está bloqueada. La recuperación se realiza mediante la clave de licencia, lo que convierte a la clave de licencia en la
-credencial maestra de la instalación — su custodia es responsabilidad del
-operador. El archivo de configuración (claves API, credenciales de correo electrónico,
+está bloqueada. El archivo de configuración (claves API, credenciales de correo electrónico,
 acceso al servidor) se conserva cifrado con AES-256 mediante el mismo mecanismo que los
 documentos y solo se descifra en memoria.
 - **Ubicación de almacenamiento controlada por el usuario.** La ruta de datos se elige durante

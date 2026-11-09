@@ -9,6 +9,7 @@ Originalseite: https://www.ironstick.legal/index_de.html
 Das Kanzleisystem mit eingebauter Akten-Intelligenz.
 Fristen, Beweise, Schriftsätze und E-Mail an einem Ort, lokal auf Ihrem Rechner.
 Für Anwälte, die ihre Abende zurückwollen.
+**Täglich im Produktiveinsatz — bereits Hunderte Schriftsätze entworfen.**
 
 ## Aus Stunden werden Minuten. Sie prüfen, statt zu suchen.
 

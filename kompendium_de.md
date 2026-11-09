@@ -101,6 +101,15 @@ kaum nachverfolgen lassen — bis hin zu OSINT-Profilen von Personen und Richter
 Netzwerk aus Personen und Firmen, während jeder Anwalt die vollständige Akte
 auf seinem eigenen Arbeitsplatz behält.
 
+**Im Produktiveinsatz — jeden Tag.**
+
+IRONSTICK ist bei mehreren Anwälten täglich produktiv im Einsatz. Es hat bereits
+Hunderte Schriftsätze entworfen, organisiert einzelne Fälle mit mehr als 3.000 Dokumenten und mehr
+als 2.500 Entitäten und liefert eine einreichungsfähige Vorlage einer Gerichtseingabe nach der anderen.
+Jede Version durchläuft vor der Auslieferung vollständig mehr als 1.500 automatisierte Tests, siebzehn
+deterministische Tore sichern jeden Schritt der KI ab, und Updates installieren sich über die
+bestehende Version, wobei alle Daten erhalten bleiben.
+
 ![AES-256-Verschlüsselung im Ruhezustand: Datenbank, Dokumente und Konfiguration](https://www.ironstick.legal/img/49_encryption.png)
 Teil I — Der Kanzleialltag
 
@@ -892,9 +901,7 @@ verschlüsselt, jede Datei mit eigenem Integritätssiegel.
 - **Zugangscode per Authenticator.** Jeder Start fragt einen
 üblichen sechsstelligen Authenticator-Code (TOTP) aus der Authenticator-App
 Ihres Telefons ab. Kein
-Passwort zu merken, nichts gespeichert: das Geheimnis wird zur Laufzeit aus Ihrem Lizenzschlüssel
-abgeleitet, und mit dem Lizenzschlüssel kommen Sie bei Telefonverlust
-wieder hinein. Bis der Code stimmt, wird nichts angezeigt, und die
+Passwort zu merken, und das Geheimnis hinter den Codes wird nie auf dem Datenträger gespeichert. Bis der Code stimmt, wird nichts angezeigt, und die
 KI-Konnektoren erhalten keine Falldaten. Auch die Konfigurationsdatei mit
 Ihren API- und Mail-Zugangsdaten ruht AES-256-verschlüsselt.
 - **Pseudonymisierung vor externer KI.** Bevor In-App-Funktionen eine

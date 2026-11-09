@@ -89,10 +89,7 @@ party checks and delivery tracking are kept **per chat**; what one chat has
 read never counts for another. In the drop-down menu at the Claude symbol, each
 chat appears under the name you gave it in Claude Desktop. For this, IRONSTICK
 reads only the structured tool events (tool name and arguments) from Claude's
-local session record, never the conversation text. A call that cannot be
-attributed, because two chats call at exactly the same moment, is accepted if
-any chat of this Claude holds a valid confirmation, and is not recorded as a
-rule violation.
+local session record, never the conversation text.
 - **Context compaction is detected.** When Claude compacts a long
 conversation, the instructions it read earlier are no longer reliably in its
 context. IRONSTICK locks that chat immediately, without penalty, until it has
@@ -275,7 +272,7 @@ tool.
 | **14. Analysis-read gate** | Unverified “facts” entered in a person's description or contact fields. | A proposal touching a person's free-text fields is refused unless the AI has read that person's profile within the last 30 minutes. |
 | **15. Digest gate** | Case content gathered piecemeal (searches, timelines, full texts, deadlines) on a case whose digest the AI has not read. | Every case-content tool (chronicle, timeline, searches, full texts, contradictions, obligations, deadlines, correspondence, media, institutions, tags, assessment, instruction notes) is refused until the case's digest has been read; the refusal names the preparation call. The third refused attempt on the same case is recorded as a rule violation. |
 | **16. Similar-party gate** | Duplicate persons, companies or institutions created because a variant spelling was not recognised. | A proposal for a new record is answered with a list of similar existing records, and nothing is stored. The AI must either file against an existing record or explicitly confirm that the party is genuinely new. Every stored new party triggers the required follow-up: research and file its connections, including web research. |
-| **17. Repetition lock** | Repeated retrieval of identical data, which costs time and tokens without adding information. | A call that returns exactly the same content as an earlier one is refused. The content is compared, not the call, so a different parameter that yields the same result is refused as well. The lock resets when a different document has been delivered or presented, when the AI program reconnects, when the AI has done a different task in between, or when the AI has re-read and confirmed its instructions. For Claude the lock applies per chat; for ChatGPT, Qwen and Kimi across all sessions; the built-in chat is exempt. |
+| **17. Repetition lock** | Repeated retrieval of identical data, which costs time and tokens without adding information. | A call that returns exactly the same content as an earlier one is refused. The content is compared, not the call, so a different parameter that yields the same result is refused as well. The lock resets when a different document has been delivered or presented, when the AI program reconnects, when the AI has done a different task in between, or when the AI has re-read and confirmed its instructions. |
 
 ## 5. What you can do with it — examples
 

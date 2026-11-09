@@ -56,6 +56,15 @@ IRONSTICK est rentable partout où se rencontrent beaucoup de documents, beaucou
 - **Avocats en droit des affaires, des procédures collectives et en droit pénal.** Ces procédures impliquent de nombreuses personnes, sociétés et interconnexions. Le réseau des personnes et des sociétés sur l'ensemble des dossiers rend visibles des liens qu'il est peu réaliste de suivre manuellement — jusqu'aux profils OSINT de personnes et aux profils de juges avec l'évaluation de leurs décisions.
 - **Cabinets de plusieurs avocats.** Avec IRONSTICK SERVER — le serveur de cabinet — les confrères partagent des dossiers, une même bibliothèque juridique et un même réseau de personnes et de sociétés, tandis que chaque avocat conserve le dossier complet sur son propre poste.
 
+**En production — chaque jour.**
+
+IRONSTICK est utilisé en production au quotidien par plusieurs avocats. Il a déjà
+rédigé des centaines d'écritures, organise des dossiers individuels de plus de 3 000 documents et de plus
+de 2 500 entités, et produit, l'un après l'autre, des modèles prêts à déposer d'actes de procédure.
+Chaque version passe intégralement plus de 1 500 tests automatisés avant sa livraison, dix-sept
+portes de vérification déterministes encadrent chaque étape de l'IA, et les mises à jour s'installent
+par-dessus la version existante, toutes les données restant en place.
+
 ![Chiffrement AES-256 au repos : base de données, documents et configuration](https://www.ironstick.legal/img/49_encryption.png)
 Partie I — La pratique au quotidien
 
@@ -220,7 +229,7 @@ ouvrés en septembre 2026, une seule IA de bureau connectée via le Bridge a lu 
 d'une procédure multipartite, recherché les parties sur internet et enregistré
 ce qu'elle avait trouvé ; le rôle de l'avocat s'est limité à relire et à approuver les propositions. Le résultat,
 compté ensuite dans la base de données : **293 personnes et sociétés, 11
-institutions, 811 relations et 733 liens partie-dossier** — 2,487 décisions de
+institutions, 811 relations et 733 liens partie-dossier** — 2 487 décisions de
 validation au total, 97 pour cent acceptées, 3 pour cent rejetées à la
 porte. À la main — sources lues, chaque personne identifiée, chaque lien vérifié,
 chaque enregistrement saisi — cela représente environ 310 heures de travail :
@@ -347,7 +356,7 @@ est découpé sans perte en parties qui respectent les limites de taille des bo�
 de dépôt électronique des tribunaux, chacune assortie d'un courriel de transmission
 tout prêt dans la langue du document — copier, joindre, envoyer.
 
-### Dépôts de grande ampleur — 3,000 pages, tamponnées et paginées, en moins de 20 minutes
+### Dépôts de grande ampleur — 3 000 pages, tamponnées et paginées, en moins de 20 minutes
 
 En procédure civile et dans le contentieux de grande ampleur, cela vise droit
 les plus grandes douleurs des avocats et de leur personnel — le temps, le taux
@@ -357,18 +366,18 @@ d'erreur et le travail manuel :
 l'avocat — assembler et fusionner des PDF à la main, vérifier les pages,
 tamponner chaque page manuellement (numérotation Bates) — s'exécute ici
 entièrement en automatique.
-- **Cohérence et moins d'erreurs.** Au-delà de 2,000 pages, le travail
+- **Cohérence et moins d'erreurs.** Au-delà de 2 000 pages, le travail
 manuel produit vite des fautes : tampons mal placés, numéros de page erronés sur les
 annexes, liens manquants, règles de mise en forme oubliées. Une chaîne
 automatisée applique les mêmes règles de tamponnage et de pagination à chaque page.
 - **Stable avec de très gros fichiers.** Les logiciels bureautiques courants et les
-lecteurs PDF cessent souvent de répondre avec un fichier de 700 MB à 3,000 pages dès que l'on tente de le parcourir ou de le repaginer.
+lecteurs PDF cessent souvent de répondre avec un fichier de 700 MB à 3 000 pages dès que l'on tente de le parcourir ou de le repaginer.
 - **La vitesse sous la pression des délais.** Juste avant l'expiration d'un délai de dépôt,
 de grandes écritures avec toutes leurs preuves sont prêtes en quelques minutes sous forme
 de modèle prêt à déposer.
 
 ![Un dossier se constitue — du début à la fin](https://www.ironstick.legal/img/54_dossier_flow.png)
-**Testé.** 3,000 pages d'écritures, annexes mêlant texte et
+**Testé.** 3 000 pages d'écritures, annexes mêlant texte et
 image, tamponnées et paginées, produisant un seul PDF de 700 MB — en moins
 de 20 minutes.
 Partie II — L'IA en pleine profondeur
@@ -406,10 +415,10 @@ contiennent que quelques mégaoctets de texte à la fois —
 
 Selon les indications des fournisseurs, novembre 2026.
 | Modèle / plateforme | Fenêtre de contexte (tokens) | ≈ capacité de texte |
-| Claude (Opus / Sonnet) | 1,000,000 | ~2,500 KB (2.5 MB) |
-| ChatGPT (application, Plus) | 256,000 | ~1,000 KB |
-| ChatGPT (application, Pro) | 400,000 | ~1,600 KB |
-| ChatGPT (API max) | 1,050,000 | ~4,000 KB (4 MB) |
+| Claude (Opus / Sonnet) | 1 000 000 | ~2 500 KB (2.5 MB) |
+| ChatGPT (application, Plus) | 256 000 | ~1 000 KB |
+| ChatGPT (application, Pro) | 400 000 | ~1 600 KB |
+| ChatGPT (API max) | 1 050 000 | ~4 000 KB (4 MB) |
 
 — alors qu'une archive de dossiers constituée au fil du temps représente bien davantage. Le
 Bridge contourne cette limite : au lieu de charger des fichiers dans la fenêtre, on
@@ -442,7 +451,7 @@ centaines de pages brutes d'un coup et sa précision sur les détails
 chute fortement : des faits situés au milieu du dossier sont “oubliés” ou
 hallucinés.
 - **La surcharge du contexte.** Un seul résultat d'outil déversant
-50,000 caractères de texte intégral dans le chat surcharge la conversation : le
+50 000 caractères de texte intégral dans le chat surcharge la conversation : le
 modèle perd ses repères, le contexte déborde, tout devient lent et coûteux.
 - **Pas de mémoire, pas de structure.** Un modèle de langage seul ne connaît rien des
 délais, des numéros de dossier, des parties, des tampons Bates ou de la
@@ -465,7 +474,7 @@ session à l'autre : l'IA bâtit un savoir sur des semaines au lieu de
 repartir de zéro à chaque prompt.
 
 **En un mot :** un modèle de langage sans système, c'est un juriste brillant à qui
-l'on remet 5,000 feuilles éparses, non triées, en lui demandant de trouver la
+l'on remet 5 000 feuilles éparses, non triées, en lui demandant de trouver la
 ligne décisive en cinq secondes. IRONSTICK est l'infrastructure qui transforme
 ce juriste en un cabinet de haute performance qui fonctionne.
 
@@ -662,7 +671,7 @@ Un modèle d'IA a une mémoire de travail limitée. S'il est submergé d'un coup
 C’est ce qui se passe aujourd’hui avec les offres d’IA « best effort », quelle que soit la façon dont elles sont présentées. En pratique, le contexte de l’IA est tout simplement rempli de vos données de dossier : des dossiers entiers, de longs textes et, par-dessus le marché, de longues instructions, voire des plug-ins et des skills. Le contexte se remplit jusqu’à ce que plus rien n’y entre, puis il est compressé ou seulement lu en partie. L’IA est alors chargée de rédiger votre acte de procédure sur cette base, et le risque d’erreur est élevé.
 
 ![IRONSTICK : données préparées et instructions courtes ; l’IA est guidée par des panneaux et des portes de vérification jusqu’à un but vérifié](https://www.ironstick.legal/img/73_ironstick_guided_path.png)
-IRONSTICK emprunte une autre voie. Les instructions sont plafonnées à 20,000 caractères, une petite fraction de la fenêtre de contexte des modèles pris en charge. Vos données de dossier sont d’abord préparées par IRONSTICK, et l’IA ne reçoit que les données qui comptent (des données compactes et structurées, sans prose). En chemin, l’IA n’est pas laissée seule : on lui donne des outils et des garde-fous, et elle est guidée jusqu’au but par des panneaux indicateurs et des portes de vérification.
+IRONSTICK emprunte une autre voie. Les instructions sont plafonnées à 20 000 caractères, une petite fraction de la fenêtre de contexte des modèles pris en charge. Vos données de dossier sont d’abord préparées par IRONSTICK, et l’IA ne reçoit que les données qui comptent (des données compactes et structurées, sans prose). En chemin, l’IA n’est pas laissée seule : on lui donne des outils et des garde-fous, et elle est guidée jusqu’au but par des panneaux indicateurs et des portes de vérification.
 
 ### La différence ?
 
@@ -823,9 +832,8 @@ chaque PDF d'origine, scan, image, enregistrement — repose lui aussi chiffré,
 chaque fichier avec son propre sceau d'intégrité.
 - **Code d'accès par authentificateur.** Chaque démarrage demande un code
 d'authentification standard à six chiffres (TOTP) de l'application d'authentification
-de votre téléphone. Aucun mot de passe à retenir, rien
-de stocké : le secret est dérivé de votre clé de licence à l'exécution, et la
-clé de licence vous permet de rentrer si le téléphone est perdu. Tant que le
+de votre téléphone. Aucun mot de passe à retenir, et le secret
+à l'origine des codes n'est jamais stocké sur le disque. Tant que le
 code n'est pas saisi, rien n'est affiché, et les connecteurs d'IA ne reçoivent
 aucune donnée de dossier. Le fichier de configuration contenant vos identifiants
 d'API et de messagerie repose lui aussi chiffré en AES-256.

@@ -56,6 +56,15 @@ IRONSTICK conviene ovunque si incontrino molti documenti, molte parti e scadenze
 - **Avvocati d'impresa, fallimentaristi e penalisti.** Questi procedimenti coinvolgono molte persone, società e interconnessioni. La rete di persone e società su tutti i fascicoli rende visibili collegamenti che a mano è impraticabile seguire — fino ai profili OSINT delle persone e ai profili dei giudici con la valutazione delle loro decisioni.
 - **Studi con più avvocati.** Con IRONSTICK SERVER — il server di studio — i colleghi condividono casi, un'unica biblioteca giuridica e un'unica rete di persone e società, mentre ogni avvocato conserva il fascicolo completo sulla propria postazione.
 
+**In produzione — ogni giorno.**
+
+IRONSTICK è in uso produttivo quotidiano presso diversi avvocati. Ha già
+redatto centinaia di atti, gestisce singoli casi con oltre 3.000 documenti e oltre
+2.500 entità e produce un modello pronto per il deposito di un atto giudiziario dopo l'altro.
+Ogni versione supera integralmente oltre 1.500 test automatici prima della consegna, diciassette
+gate deterministici presidiano ogni passaggio dell'IA e gli aggiornamenti si installano sopra la
+versione esistente, con tutti i dati che restano al loro posto.
+
 ![Cifratura AES-256 a riposo: banca dati, documenti e configurazione](https://www.ironstick.legal/img/49_encryption.png)
 Parte I — La pratica quotidiana
 
@@ -825,9 +834,7 @@ ogni PDF originale, scansione, immagine, registrazione — riposa anch'esso
 crittografato, ogni file con il proprio sigillo di integrità.
 - **Codice di accesso authenticator.** Ogni avvio chiede un codice standard a
 sei cifre (TOTP) dall'app authenticator del tuo telefono. Nessuna password da
-ricordare, nulla memorizzato: il segreto è derivato dalla tua chiave di licenza in
-fase di esecuzione, e la chiave di licenza ti fa rientrare se il telefono va
-perso. Finché il codice non è inserito non viene mostrato nulla, e i connettori IA
+ricordare, e il segreto alla base dei codici non viene mai memorizzato su disco. Finché il codice non è inserito non viene mostrato nulla, e i connettori IA
 non ricevono alcun dato del caso. Il file di configurazione con le tue credenziali
 API e di posta riposa anch'esso crittografato AES-256.
 - **Pseudonimizzazione prima dell'IA esterna.** Prima che le funzioni

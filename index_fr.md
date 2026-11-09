@@ -9,6 +9,7 @@ Page d’origine: https://www.ironstick.legal/index_fr.html
 Le système de gestion de cabinet avec intelligence des dossiers intégrée.
 Délais, pièces, écritures et courriel au même endroit, en local sur votre ordinateur.
 Pour les avocats qui veulent retrouver leurs soirées.
+**En usage productif au quotidien — des centaines d'écritures déjà rédigées.**
 
 ## Les heures deviennent des minutes. Vous vérifiez au lieu de chercher.
 

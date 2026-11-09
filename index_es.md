@@ -9,6 +9,7 @@ Página original: https://www.ironstick.legal/index_es.html
 El sistema de gestión para despachos con inteligencia de expedientes incorporada.
 Plazos, pruebas, escritos y correo electrónico en un solo lugar, en local en su ordenador.
 Para abogados que quieren recuperar sus tardes.
+**En uso productivo diario — cientos de escritos redactados hasta la fecha.**
 
 ## Las horas se vuelven minutos. Usted revisa en lugar de buscar.
 

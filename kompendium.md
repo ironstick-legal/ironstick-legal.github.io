@@ -55,6 +55,15 @@ IRONSTICK pays off wherever many documents, many parties and hard deadlines come
 - **Commercial, insolvency and criminal lawyers.** These proceedings involve many persons, companies and interconnections. The network of persons and companies across all case files makes connections visible that are impractical to track manually — down to OSINT profiles of persons and judge profiles with an evaluation of their decisions.
 - **Firms with several lawyers.** With IRONSTICK SERVER — the office server — colleagues share cases, one legal library and one network of persons and companies, while each lawyer keeps the complete file on their own workstation.
 
+**In production — every day.**
+
+IRONSTICK is in productive daily use by several lawyers. It has already
+drafted hundreds of pleadings, organises single cases with more than 3,000 documents and more
+than 2,500 entities, and produces one submission-ready template of a court filing after another.
+Every release passes more than 1,500 automated tests in full before delivery, seventeen
+deterministic gates guard every step of the AI, and updates install over the existing version
+with all data kept in place.
+
 ![AES-256 encryption at rest: database, documents and configuration](https://www.ironstick.legal/img/49_encryption.png)
 Part I — The daily practice
 
@@ -781,9 +790,8 @@ original PDF, scan, image, recording — rests encrypted as well, each file
 with its own integrity seal.
 - **Authenticator access code.** Every start asks for a standard
 six-digit authenticator code (TOTP) from your phone's authenticator app. No
-password to remember, nothing stored: the secret is derived
-from your licence key at run time, and the licence key gets you back in if
-the phone is lost. Until the code is entered nothing is shown, and the AI
+password to remember, and the secret behind the codes is never stored on
+disk. Until the code is entered nothing is shown, and the AI
 connectors receive no case data. The configuration file with your API and
 mail credentials rests AES-256 encrypted as well.
 - **Pseudonymisation before external AI.** Before in-app functions call an

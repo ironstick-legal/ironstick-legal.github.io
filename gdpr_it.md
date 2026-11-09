@@ -650,14 +650,12 @@ il log diagnostico dettagliato del Bridge (sezione 4.9).
 - **Controllo degli accessi all'avvio (TOTP).** Una volta accettata la chiave di
 licenza, l'applicazione non mostra altro che una richiesta di codice finché l'utente
 non inserisce il codice monouso a sei cifre basato sul tempo corrente, generato da
-un'app di autenticazione (RFC 6238). Il segreto alla base dei codici viene derivato dalla
-chiave di licenza in fase di esecuzione e non viene mai scritto su disco; viene memorizzata solo
+un'app di autenticazione (RFC 6238). Il segreto alla base dei codici non viene
+mai scritto su disco; viene memorizzata solo
 un'impronta non segreta della configurazione confermata, affinché il codice QR venga
 mostrato nuovamente dopo un cambio di chiave. Codici errati ripetuti comportano un'attesa
 crescente. I Bridge IA desktop non ricevono alcun dato dei casi mentre l'applicazione
-è bloccata. Il ripristino avviene mediante la chiave di licenza, il che rende la chiave di licenza la
-credenziale principale dell'installazione — la sua custodia è responsabilità del
-gestore. Il file di configurazione (chiavi API, credenziali e-mail,
+è bloccata. Il file di configurazione (chiavi API, credenziali e-mail,
 accesso al server) è conservato cifrato con AES-256 con lo stesso meccanismo dei
 documenti e viene decifrato esclusivamente in memoria.
 - **Percorso di archiviazione controllato dall'utente.** Il percorso dei dati viene scelto durante

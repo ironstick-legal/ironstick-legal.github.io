@@ -9,6 +9,7 @@ Pagina originale: https://www.ironstick.legal/index_it.html
 Il sistema gestionale per studi legali con intelligenza dei fascicoli integrata.
 Scadenze, prove, atti ed e-mail in un unico posto, in locale sul tuo computer.
 Per gli avvocati che rivogliono le loro serate.
+**In uso produttivo quotidiano — centinaia di atti già redatti.**
 
 ## Le ore diventano minuti. Controlli invece di cercare.
 

@@ -93,10 +93,7 @@ citit un chat nu contează niciodată pentru altul. În meniul derulant de la
 simbolul Claude, fiecare chat apare sub numele pe care i l-ați dat în Claude
 Desktop. Pentru aceasta, IRONSTICK citește din jurnalul local de sesiune al lui Claude
 numai evenimentele structurate ale instrumentelor (numele instrumentului și
-argumentele), niciodată textul conversației. Un apel care nu poate fi atribuit,
-fiindcă două chaturi apelează exact în același moment, este acceptat dacă un chat
-al acestui Claude are o confirmare valabilă și nu se înregistrează ca încălcare de
-regulă.
+argumentele), niciodată textul conversației.
 - **Compactarea contextului este detectată.** Când Claude compactează o
 conversație lungă, instrucțiunile citite anterior nu mai sunt sigur în contextul
 său. IRONSTICK blochează imediat acel chat, fără sancțiune, până când recitește
@@ -285,7 +282,7 @@ instrument.
 | **14. Poarta citirii analizei** | „Fapte” neverificate introduse în descrierea sau în câmpurile de contact ale unei persoane. | O propunere care atinge câmpurile de text liber ale unei persoane este refuzată dacă IA nu a citit profilul acelei persoane în ultimele 30 de minute. |
 | **15. Poarta digestului** | Conținut de dosar adunat bucată cu bucată (căutări, cronologii, texte integrale, termene) pe un dosar al cărui digest IA nu l-a citit. | Fiecare instrument de conținut de dosar (cronică, cronologie, căutări, texte integrale, contradicții, obligații, termene, corespondență, media, instituții, etichete, evaluare, note de instrucțiuni) este refuzat până când digestul dosarului a fost citit; refuzul numește apelul de pregătire. A treia încercare refuzată pe același dosar se înregistrează ca încălcare de regulă. |
 | **16. Poarta părților asemănătoare** | Persoane, societăți sau instituții duplicate, create fiindcă o variantă de scriere nu a fost recunoscută. | O propunere pentru o înregistrare nouă primește ca răspuns o listă de înregistrări existente asemănătoare, și nu se stochează nimic. IA trebuie fie să încadreze propunerea la o înregistrare existentă, fie să confirme explicit că partea este cu adevărat nouă. Fiecare parte nouă stocată declanșează urmarea obligatorie: cercetarea și înregistrarea legăturilor ei, inclusiv cercetare web. |
-| **17. Blocajul repetițiilor** | Preluarea repetată a acelorași date, care costă timp și tokeni fără să aducă informație nouă. | Un apel care returnează exact același conținut ca unul anterior este refuzat. Se compară conținutul, nu apelul, deci un parametru diferit care dă același rezultat este refuzat și el. Blocajul se resetează când a fost livrat sau prezentat un alt document, când programul IA se reconectează, când IA a făcut între timp o altă sarcină sau când IA a recitit și a confirmat instrucțiunile. La Claude blocajul se aplică pe fiecare chat; la ChatGPT, Qwen și Kimi, pe toate sesiunile; chatul integrat este exceptat. |
+| **17. Blocajul repetițiilor** | Preluarea repetată a acelorași date, care costă timp și tokeni fără să aducă informație nouă. | Un apel care returnează exact același conținut ca unul anterior este refuzat. Se compară conținutul, nu apelul, deci un parametru diferit care dă același rezultat este refuzat și el. Blocajul se resetează când a fost livrat sau prezentat un alt document, când programul IA se reconectează, când IA a făcut între timp o altă sarcină sau când IA a recitit și a confirmat instrucțiunile. |
 
 ## 5. Ce faceți cu el — exemple
 

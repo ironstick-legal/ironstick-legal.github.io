@@ -97,10 +97,7 @@ consegne sono gestiti **per singola chat**: ciò che una chat ha letto non vale
 mai per un'altra. Nel menu a tendina sul simbolo di Claude ogni chat compare con
 il nome che le ha dato in Claude Desktop. A tal fine IRONSTICK legge dal
 registro di sessione locale di Claude solo gli eventi strutturati degli strumenti
-(nome dello strumento e argomenti) — mai il testo della conversazione. Una
-chiamata che non si può attribuire, perché due chat chiamano nello stesso
-istante, viene lasciata passare purché una chat di questo Claude abbia dato una
-conferma valida, e non viene mai conteggiata come violazione delle regole.
+(nome dello strumento e argomenti) — mai il testo della conversazione.
 - **La compattazione del contesto viene riconosciuta.** Quando Claude
 compatta una conversazione lunga, le istruzioni lette in precedenza non si
 trovano più con certezza nel suo contesto. IRONSTICK blocca subito quella chat,
@@ -292,7 +289,7 @@ uno strumento.
 | **14. Gate di lettura per l'analisi** | «Fatti» non verificati inseriti nella descrizione o nei campi di contatto di una persona. | Una proposta che tocca i campi di testo libero di una persona viene rifiutata a meno che l'IA non abbia letto il profilo di quella persona negli ultimi 30 minuti. |
 | **15. Gate del digest** | Contenuti del caso raccolti a pezzi (ricerche, cronologie, testi integrali, scadenze) su un caso di cui l'IA non ha letto il digest. | Ogni strumento sui contenuti del caso (cronaca, cronologia, ricerche, testi integrali, contraddizioni, obblighi, scadenze, corrispondenza, media, istituzioni, etichette, valutazione, note di istruzione) viene rifiutato finché il digest del caso non è stato letto; il rifiuto indica la chiamata di preparazione. Il terzo tentativo rifiutato sullo stesso caso viene registrato come violazione delle regole. |
 | **16. Gate delle parti simili** | Persone, società o istituzioni duplicate, create perché una grafia variante non è stata riconosciuta. | A una proposta di nuovo record si risponde con un elenco di record simili già esistenti, e nulla viene salvato. L'IA deve registrare sul record esistente oppure confermare esplicitamente che la parte è realmente nuova. Ogni nuova parte salvata comporta l'obbligo di seguito: ricercare e registrare le sue connessioni, ricerca web compresa. |
-| **17. Blocco delle ripetizioni** | Il recupero ripetuto di dati identici, che costa tempo e token senza aggiungere informazioni. | Una chiamata che restituisce esattamente lo stesso contenuto di una precedente viene respinta. Si confronta il contenuto, non la chiamata: anche un parametro diverso che produce lo stesso risultato viene respinto. Il blocco si azzera quando è stato consegnato o presentato un altro documento, quando il programma di IA si riconnette, quando l'IA ha svolto nel frattempo un altro compito o quando l'IA ha riletto e confermato le proprie istruzioni. Per Claude il blocco vale per singola chat; per ChatGPT, Qwen e Kimi per tutte le sessioni; la chat integrata ne è esente. |
+| **17. Blocco delle ripetizioni** | Il recupero ripetuto di dati identici, che costa tempo e token senza aggiungere informazioni. | Una chiamata che restituisce esattamente lo stesso contenuto di una precedente viene respinta. Si confronta il contenuto, non la chiamata: anche un parametro diverso che produce lo stesso risultato viene respinto. Il blocco si azzera quando è stato consegnato o presentato un altro documento, quando il programma di IA si riconnette, quando l'IA ha svolto nel frattempo un altro compito o quando l'IA ha riletto e confermato le proprie istruzioni. |
 
 ## 5. Che cosa si può fare — esempi
 

@@ -58,6 +58,15 @@ IRONSTICK compensa allí donde confluyen muchos documentos, muchas partes y plaz
 - **Abogados mercantilistas, concursalistas y penalistas.** Estos procedimientos implican muchas personas, empresas e interconexiones. La red de personas y empresas en todos los expedientes hace visibles conexiones que resulta impracticable seguir a mano — hasta perfiles OSINT de personas y perfiles de jueces con la evaluación de sus resoluciones.
 - **Despachos con varios abogados.** Con IRONSTICK SERVER — el servidor de la oficina — los colegas comparten casos, una única biblioteca jurídica y una única red de personas y empresas, mientras que cada abogado conserva el expediente completo en su propio puesto de trabajo.
 
+**En producción — cada día.**
+
+IRONSTICK está en uso productivo diario por parte de varios abogados. Ya ha
+redactado cientos de escritos, organiza casos individuales con más de 3.000 documentos y más
+de 2.500 entidades, y genera una plantilla lista para presentar de un escrito judicial tras otra.
+Cada versión supera por completo más de 1.500 pruebas automatizadas antes de su entrega, diecisiete
+compuertas deterministas vigilan cada paso de la IA, y las actualizaciones se instalan sobre la
+versión existente conservando todos los datos.
+
 ![Cifrado AES-256 en reposo: base de datos, documentos y configuración](https://www.ironstick.legal/img/49_encryption.png)
 Parte I — La práctica diaria
 
@@ -833,8 +842,7 @@ cada PDF original, escaneo, imagen, grabación — reposa igualmente cifrado, ca
 archivo con su propio sello de integridad.
 - **Código de acceso del autenticador.** Cada arranque solicita un código
 estándar de seis dígitos (TOTP) de la aplicación de autenticación de su teléfono. Ninguna contraseña que recordar,
-nada almacenado: el secreto se deriva de su clave de licencia en tiempo de
-ejecución, y la clave de licencia le devuelve el acceso si se pierde el teléfono.
+y el secreto en que se basan los códigos nunca se almacena en el disco.
 Hasta que se introduce el código no se muestra nada, y los conectores de IA no
 reciben datos de casos. El archivo de configuración con sus credenciales de API y
 de correo reposa igualmente cifrado con AES-256.

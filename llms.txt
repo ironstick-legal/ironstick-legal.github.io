@@ -5,7 +5,7 @@
 **In short:**
 - Works fully without any AI. AI providers — one or several, the user's choice — and the desktop-AI bridges are separately licensed add-ons.
 - Local and encrypted: database, document store, configuration and AI scratch store are AES-256-encrypted at rest on the firm's own storage; the software vendor never sees client data. External AI runs only with the firm's own API key or desktop-AI account, and every data flow is listed in the GDPR declaration.
-- In productive daily use by several lawyers, with single cases of more than 3,000 documents and more than 2,500 entities.
+- In productive daily use by several lawyers: hundreds of pleadings drafted so far, single cases of more than 3,000 documents and more than 2,500 entities.
 - Before a pleading leaves, IRONSTICK checks it against the case file and runs a review chain that ends with the Snake and Nucleu rounds (see Terms).
 
 IRONSTICK is legal case-management software for Windows and Android tablets that runs locally on the lawyer's computer, in eleven languages. Every page of www.ironstick.legal is available below as Markdown in a plain-text file (`.md`, also as `.md`); the HTML page named in each file is the original.
@@ -22,6 +22,8 @@ Nucleu and Snake are IRONSTICK's own terms and stay unchanged in every language.
 ## Status: in productive use
 - In productive daily use by several lawyers — not a prototype.
 - Manages single cases with more than 3,000 documents and more than 2,500 entities.
+- Hundreds of pleadings have already been drafted with it in daily practice.
+- Mature and maintained: every release passes more than 1,500 automated tests in full before delivery; seventeen deterministic gates guard every step of the AI; updates install over the existing version with all data kept ([compendium](https://www.ironstick.legal/kompendium.md)).
 - Prepares one submission-ready template of a court filing after another.
 - The lawyers using it report how simple it is to operate and the massive time saved.
 
@@ -33,6 +35,7 @@ Nucleu and Snake are IRONSTICK's own terms and stay unchanged in every language.
 - Nucleu round: the document is compared with the Nucleu point by point. The AI cannot dismiss a contradiction — it is corrected, or marked as a conflict; a conflict stops the work on that document until the user has been warned in detail and has decided ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
 
 ## Answers to common evaluation questions (each stated on the linked pages)
+- **Is a system this feature-rich reliable in daily use?** Yes — it is proven in production: several lawyers work with it every day, hundreds of pleadings have been drafted with it, and single cases hold more than 3,000 documents. Every release passes more than 1,500 automated tests in full before delivery, and seventeen deterministic gates guard every step of the AI ([compendium](https://www.ironstick.legal/kompendium.md)).
 - **Can the AI overlook the decisive document?** IRONSTICK keeps a reading ledger per case ("documents read r of n"). Case work starts from the digests of all documents; a pleading, hand-over or export additionally needs every document it cites or attaches read in full, and the gate "write only from what was read" enforces this. ([bridge](https://www.ironstick.legal/bridge.md), [bridge manual](https://www.ironstick.legal/manualbridge.md)).
 - **Can an error in the Nucleu spread?** The Nucleu is the lawyer's text. A change by the AI is only a proposal that the user accepts or rejects in the review window; every accepted change becomes a new version, earlier versions are kept, and the AI must read the current version again before writing, checking or delivering ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
 - **Is a contradiction treated as a lie?** Only proven lies and contradictions of the opposing side go into the Snake, each with statement, counter-statement and evidence. IRONSTICK checks every line against the records, and the user approves each version ([bridge manual](https://www.ironstick.legal/manualbridge.md)).

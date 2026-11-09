@@ -56,6 +56,15 @@ IRONSTICK merită oriunde se adună multe documente, multe părți și termene s
 - **Avocați de drept comercial, insolvență și drept penal.** Aceste proceduri implică multe persoane, firme și legături încrucișate. Rețeaua de persoane și firme din toate dosarele face vizibile conexiuni pe care este impractic să le urmăriți manual — până la profiluri OSINT ale persoanelor și profiluri de judecători cu evaluarea hotărârilor lor.
 - **Cabinete cu mai mulți avocați.** Cu IRONSTICK SERVER — serverul de cabinet — colegii partajează dosare, o singură bibliotecă de legi și o singură rețea de persoane și firme, iar fiecare avocat păstrează dosarul complet pe propria stație de lucru.
 
+**În producție — în fiecare zi.**
+
+IRONSTICK este folosit zilnic, în mod productiv, de mai mulți avocați. A redactat deja
+sute de acte de procedură, organizează dosare individuale cu peste 3.000 de documente și peste
+2.500 de entități și produce, unul după altul, șabloane apte de depunere ale actelor adresate instanței.
+Fiecare versiune trece integral, înainte de livrare, peste 1.500 de teste automate, șaptesprezece
+porți deterministe păzesc fiecare pas al IA, iar actualizările se instalează peste versiunea existentă,
+cu toate datele păstrate.
+
 ![Criptare AES-256 în repaus: baza de date, documente și configurare](https://www.ironstick.legal/img/49_encryption.png)
 Partea I — Practica de zi cu zi
 
@@ -799,8 +808,7 @@ fiecare PDF original, scanare, imagine, înregistrare — stă criptat, fiecare
 fișier cu propriul sigiliu de integritate.
 - **Cod de acces prin autentificator.** Fiecare pornire cere un cod standard
 din șase cifre (TOTP) din aplicația de autentificare de pe telefon. Nicio parolă de
-reținut, nimic stocat: secretul este derivat la rulare din cheia de
-licență, iar cheia de licență vă readuce înăuntru dacă pierdeți telefonul.
+reținut, iar secretul din spatele codurilor nu este niciodată stocat pe disc.
 Până la introducerea codului nu se afișează nimic, iar conectorii IA nu
 primesc date de dosar. Și fișierul de configurare cu datele de acces API și
 e-mail stă criptat AES-256.

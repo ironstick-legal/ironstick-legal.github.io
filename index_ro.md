@@ -9,6 +9,7 @@ Pagina originală: https://www.ironstick.legal/index_ro.html
 Sistemul de gestiune a cabinetului cu inteligență de dosar încorporată.
 Termene, probe, acte și e-mail într-un singur loc, local pe calculatorul dumneavoastră.
 Pentru avocații care își vor serile înapoi.
+**În uz productiv zilnic — sute de acte de procedură redactate până acum.**
 
 ## Orele devin minute. Verificați în loc să căutați.
 

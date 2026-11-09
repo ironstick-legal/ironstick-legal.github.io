@@ -96,10 +96,7 @@ tenus **par chat** ; ce qu'un chat a lu ne compte jamais pour un autre. Dans le
 menu déroulant du symbole Claude, chaque chat apparaît sous le nom que vous lui
 avez donné dans Claude Desktop. Pour cela, IRONSTICK ne lit dans le journal de
 session local de Claude que les événements d'outils structurés (nom de l'outil et
-arguments), jamais le texte de la conversation. Un appel qui ne peut être
-attribué parce que deux chats appellent exactement au même instant est accepté
-dès lors qu'un chat de ce Claude détient une confirmation valide, et n'est pas
-consigné comme infraction aux règles.
+arguments), jamais le texte de la conversation.
 - **La compaction du contexte est détectée.** Lorsque Claude compacte une
 longue conversation, les instructions lues auparavant ne figurent plus de façon
 fiable dans son contexte. IRONSTICK verrouille aussitôt ce chat, sans pénalité,
@@ -293,7 +290,7 @@ protège un outil.
 | **14. Porte de lecture préalable à l'analyse** | Des « faits » non vérifiés inscrits dans la description ou les champs de contact d'une personne. | Une proposition touchant les champs de texte libre d'une personne est refusée tant que l'IA n'a pas lu le profil de cette personne au cours des 30 dernières minutes. |
 | **15. Porte du digest** | Un contenu de dossier récupéré au coup par coup (recherches, chronologies, textes intégraux, délais) sur un dossier dont l'IA n'a pas lu le digest. | Chaque outil de contenu de dossier (chronique, chronologie, recherches, textes intégraux, contradictions, obligations, délais, correspondance, médias, institutions, étiquettes, évaluation, notes d'instruction) est refusé tant que le digest du dossier n'a pas été lu ; le refus nomme l'appel de préparation. La troisième tentative refusée sur le même dossier est consignée comme infraction aux règles. |
 | **16. Porte des parties similaires** | Des personnes, sociétés ou institutions en double, créées parce qu'une variante d'orthographe n'a pas été reconnue. | Une proposition de nouvel enregistrement reçoit en réponse la liste des enregistrements existants similaires, et rien n'est enregistré. L'IA doit soit classer sous un enregistrement existant, soit confirmer explicitement que la partie est réellement nouvelle. Chaque nouvelle partie enregistrée déclenche l'étape de suivi obligatoire : rechercher et classer ses liens, recherche web comprise. |
-| **17. Verrou de répétition** | La récupération répétée de données identiques, qui coûte du temps et des tokens sans apporter d'information. | Un appel qui renvoie exactement le même contenu qu'un appel antérieur est refusé. C'est le contenu qui est comparé, non l'appel : un autre paramètre donnant le même résultat est donc refusé lui aussi. Le verrou est levé lorsqu'un autre document a été remis ou présenté, lorsque le programme d'IA se reconnecte, lorsque l'IA a effectué entre-temps une autre tâche, ou lorsqu'elle a relu et confirmé ses instructions. Pour Claude, le verrou s'applique par chat ; pour ChatGPT, Qwen et Kimi, sur toutes les sessions ; le chat intégré en est exempté. |
+| **17. Verrou de répétition** | La récupération répétée de données identiques, qui coûte du temps et des tokens sans apporter d'information. | Un appel qui renvoie exactement le même contenu qu'un appel antérieur est refusé. C'est le contenu qui est comparé, non l'appel : un autre paramètre donnant le même résultat est donc refusé lui aussi. Le verrou est levé lorsqu'un autre document a été remis ou présenté, lorsque le programme d'IA se reconnecte, lorsque l'IA a effectué entre-temps une autre tâche, ou lorsqu'elle a relu et confirmé ses instructions. |
 
 ## 5. Ce que vous en faites — exemples
 
