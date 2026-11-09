@@ -48,9 +48,8 @@ www.ironstick.legal după pornire și apoi la fiecare șase ore; nicio dată de 
 sau cu caracter personal nu este trimisă producătorului software-ului
 (secțiunile 1 și 7).
 - **IRONSTICK SERVER.** Opțional, pe NAS-ul propriu al
-cabinetului, în rețeaua sa locală, fără conexiuni la internet; stațiile de lucru îl
-accesează prin HTTP simplu cu autentificare prin token, iar datele serverului nu
-sunt criptate în repaus de IRONSTICK. Timpul de lucru per
+cabinetului, în rețeaua sa locală, fără conexiuni la internet. Documentele ajung la server și se
+află acolo doar sub formă de fișiere criptate AES-256; serverul nu vede niciodată textul lor în clar. Timpul de lucru per
 dosar și evenimentele de copiere de rezervă ale fiecărei stații de lucru sunt
 vizibile administratorului cabinetului (secțiunea 9).
 
@@ -776,12 +775,9 @@ al cabinetului. Acceptă conexiuni numai de la adrese de rețea private (locale)
 **nu inițiază niciodată vreo conexiune la internet** — fără telemetrie, fără
 verificări de actualizare, fără contact cu producătorul. Producătorul software-ului
 nu are niciun fel de acces.
-- **Transport și stocare.** Stațiile de lucru accesează serverul în interiorul
-rețelei locale prin HTTP simplu cu autentificare prin token; conexiunea nu este
-criptată la transport. Datele serverului nu sunt criptate în repaus de
-IRONSTICK: se află pe NAS-ul propriu al cabinetului, în rețeaua
-cabinetului, iar cabinetul le protejează ca pe orice server de fișiere de birou
-(criptarea volumului NAS, control de acces, politică de copii de rezervă).
+- **Transport și stocare.** Documentele ajung la server și se află acolo doar sub formă de fișiere criptate AES-256, în
+același format de seif ca pe stația de lucru; serverul nu vede niciodată textul lor în clar.
+Serverul rulează pe NAS-ul propriu al cabinetului, în rețeaua cabinetului, fără conexiuni la internet.
 - **Nicio implicare a IA.** Serverul nu poartă niciun trafic IA, nu stochează
 nicio cheie IA și nu comunică niciodată cu vreun furnizor de model lingvistic. Toate
 canalele IA descrise în secțiunile 1–6 rămân strict per-stație de lucru; stratul de

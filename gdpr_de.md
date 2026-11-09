@@ -41,9 +41,8 @@ OpenStreetMap Nominatim geokodiert (nur die Adresse, keine Namen); eine Neuigkei
 danach alle sechs Stunden von www.ironstick.legal heruntergeladen; an den Softwarehersteller werden keine Fall- oder
 Personendaten gesendet (Abschnitte 1 und 7).
 - **IRONSTICK SERVER.** Optional, auf dem eigenen
-NAS der Kanzlei im lokalen Netzwerk, ohne Internetverbindungen; die Arbeitsplätze
-erreichen ihn über unverschlüsseltes HTTP mit Token-Authentifizierung, und die Serverdaten sind von
-IRONSTICK nicht im Ruhezustand verschlüsselt. Die Arbeitszeit je Fall
+NAS der Kanzlei im lokalen Netzwerk, ohne Internetverbindungen. Dokumente gelangen nur als
+AES-256-verschlüsselte Dateien zum Server und liegen dort auch nur so; der Server sieht ihren Klartext nie. Die Arbeitszeit je Fall
 und die Backup-Ereignisse jedes Arbeitsplatzes sind für den Administrator der Kanzlei sichtbar
 (Abschnitt 9).
 
@@ -739,12 +738,9 @@ Gerät der Kanzlei. Er nimmt Verbindungen ausschließlich von privaten (lokalen)
 Netzwerkadressen an und **baut niemals selbst eine Verbindung ins Internet
 auf** — keine Telemetrie, keine Update-Prüfungen, kein Kontakt zum Hersteller.
 Der Softwarehersteller hat keinerlei Zugriff.
-- **Transport und Speicherung.** Die Arbeitsplätze erreichen den Server im
-lokalen Netzwerk über unverschlüsseltes HTTP mit Token-Authentifizierung; die Verbindung ist nicht
-transportverschlüsselt. Die Serverdaten sind von
-IRONSTICK nicht im Ruhezustand verschlüsselt: Sie liegen auf dem eigenen NAS der Kanzlei im
-Netzwerk der Kanzlei, und die Kanzlei schützt sie wie jeden Büro-Dateiserver (NAS-Volume-Verschlüsselung,
-Zugriffskontrolle, Backup-Richtlinie).
+- **Transport und Speicherung.** Dokumente gelangen nur als AES-256-verschlüsselte Dateien im selben Tresor-Format wie am
+Arbeitsplatz zum Server und liegen dort auch nur so; der Server sieht ihren Klartext nie.
+Der Server läuft auf dem eigenen NAS der Kanzlei im Netzwerk der Kanzlei, ohne Internetverbindungen.
 - **Keine KI-Beteiligung.** Über den Server läuft kein KI-Datenverkehr, er
 speichert keinen KI-Schlüssel und kommuniziert niemals mit einem Anbieter von
 Sprachmodellen. Alle in den Abschnitten 1–6 beschriebenen KI-Kanäle bleiben

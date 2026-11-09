@@ -49,9 +49,8 @@ téléchargé depuis www.ironstick.legal après le démarrage, puis toutes les s
 aucune donnée de dossier ni donnée à caractère personnel n'est envoyée à l'éditeur du
 logiciel (sections 1 et 7).
 - **IRONSTICK SERVER.** Facultatif, sur le NAS propre du cabinet, au sein de son
-réseau local, sans connexion à internet ; les postes de travail y accèdent en HTTP
-simple avec authentification par jeton, et les données du serveur ne sont pas
-chiffrées au repos par IRONSTICK. Le temps de travail par dossier et les événements de
+réseau local, sans connexion à internet. Les documents parviennent au serveur et n'y reposent que sous
+forme de fichiers chiffrés en AES-256 ; le serveur n'en voit jamais le texte en clair. Le temps de travail par dossier et les événements de
 sauvegarde de chaque poste de travail sont visibles par l'administrateur du cabinet
 (section 9).
 
@@ -811,12 +810,10 @@ cabinet. Il n'accepte de connexions qu'à partir d'adresses réseau privées (lo
 **n'initie jamais aucune connexion vers internet** — ni télémétrie, ni vérification
 de mises à jour, ni contact avec l'éditeur. L'éditeur du logiciel n'a aucun accès de
 quelque nature que ce soit.
-- **Transport et stockage.** Les postes de travail accèdent au serveur au sein du
-réseau local en HTTP simple avec authentification par jeton ; la connexion n'est pas
-chiffrée en transit. Les données du serveur ne sont pas chiffrées au repos par
-IRONSTICK : elles se trouvent sur le NAS propre du cabinet, au sein de son réseau, et le
-cabinet les protège comme tout serveur de fichiers de bureau (chiffrement du volume du
-NAS, contrôle d'accès, politique de sauvegarde).
+- **Transport et stockage.** Les documents parviennent au serveur et n'y reposent que sous forme de fichiers chiffrés en
+AES-256, dans le même format de coffre-fort que sur le poste de travail ; le serveur n'en voit
+jamais le texte en clair. Le serveur fonctionne sur le NAS propre du cabinet, au sein du réseau
+du cabinet, sans connexion à internet.
 - **Aucune intervention d'IA.** Le serveur n'achemine aucun trafic d'IA, ne
 stocke aucune clé d'IA et ne communique jamais avec un quelconque fournisseur de
 modèles de langage. Tous les canaux d'IA décrits aux sections 1 à 6 restent

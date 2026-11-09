@@ -43,8 +43,8 @@ OpenStreetMap Nominatim (solo l'indirizzo, senza nomi); dopo l'avvio e poi ogni 
 www.ironstick.legal; al produttore del software non vengono inviati né dati di caso né dati personali
 (sezioni 1 e 7).
 - **IRONSTICK SERVER.** Facoltativo, sul NAS proprio dello studio nella sua rete locale,
-senza connessioni a internet; le postazioni lo raggiungono tramite HTTP semplice con autenticazione a token, e i dati
-del server non sono cifrati a riposo da IRONSTICK. Il tempo di lavoro per caso
+senza connessioni a internet. I documenti arrivano al server e vi risiedono solo come file
+cifrati con AES-256; il server non ne vede mai il testo in chiaro. Il tempo di lavoro per caso
 e gli eventi di backup di ciascuna postazione sono visibili all'amministratore dello studio
 (sezione 9).
 
@@ -736,12 +736,9 @@ dello studio. Accetta connessioni solo da indirizzi di rete privati (locali)
 e **non avvia mai alcuna connessione verso Internet** — nessuna telemetria, nessuna
 verifica di aggiornamenti, nessun contatto con il produttore. Il produttore del software non ha alcun accesso di alcun
 tipo.
-- **Trasporto e archiviazione.** Le postazioni raggiungono il server all'interno della
-rete locale tramite HTTP semplice con autenticazione a token; la connessione non è cifrata
-in trasporto. I dati del server non sono cifrati a riposo da
-IRONSTICK: si trovano sul NAS proprio dello studio all'interno della
-rete dello studio, e lo studio li protegge come qualsiasi file server dello studio (cifratura
-del volume del NAS, controllo degli accessi, politica di backup).
+- **Trasporto e archiviazione.** I documenti arrivano al server e vi risiedono solo come file cifrati con AES-256, nello stesso
+formato di cassaforte della postazione; il server non ne vede mai il testo in chiaro. Il server
+funziona sul NAS proprio dello studio all'interno della rete dello studio, senza connessioni a internet.
 - **Nessun coinvolgimento dell'IA.** Il server non veicola traffico IA, non memorizza alcuna chiave
 IA e non comunica mai con alcun fornitore di modelli linguistici. Tutti i canali IA
 descritti nelle sezioni 1–6 restano rigorosamente riferiti alla singola postazione; il
