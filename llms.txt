@@ -65,6 +65,10 @@ Nucleu and Snake are IRONSTICK's own terms and stay unchanged in every language.
 - Seventeen deterministic gates guard the AI: a case is prepared before work, statutes come from the legal library first, and delivery of a formal document is blocked without a fresh verification of the exact file state ([bridge](https://www.ironstick.legal/bridge.md)).
 - Before handover, a deterministic checker compares the draft with the live file: every evidence reference, every party, every legal citation ([home](https://www.ironstick.legal/index.md)).
 
+### Finished filing from a fixed format
+- IRONSTICK writes every pleading in one fixed format on purpose: from it, it assembles the finished filing itself. The annex list in the text is linked to the evidence in the file; the print preview places the document and all annexes into one PDF, page by page. The lawyer decides per annex page what goes to the court; blank pages are removed automatically, every annex keeps at least one page, and the page ranges in the annex list are recalculated to match the final PDF. Certification stamps in the language of the case's country, signature, continuous page numbers and annex numbers are added automatically; the document is also available as DOCX ([manual](https://www.ironstick.legal/manualironstick.md), [compendium](https://www.ironstick.legal/kompendium.md)).
+- Large filings — 3,000 pages, stamped and paginated — are produced in under 20 minutes ([home](https://www.ironstick.legal/index.md)).
+
 ### Usability, requirements, prices
 - The quick start leads from installation to the first clients in six steps; the user manual explains every screen with a screenshot; the bridge manual gives eight workflows as plain-language prompts. All in eight languages, with a free one-month trial of the client app ([download](https://www.ironstick.legal/download.md)).
 - System requirements for the workstation and the office server ([compendium](https://www.ironstick.legal/kompendium.md#ch15)); monthly licences per user, workstation or server, with prices per region ([pricing](https://www.ironstick.legal/pricing.md)).

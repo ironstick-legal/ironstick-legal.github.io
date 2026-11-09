@@ -73,7 +73,7 @@ Captures d'écran de l'application, données des clients anonymisées. [Voir tou
 
 Écritures et courriers naissent en dialogue avec l'IA, directement à partir du dossier. Avant que vous ne receviez le projet, un contrôle automatisé fondé sur des règles confronte chaque référence de pièce, chaque partie et chaque citation juridique au dossier actuel.
 
-Le résultat est un modèle prêt à être déposé que vous vérifiez, finalisez et signez. Export en PDF ou DOCX. Lors des tests, 3 000 pages d'écritures et de pièces ont été tamponnées, paginées et réunies en un seul PDF en moins de 20 minutes.
+Le résultat est un modèle prêt à être déposé que vous vérifiez, finalisez et signez. Le format fixe est voulu : à partir de lui, IRONSTICK assemble lui-même le dossier finalisé — acte et annexes en un seul PDF, page par page, avec tampons de certification, signature et plages de pages d'annexes toujours exactes. Export en PDF ou DOCX. Lors des tests, 3 000 pages d'écritures et de pièces ont été tamponnées, paginées et réunies en un seul PDF en moins de 20 minutes.
 
 ## Votre IA, votre compte
 

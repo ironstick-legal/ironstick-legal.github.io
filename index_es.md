@@ -73,7 +73,7 @@ Capturas de pantalla de la aplicación, con los datos de clientes anonimizados. 
 
 Los escritos y las cartas nacen en diálogo con la IA, directamente del expediente. Antes de que usted reciba el borrador, una comprobación automática basada en reglas coteja cada referencia de prueba, cada parte y cada cita normativa con el expediente actual.
 
-El resultado es una plantilla apta para su presentación, que usted revisa, finaliza y firma. Exportación a PDF o DOCX. En las pruebas, 3.000 páginas de escritos y anexos se sellaron, se paginaron y se reunieron en un solo PDF en menos de 20 minutos.
+El resultado es una plantilla apta para su presentación, que usted revisa, finaliza y firma. El formato fijo es deliberado: a partir de él, IRONSTICK ensambla por sí mismo el expediente de presentación terminado — documento y anexos en un solo PDF, página por página, con sellos de certificación, firma e intervalos de páginas de los anexos que siempre coinciden. Exportación a PDF o DOCX. En las pruebas, 3.000 páginas de escritos y anexos se sellaron, se paginaron y se reunieron en un solo PDF en menos de 20 minutos.
 
 ## Su IA, su cuenta
 

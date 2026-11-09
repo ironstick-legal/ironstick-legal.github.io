@@ -73,7 +73,7 @@ Screenshots from the application, with client data anonymised. [View all screens
 
 Pleadings and letters are written in dialogue with the AI, directly from the case file. Before you receive the draft, an automated rule-based check compares every evidence reference, party and legal citation with the current case file.
 
-The result is a submission-ready template that you review, finalise and sign. Export as PDF or DOCX. In testing, 3,000 pages of pleadings and exhibits were stamped, paginated and combined into a single PDF in under 20 minutes.
+The result is a submission-ready template that you review, finalise and sign. The fixed format is deliberate: from it, IRONSTICK assembles the finished filing itself — document and annexes in one PDF, page by page, with certification stamps, signature and annex page ranges that always match. Export as PDF or DOCX. In testing, 3,000 pages of pleadings and exhibits were stamped, paginated and combined into a single PDF in under 20 minutes.
 
 ## Your AI, your account
 

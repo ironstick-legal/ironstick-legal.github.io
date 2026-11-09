@@ -73,7 +73,7 @@ Schermate dell'applicazione, con i dati dei clienti resi anonimi. [Vedi tutte le
 
 Atti e lettere nascono in dialogo con l'IA, direttamente dal fascicolo. Prima che tu riceva la bozza, un controllo automatico basato su regole confronta ogni riferimento di prova, ogni parte e ogni citazione normativa con il fascicolo attuale.
 
-Il risultato è un modello pronto per il deposito che controlli, finalizzi e firmi. Esportazione in PDF o DOCX. Nei test, 3.000 pagine di atti e allegati sono state timbrate, impaginate e riunite in un unico PDF in meno di 20 minuti.
+Il risultato è un modello pronto per il deposito che controlli, finalizzi e firmi. Il formato fisso è voluto: da esso IRONSTICK assembla da sé il deposito finito — documento e allegati in un unico PDF, pagina per pagina, con timbri di certificazione, firma e intervalli di pagine degli allegati che corrispondono sempre. Esportazione in PDF o DOCX. Nei test, 3.000 pagine di atti e allegati sono state timbrate, impaginate e riunite in un unico PDF in meno di 20 minuti.
 
 ## La tua IA, il tuo account
 

@@ -73,7 +73,7 @@ Screenshots aus der Anwendung, Mandantendaten anonymisiert. [Alle Screenshots an
 
 Schriftsätze und Briefe entstehen im Dialog mit der KI, direkt aus der Akte. Bevor Sie den Entwurf erhalten, gleicht eine automatisierte, regelbasierte Prüfung jede Beleg-Referenz, jede Partei und jede Normzitierung mit der aktuellen Akte ab.
 
-Das Ergebnis ist eine einreichungsfähige Vorlage, die Sie prüfen, finalisieren und unterschreiben. Export als PDF oder DOCX. Im Test wurden 3.000 Seiten Schriftsätze und Beilagen gestempelt, paginiert und zu einem einzigen PDF zusammengeführt, in unter 20 Minuten.
+Das Ergebnis ist eine einreichungsfähige Vorlage, die Sie prüfen, finalisieren und unterschreiben. Das feste Format ist gewollt: Daraus stellt IRONSTICK die fertige Eingabe selbst zusammen — Dokument und Beilagen in einem PDF, Seite für Seite, mit Beglaubigungsstempeln, Unterschrift und Seitenbereichen der Beilagen, die immer stimmen. Export als PDF oder DOCX. Im Test wurden 3.000 Seiten Schriftsätze und Beilagen gestempelt, paginiert und zu einem einzigen PDF zusammengeführt, in unter 20 Minuten.
 
 ## Ihre KI, Ihr Konto
 

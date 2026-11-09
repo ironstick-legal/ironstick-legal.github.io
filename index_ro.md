@@ -73,7 +73,7 @@ Capturi de ecran din aplicație, cu datele clienților anonimizate. [Vedeți toa
 
 Actele și scrisorile se nasc în dialog cu IA, direct din dosar. Înainte de a primi proiectul, o verificare automată, bazată pe reguli, compară fiecare referință de probă, fiecare parte și fiecare citare de normă cu dosarul actual.
 
-Rezultatul este un șablon apt de depunere, pe care îl verificați, îl finalizați și îl semnați. Export în PDF sau DOCX. În test, 3.000 de pagini de acte și anexe au fost ștampilate, paginate și reunite într-un singur PDF în mai puțin de 20 de minute.
+Rezultatul este un șablon apt de depunere, pe care îl verificați, îl finalizați și îl semnați. Formatul fix este intenționat: pornind de la el, IRONSTICK compune singur actul depus finalizat — documentul și anexele într-un singur PDF, pagină cu pagină, cu ștampile de certificare, semnătură și intervale de pagini ale anexelor care corespund întotdeauna. Export în PDF sau DOCX. În test, 3.000 de pagini de acte și anexe au fost ștampilate, paginate și reunite într-un singur PDF în mai puțin de 20 de minute.
 
 ## IA dumneavoastră, contul dumneavoastră
 

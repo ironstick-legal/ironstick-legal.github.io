@@ -142,6 +142,19 @@ page), page-break control, signature placement, annex list taken over
 automatically — print, PDF, DOCX or Markdown. You review, correct and sign;
 the responsibility for what is filed stays with you.
 
+**Why the pleading format is fixed — and what it gives you.**
+IRONSTICK writes every pleading in one fixed, clean format on purpose: only
+that way can it assemble the finished filing itself. The annex list in the text is
+linked to the evidence in the file. In the print preview, IRONSTICK places
+the document and all annexes into one PDF, page by page. You decide for every
+annex page what goes to the court: a right click leaves a page out, practically
+blank pages are removed automatically, and every annex keeps at least one page.
+The page ranges in the annex list are recalculated each time, so they always
+match the final PDF. Certification stamps in the language of the case's country,
+your signature, continuous page numbers and the annex number on every annex page
+are added automatically. Large filings — 3,000 pages, stamped and paginated — are
+produced in under 20 minutes. Whenever you need it, the document itself is also
+available as a Word file (DOCX).
 Hours of file study and drafting become minutes of review —
 you read, refine and sign.
 
