@@ -2,12 +2,14 @@
 (function () {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   function count(el, ms) {
-    var end = parseInt(el.textContent, 10), t0 = null;
-    if (isNaN(end)) return;
+    // Zusatz hinter der Zahl („200+") bleibt stehen.
+    var m = el.textContent.trim().match(/^(\d+)(.*)$/), t0 = null;
+    if (!m) return;
+    var end = parseInt(m[1], 10), tail = m[2];
     (function step(t) {
       t0 = t0 || t;
       var p = Math.min((t - t0) / ms, 1);
-      el.textContent = Math.round(end * p);
+      el.textContent = Math.round(end * p) + tail;
       if (p < 1) requestAnimationFrame(step);
     })(performance.now());
   }
