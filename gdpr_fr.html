@@ -745,14 +745,12 @@ du Bridge (section 4.9).</li>
 l'application n'affiche rien d'autre qu'une invite de saisie de code jusqu'à ce que
 l'utilisateur saisisse le code à usage unique actuel à six chiffres, basé sur le
 temps, provenant d'une application d'authentification (RFC 6238). Le secret à
-l'origine des codes est dérivé de la clé de licence au moment de l'exécution et n'est
+l'origine des codes n'est
 jamais écrit sur le disque ; seule une empreinte non secrète de la configuration
 confirmée est enregistrée, afin que le code QR soit de nouveau affiché après un
 changement de clé. Des codes erronés répétés déclenchent un délai d'attente croissant.
 Les Bridges d'IA de bureau ne reçoivent aucune donnée de dossier tant que
-l'application est verrouillée. La récupération s'effectue au moyen de la clé de
-licence, ce qui fait de la clé de licence l'identifiant maître de l'installation — sa
-garde relève de la responsabilité de l'exploitant. Le fichier de configuration (clés
+l'application est verrouillée. Le fichier de configuration (clés
 API, identifiants de messagerie, accès au serveur) est stocké chiffré en AES-256 selon
 le même mécanisme que les documents et n'est déchiffré qu'en mémoire.</li>
 <li><b>Emplacement de stockage choisi par l'utilisateur.</b> Le chemin des données est

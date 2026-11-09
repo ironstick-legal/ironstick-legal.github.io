@@ -684,14 +684,12 @@ the detailed bridge diagnostic log (section 4.9).</li>
 <li><b>Access control at start (TOTP).</b> Once the licence key is
 accepted, the application shows nothing but a code prompt until the user
 enters the current six-digit time-based one-time code from an
-authenticator app (RFC 6238). The secret behind the codes is derived from
-the licence key at run time and is never written to disk; only a
+authenticator app (RFC 6238). The secret behind the codes is never written
+to disk; only a
 non-secret fingerprint of the confirmed set-up is stored so the QR code is
 shown again after a key change. Repeated wrong codes trigger a growing
 wait. The desktop-AI bridges receive no case data while the application
-is locked. Recovery is by the licence key, which makes the licence key the
-master credential of the installation — its custody is the operator's
-responsibility. The configuration file (API keys, e-mail credentials,
+is locked. The configuration file (API keys, e-mail credentials,
 server access) rests AES-256 encrypted with the same mechanism as the
 documents and is decrypted in memory only.</li>
 <li><b>User-controlled storage location.</b> The data path is chosen during

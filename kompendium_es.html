@@ -198,6 +198,14 @@ RGPD de cada flujo de datos</a>.</div>
 <li><b>Despachos con varios abogados.</b> Con <span class="irs">IRONSTICK</span> SERVER — el servidor de la oficina — los colegas comparten casos, una única biblioteca jurídica y una única red de personas y empresas, mientras que cada abogado conserva el expediente completo en su propio puesto de trabajo.</li>
 </ul>
 
+<div class="box"><p><b>En producción — cada día.</b></p>
+<p><span class="irs">IRONSTICK</span> está en uso productivo diario por parte de varios abogados. Ya ha
+redactado cientos de escritos, organiza casos individuales con más de 3.000 documentos y más
+de 2.500 entidades, y genera una plantilla lista para presentar de un escrito judicial tras otra.
+Cada versión supera por completo más de 1.500 pruebas automatizadas antes de su entrega, diecisiete
+compuertas deterministas vigilan cada paso de la IA, y las actualizaciones se instalan sobre la
+versión existente conservando todos los datos.</p></div>
+
 <div class="showband"><img src="img/49_encryption.png" alt="Cifrado AES-256 en reposo: base de datos, documentos y configuración"></div>
 <p class="part">Parte I — La práctica diaria</p>
 
@@ -921,8 +929,7 @@ cada PDF original, escaneo, imagen, grabación — reposa igualmente cifrado, ca
 archivo con su propio sello de integridad.</li>
 <li><b>Código de acceso del autenticador.</b> Cada arranque solicita un código
 estándar de seis dígitos (TOTP) de la aplicación de autenticación de su teléfono. Ninguna contraseña que recordar,
-nada almacenado: el secreto se deriva de su clave de licencia en tiempo de
-ejecución, y la clave de licencia le devuelve el acceso si se pierde el teléfono.
+y el secreto en que se basan los códigos nunca se almacena en el disco.
 Hasta que se introduce el código no se muestra nada, y los conectores de IA no
 reciben datos de casos. El archivo de configuración con sus credenciales de API y
 de correo reposa igualmente cifrado con AES-256.</li>

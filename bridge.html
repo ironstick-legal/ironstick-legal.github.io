@@ -145,10 +145,7 @@ party checks and delivery tracking are kept <b>per chat</b>; what one chat has
 read never counts for another. In the drop-down menu at the Claude symbol, each
 chat appears under the name you gave it in Claude Desktop. For this, <span class="irs">IRONSTICK</span>
 reads only the structured tool events (tool name and arguments) from Claude's
-local session record, never the conversation text. A call that cannot be
-attributed, because two chats call at exactly the same moment, is accepted if
-any chat of this Claude holds a valid confirmation, and is not recorded as a
-rule violation.</li>
+local session record, never the conversation text.</li>
 <li><b>Context compaction is detected.</b> When Claude compacts a long
 conversation, the instructions it read earlier are no longer reliably in its
 context. <span class="irs">IRONSTICK</span> locks that chat immediately, without penalty, until it has
@@ -421,8 +418,7 @@ The content is compared, not the call, so a different parameter that yields the
 same result is refused as well. The lock resets when a different document has
 been delivered or presented, when the AI program reconnects, when the AI has
 done a different task in between, or when the AI has re-read and confirmed its
-instructions. For Claude the lock applies per chat; for ChatGPT, Qwen and Kimi
-across all sessions; the built-in chat is exempt.</td></tr>
+instructions.</td></tr>
 </table>
 </div>
 

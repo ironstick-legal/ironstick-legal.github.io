@@ -675,14 +675,12 @@ das detaillierte Diagnoseprotokoll der Bridge (Abschnitt 4.9).</li>
 <li><b>Zugangskontrolle beim Start (TOTP).</b> Sobald der Lizenzschlüssel
 akzeptiert ist, zeigt die Anwendung nichts außer einer Code-Abfrage an, bis der Benutzer
 den aktuellen sechsstelligen zeitbasierten Einmalcode aus einer
-Authenticator-App (RFC 6238) eingibt. Das den Codes zugrunde liegende Geheimnis wird zur Laufzeit aus
-dem Lizenzschlüssel abgeleitet und niemals auf Datenträger geschrieben; gespeichert wird lediglich ein
+Authenticator-App (RFC 6238) eingibt. Das den Codes zugrunde liegende Geheimnis wird
+niemals auf Datenträger geschrieben; gespeichert wird lediglich ein
 nicht geheimer Fingerabdruck der bestätigten Einrichtung, damit der QR-Code
 nach einem Schlüsselwechsel erneut angezeigt wird. Wiederholte Falscheingaben lösen eine zunehmende
 Wartezeit aus. Die Desktop-KI-Bridges erhalten keine Falldaten, solange die Anwendung
-gesperrt ist. Die Wiederherstellung erfolgt über den Lizenzschlüssel, wodurch der Lizenzschlüssel zum
-Hauptzugangsnachweis der Installation wird — seine Verwahrung liegt in der
-Verantwortung des Betreibers. Die Konfigurationsdatei (API-Schlüssel, E-Mail-Zugangsdaten,
+gesperrt ist. Die Konfigurationsdatei (API-Schlüssel, E-Mail-Zugangsdaten,
 Serverzugang) liegt mit demselben Mechanismus wie die
 Dokumente AES-256-verschlüsselt vor und wird ausschließlich im Arbeitsspeicher entschlüsselt.</li>
 <li><b>Vom Benutzer kontrollierter Speicherort.</b> Der Datenpfad wird bei der

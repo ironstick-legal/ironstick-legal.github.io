@@ -151,10 +151,7 @@ tenus <b>par chat</b> ; ce qu'un chat a lu ne compte jamais pour un autre. Dans 
 menu déroulant du symbole Claude, chaque chat apparaît sous le nom que vous lui
 avez donné dans Claude Desktop. Pour cela, <span class="irs">IRONSTICK</span> ne lit dans le journal de
 session local de Claude que les événements d'outils structurés (nom de l'outil et
-arguments), jamais le texte de la conversation. Un appel qui ne peut être
-attribué parce que deux chats appellent exactement au même instant est accepté
-dès lors qu'un chat de ce Claude détient une confirmation valide, et n'est pas
-consigné comme infraction aux règles.</li>
+arguments), jamais le texte de la conversation.</li>
 <li><b>La compaction du contexte est détectée.</b> Lorsque Claude compacte une
 longue conversation, les instructions lues auparavant ne figurent plus de façon
 fiable dans son contexte. <span class="irs">IRONSTICK</span> verrouille aussitôt ce chat, sans pénalité,
@@ -444,8 +441,7 @@ refusé. C'est le contenu qui est comparé, non l'appel : un autre paramètre do
 le même résultat est donc refusé lui aussi. Le verrou est levé lorsqu'un autre
 document a été remis ou présenté, lorsque le programme d'IA se reconnecte, lorsque
 l'IA a effectué entre-temps une autre tâche, ou lorsqu'elle a relu et confirmé ses
-instructions. Pour Claude, le verrou s'applique par chat ; pour ChatGPT, Qwen et
-Kimi, sur toutes les sessions ; le chat intégré en est exempté.</td></tr>
+instructions.</td></tr>
 </table>
 </div>
 

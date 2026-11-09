@@ -718,14 +718,12 @@ dacă este activat, jurnalul detaliat de diagnosticare al bridge-ului (secțiune
 <li><b>Control de acces la pornire (TOTP).</b> Odată ce cheia de licență este
 acceptată, aplicația nu afișează nimic în afară de o solicitare de cod până când
 utilizatorul introduce codul curent de șase cifre, unic, bazat pe timp, dintr-o
-aplicație de autentificare (RFC 6238). Secretul din spatele codurilor este derivat
-din cheia de licență la timpul de execuție și nu este niciodată scris pe disc; se
+aplicație de autentificare (RFC 6238). Secretul din spatele codurilor
+nu este niciodată scris pe disc; se
 stochează doar o amprentă nesecretă a configurării confirmate, astfel încât codul QR
 să fie afișat din nou după o schimbare de cheie. Codurile greșite repetate declanșează
 o așteptare crescândă. Bridge-urile IA de desktop nu primesc date de dosar cât timp
-aplicația este blocată. Recuperarea se face prin cheia de licență, ceea ce face din
-cheia de licență acreditarea principală a instalării — custodia sa este
-responsabilitatea operatorului. Fișierul de configurație (chei API, acreditări de
+aplicația este blocată. Fișierul de configurație (chei API, acreditări de
 e-mail, acces la server) se odihnește criptat cu AES-256, cu același mecanism ca
 documentele, și este decriptat numai în memorie.</li>
 <li><b>Locație de stocare controlată de utilizator.</b> Calea datelor este aleasă în

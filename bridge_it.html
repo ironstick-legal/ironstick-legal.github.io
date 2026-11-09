@@ -152,10 +152,7 @@ consegne sono gestiti <b>per singola chat</b>: ciò che una chat ha letto non va
 mai per un'altra. Nel menu a tendina sul simbolo di Claude ogni chat compare con
 il nome che le ha dato in Claude Desktop. A tal fine <span class="irs">IRONSTICK</span> legge dal
 registro di sessione locale di Claude solo gli eventi strutturati degli strumenti
-(nome dello strumento e argomenti) — mai il testo della conversazione. Una
-chiamata che non si può attribuire, perché due chat chiamano nello stesso
-istante, viene lasciata passare purché una chat di questo Claude abbia dato una
-conferma valida, e non viene mai conteggiata come violazione delle regole.</li>
+(nome dello strumento e argomenti) — mai il testo della conversazione.</li>
 <li><b>La compattazione del contesto viene riconosciuta.</b> Quando Claude
 compatta una conversazione lunga, le istruzioni lette in precedenza non si
 trovano più con certezza nel suo contesto. <span class="irs">IRONSTICK</span> blocca subito quella chat,
@@ -439,8 +436,7 @@ respinta. Si confronta il contenuto, non la chiamata: anche un parametro diverso
 stesso risultato viene respinto. Il blocco si azzera quando è stato consegnato o
 presentato un altro documento, quando il programma di IA si riconnette, quando l'IA ha
 svolto nel frattempo un altro compito o quando l'IA ha riletto e confermato le proprie
-istruzioni. Per Claude il blocco vale per singola chat; per ChatGPT, Qwen e Kimi
-per tutte le sessioni; la chat integrata ne è esente.</td></tr>
+istruzioni.</td></tr>
 </table>
 </div>
 

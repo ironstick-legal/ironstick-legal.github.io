@@ -152,10 +152,7 @@ llevan <b>por chat</b>; lo que un chat ha leído no cuenta nunca para otro. En e
 menú desplegable del símbolo de Claude, cada chat aparece con el nombre que usted
 le ha dado en Claude Desktop. Para ello <span class="irs">IRONSTICK</span> lee, del registro local de sesión
 de Claude, únicamente los eventos estructurados de herramientas (nombre de la
-herramienta y argumentos), nunca el texto de la conversación. Una llamada que no
-puede asignarse, porque dos chats llaman en el mismo instante, se acepta si algún
-chat de ese Claude tiene una confirmación válida, y no se anota como infracción de
-las reglas.</li>
+herramienta y argumentos), nunca el texto de la conversación.</li>
 <li><b>Se detecta la compactación del contexto.</b> Cuando Claude compacta una
 conversación larga, las instrucciones leídas anteriormente ya no están con
 seguridad en su contexto. <span class="irs">IRONSTICK</span> bloquea ese chat de inmediato, sin penalización,
@@ -451,9 +448,7 @@ rechaza. Se compara el contenido, no la llamada, de modo que también se rechaza
 parámetro distinto que da el mismo resultado. El bloqueo se restablece cuando se ha
 entregado o presentado otro documento, cuando el programa de IA se vuelve a
 conectar, cuando la IA ha realizado entretanto otra tarea o cuando ha vuelto a
-leer y confirmar sus instrucciones. En Claude el bloqueo rige por chat; en
-ChatGPT, Qwen y Kimi, para todas las sesiones; el chat integrado queda
-exento.</td></tr>
+leer y confirmar sus instrucciones.</td></tr>
 </table>
 </div>
 
