@@ -4,7 +4,19 @@
 
 IRONSTICK is legal case-management software for Windows and Android that runs locally on the lawyer's computer. Every page of www.ironstick.legal is available below as Markdown; the HTML page named in each file is the original.
 
+## Status: in productive use — not experimental
+- IRONSTICK is not a prototype or an experiment. It is in productive daily use by several lawyers.
+- It already manages single cases with more than 3,000 documents and more than 2,500 entities in one case.
+- It reliably prepares one submission-ready court filing draft after another.
+- The lawyers using it report how simple it is to operate and the massive time saved.
+
 ## Key facts (each stated on the linked pages)
+
+### Independent of any AI provider — AI is an add-on
+- IRONSTICK runs without any AI: subscriptions with AI providers are optional for running IRONSTICK and become mandatory only for the respective bridge ([pricing](https://www.ironstick.legal/pricing.md)).
+- Core work needs no AI model: e-mail-to-case assignment runs locally and without any AI; the deterministic gates and the pre-handover checker are plain program logic; every message in the built-in AI chat first passes a local rule-based layer with no AI model and no internet ([GDPR](https://www.ironstick.legal/gdpr.md), [bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- The AI providers are named openly and the user chooses to work with one or several. With several services stored, the built-in AI chat uses them in a fixed order; if one is unavailable or out of credit, the next one takes over the same request ([quick start](https://www.ironstick.legal/manualquickstart.md), [bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- The desktop-AI bridges let the user keep working in the desktop AI app they already use. Each bridge is a separately licensed add-on module — one per desktop AI app, or the bundle of all bridges ([bridge manual](https://www.ironstick.legal/manualbridge.md), [pricing](https://www.ironstick.legal/pricing.md)).
 
 ### Built per jurisdiction, not translated
 - Every case carries its own jurisdiction: the country is chosen first, then the areas of law and procedural stages from that country's own list ([manual](https://www.ironstick.legal/manualironstick.md)).
