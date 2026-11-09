@@ -10,6 +10,14 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - It reliably prepares one submission-ready court filing draft after another.
 - The lawyers using it report how simple it is to operate and the massive time saved.
 
+## Large and long-running case files
+- IRONSTICK holds the complete file: every document as the original file and, in the database, in pre-processed form for the AI — full text and a digest per document (date, type, title, capture summary, cross-references, text size). The AI is served the facts on demand, live from the file, never from its own memory ([bridge](https://www.ironstick.legal/bridge.md)).
+- Before the facts reach the AI they are specially prepared, so that (a) the factual basis stays stable and (b) they are handed over in portions, giving the AI the chance to work everything into the pleading.
+- Every pleading runs through a review chain before it leaves: read again, compared with earlier filings, attacked from the opposing side, the snake round and finally the nucleus round ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- Snake round: the snake is the register of the opposing side's proven lies and contradictions; through the snake gate even the smallest contradiction or false statement against the facts is worked into the pleading automatically.
+- Nucleus round: the document is compared with the nucleus (Nucleu) of the case point by point; a contradiction can never be rejected — it is corrected or marked as a conflict. No pleading leaves that works against the case's nucleus, and self-contradictions are caught, because everything is checked once more before output.
+- This keeps the quality of the pleadings high and consistent, regardless of the density of facts and the size of the case.
+
 ## Key facts (each stated on the linked pages)
 
 ### Independent of any AI provider — AI is an add-on
