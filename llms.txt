@@ -2,6 +2,12 @@
 
 > Complete offline-first legal case-management for Windows & Android with a built-in AI that knows your files: clients, cases, evidence, deadlines, e-mail, documents.
 
+**In short:**
+- Fully functional without any AI. AI providers — one or several, the user's choice — and the desktop-AI bridges are separately licensed add-ons.
+- Local and encrypted: the AES-256-encrypted database lies on the user's own medium; the software vendor never sees client data.
+- In productive daily use by several lawyers, with single cases of more than 3,000 documents and more than 2,500 entities.
+- Every pleading is checked against the file, the snake and the case's nucleus before it leaves.
+
 IRONSTICK is legal case-management software for Windows and Android that runs locally on the lawyer's computer. Every page of www.ironstick.legal is available below as Markdown; the HTML page named in each file is the original.
 
 ## Status: in productive use — not experimental
@@ -17,6 +23,14 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - Snake round: the snake is the register of the opposing side's proven lies and contradictions; through the snake gate even the smallest contradiction or false statement against the facts is worked into the pleading automatically.
 - Nucleus round: the document is compared with the nucleus (Nucleu) of the case point by point; a contradiction can never be rejected — it is corrected or marked as a conflict. No pleading leaves that works against the case's nucleus, and self-contradictions are caught, because everything is checked once more before output.
 - This keeps the quality of the pleadings high and consistent, regardless of the density of facts and the size of the case.
+
+## Answers to common evaluation questions (each stated on the linked pages)
+- **Can the AI overlook the decisive document?** IRONSTICK keeps a reading ledger per case ("documents read r of n"). Case work starts from the digest of every document of the case; a pleading, hand-over or export additionally needs every document it cites or attaches, read in full. The rule "write only from what was read" is enforced by a gate ([bridge](https://www.ironstick.legal/bridge.md), [bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- **Can an error in the nucleus spread?** The nucleus is versioned: earlier versions are kept, and the AI must read every current nucleus again after each new version before writing, checking or delivering. Facts go in as documented history; the current state of the case is read from the digest each time ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- **Is a contradiction treated as a lie?** Only proven lies and contradictions of the opposing side go into the snake. Each one carries its own connection line: the statement, the counter-statement and every piece of evidence in between ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- **Are secret documents protected everywhere?** Evidence records flagged as secret are excluded from every reading, searching, dumping and stamping function of the bridge without exception ([bridge](https://www.ironstick.legal/bridge.md)).
+- **Can the AI work outside the case it was given?** Tools that read the content of a case are refused until the AI has read that case's digest, and for case tasks the case memory ([bridge manual](https://www.ironstick.legal/manualbridge.md)).
+- **How current are the legal sources?** Every statute in the legal library carries jurisdiction, source link, review date and status. Any statute source the AI finds on the web must be reported and is then added to the library ([compendium](https://www.ironstick.legal/kompendium.md), [bridge manual](https://www.ironstick.legal/manualbridge.md)).
 
 ## Key facts (each stated on the linked pages)
 
@@ -54,7 +68,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Quick Start](https://www.ironstick.legal/manualquickstart.md): IRONSTICK quick start: install, licence, user and language, AI, signature, letterhead and client import.
 - [User Manual](https://www.ironstick.legal/manualironstick.md): IRONSTICK user manual: every screen explained — what you see and what you can do.
 - [Bridge Manual](https://www.ironstick.legal/manualbridge.md): IRONSTICK bridge manual: AI chat and bridge, the gates in the background, and eight workflows from day start to legal research.
-- [The Case File That Works With You](https://www.ironstick.legal/kompendium.md): Complete offline-first legal case-management for Windows & Android with a built-in AI that knows your files: clients, cases, evidence, deadlines, e-mail, documents.
+- [The Case File That Works With You](https://www.ironstick.legal/kompendium.md)
 - [The Desktop-AI Bridge (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge.md)
 - [Screenshots](https://www.ironstick.legal/screenshots.md): See IRONSTICK in action — screenshots of the legal case-management system: login, cases, evidence, AI chat, documents and more.
 - [Download & Licences](https://www.ironstick.legal/download.md): Download IRONSTICK: Client-App, Bridges, Server and Central Scan-App — with installation order, licensing rules and an order template. Licence keys on request, and a free one-month trial of the Client-App.
@@ -67,7 +81,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Handbuch - Schnellstart](https://www.ironstick.legal/manualquickstart_de.md): Schnellstart — von der Installation bis zu Ihren ersten Mandanten in sechs Schritten.
 - [Handbuch - Client-App](https://www.ironstick.legal/manualironstick_de.md): Benutzerhandbuch — jeder Screen: was Sie sehen und was Sie tun können.
 - [Handbuch - Bridge](https://www.ironstick.legal/manualbridge_de.md): Bridge-Handbuch — arbeiten mit der KI: was im Hintergrund passiert, und acht Arbeitsabläufe vom Tagesstart bis zur Gesetzesrecherche.
-- [Die Akte, die mitarbeitet](https://www.ironstick.legal/kompendium_de.md): Vollständige Offline-Kanzleisoftware für Windows & Android mit integrierter KI, die Ihre Akten kennt: Mandanten, Fälle, Beweise, Fristen, E-Mail, Dokumente.
+- [Die Akte, die mitarbeitet](https://www.ironstick.legal/kompendium_de.md)
 - [Die Desktop-KI-Bridge (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_de.md)
 - [Download & Lizenzen](https://www.ironstick.legal/download_de.md): IRONSTICK herunterladen: Client-App, Bridges, Server und Central Scan-App — mit Installationsreihenfolge, Lizenzregeln und Bestellvorlage. Lizenzschlüssel auf Anfrage, Client-App einen Monat kostenlos testen.
 - [Preise](https://www.ironstick.legal/pricing_de.md)
@@ -79,7 +93,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Manual - Pornire rapidă](https://www.ironstick.legal/manualquickstart_ro.md): Pornire rapidă — de la instalare până la primii dumneavoastră clienți, în șase pași.
 - [Manual - Aplicația client](https://www.ironstick.legal/manualironstick_ro.md): Manual de utilizare — fiecare ecran: ce vedeți și ce puteți face.
 - [Manual - Bridge](https://www.ironstick.legal/manualbridge_ro.md): Manualul Bridge — lucrul cu IA: ce se întâmplă în fundal și opt fluxuri de lucru, de la începutul zilei până la cercetarea legislativă.
-- [Dosarul care lucrează cu dumneavoastră](https://www.ironstick.legal/kompendium_ro.md): Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.
+- [Dosarul care lucrează cu dumneavoastră](https://www.ironstick.legal/kompendium_ro.md)
 - [Bridge-ul către IA de desktop (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_ro.md)
 - [Descărcare & Licențe](https://www.ironstick.legal/download_ro.md): Descărcați IRONSTICK: Client-App, Bridges, Server și Central Scan-App — cu ordinea de instalare, regulile de licențiere și formularul de comandă. Cheie de licență la cerere, testați Client-App gratuit timp de o lună.
 - [Prețuri](https://www.ironstick.legal/pricing_ro.md)
@@ -91,7 +105,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Manuel - Démarrage rapide](https://www.ironstick.legal/manualquickstart_fr.md): Démarrage rapide — de l’installation à vos premiers clients en six étapes.
 - [Manuel - Application client](https://www.ironstick.legal/manualironstick_fr.md): Manuel d’utilisation — chaque écran : ce que vous voyez et ce que vous pouvez faire.
 - [Manuel - Bridge](https://www.ironstick.legal/manualbridge_fr.md): Manuel Bridge — travailler avec l’IA : ce qui se passe en arrière-plan, et huit flux de travail, du début de journée à la recherche juridique.
-- [Le dossier qui travaille avec vous](https://www.ironstick.legal/kompendium_fr.md): Système complet de gestion de dossiers juridiques, offline-first, pour Windows et Android, avec une IA intégrée qui connaît vos dossiers : clients, affaires, preuves, délais.
+- [Le dossier qui travaille avec vous](https://www.ironstick.legal/kompendium_fr.md)
 - [Le Bridge d'IA de bureau (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_fr.md)
 - [Téléchargement & licences](https://www.ironstick.legal/download_fr.md): Télécharger IRONSTICK : Client-App, Bridges, Server et Central Scan-App — avec l'ordre d'installation, les règles de licence et un modèle de commande. Clé de licence sur demande, Client-App à tester gratuitement pendant un mois.
 - [Tarifs](https://www.ironstick.legal/pricing_fr.md)
@@ -103,7 +117,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Manuale - Avvio rapido](https://www.ironstick.legal/manualquickstart_it.md): Avvio rapido — dall’installazione ai primi clienti in sei passi.
 - [Manuale - App client](https://www.ironstick.legal/manualironstick_it.md): Manuale utente — ogni schermata: cosa vedi e cosa puoi fare.
 - [Manuale - Bridge](https://www.ironstick.legal/manualbridge_it.md): Manuale Bridge — lavorare con l’IA: cosa succede dietro le quinte e otto flussi di lavoro, dall’inizio della giornata alla ricerca normativa.
-- [Il fascicolo che lavora con te](https://www.ironstick.legal/kompendium_it.md): Sistema completo di gestione dei fascicoli legali, offline-first, per Windows e Android, con un'IA integrata che conosce i tuoi fascicoli: clienti, cause, prove, scadenze.
+- [Il fascicolo che lavora con te](https://www.ironstick.legal/kompendium_it.md)
 - [Il Bridge per l'IA desktop (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_it.md)
 - [Download & licenze](https://www.ironstick.legal/download_it.md): Scarica IRONSTICK: Client-App, Bridge, Server e Central Scan-App — con ordine di installazione, regole di licenza e modello d'ordine. Chiave di licenza su richiesta, prova la Client-App gratis per un mese.
 - [Prezzi](https://www.ironstick.legal/pricing_it.md)
@@ -115,7 +129,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Manual - Inicio rápido](https://www.ironstick.legal/manualquickstart_es.md): Inicio rápido — de la instalación a sus primeros clientes en seis pasos.
 - [Manual - App cliente](https://www.ironstick.legal/manualironstick_es.md): Manual de usuario — cada pantalla: qué ve y qué puede hacer.
 - [Manual - Bridge](https://www.ironstick.legal/manualbridge_es.md): Manual Bridge — trabajar con la IA: qué ocurre en segundo plano y ocho flujos de trabajo, desde el inicio del día hasta la investigación jurídica.
-- [El expediente que trabaja con usted](https://www.ironstick.legal/kompendium_es.md): Sistema completo de gestión de casos jurídicos, offline-first, para Windows y Android, con una IA integrada que conoce sus expedientes: clientes, casos, pruebas, plazos.
+- [El expediente que trabaja con usted](https://www.ironstick.legal/kompendium_es.md)
 - [El Bridge de IA de escritorio (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_es.md)
 - [Descarga & Licencias](https://www.ironstick.legal/download_es.md): Descargar IRONSTICK: Client-App, Bridges, Server y Central Scan-App — con orden de instalación, reglas de licencia y plantilla de pedido. Clave de licencia a petición, pruebe la Client-App gratis durante un mes.
 - [Precios](https://www.ironstick.legal/pricing_es.md)
@@ -127,7 +141,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Руководство - Быстрый старт](https://www.ironstick.legal/manualquickstart_ru.md): Быстрый старт — от установки до первых клиентов за шесть шагов.
 - [Руководство - Клиентское приложение](https://www.ironstick.legal/manualironstick_ru.md): Руководство пользователя — каждый экран: что вы видите и что можете сделать.
 - [Руководство - Bridge](https://www.ironstick.legal/manualbridge_ru.md): Руководство Bridge — работа с ИИ: что происходит в фоне, и восемь рабочих процессов от начала дня до правового поиска.
-- [досье, которое работает вместе с вами](https://www.ironstick.legal/kompendium_ru.md): Полноценная офлайн-система управления юридическими делами для Windows и Android со встроенным ИИ, который знает ваши дела: клиенты, дела, доказательства, сроки, e-mail.
+- [досье, которое работает вместе с вами](https://www.ironstick.legal/kompendium_ru.md)
 - [Bridge для настольного ИИ (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_ru.md)
 - [Загрузка & лицензии](https://www.ironstick.legal/download_ru.md): Загрузка IRONSTICK: Client-App, Bridges, Server и Central Scan-App — с порядком установки, правилами лицензирования и шаблоном заказа. Лицензионный ключ по запросу, Client-App можно бесплатно протестировать в течение месяца.
 - [Цены](https://www.ironstick.legal/pricing_ru.md)
@@ -139,7 +153,7 @@ IRONSTICK is legal case-management software for Windows and Android that runs lo
 - [Посібник - Швидкий старт](https://www.ironstick.legal/manualquickstart_uk.md): Швидкий старт — від встановлення до перших клієнтів за шість кроків.
 - [Посібник - Клієнтський застосунок](https://www.ironstick.legal/manualironstick_uk.md): Посібник користувача — кожен екран: що ви бачите і що можете зробити.
 - [Посібник - Bridge](https://www.ironstick.legal/manualbridge_uk.md): Посібник Bridge — робота з ШІ: що відбувається у фоні, і вісім робочих процесів від початку дня до правового пошуку.
-- [Справа, яка працює разом із вами](https://www.ironstick.legal/kompendium_uk.md): Повноцінна офлайн-система керування юридичними справами для Windows і Android із вбудованим ШІ, що знає ваші справи: клієнти, справи, докази, строки, e-mail.
+- [Справа, яка працює разом із вами](https://www.ironstick.legal/kompendium_uk.md)
 - [Bridge для настільного ШІ (Claude · ChatGPT · Qwen · Kimi)](https://www.ironstick.legal/bridge_uk.md)
 - [Завантаження & ліцензії](https://www.ironstick.legal/download_uk.md): Завантажте IRONSTICK: Client-App, Bridges, Server та Central Scan-App — з порядком встановлення, правилами ліцензування та шаблоном замовлення. Ліцензійний ключ за запитом, Client-App можна безкоштовно протестувати протягом місяця.
 - [Ціни](https://www.ironstick.legal/pricing_uk.md)
