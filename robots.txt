@@ -1,34 +1,42 @@
 User-agent: *
 Allow: /
+Disallow: /*.md$
 
 # Suchmaschinen: Markdown-Fassungen nicht indexieren (HTML ist das Original)
 User-agent: Googlebot
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 User-agent: Bingbot
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 User-agent: YandexBot
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 User-agent: DuckDuckBot
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 User-agent: Baiduspider
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 User-agent: Applebot
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 User-agent: Slurp
 Allow: /
 Disallow: /*.md$
+Disallow: /*.md.txt$
 
 # KI-Crawler und KI-Abrufwerkzeuge ausdrücklich willkommen (inkl. Markdown)
 User-agent: GPTBot
