@@ -17,7 +17,7 @@ Nutzungsbedingungen und Datenschutzerklärungen der vom Benutzer eingerichteten 
 Moonshot AI (Kimi), OpenAI, Anthropic und, falls eingeschaltet, Groq, OpenRouter und
 Mistral; Google nur, wenn Google Drive für Exporte genutzt wird), die der Benutzer gesondert prüfen muss.
 
-Version 1.0.6 — Stand November 2026
+Version 1.0.7 — Stand November 2026
 
 **Zusammenfassung.**
 - **Speicherung.** Alle Daten liegen in einem einzigen lokalen Datenverzeichnis. Die Datenbank,
@@ -933,7 +933,7 @@ erhalten.
 
 Diese Erklärung wurde aus dem Quellcode der Anwendung abgeleitet
 (Pseudonymisierer, externer Router, Audit-Protokoll und der Übermittlungspfad
-jeder einzelnen Funktion) und gibt das ausgelieferte Verhalten der Version 1.0.6 (Stand November 2026) wieder.
+jeder einzelnen Funktion) und gibt das ausgelieferte Verhalten der Version 1.0.7 (Stand November 2026) wieder.
 Die Verarbeitung durch den KI-Anbieter selbst — Aufbewahrung,
 Verwendung für Training, Unterauftragsverarbeiter, Rechtsordnung — richtet sich
 ausschließlich nach den Bedingungen des Anbieters, in deren jeweils aktueller Fassung. Die

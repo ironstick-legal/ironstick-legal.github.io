@@ -18,7 +18,7 @@ Moonshot AI (Kimi), OpenAI, Anthropic y, si se han activado, Groq, OpenRouter y
 Mistral; Google solo si se utiliza Google Drive para exportaciones), que el
 usuario debe revisar por separado.
 
-Versión 1.0.6 — a noviembre de 2026
+Versión 1.0.7 — a noviembre de 2026
 
 **Resumen.**
 - **Almacenamiento.** Todos los datos residen en un único directorio de datos local. La base de datos,
@@ -898,7 +898,7 @@ autoridad de control.
 
 La presente declaración se ha derivado del código fuente de la aplicación
 (seudonimizador, router externo, registro de auditoría y la vía de transmisión de cada
-función) y refleja el comportamiento entregado de la versión 1.0.6 (a noviembre de 2026). El tratamiento por parte
+función) y refleja el comportamiento entregado de la versión 1.0.7 (a noviembre de 2026). El tratamiento por parte
 del propio proveedor de IA — conservación, uso para entrenamiento, subencargados, jurisdicción —
 se rige exclusivamente por las condiciones del proveedor, en sus versiones vigentes. Los
 enlaces a las condiciones y a la política de privacidad de cada proveedor figuran también en la sección

@@ -26,22 +26,22 @@ Des connecteurs qui relient les applications d'IA de bureau à votre application
 
 Connecteur pour l'application Claude Desktop.
 
-[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-claude-setup-2.16.15.exe)
+[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-claude-setup-2.16.15.exe)
 #### ChatGPT Desktop
 
 Connecteur pour l'application ChatGPT Desktop.
 
-[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-chatgpt-setup-2.16.15.exe)
+[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-chatgpt-setup-2.16.15.exe)
 #### Qwen
 
 Connecteur pour l'application Qwen Desktop.
 
-[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-qwen-setup-2.16.15.exe)
+[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-qwen-setup-2.16.15.exe)
 #### Kimi
 
 Connecteur pour l'application Kimi Desktop.
 
-[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-kimi-setup-2.16.15.exe)
+[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-kimi-setup-2.16.15.exe)
 
 ## Connexion de l'IA
 
@@ -60,12 +60,12 @@ IRONSTICK SERVER, le serveur de cabinet, est fourni sous forme de paquet Synolog
 
 Fonctionne sur un NAS Synology ordinaire et relie plusieurs postes de travail : dossiers partagés, bibliothèque de lois à l'échelle du cabinet et réception centralisée des numérisations sur votre propre NAS. Il se reconstruit à partir des postes de travail et affiche la dernière sauvegarde de chaque utilisateur. Le serveur fonctionne entièrement au sein du réseau de votre cabinet, sans aucun cloud et sans trafic d'IA. Disponible à partir de deux licences d'application client.
 
-[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-server-synology-1.0.0.spk)
+[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-server-synology-1.0.0.spk)
 ### Central Scan App
 
 Le poste de saisie au scanner : le courrier entrant et les documents sont numérisés de manière centralisée, affectés aux dossiers et injectés automatiquement. Nécessite IRONSTICK SERVER.
 
-[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-centralscan-setup-1.0.3.exe)
+[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-centralscan-setup-1.0.3.exe)
 
 ## Ordre d'installation
 
@@ -165,6 +165,6 @@ Contactez-nous directement par WhatsApp ou Telegram, ou appelez-nous. Nous parlo
 
 ### Télécharger l'application client IRONSTICK
 
-Téléchargez **ironstick-setup-1.0.6.exe** et lancez-le. Le programme d’installation télécharge ensuite les autres composants (environ 6,7 Go) et affiche sa progression. Une connexion Internet est nécessaire pendant l’installation.
+Téléchargez **ironstick-setup-1.0.7.exe** et lancez-le. Le programme d’installation télécharge ensuite les autres composants (environ 6,7 Go) et affiche sa progression. Une connexion Internet est nécessaire pendant l’installation.
 
-ironstick-setup-1.0.6.exe **(lancer ce fichier)**2,8 Mo[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-setup-1.0.6.exe)
+ironstick-setup-1.0.7.exe **(lancer ce fichier)**2,8 Mo[Télécharger](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-setup-1.0.7.exe)

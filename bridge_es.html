@@ -953,11 +953,11 @@ con «aplicación bloqueada: aún no se ha introducido el código de seguridad»
 se devuelve ningún dato de casos. Introduzca el código en <span class="irs">IRONSTICK</span> y, a
 continuación, repita la petición.</div>
 
-<p class="meta">Versión 1.0.6 — a noviembre de 2026. La lista de herramientas refleja
+<p class="meta">Versión 1.0.7 — a noviembre de 2026. La lista de herramientas refleja
 el Bridge entregado con esta versión; con el tiempo pueden añadirse herramientas.</p>
 
 <h2>Anexo — Descripción técnica completa del Bridge</h2>
-<p>Alcance: versión 1.0.6 — a noviembre de 2026; más de 200 herramientas en 22 conjuntos de herramientas, Model Context Protocol (MCP). Este anexo está redactado para la revisión por parte de TI y de protección de datos y describe la arquitectura, cada capa funcional, las salvaguardas, los límites y las redirecciones del Bridge.</p>
+<p>Alcance: versión 1.0.7 — a noviembre de 2026; más de 200 herramientas en 22 conjuntos de herramientas, Model Context Protocol (MCP). Este anexo está redactado para la revisión por parte de TI y de protección de datos y describe la arquitectura, cada capa funcional, las salvaguardas, los límites y las redirecciones del Bridge.</p>
 <h3>1. Finalidad y posicionamiento</h3>
 <p>El Bridge conecta aplicaciones comerciales de IA de escritorio (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) con una aplicación de gestión de casos jurídicos <span class="irs">IRONSTICK</span> en ejecución en el mismo equipo. La IA de escritorio recibe una superficie de herramientas controlada y autodescriptiva a través del Model Context Protocol (MCP); cada llamada se ejecuta dentro de la aplicación <span class="irs">IRONSTICK</span> contra la base de datos en vivo, y cada resultado es posprocesado por el Bridge antes de llegar al modelo. Los objetivos de diseño son: una carga de contexto permanente mínima para el modelo, la imposición estructural de reglas de trabajo que el mero texto de instrucciones no puede garantizar, la protección del trabajo no guardado del usuario, la protección de los datos frente a solicitudes sobredimensionadas o mal dirigidas, y la ausencia total de material de configuración legible en el producto instalado.</p>
 <h3>2. Topología de procesos</h3>

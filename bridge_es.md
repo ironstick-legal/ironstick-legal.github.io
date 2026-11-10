@@ -838,12 +838,12 @@ en la pantalla de inicio de IRONSTICK, toda llamada a una herramienta se respond
 con «aplicación bloqueada: aún no se ha introducido el código de seguridad» y no
 se devuelve ningún dato de casos. Introduzca el código en IRONSTICK y, a
 continuación, repita la petición.
-Versión 1.0.6 — a noviembre de 2026. La lista de herramientas refleja
+Versión 1.0.7 — a noviembre de 2026. La lista de herramientas refleja
 el Bridge entregado con esta versión; con el tiempo pueden añadirse herramientas.
 
 ## Anexo — Descripción técnica completa del Bridge
 
-Alcance: versión 1.0.6 — a noviembre de 2026; más de 200 herramientas en 22 conjuntos de herramientas, Model Context Protocol (MCP). Este anexo está redactado para la revisión por parte de TI y de protección de datos y describe la arquitectura, cada capa funcional, las salvaguardas, los límites y las redirecciones del Bridge.
+Alcance: versión 1.0.7 — a noviembre de 2026; más de 200 herramientas en 22 conjuntos de herramientas, Model Context Protocol (MCP). Este anexo está redactado para la revisión por parte de TI y de protección de datos y describe la arquitectura, cada capa funcional, las salvaguardas, los límites y las redirecciones del Bridge.
 
 ### 1. Finalidad y posicionamiento
 

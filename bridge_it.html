@@ -916,11 +916,11 @@ schermata iniziale di <span class="irs">IRONSTICK</span>, ogni chiamata di strum
 bloccata — il codice di sicurezza non è ancora stato inserito» e non viene restituito alcun dato dei casi.
 Inserisca il codice in <span class="irs">IRONSTICK</span>, poi ripeta la richiesta.</div>
 
-<p class="meta">Versione 1.0.6 — stato: novembre 2026. L'elenco degli strumenti rispecchia
+<p class="meta">Versione 1.0.7 — stato: novembre 2026. L'elenco degli strumenti rispecchia
 il Bridge fornito con questa versione; nel tempo possono aggiungersi nuovi strumenti.</p>
 
 <h2>Appendice — Descrizione tecnica completa del Bridge</h2>
-<p>Ambito: versione 1.0.6 — stato: novembre 2026; oltre 200 strumenti in 22 set di strumenti, Model Context Protocol (MCP). Questa appendice è redatta per la verifica da parte dei responsabili IT e della protezione dei dati e descrive l'architettura, ogni livello funzionale, le salvaguardie, i limiti e i reindirizzamenti del Bridge.</p>
+<p>Ambito: versione 1.0.7 — stato: novembre 2026; oltre 200 strumenti in 22 set di strumenti, Model Context Protocol (MCP). Questa appendice è redatta per la verifica da parte dei responsabili IT e della protezione dei dati e descrive l'architettura, ogni livello funzionale, le salvaguardie, i limiti e i reindirizzamenti del Bridge.</p>
 <h3>1. Scopo e posizionamento</h3>
 <p>Il Bridge collega applicazioni commerciali di IA desktop (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) a un'applicazione di gestione dei casi legali <span class="irs">IRONSTICK</span> in esecuzione sullo stesso computer. L'IA desktop riceve una superficie di strumenti controllata e autodescrittiva tramite il Model Context Protocol (MCP); ogni chiamata viene eseguita all'interno dell'applicazione <span class="irs">IRONSTICK</span> sulla banca dati dal vivo, e ogni risultato viene post-elaborato dal Bridge prima di raggiungere il modello. Gli obiettivi di progettazione sono: carico di contesto permanente minimo sul modello, imposizione strutturale di regole di lavoro che un semplice testo di istruzioni non può garantire, protezione del lavoro non salvato dell'utente, protezione dei dati da richieste sovradimensionate o mal indirizzate, e completa assenza di materiale di configurazione leggibile nel prodotto installato.</p>
 <h3>2. Topologia dei processi</h3>

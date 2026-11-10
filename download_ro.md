@@ -26,22 +26,22 @@ Conectori care leagă aplicațiile desktop IA de aplicația client printr-un ser
 
 Conector pentru aplicația Claude Desktop.
 
-[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-claude-setup-2.16.15.exe)
+[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-claude-setup-2.16.15.exe)
 #### ChatGPT Desktop
 
 Conector pentru aplicația ChatGPT Desktop.
 
-[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-chatgpt-setup-2.16.15.exe)
+[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-chatgpt-setup-2.16.15.exe)
 #### Qwen
 
 Conector pentru aplicația desktop Qwen.
 
-[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-qwen-setup-2.16.15.exe)
+[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-qwen-setup-2.16.15.exe)
 #### Kimi
 
 Conector pentru aplicația desktop Kimi.
 
-[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-kimi-setup-2.16.15.exe)
+[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-kimi-setup-2.16.15.exe)
 
 ## Conectarea IA
 
@@ -60,12 +60,12 @@ IRONSTICK SERVER, serverul de cabinet, se livrează ca pachet Synology (SPK) gat
 
 Rulează pe un NAS Synology obișnuit și leagă mai multe posturi de lucru: dosare partajate, o bibliotecă de legi la nivelul cabinetului și preluare centrală a scanărilor, pe propriul NAS. Se reconstruiește singur din posturile de lucru și afișează ultima copie de siguranță a fiecărui utilizator. Serverul funcționează în întregime în rețeaua cabinetului dumneavoastră, fără cloud și fără trafic IA. Disponibil de la două licențe ale aplicației client.
 
-[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-server-synology-1.0.0.spk)
+[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-server-synology-1.0.0.spk)
 ### Central Scan App
 
 Postul de lucru pentru captură, la scaner: corespondența primită și documentele se scanează centralizat, se atribuie dosarelor și se preiau automat. Necesită IRONSTICK SERVER.
 
-[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-centralscan-setup-1.0.3.exe)
+[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-centralscan-setup-1.0.3.exe)
 
 ## Ordinea de instalare
 
@@ -165,6 +165,6 @@ Contactați-ne direct prin WhatsApp sau Telegram ori sunați-ne. Vorbim engleză
 
 ### Descărcați aplicația client IRONSTICK
 
-Descărcați **ironstick-setup-1.0.6.exe** și porniți-l. Programul de instalare descarcă apoi celelalte componente (aproximativ 6,7 GB) și afișează progresul. În timpul instalării este necesară o conexiune la internet.
+Descărcați **ironstick-setup-1.0.7.exe** și porniți-l. Programul de instalare descarcă apoi celelalte componente (aproximativ 6,7 GB) și afișează progresul. În timpul instalării este necesară o conexiune la internet.
 
-ironstick-setup-1.0.6.exe **(porniți acest fișier)**2,8 MB[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-setup-1.0.6.exe)
+ironstick-setup-1.0.7.exe **(porniți acest fișier)**2,8 MB[Descărcați](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-setup-1.0.7.exe)

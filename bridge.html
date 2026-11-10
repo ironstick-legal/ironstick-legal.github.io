@@ -896,11 +896,11 @@ start screen, every tool call is answered with “application locked — the
 security code has not been entered yet”, and no case data is returned. Enter the
 code in <span class="irs">IRONSTICK</span>, then repeat the request.</div>
 
-<p class="meta">Version 1.0.6 — as of November 2026. The tool list reflects
+<p class="meta">Version 1.0.7 — as of November 2026. The tool list reflects
 the bridge shipped with this version; tools may be added over time.</p>
 
 <h2>Appendix — Complete technical description of the bridge</h2>
-<p>Scope: Version 1.0.6 — as of November 2026; more than 200 tools in 22 toolsets, Model Context Protocol (MCP). This appendix is written for IT and data-protection review and describes the architecture, every functional layer, the safeguards, the limits and the redirections of the bridge.</p>
+<p>Scope: Version 1.0.7 — as of November 2026; more than 200 tools in 22 toolsets, Model Context Protocol (MCP). This appendix is written for IT and data-protection review and describes the architecture, every functional layer, the safeguards, the limits and the redirections of the bridge.</p>
 <h3>1. Purpose and positioning</h3>
 <p>The bridge connects commercial desktop AI applications (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) to a running <span class="irs">IRONSTICK</span> legal case-management application on the same machine. The desktop AI receives a controlled, self-describing tool surface over the Model Context Protocol (MCP); every call is executed inside the <span class="irs">IRONSTICK</span> application against the live database, and every result is post-processed by the bridge before it reaches the model. The design goals are: minimal permanent context load on the model, structural enforcement of working rules that plain instruction text cannot guarantee, protection of unsaved user work, protection of the data against oversized or misdirected requests, and complete absence of readable configuration material in the installed product.</p>
 <h3>2. Process topology</h3>

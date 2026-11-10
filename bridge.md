@@ -789,12 +789,12 @@ lock: until the six-digit authenticator code has been entered on the IRONSTICK
 start screen, every tool call is answered with “application locked — the
 security code has not been entered yet”, and no case data is returned. Enter the
 code in IRONSTICK, then repeat the request.
-Version 1.0.6 — as of November 2026. The tool list reflects
+Version 1.0.7 — as of November 2026. The tool list reflects
 the bridge shipped with this version; tools may be added over time.
 
 ## Appendix — Complete technical description of the bridge
 
-Scope: Version 1.0.6 — as of November 2026; more than 200 tools in 22 toolsets, Model Context Protocol (MCP). This appendix is written for IT and data-protection review and describes the architecture, every functional layer, the safeguards, the limits and the redirections of the bridge.
+Scope: Version 1.0.7 — as of November 2026; more than 200 tools in 22 toolsets, Model Context Protocol (MCP). This appendix is written for IT and data-protection review and describes the architecture, every functional layer, the safeguards, the limits and the redirections of the bridge.
 
 ### 1. Purpose and positioning
 

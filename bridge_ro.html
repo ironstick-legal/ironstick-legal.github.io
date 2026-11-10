@@ -901,11 +901,11 @@ pornire <span class="irs">IRONSTICK</span>, fiecare apel de instrument primește
 codul de securitate nu a fost încă introdus" și nu se returnează date de dosar.
 Introduceți codul în <span class="irs">IRONSTICK</span>, apoi repetați cererea.</div>
 
-<p class="meta">Versiunea 1.0.6 — stare noiembrie 2026. Lista de instrumente reflectă
+<p class="meta">Versiunea 1.0.7 — stare noiembrie 2026. Lista de instrumente reflectă
 Bridge-ul livrat cu această versiune; pot fi adăugate instrumente în timp.</p>
 
 <h2>Anexă — Descrierea tehnică completă a Bridge-ului</h2>
-<p>Domeniu: versiunea 1.0.6 — stare noiembrie 2026; peste 200 de instrumente în 22 de seturi de instrumente, Model Context Protocol (MCP). Această anexă este scrisă pentru verificarea de către IT și protecția datelor și descrie arhitectura, fiecare strat funcțional, măsurile de siguranță, limitele și redirecționările Bridge-ului.</p>
+<p>Domeniu: versiunea 1.0.7 — stare noiembrie 2026; peste 200 de instrumente în 22 de seturi de instrumente, Model Context Protocol (MCP). Această anexă este scrisă pentru verificarea de către IT și protecția datelor și descrie arhitectura, fiecare strat funcțional, măsurile de siguranță, limitele și redirecționările Bridge-ului.</p>
 <h3>1. Scop și poziționare</h3>
 <p>Bridge-ul conectează aplicații comerciale de IA de desktop (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) la o aplicație <span class="irs">IRONSTICK</span> de gestionare a dosarelor juridice care rulează pe același calculator. IA de desktop primește o suprafață de instrumente controlată și autodescriptivă prin Model Context Protocol (MCP); fiecare apel este executat în interiorul aplicației <span class="irs">IRONSTICK</span> pe baza de date vie, iar fiecare rezultat este post-procesat de Bridge înainte de a ajunge la model. Obiectivele de proiectare sunt: o încărcare permanentă minimă a contextului modelului, impunerea structurală a regulilor de lucru pe care simplul text de instrucțiuni nu le poate garanta, protejarea muncii nesalvate a utilizatorului, protejarea datelor împotriva cererilor supradimensionate sau greșit direcționate și absența completă a oricărui material de configurare lizibil în produsul instalat.</p>
 <h3>2. Topologia proceselor</h3>

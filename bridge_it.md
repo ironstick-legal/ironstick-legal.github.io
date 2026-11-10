@@ -809,12 +809,12 @@ finché il codice a sei cifre dell'autenticatore non è stato inserito nella
 schermata iniziale di IRONSTICK, ogni chiamata di strumento riceve la risposta «applicazione
 bloccata — il codice di sicurezza non è ancora stato inserito» e non viene restituito alcun dato dei casi.
 Inserisca il codice in IRONSTICK, poi ripeta la richiesta.
-Versione 1.0.6 — stato: novembre 2026. L'elenco degli strumenti rispecchia
+Versione 1.0.7 — stato: novembre 2026. L'elenco degli strumenti rispecchia
 il Bridge fornito con questa versione; nel tempo possono aggiungersi nuovi strumenti.
 
 ## Appendice — Descrizione tecnica completa del Bridge
 
-Ambito: versione 1.0.6 — stato: novembre 2026; oltre 200 strumenti in 22 set di strumenti, Model Context Protocol (MCP). Questa appendice è redatta per la verifica da parte dei responsabili IT e della protezione dei dati e descrive l'architettura, ogni livello funzionale, le salvaguardie, i limiti e i reindirizzamenti del Bridge.
+Ambito: versione 1.0.7 — stato: novembre 2026; oltre 200 strumenti in 22 set di strumenti, Model Context Protocol (MCP). Questa appendice è redatta per la verifica da parte dei responsabili IT e della protezione dei dati e descrive l'architettura, ogni livello funzionale, le salvaguardie, i limiti e i reindirizzamenti del Bridge.
 
 ### 1. Scopo e posizionamento
 

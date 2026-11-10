@@ -791,12 +791,12 @@ IRONSTICK: până la introducerea codului de autentificare din șase cifre pe ec
 pornire IRONSTICK, fiecare apel de instrument primește răspunsul „aplicație blocată —
 codul de securitate nu a fost încă introdus" și nu se returnează date de dosar.
 Introduceți codul în IRONSTICK, apoi repetați cererea.
-Versiunea 1.0.6 — stare noiembrie 2026. Lista de instrumente reflectă
+Versiunea 1.0.7 — stare noiembrie 2026. Lista de instrumente reflectă
 Bridge-ul livrat cu această versiune; pot fi adăugate instrumente în timp.
 
 ## Anexă — Descrierea tehnică completă a Bridge-ului
 
-Domeniu: versiunea 1.0.6 — stare noiembrie 2026; peste 200 de instrumente în 22 de seturi de instrumente, Model Context Protocol (MCP). Această anexă este scrisă pentru verificarea de către IT și protecția datelor și descrie arhitectura, fiecare strat funcțional, măsurile de siguranță, limitele și redirecționările Bridge-ului.
+Domeniu: versiunea 1.0.7 — stare noiembrie 2026; peste 200 de instrumente în 22 de seturi de instrumente, Model Context Protocol (MCP). Această anexă este scrisă pentru verificarea de către IT și protecția datelor și descrie arhitectura, fiecare strat funcțional, măsurile de siguranță, limitele și redirecționările Bridge-ului.
 
 ### 1. Scop și poziționare
 

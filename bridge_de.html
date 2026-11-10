@@ -946,12 +946,12 @@ OpenRouter, Mistral), werden von der Bridge nicht verwendet.</div>
 und keine Falldaten werden zurückgegeben. Code in <span class="irs">IRONSTICK</span> eingeben, dann die
 Anfrage wiederholen.</div>
 
-<p class="meta">Version 1.0.6 — Stand: November 2026. Die Werkzeugliste entspricht
+<p class="meta">Version 1.0.7 — Stand: November 2026. Die Werkzeugliste entspricht
 der mit dieser Version ausgelieferten Bridge; im Lauf der Zeit können Werkzeuge
 hinzukommen.</p>
 
 <h2>Anhang — Vollständige technische Beschreibung der Bridge</h2>
-<p>Geltungsbereich: Version 1.0.6 — Stand: November 2026; mehr als 200 Werkzeuge in 22 Toolsets, Model Context Protocol (MCP). Dieser Anhang ist für die Prüfung durch IT und Datenschutz geschrieben und beschreibt die Architektur, jede Funktionsschicht, die Sicherungen, die Grenzen und die Umleitungen der Bridge.</p>
+<p>Geltungsbereich: Version 1.0.7 — Stand: November 2026; mehr als 200 Werkzeuge in 22 Toolsets, Model Context Protocol (MCP). Dieser Anhang ist für die Prüfung durch IT und Datenschutz geschrieben und beschreibt die Architektur, jede Funktionsschicht, die Sicherungen, die Grenzen und die Umleitungen der Bridge.</p>
 <h3>1. Zweck und Einordnung</h3>
 <p>Die Bridge verbindet kommerzielle Desktop-KI-Anwendungen (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) mit einer laufenden <span class="irs">IRONSTICK</span>-Anwendung zur juristischen Fallverwaltung auf demselben Rechner. Die Desktop-KI erhält über das Model Context Protocol (MCP) eine kontrollierte, selbstbeschreibende Werkzeugoberfläche; jeder Aufruf wird innerhalb der <span class="irs">IRONSTICK</span>-Anwendung gegen die Live-Datenbank ausgeführt, und jedes Ergebnis wird von der Bridge nachbearbeitet, bevor es das Modell erreicht. Die Entwurfsziele sind: minimale dauerhafte Kontextlast für das Modell, strukturelle Durchsetzung von Arbeitsregeln, die bloßer Instruktionstext nicht garantieren kann, Schutz ungespeicherter Arbeit des Benutzers, Schutz der Daten vor übergroßen oder fehlgeleiteten Anfragen und das vollständige Fehlen lesbaren Konfigurationsmaterials im installierten Produkt.</p>
 <h3>2. Prozesstopologie</h3>

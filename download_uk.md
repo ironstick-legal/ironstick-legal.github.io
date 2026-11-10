@@ -26,22 +26,22 @@
 
 Конектор для застосунку Claude Desktop.
 
-[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-claude-setup-2.16.15.exe)
+[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-claude-setup-2.16.15.exe)
 #### ChatGPT Desktop
 
 Конектор для застосунку ChatGPT Desktop.
 
-[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-chatgpt-setup-2.16.15.exe)
+[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-chatgpt-setup-2.16.15.exe)
 #### Qwen
 
 Конектор для настільного застосунку Qwen.
 
-[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-qwen-setup-2.16.15.exe)
+[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-qwen-setup-2.16.15.exe)
 #### Kimi
 
 Конектор для настільного застосунку Kimi.
 
-[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-bridge-kimi-setup-2.16.15.exe)
+[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-kimi-setup-2.16.15.exe)
 
 ## Під'єднання ШІ
 
@@ -60,12 +60,12 @@ IRONSTICK SERVER, офісний сервер, постачається як г�
 
 Працює на звичайному Synology NAS і з'єднує кілька робочих місць: спільні справи, бібліотека законів для всієї фірми та централізоване надходження сканів на вашому власному NAS. Він відновлює себе з робочих місць і показує останню резервну копію кожного користувача. Сервер працює повністю всередині мережі вашої фірми, без жодної хмари та без трафіку ШІ. Доступний від двох ліцензій клієнтського застосунку.
 
-[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-server-synology-1.0.0.spk)
+[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-server-synology-1.0.0.spk)
 ### Central Scan App
 
 Робоче місце для оцифрування біля сканера: вхідна пошта й документи скануються централізовано, прив'язуються до справ і завантажуються автоматично. Потребує IRONSTICK SERVER.
 
-[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-centralscan-setup-1.0.3.exe)
+[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-centralscan-setup-1.0.3.exe)
 
 ## Порядок встановлення
 
@@ -165,6 +165,6 @@ WhatsApp: [ ] так
 
 ### Завантажити клієнтський застосунок IRONSTICK
 
-Завантажте **ironstick-setup-1.0.6.exe** і запустіть його. Потім інсталятор завантажить решту компонентів (близько 6,7 ГБ) і покаже перебіг. Під час інсталяції потрібне підключення до Інтернету.
+Завантажте **ironstick-setup-1.0.7.exe** і запустіть його. Потім інсталятор завантажить решту компонентів (близько 6,7 ГБ) і покаже перебіг. Під час інсталяції потрібне підключення до Інтернету.
 
-ironstick-setup-1.0.6.exe **(запустіть цей файл)**2,8 MB[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.6/ironstick-setup-1.0.6.exe)
+ironstick-setup-1.0.7.exe **(запустіть цей файл)**2,8 MB[Завантажити](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-setup-1.0.7.exe)

@@ -825,12 +825,12 @@ n'a pas été saisi sur l'écran de démarrage d'IRONSTICK, chaque appel d'outil
 reçoit la réponse « Application verrouillée — le code de sécurité n'a pas encore
 été saisi » et aucune donnée de dossier n'est renvoyée. Saisissez le code dans
 IRONSTICK, puis répétez la demande.
-Version 1.0.6 — état de novembre 2026. La liste des outils reflète le Bridge
+Version 1.0.7 — état de novembre 2026. La liste des outils reflète le Bridge
 livré avec cette version ; des outils peuvent s'ajouter avec le temps.
 
 ## Annexe — Description technique complète du Bridge
 
-Portée : version 1.0.6 — état de novembre 2026 ; plus de 200 outils répartis en 22 jeux d'outils, Model Context Protocol (MCP). Cette annexe est rédigée pour l'examen par les services informatiques et de protection des données et décrit l'architecture, chaque couche fonctionnelle, les protections, les limites et les redirections du Bridge.
+Portée : version 1.0.7 — état de novembre 2026 ; plus de 200 outils répartis en 22 jeux d'outils, Model Context Protocol (MCP). Cette annexe est rédigée pour l'examen par les services informatiques et de protection des données et décrit l'architecture, chaque couche fonctionnelle, les protections, les limites et les redirections du Bridge.
 
 ### 1. Finalité et positionnement
 

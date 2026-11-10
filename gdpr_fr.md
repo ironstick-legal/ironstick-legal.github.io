@@ -19,7 +19,7 @@ configurés : Alibaba Cloud (Qwen), Moonshot AI (Kimi), OpenAI, Anthropic et, s'
 sont activés, Groq, OpenRouter et Mistral ; Google uniquement si Google Drive est
 utilisé pour les exportations), que l'utilisateur doit examiner séparément.
 
-Version 1.0.6 — état : novembre 2026
+Version 1.0.7 — état : novembre 2026
 
 **Synthèse.**
 - **Stockage.** Toutes les données se trouvent dans un répertoire de données local
@@ -994,7 +994,7 @@ contrôle.
 La présente déclaration a été établie à partir du code source de
 l'application (pseudonymiseur, routeur externe, journal d'audit et voie de
 transmission de chaque fonctionnalité) et reflète le comportement livré de la version
-1.0.6 (état : novembre 2026). Le traitement par le fournisseur d'IA lui-même — conservation, utilisation
+1.0.7 (état : novembre 2026). Le traitement par le fournisseur d'IA lui-même — conservation, utilisation
 pour l'entraînement, sous-traitants ultérieurs, juridiction — est régi exclusivement
 par les conditions du fournisseur, dans leurs versions en vigueur. Les
 liens vers les conditions et la politique de confidentialité de chaque fournisseur

@@ -932,11 +932,11 @@ n'a pas été saisi sur l'écran de démarrage d'<span class="irs">IRONSTICK</sp
 reçoit la réponse « Application verrouillée — le code de sécurité n'a pas encore
 été saisi » et aucune donnée de dossier n'est renvoyée. Saisissez le code dans
 <span class="irs">IRONSTICK</span>, puis répétez la demande.</div>
-<p>Version 1.0.6 — état de novembre 2026. La liste des outils reflète le Bridge
+<p>Version 1.0.7 — état de novembre 2026. La liste des outils reflète le Bridge
 livré avec cette version ; des outils peuvent s'ajouter avec le temps.</p>
 
 <h2>Annexe — Description technique complète du Bridge</h2>
-<p>Portée : version 1.0.6 — état de novembre 2026 ; plus de 200 outils répartis en 22 jeux d'outils, Model Context Protocol (MCP). Cette annexe est rédigée pour l'examen par les services informatiques et de protection des données et décrit l'architecture, chaque couche fonctionnelle, les protections, les limites et les redirections du Bridge.</p>
+<p>Portée : version 1.0.7 — état de novembre 2026 ; plus de 200 outils répartis en 22 jeux d'outils, Model Context Protocol (MCP). Cette annexe est rédigée pour l'examen par les services informatiques et de protection des données et décrit l'architecture, chaque couche fonctionnelle, les protections, les limites et les redirections du Bridge.</p>
 <h3>1. Finalité et positionnement</h3>
 <p>Le Bridge relie des applications commerciales d'IA de bureau (Claude Desktop, ChatGPT Desktop, Qwen Desktop, Kimi Desktop) à une application de gestion de dossiers juridiques <span class="irs">IRONSTICK</span> en cours d'exécution sur la même machine. L'IA de bureau reçoit, via le Model Context Protocol (MCP), une surface d'outils contrôlée et auto-descriptive ; chaque appel est exécuté au sein de l'application <span class="irs">IRONSTICK</span> sur la base de données vivante, et chaque résultat est post-traité par le Bridge avant d'atteindre le modèle. Les objectifs de conception sont : une charge de contexte permanente minimale pour le modèle, l'application structurelle de règles de travail que le seul texte d'instruction ne peut garantir, la protection du travail non enregistré de l'utilisateur, la protection des données contre les requêtes surdimensionnées ou mal dirigées, et l'absence complète de matériel de configuration lisible dans le produit installé.</p>
 <h3>2. Topologie des processus</h3>

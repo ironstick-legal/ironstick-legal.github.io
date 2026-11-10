@@ -19,7 +19,7 @@ OpenAI, Anthropic și, dacă sunt activați, Groq, OpenRouter și Mistral; Googl
 numai dacă Google Drive este folosit pentru exporturi), pe care utilizatorul
 trebuie să le examineze separat.
 
-Versiunea 1.0.6 — situația la noiembrie 2026
+Versiunea 1.0.7 — situația la noiembrie 2026
 
 **Rezumat.**
 - **Stocare.** Toate datele se află într-un singur director local de date.
@@ -946,7 +946,7 @@ la autoritatea de supraveghere.
 
 Această declarație a fost derivată din codul-sursă al aplicației
 (pseudonimizatorul, routerul extern, jurnalul de audit și calea de transmitere a
-fiecărei funcții) și reflectă comportamentul livrat al versiunii 1.0.6 (situația la noiembrie 2026).
+fiecărei funcții) și reflectă comportamentul livrat al versiunii 1.0.7 (situația la noiembrie 2026).
 Prelucrarea de către furnizorul de IA însuși — păstrare, utilizare pentru antrenare,
 subîmputerniciți, jurisdicție — este guvernată exclusiv de condițiile furnizorului,
 în versiunile lor curente. Link-urile către condițiile și politica de

@@ -827,13 +827,13 @@ IRONSTICK-Startbildschirm eingegeben ist, wird jeder Werkzeugaufruf mit
 „Anwendung gesperrt — der Sicherheitscode ist noch nicht eingegeben“ beantwortet
 und keine Falldaten werden zurückgegeben. Code in IRONSTICK eingeben, dann die
 Anfrage wiederholen.
-Version 1.0.6 — Stand: November 2026. Die Werkzeugliste entspricht
+Version 1.0.7 — Stand: November 2026. Die Werkzeugliste entspricht
 der mit dieser Version ausgelieferten Bridge; im Lauf der Zeit können Werkzeuge
 hinzukommen.
 
 ## Anhang — Vollständige technische Beschreibung der Bridge
 
-Geltungsbereich: Version 1.0.6 — Stand: November 2026; mehr als 200 Werkzeuge in 22 Toolsets, Model Context Protocol (MCP). Dieser Anhang ist für die Prüfung durch IT und Datenschutz geschrieben und beschreibt die Architektur, jede Funktionsschicht, die Sicherungen, die Grenzen und die Umleitungen der Bridge.
+Geltungsbereich: Version 1.0.7 — Stand: November 2026; mehr als 200 Werkzeuge in 22 Toolsets, Model Context Protocol (MCP). Dieser Anhang ist für die Prüfung durch IT und Datenschutz geschrieben und beschreibt die Architektur, jede Funktionsschicht, die Sicherungen, die Grenzen und die Umleitungen der Bridge.
 
 ### 1. Zweck und Einordnung
 
