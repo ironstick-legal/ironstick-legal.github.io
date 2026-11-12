@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="ro"><head><meta charset="utf-8">
+<title>IRONSTICK — Manual - Pornire rapidă</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Pornire rapidă — de la instalare până la primii dumneavoastră clienți, în șase pași.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualquickstart_ro.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualquickstart_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualquickstart_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualquickstart_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualquickstart_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualquickstart_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualquickstart_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualquickstart_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualquickstart_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualquickstart_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualquickstart_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="manualquickstart_ro.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Meniu"><a class="b" href="index_ro.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_ro.html">Acasă</a><a href="overview_ro.html">Prezentare</a><a href="ki_ro.html">IA</a><span class="mh">Manuale</span><a class="sub" href="manualquickstart_ro.html" aria-current="page">Pornire rapidă</a><a class="sub" href="manualironstick_ro.html">Aplicația client</a><a class="sub" href="manualbridge_ro.html">Bridge</a><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a></div></div><nav class="mainnav"><a href="overview_ro.html">Prezentare</a><a href="ki_ro.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuale</span><div class="menu"><a href="manualquickstart_ro.html" aria-current="page">Pornire rapidă</a><a href="manualironstick_ro.html">Aplicația client</a><a href="manualbridge_ro.html">Bridge</a></div></div><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_ro.html">Testați 30 de zile</a><nav class="lang-wrap" tabindex="0" title="Limbă" aria-label="Limbă"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualquickstart.html">English</a><a lang="de" hreflang="de" href="manualquickstart_de.html">Deutsch</a><a class="on" lang="ro" hreflang="ro" href="manualquickstart_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualquickstart_fr.html">Français</a><a lang="it" hreflang="it" href="manualquickstart_it.html">Italiano</a><a lang="es" hreflang="es" href="manualquickstart_es.html">Español</a><a lang="pt" hreflang="pt" href="manualquickstart_pt.html">Português</a><a lang="nl" hreflang="nl" href="manualquickstart_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualquickstart_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualquickstart_uk.html">Українська</a><a lang="tr" hreflang="tr" href="manualquickstart_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Manual - Pornire rapidă</h1></div><p class="gh-sub">Pornire rapidă — de la instalare până la primii dumneavoastră clienți, în șase pași.</p></div></section>
+
+<h2 id="q1">1. Instalați IRONSTICK</h2>
+<figure><img src="img/screens/A%20installer.png" alt="Programul de instalare IRONSTICK: limba, dosarul de destinație, comanda rapidă de pe desktop, gata de instalare, instalare în curs"><figcaption>Programul de instalare, ecran cu ecran.</figcaption></figure>
+<p class="scr-intro">Descărcați <a href="download_ro.html">programul de instalare</a> și instalați <span class="irs">IRONSTICK</span> pe calculatorul dumneavoastră Windows în câteva clicuri.
+Alegeți limba programului de instalare, dosarul de destinație și dacă se creează o comandă rapidă pe desktop; apoi <a href="download_ro.html">programul</a> este instalat.
+Dacă <span class="irs">IRONSTICK</span> este deja instalat, instalați <a href="download_ro.html">noua versiune</a> peste el — datele dumneavoastră rămân unde sunt.</p>
+<h3 class="do">Ce puteți face aici</h3>
+<h4>Programul de instalare</h4>
+<ul>
+<li><b>Limba programului de instalare.</b> Alegeți limba programului de instalare și confirmați cu <i>OK</i>.</li>
+<li><b>Dosarul de destinație.</b> Dosarul propus este <i>C:\Program Files\IRONSTICK</i>. Păstrați-l sau alegeți altul cu <i>Răsfoire…</i>.</li>
+<li><b>Comandă rapidă pe desktop.</b> Lăsați bifa pusă dacă doriți o pictogramă <span class="irs">IRONSTICK</span> pe desktop.</li>
+<li><b>Instalare.</b> Rezumatul arată încă o dată dosarul și comanda rapidă; <i>Instalează</i> pornește instalarea, iar o bară de progres urmărește desfășurarea ei.</li>
+</ul>
+<h4>Prima pornire</h4>
+<ul>
+<li><b>Cheia de licență.</b> La prima pornire <span class="irs">IRONSTICK</span> cere cheia dumneavoastră de licență. Introduceți-o din documentul de licență primit sau lipiți-o.</li>
+<li><b>Codul de securitate.</b> După o cheie de licență validă vedeți un cod QR. Scanați-l cu o aplicație de autentificare de pe telefon. De atunci încolo, <span class="irs">IRONSTICK</span> vă arată datele numai după ce ați introdus codul din șase cifre din acea aplicație.</li>
+<li><b>Telefon nou.</b> Dacă vă schimbați sau vă pierdeți telefonul, introduceți din nou cheia de licență pe ecranul de pornire; codul QR apare din nou, astfel încât să puteți configura noul telefon.</li>
+</ul>
+
+<h2 id="q2">2. Licența, utilizatorul și limba</h2>
+<figure><img src="img/screens/A%20config%20license%20user%20language.png" alt="Configurarea cu fereastra cheii de licență și fișa de utilizator deschisă, cu câmpul pentru limbă"><figcaption>Cheia de licență, fișa dumneavoastră de utilizator și limba interfeței.</figcaption></figure>
+<p class="scr-intro">Deschideți configurarea cu pictograma roată dințată din bara de sus.
+Aici introduceți sau reînnoiți cheia de licență, completați fișa de utilizator și alegeți limba interfeței și a dialogului cu IA.
+Alocați un minut fișei de utilizator: datele dumneavoastră se folosesc în scrisori, acte de procedură și în cererea de licență.</p>
+<ol class="marks">
+<li><b>Cheia de licență.</b> Linkul <i>Cheie de licență</i> de sub linia versiunii deschide fereastra de licență. Introduceți sau lipiți cheia și faceți clic pe <i>Activează</i>. <i>Solicită cheia de licență</i> verifică dacă fișa dumneavoastră de utilizator este completă și pregătește textul cererii cu subiect și destinatar, fiecare cu un buton de copiere.</li>
+<li><b>Utilizator.</b> Deschide fișa dumneavoastră de utilizator. Numărul de lângă titlu identifică instalarea dumneavoastră; simbolul mic îl copiază.</li>
+<li><b>Câmpurile din licență.</b> Firma, formula de adresare, prenumele și numele provin din cheia dumneavoastră de licență și sunt blocate (lacăt). Completați celelalte câmpuri: funcția, adresa, țara, telefonul, mobilul, e-mailul, data nașterii și aplicațiile de mesagerie pe care le folosiți.</li>
+<li><b>Limba.</b> Limba interfeței și a dialogului cu IA. După <i>Salvează</i>, fiecare ecran trece imediat în noua limbă.</li>
+</ol>
+
+<h2 id="q3">3. Configurarea IA</h2>
+<figure><img src="img/screens/A%20config%20AI.png" alt="Configurarea IA cu serviciile gratuite de fundal și serviciile IA pentru chatul integrat"><figcaption>Servicii gratuite pentru procese în fundal și serviciile dumneavoastră IA pentru chatul integrat.</figcaption></figure>
+<p class="scr-intro">Configurarea IA conține cheile de acces (chei API) ale serviciilor IA pe care <span class="irs">IRONSTICK</span> le poate folosi.
+Există două feluri: servicii gratuite care fac doar procese în fundal și serviciile pentru funcțiile IA complete ale chatului integrat.
+Aveți nevoie de un cont la serviciul respectiv; linkurile de sub fiecare câmp duc la paginile sale de înregistrare, de termeni și de confidențialitate.</p>
+<ol class="marks">
+<li><b>Configurare IA.</b> Deschide fișa cu toate serviciile IA.</li>
+<li><b>Servicii gratuite pentru procese în fundal.</b> Folosite doar pentru munca de fundal, precum prioritizarea e-mailurilor, monitorul de date, briefingul zilnic și raportul de situație. Faceți clic pe linkul de sub câmp pentru a crea un cont direct la furnizor și a genera acolo o cheie API. Lipiți această cheie API în câmp și faceți clic pe <i>Salvează</i>. Comutatorul de lângă serviciu activează sau dezactivează acel serviciu pentru aceste activități — chiar dacă cheia sa API rămâne stocată. Nota de sub fiecare serviciu indică condițiile furnizorului în care acesta preia sarcinile dumneavoastră de fundal.</li>
+<li><b>Servicii IA pentru chatul integrat.</b> Faceți clic pe linkul de sub câmp pentru a crea un cont direct la furnizor și a genera acolo o cheie API. Lipiți cheia API în câmp și faceți clic pe <i>Salvează</i>. Se recomandă o realimentare de cel puțin 20 de dolari/euro per furnizor. Cel mai bine este să stocați cel puțin doi furnizori: dacă sunt stocate mai multe servicii, <span class="irs">IRONSTICK</span> le folosește automat în ordinea fixă arătată de numere, cel mai ieftin primul; astfel următorul preia fără niciun hiat, iar munca dumneavoastră continuă fără întrerupere.</li>
+</ol>
+
+<h2 id="q4">4. Semnătura dumneavoastră</h2>
+<figure><img src="img/screens/A%20config%20sign.png" alt="Fișa de semnătură cu câmpul de desen și butoanele pentru ștergere, încărcare, eliminare și salvare"><figcaption>Desenați-vă semnătura o singură dată — sau încărcați-o ca imagine.</figcaption></figure>
+<p class="scr-intro">Semnătura dumneavoastră se stochează o singură dată în configurare.
+<span class="irs">IRONSTICK</span> o plasează acolo unde semnați documente: în previzualizarea de tipărire a procesorului de text și pe ștampilele anexelor.
+O puteți desena cu mouse-ul sau pe un ecran tactil ori puteți încărca o scanare a semnăturii dumneavoastră.</p>
+<ol class="marks">
+<li><b>Semnături.</b> Deschide fișa de semnătură.</li>
+<li><b>Câmpul de semnătură.</b> Desenați-vă semnătura cu mouse-ul sau cu degetul. <i>Șterge câmpul de semnătură</i> o ia de la capăt; <i>Încarcă imagine (JPG/PNG)</i> preia în schimb o semnătură scanată; <i>Șterge</i> elimină semnătura stocată; <i>Salvează</i> o stochează. Bifa verde și previzualizarea mică arată semnătura stocată în prezent.</li>
+</ol>
+
+<h2 id="q5">5. Șablonul de antet</h2>
+<figure><img src="img/screens/A%20config%20template.png" alt="Fișa șablonului de antet cu butonul de încărcare"><figcaption>Antetul cabinetului dumneavoastră pe actele de procedură.</figcaption></figure>
+<p class="scr-intro">Încărcați o singură dată antetul cabinetului dumneavoastră ca PDF A4.
+<span class="irs">IRONSTICK</span> vă așază actele de procedură pe el, cu textul începând sub antet.
+În procesorul de text activați sau dezactivați antetul pentru fiecare document.</p>
+<ol class="marks">
+<li><b>Șablon de antet.</b> Deschide fișa pentru șablon.</li>
+<li><b>Încarcă șablonul.</b> Alegeți PDF-ul A4 cu antetul dumneavoastră. Cât timp nu este stocat niciun șablon, fișa o spune.</li>
+</ol>
+
+<h2 id="q6">6. Importați-vă clienții</h2>
+<figure><img src="img/screens/A%20client%20import.png" alt="Lista de clienți cu fereastra de import și atribuirea coloanelor"><figcaption>Importați-vă clienții existenți dintr-un alt program.</figcaption></figure>
+<p class="scr-intro">Nu trebuie să vă introduceți clienții existenți unul câte unul.
+Exportați-i din programul anterior sau din agenda de contacte ca fișier CSV sau vCard și trageți acel fișier în fereastra de import.
+Dacă nu ați folosit până acum un sistem de gestiune a clienților, un export din programul dumneavoastră de facturare este adesea o sursă bună pentru import.
+Pentru a adăuga manual un client, folosiți <i>Client nou</i>.</p>
+<ol class="marks">
+<li><b>Importă client.</b> Deschide fereastra de import. Trageți un fișier CSV sau vCard (.vcf) pe zona de plasare. Salvați mai întâi registrele Excel ca CSV. Pentru un fișier CSV, o a doua fereastră listează fiecare coloană cu o valoare exemplu și câmpul în care ajunge; atribuirea este precompletată și puteți schimba fiecare câmp. Cel puțin o coloană trebuie atribuită numelui. Dacă fișierul conține un singur contact, formularul <i>Client nou</i> se deschide precompletat; dacă are mai multe, selectați dintr-o listă contactele de importat — clienții care există deja nu sunt selectați.</li>
+<li><b>Client nou.</b> Deschide un formular de client gol pentru un client pe care îl introduceți manual.</li>
+</ol>
+
+<div class="boxorange"><b>Și cu aceasta, sunteți gata să vă înregistrați dosarele în <span class="irs">IRONSTICK</span>.</b> Dacă introduceți toate dosarele existente în <span class="irs">IRONSTICK</span> sau pur și simplu începeți să lucrați cu <span class="irs">IRONSTICK</span> pe dosarele noi, rămâne la alegerea dumneavoastră. În practică, un mix s-a dovedit cea mai bună cale: înregistrați manual câteva dosare existente importante, care au nevoie urgentă de sprijinul <span class="irs">IRONSTICK</span>, și în același timp tratați toate dosarele noi direct în <span class="irs">IRONSTICK</span>.</div>
+
+<footer class="sd-foot"><p>IRONSTICK este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică. © 2026 IRONSTICK.</p></footer>
+</body></html>

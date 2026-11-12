@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<title>IRONSTICK — Kılavuz - Bridge</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Bridge kılavuzu — yapay zekâ ile çalışmak: arka planda neler olur ve güne başlangıçtan mevzuat araştırmasına kadar sekiz iş akışı.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualbridge_tr.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualbridge.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualbridge_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualbridge_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualbridge_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualbridge_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualbridge_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualbridge_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualbridge_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualbridge_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualbridge_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualbridge_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualbridge.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>
+  .dlg{border:1px solid #dadce0;border-radius:8px;padding:6px 14px 10px;margin:14px 0;background:#f8f9fa}
+  .dlg .u,.dlg .a{margin:10px 0}
+  .dlg .who{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5f6368;margin-bottom:3px}
+  .dlg .u p{background:#e8f0fe;border-radius:8px;padding:8px 12px;margin:0 0 4px}
+  .dlg .a p{background:#fff;border:1px solid #e3e5e8;border-radius:8px;padding:8px 12px;margin:0 0 4px}
+  .dlg .t{font-family:Consolas,'Courier New',monospace;font-size:12px;color:#5f6368;border-left:3px solid #c6dafc;padding:2px 0 2px 10px;margin:6px 0}
+  .cpbtn{font:600 12px 'Segoe UI',Arial,sans-serif;color:#1a73e8;background:#fff;border:1px solid #c6dafc;border-radius:14px;padding:2px 12px;cursor:pointer;margin:0 0 6px}
+  .cpbtn:hover{background:#e8f0fe}
+  figure.chart img{max-width:min(720px,100%)}
+  .boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:26px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}
+  .boxorange b,.boxorange .irs{color:#fff}
+  ol.say{padding-left:1.5em}
+  ol.say li{margin:14px 0}
+  ol.say li::marker{color:#1a73e8;font-weight:700}
+  ol.say p.cp{background:#e8f0fe;border-radius:8px;padding:8px 12px;margin:0 0 4px;font-weight:600}
+  ol.say .does{display:block;color:#5f6368;font-size:14px;margin:2px 0 0}
+</style><link rel="alternate" type="text/markdown" href="manualbridge_tr.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_tr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_tr.html">Ana sayfa</a><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><span class="mh">Kılavuzlar</span><a class="sub" href="manualquickstart_tr.html">Hızlı başlangıç</a><a class="sub" href="manualironstick_tr.html">İstemci uygulaması</a><a class="sub" href="manualbridge_tr.html" aria-current="page">Bridge</a><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></div></div><nav class="mainnav"><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><div class="nav-drop" tabindex="0"><span>Kılavuzlar</span><div class="menu"><a href="manualquickstart_tr.html">Hızlı başlangıç</a><a href="manualironstick_tr.html">İstemci uygulaması</a><a href="manualbridge_tr.html" aria-current="page">Bridge</a></div></div><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_tr.html">30 gün deneyin</a><nav class="lang-wrap" tabindex="0" title="Dil" aria-label="Dil"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualbridge.html">English</a><a lang="de" hreflang="de" href="manualbridge_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualbridge_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualbridge_fr.html">Français</a><a lang="it" hreflang="it" href="manualbridge_it.html">Italiano</a><a lang="es" hreflang="es" href="manualbridge_es.html">Español</a><a lang="pt" hreflang="pt" href="manualbridge_pt.html">Português</a><a lang="nl" hreflang="nl" href="manualbridge_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualbridge_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualbridge_uk.html">Українська</a><a class="on" lang="tr" hreflang="tr" href="manualbridge_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Kılavuz - Bridge</h1></div><p class="gh-sub">Bridge kılavuzu — yapay zekâ ile çalışmak: arka planda neler olur ve güne başlangıçtan mevzuat araştırmasına kadar sekiz iş akışı.</p></div></section>
+
+<p class="part">Temel bilgiler</p>
+<h2 id="b1">1. Yapay zekâ sohbeti ve Bridge — fark nedir?</h2>
+<p class="scr-intro"><span class="irs">IRONSTICK</span>, dosyalarınız üzerinde yapay zekâ ile çalışmanız için size iki yol sunar.
+<b>Yapay zekâ sohbeti</b> programın içine yerleşiktir: Bir <span class="irs">IRONSTICK</span> penceresine yazarsınız ve isteği harici bir yapay zekâ hizmetine <span class="irs">IRONSTICK</span>'in kendisi gönderir – büronuzun <a href="manualquickstart_tr.html#q3">yapay zekâ yapılandırmasına</a> kaydettiği API anahtarlarıyla.
+<b>Bridge</b> ise tersine çalışır: Zaten kullandığınız masaüstü yapay zekâ uygulamasına yazarsınız ve bu uygulama <span class="irs">IRONSTICK</span> araçlarını bir bağlayıcı üzerinden canlı olarak çağırır.
+Her iki durumda da yapay zekâ verilerinize yalnızca <span class="irs">IRONSTICK</span> üzerinden, aynı araçlarla ve aynı kapıların arkasından ulaşır.</p>
+
+<h3>Yerleşik yapay zekâ sohbeti</h3>
+<ul>
+<li><b>Önce yerel bir katman.</b> Her mesaj önce bilgisayarınızda çalışan kural tabanlı bir katmandan geçer – yapay zekâ modeli olmadan ve internet olmadan. Basit istekler – bir ekranı, bir müvekkili veya bir davayı açmak, basit sorgular – doğrudan orada yürütülür. Düşünme veya metin oluşturma gerektiren her şey harici bir yapay zekâ hizmetine iletilir.</li>
+<li><b>Sizin anahtarlarınız, sizin hizmetleriniz.</b> Sohbet, yapay zekâ yapılandırmasında API anahtarı kayıtlı olan harici yapay zekâ hizmetlerini kullanır. Bunlar otomatik olarak sabit bir sırayla kullanılır. Biri erişilemez durumdaysa veya bakiyesi tükenmişse, aynı isteği bir sonraki üstlenir.</li>
+<li><b>Önce sizin onayınız.</b> Sohbet, harici bir yapay zekâ hizmetine herhangi bir şey göndermeden önce size sorar. Reddederseniz hiçbir şey gönderilmez ve sohbet ancak modu değiştirdiğinizde veya sohbeti yeniden açtığınızda tekrar sorar.</li>
+<li><b>Takma adlandırılmış.</b> Bir istek bilgisayarınızdan çıkmadan önce kişi ve şirket adları, dava ve dosya numaraları, kişisel kimlik numaraları, IBAN'lar, telefon numaraları, e-posta adresleri ve taraf adresleri <a href="gdpr_tr.html">nötr yer tutucularla değiştirilir</a>. Yanıt bilgisayarınızda geri çevrilir. Tarihler ve tutarlar değişmeden kalır. Yer tutucular kendi kayıtlarınızdan oluşturulur; ayrıca serbest metindeki numaralar, e-posta adresleri ve telefon numaraları da tanınır.</li>
+<li><b>Kayıt altında.</b> Harici bir yapay zekâ hizmetine yapılan her çağrı, bilgisayarınızdan çıktığı yer tutuculu biçimiyle yerel olarak kaydedilir.</li>
+<li><b>Kompakt çalışma belleği.</b> Yapay zekâ her turda sohbetin en son bölümünü (yaklaşık son 6.000 karakter) ve önceki bölümün kısa bir özetini alır. Bir istek en fazla sekiz araç turu boyunca işlenir.</li>
+<li><b>Nerede çalışır.</b> Windows'ta ve Android tablette.</li>
+</ul>
+
+<h3>Bridge</h3>
+<ul>
+<li><b>Üç parça.</b> Masaüstü yapay zekâ uygulamanız, Model Context Protocol (MCP) üzerinden aynı bilgisayardaki küçük bir Bridge programına bağlanır. Bridge her çağrıyı, yalnızca bu bilgisayardan erişilebilen korumalı bir bağlantı üzerinden çalışan <span class="irs">IRONSTICK</span> uygulamasına iletir. Uygulama aracı yürütür ve sonucu aynı yoldan geri gönderir.</li>
+<li><b>Bridge programı hiçbir veriyi bilmez.</b> Hiçbir veritabanı açmaz ve kendi araçlarını içermez; çağrıları yalnızca iletir. Yapay zekâya yönelik çalışma talimatları da masaüstü yapay zekâ bağlandığında çalışan uygulamadan gelir.</li>
+<li><b>Yalnızca IRONSTICK çalıştığı sürece.</b> Uygulama kapalıysa her araç çağrısı, <span class="irs">IRONSTICK</span>'in çalışmadığı ve başlatmanız gerektiği bilgisiyle yanıtlanır. Araç listesi masaüstü yapay zekâda görünür kalır; böylece iki programı hangi sırayla başlattığınızın hiçbir önemi yoktur.</li>
+<li><b>Gerçek veriler.</b> Araç sonuçları masaüstü yapay zekâya takma adlandırılmadan ulaşır – sunulmaya hazır bir taslağı ancak gerçek adlar, numaralar ve tarihler mümkün kılar. Yapay zekânın okudukları, masaüstü yapay zekâ uygulamasının sağlayıcısında kendi hesabınız altında ve sağlayıcının koşullarına göre işlenir.</li>
+<li><b>Sizin tarafınızdan etkinleştirilir.</b> Bridge yalnızca yapay zekâ yapılandırmasında <i>Yerel masaüstü yapay zekânın bağlayıcı erişimine izin ver</i> açık olduğunda ve Bridge bu masaüstü yapay zekâ uygulaması için <a href="download_tr.html">lisanslı</a> olduğunda çalışır. Program kontrolü – ekranları, davaları ve belgeleri açmak, dışa aktarmak – ikinci bir anahtar gerektirir.</li>
+<li><b>Aynı anda birden fazla.</b> Lisanslı masaüstü yapay zekâ uygulamaları – Claude Desktop, ChatGPT Desktop, Qwen Desktop ve Kimi Desktop – aynı anda bağlı olabilir ve aynı dava üzerinde çalışabilir. Her biri çalıştığı sürece menü çubuğunda kendi simgesiyle gösterilir.</li>
+<li><b>Nerede çalışır.</b> Windows'ta.</li>
+</ul>
+
+<h3>Karşılaştırma</h3>
+<table>
+<tr><th></th><th>Yapay zekâ sohbeti (yerleşik)</th><th>Bridge (masaüstü yapay zekâ uygulaması)</th></tr>
+<tr><td>Nereye yazarsınız</td><td><span class="irs">IRONSTICK</span> sohbet penceresine</td><td>Masaüstü yapay zekâ uygulamanıza</td></tr>
+<tr><td>Yapay zekâ hizmetiyle kim konuşur</td><td><span class="irs">IRONSTICK</span>, kendi API anahtarlarınızla</td><td>Masaüstü yapay zekâ uygulamanız, kendi hesabınızla</td></tr>
+<tr><td>Yapay zekâ maliyeti</td><td>Yapay zekâ hizmeti tarafından kullanıma göre API anahtarınıza faturalandırılır</td><td>Masaüstü yapay zekâ uygulaması için zaten sahip olduğunuz abonelikle karşılanır</td></tr>
+<tr><td><span class="irs">IRONSTICK</span> lisansı</td><td>Dahil, ek lisans gerekmez</td><td>Kullanıcı / iş istasyonu başına <a href="download_tr.html">Bridge lisansı</a> – masaüstü yapay zekâ uygulaması başına bir Bridge veya tüm Bridge'leri içeren paket</td></tr>
+<tr><td>Yapay zekâya gönderilen veriler</td><td>Takma adlandırılmış; tarihler ve tutarlar değişmeden</td><td>Gerçek veriler, sağlayıcıda hesabınız altında işlenir</td></tr>
+<tr><td>Onayınız</td><td>Bir sohbet oturumunun ilk harici isteğinden önce</td><td>Her program çalışmasında herhangi bir masaüstü yapay zekânın ilk veri erişiminden önce</td></tr>
+<tr><td>Çalışma talimatları</td><td>Her istekle birlikte gönderilir</td><td>Yapay zekâ bunları okumalı ve bir aracı açmadan önce bir kuralı kelimesi kelimesine onaylamalıdır</td></tr>
+<tr><td>Araçlar ve kapılar</td><td>Aynı araçlar ve aynı kapılar, ayrıca sohbetin kendi geçmişinde arama</td><td>Aynı araçlar ve aynı kapılar; program kontrolü yalnızca kendi anahtarıyla</td></tr>
+<tr><td>Bir çalışma oturumunun süresi</td><td>En son sohbet artı kısa bir özet; istek başına en fazla sekiz araç turu</td><td>Masaüstü yapay zekâ uygulamasının sohbeti</td></tr>
+<tr><td>Platformlar</td><td>Windows ve Android tablet</td><td>Windows</td></tr>
+</table>
+
+<h3>Bridge neden kapsamlı dava çalışmaları için uygundur</h3>
+<ul>
+<li><b>IRONSTICK üzerinden çağrı başına maliyet yok.</b> Dosyaların tamamını okumak, yüzlerce belgeyi incelemek ve birkaç turda taslak hazırlamak – bunların hepsi masaüstü yapay zekâ uygulaması için zaten ödediğiniz abonelik üzerinden yürür. Aynı iş yerleşik sohbet üzerinden yapıldığında kullanıma göre API anahtarınıza faturalandırılır; bu da büyük dosyalarda hızla birikir.</li>
+<li><b>Daha uzun çalışma oturumları.</b> Masaüstü yapay zekâ kendi kesintisiz sohbetini yürütür — büyük dosyalar üzerinde uzun çalışma oturumları için ideal.</li>
+<li><b>Çağrı başına daha büyük yanıtlar.</b> Claude Desktop ve ChatGPT Desktop 40.000 karaktere kadar araç yanıtlarını doğrudan alır; Qwen Desktop, Kimi Desktop ve yerleşik sohbet 10.000 karaktere kadar alır. Daha büyük olan her şey eksiksiz olarak şifreli ara belleğe gider ve oradan bölüm bölüm okunur.</li>
+<li><b>Tam araç seti, tam metin.</b> Masaüstü yapay zekâ eksiksiz araç setiyle çalışır ve tam metinleri kendi sohbetinde, sohbetle aynı kapıların arkasında okur.</li>
+<li><b>Sohbet yerini korur.</b> Yerleşik sohbet ek lisans gerektirmez, her zaman elinizin altındadır – tablette de – ve daha sıkı denetlenen kanaldır: takma adlandırılmış, onay sorgulu ve kayıt altında.</li>
+</ul>
+
+<h2 id="b2">2. Tek araç seti — istemci uygulamasında</h2>
+<p class="scr-intro">Bir yapay zekânın yürütebileceği her işlem, bilgisayarınızdaki <span class="irs">IRONSTICK</span> istemci uygulamasında bulunur – yapay zekâda da, Bridge programında da değil.
+Yapay zekâ sohbeti ve bağlı her masaüstü yapay zekâ tam olarak aynı araçları çağırır. Her çağrı, çalışan uygulama tarafından canlı veritabanınız üzerinde yürütülür ve yapay zekâya yalnızca sonuç geri döner.</p>
+<ul>
+<li><b>Tek araç kaydı.</b> Araç seti, yapay zekâ sohbeti ve Bridge için tek ve aynı modül tarafından oluşturulur: aynı araçlar, aynı sırayla, aynı kapıların arkasında. Araçlar konularına göre araç setlerinde gruplanmıştır – dava, deliller, süreler, mevzuat, mektuplar ve e-postalar ve daha fazlası –; yapay zekâ bunları ihtiyaca göre açar.</li>
+<li><b>Tek bir geçiş yolu.</b> İster sohbetten ister bir masaüstü yapay zekâdan gelsin, her araç çağrısı aynı kontrol katmanından geçer: menü çubuğundaki etkinlik simgesi, çağıranın tanımlanması, kapılar ve büyük sonuçların ara belleğe aktarılması. Her masaüstü yapay zekâ ve her API hizmeti, neleri okuduğuna dair kendi kaydını tutar; böylece birinin okuması hiçbir zaman bir diğeri için sayılmaz.</li>
+<li><b>Veriler IRONSTICK'te kalır.</b> Dosyanız bilgisayarınızdaki <span class="irs">IRONSTICK</span> veritabanında kalır. Bir yapay zekâ yalnızca bir aracın ilgili çağrı için döndürdüğünü alır; <span class="irs">IRONSTICK</span> ona ne veritabanını ne de veri klasörünü teslim eder.</li>
+<li><b>Her çağrıda canlı.</b> Araçlar veritabanını her çağrıda açar. Kaydettiğiniz şeyi bir sonraki araç çağrısı görür.</li>
+<li><b>Arka planda çalışır.</b> Araçlar uygulamanın içinde arka planda çalışır; böylece program büyük dava dosyalarının uzun okumalarında bile yanıt vermeye devam eder.</li>
+<li><b>Uygulama çalışıyor olmalıdır.</b> Çalışan uygulama olmadan araç da yoktur: Bridge programı çağrıları yalnızca iletir ve <span class="irs">IRONSTICK</span>'in çalışmadığını yanıtlar.</li>
+<li><b>Uygulamanın kilidi açık olmalıdır.</b> Başlangıç ekranındaki altı haneli güvenlik kodu girilmediği sürece, bir masaüstü yapay zekânın her araç çağrısı uygulamanın kilitli olduğu bilgisiyle yanıtlanır ve hiçbir veri döndürülmez. Kodu <span class="irs">IRONSTICK</span>'e girin ve ardından isteği yineleyin.</li>
+<li><b>Erişimi siz verirsiniz.</b> Bridge bir masaüstü yapay zekâya yalnızca bağlayıcı anahtarı açıksa ve bu masaüstü yapay zekâ lisanslıysa hizmet verir. Her program başlatıldıktan sonra herhangi bir masaüstü yapay zekânın ilk veri erişimi tek bir onay iletişim kutusu açar. Onaylarsanız erişim, program çalıştığı sürece tüm lisanslı masaüstü yapay zekâlara açıktır. Reddederseniz her masaüstü yapay zekânın her çağrısı 10 dakika boyunca reddedilir ve bundan sonraki ilk erişimde size yeniden sorulur. Bu karar kaydedilmez.</li>
+</ul>
+
+<h2 id="b3">3. Kapılar — arka planda neler olur</h2>
+<p class="scr-intro">Yapay zekâ ile kayıtlarınız arasında, istemci uygulamasının araç katmanına yerleşik kapılar bulunur. Bu, sade bir program mantığıdır – hiçbir yapay zekâ başka bir yapay zekâyı denetlemez.
+Bir kapı bir çağrıyı reddederse hiçbir şey yazılmaz veya teslim edilmez; yapay zekâ, neyin eksik olduğunu ve kapıyı hangi çağrının açtığını belirten bir mesaj alır.
+Kapıların çoğu yapay zekâ sohbeti ve her masaüstü yapay zekâ için aynı şekilde çalışır; son sütun her birinin nerede geçerli olduğunu gösterir.</p>
+<table>
+<tr><th>Kapı</th><th>Ne zaman devreye girer</th><th>Ne yapar</th><th>Geçerli olduğu yer</th></tr>
+<tr><td><b>Harici yapay zekâdan önce onay</b></td><td>Bir sohbet oturumunda harici bir yapay zekâ hizmetine ilk kez istek gönderilmesi gerektiğinde</td><td>Bir iletişim kutusu, harici yapay zekânın kullanılıp kullanılamayacağını sorar. Reddederseniz hiçbir şey gönderilmez ve sohbet bu oturumda tekrar sormaz.</td><td>Yapay zekâ sohbeti</td></tr>
+<tr><td><b>Takma adlandırma</b></td><td>Yapay zekâ sohbetinin harici bir yapay zekâ hizmetine yaptığı her istek</td><td>Adlar, şirketler, dava ve dosya numaraları, kimlik numaraları, IBAN'lar, telefon numaraları, e-posta adresleri ve taraf adresleri bilgisayardan yer tutucu olarak çıkar ve bilgisayarınızda geri çevrilir. Tarihler ve tutarlar değişmeden kalır. Yer tutucu listesi eksiksiz oluşturulamazsa istek gönderilmez.</td><td>Yapay zekâ sohbeti</td></tr>
+<tr><td><b>Veri erişimine onay</b></td><td>Program başlatıldıktan sonra herhangi bir masaüstü yapay zekânın ilk araç çağrısı</td><td>Tüm masaüstü yapay zekâlar için ortak tek bir onay iletişim kutusu görünür. Onaylandı: program çalıştığı sürece açık. Reddedildi: her çağrı 10 dakika boyunca reddedilir, ardından size yeniden sorulur.</td><td>Bridge</td></tr>
+<tr><td><b>Başlangıç kilidi</b></td><td>Altı haneli güvenlik kodu girilmediği sürece her araç çağrısı</td><td>Çağrı, uygulamanın kilitli olduğu bilgisiyle yanıtlanır; hiçbir veri döndürülmez.</td><td>Bridge</td></tr>
+<tr><td><b>Talimat kilidi</b></td><td>Bir masaüstü yapay zekânın her araç çağrısı</td><td>Talimatların okunması, onaylanması ve sistem dilinin sorgulanması dışındaki tüm araçlar, yapay zekâ talimatları okuyup uydurma olgulara karşı kuralı kelimesi kelimesine geri verene kadar kapalı kalır. Onay, verilmesinden 60 dakika sonra, 2 saat boyunca hiç çağrı yapılmadığında, gece yarısı, her yeni bağlantıda ve – <span class="irs">IRONSTICK</span>'in sohbet kaydını görebildiği yerlerde – masaüstü yapay zekâ sohbetini sıkıştırdığında geçerliliğini yitirir; bu durumda yapay zekâ yeniden okumalı ve rastgele seçilen bir kuralı kelimesi kelimesine geri vermelidir. Yapay zekâ sohbetinde ise talimatlar her istekle birlikte gönderilir.</td><td>Bridge</td></tr>
+<tr><td><b>Tarih kapısı</b></td><td>Tarihli içerik yazan araçlar – kronoloji, takvim, günlük notlar, günlük tutanak, hafıza, mevzuat bildirimleri ve diğerleri</td><td>Yapay zekâ son 30 dakika içinde gerçek güncel tarihi ve saati sorgulamamışsa çağrı reddedilir.</td><td>Her ikisi</td></tr>
+<tr><td><b>Önce davayı okuyun</b></td><td>Dava verilerini okuyan araçlar (kronoloji, zaman çizelgesi, aramalar, tam metinler ve daha fazlası) ve bir davaya yazan araçlar (notlar, kronoloji kayıtları, dilekçe denetimi, dışa aktarma, başka bir yapay zekâya devir)</td><td>Bir davanın içeriğini okuyan araçlar, yapay zekâ o davanın özetini (digest) okuyana kadar reddedilir. Bir not veya kronoloji kaydı ayrıca dava profilini, yargı alanını ve en yeni kronoloji kayıtlarını gerektirir. Bir dilekçe denetimi, dışa aktarma veya devir ayrıca davanın en yeni belgelerinin eksiksiz okunmuş olmasını gerektirir. Ret mesajı henüz okunmamış olanları listeler.</td><td>Her ikisi</td></tr>
+<tr><td><b>Yalnızca okunandan yaz</b></td><td>Hafıza kayıtları, bir Snake'teki değişiklikler, taslaklar üzerinde çalışma, dilekçe denetimi ve bir davaya ilişkin teslim</td><td>Bir davaya ilişkin hafıza kaydı ancak özet okunmuşsa ve içinde atıf yapılan her belge bu oturumda eksiksiz okunmuşsa kabul edilir. Bir ara bellek dosyasındaki her arama sonucu, arama isabetlerinin okuma sayılmadığı uyarısını, isabetlerin arkasındaki henüz okunmamış belgelerle birlikte taşır. Yapay zekâ bir davada karşı tarafın veya bir resmî makamın belgesini açtıysa, bu belge eksiksiz okunana kadar o davaya artık hiçbir şey yazılmaz.</td><td>Her ikisi</td></tr>
+<tr><td><b>Önce Nucleu</b></td><td>Dilekçe yazma, denetleme ve teslim</td><td>Davanın her güncel Nucleu'su – dava Nucleu'su ve davanın ait olduğu her vakıanın Nucleu'su – güncel sürümüyle okunana kadar reddedilir. Dilekçe denetiminin son turu belgeyi Nucleu ile karşılaştırır.</td><td>Her ikisi</td></tr>
+<tr><td><b>Snake kapısı</b></td><td>Dilekçe denetiminde, Nucleu turundan hemen önce, davanın veya vakıalarına ait başka bir davanın bir Snake'i varsa</td><td>Yapay zekâ size Snake turunun çalıştırılıp çalıştırılmayacağını sormalıdır ve ancak yanıtınızdan sonra devam eder – ya da görevi verirken bunu talep ettiyseniz hemen. Evet derseniz her Snake kaydı gerekçesiyle birlikte benimsendi, reddedildi veya ilgisiz olarak sonuçlandırılmalıdır.</td><td>Her ikisi</td></tr>
+<tr><td><b>Önce mevzuat kütüphanesi</b></td><td>Bir kanunla ilgili web araması veya web sayfası sorgusu (madde veya paragraf numaraları, kanun adları, kanun numaraları, mevzuat portalları)</td><td>Yapay zekâ mevzuat kütüphanenizde bu normu arayana kadar reddedilir. Kütüphanede varsa web bu norm için kapalı kalır ve yapay zekâ kütüphaneden alıntı yapar. Web, bu norm için yalnızca kütüphanede isabet yoksa açılır – 15 dakika süreyle.</td><td>Her ikisi</td></tr>
+<tr><td><b>Mevzuat kaynaklarını bildirin — açılmış sayfalar, önizlemeler değil</b></td><td>Bir mevzuat kaynağı sunan, kanunla ilgili bir web araması veya açılmış bir mevzuat portalı sayfası ve yeni bir mevzuat kaynağının her bildirimi</td><td>Kaynak bildirilene kadar (en fazla 15 dakika) sonraki her araç yanıtı, kaynağı bildirme hatırlatmasıyla başlar. Bir bildirim yalnızca yapay zekânın son 24 saat içinde <span class="irs">IRONSTICK</span> sayfa aracıyla kendisinin açtığı bir sayfa için kabul edilir. Bildirilen kaynaklar bir onay iletişim kutusunda bekler: işaretlenen kaynaklar alınır, kontrol edilir ve kütüphaneye kaydedilir, işaretlenmeyenler reddedilir.</td><td>Her ikisi</td></tr>
+<tr><td><b>Hafıza yalnızca sizin onayınızla</b></td><td>Yapay zekâ bir hafıza kaydını kaydeder, değiştirir veya siler</td><td>Bir iletişim kutusu size kaydı gösterir. Kayıt yalnızca siz izin verirseniz kaydedilir, değiştirilir veya silinir; reddedilen kayıtlar atılır. İletişim kutusu açık olduğu sürece bu oturumun diğer her çağrısı reddedilir. Yapay zekâlar arasındaki devir görevleri ve kendi notlarınız dışında yapay zekâ yalnızca sizin onayladığınız hafıza kayıtlarını okur.</td><td>Her ikisi</td></tr>
+<tr><td><b>Yazmak yerine öneriler</b></td><td>Yapay zekâ ana verileri değiştirmek, bir kişi veya kurum eklemek, bir ilişki eklemek, bir kişi analizini doldurmak, mükerrer kayıtları birleştirmek veya bir kaydı silmek ister</td><td>Araç kayıtlarınıza hiçbir şey yazmaz. Veri tutarlılığı izleyicisine bir öneri bırakır; orada öneriyi benimser veya reddedersiniz.</td><td>Her ikisi</td></tr>
+<tr><td><b>Gizli belgeler dışarıda bırakılır</b></td><td>Belgeleri, medyayı, süreleri veya bir davanın tamamını okuyan her yapay zekâ aracı ve harici yapay zekâ kullanan arka plan hizmetleri (veri tutarlılığı izleyicisi, durum raporu)</td><td>Gizli olarak işaretlenen kayıtlar her yapay zekâ aracından ve her hizmetten filtrelenir ve yapay zekâya iletilmez.</td><td>Her ikisi</td></tr>
+<tr><td><b>Başarı şansı yalnızca mahkeme dosyasından</b></td><td>Uygulamada veya bir masaüstü yapay zekâ tarafından başlatılan yapay zekâ dava değerlendirmesi</td><td>Başarı şansının değerlendirmesi yalnızca dava profiline ve davanın, dava açan belgede muhatap alınan mahkemeye veya makama gönderilen ya da oradan gelen belgelerine dayanır – her iki taraftan, ekler hariç. Dava açan belge yoksa veya mahkeme ya da makam tanınamamışsa başarı şansı değerlendirilemez olarak işaretlenir ve gösterge boş kalır.</td><td>Her ikisi</td></tr>
+<tr><td><b>Teslimden önce denetim</b></td><td>Dilekçe gibi resmî bir belgenin teslimi</td><td>Tam olarak bu dosya durumu için deterministik dilekçe denetiminin yeni ve olumlu bir sonucu olmadan teslim reddedilir; her düzenleme sonucu geçersiz kılar. Sistemden çıkan şey, sizin incelemeniz ve imzanız için sunulmaya hazır bir taslaktır.</td><td>Her ikisi</td></tr>
+</table>
+
+<p class="part">İş akışları</p>
+<h2 id="w1">İş akışı 1 — Güne başlangıç</h2>
+<p class="scr-intro">Güne başlangıç, işe koyulmadan önce üç soruyu yanıtlar: neyin vadesi geldi, ne geldi ve nerede kalmıştınız.
+Tek bir adım oturum başlangıcı özetini oluşturur – tarih, hatırlatmalar, önümüzdeki üç günün süreleri ve randevuları ile açık görevlerle. Ardından yapay zekâ eksiksiz süre listesini, bugünün randevularını ve bugün veya dün kaydedilenleri getirir.
+Bunu her sabah ve bir masaüstü yapay zekâ ile her yeni sohbete başladığınızda kullanın.</p>
+<figure class="chart"><img src="img/screens/1%20menu.png" alt="Başlangıç, ajanda ve ısı haritası"><figcaption>Başlangıç, ajanda ve ısı haritası: günün süreleri, randevuları ve yeni kayıtları bir bakışta.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı oluşturun</h3>
+<ul>
+<li><b>IRONSTICK'i başlatın ve kilidini açın.</b> Araçlar yalnızca uygulama çalıştığı sürece ve altı haneli güvenlik kodu girildikten sonra çalışır.</li>
+<li><b>Uygulamada size özel brifing.</b> Windows'ta günün ilk başlatılışında <span class="irs">IRONSTICK</span>'in size gün hakkında brifing verip vermeyeceği sorulur. Evet derseniz brifing; sürelere, takvime, gelen kutusuna, belgelere ve davaya götüren tıklanabilir satırlarla gösterilir ve ayrıca sesli olarak okunur.</li>
+<li><b>Masaüstü yapay zekâ: yeni bir sohbet.</b> Masaüstü yapay zekâ uygulamanızda yeni bir sohbet başlatın. Program başlatıldıktan sonra herhangi bir masaüstü yapay zekânın ilk erişiminde <span class="irs">IRONSTICK</span>'in gösterdiği veri erişimi iletişim kutusunu onaylayın.</li>
+<li><b>Yapay zekâ sohbeti.</b> <span class="irs">IRONSTICK</span>'te yapay zekâ sohbetini açın; çalışma talimatları her istekle birlikte gönderilir.</li>
+<li><b>Dava gerekmez.</b> Güne başlangıç tüm müvekkilleri ve davaları kapsar. Bir davayı yalnızca sorunuz o davayla ilgiliyse açın.</li>
+</ul>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">Oturumu başlat.</p><span class="does">Yapay zekâ talimatlarını okur ve onaylar, bugünün tarihini belirler ve oturum başlangıcı özetini yükler: hatırlatmalar, önümüzdeki üç günün süreleri ve randevuları, açık görevler.</span></li>
+<li><p class="cp">Bugün ve önümüzdeki üç gün içinde vadesi gelen ne var?</p><span class="does">Süreleri, duruşmaları ve randevuları her biri kendi davasıyla birlikte tarih sırasına göre alırsınız.</span></li>
+<li><p class="cp">Dünden bu yana ne geldi?</p><span class="does">Yeni e-postalar ve yeni kaydedilen belgeler, her biri atandığı davayla birlikte.</span></li>
+<li><p class="cp">[Dava numarası] davasındaki yeni e-postayı oku ve benden ne istediğini söyle.</p><span class="does">Önce tam metin okunur; içeriği, açık noktaları ve bir sonraki adım için bir öneriyi alırsınız.</span></li>
+<li><p class="cp">Bugün [kişi] ile [konu] hakkında yaptığım telefon görüşmesini günlük tutanağa ekle.</p><span class="does">Kayıt, tarih ve saatiyle bugünün günlük tutanağına eklenir.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>İlk araçtan önce kapılar.</b> Güvenlik kodu girilmediği sürece bir masaüstü yapay zekânın her araç çağrısı, uygulamanın kilitli olduğu bilgisiyle yanıtlanır. Program başlatıldıktan sonra herhangi bir masaüstü yapay zekânın ilk veri erişimi onay iletişim kutusunu açar; onaylanırsa erişim, program çalıştığı sürece tüm masaüstü yapay zekâlara açık kalır. Başka bir araç açılmadan önce masaüstü yapay zekâ çalışma talimatlarını okumalı ve bir kuralı kelimesi kelimesine geri vermelidir.</li>
+<li><b>Tek adımda oturum başlangıcı.</b> Bridge üzerinden oturum başlangıcı araç setinin açılması, oturum başlangıcı özetini oluşturur. Tarih ve saat, sistem dili ve açık olan ekran hemen döner; eksiksiz özet şifreli ara belleğe konur ve yapay zekâ onu oradan okur.</li>
+<li><b>Özet neleri içerir.</b> Vadesi gelen hafıza hatırlatmaları (bugün ve gecikmiş olanlar) – yapay zekâ önce bunları ele alır; ortak yapay zekâ hafızasının hangi müvekkiller için bilgi içerdiği; tek tarih çapası; aynı zamanda sohbet dili olan sistem dili; güncel ekran; son on günlük tutanağın listesi; üç gün içinde vadesi gelen süreler ve randevular, her başlıkta en fazla on satır; başka bir yapay zekânın bıraktığı açık görevler. Her bölüm sınırlıdır ve sınırlı bir bölüm, yapay zekâya tam sürümü nereden alacağını söyler.</li>
+<li><b>Bekleyen mahkeme kararları.</b> Günün ilk oturum başlangıcında, henüz değerlendirilmemiş mahkeme kararları varsa özet, yapay zekâya bunların şimdi değerlendirilip değerlendirilmeyeceğini size hemen sormasını söyler. Evet: Yapay zekâ bunları tek tek ele alır. Hayır: Sizin görevinizle devam eder.</li>
+<li><b>Eksiksiz süre listesi.</b> Süre listesi, <span class="irs">IRONSTICK</span> süreler ekranında bulunan her şeyi tarihe göre sıralı olarak sunar: belgelere bağlı süreler, mahkeme portallarından ve takvimden gelen yaklaşan duruşmalar ve yapay zekânın kendi hafıza notlarına koyduğu, bu şekilde işaretlenmiş süreler. Liste kritik (gecikmiş ve bugün), yakında (gecikmişler dahil 10 güne kadar), bugün, bu hafta, gelecek hafta veya bir tarihle sınırlandırılabilir. Bridge üzerinden süreler araç setinin açılması aynı eksiksiz listeyi ve ek olarak bugünün randevularını sunar.</li>
+<li><b>Randevular.</b> Randevu listesi bir günün veya dönemin randevularını şu sırayla gösterir: mahkeme portallarından gelen duruşmalar, takvimden gelen duruşmalar, ardından diğer takvim kayıtları.</li>
+<li><b>Neler geldi.</b> İki liste, tüm müvekkiller ve davalar genelinde bugün veya dün kaydedilen her kaydı gösterir; esas alınan, olayın tarihi değil kaydın yapıldığı gündür. Bridge üzerinden yazışma ve e-posta araç setinin açılması, bugün kaydedilen belgeleri ve bugün gelen e-postaları, her birinden en fazla on tane olmak üzere listeler.</li>
+<li><b>Yapay zekâ için günlük brifing.</b> Yapay zekâ günlük brifingin içeriğini belge numaraları ve işaretlerle birlikte alabilir: önümüzdeki 30 günün süreleri, kritik olanlar ve bugün tamamlananlar, bugünün duruşmaları ve randevuları, okunmamış posta, bugün kaydedilen belgeler, yarının duruşmaları, doğum günleri, yeniden hareketlenen davalar, haftalık istatistik ve en son yapay zekâ günlüğü. Ayrı bir kontrol, her masaüstü yapay zekâ için ayrı ayrı bugün brifing alıp almadığını kaydeder; almadıysa en son günlük tutanakları sunar ve brifing aldığını not eder.</li>
+<li><b>Yeni bir belgeyi okumak.</b> Tam metin okuyucu, bir kaydın çıkarılmış tam metnini sunar. Çalışma talimatları yapay zekâya, bir başlığın veya liste satırının bir kaydın neyi belgelediğine dair kanıt olmadığını söyler: Bir kaydın ne söylediğini belirtmeden önce tam metni güncel oturumda okur ve kaynağın kanıtladığını, bir tarafın veya bir çıkarımın ima ettiğinden ayrı tutar.</li>
+<li><b>Bir davaya ilişkin sorular.</b> Bir davanın kronolojisi, süreleri ve takvimi dava verileridir: Yapay zekâ o davanın özetini ve ardından dava hafızasını okuyana kadar reddedilirler. Tüm davaları kapsayan genel listeler bu olmadan açıktır. Kronoloji tarihe göre filtrelenebilir; bir tarih, kayıt tarihine veya belgenin tarihine denk gelir.</li>
+<li><b>IRONSTICK'te gösterme teklifi.</b> Bir süre veya randevu listesinden sonra yapay zekâ, kaydı <span class="irs">IRONSTICK</span> penceresinde açmayı teklif edebilir. Yalnızca siz kabul ettikten sonra ve yalnızca yapay zekâ yapılandırmasında program kontrolü açıksa yönlendirme yapar.</li>
+</ul>
+
+<h2 id="w2">İş akışı 2 — Genel sohbet kuralları</h2>
+<p class="scr-intro">Bu kurallar, yerleşik sohbette ve Bridge üzerinden, yapay zekâ ile yapılan her sohbet için geçerlidir: bir oturumun nasıl başladığı, yapay zekânın hangi dili konuştuğu, olguların nereden gelebileceği ve kaynaklarını nasıl kontrol edeceğiniz.
+Her kurala, onu uygulamanızı sağlayan cümle eşlik eder: okunmuş ve onaylanmış talimatlar, kaynaklarını belirten yanıtlar, yanıt vermeden önce sonuna kadar okunmuş tam metinler.
+Bunu ilk gerçek çalışma oturumunuzdan önce okuyun; aynı kurallar diğer tüm iş akışlarını taşır.</p>
+
+<figure class="chart"><img src="img/73_ironstick_guided_path.png" alt="Rehberli yol: önce oku, sonra yanıtla"><figcaption>Temellendirilmiş bir sohbet: Yapay zekâ yanıt vermeden önce okuması gerekeni okur — ve kaynakları siz kendiniz kontrol edersiniz.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı oluşturun</h3>
+<ul>
+<li><b>Önce IRONSTICK'i başlatın ve kilidini açın.</b> Çalışan uygulama olmadan Bridge, <span class="irs">IRONSTICK</span>'in çalışmadığını yanıtlar; altı haneli güvenlik kodu girilmediği sürece her araç çağrısı, uygulamanın kilitli olduğu bilgisiyle yanıtlanır.</li>
+<li><b>Oturumu başlatın.</b> Masaüstü yapay zekânızda yeni bir sohbet başlatın ve oturumu başlatmasını isteyin. Oturum başlangıcı araç setinin açılması oturum başlangıcı özetini oluşturur: tarih, sistem dili, açık olan ekran, vadesi gelen hatırlatmalar, değerlendirilecek bekleyen mahkeme kararları, önümüzdeki üç günün süreleri ve randevuları, son on günlük tutanak ve açık devir görevleri.</li>
+<li><b>Üst çubuktaki yapay zekâ simgesine dikkat edin.</b> Açılır menüsü, bir masaüstü yapay zekâ için talimatların onaylanıp onaylanmadığını (yeşil onay işareti veya kırmızı çarpı), kaç kez okunduklarını ve kaç kural ihlali yaşandığını gösterir; yapay zekânın dokunduğu her dava için profili, yargı alanını ve özeti okundu veya okunmadı olarak ve okunan belgelerin bir çubuğunu gösterir.</li>
+<li><b>Yerleşik sohbette</b> çalışma talimatları her isteğin parçasıdır; onaylanacak bir şey yoktur. İlk istek harici bir yapay zekâ hizmetine gitmeden önce <span class="irs">IRONSTICK</span> onayınızı ister.</li>
+<li><b>Elinizdeki en kesin ipucunu verin.</b> Bir delil numarası bir adı, bir ad bir anahtar kelimeyi geçer ve bir dava numarası yapay zekâya hangi dosyayı okuması gerektiğini söyler.</li>
+</ul>
+<p class="cp">Oturumu başlat. Ardından [dosya numarası] davasının özetini ve dava hafızasını oku ve bana neyin açık olduğunu söyle.</p>
+
+<h3>Kurallar — ve bunları uygulamak için ne söylersiniz</h3>
+<ol class="say">
+<li><p class="cp">Oturumu başlat.</p><span class="does">Kural 1 — yapay zekâ, dava verilerine dokunmadan önce talimatlarını okur ve onaylar ve sistem dilinizde yanıt verir.</span></li>
+<li><p class="cp">Talimatlarındaki [numara] numaralı kuralı aynen aktar.</p><span class="does">Kural 2 — her kural kelimesi kelimesine görüntülenebilir; böylece yapay zekâyı ona bağlayabilirsiniz.</span></li>
+<li><p class="cp">Bunu hangi belge söylüyor? Bana delil numarasını ver.</p><span class="does">Kural 3 — her ifade kaynağını taşır; numaraya tıklamak belgeyi açar.</span></li>
+<li><p class="cp">Yanıt vermeden önce [#delil numarası] belgesini eksiksiz oku.</p><span class="does">Kural 4 — başlıklar ve kısa açıklamalar olgu değildir; yanıt tam metne dayanır.</span></li>
+<li><p class="cp">Kanıtlanmış olanı yalnızca tahmin edilenden ayır.</p><span class="does">Kural 5 — yapay zekâ değerlendirmeleri ve tahminleri bu şekilde işaretler ve yalnızca kaynakların belgelediklerini aktarır.</span></li>
+<li><p class="cp">Yalnızca arama isabetlerini değil, belgenin tamamını oku.</p><span class="does">Kural 6 — uzun belgeler sonuna kadar okunur; yapay zekâ her satır okunduğunda bunu bildirir.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>Talimat kilidi (Bridge).</b> Masaüstü yapay zekâ çalışma talimatlarını okuyup uydurma olgulara karşı kuralı kelimesi kelimesine geri vermediği sürece, talimatların okunması, onaylanması ve sistem dilinin sorgulanması dışında her araç reddedilir. Okuyan yapay zekâ onayı kendisi vermelidir; başka bir sohbette verilen bir onay, kilidi onun için açmaz.</li>
+<li><b>Yeniden okuma.</b> Onay, verilmesinden 60 dakika sonra, iki saat boyunca hiç çağrı yapılmadığında, gece yarısı ve her yeni bağlantıda geçerliliğini yitirir; <span class="irs">IRONSTICK</span>'in masaüstü yapay zekânın sohbet kaydını görebildiği yerlerde, masaüstü yapay zekâ bu sohbeti sıkıştırdığında da. Bu durumda yapay zekâ yeniden okur ve rastgele seçilen bir kuralı kelimesi kelimesine geri verir – bir hata değil, kısa bir duraklama.</li>
+<li><b>Kural güvenceleri.</b> Program mantığı kestirmelere dikkat eder; örneğin talimatlar okunmadan yapılan araç çağrılarına veya teslim yolunun dışından geçirilen bir dosyaya. Böyle bir durum tespit edilirse tüm araçlar kilitlenir ve nedeni belirtilir; sayaca göre yapay zekâ uydurma olgulara karşı kuralı ezbere tekrarlar veya talimatları yeniden okuyup ret mesajında adı geçen kuralı geri verir. Sayaç, yapay zekâ simgesinin açılır menüsünde görülebilir.</li>
+<li><b>Tek sohbet dili.</b> Yapay zekâ, siz hangi dilde yazarsanız yazın, oturum boyunca <span class="irs">IRONSTICK</span> sistem dilinde yanıt verir. Dilekçeler, mahkeme e-postaları ve kronoloji kayıtları davanın yargı alanının dilinde yazılır; günlük tutanak ise sohbet dilinde.</li>
+<li><b>Olgular araçlardan, bu oturumdan.</b> Talimatlar dava olgularına yalnızca güncel oturumda alınan <span class="irs">IRONSTICK</span> araçlarından izin verir – yapay zekânın belleğinden, önceki mesajlardan, eğitim verilerinden, indirilmiş dosyalardan veya başka bir bağlayıcıdan değil. Alınamayan şey bir boşluk olarak adlandırılır ve asla çıkarımla doldurulmaz.</li>
+<li><b>Önce araştırma.</b> Yapay zekâya, araçların yanıtlayabileceği bir şeyi asla sormaması talimatı verilmiştir: Bir dava numarası verildiğinde hangi dosyayı kastettiğinizi sormak yerine okur.</li>
+<li><b>Başlıklar ve özetler olgu değildir.</b> Yapay zekâ bir kaydın neyi belgelediğini ileri sürmeden önce kaydın tam metnini güncel oturumda okumalıdır; bir başlığın, bir tarafın veya bir çıkarımın ima ettiği şey tahmin olarak işaretlenmelidir. Çıkarılmış metni olmayan bir kayıttan içeriğe ilişkin bir ifade çıkmaz.</li>
+<li><b>Arama isabetleri okuma değildir.</b> Bir ara bellek dosyasındaki her arama sonucu, isabetlerin okuma sayılmadığı uyarısını, isabetlerin arkasındaki henüz okunmamış belgelerle birlikte taşır. Dava dökümlerinde bir okuma kapsamı uyarısı, sonuna kadar okunmamış her dosyayı yüzdesi ve okunmamış satır aralıklarıyla birlikte belirtir; bu uyarı, boşluklar okunana kadar sonraki yanıtlarda yeniden görünür.</li>
+<li><b>Yanıtlarda okuma durumu.</b> Okuma sayıları değiştiğinde araç yanıtları, yapay zekâ simgesinin açılır menüsünde gördüğünüz aynı sayıları taşır; bu sayılar göstermediği sürece bir davayı, delillerini veya hafızasını asla eksiksiz okunmuş olarak nitelendirmeme talimatıyla birlikte.</li>
+<li><b>Önce özeti ve hafızayı okuyun.</b> Dava verileri ancak dava özeti okunduktan sonra kullanılabilir; bir dava görevi için önce eksiksiz dava hafızası okunur.</li>
+<li><b>Yalnızca kendi okuması sayılır.</b> Dava değerlendirmesi için <span class="irs">IRONSTICK</span> her okumayı masaüstü yapay zekânın kendi sohbet kaydına göre kontrol eder; yardımcı ajanların okudukları sayılmaz.</li>
+<li><b>Kontrol edebileceğiniz kaynaklar.</b> Yapay zekâ her belgeyi delil numarasıyla belirtir. Yerleşik sohbette bir numara, ancak bu kayıt kayıtlarınızda mevcutsa ve ne silinmiş ne de gizliyse bağlantıya dönüşür; bir tıklama onu dava kronolojisinde açar. Böyle bir kaydı olmayan bir numara düz metin olarak kalır. Bir masaüstü yapay zekâda numarayı <span class="irs">IRONSTICK</span>'te arayın veya yapay zekâdan bu kaydı eksiksiz okumasını isteyin.</li>
+<li><b>Mevzuat kütüphaneden.</b> Kanunlar önce mevzuat kütüphanenizde kontrol edilir; web bir norm için yalnızca kütüphanede isabet yoksa açılır ve yalnızca <span class="irs">IRONSTICK</span> sayfa aracıyla açılan sayfalar okunmuş sayılır.</li>
+<li><b>Tarihli yazma işlemleri bugünün tarihini gerektirir.</b> Tarihli içerik yazan araçlar, yapay zekâ son 30 dakika içinde gerçek tarihi ve saati sorgulamamışsa reddedilir. Bridge'de yapay zekânın yanıtları bu tarihle başlar.</li>
+<li><b>Uzun bir sohbetten sonra.</b> Masaüstü yapay zekâ sohbetini sıkıştırdığında okunanlar kendi davası için sayılmaya devam eder; bir davanın Nucleu'su yeniden okunmalıdır. Bir davaya yeniden başlamak için yapay zekâ özeti, Nucleu'yu, dava hafızasını ve Snake'leri bir çalışma dosyasına yükleyebilir.</li>
+<li><b>Büyük belgeler.</b> Büyük araç yanıtları eksiksiz olarak şifreli ara belleğe gider ve bölüm bölüm okunur; okuma kapsamı satır satır izlenir.</li>
+</ul>
+
+<h2 id="w3">İş akışı 3 — Dava değerlendirmesi</h2>
+<p class="scr-intro">Dava değerlendirmesi, yapay zekânın kıdemli analist olarak bir davaya bakışıdır; <span class="irs">IRONSTICK</span>'te kaydedilir ve davanın Yapay zekâ değerlendirmesi sekmesinde gösterilir.
+Başarı şansı yalnızca mahkeme dosyasından değerlendirilir: dava açan belgede muhatap alınan mahkemeye veya makama gönderilenlerden ya da oradan gelenlerden.
+Açıklayıcı bölümler <span class="irs">IRONSTICK</span> dosyasının tamamına ve müvekkilin komşu davalarına dayanır.
+Bir dava ilerlediğinde, son değerlendirme eskidiğinde veya bir masaüstü yapay zekânın uygulamayla aynı kriterlere göre yeni bir değerlendirme hazırlaması gerektiğinde kullanın.</p>
+<figure class="chart"><img src="img/screens/5%20case%20assesment%20detail.png" alt="Başarı şansıyla yapay zekâ dava değerlendirmesi"><figcaption>Dava değerlendirmesi dosyayı okur ve başarı şansını delil durumu, asıl talep ve diğer taleplerle birlikte gösterir.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı oluşturun</h3>
+<ul>
+<li><b>Davayı açın veya belirtin.</b> Davayı <span class="irs">IRONSTICK</span>'te açın: Yapay zekâ hangi ekranı ve hangi davayı açtığınızı görebilir. Dava numarasını da belirtebilirsiniz; yapay zekâ davayı numarasından bulur.</li>
+<li><b>Dava açan belge dosyada olmalıdır.</b> Tahmin, yargılamayı başlatan belgeye, örneğin dava dilekçesine, çıkarılmış metniyle kaydedilmiş olarak ihtiyaç duyar. Bu belge aynı müvekkilin başka bir davasında da olabilir; örneğin bu davanın ayrıldığı davada.</li>
+<li><b>Mahkeme kayıtlı olmalıdır.</b> <span class="irs">IRONSTICK</span> mahkemeyi veya makamı yalnızca kurumlarınız arasında kayıtlıysa ve adı dava açan belgenin adresinde geçiyorsa tanır. Kayıtlı değilse başarı göstergesi boş kalır.</li>
+<li><b>Uygulamada veya bir masaüstü yapay zekâ ile.</b> Uygulamanın Yapay zekâ değerlendirmesi sekmesinde yalnızca durumu Aktif olan davalar değerlendirilebilir. Bir masaüstü yapay zekâ, durumu ne olursa olsun ve yeni bir şey gelmemiş olsa bile her davayı değerlendirebilir.</li>
+</ul>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">[Dava numarası] davasını aç ve bana son değerlendirmenin durumunu söyle.</p><span class="does">Yapay zekâ davayı yükler ve kayıtlı değerlendirmeyi tarihiyle birlikte özetler.</span></li>
+<li><p class="cp">[Dava numarası] davası için yeni bir değerlendirme hazırla.</p><span class="does">Mahkeme dosyası derlenir, belgeler okunur ve değerlendirme sabit aşamalarla yazılır; sonuç Yapay zekâ değerlendirmesi sekmesinde görünür.</span></li>
+<li><p class="cp">Başarı şansı neden daha yüksek değil?</p><span class="does">Mahkeme dosyasındaki aleyhinize olan noktaları, her biri delil numarasıyla birlikte alırsınız.</span></li>
+<li><p class="cp">Dosyamdaki hangi belgeler yardımcı olur ama henüz mahkemede yok?</p><span class="does">Yapay zekâ dosyanızın tamamını mahkeme dosyasıyla karşılaştırır ve orada neyin hâlâ eksik olduğunu belirtir.</span></li>
+<li><p class="cp">[#Delil numarası] belgesini dikkate al ve yeniden değerlendir.</p><span class="does">Yorumunuz iletilir ve değerlendirme bununla yenilenir.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>Önce son değerlendirme.</b> Değerlendirme okuyucu, davanın en son değerlendirmesini sunar. İlk satırı tarihi, yaşı ve bunun tam bir değerlendirme mi yoksa bir güncelleme mi olduğunu belirtir; yapay zekâya son değerlendirmenin ne zaman hazırlandığını belirtmesi talimatı verilmiştir. Dava verilerini okuyan her araç gibi, yapay zekâ dava özetini ve ardından dava hafızasını okuyana kadar reddedilir.</li>
+<li><b>Tek araç, altı aşama.</b> Bir masaüstü yapay zekâ yeni bir değerlendirmeyi yalnızca özel değerlendirme aracıyla hazırlar. Her çağrı yalnızca güncel aşamayı sunar; bir sonraki aşama ancak <span class="irs">IRONSTICK</span> güncel aşamayı kontrol ettikten sonra verilir. Hiçbir aşama atlanamaz. Uygulama aynı anda aynı davayı değerlendiriyorsa araç, uygulama işini bitirene kadar reddeder.</li>
+<li><b>Aşama 1 — Dava açan belge.</b> Yapay zekâ davanın PDF'lerini en eskisinden başlayarak okur ve dava açan belgeyi kesin, belirsiz veya “bulunamadı” olarak bildirir. Kontrol edilenler: Bildirilen her belge bu müvekkile aittir ve bu oturumda eksiksiz okunmuştur; “bulunamadı” ancak davanın her PDF'i eksiksiz okunmuşsa kabul edilir. Kesin olarak bildirilen bir belge sonraki değerlendirmeler için kaydedilir.</li>
+<li><b>Kapı: mahkeme dosyası.</b> <span class="irs">IRONSTICK</span>, kurumlarınız arasında kayıtlı bir mahkemeyi veya makamı, dava açan belgenin ilk sayfasının başındaki adreste veya bu sayfadaki muhatap olarak arar. Mahkeme dosyası bu durumda dava açan belgeden ve davanın, karşı tarafı bu mahkeme veya makam olan her gelen ve giden belgesinden oluşur – her iki taraftan, ekler hariç ve gizli veya silinmiş kayıtlar hariç.</li>
+<li><b>Aşama 2 — Mahkeme dosyasının durumu ve tahmin.</b> Yapay zekâ mahkeme dosyasının her belgesini kendisi eksiksiz okumalı ve ardından tahmin bölümünü sunmalıdır: bir yüzde, bandı (açıkça kaybedilmiş, kaybedilmeye yakın, belirsiz, kazanılmaya yakın, açıkça kazanılmış), mahkeme dosyasının durumu, delil durumu, asıl talep, diğer talepler, önceki tahmine göre değişim ve gerekçe. Kontrol edilenler: mahkeme dosyasının her belgesi okunmuştur; yüzde kendi bandı içindedir; her satır mevcuttur; mahkeme dosyasının durumu ve gerekçe yalnızca mahkeme dosyasındaki belgelere atıf yapar; bu satırlar sistem dilinde yazılmıştır; önceki tahmine göre 10 puandan fazla bir değişim, bunu gerekçelendiren yeni belgeleri belirtir.</li>
+<li><b>Mahkeme dosyası yok — yapay zekâ size ne bildirir.</b> Dava açan belge yoksa veya adresinde tanınan bir mahkeme ya da makam yoksa mahkeme dosyası da yoktur. <span class="irs">IRONSTICK</span> bu durumda yapay zekâya, devam etmeden önce sohbet dilinde size hemen tahmin hazırlanmayacağını ve başarı göstergesinin boş kalacağını bildirmesi talimatını verir – nedenini ve varsa dava açan belgeyi belirterek. Aşama bu durumda yalnızca davayla geçilir ve tahminin yerini <span class="irs">IRONSTICK</span> dosyasının durumu alır.</li>
+<li><b>Aşama 3 ve 4 — Okuma.</b> Aşama 3, davanın en yeni gelen ve giden PDF'lerini ve kayıtlı dava açan belgeyi listeler; aşama 4, müvekkilin bu davaya bağlı diğer davalarının her belgesini listeler. Her biri eksiksiz okunmalıdır; özetler, başlıklar ve arama isabetleri okuma değildir. Ara belleğe giden bir sonuç ancak her bölümü okunmuşsa sayılır.</li>
+<li><b>Okuma durumu.</b> <span class="irs">IRONSTICK</span> her dava için bir okuma defteri tutar: yapay zekânın davanın kaç belgesini eksiksiz okuduğu ve özeti ve dava hafızasını okuyup okumadığı. Bunlar sizin gördüğünüz sayılarla aynıdır ve değiştikleri anda yanıtlarla birlikte gelir. Yapay zekâya, okuduklarına ilişkin her ifadenin tek geçerli dayanağının bunlar olduğu ve bir davayı veya belgelerini ancak sayılar bunu gösterdiğinde “eksiksiz okunmuş” olarak nitelendirebileceği söylenmiştir.</li>
+<li><b>Yalnızca yapay zekânın kendi okuması sayılır.</b> <span class="irs">IRONSTICK</span> her okumayı bu masaüstü yapay zekânın sohbet kaydına göre kontrol eder; alt ajanların veya paralel ajanların okudukları sayılmaz. Bir bağlantının sohbet kaydının görülemediği yerlerde yanıt bunu belirtir ve yapay zekâya bu kontrolün yapılamadığını size bildirmesi talimatı verilmiştir.</li>
+<li><b>Aşama 5 — Olgu özeti.</b> Yapay zekâ özetini şu başlıklarla sunar: temel olgular, belgelenmiş olgular ve kilit alıntılar, çelişkiler, boşluklar ve kaçırılmış süreler, davalar arası bağlantılar ve muhataplar. Kontrol edilenler: Her başlık mevcut ve doludur; temel olgular belgelere atıf yapar; her komşu dava belirtilmiştir; atıf yapılan her belge eksiksiz okunmuştur.</li>
+<li><b>Aşama 6 — Yazma.</b> Yazma kurallarını yapay zekâ ancak şimdi alır. Bölümler şunlardır: dayanak, <span class="irs">IRONSTICK</span> dosyasının durumu, kritik not, güçlü yönler, riskler, davalar arası bağlantılar ve – <span class="irs">IRONSTICK</span> başka müvekkillerin ilişkili davalarını bulduysa – son bölüm olarak bu davalar. <span class="irs">IRONSTICK</span> dosyasının durumu her belgenin özetine dayanır ve yapay zekâ her önemli belgeyi eksiksiz okur. Kontrol edilenler: bölümler ve sıraları; dayanak dava açan belgeyi belirtir; güçlü yönler ve riskler başlıklarının her birinde en fazla altı madde; atıf yapılan her belge bu müvekkilin dosyalarında veya materyalde mevcuttur, ne gizli ne de silinmiştir ve eksiksiz okunmuştur; davalar arası bölüm her komşu davayı belirtir.</li>
+<li><b>Reddetme.</b> Bir kontrol başarısız olursa yanıt REJECTED ve numaralı bir hata listesiyle başlar. Hiçbir şey ilerlemez ve hiçbir şey kaydedilmez; yapay zekâ tam olarak bu noktaları düzeltir ve yeniden çağırır. Yanlış aşamada sunulan bir bölüm reddedilir. Yapay zekâ zinciri yeni materyalle yeniden aşama 1'den başlatabilir; uygulamanın yeniden başlatılması da zinciri baştan başlatır.</li>
+<li><b>Kaydetme.</b> Aşama 6 kabul edilirse <span class="irs">IRONSTICK</span>, aşama 2'deki tahmini – mahkeme dosyası olan yerlerde – dayanaktan sonra ekler ve değerlendirmeyi yeni bir tam değerlendirme olarak kaydeder. Ardından davayı Yapay zekâ değerlendirmesi sekmesinde gösterir ve yapay zekâya yeni değerlendirmenin kaydedildiğini size bildirmesi talimatı verilmiştir.</li>
+<li><b>Yapay zekâ değerlendirmesi sekmesinde.</b> Mahkeme dosyasının durumu, bant, delil durumu, asıl talep ve diğer taleplerle birlikte başarı göstergesinin yanında yer alır. Mahkeme dosyası yoksa <span class="irs">IRONSTICK</span> dosyasının durumu ikinci sıraya geçer ve yanındaki gösterge boş kalır.</li>
+<li><b>Uygulamada değerlendirme.</b> Sekmenin kendisinde aktif bir dava için değerlendirme talep edersiniz. Sekme, harici bir yapay zekâ hizmetini kullanmadan önce onay ister; çalışma ardından sekmeyi veya ekranı değiştirseniz bile arka planda devam eder – yeni belgelerin metin tanıma işleminden araştırmaya, yazmaya ve tahmine kadar. Mevcut bir değerlendirme, son tam yeniden değerlendirmeden sonraki bir gün içinde, art arda en fazla üç kez güncellenebilir. Son değerlendirmeden bu yana yeni bir şey gelmemişse yeniden değerlendirme ancak itiraz alanına en az üç kelimelik bir yorum yazdıktan sonra açılır.</li>
+</ul>
+
+<h2 id="w4">İş akışı 4 — Bir Nucleu oluşturma</h2>
+<p class="scr-intro">Bir Nucleu, bir davanın bağlayıcı yönelimidir: argümantasyonun ana hattı, yol gösteren olgular ve deliller, söylenmesi gerekenler ve asla söylenmemesi gerekenler.
+İki düzeyde bulunur — bir kez bütün bir vakıa için, içindeki her davaya geçerli olarak, ve bir kez tek bir dava için — ve yapay zekânın dava için yazdığı her belge ona tabidir.
+Oluşturmak için en iyi zaman, bir dava değerlendirmesinin hemen ardından, davanın tamamı hâlâ yapay zekânın çalışma bağlamındayken gelir.
+Yapay zekâ taslağı hazırlar, <span class="irs">IRONSTICK</span> size her değişikliği gösterir ve onu yeni bir sürüm olarak ancak sizin onayınız kaydeder.</p>
+
+<figure class="chart"><img src="img/screens/5%20case%20tab2.png" alt="Nucleu (atom simgesi) ve Snake (yılan simgesi) içeren dava sekmesi"><figcaption>Atom simgeli sekmedeki Nucleu: Yapay zekâ taslak hazırlar ve önerir, siz kabul edersiniz; kabul edilen her değişiklik, sonraki her dilekçeye yön veren yeni bir sürüm olur.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı belirleyin</h3>
+<ul>
+<li><b>Zamanı seçin.</b> Nucleu'yu bir dava değerlendirmesinin hemen ardından isteyin. Değerlendirme sırasında yapay zekâ özeti, tam metinleri, dava hafızasını ve mevcut bir Nucleu ile mevcut bir Snake'i okur; bunların hepsi hâlâ çalışma bağlamındayken yönelim, yalnızca birkaç belgeden değil davanın tamamından damıtılabilir.</li>
+<li><b>Düzeyi seçin.</b> Bir <i>Vakıa Nucleu'su</i> bir vakıaya (dava listesindeki bir dava grubuna) aittir ve içindeki her dava için geçerlidir. Bir <i>Dava Nucleu'su</i> yalnızca bir dava için geçerlidir ve yönelimi bu dava için ayarlar. Bir davaya kendi Nucleu'su ve ait olduğu her vakıanın Nucleu'su yön verir; bu nedenle Dava Nucleu'su vakıanın çizgisiyle çelişmemelidir.</li>
+<li><b>Onu nerede bulursunuz.</b> Dava ekranında atom simgeli sekme (<i>Dava Nucleu'su</i>) üstte düzenlenebilir Dava Nucleu'sunu ve altında, salt okunur olarak, davanın ait olduğu her vakıanın Nucleu'sunu içerir. Dava listesinde bir vakıanın başlık çubuğundaki atom düğmesi o vakıanın Nucleu'sunu açar. Her Nucleu kendi tanımlayıcısını taşır, örneğin <i>#KI00041 · v3</i>; bir tıklama onu kopyalar, böylece sohbete yapıştırabilirsiniz.</li>
+<li><b>İçine ne girer.</b> Yönelim ve başka hiçbir şey: yol gösteren tez, davanın daha büyük uyuşmazlıktaki konumu, taraflar, karşı tarafın tezleri ve bunlara verilecek yanıtlar, gelecekteki delillerin nasıl değerlendirileceği ve aşılmaması gereken çizgiler. Olgular belgelenmiş geçmiş olarak girer; davanın güncel durumu her seferinde özetten okunur.</li>
+<li><b>İçine ne girmez.</b> Hatırlatmalar, notlar, yapılacaklar, oturum geçmişi, açık sorular ve çalışma düşünceleri dava hafızasına aittir. Karşı tarafın dosyayla çelişen beyanları Snake'e aittir.</li>
+<li><b>Kapsam.</b> Nucleu başına en fazla 20.000 karakter. Metnin yanındaki sayaç uzunluğu gösterir ve sınırın üzerinde kırmızıya döner. Yönelim daha fazla yer gerektiriyorsa ortak çizgiyi Vakıa Nucleu'sunda tutun ve bir davaya özgü olanı aynı sınırla o davanın Nucleu'suna koyun.</li>
+<li><b>Kendiniz yazın.</b> Bir Nucleu'yu doğrudan sekmede veya vakıa penceresinde yazabilir ya da düzeltebilir ve <i>Kaydet</i>'e basabilirsiniz; her kayıt yeni bir sürümdür.</li>
+</ul>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">Bu değerlendirmeden [dosya numarası] davası için Nucleu'yu oluştur.</p><span class="does">Yapay zekâ yönelimi az önce okuduğu davadan damıtır ve önerisini <i>Dava Nucleu'su</i> sekmesinde açar; orada onu kabul eder veya reddedersiniz.</span></li>
+<li><p class="cp">[Vakıa] vakıası için bir Nucleu oluştur: içindeki her dava için geçerli olan ana hat.</p><span class="does">Yapay zekâ Vakıa Nucleu'sunun taslağını hazırlar ve onu vakıa penceresinde gösterir; bir kez kabul edildiğinde vakıanın her davası için geçerli olur ve her birinde salt okunur olarak görünür.</span></li>
+<li><p class="cp">[Dosya numarası] davasının her Nucleu'su ne uzunlukta ve hangi kısım Vakıa Nucleu'suna taşınabilir?</p><span class="does">Yapay zekâ davanın Dava Nucleu'sunu ve her Vakıa Nucleu'sunu okur ve her birini 20.000 karakter sınırına göre ölçer.</span></li>
+<li><p class="cp">[Dosya numarası] davasının Nucleu'sunu güncelle: Artık [nokta] ile argüman yapmıyoruz.</p><span class="does">Yapay zekâ sohbette neyi neden değiştirmek istediğini açıklar ve ardından yalnızca değiştirilen bölümleri önerir; bunları kırmızı kalın yazıyla görürsünüz ve kabul edilen bir değişiklik bir sonraki sürüm olur.</span></li>
+<li><p class="cp">Bana [dosya numarası] davasının güncel Nucleu'sunu, her vakıanın Nucleu'suyla birlikte oku.</p><span class="does">Yapay zekâ setin tamamını güncel sürümleriyle, her birini tanımlayıcısıyla birlikte yükler, örneğin #KI00041 · v3.</span></li>
+<li><p class="cp">Bu taslak Nucleu ile çelişiyor mu?</p><span class="does">Yapay zekâ taslağı, dava için geçerli her Nucleu ile madde madde karşılaştırır ve her sapmayı belirtir; bir dilekçede bu karşılaştırma denetim zincirinin son turudur.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>Onayınızla tek bir yazma yolu.</b> Yapay zekâ bir Nucleu'yu özel bir araç üzerinden önerir: bir Dava Nucleu'sunun ilk sürümünü dava üzerinden, bir Vakıa Nucleu'sunun ilk sürümünü vakıa üzerinden (vakıalar listesinden alınarak), sonraki her değişikliği ise Nucleu numarası üzerinden. Metindeki değişiklikler hedefli değiştirmeler olarak girer; yapay zekâya Nucleu'yu asla baştan sona yeniden yazmaması ve önermeden önce sohbette neyi neden değiştirmek istediğini açıklaması talimatı verilmiştir.</li>
+<li><b>İnceleme penceresi.</b> Bir Dava Nucleu'su için <span class="irs">IRONSTICK</span> davayı <i>Dava Nucleu'su</i> sekmesinde açar; bir Vakıa Nucleu'su için pencere güncel ekranın üzerinde görünür. Tüm metni, her değişikliği kırmızı kalın yazıyla, silmeleri üstü çizili olarak ve <i>Reddet</i> ile <i>Kabul et</i> düğmeleriyle gösterir. Aynı anda yalnızca bir Nucleu incelemesi açıktır. Yaklaşık bir dakikadan uzun sürerseniz yapay zekâya incelemenin hâlâ açık olduğu bildirilir ve onu yeniden göndermez; sonradan vereceğiniz onay sürümü yine de kaydeder.</li>
+<li><b>Boyut kontrolü.</b> 20.000 karakteri aşan bir öneri size ulaşmadan reddedilir; yol gösteren çekirdekle sınırlı kalma ve davaya özgü yönelimi Dava Nucleu'suna, ortak yönelimi ise Vakıa Nucleu'suna koyma talimatıyla birlikte.</li>
+<li><b>Güncel tarih.</b> Her tarihli yazma işlemi gibi bir Nucleu önerisi de son 30 dakika içinde sorgulanmış güncel tarihi gerektirir.</li>
+<li><b>Sürümler, asla üzerine yazılmaz.</b> Kabul edilen her öneri ve sekmedeki her kayıt, bir sonraki sürüm numarasıyla yeni bir satır olarak kaydedilir; <i>#KIxxxxx</i> numarası tüm sürümlerde aynı kalır ve en yüksek sürüm güncel olandır. Değişmemiş metin yeni bir sürüm oluşturmaz. Bir vakıa silinirse Nucleu'su gizlenir ve sürümleri korunur.</li>
+<li><b>Yapay zekâ onu nasıl okur.</b> Dava ile yapılan bir çağrı setin tamamını sunar: Dava Nucleu'sunu ve davanın her vakıasının Nucleu'sunu, her birini <i>#KIxxxxx · vN</i> başlık satırıyla, eksiksiz olarak; ayrıca henüz Nucleu'su olmayan düzeyleri belirtir. Nucleu ayrıca dava özetinin, dava brifinginin ve yeniden başlama paketinin en üstünde yer alır. Bir envanter listesi her Nucleu'yu tam metinler olmadan gösterir; yapay zekâ talimatları araç setini açan, o anda açık olan davanın Nucleu envanterini görür.</li>
+<li><b>Her değişiklikten sonra yeniden okuma.</b> <span class="irs">IRONSTICK</span>, yapay zekânın her Nucleu'nun hangi sürümünü okuduğunu kaydeder. Yeni bir sürüm veya masaüstü yapay zekânın sohbeti sıkıştırması önceki okumayı geçersiz kılar.</li>
+<li><b>Nerede etkili olur.</b> Nucleu, <a href="#w6">İş akışı 6 — Bir dilekçe yazma</a> üzerinden her dilekçeye yön verir. Orada Nucleu kapısı, uygulanabilir her Nucleu — Dava Nucleu'su ve her Vakıa Nucleu'su — güncel sürümüyle okunana kadar davanın bir belgesinin yazılmasını, denetlenmesini ve teslimini reddeder; aynı şekilde bağlayıcı belge formatı da ancak davanın her Nucleu'su okunduktan sonra verilir. Denetim zincirinin sonunda Nucleu turu yer alır: Belge Nucleu ile madde madde karşılaştırılır, her sapma düzeltilir veya sonuçlandırılır, bir çelişki asla göz ardı edilemez ve giderilemeyen bir çelişki çatışma olarak işaretlenir. Bir çatışma, siz ayrıntılı olarak uyarılıp belgenin düzeltilmesine mi yoksa sapmanın kalmasına mı karar verene kadar bu belge üzerindeki çalışmayı durdurur.</li>
+<li><b>Dava değerlendirmesinde.</b> Bir değerlendirme çalışırken davanın mevcut her Nucleu'su bağlayıcı yönelim olarak bağlamının bir parçasıdır ve tanımlayıcısıyla birlikte alıntılanır.</li>
+</ul>
+
+<h2 id="w5">İş akışı 5 — Snake'i oluşturma</h2>
+<p class="scr-intro">Snake, bir davada karşı tarafın dosyadaki delillerle çelişen beyanlarının dahili çalışma sicilidir. Her kayıt beyanın yerini — belge, tarih, dava ve sayfa — belirler ve onu çürüten her belgeyi listeler.
+Onu iki yoldan oluşturursunuz: bir veya birkaç davada ya da belirttiğiniz belgelerde hedefli araştırmayla; veya herhangi bir sohbetin ortasında, karşı tarafın dosyayla bir çelişkisi ortaya çıktığı anda.
+<span class="irs">IRONSTICK</span> her satırı belgelerinize göre kontrol eder, her sürümü siz onaylarsınız ve sonraki her dilekçede Snake kayıtları karşı tarafa karşı argüman olarak sunulur.</p>
+
+<figure class="chart"><img src="img/76_nucleu_snake_path.png" alt="Dilekçeye giden yolda Nucleu ve Snake"><figcaption>Snake, karşı tarafın dosyayla çelişkilerini kayda geçirir: her satır belgelere göre kontrol edilir, her sürüm için sizin onayınız gerekir.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı belirleyin</h3>
+<ul>
+<li><b>Hedefli araştırma.</b> Yapay zekânın, belgelerin çürüttüğü karşı taraf beyanlarını araması gereken davaları veya belgeleri belirtin. İyi bir zaman, bir dava değerlendirmesinin veya davanın eksiksiz okunmasının hemen ardından, dosyalar hâlâ yapay zekânın çalışma bağlamındayken gelir. Ağı geniş atmasını isteyin; Snake yalnızca belgelerin kanıtladıklarını içerir.</li>
+<li><b>Herhangi bir sohbet sırasında.</b> Başka bir şey üzerinde çalışırken karşı tarafın dosyayla bir çelişkisi ortaya çıkarsa, henüz orada değilse yapay zekâya onu Snake'e eklemesi talimatını verin. Yapay zekâ önce güncel Snake'i kontrol eder ve noktayı iki kez kaydetmek yerine mevcut bir kaydı genişletir.</li>
+<li><b>Dava başına bir Snake.</b> Bir Snake tam olarak bir davaya aittir. Bir vakıanın kendi Snake'i yoktur; vakıa, tüm davalarının Snake'lerini gösterir.</li>
+<li><b>Onu nerede bulursunuz.</b> Dava ekranında Nucleu sekmesinin sağındaki yılan simgeli sekme (<i>Dava Snake'i</i>), bu davanın Snake'ini tanımlayıcısıyla, örneğin <i>#SN00004 · v2</i>, ve bir karakter sayacıyla birlikte içerir. Dava listesinde bir vakıanın başlık çubuğundaki Snake düğmesi <i>Vakıanın Snake'leri</i>ni açar: tüm davalarının Snake'leri liste sırasıyla; bir davaya tıklamak onu <i>Dava Snake'i</i> sekmesinde açar.</li>
+<li><b>Kapsam.</b> Dava Snake'i başına en fazla 20.000 karakter. Sayaç sınırın üzerinde kırmızıya döner. Her kaydı yere, kısa bir açıklamaya ve atıf satırlarına sınırlayın.</li>
+<li><b>İçine ne girer.</b> Yalnızca karşı tarafın dosyadaki delillerle çelişen beyanları. Tahminler, strateji ve hatırlatmalar girmez; hatırlatmalar dava hafızasına gider ve karşı tarafın çelişkileri yalnızca Snake'e girer, asla hafızaya değil.</li>
+</ul>
+
+<p><b>Kayıt formatı.</b> Kayıtlar boş bir satırla ayrılır. İlk satır beyanın yeridir; ardından açıklama; ardından her bağlantılı belge, bir okla başlayarak kendi satırında:</p>
+<p><code>#0004417 · 12.10.2026 · CaseID 19 · s. 2 üst</code><br>
+<code>İstinafa cevap dilekçesi, karşı taraf B: Mahkemeler tesislerin mülkiyeti hakkında zaten kesin olarak karar vermiş. Dosya ise aksini gösteriyor: Her iki karar da mülkiyeti açıkça esas yargılamaya bırakıyor ve karşı taraf B önceki duruşmada aynı şeyi söylemişti.</code><br>
+<code>→ #0003304 · 18.07.2026 · CaseID 19 · s. 5 orta</code><br>
+<code>→ #0000586 · 25.04.2026 · CaseID 8 · s. 9 üst</code><br>
+<code>→ #0001127 · 24.06.2026 · CaseID 8 · s. 15 alt</code></p>
+<p>Her atıf satırı şöyledir: yedi haneli delil numarası · <span class="irs">IRONSTICK</span>'in kaydettiği şekliyle belge tarihi (GG.AA.YYYY) · bu belgenin CaseID'si · sayfa ve sayfadaki konum (üst, orta veya alt; sistem dillerinin her birinde) ya da sayfası olmayan deliller için bir çizgi. Bir çelişki birden fazla belgeye yayılıyorsa her biri kendi atıf satırını alır: beyan, karşı beyan ve aradaki her delil. Kayıtları sekmede kendiniz de yazabilir veya düzeltebilir ve <i>Kaydet</i>'e basabilirsiniz; her kayıt yeni bir sürümdür.</p>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">[Dosya numarası] davasının Snake'ini dosyanın tamamından oluştur.</p><span class="does">Yapay zekâ davayı ve karşı tarafı çürüten her belgeyi okur ve ardından Snake'i <i>Dava Snake'i</i> sekmesinde önerir; her satır belgelerinize göre kontrol edilmiştir.</span></li>
+<li><p class="cp">[Delil numaraları] belgelerini dosyanın çeliştiği karşı taraf beyanları için tara ve bunları [dosya numarası] davasının Snake'ine ekle.</p><span class="does">Yapay zekâ tam olarak bu belgeleri eksiksiz okur ve yalnızca belgelerinizin çürüttüğü beyanları, her birini çürüten belgelerle birlikte kaydeder.</span></li>
+<li><p class="cp">[Vakıa] vakıasındaki tüm davaların Snake'lerini oluştur. Ağı geniş at.</p><span class="does">Yapay zekâ dava dava, her dava için bir Snake olmak üzere çalışır; vakıa penceresi ardından hepsini dava listesinin sırasıyla gösterir.</span></li>
+<li><p class="cp">Bu çelişki [dosya numarası] davasının Snake'inde zaten var mı?</p><span class="does">Yapay zekâ güncel Snake'i okur ve noktanın zaten kayıtlı olup olmadığını ve hangi kayıtta olduğunu size söyler.</span></li>
+<li><p class="cp">Karşı tarafın bu çelişkisini, henüz orada değilse Snake'e ekle.</p><span class="does">Yapay zekâ güncel Snake'i okur, mevcut kaydı genişletir veya her çürüten belgeyi ayrı bir satır olarak içeren yeni bir kayıt yazar ve değişikliği kabulünüz için size gösterir.</span></li>
+<li><p class="cp">[Müvekkil] müvekkili için hangi Snake'lerimiz var?</p><span class="does">Yapay zekâ müvekkilin davalarına ait her Snake'i tanımlayıcı, sürüm ve kayıt sayısıyla listeler.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>Önce okuma.</b> Davanın zaten bir Snake'i varsa bir değişiklik ancak yapay zekâ onun güncel sürümünü bu oturumda okuduktan sonra ve masaüstü yapay zekâ sohbetini sıkıştırdıktan sonra yeniden okuduğunda kabul edilir. Snake'i olmayan bir dava ilk kayıtlarını doğrudan kabul eder. Yapay zekâya, noktanın zaten kayıtlı olmadığını kontrol etmesi ve iki kez kaydetmek yerine mevcut kaydı genişletmesi talimatı verilmiştir.</li>
+<li><b>Yalnızca okunandan yaz.</b> Yapay zekâ davada karşı tarafın veya bir resmî makamın belgesini açtıysa, bu belge eksiksiz okunana kadar Snake'in değiştirilmesi reddedilir.</li>
+<li><b>Her seferinde metnin tamamı.</b> Yapay zekâ, eki dahil Snake'in tamamını önerir; kısmi yazma işlemleri (ekleme veya hedefli değiştirmeler) reddedilir, böylece her öneri sicilin tamamı göz önünde tutularak yapılır. 20.000 karakteri aşan bir öneri size ulaşmadan reddedilir.</li>
+<li><b>Her satır belgelere göre kontrol edilir.</b> Öneri gösterilmeden önce <span class="irs">IRONSTICK</span> her kaydı kontrol eder: ilk satırın istenen biçimde olması, bir açıklama, en az bir atıf satırı, atıf satırlarından sonra açıklama olmaması; ve her atıf satırı için delilin mevcut olması, belirtilen CaseID'ye ait olması, tam olarak bu belge tarihini taşıması, davayla aynı müvekkile ait olması ve sayfanın kayıtlı PDF'in içinde bulunması. Herhangi bir hatada hiçbir şey önerilmez; yapay zekâ hata listesini kayıt kayıt alır ve düzeltir.</li>
+<li><b>İnceleme penceresi.</b> <span class="irs">IRONSTICK</span> davayı <i>Dava Snake'i</i> sekmesinde açar ve tüm metni her değişiklik kırmızı kalın yazıyla, <i>Reddet</i> ve <i>Kabul et</i> düğmeleriyle birlikte gösterir. Yaklaşık bir dakikadan uzun sürerseniz yapay zekâya incelemenin hâlâ açık olduğu bildirilir ve onu yeniden göndermez; sonradan vereceğiniz onay sürümü yine de kaydeder.</li>
+<li><b>Sürümler, asla üzerine yazılmaz.</b> Kabul edilen her öneri ve sekmedeki her kayıt, aynı <i>#SNxxxxx</i> numarası altında yeni bir sürüm olur; değişmemiş metin yeni bir sürüm oluşturmaz.</li>
+<li><b>Yapay zekâ onu nasıl okur.</b> Yapay zekâ bir davanın Snake'ini, bir vakıanın tüm davalarının Snake'lerini dava listesinin sırasıyla, bir müvekkilin tüm davalarının Snake'lerini veya bir Snake'i numarası üzerinden okuyabilir — her blok, davasıyla birlikte <i>#SNxxxxx · vN</i> başlık satırını taşır. Bir envanter listesi her Snake'i kayıt sayısıyla, tam metinler olmadan gösterir. Bir davanın yeniden başlama paketi ve dava değerlendirmesi de Snake'i içerir.</li>
+<li><b>Nerede etkili olur.</b> Snake, <a href="#w6">İş akışı 6 — Bir dilekçe yazma</a> içindeki Snake kapısı üzerinden etkili olur. Dava için Snake'ler varsa — kendi Snake'i veya vakıalarındaki diğer davaların Snake'leri — yapay zekâ size sabit soruyu sorar: <i>Snake kapısını istiyor musunuz?</i>; meğer ki siz zaten <i>Snake kapısıyla</i> demiş veya bu turdan kendi sözlerinizle vazgeçmiş olasınız. Evet demenizin ardından, son Nucleu turundan önce, denetim zincirinin Snake turu gelir: Yapay zekâ davanın Snake'ini ve vakıalarındaki diğer davaların Snake'lerini eksiksiz okur, taslağı yeniden okur ve her Snake kaydını bir sonuç dosyasında eklendi (belgedeki yeriyle), reddedildi veya ilgisiz olarak, her birini gerekçesiyle sonuçlandırır. Bir kayıt, kendisi veya ifadesi müvekkilin aleyhine çevrilebilecekse reddedilir. <i>Zaten kullanıldı</i> veya <i>mahkeme zaten biliyor</i> gerekçe olarak kabul edilmez: Kayıtlar, uygun düştükleri her belgede tekrarlanması gereken argümanlardır. Tur ancak her kayıt sonuçlandırılmışsa, Snake'ler ve taslak görevden sonra okunmuşsa ve taslak bir kaydın eklendiği her yerde gerçekten değiştirilmişse kabul edilir.</li>
+</ul>
+
+<h2 id="w6">İş akışı 6 — Bir dilekçe yazma</h2>
+<p class="scr-intro">Bu iş akışı sizi sade sözcüklerle yapılmış bir istekten kelime işlemcide sunulmaya hazır bir taslağa götürür: bir dilekçe, bir mahkemeye veya makama yönelik bir başvuru ya da bir mektup.
+Yapay zekâ yazmadan önce davayı okur, belgeyi şifreli ara belleğinde oluşturur, her olguyu, her alıntıyı, her normu ve her tarafı belgelerinize göre kontrol ettirir, sabit bir denetim zincirinden geçer ve her karar noktasında size sorar.
+Büronuzdan yazılı bir şey çıkacağı her durumda kullanın. <span class="irs">IRONSTICK</span>'ten çıkan şey her zaman sizin kendiniz inceleyip imzalayıp gönderdiğiniz bir taslaktır.</p>
+
+<figure class="chart"><img src="img/75_ironstick_coaching_line.png" alt="Bitmiş dilekçeye kadar denetimlerle rehberli yol"><figcaption>Görevinizden kelime işlemcideki taslağa: Yapay zekâ okur, taslak hazırlar ve doğrular, onay işaretine kadar denetimler ona yol gösterir; her adımda siz karar verirsiniz.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı belirleyin</h3>
+<ul>
+<li><b>Davayı belirtin.</b> Yerleşik sohbet için davayı açın ve <i>Metin yaz</i> › <i>Yapay zekâ yardımıyla</i> seçeneğini seçin: Sohbet bu davayla açılır; bir kronoloji kaydından açıldığında belge zaten belirlenmiştir. Bir masaüstü yapay zekâda ilk mesajınızda dosya numarasını belirtin — yapay zekâ <span class="irs">IRONSTICK</span>'e hangi ekranı ve hangi davayı açtığınızı da sorabilir.</li>
+<li><b>Davanın ülkesi gerekir.</b> Belgenin hukuku, dili ve tarihi davada belirlenen yargı alanından gelir. Yargı alanı belirlenmemişse belge formatı, önce onu belirleme çağrısıyla birlikte verilmez.</li>
+<li><b>Masaüstü yapay zekânızın en güçlü modelini kullanın.</b> Taslak hazırlama için yapay zekâya, başlamadan önce en güçlü model kademesini, teslimden sonra ise yeniden daha hafif bir kademeyi önermesi talimatı verilmiştir. Masaüstü yapay zekâ uygulaması yalnızca sizin elinizle model değiştirir; yerleşik sohbet kendiliğinden değiştirir.</li>
+<li><b>İlk mesajınızı derli toplu yazın.</b> Dava, belgenin türü, neye ulaşmak istediğiniz, dayandığı delil numaraları, üslup ve uzunluk ile hitabı iyi işlemiş daha önceki bir dilekçe. Bir dilekçeyi belgeler temellendirir; sıfatlar temellendirmez.</li>
+<li><b>Denetim turlarından ne istediğinizi önceden söyleyin.</b> Kendi mesajınızdaki <i>Snake kapısıyla</i> veya <i>Snake ve Nucleu olmadan</i> gibi sözcükler <span class="irs">IRONSTICK</span> tarafından tanınır; yapay zekâ bu belge için artık bu turları sormaz. Yapıştırılan metin sizin sözleriniz sayılmaz.</li>
+</ul>
+<p class="cp">[Dosya numarası] davasında #0004127 numaralı cevap dilekçesine karşı cevabı hazırla, #0003310 ve #0003318'e dayandır, kısa ve nesnel olsun, 12 Mayıs tarihli istinaf başvurusu gibi hitap edilsin, Snake kapısıyla.</p>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">[Dosya numarası] davasında [#delil numarası] belgesine bir cevap yaz. Amaç: [amaç].</p><span class="does">Yapay zekâ davayı, vakıanın ve davanın Nucleu'sunu ve yanıt verdiğiniz belgeyi okur, ardından ara belleğinde taslak hazırlar.</span></li>
+<li><p class="cp">Delil olarak [#delil numaraları] belgelerini kullan. Üslup: [nesnel / kararlı].</p><span class="does">Talimatlarınız taslağa yansır; atıf yapılan her belge eksiksiz okunur.</span></li>
+<li><p class="cp">Düzeltme yok — devam et.</p><span class="does">Denetim zinciri çalışır: yeniden okunur, önceki dilekçelerinizle karşılaştırılır, karşı taraf gözüyle saldırıya tabi tutulur, Snake turu, Nucleu denetimi.</span></li>
+<li><p class="cp">[Numara] numaralı noktayı değiştir: [düzeltmeniz].</p><span class="does">Taslak düzeltilir ve devam edilmeden önce yeniden denetlenir.</span></li>
+<li><p class="cp">Teslim et.</p><span class="does">Belge indirme penceresinde görünür; onu kelime işlemciye aktarın, imzalayın ve kendiniz gönderin.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>Yargı alanı ve dil.</b> Yapay zekâ hukuki çalışmaya başlamadan önce yargı alanını davadan belirler. Sizinle <span class="irs">IRONSTICK</span> sistem dilinde konuşur; belge, davanın ülkesinin resmî dilinde yazılır ve format dosya numarasını ve bugünün tarihini taşır.</li>
+<li><b>Yazmadan önce davayı okuma.</b> Bir davaya yazan araçlar, yapay zekâ dava özetini okuyana kadar reddedilir; bir dilekçe ayrıca davanın en yeni belgelerinin eksiksiz okunmuş olmasını gerektirir. Ret mesajı henüz okunmamış olanları listeler.</li>
+<li><b>Format için başlangıç kapısı.</b> Bağlayıcı belge formatı (belgenin türüne göre: dilekçe veya mektup, avukatla temsil veya kendi kendini temsil) ancak yapay zekâ eksiksiz özeti, müvekkilin bu davadaki her giden belgesini eksiksiz, dilekçenin yanıt verdiği belgeyi eksiksiz, dava hafızasını ve davanın her Nucleu'sunu okuduktan sonra verilir. Bir mahkemeye hitap eden her şey bir dilekçedir, asla bir mektup değildir. Bir dilekçe için format ayrıca dosyalarınızdan mahkemenin bir profilini de getirir.</li>
+<li><b>Önce asıl talepleriniz.</b> Dilekçe bir belgeye yanıt veriyorsa yapay zekâ önce sohbette müvekkilin davadaki asıl talep dilekçesinin her talebini delil numarasıyla alıntılayarak listelemeli, size hâlâ geçerli olup olmadığını sormalı ve sırasını bitirmelidir. Format ancak yanıtınızdan sonra verilir. Belgenin kendisi yargılamayı başlatıyorsa yapay zekâ bunu tek bir cümleyle söyler ve hiçbir şey sormaz.</li>
+<li><b>Önce Nucleu.</b> Yazma, denetleme ve teslim, davanın her güncel Nucleu'su — Dava Nucleu'su ve davanın ait olduğu her vakıanın Nucleu'su — güncel sürümüyle okunana kadar reddedilir; her yeni sürümden sonra ve masaüstü yapay zekâ sohbetini sıkıştırdıktan sonra yeniden.</li>
+<li><b>Yalnızca okunandan yaz.</b> Yapay zekâ davada karşı tarafın veya bir resmî makamın belgesini açtıysa, bu belge eksiksiz okunana kadar o davanın bir belgesi üzerindeki çalışma reddedilir. Yapay zekânın eksiksiz okumadığı belgelere atıf yapan bir taslak, bu belgeler okunana kadar her değişikliğe karşı kilitlidir; atıf yapılan bölümün silinmesi kilidi kaldırmaz.</li>
+<li><b>Deterministik dilekçe denetimi.</b> Dosyanın güncel durumu üzerinde, yapay zekâ olmadan çalışır ve şunları kontrol eder: her delil atfını ve damgayı ve atıf yapılan veya eklenen her belgenin bu belge için okunmuş olmasını; her kanun atfını doğrulanmış mevzuat kütüphanesine göre; her kelimesi kelimesine alıntıyı davanın tam metinlerine, alınmış belgelere ve kütüphaneye göre; dosya numaralarını; kaydedilmiş biçime tam olarak uyması gereken tutarları; müvekkil, kişi ve kurum adlarını, aksan işaretleri dahil harfi harfine; IBAN'ları ve ülkeye özgü bir kontrol olarak Romanya kişisel kimlik numaralarını (CNP) sağlama toplamıyla ve belgelere göre; adı geçen her kişinin veya şirketin bağlantılarıyla birlikte okunmuş olmasını; ve ek listesi dahil bağlayıcı formatı. Her bulgu DOĞRULANDI, DOĞRULANMADI veya ÇELİŞKİLİ olarak işaretlenir.</li>
+<li><b>Yazmadan önce okuyun, sonra değil.</b> Taslağın son değişikliğinden sonra yapılan bir okuma bu doğrulama için sayılmaz: Yapay zekâ önce okumalı, ardından bunu metne işlemeli ve sonra yeniden doğrulamalıdır.</li>
+<li><b>Alıntılar.</b> Hiçbir kaynakta bulunamayan bir alıntı teslimi engeller; onu yeniden ifade etmek veya tırnak işaretlerini kaldırmak engeli sürdürür ve tek çözüm kaynağın tam ifadesidir. Metinden kaybolan bir alıntı teslim sırasında size bildirilir.</li>
+<li><b>Ekler.</b> Her ek kaydı delil atfını, <span class="irs">IRONSTICK</span> tarafından alınan geliş damgasını ve sayfa yer tutucusunu taşımalıdır. Kayıtlı dosyası ve medyası olmayan bir ek inceleme için işaretlenir. Giden bir belge veya karşı tarafın bir yazısı olan bir ek, yazı yalnızca içindeki bir sayfa nedeniyle eklendiyse onun yerine orijinal belgeyi ekleme talimatıyla işaretlenir; bu işaret bir engel değil, bir inceleme notudur.</li>
+<li><b>Açık bulgular yapay zekâya geri döner.</b> Denetimin her bulgusu giderilmesi için yapay zekâya geri verilir ve denetim yeni durum üzerinde yeniden çalışır. Denetimler belge başına, sürüm numaralarından bağımsız olarak sayılır: Beşinci denetimden sonra hâlâ açık bulgular varsa <span class="irs">IRONSTICK</span> bir sistem mesajıyla kararı size devreder ve yapay zekâ, nasıl devam edileceğine karar vermeniz için açık noktaları size sunar.</li>
+<li><b>Önce özet.</b> İlk onaydan sonra denetim zinciri sizin için belgenin bir özetiyle başlar — muhatap ve yargılama, talepler, yapı, delilleriyle birlikte temel olgular, atıf yapılan kanunlar. Yapay zekâ yanıtınızı bekler; düzeltmeler zincir devam etmeden önce işlenir.</li>
+<li><b>Denetim zinciri.</b> Her adım dilekçe denetimine geri bildirilir ve bir sonraki görev gelmeden önce kontrol edilir: dosyanın tamamını yeniden okumak; müvekkilin kendi önceki beyanlarıyla çelişmemesi için müvekkilin atıf yapılan belgelere ilişkin önceki dilekçeleri; yanıtlanan belgenin her bölümünü kapsayan bir cevap tablosu; ayrı bir dosyaya yazılan ve taslakta madde madde sonuçlandırılan, karşı taraf gözüyle bir saldırı; aynı şekilde sonuçlandırılan bir değerlendirme. Bir dosya ancak her satırı görevden bu yana okunmuşsa okunmuş sayılır; hiçbir bulgunun benimsenmediği ve bulguların çoğunun zaten giderilmiş olarak göz ardı edildiği bir tur reddedilir.</li>
+<li><b>Sabit sorular.</b> Ardından en fazla iki sabit soru gelir — dava bir Nucleu'ya sahipse Nucleu sorusu, dava için Snake'ler varsa Snake sorusu. Yapay zekâ bunları kelimesi kelimesine, birbiri ardına sorar ve yalnızca sizin kendi mesajınızdan gelen bir evet veya hayırı kabul eder. Önceki sürümü olmayan yeni bir dilekçe Nucleu turunu sorusuz alır. Yanıtınız belgenin tüm sürümleri için hatırlanır.</li>
+<li><b>Snake turu.</b> Evet demenizin ardından yapay zekâ davanın ve vakıalarının Snake'lerini okur ve her Snake kaydı için eklendi mi, reddedildi mi yoksa ilgisiz mi olduğunu, her birini gerekçesiyle kaydeder; bir kayıt müvekkilin aleyhine çevrilebilecekse reddedilir.</li>
+<li><b>Nucleu turu.</b> Belge Nucleu ile madde madde karşılaştırılır. Bir çelişki göz ardı edilemez: Ya düzeltilir ya da çatışma olarak işaretlenir. Bir çatışma bu belge üzerindeki çalışmayı durdurur; yapay zekâ sizi ayrıntılı olarak uyarmalı ve ancak belgeyi düzeltme veya sapmayı bırakma kararınızdan sonra devam etmelidir.</li>
+<li><b>Düzeltmeleriniz metinde kalır.</b> Kendi mesajlarınız belge başına kaydedilir. Sizin tarafınızdan yapılan, işlenen ve daha sonra yeniden kaldırılan bir düzeltme, zinciri ve teslimi engeller. Kendi sözlerinize dayanan bir bölüm, yapay zekâ size sormadan silinemez.</li>
+<li><b>Bir değişiklik zinciri yeniden başlatır.</b> Her düzenleme son denetimi geçersiz kılar. Tamamlanmış zincirden sonra yapılan bir değişiklik zincirin tamamını yeniden başlatır.</li>
+<li><b>Tek bir teslim sorusu.</b> Sonunda yapay zekâ, zincirin neyi değiştirdiğini en fazla üç satırda belirtir ve teslim edip edemeyeceğini bir kez sorar. Tam olarak dosyanın bu durumu için yeni ve olumlu bir denetim olmadan ve sizin evetiniz olmadan teslim reddedilir.</li>
+<li><b>Bekleyen mahkeme kararları.</b> Değerlendirilmeyi bekleyen mahkeme kararları varsa yapay zekâ, sonuçları belgeye yansısın diye bunların şimdi mi yoksa daha sonra mı değerlendirileceğini size sorar.</li>
+<li><b>Kelime işlemciye teslim.</b> Dosya yalnızca <span class="irs">IRONSTICK</span> indirme iletişim kutusu üzerinden çıkar: kaydedin veya Markdown'ı doğrudan kelime işlemciye aktarın. Orada düzenler, antetli kâğıdı eklersiniz, sayfaları hariç tutar, imzanızı koyar ve bir PDF veya DOCX dışa aktarırsınız. Değişmemiş, zaten teslim edilmiş bir dosya yalnızca istek üzerine, yeni bir sürüm numarası olmadan tekrarlanır.</li>
+<li><b>Teslimden sonra.</b> Yapay zekâ belgenin bitip bitmediğini veya düzeltme gerektirip gerektirmediğini sorar. Siz yanıt verene kadar yapay zekâ yalnızca okuyabilir. Düzeltmeniz teslim edilen sürüme eklenir, bu sürüm böylece geçersiz olur ve düzeltme için bir sonraki sürüm oluşturulur. Kelime işlemcide yazdırma veya PDF'i e-posta kontrolüne gönderme belgeyi tamamlar.</li>
+<li><b>E-posta paketi.</b> Bir mahkeme e-postası yalnızca bitmiş bir PDF için hazırlanır: İmzalı PDF'i sohbete sürüklersiniz, yapay zekâ onu son sürüme göre kontrol eder ve yalnızca eşleşen bir PDF e-posta formatını açar — konu, gönderen, tanımlayıcı ve dosya numarasıyla metin, paket listesi ve alıcı, kopyalama alanları olarak. Çok büyük gönderimler, e-posta gönderim ekranında her biri kendi eşlik e-postasıyla yaklaşık on megabaytlık parçalara bölünür. <span class="irs">IRONSTICK</span> hiçbir şey göndermez; siz kendi e-posta programınızdan gönderirsiniz.</li>
+</ul>
+
+<h2 id="w7">İş akışı 7 — OSINT: bir kişiyi veya şirketi araştırma</h2>
+<p class="scr-intro">Bir tarafın kim olduğunu öğrenmek istediğinizde bu iş akışını kullanın: bir karşı taraf, bir tanık, bir adresin arkasındaki şirket, bir işletmenin etrafındaki kişiler.
+Yapay zekâ kendi belgeleriniz ve açık internet üzerinde sabit bir araştırma prosedürü yürütür, kaynakları açar ve okur ve doğrulayabildiklerini öneri olarak veri tutarlılığı izleyicisine girer.
+Siz orada kabul edene kadar hiçbir şey kayıtlarınızın parçası olmaz. Araştırma bir dava gerektirmez: Bir taraf tek başına araştırılabilir.</p>
+<figure class="chart"><img src="img/60_mcp_network.png" alt="Bridge üzerinden kişi ve şirket araştırması"><figcaption>Taraflar birer birer: ara, oku, doğrula, öner — ve kararı veri tutarlılığı izleyicisinde siz verirsiniz.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı belirleyin</h3>
+<ul>
+<li><b>Tarafa ilişkin en önemli bilgileri hazır tutun.</b> OSINT kontrolü tam adı, ülkeyi ve bunun gerçek kişi mi yoksa şirket mi olduğunu; biliniyorsa şehri ve bölgeyi gerektirir. Ülke arama terimlerinin dilini belirler. Şehir, bölge ve ülke ayrıca yapay zekânın daha sonra önereceği her yeni taraf için zorunludur.</li>
+<li><b>Dava gerekmez.</b> OSINT kontrolü dosya numarası almaz. Tarafı ayrıca bir davayla ilişkilendirmek istiyorsanız bunu söyleyin — ilişkilendirme bu durumda ayrı bir öneridir.</li>
+<li><b>Mevcut bir kayıt yardımcı olur.</b> Taraf zaten <span class="irs">IRONSTICK</span>'te kayıtlıysa onu veya numarasını (örneğin @E0001234) belirtin. Yapay zekâ önce kaydı okur; OSINT kontrolü aynı ada sahip mevcut kayıtları ayrıca kendisi de listeler.</li>
+<li><b>Birden fazla ad mı?</b> Bir listeyi (bir arkadaş listesi, bir katılımcı listesi, bir künye) belge olarak kaydettiyseniz yapay zekâdan listeyi önce <span class="irs">IRONSTICK</span>'teki tüm kişilerle eşleştirmesini ve ardından yalnızca önemli olan adları araştırmasını isteyin.</li>
+<li><b>Yapay zekâ sohbeti olmadan.</b> Bir kişinin kişi analizinde <i>Web araştırması</i> düğmesi rehberli bir kendi araştırmanızı açar: aday bağlantılar, sayfa özetleri, analiz alanlarının önizlemesi ve kişinin analizine kaydetme.</li>
+</ul>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">[Tam ad], [şehir], [ülke] kişisini araştır — gerçek kişi.</p><span class="does">Önce kendi belgeleriniz kontrol edilir; ardından internetteki kaynaklar açılır ve okunur.</span></li>
+<li><p class="cp">[Ad], [şehir], [ülke] şirketini araştır.</p><span class="does">Bir şirket için aynı prosedür, vergi numarası ve merkezi dahil.</span></li>
+<li><p class="cp">[Kişi] ile [kişi] arasında bir bağlantı var mı?</p><span class="does">Mevcut ilişkiler gösterilir; yeni ilişkiler belgelerinizde ve kaynaklarda aranır.</span></li>
+<li><p class="cp">Bana [bulgu] için kaynağı göster.</p><span class="does">Bulgunun arkasındaki bağlantıyı veya delil numarasını alırsınız.</span></li>
+<li><p class="cp">Doğrulanmış bulguları öneri olarak gir.</p><span class="does">Bulgular veri tutarlılığı izleyicisine düşer; siz orada kabul edene kadar hiçbir şey kaydedilmez.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>OSINT kontrolü.</b> Yapay zekâ kontrolü ad, şehir, bölge, ülke ve tarafın gerçek kişi mi yoksa tüzel kişi mi olduğu bilgisiyle başlatır; her seferinde aynı prosedür çalışır. Dahili olarak ad, veritabanının tamamında (tüm müvekkiller) tam metin olarak aranır; her dava için en yeni 10 delil kaydı her bulgunun paragrafıyla birlikte döner, ayrıca kaç tane daha olduğu da bildirilir. Web'de sabit bir arama listesi çalışır: özgeçmiş, Facebook, LinkedIn, Instagram, bölge, şehir, skandal, haberler, mal ve menfaat beyanları (yayımlandığı ölçüde), vergiler, şirketler; bir şirket için ticaret sicili ve iflas, kişiye yönelik aramaların yerini alır. Arama terimleri tarafın ülkesinin dilindedir ve üç arama motoruna yöneltilir. Bağlantılar ve başlıklar yinelenmeden döner. Arama bir arka plan görevi olarak çalışır; tamamlanmadığı sürece yapay zekâ beklemeye devam etmek için aynı çağrıyı tekrarlar. Kontrolün kendisi hiçbir şey yazmaz.</li>
+<li><b>Önce mevcut kayıtlar.</b> <span class="irs">IRONSTICK</span> ada uyan kişileri, şirketleri veya kurumları zaten tutuyorsa ilk yanıt bunları eksiksiz olarak, en iyi eşleşme önce olmak üzere listeler. Yapay zekâ bu taraf olan kaydı veya “hiçbiri”ni belirtir. Bildirilen bir kayıt her bulguyu alır; Bridge'deki bir masaüstü yapay zekâda aynı tarafı yeniden oluşturma önerisi bu durumda reddedilir.</li>
+<li><b>Hazırlanmış bir profil.</b> Yapay zekâ onu kaynak kaynak kontrol eder ve adaşları ayıklar. Arama sonucu tam adı gösteren bağlantılar, kaliteye göre sıralanmış uygun bağlantılardır; diğerleri isteğe bağlıdır; salt ana sayfalar atılır. Yapay zekânın görevi her delil bulgusunu okumak, her uygun bağlantıyı açmak ve yalnızca açılan sayfanın kendisinin söylediğini kullanmaktır — asla yalnızca bir başlığı değil.</li>
+<li><b>OSINT kapısı — taraflar birer birer.</b> Bridge'deki bir masaüstü yapay zekâda sonuç bir kontrol listesiyle biter ve başka bir taraf için bir sonraki OSINT kontrolü, liste tamamlanana kadar reddedilir:
+<ul>
+<li>ilk 10 uygun bağlantı açılmış (bu daha fazlaysa en az %20'si);</li>
+<li>listelenen her delil kaydı okunmuş — ara bellek kasasına yönlendirilmiş bir sonuç ancak sonuna kadar okunmuşsa sayılır, içinde yapılan bir arama asla sayılmaz;</li>
+<li>bir kişi için, kişinin adının geçtiği ve ara bellek kasasına düşen her açılmış sayfa, bulunduğu yerlerde okunmuş;</li>
+<li>ardından ya bir öneri ya da kullanılabilir hiçbir şey bulunamadığının tespiti;</li>
+<li>bir kişi için ayrıca diğer kişilerle her bağlantının önerilmiş olması ya da hiçbir bağlantı olmadığının tespiti.</li>
+</ul>
+Kişinin tam adını şehir veya bölgeyle birlikte belirten bir sayfa, yapay zekâ onu zaten kayıtlı ya da adaş olarak listelemedikçe “kullanılabilir bir şey yok” olarak kapatılamaz. Ret mesajı tam olarak neyin eksik olduğunu belirtir. Okumalar oturum başına kaydedilir; böylece bir oturumun okuması asla bir diğeri için sayılmaz.</li>
+<li><b>Yeni kişi ancak eksiksiz OSINT kontrolünden sonra.</b> Bridge'deki bir masaüstü yapay zekâda yeni bir gerçek kişi önerisi, bu ad için OSINT kontrolü eksiksiz tamamlanana kadar reddedilir. Şehir, bölge ve ülke her yeni taraf ve her adres kaydı için zorunludur. Bunun dışında yeni bir taraf, adının yanında en az iki ayrıntı alanı gerektirir. Bir gerçek kişinin adresi kurumların adreslerine göre kontrol edilir — bir işverenin adresi ikamet adresi olarak reddedilir — ve yeni bir şirket, dernekler hariç, vergi numarasını gerektirir.</li>
+<li><b>Açılmış sayfalar, önizlemeler değil.</b> Web sayfaları <span class="irs">IRONSTICK</span> sayfa aracıyla açılır ve okunur; arama sonuçları yalnızca yol göstericidir. Büyük sayfalar eksiksiz olarak şifreli ara bellek kasasında saklanır ve oradan okunur. Ancak bir filtreden sonra dolan arama formları ve veri tabloları doğrudan sorgulanabilir. Aynı oturumda açılan bir sayfa 30 dakika boyunca bir kopyadan yeniden sunulur. İşlenmesi daha uzun süren taranmış bir belge henüz hazır değil olarak bildirilir; işleme devam eder ve bir sonraki çağrı metni sunar.</li>
+<li><b>Bot kontrolleri ve oturum açmalar size gelir.</b> Bir web sitesi bir bot kontrolü gösterirse veya otomatik erişimleri engellerse <span class="irs">IRONSTICK</span> sayfayı kendi tarayıcı penceresinde açar ve yapay zekâ sizden kontrolü orada tamamlamanızı ister. Ardından yapay zekâ sayfayı bu pencerede okur, aynı web sitesinin başka sayfalarını açar ve dosyalarını şifreli ara bellek kasasına indirir; siz kaydetmeden hiçbir şey bir davaya girmez. Başka bir web sitesi için yapay zekâ sayfa aracına döner; işi bittiğinde tarayıcı çalışmasını tamamlandı olarak bildirir ve pencere size kapatılmasını mı yoksa açık tutulmasını mı istediğinizi sorar.</li>
+<li><b>Gizli talimatlar karartılır.</b> Açılan web sayfalarından ve tarayıcı penceresinden gelen metin kural tabanlı bir kontrolden geçer; bir yapay zekâya hitap eden, sohbet veya <span class="irs">IRONSTICK</span> kontrol metnini taklit eden ya da metni görünmez karakterlerde gizleyen bölümlerin üzerine yıldız işaretleri yazılır ve içeriğin üzerinde bir not yer alır.</li>
+<li><b>Ad listeleri tek seferde.</b> Bir liste eşleştirmesi, kaydedilmiş bir listeyi <span class="irs">IRONSTICK</span>'teki her kişi ve şirketle deterministik olarak karşılaştırır — aksanlar normalleştirilir, kelime sırası yok sayılır, OCR hatalarına karşı toleranslıdır. İsabetler tam, sırası değişmiş, varyant veya tek kelime olarak sınıflandırılır; tek kelime isabetleri her zaman belirsizdir ve kontrol edilmelidir.</li>
+<li><b>Yazma işlemleri yerine öneriler.</b> Doğrulanmış olgular öneri olarak veri tutarlılığı izleyicisine gider: ana veriler, kişi analizi, bağlantılar ve mükerrer kayıtlar. Kişi analizi için yapay zekâ önce kişiyi okumalıdır; zaten içeriği olan bir alan, ancak yapay zekâ bu içeriği kelimesi kelimesine iletirse değiştirilir. Kabul edilen bir analiz alanı kişinin en yeni analizine girer. Yeni bir kişi numarasını ancak siz onu kabul ettikten sonra alır; bu nedenle ona yönelik bağlantılar ikinci bir kabul gerektirir.</li>
+<li><b>Asla yapay zekâ hafızasına değil.</b> OSINT bulguları ve ilerleme hafızaya değil, tarafa aittir. Bir masaüstü yapay zekânın OSINT kontrolü açık olduğu sürece, bir hafıza kaydını kaydetmeye yönelik her girişim, olguları bunun yerine tarafa girme talimatıyla reddedilir.</li>
+<li><b>Uygulamada kişi web araması.</b> Kişi analizindeki <i>Web araştırması</i> düğmesi dört adımdan geçer: Ad varyantlarıyla yapılan bir web araması aday bağlantıları toplar (ek bir yapay zekâ web araması yalnızca sizin onayınızla çalışır); istenmeyen isabetleri kaldırırsınız; kalan sayfalar yüklenir ve harici bir yapay zekâ tarafından özetlenir; kaynakları işaretlersiniz ve yapay zekâ bunları analiz alanlarına yönelik düzenlenebilir bir önizleme olarak yoğunlaştırır. Kaydetme, alanları kişinin bir davaya bağlı olmayan analizine onaylanmamış olarak işaretleyerek yazar. Harici yapay zekâ ancak bir onay iletişim kutusunda onay verdikten sonra kullanılır; reddederseniz hiçbir şey gönderilmez.</li>
+</ul>
+
+<h2 id="w8">İş akışı 8 — Hukuki araştırma: kanunlar önce kütüphaneden</h2>
+<p class="scr-intro">Bir kanun, bir kanun maddesi veya bir yönetmelik önem taşıdığında bu iş akışını kullanın: bir hukuki soruyu yanıtlamak, bir atfı kontrol etmek veya bir dilekçeyi temellendirmek için.
+Yapay zekâ normları kendi mevzuat kütüphanenizden kelimesi kelimesine okur ve yalnızca kütüphanede bu norma ilişkin hiçbir şey yoksa internete gider.
+Çevrimiçi bulunan bir kanun açılır, okunur, URL'siyle alıntılanır ve geri bildirilir; böylece onayınızdan sonra kütüphaneye girer.
+Kütüphane, dilekçe denetiminin atıf yapılan her maddeyi karşılaştırdığı ölçüttür.</p>
+<figure class="chart"><img src="img/43_statutes.png" alt="Mevzuat kütüphanesi"><figcaption>Önce kütüphane, web yalnızca isabet olmadığında ve her web kaynağı sizin onayınızla kütüphaneye geri döner.</figcaption></figure>
+
+<h3>Adım 0 — Bağlamı belirleyin</h3>
+<ul>
+<li><b>Davayı açın veya belirtin.</b> Uygulanacak hukuk davadan gelir. Yapay zekâ esasa ilişkin hukuki çalışmaya başlamadan önce davada kayıtlı yargı alanını okur.</li>
+<li><b>Yargı alanı belirtilmemişse.</b> Kütüphane araması bu durumda yapay zekânın oturumda en son üzerinde çalıştığı davanın yargı alanını kullanır ve bunu belirtir; bilinen bir dava yoksa tüm yargı alanlarında arama yapar ve yapay zekâdan her isabetin yargı alanını kontrol etmesini ister.</li>
+<li><b>Kütüphanede neler olduğunu görün.</b> <i>Mevzuat</i> ekranı kütüphanedeki her kanunu başlık, yargı alanı, alan, kaynak ve durumla listeler, kendi tam metin aramasına ve bir bağlantı ya da bir PDF veya Markdown dosyası için bir ekleme düğmesine sahiptir. Aynı genel bakışı sohbette almak için yapay zekâya “Kütüphanede [ülke] için hangi kanunlar var?” diye sorun.</li>
+<li><b>İhtiyacınız olan okumayı isteyin.</b> Kısa bir genel bakış, bir maddenin metni veya bir kanunun eksiksiz okunması. Hangisi olduğunu söyleyin.</li>
+</ul>
+
+<h3>Ne söylersiniz — adım adım</h3>
+<ol class="say">
+<li><p class="cp">[Kanun] madde [numara] ne diyor? Aynen aktar.</p><span class="does">Madde mevzuat kütüphanenizden kelimesi kelimesine okunur ve kaynağıyla birlikte alıntılanır.</span></li>
+<li><p class="cp">[Soru] [kanun] içinde düzenlenmiş mi? Bana maddeleri söyle.</p><span class="does">Kütüphane taranır; ilgili maddeleri tam metinleriyle birlikte alırsınız.</span></li>
+<li><p class="cp">Taslağımda atıf yapılan normları kütüphaneye göre kontrol et.</p><span class="does">Atıf yapılan her madde kütüphanedeki tam metinle karşılaştırılır.</span></li>
+<li><p class="cp">[Kanun] kütüphanede yok — resmî portalda ara.</p><span class="does">Web yalnızca kütüphanede bulunmayan bir norm için açılır; sayfa okunur, bağlantısıyla alıntılanır ve kütüphaneniz için önerilir.</span></li>
+</ol>
+
+<h3>Arka planda neler olur</h3>
+<ul>
+<li><b>Kütüphane araması.</b> Kütüphanedeki tüm mevzuat dosyalarını iki şekilde arar: başlık ve açıklamayla eşleştirilip öne sıralanan adlandırmaya göre (“Medeni Kanun”, “Tüzük (AB) 2016/679”) veya kelimelerin yaklaşık %60'ının yettiği bulanık bir arama olan metin pasajına göre. Her isabet dahili kayıt numarasını (L numarası), dosyayı, kesin karakter konumlarıyla kısa alıntıları ve çevresindeki metni almak için hazır bir çağrıyı belirtir.</li>
+<li><b>Kelimesi kelimesine okuma.</b> Madde okuyucu, bir maddeyi L numarası ve madde numarası üzerinden sunar; ifade araması bir karakter aralığını veya bir ifadenin geçtiği her yeri çevresindeki metinle birlikte sunar. Her ikisi de tam olarak sundukları şeyi okunmuş olarak kaydeder. Kanun okuyucu bir kanunun tamamını sunar; bağlayıcı sınırından büyük bir kanun eksiksiz olarak şifreli çalışma alanına gider; okunmuş sayılan, yapay zekânın oradan madde okuyucuyla aldığıdır.</li>
+<li><b>Önce mevzuat kütüphanesi.</b> Bir kanun sorgusu gibi görünen bir web araması veya sayfa sorgusu — madde veya fıkra numaraları, kanun adları, kanun numaraları, mevzuat portalları — yapay zekâ kütüphanede bu normu arayana kadar reddedilir. Kütüphanede isabet varsa web bu norm için kapalı kalır ve yapay zekâya kütüphaneden alıntı yapması talimatı verilir. Web bu norm için ancak kütüphane isabet bildirmediğinde, 15 dakika süreyle ve bu aramanın sunduğu mevzuat portalı bağlantıları dahil olmak üzere açılır. Aranan kanun numarasını veya adlandırmayı başlığında taşımayan ya da aranan madde numarasını içermeyen isabetler “kütüphanede var” sayılmaz — bir yönetmeliğin dayandığı ana kanun içinde anılması böyle bir isabetsizliktir. Kapı, yapay zekâ sohbeti ve her masaüstü yapay zekâ için geçerlidir.</li>
+<li><b>Açılmış sayfalar, önizlemeler değil.</b> Kaynak olarak kullanılan bir sayfa <span class="irs">IRONSTICK</span> sayfa aracıyla açılır ve okunur; arama sonuçları yalnızca yol göstericidir. Her internet kaynağı URL'siyle alıntılanır. Kaynak kütüphaneye girdiği anda kanun metni kütüphane dosyasından alıntılanır.</li>
+<li><b>Mevzuat kaynaklarını bildirin.</b> Kanunla ilgili bir web aramasından veya yapay zekâ bir mevzuat portalının bir sayfasını açtıktan sonra, sonraki her araç yanıtı 15 dakikaya kadar kaynağı bildirme hatırlatmasıyla başlar. Yalnızca konu dışı bir arama sonucunda görünen bir portal bağlantısı yalnızca bir not alır.</li>
+<li><b>Yapay zekânın kendisi tarafından açılmış.</b> Bir kaynak bildirimi ancak aynı yapay zekâ oturumu tam olarak bu sayfayı son 24 saat içinde sayfa aracıyla açtıysa kabul edilir. Aksi takdirde bildirim, sayfayı açma ve gerçekten kanun metnini içerdiğini kontrol etme talimatıyla reddedilir — hata sayfası değil, oturum açma sayfası değil, arama sonucu değil, genel bakış değil. Her tarihli yazma işlemi gibi bildirim de son 30 dakika içinde sorgulanmış güncel tarihi gerektirir.</li>
+<li><b>Onayınız.</b> Bildirilen kaynaklar, her biri bir onay kutusuyla birlikte bir iletişim kutusunda toplanır. İşaretlenen kaynaklar bir arka plan işlemi tarafından alınır, dönüştürülür, kontrol edilir ve kütüphaneye kaydedilir; işaretlenmeyenler reddedilir. İletişim kutusunu kapatırsanız kaynaklar toplanmış olarak kalır; kutu bir sonraki bildirimle geri gelir. Kütüphanede zaten bulunan bir bağlantı mevcut olarak yanıtlanır; kütüphanede zaten bulunan bir kanun için başka bir kaynak, kaynağı aynı L numarası altında değiştirme talebine dönüşür.</li>
+<li><b>Tarayıcı penceresinde mevzuat portalı yok.</b> Diğer web siteleri için bot kontrollerini ve oturum açmaları tamamladığınız <span class="irs">IRONSTICK</span> tarayıcı penceresi mevzuat portallarını reddeder: Orada hiçbir şey açılmaz, okunmaz veya indirilmez. Sayfa aracını engelleyen bir mevzuat portalı bu pencereye devredilmez.</li>
+<li><b>Kütüphanenin güncelliği.</b> Bağlantılı kaynaklar yaklaşık her 14 günde bir kaynaklarına göre yeniden kontrol edilir; yapay zekâ tek bir kanunu da hemen yeniden kontrol edebilir. Bir kanun kaynağından farklıysa yapay zekâ güncel metni çevrimiçi olarak inceler. Kaynağı olmayan yüklenmiş dosyalar bu şekilde işaretlenir.</li>
+<li><b>Bir dilekçedeki atıflar.</b> Dilekçe denetimi atıf yapılan her maddeyi kütüphane araçlarının okuma kaydıyla karşılaştırır. Kütüphanede bulunan ancak taslağın son değişikliğinden önce orada okunmamış bir madde, onu madde okuyucuyla kelimesi kelimesine okuma ve metne işleme talimatıyla birlikte engelleyici bir bulgudur. Kütüphanede bulunmayan bir norm, kaynağı bildirilip dahil edilene kadar engelleyici bir bulgudur. Bir okuma, kütüphane metninin son değişikliğinden sonra ve taslağın son değişikliğinden önce yapılmışsa sayılır.</li>
+<li><b>Bulmak okumak değildir.</b> Bir mevzuat dosyasında bir madde numarası bulmak veya onu bir genel bakışta anmak, kelimesi kelimesine bir okuma değildir. Bir dilekçe için atıf yapılan her madde madde okuyucuyla okunur ve yapay zekâ, metnin cümlesini gerçekten desteklediğini kontrol eder.</li>
+<li><b>Bir kanunun tamamını okuma.</b> Eksiksiz bir kanun ara bellek kasasındaysa ve yapay zekâ onu orada bölüm bölüm okuyorsa, tam metin onun sohbetinde yer alır. Dilekçe denetimi için bir madde ancak madde okuyucu veya ifade araması üzerinden geldiyse ya da doğrudan geri döndürülebilecek kadar küçük bir kanunda yer alıyorsa okunmuş sayılır.</li>
+</ul>
+
+<h2 id="final">Yapay zekâ ile çalışmak — dosyadaki asistanınız</h2>
+<p>Esas itibarıyla, Bridge üzerinden <span class="irs">IRONSTICK</span>'e bağlı bir yapay zekâ ile sohbet son derece güçlü bir araçtır. Onu bir avukat yardımcısı veya bir meslektaş olarak düşünün. Bridge üzerinden yapay zekâ yalnızca belgeleri, tek tek metin pasajlarını veya delilleri taramakla kalmaz — kayıtlı görüntülere bakabilir, istek üzerine PDF dosyalarını görüntüleyip inceleyebilir, yeni OCR taramaları başlatabilir ve çok daha fazlasını yapabilir.</p>
+<p>Yapay zekâ ile çalışırken onunla bir avukat yardımcısıyla veya bir avukatla çalışır gibi çalışırsınız. Tam olarak ne istediğinize dair açık talimatlar vermeniz yeterlidir. Yapay zekâ gerekli sorguları arka planda Bridge üzerinden doğrudan <span class="irs">IRONSTICK</span>'te — yani dosyalarınızda — yürütür.</p>
+<p><b>Kural olarak:</b> Onayınız olmadan yapay zekâ <span class="irs">IRONSTICK</span>'te okumaktan pek fazlasını yapamaz. Ana verilerde, kronolojide, takvimde, hafızada, tam metinlerde ve mevzuat kütüphanesinde yapılan değişiklikler ancak siz onayladıktan sonra geçerli olur: Ya bunun için <span class="irs">IRONSTICK</span>'te bir form veya iletişim kutusu alırsınız ya da yapay zekânın değişiklik talebi veri tutarlılığı izleyicisinde görünür. Böyle bir iletişim kutusu olmadan yapay zekâ yalnızca kendi çalışma alanlarına yazar — şifreli ara belleğe, isteğiniz üzerine günlük tutanağa ve deterministik denetimlerden sonra kendi dava değerlendirmesine. Etiketler ve büro sohbet mesajları sohbette sizin onayınızı gerektirir.</p>
+<div class="box"><b>Tam şeffaflık:</b> Her masaüstü yapay zekâ uygulaması araç çağrılarını gösterir — yapay zekânın <span class="irs">IRONSTICK</span>'ten hangi bilgileri aldığını her zaman görürsünüz.<br><br>
+Sorularınızda ve talimatlarınızda titiz olun ve yapay zekâya nerede ve nasıl araştırma yapması gerektiğini söyleyin. Arama aracını belirtmeniz gerekmez — yapay zekâ onu kendisi bilir —, ancak ona bilgiyi <span class="irs">IRONSTICK</span>'ten alması gerektiğini açıkça söyleyin: XY müvekkilinde, XY davasında, XY delilinde. Müvekkilleri basitçe adlarıyla anabilirsiniz — yapay zekâ müvekkil kimliğini kendisi çözer — ya da müvekkil numarasını (<i>@C0000000</i>) <span class="irs">IRONSTICK</span>'ten kopyalayıp yapay zekâya verebilirsiniz. Aynı şey örneğin bir delil numarasıyla (<i>#0000000</i>) da çalışır.</div>
+<div class="boxorange">Yapay zekâ, deterministik program mantığının yapamadığını veya ancak aşırı çabayla yapabildiğini üstlenir — doğal dili anlamak ve yazmak. Geri kalan her şeyi — dosyalarınıza erişimi, mahkeme dosyasının seçimini, belgelerinize göre yapılan kontrolleri, belgelerinizin yalnızca sizin onayınızla değiştiği kuralını — <span class="irs">IRONSTICK</span> kendisi, deterministik olarak halleder. Yapay zekâ asla olguların kaynağı olmaz; kaynak <span class="irs">IRONSTICK</span>'tir. <span class="irs">IRONSTICK</span> yaklaşımını yapay zekânın geleneksel kullanımından bu kadar temelden ayıran budur.<br><br>Ancak kullanıcı olarak sizin için <span class="irs">IRONSTICK</span> tanıdık biçimde karşınıza çıkar — grafik arayüz olarak veya iletişim kutusu olarak.</div>
+
+<footer class="sd-foot"><p>IRONSTICK hukuk uygulamasına yönelik bir yazılımdır. Bu web sitesi yalnızca bilgilendirme amaçlıdır ve hukuki danışmanlık niteliği taşımaz. © 2026 IRONSTICK.</p></footer>
+<script>
+document.querySelectorAll('p.cp').forEach(function(p){
+  var b=document.createElement('button'); b.type='button'; b.className='cpbtn'; b.textContent='Kopyala';
+  b.addEventListener('click',function(){
+    var t=p.innerText.trim();
+    var done=function(){b.textContent='Kopyalandı'; setTimeout(function(){b.textContent='Kopyala';},1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}
+  });
+  p.insertAdjacentElement('afterend',b);
+});
+</script>
+</body></html>

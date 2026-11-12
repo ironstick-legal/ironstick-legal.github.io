@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<title>IRONSTICK — IA en su expediente</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ki{background-image:url("img/lp_bridge.jpg");background-position:50% 19%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="En el chat integrado o a través del Bridge hacia su IA de escritorio.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/ki_es.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/ki.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/ki_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/ki_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/ki_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/ki_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/ki_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/ki_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/ki_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/ki_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/ki_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/ki_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/ki.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="ki_es.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menú"><a class="b" href="index_es.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_es.html">Inicio</a><a href="overview_es.html">Visión general</a><a href="ki_es.html" aria-current="page">IA</a><span class="mh">Manuales</span><a class="sub" href="manualquickstart_es.html">Inicio rápido</a><a class="sub" href="manualironstick_es.html">App cliente</a><a class="sub" href="manualbridge_es.html">Bridge</a><a href="gdpr_es.html">RGPD</a><a href="download_es.html">Download</a></div></div><nav class="mainnav"><a href="overview_es.html">Visión general</a><a href="ki_es.html" aria-current="page">IA</a><div class="nav-drop" tabindex="0"><span>Manuales</span><div class="menu"><a href="manualquickstart_es.html">Inicio rápido</a><a href="manualironstick_es.html">App cliente</a><a href="manualbridge_es.html">Bridge</a></div></div><a href="gdpr_es.html">RGPD</a><a href="download_es.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_es.html">Probar 30 días</a><nav class="lang-wrap" tabindex="0" title="Idioma" aria-label="Idioma"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="ki.html">English</a><a lang="de" hreflang="de" href="ki_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="ki_ro.html">Română</a><a lang="fr" hreflang="fr" href="ki_fr.html">Français</a><a lang="it" hreflang="it" href="ki_it.html">Italiano</a><a class="on" lang="es" hreflang="es" href="ki_es.html">Español</a><a lang="pt" hreflang="pt" href="ki_pt.html">Português</a><a lang="nl" hreflang="nl" href="ki_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="ki_ru.html">Русский</a><a lang="uk" hreflang="uk" href="ki_uk.html">Українська</a><a lang="tr" hreflang="tr" href="ki_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ki" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IA en su expediente</h1></div><p class="gh-sub">En el chat integrado o a través del Bridge hacia su IA de escritorio.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> le ofrece dos maneras de trabajar con una IA sobre sus expedientes: el chat de IA integrado y el Bridge hacia su IA de escritorio. En ambos casos, la IA accede a sus datos exclusivamente a través de <span class="irs">IRONSTICK</span> — con las mismas herramientas y tras las mismas comprobaciones.</p>
+
+<h2 class="ov-part">1. Chat de IA y Bridge — la diferencia</h2>
+<h3 class="ov-h">Dos caminos hacia la IA</h3>
+<figure class="ov-fig"><img src="img/66_pseudonymization.png?v=3" alt="Dos caminos hacia la IA" loading="lazy"></figure>
+<p class="scr-intro"><b>El chat de IA</b> está integrado en <span class="irs">IRONSTICK</span>: usted escribe en la ventana de <span class="irs">IRONSTICK</span> e <span class="irs">IRONSTICK</span> envía la solicitud al servicio de IA con sus propias claves de API — los nombres y los números solo salen de su ordenador como <a href="gdpr_es.html">marcadores neutros</a>. <b>El Bridge</b> funciona a la inversa: usted escribe en la aplicación de IA de escritorio que ya utiliza — Claude, ChatGPT, Qwen o Kimi Desktop — y esa aplicación trabaja en directo sobre su expediente, con su propia cuenta en el proveedor.</p>
+<table>
+<tr><th></th><th>Chat de IA (integrado)</th><th>Bridge (IA de escritorio)</th></tr>
+<tr><th>Dónde escribe usted</th><td>En la ventana de chat de <span class="irs">IRONSTICK</span></td><td>En su aplicación de IA de escritorio</td></tr>
+<tr><th>Costes</th><td>Costes de API por llamada</td><td>Suscripción — mucho más económica para expedientes voluminosos</td></tr>
+<tr><th>Licencia de <span class="irs">IRONSTICK</span></th><td>Incluida</td><td><a href="download_es.html">Un Bridge por IA de escritorio o los cuatro en paquete</a></td></tr>
+<tr><th>Datos enviados a la IA</th><td>Seudonimizados</td><td>—</td></tr>
+<tr><th>Su consentimiento</th><td>Antes de la primera solicitud externa de una sesión de chat</td><td>Antes del primer acceso a datos tras cada inicio del programa</td></tr>
+<tr><th>Ideal para</th><td>El día a día: preguntas sobre el expediente, cartas y escritos en diálogo — siempre a mano, también en la tableta</td><td>El trabajo en profundidad con expedientes voluminosos: leer casos completos, cientos de documentos, varias rondas de redacción</td></tr>
+</table>
+
+<h2 class="ov-part">2. El chat de IA en IRONSTICK</h2>
+<h3 class="ov-h">Configuración de IA</h3>
+<figure class="ov-fig"><img src="img/screens/A%20config%20AI.png?v=3" alt="Configuración de IA" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Configuración de IA. La ficha con todos los proveedores de IA.</li>
+<li>Groq, OpenRouter y Mistral — proveedores de IA gratuitos para tareas en segundo plano como la priorización de correos electrónicos, el Monitor de coherencia de datos y el informe diario; cada uno se activa y desactiva por separado.</li>
+<li>Qwen, Kimi, ChatGPT y Claude — los proveedores de IA para el chat integrado, cada uno con su <a href="manualquickstart_es.html#q3">propia clave de API</a>. Si hay varios registrados, <span class="irs">IRONSTICK</span> los utiliza automáticamente en el orden mostrado; si uno no está disponible, toma el relevo el siguiente.</li>
+</ol>
+<p class="scr-intro"><b>Su IA, su contrato.</b> Usted elige el proveedor de IA y registra su propia clave de API — Claude, ChatGPT, Kimi o Qwen. La facturación se realiza directamente con su proveedor.</p>
+<ul>
+<li><b>IA gratuita en segundo plano.</b> Si lo desea, Groq, OpenRouter y Mistral se encargan de tareas rutinarias como la asignación de correos electrónicos y el informe diario — cada proveedor se activa y desactiva por separado.</li>
+<li><b>Red/Blue Team.</b> Si lo desea, una segunda revisión examina críticamente cada resultado de la IA.</li>
+<li><b>IA de escritorio a través del Bridge.</b> Claude, ChatGPT, Qwen y Kimi Desktop trabajan directamente sobre el expediente con su propia suscripción.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">El chat integrado</h3>
+<p class="scr-intro"><b>Primero en local, después en externo — con su consentimiento.</b> El chat es el camino estrictamente controlado hacia la IA.</p>
+<ul>
+<li><b>Primero su ordenador.</b> Las solicitudes sencillas — abrir un caso, consultar un cliente — las resuelve una capa local sin modelo de IA y sin internet.</li>
+<li><b>Primero su consentimiento.</b> Antes de que algo se envíe a un servicio de IA externo, el chat le pregunta.</li>
+<li><b>Seudonimizado.</b> Los nombres, números de expediente, números y direcciones solo salen de su ordenador como <a href="gdpr_es.html">marcadores neutros</a>; la respuesta se vuelve a traducir en su ordenador.</li>
+<li><b>Registrado.</b> Cada llamada a un servicio de IA externo queda registrada en local.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. El Bridge — su IA de escritorio en el expediente</h2>
+<h3 class="ov-h">Bridge</h3>
+<figure class="ov-fig"><img src="img/58_mcp_bridge.png?v=3" alt="Bridge" loading="lazy"></figure>
+<p class="scr-intro"><b>Toda la profundidad para expedientes voluminosos.</b> Su IA de escritorio lee el estado actual del expediente — crónicas, textos completos, correos electrónicos, plazos, datos maestros — a través de más de 200 herramientas desarrolladas específicamente y trabaja en toda su profundidad:</p>
+<ul>
+<li>«Lee todo el caso y dime dónde es más débil nuestra posición.»</li>
+<li>«Redacta el recurso de apelación en nuestro formato de escrito y pásalo al procesador de textos.» — el borrador aparece en <span class="irs">IRONSTICK</span>, listo para imprimirse en su membrete.</li>
+<li>«Compara los tres informes periciales y prepárame una tabla de contradicciones.»</li>
+<li><b>Incluido en la suscripción.</b> Leer expedientes completos y redactar en varias rondas se cubre con la suscripción que ya paga por la aplicación de IA de escritorio.</li>
+<li><b>Activado por usted.</b> El Bridge solo funciona si usted <a href="manualironstick_es.html#s2">permite el acceso</a>; cada IA activa muestra su símbolo en la barra de menú.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Varias IA, un caso — su comité asesor</h3>
+<figure class="ov-side"><img src="img/cutout_advisory_board.jpg?v=3" alt="Varias IA, un caso — su comité asesor" loading="lazy"></figure>
+<p class="scr-intro"><b>Una auténtica segunda opinión.</b> Claude, ChatGPT, Qwen y Kimi son modelos distintos con entrenamientos distintos — y pueden trabajar a la vez en el mismo caso, con el mismo estado del expediente.</p>
+<ul>
+<li><b>Desarrollar teorías del caso</b> — una IA construye, la otra hace la prueba de resistencia.</li>
+<li><b>Reforzar los escritos</b> — redactar, revisar, rebatir, pulir.</li>
+<li><b>Usted dirige</b> en lenguaje natural: «Desarrolla esto … pásaselo al otro para que lo revise … tráeme su valoración.»</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Comprobado, no supuesto</h2>
+<h3 class="ov-h">Por qué una IA sola no puede con expedientes voluminosos</h3>
+<figure class="ov-fig"><img src="img/71_context_overload.png?v=3" alt="Por qué una IA sola no puede con expedientes voluminosos" loading="lazy"></figure>
+<p class="scr-intro"><b>Más que un chat de IA en el navegador.</b> Si se le dan a un modelo de lenguaje cientos de páginas de una vez, se pierden detalles de la parte central, la conversación se desborda y cada sesión empieza de cero.</p>
+<ul>
+<li><b>Primero la estructura.</b> <span class="irs">IRONSTICK</span> ya ha ordenado el expediente: documentos clasificados, datos indexados, anexos vinculados.</li>
+<li><b>Acceso dirigido.</b> La IA obtiene exactamente los pasajes, documentos, correos electrónicos y plazos que necesita la pregunta — recién extraídos del expediente.</li>
+<li><b>Una memoria.</b> Los conocimientos se conservan de una sesión a otra; la IA construye de forma dinámica conocimiento sobre el trabajo con el expediente.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Guiado, no confiado al azar</h3>
+<figure class="ov-fig"><img src="img/73_ironstick_guided_path.png?v=3" alt="Guiado, no confiado al azar" loading="lazy"></figure>
+<p class="scr-intro"><b>Comprobaciones fijas en lugar de buenos deseos.</b> Entre la IA y su expediente hay comprobaciones fijas — los hechos los comprueba una simple lógica de programa.</p>
+<ul>
+<li><b>Primero leer, después escribir.</b> La IA solo escribe a partir de lo que consta que ha leído.</li>
+<li><b>Primero las leyes de su biblioteca.</b> Las normas se citan desde su biblioteca jurídica; solo se recurre a internet si la biblioteca no contiene la norma.</li>
+<li><b>Comprobación antes de la entrega.</b> Un escrito solo sale del sistema tras superar la comprobación — como plantilla lista para su presentación, para su revisión y firma.</li>
+<li><b>Propuestas en lugar de escritura.</b> La IA solo propone cambios en los datos maestros y en la memoria; solo surte efecto lo que usted aprueba.</li>
+<li><b>Los documentos secretos permanecen invisibles.</b> Las entradas marcadas como secretas no llegan a ninguna IA.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Hechos y prosa</h3>
+<figure class="ov-fig"><img src="img/75_ironstick_coaching_line.png?v=3" alt="Hechos y prosa" loading="lazy"></figure>
+<p class="scr-intro"><b>Dos vías de comprobación para dos tipos de contenido.</b> <span class="irs">IRONSTICK</span> distingue de forma fundamental entre hechos y prosa.</p>
+<ul>
+<li><b>Hechos — comprobados de forma determinista.</b> <span class="irs">IRONSTICK</span> comprueba los números de prueba, las fechas, las partes, los números de expediente y las citas normativas con una lógica de programa fija, cotejándolos con el expediente y con la biblioteca jurídica.</li>
+<li><b>Prosa — revisada por el Red/Blue Team.</b> Una segunda IA examina críticamente la argumentación, la estructura y la redacción.</li>
+<li><b>El Red/Blue Team trabaja también con <span class="irs">IRONSTICK</span>.</b> Tiene acceso al expediente y comprueba en segundo plano sus propias recomendaciones frente a las leyes y los hechos.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">5. Nucleu y Snake-Gate</h2>
+<h3 class="ov-h">Nucleu y Snake</h3>
+<figure class="ov-fig"><img src="img/76_nucleu_snake_path.png?v=3" alt="Nucleu y Snake" loading="lazy"></figure>
+<p class="scr-intro"><b>Nucleu — la línea estratégica vinculante de un caso.</b> El Nucleu (símbolo del átomo en el caso) fija la línea central de la argumentación: los hechos y las pruebas determinantes, lo que debe decirse y lo que nunca debe decirse. Todo documento que la IA redacta para el caso se subordina a él.</p>
+<ul>
+<li><b>En dos niveles.</b> Para todo un hecho — válido para cada caso que comprende — y para el caso individual.</li>
+<li><b>La IA redacta, usted decide.</b> Cada cambio aparece marcado en rojo; solo su aprobación lo guarda como nueva versión.</li>
+<li><b>Lectura obligatoria.</b> Sin haber leído el Nucleu vigente, la IA no puede redactar, comprobar ni entregar ningún escrito del caso.</li>
+<li><b>Ronda final de la cadena de revisión.</b> Cada escrito se comprueba por último, punto por punto, frente al Nucleu.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro"><b>Snake — el registro de las contradicciones de la parte contraria.</b> El Snake (símbolo de la serpiente en el caso) recoge cada declaración de la parte contraria que las pruebas del expediente contradicen — con documento, fecha, caso y página, y con cada documento que la contradice.</p>
+<ul>
+<li><b>Cada línea comprobada frente al expediente.</b> El número de prueba, la fecha, el caso y la página deben ser correctos; de lo contrario, la entrada se rechaza.</li>
+<li><b>Construido mediante investigación o en plena conversación</b> — en cuanto aparece una contradicción, sin entradas duplicadas.</li>
+<li><b>El Snake-Gate.</b> Antes de que un escrito esté terminado, la IA pregunta si debe ejecutarse la ronda del Snake. Si usted responde que sí, se comprueba cada entrada del Snake del cliente y se resuelve como incorporada, descartada o no relevante — las contradicciones de la parte contraria se integran sistemáticamente en su escrito como argumento respaldado por pruebas.</li>
+<li><b>Su aprobación para cada versión.</b></li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>La IA trabaja, usted decide.</b> La configuración y los flujos de trabajo se encuentran en el <a href="manualbridge_es.html">manual del Bridge</a>.</div>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contacto</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Escanee el código para guardar nuestra tarjeta de contacto — teléfono, e-mail y sitio web.</p><p class="pref">No dude en contactarnos directamente por WhatsApp o Telegram; una llamada también es bienvenida. Idiomas hablados: alemán, inglés y rumano.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mensaje</h5><h3 class="ct-ask">¿Le interesa IRONSTICK o una demostración? Escríbanos.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Consulta IRONSTICK de" name="form"><div class="ct-fg"><label for="ct-name">Nombre</label><input id="ct-name" type="text" name="name" placeholder="Su nombre" required></div><div class="ct-fg"><label for="ct-msg">Mensaje</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Su mensaje" required></textarea></div><div class="ct-fg"><p class="ct-hint">Al enviar se abre su programa de correo con el mensaje preparado.</p><button type="submit">Enviar mensaje</button></div><div class="u-form-send-success">Se está abriendo su programa de correo. Envíe el mensaje desde allí.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK es software para la práctica jurídica. Este sitio tiene únicamente fines informativos y no constituye asesoramiento jurídico. © 2026 IRONSTICK.</p></footer>
+</body></html>

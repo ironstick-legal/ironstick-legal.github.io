@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>IRONSTICK at a Glance</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="The law-firm software that knows your case files — local on your computer, with AI at your side.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index.html">Home</a><a href="overview.html" aria-current="page">Overview</a><a href="ki.html">AI</a><span class="mh">Manuals</span><a class="sub" href="manualquickstart.html">Quick Start</a><a class="sub" href="manualironstick.html">Client App</a><a class="sub" href="manualbridge.html">Bridge</a><a href="gdpr.html">GDPR</a><a href="download.html">Download</a></div></div><nav class="mainnav"><a href="overview.html" aria-current="page">Overview</a><a href="ki.html">AI</a><div class="nav-drop" tabindex="0"><span>Manuals</span><div class="menu"><a href="manualquickstart.html">Quick Start</a><a href="manualironstick.html">Client App</a><a href="manualbridge.html">Bridge</a></div></div><a href="gdpr.html">GDPR</a><a href="download.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download.html">Try for 30 days</a><nav class="lang-wrap" tabindex="0" title="Language" aria-label="Language"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a class="on" lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IRONSTICK at a Glance</h1></div><p class="gh-sub">The law-firm software that knows your case files — local on your computer, with AI at your side.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> brings clients, cases, evidence, deadlines, e-mails and documents together in one case file — and gives you an AI that knows this case file inside out. You ask, the case file answers, with a reference to every document. You review and sign instead of searching and retyping. Everything is stored encrypted on your own hardware.</p>
+
+<h2 class="ov-part">1. The Working Day</h2>
+<h3 class="ov-h">The firm's day at a glance</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="The firm's day at a glance" loading="lazy"></figure>
+<p class="scr-intro"><b>The whole day on three pages.</b> Open <span class="irs">IRONSTICK</span>, and your day is already sorted.</p>
+<ul>
+<li><b>Start.</b> All work areas and the status of your deadlines at a glance.</li>
+<li><b>Agenda.</b> Everything that has come in across your cases, day by day — with document previews.</li>
+<li><b>Heatmap.</b> Every day of the last twelve months as a square — the darker, the more has happened in your cases; deadlines and court dates are marked. Below it, the cases that have flared up: those with markedly increased activity over the last 14 days.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Deadline monitor</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Deadline monitor" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Reference numbers. The number of a document or an AI reminder is copied with one click — for example, to paste it into the chat.</li>
+<li>Completing deadlines. Deadlines from documents and chronicle entries are ticked off and removed together; AI reminders leave the list via <i>Delete appointment</i>.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>The AI also sets appointments and deadlines — directly from its conversation with you. They appear in the list with this symbol.</li>
+</ol>
+<p class="scr-intro"><b>Never miss a deadline.</b> A missed deadline is a liability case. <span class="irs">IRONSTICK</span> keeps all deadlines and court dates in one list and shows how much time remains.</p>
+<ul>
+<li><b>All deadlines and court dates in one list</b> — with date, case and the days remaining until they fall due; overdue ones in red, those due soon in orange.</li>
+<li><b>Deadlines from incoming documents.</b> The AI recognises deadlines in incoming letters and decisions and enters them.</li>
+<li><b>Deadline bell.</b> Orange when a deadline falls due within the next ten days, red on the day itself — always visible in the menu bar.</li>
+<li><b>Print the deadline list</b> or output it as a PDF.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Automatic document capture</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Automatic document capture" loading="lazy"></figure>
+<p class="scr-intro"><b>The inbox takes care of itself.</b> Scan, drag in, confirm: <span class="irs">IRONSTICK</span> recognises the text, assigns the document to the right case and enters the deadline.</p>
+<ul>
+<li><b>Select pages.</b> Only the pages that belong in the case file are taken over.</li>
+<li><b>Built-in text recognition.</b> For more than 35 European languages, nothing to install.</li>
+<li><b>Suggestions instead of typing.</b> The AI suggests client, case, document type, language, date and deadline — you confirm.</li>
+<li><b>Stored encrypted</b> and immediately full-text searchable.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">Capturing a document thus takes barely more than 20 seconds — and the entire inbox is distributed to the case files in no time.</p>
+
+<h2 class="ov-part">2. From Draft to Filing</h2>
+<h3 class="ov-h">Word processing for pleadings</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Word processing for pleadings" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Edit. The editable page with the full toolbar.</li>
+<li>Preview. The document as individual A4 pages, exactly as they will be printed.</li>
+<li>Print preview. Saves the document and opens the print preview with all annexes.</li>
+<li>Save &amp; close. Saves the document and returns to the list of texts.</li>
+</ol>
+<p class="scr-intro"><b>Pleadings in minutes instead of hours — without invented citations.</b> Your time is your revenue, and a wrong citation is the greatest risk when using AI. The draft is created in dialogue with the AI, directly from the case file — and every legal provision, every party and every piece of evidence is checked against the case file and the statute library before you see it.</p>
+<ul>
+<li><b>From the case file.</b> Master data, chronicle, full texts, deadlines and annexes flow into the draft.</li>
+<li><b>Edit and preview.</b> Change the text and see immediately how it will look printed on your letterhead.</li>
+<li><b>Submission-ready template.</b> You review, finalise and sign.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Print preview: pleading and annexes in one PDF</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Print preview: pleading and annexes in one PDF" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Your document. The pages of the pleading — a left click on a page opens the window for placing your signature.</li>
+<li>Annex title line. Entry number, annex number and title of each annex. Below it, its pages: a left click shows a page enlarged, a right click excludes it from the PDF; a second right click brings it back.</li>
+<li>Certification stamp. Can be switched on and off for each annex; the stamp text follows the language of the case's country.</li>
+<li>DOCX. The document as a Word file.</li>
+<li>PDF download. The finished PDF from all active pages.</li>
+</ol>
+<p class="scr-intro"><b>The filing is ready.</b> Pleading and annexes stamped, paginated and signed in one PDF — instead of at the photocopier.</p>
+<ul>
+<li><b>Place your signature.</b> Your stored signature is placed in the right spot with one click.</li>
+<li><b>Annexes with certification stamp.</b> Each annex receives its stamp; individual pages can be excluded with one click.</li>
+<li><b>Output as PDF or DOCX</b> — pleading and annexes in one file, paginated page by page.</li>
+<li><b>For large proceedings too.</b> 3,000 pages stamped, paginated and merged into one PDF — in under 20 minutes.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Dossier of the entire case</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Dossier of the entire case" loading="lazy"></figure>
+<p class="scr-intro"><b>The complete case file in one document.</b> The dossier assistant compiles the entire case into a paginated dossier. First, you decide what goes in.</p>
+<ul>
+<li><b>Select documents.</b> Every chronicle entry can be included or left out with one click.</li>
+<li><b>Down to the individual page.</b> From each document you choose exactly the pages that belong in the dossier.</li>
+<li><b>Look before you include.</b> Documents, photos, transcripts and chats open in the preview without changing the selection.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Dossier of the entire case" loading="lazy"></figure>
+<p class="scr-intro"><b>Cover page, structure and print view.</b> Next, you set the cover page and structure and check every page before the dossier is created.</p>
+<ul>
+<li><b>Selectable cover pages.</b> You take the recipient from the case's institutions or enter it yourself.</li>
+<li><b>In the language of the jurisdiction.</b> Cover page and indexes are created in the language of the case's country; if the country has several legal languages, you choose the language.</li>
+<li><b>Structure as you wish.</b> Cover page, subject index, chronology, documents, media, transcripts, chats, index of persons and institutions — include, leave out and arrange by dragging.</li>
+<li><b>Excluded pages visible at once.</b> The print view shows every page of the finished dossier; pages can still be left out or brought back there, and the subject index adjusts the page numbers.</li>
+<li><b>Export as PDF or EDRM.</b> As a paginated PDF dossier or as an EDRM production package with Bates numbers.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Understanding the Case File</h2>
+<h3 class="ov-h">Case assistant</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Case assistant" loading="lazy"></figure>
+<p class="scr-intro"><b>The case file instantly at your fingertips.</b> Before the hearing or the client meeting, you ask the case file instead of leafing through it — in natural language, by keyboard or by voice.</p>
+<ul>
+<li>“Summarise the current state of the proceedings.” — “Have we answered the opposing side's last letter?” — “What did the witness say about the site inspection?”</li>
+<li><b>Every answer with evidence.</b> Every document cited is a clickable link to the entry in your case file.</li>
+<li><b>Routine questions stay on your computer.</b> A local layer answers them without any data leaving the device.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">AI case assessment</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="AI case assessment" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>The general case assessment takes the entire dossier into account, including the neighbouring cases.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>The prospects of success take into account only the pleadings to and from the authority.</li>
+</ol>
+<p class="scr-intro"><b>Prospects of success you can explain to your client.</b> The AI case assessment reads the entire case file — your own pleadings as well as the opposing side's submissions — and sums up the state of the proceedings in one assessment.</p>
+<ul>
+<li><b>Prospects of success on a scale</b> — with individual scores for the evidence, the main claim and further claims.</li>
+<li><b>What speaks for you, and what against.</b> Strengths and weaknesses marked in colour, every statement with a link to the underlying document.</li>
+<li><b>Concrete next steps</b> as a recommendation for how to proceed.</li>
+<li><b>At the push of a button</b> — refreshed at any time as soon as new documents are in the case file.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Network of persons and companies with OSINT research</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="Network of persons and companies with OSINT research" loading="lazy"></figure>
+<p class="scr-intro"><b>Uncover connections no one would find by hand.</b> Persons, companies, authorities and courts from all your cases form one shared network — as a list, as a 3D universe, as a 2D map and on the geographic map. A real gain, especially in commercial, insolvency and criminal law.</p>
+<ul>
+<li><b>Connections with evidence.</b> Who appears in which proceedings, how the parties are connected to each other — and through what.</li>
+<li><b>Three views.</b> The 3D universe to fly through, the 2D map of clusters and the geographic map with all parties and places.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>Your case file and the AI's OSINT research work together.</b> The AI combines what your case files know about a person or company with what public sources reveal. Every research turns into lasting knowledge about the parties — it grows with every case and is available to you in all proceedings.</p>
+<ul>
+<li><b>OSINT research by the AI.</b> You name a person or company to the AI — it researches first in your own case files, then on the internet: career, social-media profiles, press, company holdings, commercial register.</li>
+<li><b>Research becomes master data.</b> The AI creates new persons, companies and relationships, with their source, as proposals; only what you approve is adopted.</li>
+<li><b>Decision analysis.</b> Every court decision in your case files can be analysed using a fixed grid — arguments, law, evidence, reasoning; before a pleading to that court, the AI reads the analyses as well.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Security and Operation</h2>
+<h3 class="ov-h">Professional secrecy</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Professional secrecy" loading="lazy"></figure>
+<p class="scr-intro"><b>Professional secrecy stays in your firm.</b> No client data in third-party data centres: case file, evidence and documents are stored on your own hardware, <a href="gdpr.html">GDPR-compliant</a>.</p>
+<ul>
+<li><b>AES-256 encrypted.</b> Database and documents are encrypted on disk.</li>
+<li><b>Access with an authenticator code.</b> Your data appears only after you enter the six-digit code from your phone.</li>
+<li><b>No client data sent to the vendor.</b> <a href="ki.html">External AI</a> runs with your own key; calls are pseudonymised.</li>
+<li><b>Works offline too.</b> Case file, search, documents and the local assistant run without internet.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Working together — without the cloud.</b> The <a href="download.html"><span class="irs">IRONSTICK</span> SERVER</a> links your workstations through a Synology NAS on your own network — without the cloud.</p>
+<ul>
+<li><b>Share cases.</b> With all users or specifically with individual colleagues — every share can be withdrawn at any time.</li>
+<li><b>Hand over a case.</b> A case moves completely to a colleague in a few clicks.</li>
+<li><b>Encrypted on the NAS.</b> Shared cases are stored AES-256 encrypted on your firm's server.</li>
+<li><b>Everyone keeps their case file.</b> The complete case file also remains on every workstation.</li>
+<li><b>Shared statute library</b> and a shared network of persons and companies.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Data backup</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Data backup" loading="lazy"></figure>
+<p class="scr-intro"><b>Your entire firm backed up in one file.</b> One click on “Create backup”, and database and documents are saved in one encrypted backup file.</p>
+<ul>
+<li><b>Save wherever you like:</b> locally, on an external SSD or on a USB stick.</li>
+<li><b>With the <span class="irs">IRONSTICK</span> SERVER</b>, the backup is additionally stored encrypted on your firm's NAS.</li>
+<li><b>Recent backups at a glance</b> — with date and size.</li>
+<li><b>Restore</b> from a backup file in a few clicks.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>No IT effort — try it free for 30 days.</b> <span class="irs">IRONSTICK</span> runs on a standard Windows PC; updates are simply installed over the existing version, and all data is kept. Download the software from the <a href="download.html">download page</a>; the <a href="manualquickstart.html">Quick Start</a> guides you in six steps from installation to your first clients.</div>
+
+
+<h2 class="ov-part">5. System Requirements</h2>
+
+<h3 class="ov-h">Client App and Bridge (optional)</h3>
+<table>
+<tr><th></th><th>Minimum</th><th>Recommended</th></tr>
+<tr><td>Operating system</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, latest updates</td></tr>
+<tr><td>Processor</td><td>Modern 4-core x64 (e.g.&nbsp;Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 cores — text recognition processes several pages in
+parallel, and offline speech recognition benefits directly from every
+core</td></tr>
+<tr><td>Memory</td><td>8 GB RAM</td><td>16 GB RAM — comfortable
+headroom for large PDFs, dossier creation and audio transcription
+side by side</td></tr>
+<tr><td>Storage</td><td>SSD with 20 GB free</td><td>NVMe SSD with 100+ GB
+free — case archive, full-text search and PDF generation are disk-intensive;
+a fast SSD makes a noticeable difference</td></tr>
+<tr><td>Display</td><td>1920 × 1080</td><td>1920 × 1200 or more — the
+case screens make generous use of vertical space</td></tr>
+<tr><td>Graphics</td><td colspan="2">No dedicated graphics card needed —
+any onboard graphics will do</td></tr>
+<tr><td>Connectivity</td><td colspan="2">Internet only for external AI,
+statute updates, e-mail, web research, maps and address geocoding — case file, search, documents and the local
+assistant run fully offline; one free USB port for
+tablet sync</td></tr>
+</table>
+
+<h3 class="ov-h">Storing data on an external drive (optional)</h3>
+<table>
+<tr><th>Check</th><th>Requirement</th></tr>
+<tr><td>Free space</td><td>At least 9&nbsp;GB, or 1&nbsp;GB more than the
+current data volume</td></tr>
+<tr><td>Write / read</td><td>At least 80&nbsp;MB/s / 150&nbsp;MB/s —
+also under sustained load (not below 60&nbsp;% of the initial value)</td></tr>
+<tr><td>Many small files</td><td>At least 250 files per
+second</td></tr>
+<tr><td>File system</td><td>NTFS or exFAT, no FAT32; not
+write-protected or locked</td></tr>
+<tr><td>Reliability</td><td>Test data must be read back
+unchanged</td></tr>
+<tr><td>Not permitted</td><td>Network drives and cloud-sync folders (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Recommendation</td><td>External SSD — ordinary USB sticks usually do not
+reach these values</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (optional)</h3>
+<table>
+<tr><th></th><th>Requirement</th></tr>
+<tr><td>Device</td><td>Any Synology NAS with DSM 7.0 or later — ARM or
+Intel; the package ships native binaries for ARMv7, ARM64 and
+x86-64</td></tr>
+<tr><td>Performance</td><td>Deliberately lean: verified
+on the <b>entry-level DS214se</b> with a single-core ARM CPU and
+256&nbsp;MB RAM; runs on every Synology model with DSM 7.0 or later, and
+current models offer considerably more headroom</td></tr>
+<tr><td>Memory / CPU</td><td>No dedicated requirements beyond the NAS
+itself — the server does no analysis work; its background tasks
+are limited to relaying packages and a nightly
+clean-up</td></tr>
+<tr><td>Disk space</td><td>A few hundred MB for the package and the
+statute library; shared case packages grow only with what you
+actually share</td></tr>
+<tr><td>Network</td><td>Only the firm's LAN; one TCP port (47712) with token authentication.
+DSM, Web Station and
+ports 80/443 remain untouched</td></tr>
+<tr><td>Administration</td><td>Any browser on the LAN; separate
+admin password; licence key entered once</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Get in touch</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scan the code to save our contact card — phone, e-mail and website.</p><p class="pref">Contact us directly by WhatsApp or Telegram, or call us. We speak English, German and Romanian.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Message</h5><h3 class="ct-ask">Interested in IRONSTICK or a demo? Write to us.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK enquiry from" name="form"><div class="ct-fg"><label for="ct-name">Name</label><input id="ct-name" type="text" name="name" placeholder="Your name" required></div><div class="ct-fg"><label for="ct-msg">Message</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Your message" required></textarea></div><div class="ct-fg"><p class="ct-hint">Sending opens your e-mail program with the prepared message.</p><button type="submit">Send message</button></div><div class="u-form-send-success">Your e-mail program is opening. Please send the message there.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK is legal-practice software. This website is for informational purposes only and does not constitute legal advice. © 2026 IRONSTICK.</p></footer>
+</body></html>

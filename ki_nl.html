@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<title>IRONSTICK — AI aan uw dossier</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ki{background-image:url("img/lp_bridge.jpg");background-position:50% 19%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="In de ingebouwde chat of via de Bridge naar uw desktop-AI.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/ki_nl.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/ki.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/ki_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/ki_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/ki_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/ki_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/ki_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/ki_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/ki_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/ki_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/ki_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/ki_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/ki.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="ki_nl.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_nl.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_nl.html">Home</a><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html" aria-current="page">AI</a><span class="mh">Handleidingen</span><a class="sub" href="manualquickstart_nl.html">Snelstart</a><a class="sub" href="manualironstick_nl.html">Client-app</a><a class="sub" href="manualbridge_nl.html">Bridge</a><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></div></div><nav class="mainnav"><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html" aria-current="page">AI</a><div class="nav-drop" tabindex="0"><span>Handleidingen</span><div class="menu"><a href="manualquickstart_nl.html">Snelstart</a><a href="manualironstick_nl.html">Client-app</a><a href="manualbridge_nl.html">Bridge</a></div></div><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_nl.html">30 dagen proberen</a><nav class="lang-wrap" tabindex="0" title="Taal" aria-label="Taal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="ki.html">English</a><a lang="de" hreflang="de" href="ki_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="ki_ro.html">Română</a><a lang="fr" hreflang="fr" href="ki_fr.html">Français</a><a lang="it" hreflang="it" href="ki_it.html">Italiano</a><a lang="es" hreflang="es" href="ki_es.html">Español</a><a lang="pt" hreflang="pt" href="ki_pt.html">Português</a><a class="on" lang="nl" hreflang="nl" href="ki_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="ki_ru.html">Русский</a><a lang="uk" hreflang="uk" href="ki_uk.html">Українська</a><a lang="tr" hreflang="tr" href="ki_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ki" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>AI aan uw dossier</h1></div><p class="gh-sub">In de ingebouwde chat of via de Bridge naar uw desktop-AI.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> biedt u twee manieren om met een AI aan uw dossiers te werken: de ingebouwde AI-chat en de Bridge naar uw desktop-AI. In beide gevallen bereikt de AI uw gegevens uitsluitend via <span class="irs">IRONSTICK</span> — via dezelfde tools en achter dezelfde controles.</p>
+
+<h2 class="ov-part">1. AI-chat en Bridge — het verschil</h2>
+<h3 class="ov-h">Twee wegen naar de AI</h3>
+<figure class="ov-fig"><img src="img/66_pseudonymization.png?v=3" alt="Twee wegen naar de AI" loading="lazy"></figure>
+<p class="scr-intro"><b>De AI-chat</b> is ingebouwd in <span class="irs">IRONSTICK</span>: u schrijft in het <span class="irs">IRONSTICK</span>-venster, en <span class="irs">IRONSTICK</span> stuurt het verzoek met uw eigen API-sleutels naar de AI-dienst — namen en nummers verlaten uw computer daarbij alleen als <a href="gdpr_nl.html">neutrale plaatshouders</a>. <b>De Bridge</b> werkt andersom: u schrijft in de desktop-AI-app die u toch al gebruikt — Claude, ChatGPT, Qwen of Kimi Desktop —, en die app werkt live aan uw dossier, onder uw eigen account bij de aanbieder.</p>
+<table>
+<tr><th></th><th>AI-chat (ingebouwd)</th><th>Bridge (desktop-AI)</th></tr>
+<tr><th>Waar u schrijft</th><td>In het <span class="irs">IRONSTICK</span>-chatvenster</td><td>In uw desktop-AI-app</td></tr>
+<tr><th>Kosten</th><td>API-kosten per aanroep</td><td>Abonnement — aanzienlijk voordeliger voor grote dossiers</td></tr>
+<tr><th><span class="irs">IRONSTICK</span>-licentie</th><td>Inbegrepen</td><td><a href="download_nl.html">Eén Bridge per desktop-AI of alle vier als bundel</a></td></tr>
+<tr><th>Naar de AI verzonden gegevens</th><td>Gepseudonimiseerd</td><td>—</td></tr>
+<tr><th>Uw toestemming</th><td>Vóór het eerste externe verzoek van een chatsessie</td><td>Vóór de eerste gegevenstoegang na elke programmastart</td></tr>
+<tr><th>Het meest geschikt voor</th><td>Het dagelijkse werk: vragen over het dossier, brieven en processtukken in dialoog — altijd bij de hand, ook op de tablet</td><td>Diepgaand werk aan grote dossiers: complete zaken lezen, honderden documenten, meerdere conceptrondes</td></tr>
+</table>
+
+<h2 class="ov-part">2. De AI-chat in IRONSTICK</h2>
+<h3 class="ov-h">AI-configuratie</h3>
+<figure class="ov-fig"><img src="img/screens/A%20config%20AI.png?v=3" alt="AI-configuratie" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>AI-configuratie. De kaart met alle AI-aanbieders.</li>
+<li>Groq, OpenRouter en Mistral — gratis AI-aanbieders voor achtergrondtaken zoals e-mailprioritering, de monitor voor gegevensconsistentie en de dagbriefing; elk afzonderlijk in en uit te schakelen.</li>
+<li>Qwen, Kimi, ChatGPT en Claude — de AI-aanbieders voor de ingebouwde chat, elk met uw <a href="manualquickstart_nl.html#q3">eigen API-sleutel</a>. Zijn er meerdere ingesteld, dan gebruikt <span class="irs">IRONSTICK</span> ze automatisch in de weergegeven volgorde; is er één niet bereikbaar, dan neemt de volgende het over.</li>
+</ol>
+<p class="scr-intro"><b>Uw AI, uw contract.</b> U kiest de AI-aanbieder en stelt uw eigen API-sleutel in — Claude, ChatGPT, Kimi of Qwen. De afrekening loopt rechtstreeks via uw aanbieder.</p>
+<ul>
+<li><b>Gratis achtergrond-AI.</b> Groq, OpenRouter en Mistral nemen desgewenst routinetaken over, zoals het toewijzen van e-mails en de dagbriefing — elke aanbieder is afzonderlijk in en uit te schakelen.</li>
+<li><b>Red/Blue Team.</b> Desgewenst controleert een tweede beoordeling elk AI-resultaat kritisch.</li>
+<li><b>Desktop-AI via de Bridge.</b> Claude, ChatGPT, Qwen en Kimi Desktop werken met uw eigen abonnement rechtstreeks aan het dossier.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">De ingebouwde chat</h3>
+<p class="scr-intro"><b>Eerst lokaal, dan extern — met uw toestemming.</b> De chat is de strikt gecontroleerde weg naar de AI.</p>
+<ul>
+<li><b>Eerst uw computer.</b> Eenvoudige verzoeken — een zaak openen, een cliënt oproepen — handelt een lokale laag af, zonder AI-model en zonder internet.</li>
+<li><b>Eerst uw toestemming.</b> Voordat er iets naar een externe AI-dienst gaat, vraagt de chat het u.</li>
+<li><b>Gepseudonimiseerd.</b> Namen, zaaknummers, nummers en adressen verlaten uw computer alleen als <a href="gdpr_nl.html">neutrale plaatshouders</a>; het antwoord wordt op uw computer terugvertaald.</li>
+<li><b>Gelogd.</b> Elke aanroep van een externe AI-dienst wordt lokaal vastgelegd.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. De Bridge — uw desktop-AI aan het dossier</h2>
+<h3 class="ov-h">Bridge</h3>
+<figure class="ov-fig"><img src="img/58_mcp_bridge.png?v=3" alt="Bridge" loading="lazy"></figure>
+<p class="scr-intro"><b>De volle diepgang voor grote dossiers.</b> Uw desktop-AI leest de actuele stand van het dossier — kronieken, volledige teksten, e-mails, termijnen, basisgegevens — via meer dan 200 speciaal ontwikkelde tools en werkt in volle diepgang:</p>
+<ul>
+<li>„Lees de hele zaak en vertel me waar onze positie het zwakst is.”</li>
+<li>„Stel het hoger beroep op in ons format voor processtukken en geef het door aan de tekstverwerking.” — het concept verschijnt in <span class="irs">IRONSTICK</span>, klaar om op uw briefpapier te worden afgedrukt.</li>
+<li>„Vergelijk de drie deskundigenrapporten en maak een tabel met de tegenstrijdigheden.”</li>
+<li><b>Inbegrepen in het abonnement.</b> Complete dossiers lezen en in meerdere rondes concepten opstellen loopt via het abonnement dat u voor de desktop-AI-app toch al betaalt.</li>
+<li><b>Door u ingeschakeld.</b> De Bridge werkt alleen als u <a href="manualironstick_nl.html#s2">de toegang toestaat</a>; elke actieve AI toont haar symbool in de menubalk.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Meerdere AI's, één zaak — uw adviesraad</h3>
+<figure class="ov-side"><img src="img/cutout_advisory_board.jpg?v=3" alt="Meerdere AI's, één zaak — uw adviesraad" loading="lazy"></figure>
+<p class="scr-intro"><b>Een echte second opinion.</b> Claude, ChatGPT, Qwen en Kimi zijn verschillende modellen met een verschillende training — en kunnen tegelijk aan dezelfde zaak werken, met dezelfde stand van het dossier.</p>
+<ul>
+<li><b>Zaakstrategieën ontwikkelen</b> — de ene AI bouwt, de andere doet de stresstest.</li>
+<li><b>Processtukken aanscherpen</b> — schrijven, controleren, weerleggen, verfijnen.</li>
+<li><b>U dirigeert</b> in natuurlijke taal: „Werk dat uit … geef het aan de ander ter controle … breng mij zijn inschatting.”</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Gecontroleerd in plaats van geloofd</h2>
+<h3 class="ov-h">Waarom een AI alleen grote dossiers niet aankan</h3>
+<figure class="ov-fig"><img src="img/71_context_overload.png?v=3" alt="Waarom een AI alleen grote dossiers niet aankan" loading="lazy"></figure>
+<p class="scr-intro"><b>Meer dan een AI-chat in de browser.</b> Geeft men een taalmodel honderden pagina's tegelijk, dan gaan details uit het midden verloren, loopt het gesprek over en begint elke sessie weer bij nul.</p>
+<ul>
+<li><b>Eerst de structuur.</b> <span class="irs">IRONSTICK</span> heeft het dossier al geordend: documenten geclassificeerd, gegevens geïndexeerd, producties gekoppeld.</li>
+<li><b>Gerichte toegang.</b> De AI haalt precies de passages, documenten, e-mails en termijnen op die de vraag nodig heeft — vers uit het dossier.</li>
+<li><b>Een geheugen.</b> Inzichten blijven over sessies heen behouden; de AI bouwt dynamisch kennis op over het werk aan het dossier.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Geleid in plaats van gehoopt</h3>
+<figure class="ov-fig"><img src="img/73_ironstick_guided_path.png?v=3" alt="Geleid in plaats van gehoopt" loading="lazy"></figure>
+<p class="scr-intro"><b>Vaste controles in plaats van goede voornemens.</b> Tussen de AI en uw dossier liggen vaste controles — de feiten worden gecontroleerd door eenvoudige programmalogica.</p>
+<ul>
+<li><b>Eerst lezen, dan schrijven.</b> De AI schrijft alleen op basis van wat zij aantoonbaar heeft gelezen.</li>
+<li><b>Wetten eerst uit uw bibliotheek.</b> Wetsbepalingen worden geciteerd uit uw wettenbibliotheek; het internet wordt alleen geraadpleegd als de bibliotheek de bepaling niet bevat.</li>
+<li><b>Controle vóór aflevering.</b> Een processtuk verlaat het systeem pas na een geslaagde controle — als indieningsklaar concept voor uw beoordeling en handtekening.</li>
+<li><b>Voorstellen in plaats van schrijven.</b> Wijzigingen in basisgegevens en geheugen stelt de AI alleen voor; van kracht wordt pas wat u vrijgeeft.</li>
+<li><b>Geheime documenten blijven onzichtbaar.</b> Als geheim gemarkeerde vermeldingen bereiken geen enkele AI.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Feiten en proza</h3>
+<figure class="ov-fig"><img src="img/75_ironstick_coaching_line.png?v=3" alt="Feiten en proza" loading="lazy"></figure>
+<p class="scr-intro"><b>Twee controlewegen voor twee soorten inhoud.</b> <span class="irs">IRONSTICK</span> maakt een fundamenteel onderscheid tussen feiten en proza.</p>
+<ul>
+<li><b>Feiten — deterministisch gecontroleerd.</b> Bewijsnummers, data, partijen, zaaknummers en wetsverwijzingen controleert <span class="irs">IRONSTICK</span> met vaste programmalogica aan het dossier en de wettenbibliotheek.</li>
+<li><b>Proza — gecontroleerd door het Red/Blue Team.</b> Argumentatie, opbouw en formulering worden kritisch gecontroleerd door een tweede AI.</li>
+<li><b>Het Red/Blue Team werkt zelf met <span class="irs">IRONSTICK</span>.</b> Het heeft toegang tot het dossier en toetst zijn eigen aanbevelingen op de achtergrond aan wetten en feiten.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">5. Nucleu en Snake-Gate</h2>
+<h3 class="ov-h">Nucleu en Snake</h3>
+<figure class="ov-fig"><img src="img/76_nucleu_snake_path.png?v=3" alt="Nucleu en Snake" loading="lazy"></figure>
+<p class="scr-intro"><b>Nucleu — de bindende koers van een zaak.</b> De Nucleu (atoomsymbool in de zaak) legt de kernlijn van de argumentatie vast: de leidende feiten en bewijzen, wat gezegd moet worden en wat nooit gezegd mag worden. Elk document dat de AI voor de zaak schrijft, ordent zich daaronder.</p>
+<ul>
+<li><b>Op twee niveaus.</b> Voor een volledig feitencomplex — geldig voor elke zaak daarin — en voor de afzonderlijke zaak.</li>
+<li><b>De AI stelt op, u beslist.</b> Elke wijziging verschijnt in rood gemarkeerd; pas uw vrijgave slaat haar op als nieuwe versie.</li>
+<li><b>Verplichte lectuur.</b> Zonder de actuele Nucleu te hebben gelezen, kan de AI geen processtuk van de zaak schrijven, controleren of afleveren.</li>
+<li><b>Slotronde van de controleketen.</b> Elk processtuk wordt als laatste punt voor punt aan de Nucleu getoetst.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro"><b>Snake — het register van de tegenstrijdigheden van de wederpartij.</b> De Snake (slangensymbool in de zaak) legt elke bewering van de wederpartij vast die door het bewijs in het dossier wordt weersproken — met document, datum, zaak en pagina, en met elk document dat haar weerspreekt.</p>
+<ul>
+<li><b>Elke regel getoetst aan het dossier.</b> Bewijsnummer, datum, zaak en pagina moeten kloppen, anders wordt de vermelding afgewezen.</li>
+<li><b>Opgebouwd via onderzoek of midden in het gesprek</b> — zodra er een tegenstrijdigheid opduikt, zonder dubbele vermeldingen.</li>
+<li><b>De Snake-Gate.</b> Voordat een processtuk klaar is, vraagt de AI of de Snake-ronde moet worden uitgevoerd. Na uw ja wordt elke Snake-vermelding van de cliënt gecontroleerd en afgehandeld als overgenomen, verworpen of niet relevant — de tegenstrijdigheden van de wederpartij vloeien systematisch als met bewijs onderbouwd argument in uw processtuk.</li>
+<li><b>Uw vrijgave voor elke versie.</b></li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>De AI werkt, u beslist.</b> Inrichting en werkwijzen vindt u in de <a href="manualbridge_nl.html">Bridge-handleiding</a>.</div>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK-contactkaart (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scan de code om onze contactkaart op te slaan — telefoon, e-mail en website.</p><p class="pref">Neem gerust rechtstreeks contact op via WhatsApp of Telegram — ook een telefoontje is welkom. Gesproken talen: Duits, Engels, Roemeens.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Bericht</h5><h3 class="ct-ask">Interesse in IRONSTICK of een demo? Schrijf ons.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK-aanvraag van" name="form"><div class="ct-fg"><label for="ct-name">Naam</label><input id="ct-name" type="text" name="name" placeholder="Uw naam" required></div><div class="ct-fg"><label for="ct-msg">Bericht</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Uw bericht" required></textarea></div><div class="ct-fg"><p class="ct-hint">Bij verzenden opent uw e-mailprogramma met het voorbereide bericht.</p><button type="submit">Bericht verzenden</button></div><div class="u-form-send-success">Uw e-mailprogramma wordt geopend. Verzend het bericht daar.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK is software voor de juridische praktijk. Deze website dient uitsluitend ter informatie en vormt geen juridisch advies. © 2026 IRONSTICK.</p></footer>
+</body></html>

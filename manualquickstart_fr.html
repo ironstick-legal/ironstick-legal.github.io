@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<title>IRONSTICK — Manuel - Démarrage rapide</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Démarrage rapide — de l’installation à vos premiers clients en six étapes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualquickstart_fr.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualquickstart_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualquickstart_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualquickstart_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualquickstart_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualquickstart_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualquickstart_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualquickstart_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualquickstart_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualquickstart_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualquickstart_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="manualquickstart_fr.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_fr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_fr.html">Accueil</a><a href="overview_fr.html">Aperçu</a><a href="ki_fr.html">IA</a><span class="mh">Manuels</span><a class="sub" href="manualquickstart_fr.html" aria-current="page">Démarrage rapide</a><a class="sub" href="manualironstick_fr.html">Application client</a><a class="sub" href="manualbridge_fr.html">Bridge</a><a href="gdpr_fr.html">RGPD</a><a href="download_fr.html">Download</a></div></div><nav class="mainnav"><a href="overview_fr.html">Aperçu</a><a href="ki_fr.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuels</span><div class="menu"><a href="manualquickstart_fr.html" aria-current="page">Démarrage rapide</a><a href="manualironstick_fr.html">Application client</a><a href="manualbridge_fr.html">Bridge</a></div></div><a href="gdpr_fr.html">RGPD</a><a href="download_fr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_fr.html">Essayer 30 jours</a><nav class="lang-wrap" tabindex="0" title="Langue" aria-label="Langue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualquickstart.html">English</a><a lang="de" hreflang="de" href="manualquickstart_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualquickstart_ro.html">Română</a><a class="on" lang="fr" hreflang="fr" href="manualquickstart_fr.html">Français</a><a lang="it" hreflang="it" href="manualquickstart_it.html">Italiano</a><a lang="es" hreflang="es" href="manualquickstart_es.html">Español</a><a lang="pt" hreflang="pt" href="manualquickstart_pt.html">Português</a><a lang="nl" hreflang="nl" href="manualquickstart_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualquickstart_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualquickstart_uk.html">Українська</a><a lang="tr" hreflang="tr" href="manualquickstart_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Manuel - Démarrage rapide</h1></div><p class="gh-sub">Démarrage rapide — de l’installation à vos premiers clients en six étapes.</p></div></section>
+
+<h2 id="q1">1. Installer IRONSTICK</h2>
+<figure><img src="img/screens/A%20installer.png" alt="Le programme d'installation d'IRONSTICK : langue, dossier de destination, raccourci sur le bureau, prêt à installer, installation en cours"><figcaption>Le programme d'installation, écran par écran.</figcaption></figure>
+<p class="scr-intro">Téléchargez le <a href="download_fr.html">programme d'installation</a> et installez <span class="irs">IRONSTICK</span> sur votre ordinateur Windows en quelques clics.
+Choisissez la langue du programme d'installation, le dossier de destination et la création éventuelle d'un raccourci sur le bureau ; le <a href="download_fr.html">programme</a> est ensuite installé.
+Si <span class="irs">IRONSTICK</span> est déjà installé, installez la <a href="download_fr.html">nouvelle version</a> par-dessus — vos données restent là où elles sont.</p>
+<h3 class="do">Ce que vous pouvez faire ici</h3>
+<h4>Programme d'installation</h4>
+<ul>
+<li><b>Langue du programme d'installation.</b> Choisissez la langue du programme d'installation et confirmez avec <i>OK</i>.</li>
+<li><b>Dossier de destination.</b> Le dossier proposé est <i>C:\Program Files\IRONSTICK</i>. Conservez-le, ou choisissez-en un autre avec <i>Parcourir…</i>.</li>
+<li><b>Raccourci sur le bureau.</b> Laissez la case cochée si vous souhaitez une icône <span class="irs">IRONSTICK</span> sur le bureau.</li>
+<li><b>Installer.</b> Le récapitulatif affiche encore une fois le dossier et le raccourci ; <i>Installer</i> lance l'installation, et une barre de progression en suit le déroulement.</li>
+</ul>
+<h4>Premier démarrage</h4>
+<ul>
+<li><b>Clé de licence.</b> Au premier démarrage, <span class="irs">IRONSTICK</span> vous demande votre clé de licence. Saisissez-la à partir de votre document de licence, ou collez-la.</li>
+<li><b>Code de sécurité.</b> Après une clé de licence valide, un code QR s'affiche. Scannez-le avec une application d'authentification sur votre téléphone. Dès lors, <span class="irs">IRONSTICK</span> n'affiche vos données qu'après la saisie du code à six chiffres de cette application.</li>
+<li><b>Nouveau téléphone.</b> Si vous changez de téléphone ou le perdez, saisissez à nouveau la clé de licence sur l'écran de démarrage ; le code QR réapparaît afin que vous puissiez configurer le nouveau téléphone.</li>
+</ul>
+
+<h2 id="q2">2. Licence, utilisateur et langue</h2>
+<figure><img src="img/screens/A%20config%20license%20user%20language.png" alt="Configuration avec la fenêtre de la clé de licence et la fiche utilisateur ouverte avec le champ de langue"><figcaption>La clé de licence, votre fiche utilisateur et la langue du programme.</figcaption></figure>
+<p class="scr-intro">Ouvrez la configuration avec l'icône en forme de roue dentée dans la barre supérieure.
+Vous y saisissez ou renouvelez votre clé de licence, remplissez votre fiche utilisateur et choisissez la langue de l'interface et du dialogue avec l'IA.
+Prenez une minute pour la fiche utilisateur : vos données sont utilisées dans les courriers, les actes de procédure et la demande de licence.</p>
+<ol class="marks">
+<li><b>Clé de licence.</b> Le lien <i>Clé de licence</i> sous la ligne de version ouvre la fenêtre de licence. Saisissez ou collez la clé et cliquez sur <i>Activer</i>. <i>Demander une clé de licence</i> vérifie que votre fiche utilisateur est complète et prépare le texte de la demande avec objet et destinataire, chacun avec un bouton de copie.</li>
+<li><b>Utilisateur.</b> Ouvre votre fiche utilisateur. Le numéro à côté du titre identifie votre installation ; le petit symbole le copie.</li>
+<li><b>Champs issus de la licence.</b> L'entreprise, la civilité, le prénom et le nom proviennent de votre clé de licence et sont verrouillés (cadenas). Remplissez les autres champs : fonction, adresse, pays, téléphone, mobile, e-mail, date de naissance et les applications de messagerie que vous utilisez.</li>
+<li><b>Langue.</b> La langue de l'interface et du dialogue avec l'IA. Après <i>Enregistrer</i>, chaque écran passe immédiatement dans la nouvelle langue.</li>
+</ol>
+
+<h2 id="q3">3. Configuration de l'IA</h2>
+<figure><img src="img/screens/A%20config%20AI.png" alt="Configuration de l'IA avec les services gratuits d'arrière-plan et les services d'IA pour le chat intégré"><figcaption>Des services gratuits pour les tâches d'arrière-plan, et vos services d'IA pour le chat intégré.</figcaption></figure>
+<p class="scr-intro">La configuration de l'IA contient les clés d'accès (clés API) des services d'IA que <span class="irs">IRONSTICK</span> peut utiliser.
+Il en existe deux sortes : des services gratuits qui n'effectuent que des tâches d'arrière-plan, et les services pour les fonctions d'IA complètes du chat intégré.
+Vous avez besoin d'un compte auprès du service concerné ; les liens sous chaque champ mènent à ses pages d'inscription, de conditions d'utilisation et de confidentialité.</p>
+<ol class="marks">
+<li><b>Configuration de l'IA.</b> Ouvre la fiche avec tous les services d'IA.</li>
+<li><b>Services gratuits pour les tâches d'arrière-plan.</b> Utilisés uniquement pour les travaux d'arrière-plan tels que la priorisation des e-mails, le moniteur de données, le briefing quotidien et le rapport de situation. Cliquez sur le lien sous le champ pour créer directement un compte auprès du fournisseur et y générer une clé API. Collez cette clé API dans le champ et cliquez sur <i>Enregistrer</i>. L'interrupteur à côté du service active ou désactive ce service pour ces activités — même si sa clé API reste enregistrée. L'indication sous chaque service précise les conditions du fournisseur auxquelles il prend en charge vos tâches d'arrière-plan.</li>
+<li><b>Services d'IA pour le chat intégré.</b> Cliquez sur le lien sous le champ pour créer directement un compte auprès du fournisseur et y générer une clé API. Collez la clé API dans le champ et cliquez sur <i>Enregistrer</i>. Une recharge d'au moins 20 dollars/euros par fournisseur est recommandée. L'idéal est d'enregistrer au moins deux fournisseurs : si plusieurs services sont enregistrés, <span class="irs">IRONSTICK</span> les utilise automatiquement dans l'ordre fixe indiqué par les numéros, le moins cher en premier ; le suivant prend ainsi le relais sans accroc, et votre travail se poursuit sans interruption.</li>
+</ol>
+
+<h2 id="q4">4. Votre signature</h2>
+<figure><img src="img/screens/A%20config%20sign.png" alt="La fiche de signature avec le champ de dessin et les boutons pour effacer, téléverser, supprimer et enregistrer"><figcaption>Dessinez votre signature une fois — ou téléversez-la comme image.</figcaption></figure>
+<p class="scr-intro">Votre signature est enregistrée une seule fois dans la configuration.
+<span class="irs">IRONSTICK</span> la place là où vous signez des documents : dans l'aperçu avant impression du traitement de texte et sur les tampons des annexes.
+Vous pouvez la dessiner avec la souris ou sur un écran tactile, ou téléverser un scan de votre signature.</p>
+<ol class="marks">
+<li><b>Signatures.</b> Ouvre la fiche de signature.</li>
+<li><b>Champ de signature.</b> Dessinez votre signature avec la souris ou le doigt. <i>Effacer le champ de signature</i> permet de recommencer ; <i>Téléverser une image (JPG/PNG)</i> prend à la place une signature scannée ; <i>Supprimer</i> retire la signature enregistrée ; <i>Enregistrer</i> la mémorise. La coche verte et le petit aperçu montrent la signature actuellement enregistrée.</li>
+</ol>
+
+<h2 id="q5">5. Modèle d'en-tête</h2>
+<figure><img src="img/screens/A%20config%20template.png" alt="La fiche du modèle d'en-tête avec le bouton de téléversement"><figcaption>L'en-tête de votre cabinet sur vos actes de procédure.</figcaption></figure>
+<p class="scr-intro">Téléversez une fois l'en-tête de votre cabinet sous forme de PDF A4.
+<span class="irs">IRONSTICK</span> place vos actes de procédure sur cet en-tête, le texte commençant en dessous de l'en-tête.
+Dans le traitement de texte, vous activez ou désactivez l'en-tête pour chaque document.</p>
+<ol class="marks">
+<li><b>Modèle d'en-tête.</b> Ouvre la fiche du modèle.</li>
+<li><b>Téléverser le modèle.</b> Choisissez le PDF A4 avec votre en-tête. Tant qu'aucun modèle n'est enregistré, la fiche l'indique.</li>
+</ol>
+
+<h2 id="q6">6. Importer vos clients</h2>
+<figure><img src="img/screens/A%20client%20import.png" alt="La liste des clients avec la fenêtre d'importation et l'attribution des colonnes"><figcaption>Importez vos clients existants depuis un autre programme.</figcaption></figure>
+<p class="scr-intro">Vous n'avez pas à saisir vos clients existants un par un.
+Exportez-les depuis votre programme précédent ou votre carnet d'adresses sous forme de fichier CSV ou vCard et faites glisser ce fichier dans la fenêtre d'importation.
+Si vous n'avez pas encore utilisé de logiciel de gestion des clients, une exportation de votre logiciel de facturation constitue souvent une bonne source pour l'importation.
+Pour ajouter un client manuellement, utilisez <i>Nouveau client</i>.</p>
+<ol class="marks">
+<li><b>Importer un client.</b> Ouvre la fenêtre d'importation. Faites glisser un fichier CSV ou vCard (.vcf) sur la zone de dépôt. Enregistrez d'abord les classeurs Excel au format CSV. Pour un fichier CSV, une seconde fenêtre liste chaque colonne avec une valeur d'exemple et le champ dans lequel elle va ; l'attribution est préremplie et vous pouvez modifier chaque champ. Au moins une colonne doit être attribuée au nom. Si le fichier contient un seul contact, le formulaire <i>Nouveau client</i> s'ouvre prérempli ; s'il en contient plusieurs, vous sélectionnez dans une liste les contacts à importer — les clients déjà existants ne sont pas sélectionnés.</li>
+<li><b>Nouveau client.</b> Ouvre un formulaire client vide pour un client que vous saisissez à la main.</li>
+</ol>
+
+<div class="boxorange"><b>Et voilà, vous êtes prêt à saisir vos dossiers dans <span class="irs">IRONSTICK</span>.</b> Que vous saisissiez tous vos dossiers existants dans <span class="irs">IRONSTICK</span> ou que vous commenciez simplement à travailler avec <span class="irs">IRONSTICK</span> sur vos nouveaux dossiers, c'est à vous de décider. En pratique, un mélange s'est révélé la meilleure voie : saisissez à la main quelques dossiers existants importants qui ont un besoin urgent du soutien d'<span class="irs">IRONSTICK</span>, et traitez en même temps tous les nouveaux dossiers directement dans <span class="irs">IRONSTICK</span>.</div>
+
+<footer class="sd-foot"><p>IRONSTICK est un logiciel pour la pratique juridique. Ce site est fourni à titre informatif uniquement et ne constitue pas un conseil juridique. © 2026 IRONSTICK.</p></footer>
+</body></html>

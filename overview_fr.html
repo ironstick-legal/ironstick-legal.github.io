@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<title>IRONSTICK en un coup d'œil</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Le logiciel de cabinet qui connaît vos dossiers — en local sur votre ordinateur, avec l'IA à vos côtés.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview_fr.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_fr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_fr.html">Accueil</a><a href="overview_fr.html" aria-current="page">Aperçu</a><a href="ki_fr.html">IA</a><span class="mh">Manuels</span><a class="sub" href="manualquickstart_fr.html">Démarrage rapide</a><a class="sub" href="manualironstick_fr.html">Application client</a><a class="sub" href="manualbridge_fr.html">Bridge</a><a href="gdpr_fr.html">RGPD</a><a href="download_fr.html">Download</a></div></div><nav class="mainnav"><a href="overview_fr.html" aria-current="page">Aperçu</a><a href="ki_fr.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuels</span><div class="menu"><a href="manualquickstart_fr.html">Démarrage rapide</a><a href="manualironstick_fr.html">Application client</a><a href="manualbridge_fr.html">Bridge</a></div></div><a href="gdpr_fr.html">RGPD</a><a href="download_fr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_fr.html">Essayer 30 jours</a><nav class="lang-wrap" tabindex="0" title="Langue" aria-label="Langue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a class="on" lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IRONSTICK en un coup d'œil</h1></div><p class="gh-sub">Le logiciel de cabinet qui connaît vos dossiers — en local sur votre ordinateur, avec l'IA à vos côtés.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> réunit clients, dossiers, preuves, délais, e-mails et documents en un seul dossier — et vous adjoint une IA qui connaît ce dossier dans son intégralité. Vous posez la question, le dossier répond, avec un renvoi à chaque document. Vous vérifiez et signez, au lieu de chercher et de ressaisir. Tout est stocké chiffré sur votre propre matériel.</p>
+
+<h2 class="ov-part">1. La journée de travail</h2>
+<h3 class="ov-h">La journée du cabinet en un coup d'œil</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="La journée du cabinet en un coup d'œil" loading="lazy"></figure>
+<p class="scr-intro"><b>Toute la journée sur trois pages.</b> Ouvrez <span class="irs">IRONSTICK</span> : votre journée est déjà triée.</p>
+<ul>
+<li><b>Démarrage.</b> Tous les espaces de travail et l'état de vos délais en un coup d'œil.</li>
+<li><b>Agenda.</b> Tout ce qui est arrivé dans vos dossiers, jour après jour — avec un aperçu des documents.</li>
+<li><b>Heatmap.</b> Chaque jour des douze derniers mois sous forme de case — plus elle est foncée, plus il s'est passé de choses dans vos dossiers ; délais et audiences y sont signalés. En dessous, les dossiers qui s'animent : ceux dont l'activité a nettement augmenté au cours des 14 derniers jours.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Moniteur des délais</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Moniteur des délais" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Numéros de référence. Le numéro d'un document ou d'un rappel de l'IA se copie d'un clic — par exemple pour le coller dans le chat.</li>
+<li>Traiter les délais. Les délais issus des documents et des entrées de la chronique se cochent et se retirent ensemble ; les rappels de l'IA quittent la liste avec <i>Supprimer la date</i>.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>L'IA fixe elle aussi rendez-vous et délais — directement à partir de votre conversation. Ils apparaissent dans la liste avec ce symbole.</li>
+</ol>
+<p class="scr-intro"><b>Ne manquez plus aucun délai.</b> Un délai manqué engage la responsabilité du cabinet. <span class="irs">IRONSTICK</span> regroupe tous les délais et toutes les audiences dans une seule liste et indique le temps restant.</p>
+<ul>
+<li><b>Tous les délais et toutes les audiences dans une seule liste</b> — avec la date, le dossier et le nombre de jours restant avant l'échéance ; en rouge s'ils sont dépassés, en orange s'ils sont proches.</li>
+<li><b>Les délais tirés du courrier entrant.</b> L'IA repère les délais dans les courriers et décisions reçus et les inscrit.</li>
+<li><b>Cloche des délais.</b> Orange lorsqu'un délai arrive à échéance dans les dix prochains jours, rouge le jour même — toujours visible dans la barre de menu.</li>
+<li><b>Imprimer la liste des délais</b> ou l'exporter en PDF.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Saisie automatique des documents</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Saisie automatique des documents" loading="lazy"></figure>
+<p class="scr-intro"><b>Le courrier entrant se traite tout seul.</b> Numériser, glisser, confirmer : <span class="irs">IRONSTICK</span> reconnaît le texte, rattache le document au bon dossier et inscrit le délai.</p>
+<ul>
+<li><b>Choisir les pages.</b> Seules les pages qui ont leur place dans le dossier sont reprises.</li>
+<li><b>Reconnaissance de texte intégrée.</b> Pour plus de 35 langues européennes, rien à installer.</li>
+<li><b>Une proposition plutôt qu'une saisie.</b> L'IA propose le client, le dossier, le type de document, la langue, la date et le délai — vous confirmez.</li>
+<li><b>Stocké chiffré</b> et immédiatement consultable en recherche plein texte.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">La saisie d'un document prend ainsi à peine plus de 20 secondes — et tout le courrier entrant est réparti dans les dossiers en un rien de temps.</p>
+
+<h2 class="ov-part">2. Du projet au dépôt</h2>
+<h3 class="ov-h">Traitement de texte pour les actes de procédure</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Traitement de texte pour les actes de procédure" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Modifier. La page modifiable avec la barre d'outils complète.</li>
+<li>Aperçu. Le document en pages A4 distinctes, exactement telles qu'elles seront imprimées.</li>
+<li>Aperçu avant impression. Enregistre le document et ouvre l'aperçu avant impression avec toutes les annexes.</li>
+<li>Enregistrer &amp; fermer. Enregistre le document et revient à la liste des textes.</li>
+</ol>
+<p class="scr-intro"><b>Des actes de procédure en quelques minutes au lieu de plusieurs heures — sans citations inventées.</b> Votre temps, c'est votre chiffre d'affaires, et une référence erronée est le plus grand risque lié à l'usage de l'IA. Le projet naît en dialogue avec l'IA, directement à partir du dossier — et chaque norme, chaque partie et chaque pièce est vérifiée par rapport au dossier et à la bibliothèque juridique avant même que vous ne le voyiez.</p>
+<ul>
+<li><b>À partir du dossier.</b> Données de base, chronique, textes intégraux, délais et annexes alimentent le projet.</li>
+<li><b>Modifier et prévisualiser.</b> Modifiez le texte et voyez aussitôt son rendu imprimé sur votre papier à en-tête.</li>
+<li><b>Modèle prêt à être déposé.</b> Vous vérifiez, finalisez et signez.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Aperçu avant impression : acte et annexes en un seul PDF</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Aperçu avant impression : acte et annexes en un seul PDF" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Votre document. Les pages de l'acte — un clic gauche sur une page ouvre la fenêtre permettant de placer votre signature.</li>
+<li>Ligne de titre de l'annexe. Numéro d'entrée, numéro d'annexe et titre de chaque annexe. En dessous, ses pages : un clic gauche affiche une page agrandie, un clic droit l'exclut du PDF ; un second clic droit la réintègre.</li>
+<li>Tampon de certification. Activable et désactivable pour chaque annexe ; le texte du tampon suit la langue du pays du dossier.</li>
+<li>DOCX. Le document au format Word.</li>
+<li>Téléchargement PDF. Le PDF final composé de toutes les pages actives.</li>
+</ol>
+<p class="scr-intro"><b>Le dépôt est prêt.</b> Acte et annexes tamponnés, paginés et signés en un seul PDF — plutôt qu'à la photocopieuse.</p>
+<ul>
+<li><b>Apposer la signature.</b> Votre signature enregistrée se place d'un clic au bon endroit.</li>
+<li><b>Annexes avec tampon de certification.</b> Chaque annexe reçoit son tampon ; certaines pages peuvent être exclues d'un clic.</li>
+<li><b>Export en PDF ou DOCX</b> — acte et annexes en un seul fichier, paginé page par page.</li>
+<li><b>Même pour les procédures d'envergure.</b> 3 000 pages tamponnées, paginées et réunies en un seul PDF — en moins de 20 minutes.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Dossier de synthèse couvrant toute l'affaire</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Dossier de synthèse couvrant toute l'affaire" loading="lazy"></figure>
+<p class="scr-intro"><b>Le dossier complet en un seul document.</b> L'assistant de dossier de synthèse rassemble toute l'affaire en un dossier paginé. Vous commencez par définir ce qu'il contient.</p>
+<ul>
+<li><b>Choisir les documents.</b> Chaque entrée de la chronique s'inclut ou s'écarte d'un clic.</li>
+<li><b>Jusqu'à la page près.</b> Dans chaque document, vous choisissez exactement les pages qui ont leur place dans le dossier de synthèse.</li>
+<li><b>Consulter d'abord.</b> Documents, photos, transcriptions et chats s'ouvrent en aperçu, sans modifier la sélection.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Dossier de synthèse couvrant toute l'affaire" loading="lazy"></figure>
+<p class="scr-intro"><b>Page de garde, structure et aperçu avant impression.</b> Vous définissez ensuite la page de garde et la structure, et vérifiez chaque page avant que le dossier de synthèse ne soit généré.</p>
+<ul>
+<li><b>Pages de garde au choix.</b> Le destinataire est repris parmi les institutions du dossier, ou saisi par vous-même.</li>
+<li><b>Dans la langue de la juridiction.</b> La page de garde et les index sont établis dans la langue du pays du dossier ; si le pays compte plusieurs langues juridiques, vous choisissez la langue.</li>
+<li><b>Une structure sur mesure.</b> Page de garde, index thématique, chronologie, documents, médias, transcriptions, chats, index des personnes et des institutions — à inclure, à écarter et à ordonner par glisser-déposer.</li>
+<li><b>Pages exclues visibles immédiatement.</b> L'aperçu avant impression affiche chaque page du dossier de synthèse final ; des pages peuvent encore y être écartées ou réintégrées, et l'index thématique ajuste la numérotation des pages.</li>
+<li><b>Export en PDF ou EDRM.</b> Sous forme de dossier PDF paginé ou de paquet de production EDRM avec numéros Bates.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Comprendre le dossier</h2>
+<h3 class="ov-h">Assistant de dossier</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Assistant de dossier" loading="lazy"></figure>
+<p class="scr-intro"><b>Le dossier en tête, instantanément.</b> Avant l'audience ou l'entretien avec le client, vous interrogez le dossier au lieu de le feuilleter — en langage naturel, au clavier ou à la voix.</p>
+<ul>
+<li>« Résume l'état actuel de la procédure. » — « Avons-nous répondu au dernier courrier de la partie adverse ? » — « Qu'a dit le témoin au sujet du transport sur les lieux ? »</li>
+<li><b>Chaque réponse avec sa source.</b> Chaque document cité est un lien cliquable vers l'entrée correspondante de votre dossier.</li>
+<li><b>Les questions courantes restent sur votre ordinateur.</b> Une couche locale y répond sans qu'aucune donnée ne quitte l'appareil.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Évaluation du dossier par l'IA</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="Évaluation du dossier par l'IA" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>L'évaluation générale du dossier tient compte de l'ensemble du dossier de synthèse, y compris des dossiers connexes.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>Pour les chances de succès, seuls les actes adressés à l'autorité et émanant de l'autorité sont pris en compte.</li>
+</ol>
+<p class="scr-intro"><b>Des chances de succès que vous pouvez expliquer à votre client.</b> L'évaluation du dossier par l'IA lit l'intégralité du dossier — vos propres actes comme les pièces reçues de la partie adverse — et résume l'état de la procédure en une appréciation.</p>
+<ul>
+<li><b>Chances de succès sur une échelle</b> — avec des notes distinctes pour l'état des preuves, la prétention principale et les autres prétentions.</li>
+<li><b>Ce qui joue en votre faveur, ce qui joue contre vous.</b> Forces et faiblesses signalées en couleur, chaque affirmation avec un lien vers le document sur lequel elle repose.</li>
+<li><b>Des prochaines étapes concrètes</b> sous forme de recommandation pour la suite de la procédure.</li>
+<li><b>Sur simple pression d'un bouton</b> — à tout moment à nouveau, dès que de nouveaux documents figurent au dossier.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Réseau de personnes et de sociétés avec recherche OSINT</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="Réseau de personnes et de sociétés avec recherche OSINT" loading="lazy"></figure>
+<p class="scr-intro"><b>Repérer des imbrications que personne ne trouverait à la main.</b> Personnes, sociétés, autorités et juridictions issues de tous vos dossiers forment un réseau commun — sous forme de liste, d'univers 3D, de carte 2D et sur la carte géographique. Un atout tout particulier en droit des affaires, en droit des procédures collectives et en droit pénal.</p>
+<ul>
+<li><b>Des liens étayés par des preuves.</b> Qui apparaît dans quelles procédures, comment les intervenants sont liés entre eux — et par quoi.</li>
+<li><b>Trois vues.</b> L'univers 3D à parcourir en vol, la carte 2D des regroupements et la carte géographique avec tous les intervenants et tous les lieux.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>Votre dossier et la recherche OSINT de l'IA travaillent ensemble.</b> Ce que vos dossiers savent d'une personne ou d'une société, l'IA le relie à ce que livrent les sources publiques. Chaque recherche devient une connaissance durable des intervenants — elle s'enrichit à chaque dossier et vous sert dans toutes les procédures.</p>
+<ul>
+<li><b>Recherche OSINT par l'IA.</b> Vous indiquez à l'IA une personne ou une société — elle recherche d'abord dans vos propres dossiers, puis sur internet : parcours, profils sur les réseaux sociaux, presse, participations dans des sociétés, registre du commerce.</li>
+<li><b>La recherche devient données de base.</b> L'IA crée, sous forme de proposition et avec leur source, les nouvelles personnes, sociétés et relations ; seul ce que vous validez est repris.</li>
+<li><b>Analyse des décisions.</b> Chaque décision de justice figurant dans vos dossiers peut être analysée selon une grille fixe — arguments, droit, preuves, motivation ; avant un acte adressé à cette juridiction, l'IA lit aussi ces analyses.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Sécurité et exploitation</h2>
+<h3 class="ov-h">Secret professionnel</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Secret professionnel" loading="lazy"></figure>
+<p class="scr-intro"><b>Le secret professionnel reste au cabinet.</b> Aucune donnée de client dans des centres de données tiers : dossier, preuves et documents sont stockés sur votre propre matériel, <a href="gdpr_fr.html">conformément au RGPD</a>.</p>
+<ul>
+<li><b>Chiffrement AES-256.</b> Base de données et documents sont chiffrés sur le disque.</li>
+<li><b>Accès par code d'authentification.</b> Vos données n'apparaissent qu'après la saisie du code à six chiffres affiché sur votre téléphone.</li>
+<li><b>Aucune donnée de client transmise à l'éditeur.</b> L'<a href="ki_fr.html">IA externe</a> fonctionne avec votre propre clé ; les appels sont pseudonymisés.</li>
+<li><b>Fonctionne aussi hors ligne.</b> Dossier, recherche, documents et assistant local fonctionnent sans internet.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Travailler ensemble — sans cloud.</b> Le <a href="download_fr.html"><span class="irs">IRONSTICK</span> SERVER</a> relie vos postes de travail via un NAS Synology sur votre propre réseau — sans cloud.</p>
+<ul>
+<li><b>Partager des dossiers.</b> Avec tous les utilisateurs ou de manière ciblée avec certains collègues — chaque partage peut être retiré à tout moment.</li>
+<li><b>Transmettre un dossier.</b> En quelques clics, un dossier passe intégralement à un collègue.</li>
+<li><b>Chiffré sur le NAS.</b> Les dossiers partagés sont stockés chiffrés en AES-256 sur le serveur de votre cabinet.</li>
+<li><b>Chacun conserve son dossier.</b> Le dossier complet reste en outre sur chaque poste de travail.</li>
+<li><b>Bibliothèque juridique commune</b> et réseau commun de personnes et de sociétés.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Sauvegarde des données</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Sauvegarde des données" loading="lazy"></figure>
+<p class="scr-intro"><b>Tout votre cabinet sauvegardé dans un seul fichier.</b> Un clic sur « Créer une sauvegarde », et la base de données et les documents se retrouvent dans un fichier de sauvegarde chiffré.</p>
+<ul>
+<li><b>Enregistrez où vous le souhaitez :</b> en local, sur un SSD externe ou sur une clé USB.</li>
+<li><b>Avec l'<span class="irs">IRONSTICK</span> SERVER</b>, la sauvegarde est en outre stockée chiffrée sur le NAS de votre cabinet.</li>
+<li><b>Les dernières sauvegardes en un coup d'œil</b> — avec leur date et leur taille.</li>
+<li><b>Restauration</b> à partir d'un fichier de sauvegarde en quelques clics.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>Aucune charge informatique — essai gratuit de 30 jours.</b> <span class="irs">IRONSTICK</span> fonctionne sur un PC Windows standard ; les mises à jour s'installent simplement par-dessus, toutes les données sont conservées. Téléchargez le logiciel sur la <a href="download_fr.html">page de téléchargement</a> ; le <a href="manualquickstart_fr.html">Démarrage rapide</a> vous guide en six étapes de l'installation jusqu'à vos premiers clients.</div>
+
+
+<h2 class="ov-part">5. Configuration requise</h2>
+
+<h3 class="ov-h">Application client et Bridge (facultatif)</h3>
+<table>
+<tr><th></th><th>Minimum</th><th>Recommandé</th></tr>
+<tr><td>Système d'exploitation</td><td>Windows 11, 64 bits</td>
+<td>Windows 11, 64 bits, dernières mises à jour installées</td></tr>
+<tr><td>Processeur</td><td>x64 moderne à 4 cœurs (p.&nbsp;ex. Intel Core i5 /
+AMD Ryzen 5)</td><td>6 à 8 cœurs — la reconnaissance de texte traite plusieurs pages
+en parallèle, et la reconnaissance vocale hors ligne tire directement parti de chaque
+cœur</td></tr>
+<tr><td>Mémoire vive</td><td>8 GB RAM</td><td>16 GB RAM — une marge confortable
+pour traiter en parallèle de gros PDF, la création de dossiers de synthèse et la
+transcription audio</td></tr>
+<tr><td>Stockage</td><td>SSD avec 20 GB libres</td><td>SSD NVMe avec plus de 100 GB
+libres — l'archive des dossiers, la recherche plein texte et la génération de PDF sollicitent fortement le disque ;
+un SSD rapide fait une différence sensible</td></tr>
+<tr><td>Affichage</td><td>1920 × 1080</td><td>1920 × 1200 ou plus — les
+écrans de dossier exploitent généreusement la hauteur</td></tr>
+<tr><td>Graphisme</td><td colspan="2">Aucune carte graphique dédiée nécessaire —
+n'importe quelle puce graphique intégrée suffit</td></tr>
+<tr><td>Connectivité</td><td colspan="2">Internet uniquement pour l'IA externe,
+les mises à jour des lois, la messagerie, la recherche web, les cartes et le géocodage des adresses — dossier, recherche, documents et
+assistant local fonctionnent entièrement hors ligne ; un port USB libre pour la
+synchronisation avec la tablette</td></tr>
+</table>
+
+<h3 class="ov-h">Stocker les données sur un disque externe (facultatif)</h3>
+<table>
+<tr><th>Point de contrôle</th><th>Exigence</th></tr>
+<tr><td>Espace libre</td><td>Au moins 9&nbsp;GB, ou 1&nbsp;GB de plus que le
+volume de données actuel</td></tr>
+<tr><td>Écriture / lecture</td><td>Au moins 80&nbsp;MB/s / 150&nbsp;MB/s —
+y compris sous charge continue (pas moins de 60&nbsp;% de la valeur initiale)</td></tr>
+<tr><td>Nombreux petits fichiers</td><td>Au moins 250 fichiers par
+seconde</td></tr>
+<tr><td>Système de fichiers</td><td>NTFS ou exFAT, pas de FAT32 ; ni protégé
+en écriture ni verrouillé</td></tr>
+<tr><td>Fiabilité</td><td>Les données de test doivent être relues sans
+modification</td></tr>
+<tr><td>Non admis</td><td>Lecteurs réseau et dossiers synchronisés avec le cloud (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Recommandation</td><td>SSD externe — les clés USB ordinaires n'atteignent généralement
+pas ces valeurs</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (facultatif)</h3>
+<table>
+<tr><th></th><th>Prérequis</th></tr>
+<tr><td>Appareil</td><td>Tout NAS Synology sous DSM 7.0 ou version ultérieure — ARM ou
+Intel ; le paquet fournit des binaires natifs pour ARMv7, ARM64 et
+x86-64</td></tr>
+<tr><td>Performances</td><td>Volontairement léger : vérifié
+sur l'<b>appareil d'entrée de gamme DS214se</b> doté d'un processeur ARM monocœur et de
+256&nbsp;MB de RAM ; fonctionne sur tout modèle Synology sous DSM 7.0 ou version ultérieure, et
+les modèles actuels offrent nettement plus de réserves</td></tr>
+<tr><td>Mémoire / CPU</td><td>Aucune exigence particulière au-delà du NAS
+lui-même — le serveur n'effectue aucun travail d'analyse ; ses tâches d'arrière-plan
+se limitent à la transmission de paquets et à un nettoyage
+nocturne</td></tr>
+<tr><td>Espace de stockage</td><td>Quelques centaines de MB pour le paquet et la
+bibliothèque juridique ; les paquets de dossiers partagés ne croissent qu'avec ce que vous
+partagez réellement</td></tr>
+<tr><td>Réseau</td><td>Uniquement le réseau local du cabinet ; un port TCP (47712) avec authentification par jeton.
+DSM, Web Station et les
+ports 80/443 restent intacts</td></tr>
+<tr><td>Administration</td><td>N'importe quel navigateur du réseau local ; mot de passe
+administrateur propre ; clé de licence saisie une seule fois</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scannez le code pour enregistrer notre carte de contact — téléphone, e-mail et site.</p><p class="pref">N'hésitez pas à prendre contact directement via WhatsApp ou Telegram — un appel est également le bienvenu. Langues parlées : allemand, anglais, roumain.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Message</h5><h3 class="ct-ask">IRONSTICK ou une démonstration vous intéressent ? Écrivez-nous.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Demande IRONSTICK de" name="form"><div class="ct-fg"><label for="ct-name">Nom</label><input id="ct-name" type="text" name="name" placeholder="Votre nom" required></div><div class="ct-fg"><label for="ct-msg">Message</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Votre message" required></textarea></div><div class="ct-fg"><p class="ct-hint">L'envoi ouvre votre logiciel de messagerie avec le message préparé.</p><button type="submit">Envoyer le message</button></div><div class="u-form-send-success">Votre logiciel de messagerie s'ouvre. Veuillez y envoyer le message.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK est un logiciel pour la pratique juridique. Ce site est fourni à titre informatif uniquement et ne constitue pas un conseil juridique. © 2026 IRONSTICK.</p></footer>
+</body></html>

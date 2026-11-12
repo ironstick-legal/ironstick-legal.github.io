@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<title>IRONSTICK — Handleiding - Snelstart</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Snelstart — van de installatie naar uw eerste cliënten in zes stappen.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualquickstart_nl.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualquickstart_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualquickstart_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualquickstart_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualquickstart_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualquickstart_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualquickstart_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualquickstart_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualquickstart_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualquickstart_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualquickstart_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualquickstart.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="manualquickstart_nl.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_nl.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_nl.html">Home</a><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html">AI</a><span class="mh">Handleidingen</span><a class="sub" href="manualquickstart_nl.html" aria-current="page">Snelstart</a><a class="sub" href="manualironstick_nl.html">Client-app</a><a class="sub" href="manualbridge_nl.html">Bridge</a><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></div></div><nav class="mainnav"><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html">AI</a><div class="nav-drop" tabindex="0"><span>Handleidingen</span><div class="menu"><a href="manualquickstart_nl.html" aria-current="page">Snelstart</a><a href="manualironstick_nl.html">Client-app</a><a href="manualbridge_nl.html">Bridge</a></div></div><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_nl.html">30 dagen proberen</a><nav class="lang-wrap" tabindex="0" title="Taal" aria-label="Taal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualquickstart.html">English</a><a lang="de" hreflang="de" href="manualquickstart_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualquickstart_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualquickstart_fr.html">Français</a><a lang="it" hreflang="it" href="manualquickstart_it.html">Italiano</a><a lang="es" hreflang="es" href="manualquickstart_es.html">Español</a><a lang="pt" hreflang="pt" href="manualquickstart_pt.html">Português</a><a class="on" lang="nl" hreflang="nl" href="manualquickstart_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualquickstart_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualquickstart_uk.html">Українська</a><a lang="tr" hreflang="tr" href="manualquickstart_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Handleiding - Snelstart</h1></div><p class="gh-sub">Snelstart — van de installatie naar uw eerste cliënten in zes stappen.</p></div></section>
+
+<h2 id="q1">1. IRONSTICK installeren</h2>
+<figure><img src="img/screens/A%20installer.png" alt="Het IRONSTICK-installatieprogramma: taal, doelmap, snelkoppeling op het bureaublad, klaar voor installatie, installatie wordt uitgevoerd"><figcaption>Het installatieprogramma, scherm voor scherm.</figcaption></figure>
+<p class="scr-intro">Download het <a href="download_nl.html">installatieprogramma</a> en richt <span class="irs">IRONSTICK</span> met een paar klikken in op uw Windows-computer.
+Kies de taal van het installatieprogramma, de doelmap en of er een snelkoppeling op het bureaublad moet worden aangemaakt; daarna wordt het <a href="download_nl.html">programma</a> geïnstalleerd.
+Is <span class="irs">IRONSTICK</span> al geïnstalleerd, installeer de <a href="download_nl.html">nieuwe versie</a> er dan eenvoudig overheen – uw gegevens blijven waar ze zijn.</p>
+<h3 class="do">Wat u hier doet</h3>
+<h4>Installatieprogramma</h4>
+<ul>
+<li><b>Taal van het installatieprogramma.</b> Kies de taal van het installatieprogramma en bevestig met <i>OK</i>.</li>
+<li><b>Doelmap.</b> Voorgesteld wordt de map <i>C:\Program Files\IRONSTICK</i>. Behoud deze of kies met <i>Bladeren…</i> een andere.</li>
+<li><b>Snelkoppeling op het bureaublad.</b> Laat het vinkje staan als u een <span class="irs">IRONSTICK</span>-pictogram op het bureaublad wilt.</li>
+<li><b>Installeren.</b> Het overzicht toont de map en de snelkoppeling nog eens; <i>Installeren</i> start de installatie, en een voortgangsbalk laat zien hoe ver die is.</li>
+</ul>
+<h4>Eerste start</h4>
+<ul>
+<li><b>Licentiesleutel.</b> Bij de eerste start vraagt <span class="irs">IRONSTICK</span> om uw licentiesleutel. Typ hem over uit uw licentiedocument of plak hem.</li>
+<li><b>Beveiligingscode.</b> Na een geldige licentiesleutel ziet u een QR-code. Scan deze met een authenticator-app op uw telefoon. Vanaf dan toont <span class="irs">IRONSTICK</span> uw gegevens pas nadat u de zescijferige code uit die app hebt ingevoerd.</li>
+<li><b>Nieuwe telefoon.</b> Als u uw telefoon vervangt of verliest, voert u op het startscherm de licentiesleutel opnieuw in; de QR-code verschijnt dan weer, zodat u de nieuwe telefoon kunt instellen.</li>
+</ul>
+
+<h2 id="q2">2. Licentie, gebruiker en taal</h2>
+<figure><img src="img/screens/A%20config%20license%20user%20language.png" alt="Configuratie met het venster voor de licentiesleutel en de geopende gebruikerskaart met het taalveld"><figcaption>De licentiesleutel, uw gebruikerskaart en de taal van het programma.</figcaption></figure>
+<p class="scr-intro">Open de configuratie via het tandwielsymbool in de bovenste balk.
+Hier voert u uw licentiesleutel in of vernieuwt u hem, vult u uw gebruikerskaart in en kiest u de taal van de interface en van de AI-dialoog.
+Neem even een minuut voor de gebruikerskaart: uw gegevens worden gebruikt in brieven, processtukken en de licentieaanvraag.</p>
+<ol class="marks">
+<li><b>Licentiesleutel.</b> De link <i>Licentiesleutel</i> onder de versieregel opent het licentievenster. Typ of plak de sleutel en klik op <i>Activeren</i>. <i>Licentiesleutel aanvragen</i> controleert of uw gebruikerskaart volledig is en bereidt de aanvraagtekst met onderwerp en ontvanger voor, elk met een kopieerknop.</li>
+<li><b>Gebruiker.</b> Opent uw gebruikerskaart. Het nummer naast de titel identificeert uw installatie; het kleine symbool kopieert het.</li>
+<li><b>Velden uit de licentie.</b> Bedrijf, aanhef, voornaam en achternaam komen uit uw licentiesleutel en zijn vergrendeld (hangslot). Vul de overige velden in: functie, adres, land, telefoon, mobiele telefoon, e-mail, geboortedatum en de messenger-apps die u gebruikt.</li>
+<li><b>Taal.</b> De taal van de interface en van de AI-dialoog. Na <i>Opslaan</i> schakelt elk scherm direct over naar de nieuwe taal.</li>
+</ol>
+
+<h2 id="q3">3. AI-configuratie</h2>
+<figure><img src="img/screens/A%20config%20AI.png" alt="AI-configuratie met de gratis achtergronddiensten en de AI-diensten voor de ingebouwde chat"><figcaption>Gratis diensten voor achtergrondtaken en uw AI-diensten voor de ingebouwde chat.</figcaption></figure>
+<p class="scr-intro">De AI-configuratie bevat de toegangssleutels (API-sleutels) van de AI-diensten die <span class="irs">IRONSTICK</span> mag gebruiken.
+Er zijn twee soorten: gratis diensten die alleen achtergrondtaken uitvoeren, en de diensten voor de volledige AI-functies van de ingebouwde chat.
+U hebt een account nodig bij de betreffende dienst; de links onder elk veld leiden naar de registratiepagina, de gebruiksvoorwaarden en de privacypagina van die dienst.</p>
+<ol class="marks">
+<li><b>AI-configuratie.</b> Opent de kaart met alle AI-diensten.</li>
+<li><b>Gratis diensten voor achtergrondtaken.</b> Worden alleen gebruikt voor achtergrondwerk zoals de e-mailprioritering, de monitor voor gegevensconsistentie, de dagbriefing en het situatiebeeld. Klik op de link onder het veld om rechtstreeks bij de aanbieder een account aan te maken en daar een API-sleutel te genereren. Plak die API-sleutel in het veld en klik op <i>Opslaan</i>. De schakelaar naast de dienst zet deze dienst voor die taken aan of uit – ook als zijn API-sleutel opgeslagen blijft. De toelichting onder elke dienst vermeldt de voorwaarden van de aanbieder waaronder hij uw achtergrondtaken uitvoert.</li>
+<li><b>AI-diensten voor de ingebouwde chat.</b> Klik op de link onder het veld om rechtstreeks bij de aanbieder een account aan te maken en daar een API-sleutel te genereren. Plak de API-sleutel in het veld en klik op <i>Opslaan</i>. Aanbevolen is een tegoed van minimaal 20 dollar/euro per aanbieder. Stel bij voorkeur minimaal twee aanbieders in: zijn er meerdere diensten ingesteld, dan gebruikt <span class="irs">IRONSTICK</span> ze automatisch in de vaste, door de nummers aangegeven volgorde, de voordeligste eerst; zo neemt de volgende naadloos over en loopt uw werk zonder onderbreking door.</li>
+</ol>
+
+<h2 id="q4">4. Uw handtekening</h2>
+<figure><img src="img/screens/A%20config%20sign.png" alt="De handtekeningkaart met het tekenveld en de knoppen voor wissen, uploaden, verwijderen en opslaan"><figcaption>Teken uw handtekening één keer – of upload haar als afbeelding.</figcaption></figure>
+<p class="scr-intro">Uw handtekening wordt één keer in de configuratie opgeslagen.
+<span class="irs">IRONSTICK</span> plaatst haar overal waar u documenten ondertekent: in het afdrukvoorbeeld van de tekstverwerking en op de stempels van de producties.
+U kunt haar tekenen met de muis of op een touchscreen, of een scan van uw handtekening uploaden.</p>
+<ol class="marks">
+<li><b>Handtekeningen.</b> Opent de handtekeningkaart.</li>
+<li><b>Handtekeningveld.</b> Teken uw handtekening met de muis of met uw vinger. <i>Handtekeningveld wissen</i> begint opnieuw; <i>Afbeelding uploaden (JPG/PNG)</i> neemt in plaats daarvan een gescande handtekening over; <i>Verwijderen</i> verwijdert de opgeslagen handtekening; <i>Opslaan</i> slaat haar op. Het groene vinkje en het kleine voorbeeld tonen de momenteel opgeslagen handtekening.</li>
+</ol>
+
+<h2 id="q5">5. Briefpapiersjabloon</h2>
+<figure><img src="img/screens/A%20config%20template.png" alt="De kaart van het briefpapiersjabloon met de uploadknop"><figcaption>Het briefpapier van uw kantoor op uw processtukken.</figcaption></figure>
+<p class="scr-intro">Upload het briefpapier van uw kantoor één keer als A4-pdf.
+<span class="irs">IRONSTICK</span> plaatst uw processtukken op dit briefpapier; de tekst begint daaronder.
+In de tekstverwerking zet u het briefpapier per document aan of uit.</p>
+<ol class="marks">
+<li><b>Briefpapiersjabloon.</b> Opent de kaart voor het sjabloon.</li>
+<li><b>Sjabloon uploaden.</b> Kies de A4-pdf met uw briefpapier. Zolang er geen sjabloon is opgeslagen, wijst de kaart daarop.</li>
+</ol>
+
+<h2 id="q6">6. Uw cliënten importeren</h2>
+<figure><img src="img/screens/A%20client%20import.png" alt="De cliëntenlijst met het importvenster en de kolomtoewijzing"><figcaption>Importeer uw bestaande cliënten uit een ander programma.</figcaption></figure>
+<p class="scr-intro">U hoeft uw bestaande cliënten niet een voor een in te typen.
+Exporteer ze uit uw huidige programma of uw adresboek als CSV- of vCard-bestand en sleep dat bestand naar het importvenster.
+Hebt u tot nu toe geen cliëntenbeheer gebruikt, dan is een export uit uw declaratie- of facturatiesoftware vaak een geschikte bron voor de import.
+Een cliënt legt u handmatig vast met <i>Nieuwe cliënt</i>.</p>
+<ol class="marks">
+<li><b>Cliënt importeren.</b> Opent het importvenster. Sleep een CSV- of vCard-bestand (.vcf) naar het neerzetvlak. Sla Excel-werkmappen eerst op als CSV. Bij een CSV-bestand toont een tweede venster elke kolom met een voorbeeldwaarde en het veld waarin die terechtkomt; de toewijzing is vooraf ingevuld, en u kunt elk veld wijzigen. Minimaal één kolom moet aan de naam zijn toegewezen. Bevat het bestand één contact, dan opent het formulier <i>Nieuwe cliënt</i> al ingevuld; bevat het er meerdere, dan kiest u in een lijst de contacten die u wilt importeren – al bestaande cliënten zijn niet geselecteerd.</li>
+<li><b>Nieuwe cliënt.</b> Opent een leeg cliëntformulier voor een cliënt die u met de hand vastlegt.</li>
+</ol>
+
+<div class="boxorange"><b>En daarmee bent u klaar om uw zaken in <span class="irs">IRONSTICK</span> vast te leggen.</b> Of u al uw bestaande dossiers in <span class="irs">IRONSTICK</span> vastlegt of gewoon met <span class="irs">IRONSTICK</span> aan uw nieuwe zaken begint te werken, beslist u zelf. In de praktijk is een combinatie de beste aanpak gebleken: leg met de hand enkele belangrijke bestaande zaken vast die dringend de ondersteuning van <span class="irs">IRONSTICK</span> nodig hebben, en behandel tegelijk alle nieuwe zaken direct in <span class="irs">IRONSTICK</span>.</div>
+
+<footer class="sd-foot"><p>IRONSTICK is software voor de juridische praktijk. Deze website dient uitsluitend ter informatie en vormt geen juridisch advies. © 2026 IRONSTICK.</p></footer>
+</body></html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<title>Bir bakışta IRONSTICK</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Dosyalarınızı tanıyan hukuk bürosu yazılımı — yerel olarak bilgisayarınızda, yanınızda yapay zekâ ile.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview_tr.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_tr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_tr.html">Ana sayfa</a><a href="overview_tr.html" aria-current="page">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><span class="mh">Kılavuzlar</span><a class="sub" href="manualquickstart_tr.html">Hızlı başlangıç</a><a class="sub" href="manualironstick_tr.html">İstemci uygulaması</a><a class="sub" href="manualbridge_tr.html">Bridge</a><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></div></div><nav class="mainnav"><a href="overview_tr.html" aria-current="page">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><div class="nav-drop" tabindex="0"><span>Kılavuzlar</span><div class="menu"><a href="manualquickstart_tr.html">Hızlı başlangıç</a><a href="manualironstick_tr.html">İstemci uygulaması</a><a href="manualbridge_tr.html">Bridge</a></div></div><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_tr.html">30 gün deneyin</a><nav class="lang-wrap" tabindex="0" title="Dil" aria-label="Dil"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a class="on" lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Bir bakışta IRONSTICK</h1></div><p class="gh-sub">Dosyalarınızı tanıyan hukuk bürosu yazılımı — yerel olarak bilgisayarınızda, yanınızda yapay zekâ ile.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> müvekkilleri, davaları, delilleri, süreleri, e-postaları ve belgeleri tek bir dosyada bir araya getirir — ve yanınıza bu dosyayı eksiksiz tanıyan bir yapay zekâ verir. Siz sorarsınız, dosya her belgeye atıf yaparak yanıt verir. Aramak ve yeniden yazmak yerine kontrol eder ve imzalarsınız. Her şey şifrelenmiş olarak kendi donanımınızda bulunur.</p>
+
+<h2 class="ov-part">1. İş günü</h2>
+<h3 class="ov-h">Büro gününe tek bakışta genel görünüm</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="Büro gününe tek bakışta genel görünüm" loading="lazy"></figure>
+<p class="scr-intro"><b>Tüm gün üç sayfada.</b> <span class="irs">IRONSTICK</span>'i açın; gününüz zaten düzenlenmiş olarak sizi bekler.</p>
+<ul>
+<li><b>Başlangıç.</b> Tüm çalışma alanları ve sürelerinizin durumu tek bakışta.</li>
+<li><b>Ajanda.</b> Davalarınıza gelen her şey, gün gün — belgelerin önizlemesiyle birlikte.</li>
+<li><b>Isı haritası.</b> Son on iki ayın her günü bir kare olarak — renk ne kadar koyuysa davalarınızda o kadar çok şey olmuştur; süreler ve duruşma tarihleri işaretlidir. Altında alevlenen davalar yer alır: son 14 günde hareketliliği belirgin şekilde artmış olanlar.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Süre monitörü</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Süre monitörü" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Referans numaraları. Bir belgenin ya da bir yapay zekâ hatırlatmasının numarası tek tıkla kopyalanır — örneğin sohbete yapıştırmak için.</li>
+<li>Süreleri tamamlama. Belgelerden ve kronoloji kayıtlarından gelen süreler işaretlenip toplu olarak kaldırılır; yapay zekânın hatırlatmaları <i>Randevuyu sil</i> ile listeden çıkar.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>Randevuları ve süreleri yapay zekâ da belirler — doğrudan sizinle yaptığı konuşmadan. Bunlar listede bu simgeyle görünür.</li>
+</ol>
+<p class="scr-intro"><b>Hiçbir süreyi kaçırmayın.</b> Kaçırılan bir süre, mesleki sorumluluk doğurur. <span class="irs">IRONSTICK</span> tüm süreleri ve duruşma tarihlerini tek bir listede tutar ve ne kadar zaman kaldığını gösterir.</p>
+<ul>
+<li><b>Tüm süreler ve duruşma tarihleri tek listede</b> — tarih, dava ve son güne kalan gün sayısıyla; süresi geçmiş olanlar kırmızı, yaklaşanlar turuncu.</li>
+<li><b>Gelen evraktan süreler.</b> Yapay zekâ, gelen yazılardaki ve kararlardaki süreleri tanır ve kaydeder.</li>
+<li><b>Süre zili.</b> Bir süre önümüzdeki on gün içinde doluyorsa turuncu, son gün kırmızı — menü çubuğunda her zaman görünür.</li>
+<li><b>Süre listesini yazdırın</b> ya da PDF olarak alın.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Otomatik belge kaydı</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Otomatik belge kaydı" loading="lazy"></figure>
+<p class="scr-intro"><b>Gelen evrak kendiliğinden yerine oturur.</b> Tarayın, sürükleyip bırakın, onaylayın: <span class="irs">IRONSTICK</span> metni tanır, belgeyi doğru davaya atar ve süreyi kaydeder.</p>
+<ul>
+<li><b>Sayfaları seçin.</b> Yalnızca dosyaya ait olan sayfalar aktarılır.</li>
+<li><b>Yerleşik metin tanıma.</b> 35'ten fazla Avrupa dili için; hiçbir şey kurmanız gerekmez.</li>
+<li><b>Yazmak yerine öneri.</b> Yapay zekâ müvekkil, dava, belge türü, dil, tarih ve süre önerir — siz onaylarsınız.</li>
+<li><b>Şifrelenmiş olarak saklanır</b> ve anında tam metin olarak aranabilir.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">Böylece bir belgenin kaydı 20 saniyeden pek uzun sürmez — ve gelen evrakın tamamı kısa sürede dosyalara dağıtılır.</p>
+
+<h2 class="ov-part">2. Taslaktan başvuruya</h2>
+<h3 class="ov-h">Dilekçeler için kelime işlemci</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Dilekçeler için kelime işlemci" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Düzenle. Tam araç çubuğuyla düzenlenebilir sayfa.</li>
+<li>Önizleme. Belge, tek tek A4 sayfalar halinde, tam olarak yazdırılacağı şekilde.</li>
+<li>Baskı önizlemesi. Belgeyi kaydeder ve tüm eklerle birlikte baskı önizlemesini açar.</li>
+<li>Kaydet ve kapat. Belgeyi kaydeder ve metinler listesine geri döner.</li>
+</ol>
+<p class="scr-intro"><b>Saatler yerine dakikalar içinde dilekçeler — uydurma atıflar olmadan.</b> Zamanınız gelirinizdir ve yanlış bir kaynak gösterimi, yapay zekâ kullanımındaki en büyük risktir. Taslak, doğrudan dosyadan, yapay zekâ ile diyalog içinde oluşur — ve her mevzuat hükmü, her taraf ve her delil, siz görmeden önce dosyaya ve mevzuat kütüphanesine karşı kontrol edilir.</p>
+<ul>
+<li><b>Dosyadan.</b> Temel veriler, kronoloji, tam metinler, süreler ve ekler taslağa aktarılır.</li>
+<li><b>Düzenleme ve önizleme.</b> Metni değiştirin ve antetli kâğıdınızda basılı halinin nasıl göründüğünü hemen görün.</li>
+<li><b>Sunulmaya hazır şablon.</b> Siz kontrol eder, son halini verir ve imzalarsınız.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Baskı önizlemesi: Dilekçe ve ekler tek bir PDF'te</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Baskı önizlemesi: Dilekçe ve ekler tek bir PDF'te" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Belgeniz. Dilekçenin sayfaları — bir sayfaya sol tıklamak, imzanızı yerleştirme penceresini açar.</li>
+<li>Ekin başlık satırı. Her ekin kayıt numarası, ek numarası ve başlığı. Altında sayfaları: Sol tık bir sayfayı büyütülmüş gösterir, sağ tık onu PDF'ten çıkarır; ikinci bir sağ tık geri alır.</li>
+<li>Onay damgası. Her ek için açılıp kapatılabilir; damga metni, davanın görüldüğü ülkenin dilini izler.</li>
+<li>DOCX. Belge, Word dosyası olarak.</li>
+<li>PDF indirme. Tüm etkin sayfalardan oluşan bitmiş PDF.</li>
+</ol>
+<p class="scr-intro"><b>Başvuru hazır.</b> Dilekçe ve ekler damgalanmış, sayfa numaralandırılmış ve imzalanmış olarak tek bir PDF'te — fotokopi makinesi başında uğraşmak yerine.</p>
+<ul>
+<li><b>İmzayı yerleştirin.</b> Kayıtlı imzanız tek tıkla doğru yere yerleştirilir.</li>
+<li><b>Onay damgalı ekler.</b> Her ek kendi damgasını alır; tek tek sayfalar tek tıkla çıkarılabilir.</li>
+<li><b>PDF veya DOCX olarak çıktı</b> — dilekçe ve ekler tek dosyada, sayfa sayfa numaralandırılmış.</li>
+<li><b>Büyük davalar için de.</b> 3.000 sayfa damgalandı, sayfa numaralandırıldı ve tek bir PDF'te birleştirildi — 20 dakikadan kısa sürede.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Davanın tamamını kapsayan derleme</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Davanın tamamını kapsayan derleme" loading="lazy"></figure>
+<p class="scr-intro"><b>Eksiksiz dosya tek bir belgede.</b> Derleme sihirbazı, davanın tamamını sayfa numaralı bir derlemede bir araya getirir. Önce içine neyin gireceğini siz belirlersiniz.</p>
+<ul>
+<li><b>Belgeleri seçin.</b> Kronolojideki her kayıt tek tıkla eklenebilir ya da dışarıda bırakılabilir.</li>
+<li><b>Tek sayfaya kadar.</b> Her belgeden, derlemeye girecek sayfaları tam olarak siz seçersiniz.</li>
+<li><b>Önceden görün.</b> Belgeler, fotoğraflar, transkriptler ve sohbetler, seçimi değiştirmeden önizlemede açılır.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Davanın tamamını kapsayan derleme" loading="lazy"></figure>
+<p class="scr-intro"><b>Kapak sayfası, yapı ve baskı görünümü.</b> Ardından kapak sayfasını ve yapıyı belirler, derleme oluşturulmadan önce her sayfayı kontrol edersiniz.</p>
+<ul>
+<li><b>Seçilebilir kapak sayfaları.</b> Alıcıyı davanın kurumları arasından seçer ya da kendiniz girersiniz.</li>
+<li><b>Yargı alanının dilinde.</b> Kapak sayfası ve dizinler, davanın görüldüğü ülkenin dilinde oluşturulur; ülkenin birden fazla hukuk dili varsa dili siz seçersiniz.</li>
+<li><b>İstediğiniz yapı.</b> Kapak sayfası, konu dizini, kronoloji, belgeler, medya, transkriptler, sohbetler, kişi ve kurum dizini — ekleyin, çıkarın ve sürükleyerek sıralayın.</li>
+<li><b>Çıkarılan sayfalar anında görünür.</b> Baskı görünümü, bitmiş derlemenin her sayfasını gösterir; sayfalar orada hâlâ çıkarılabilir ya da geri alınabilir ve konu dizini sayfa numaralarını buna göre uyarlar.</li>
+<li><b>PDF veya EDRM olarak dışa aktarım.</b> Sayfa numaralı bir PDF derlemesi ya da Bates numaralı bir EDRM üretim paketi olarak.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Dosyayı anlamak</h2>
+<h3 class="ov-h">Dava asistanı</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Dava asistanı" loading="lazy"></figure>
+<p class="scr-intro"><b>Dosya anında aklınızda.</b> Duruşmadan ya da müvekkil görüşmesinden önce sayfaları karıştırmak yerine dosyaya sorarsınız — doğal dilde, klavyeyle ya da sesinizle.</p>
+<ul>
+<li>“Yargılamanın güncel durumunu özetle.” — “Karşı tarafın son yazısına yanıt verdik mi?” — “Tanık keşif hakkında ne söyledi?”</li>
+<li><b>Her yanıt kaynağıyla.</b> Atıf yapılan her belge, dosyanızdaki kayda giden tıklanabilir bir bağlantıdır.</li>
+<li><b>Rutin sorular bilgisayarınızda kalır.</b> Yerel bir katman bunları, hiçbir veri cihazdan çıkmadan yanıtlar.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Yapay zekâ ile dava değerlendirmesi</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="Yapay zekâ ile dava değerlendirmesi" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>Genel dava değerlendirmesinde, ilişkili davalar dahil dosyanın tamamı dikkate alınır.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>Başarı ihtimali için yalnızca makama sunulan ve makamdan gelen yazılar dikkate alınır.</li>
+</ol>
+<p class="scr-intro"><b>Müvekkilinize açıklayabileceğiniz başarı ihtimali.</b> Yapay zekâ ile dava değerlendirmesi dosyanın tamamını okur — kendi dilekçelerinizi de karşı taraftan gelen evrakı da — ve yargılamanın durumunu tek bir değerlendirmede özetler.</p>
+<ul>
+<li><b>Bir ölçek üzerinde başarı ihtimali</b> — delil durumu, asıl talep ve diğer talepler için ayrı değerlerle.</li>
+<li><b>Lehinize ve aleyhinize olanlar.</b> Güçlü ve zayıf yönler renkle işaretlenir; her ifade, dayandığı belgeye bir bağlantı içerir.</li>
+<li><b>Somut sonraki adımlar</b>, izlenecek yol için öneri olarak.</li>
+<li><b>Tek tuşla</b> — dosyaya yeni belgeler eklenir eklenmez, istediğiniz zaman yeniden.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">OSINT araştırmalı kişi ve şirket ağı</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="OSINT araştırmalı kişi ve şirket ağı" loading="lazy"></figure>
+<p class="scr-intro"><b>Elle kimsenin bulamayacağı bağlantıları görün.</b> Tüm davalarınızdaki kişiler, şirketler, kurumlar ve mahkemeler ortak bir ağ oluşturur — liste olarak, 3D evren olarak, 2D harita olarak ve coğrafi haritada. Özellikle ticaret, iflas ve ceza hukukunda büyük bir kazanç.</p>
+<ul>
+<li><b>Kaynağıyla bağlantılar.</b> Kimin hangi yargılamalarda yer aldığı, ilgililerin birbirine nasıl bağlı olduğu — ve neyle.</li>
+<li><b>Üç görünüm.</b> İçinde gezinebileceğiniz 3D evren, grupların 2D haritası ve tüm ilgilileri ve yerleri gösteren coğrafi harita.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>Dosyanız ve yapay zekânın OSINT araştırması birlikte çalışır.</b> Yapay zekâ, dosyalarınızın bir kişi ya da şirket hakkında bildiklerini açık kaynakların ortaya koyduklarıyla birleştirir. Her araştırma, ilgililer hakkında kalıcı bilgiye dönüşür — her davayla büyür ve tüm yargılamalarınızda kullanımınıza hazırdır.</p>
+<ul>
+<li><b>Yapay zekâ ile OSINT araştırması.</b> Yapay zekâya bir kişi ya da şirket adı verirsiniz — önce kendi dosyalarınızda, ardından internette araştırır: özgeçmiş, sosyal medya profilleri, basın, şirket ortaklıkları, ticaret sicili.</li>
+<li><b>Araştırma temel verilere dönüşür.</b> Yapay zekâ yeni kişileri, şirketleri ve ilişkileri kaynağıyla birlikte öneri olarak oluşturur; yalnızca sizin onayladıklarınız aktarılır.</li>
+<li><b>Karar analizi.</b> Dosyalarınızdaki her mahkeme kararı sabit bir şablona göre analiz edilebilir — argümanlar, hukuk, deliller, gerekçe; o mahkemeye bir dilekçe hazırlamadan önce yapay zekâ bu analizleri de okur.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Güvenlik ve işletim</h2>
+<h3 class="ov-h">Meslek sırrı</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Meslek sırrı" loading="lazy"></figure>
+<p class="scr-intro"><b>Meslek sırrı büroda kalır.</b> Yabancı veri merkezlerinde müvekkil verisi yok: Dosya, deliller ve belgeler kendi donanımınızda, <a href="gdpr_tr.html">GDPR'ye uygun</a> şekilde bulunur.</p>
+<ul>
+<li><b>AES-256 ile şifrelenmiş.</b> Veritabanı ve belgeler diskte şifrelenmiştir.</li>
+<li><b>Doğrulayıcı koduyla erişim.</b> Verileriniz ancak telefonunuzdaki altı haneli kod girildikten sonra görünür.</li>
+<li><b>Sağlayıcıya müvekkil verisi gitmez.</b> <a href="ki_tr.html">Harici yapay zekâ</a> kendi anahtarınızla çalışır; çağrılar takma adlandırılır.</li>
+<li><b>Çevrimdışı da çalışır.</b> Dosya, arama, belgeler ve yerel asistan internet olmadan çalışır.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Birlikte çalışın — bulut olmadan.</b> <a href="download_tr.html"><span class="irs">IRONSTICK</span> SERVER</a>, çalışma istasyonlarınızı kendi ağınızdaki bir Synology NAS üzerinden birbirine bağlar — bulut olmadan.</p>
+<ul>
+<li><b>Davaları paylaşın.</b> Tüm kullanıcılarla ya da hedefli olarak tek tek meslektaşlarla — her paylaşım istendiği zaman geri alınabilir.</li>
+<li><b>Davayı devredin.</b> Bir dava birkaç tıkla eksiksiz olarak bir meslektaşa geçer.</li>
+<li><b>NAS üzerinde şifreli.</b> Paylaşılan davalar, büronuzun sunucusunda AES-256 ile şifrelenmiş olarak bulunur.</li>
+<li><b>Herkes kendi dosyasını korur.</b> Eksiksiz dosya ayrıca her çalışma istasyonunda kalır.</li>
+<li><b>Ortak mevzuat kütüphanesi</b> ve kişiler ile şirketlerden oluşan ortak bir ağ.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Veri yedekleme</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Veri yedekleme" loading="lazy"></figure>
+<p class="scr-intro"><b>Tüm büronuz tek bir dosyada yedeklenir.</b> “Yedek oluştur” düğmesine bir tık yeter; veritabanı ve belgeler şifrelenmiş bir yedek dosyasına alınır.</p>
+<ul>
+<li><b>İstediğiniz yere kaydedin:</b> yerel olarak, harici bir SSD'ye ya da bir USB belleğe.</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER ile</b> yedek ayrıca büronuzun NAS'ında şifrelenmiş olarak bulunur.</li>
+<li><b>Son yedeklere genel bakış</b> — tarih ve boyutla birlikte.</li>
+<li><b>Geri yükleme</b>, bir yedek dosyasından birkaç tıkla.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>BT yükü yok — 30 gün ücretsiz deneyin.</b> <span class="irs">IRONSTICK</span> standart bir Windows bilgisayarda çalışır; güncellemeler doğrudan mevcut kurulumun üzerine yüklenir, tüm veriler korunur. Yazılımı <a href="download_tr.html">Download sayfasından</a> indirin; <a href="manualquickstart_tr.html">Hızlı başlangıç</a>, kurulumdan ilk müvekkillerinize kadar altı adımda size yol gösterir.</div>
+
+
+<h2 class="ov-part">5. Sistem gereksinimleri</h2>
+
+<h3 class="ov-h">İstemci uygulaması ve Bridge (isteğe bağlı)</h3>
+<table>
+<tr><th></th><th>Asgari</th><th>Önerilen</th></tr>
+<tr><td>İşletim sistemi</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, güncel güncellemelerle</td></tr>
+<tr><td>İşlemci</td><td>Modern 4 çekirdekli x64 (ör.&nbsp;Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 çekirdek — metin tanıma birden fazla sayfada
+paralel çalışır ve çevrimdışı konuşma tanıma her çekirdekten
+doğrudan yararlanır</td></tr>
+<tr><td>Bellek</td><td>8 GB RAM</td><td>16 GB RAM — büyük PDF'ler, derleme
+oluşturma ve ses transkripsiyonu için aynı anda rahat bir
+pay</td></tr>
+<tr><td>Depolama</td><td>20 GB boş alanlı SSD</td><td>100+ GB boş alanlı NVMe SSD
+— dosya arşivi, tam metin arama ve PDF oluşturma diske yoğun yük bindirir;
+hızlı bir SSD hissedilir bir fark yaratır</td></tr>
+<tr><td>Ekran</td><td>1920 × 1080</td><td>1920 × 1200 veya üzeri — dava
+ekranları dikey alanı cömertçe kullanır</td></tr>
+<tr><td>Grafik</td><td colspan="2">Ayrı bir ekran kartı gerekmez —
+her dahili grafik birimi yeterlidir</td></tr>
+<tr><td>Bağlantı</td><td colspan="2">İnternet yalnızca harici yapay zekâ,
+mevzuat güncellemeleri, e-posta, web araştırması, haritalar ve adres coğrafi kodlaması için gerekir — dosya, arama, belgeler ve yerel
+asistan tamamen çevrimdışı çalışır; tablet senkronizasyonu için
+boş bir USB bağlantı noktası</td></tr>
+</table>
+
+<h3 class="ov-h">Verileri harici bir sürücüde saklama (isteğe bağlı)</h3>
+<table>
+<tr><th>Kontrol noktası</th><th>Gereksinim</th></tr>
+<tr><td>Boş alan</td><td>En az 9&nbsp;GB veya mevcut veri miktarından
+1&nbsp;GB fazla</td></tr>
+<tr><td>Yazma / Okuma</td><td>En az 80&nbsp;MB/s / 150&nbsp;MB/s —
+sürekli yük altında da (başlangıç değerinin %60'ının altına düşmeden)</td></tr>
+<tr><td>Çok sayıda küçük dosya</td><td>Saniyede en az 250
+dosya</td></tr>
+<tr><td>Dosya sistemi</td><td>NTFS veya exFAT, FAT32 değil; yazmaya karşı
+korumalı veya kilitli olmamalı</td></tr>
+<tr><td>Güvenilirlik</td><td>Test verileri değişmeden geri
+okunmalıdır</td></tr>
+<tr><td>İzin verilmeyenler</td><td>Ağ sürücüleri ve bulut senkronizasyon klasörleri (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Öneri</td><td>Harici SSD — sıradan USB bellekler
+genellikle bu değerlere ulaşmaz</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (isteğe bağlı)</h3>
+<table>
+<tr><th></th><th>Gereksinim</th></tr>
+<tr><td>Cihaz</td><td>DSM 7.0 veya üzerini çalıştıran her Synology NAS — ARM veya
+Intel; paket ARMv7, ARM64 ve x86-64 için yerel ikili dosyalar
+içerir</td></tr>
+<tr><td>Performans</td><td>Bilinçli olarak hafif tasarlanmıştır: tek çekirdekli ARM işlemcili ve
+256&nbsp;MB RAM'li <b>giriş seviyesi DS214se</b> üzerinde
+doğrulanmıştır; DSM 7.0 veya üzerini çalıştıran her Synology modelinde çalışır ve
+güncel modeller çok daha fazla yedek kapasite sunar</td></tr>
+<tr><td>Bellek / CPU</td><td>NAS'ın ötesinde özel bir gereksinim yoktur
+— sunucu analiz işi yapmaz; arka plan görevleri paketlerin
+iletilmesi ve gece yapılan bir temizlikle
+sınırlıdır</td></tr>
+<tr><td>Depolama alanı</td><td>Paket ve mevzuat kütüphanesi için birkaç yüz MB;
+paylaşılan dava paketleri yalnızca gerçekten paylaştığınız
+ölçüde büyür</td></tr>
+<tr><td>Ağ</td><td>Yalnızca büronun yerel ağı (LAN); belirteç (token) kimlik doğrulamalı tek bir TCP bağlantı noktası (47712).
+DSM, Web Station ve
+80/443 numaralı bağlantı noktalarına dokunulmaz</td></tr>
+<tr><td>Yönetim</td><td>LAN'daki herhangi bir tarayıcı; ayrı
+yönetici parolası; lisans anahtarı bir kez girilir</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">İletişim</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK iletişim kartı (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">İletişim kartımızı kaydetmek için kodu tarayın — telefon, e-posta ve web sitesi.</p><p class="pref">Bize doğrudan WhatsApp veya Telegram üzerinden ulaşabilirsiniz — telefonla aramanız da memnuniyetle karşılanır. Konuşulan diller: Almanca, İngilizce, Rumence.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mesaj</h5><h3 class="ct-ask">IRONSTICK'e ya da bir demoya ilgi mi duyuyorsunuz? Bize yazın.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK talebi, gönderen:" name="form"><div class="ct-fg"><label for="ct-name">Ad</label><input id="ct-name" type="text" name="name" placeholder="Adınız" required></div><div class="ct-fg"><label for="ct-msg">Mesaj</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Mesajınız" required></textarea></div><div class="ct-fg"><p class="ct-hint">Gönderdiğinizde e-posta programınız hazırlanmış mesajla açılır.</p><button type="submit">Mesaj gönder</button></div><div class="u-form-send-success">E-posta programınız açılıyor. Lütfen mesajı oradan gönderin.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK, hukuk uygulamasına yönelik bir yazılımdır. Bu web sitesi yalnızca bilgilendirme amaçlıdır ve hukuki danışmanlık niteliği taşımaz. © 2026 IRONSTICK.</p></footer>
+</body></html>

@@ -1,0 +1,1410 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<title>IRONSTICK — Kılavuz - İstemci uygulaması</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Kullanıcı kılavuzu — her ekran: ne gördüğünüz ve neler yapabileceğiniz.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualironstick_tr.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualironstick_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualironstick_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualironstick_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualironstick_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualironstick_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualironstick_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualironstick_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualironstick_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualironstick_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualironstick_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<link rel="alternate" type="text/markdown" href="manualironstick_tr.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_tr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_tr.html">Ana sayfa</a><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><span class="mh">Kılavuzlar</span><a class="sub" href="manualquickstart_tr.html">Hızlı başlangıç</a><a class="sub" href="manualironstick_tr.html" aria-current="page">İstemci uygulaması</a><a class="sub" href="manualbridge_tr.html">Bridge</a><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></div></div><nav class="mainnav"><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><div class="nav-drop" tabindex="0"><span>Kılavuzlar</span><div class="menu"><a href="manualquickstart_tr.html">Hızlı başlangıç</a><a href="manualironstick_tr.html" aria-current="page">İstemci uygulaması</a><a href="manualbridge_tr.html">Bridge</a></div></div><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_tr.html">30 gün deneyin</a><nav class="lang-wrap" tabindex="0" title="Dil" aria-label="Dil"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualironstick.html">English</a><a lang="de" hreflang="de" href="manualironstick_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualironstick_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualironstick_fr.html">Français</a><a lang="it" hreflang="it" href="manualironstick_it.html">Italiano</a><a lang="es" hreflang="es" href="manualironstick_es.html">Español</a><a lang="pt" hreflang="pt" href="manualironstick_pt.html">Português</a><a lang="nl" hreflang="nl" href="manualironstick_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualironstick_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualironstick_uk.html">Українська</a><a class="on" lang="tr" hreflang="tr" href="manualironstick_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Kılavuz - İstemci uygulaması</h1></div><p class="gh-sub">Kullanıcı kılavuzu — her ekran: ne gördüğünüz ve neler yapabileceğiniz.</p></div></section>
+
+<h2 id="s0">Menü çubuğu</h2>
+<figure><img src="img/screens/0%20menubar.png" alt="Hamburger menü, gezinti yolu, kaynak göstergesi ve sağdaki simgelerle menü çubuğu ve IRONSTICK tarayıcı penceresi"><figcaption>Her ekranın üstünde yer alan menü çubuğu ve küre simgesiyle açılan IRONSTICK tarayıcı penceresi.</figcaption></figure>
+<p class="scr-intro">Menü çubuğu, <span class="irs">IRONSTICK</span> uygulamasının her ekranının üstünde yer alır; böylece önemli işlevlere her yerden ulaşırsınız.
+Solda gezinme menüsü ve küçük canlı göstergeleriyle birlikte program adı bulunur. Ortada günlük brifing yer alır. Sağda
+yeni e-postalar, süreler ve bildirimler için göstergeler, yapay zekâ sohbeti, tarayıcı penceresi, yapılandırma ve güç düğmesi bulunur. Çubuğun altındaki gezinti yolu, nerede olduğunuzu gösterir.
+Birçok simge yalnızca gösterilecek bir şey olduğunda görünür. Kırmızı, hareketli bir simge, sizi yeni bir şeyin beklediği anlamına gelir.</p>
+<ol class="marks">
+<li><b>Gezinti yolu.</b> Geçerli ekrana giden yolu gösterir, örneğin <i>Ana menü › Kurumlar</i>. Son bölüm, bulunduğunuz ekrandır. Doğrudan oraya dönmek için önceki bir bölüme tıklayın.</li>
+<li><b>Gezinme menüsü (hamburger).</b> Ana menü, Müvekkiller, Kurumlar, Kişiler, Süreler, Etiketler, Metinler ve Arama öğelerini içeren yan menüyü açar. Bulunduğunuz ekran mavi renkle vurgulanır. Menünün altındaki kırmızı güç simgesi, tıpkı güç düğmesi gibi programı kapatır.</li>
+<li><b>Kaynak göstergesi (yalnızca Windows).</b> Küçük bir çubuk ve <i>(CPU / RAM)</i> metni, <span class="irs">IRONSTICK</span> uygulamasının o anda ne kadar işlemci gücü ve bellek kullandığını gösterir. Çubuk yeşildir, %50'den itibaren turuncu ve %80'den itibaren kırmızı olur. O anda hangi arka plan görevlerinin ilerleme durumu ve çalışma süresiyle birlikte çalıştığını görmek için imleci üzerine getirin. Durdurulabilen görevlerde kırmızı bir X bulunur.</li>
+<li><b>Yapay zekâ belleği (pembe beyin).</b> Yapay zekâ belleğine not kaydettiği anda görünür. Yapay zekâ belleği okurken veya belleğe yazarken titreşir. Kaydedilen notları incelemek için üzerine tıklayın. Bir müvekkile ait tüm notları tek seferde silebilir ya da son 100 not arasından tek tek notları işaretleyip silebilirsiniz.</li>
+<li><b>Günlük brifing (hoparlör).</b> Günlük brifingi istediğiniz zaman açar: bugün neler var (süreler, duruşmalar, randevular, e-postalar), bugün neler tamamlandı ve kısa bir geriye bakış. İlgili ekranı açmak için bir satıra tıklayın, örneğin süreleri, takvimi, e-posta monitörünü veya davayı. <i>Sesli oku</i> sesli sürümü oynatır, <i>Durdur</i> ise sonlandırır. Bir anahtar yalnızca sesli metnin üslubunu değiştirir. Son yedeğiniz beş günden eskiyse brifing sizi uyarır.</li>
+<li><b>Veri tutarlılığı monitörü.</b> <span class="irs">IRONSTICK</span> uygulamasının e-postalarınızda bulduğu, müvekkil ve iletişim verilerinize ilişkin değişiklik önerilerinin listesini açar. Her öneri için <i>İzin ver</i> veya <i>Reddet</i> seçeneğini belirlersiniz. Bekleyen bir şey yoksa simge gri, öneriler varsa kırmızıdır. Ulusal bir mahkeme portalı yeni davalar önerdiğinde de simge hareketlidir (ülkeye özgü işlev).</li>
+<li><b>E-posta.</b> Yalnızca yapılandırmada arka planda e-posta denetimi açıksa görünür. Gri, yeni e-posta olmadığı anlamına gelir. Kırmızı ve hareketli olması yeni e-postaların geldiği anlamına gelir; araç ipucu kaç tane olduğunu gösterir. Her şeyin görülmüş sayıldığı e-posta monitörünü açmak için tıklayın.</li>
+<li><b>Yapay zekâ sohbeti (robot).</b> Yapay zekâ sohbetini açmak için tıklayın. Windows'ta kendi penceresinde açılır. Bir davada veya bir müvekkilin sayfasındaysanız, küçük mor bir nokta sohbetin bu davayı veya müvekkili zaten tanıdığını gösterir. Konuşma tanımayı açmak veya kapatmak için sağ tıklayın (tablette: basılı tutun). Açık olduğu sürece robot hareket eder, sohbet sizi dinler ve sesli yanıt verir. Harici bir masaüstü yapay zekâsı <span class="irs">IRONSTICK</span> ile bağlı olduğu sürece robot gizlenir. Tablette internet bağlantısı yoksa soluk görünür.</li>
+<li><b>Sunucu sohbeti.</b> Yalnızca <span class="irs">IRONSTICK</span> SERVER bağlıyken görünür. Sunucunun diğer kullanıcılarıyla bir sohbet açar. Yeşil nokta kullanıcının çevrim içi, kırmızı ise çevrim dışı olduğunu gösterir. Kendi mesajlarınızı silebilirsiniz; bir anahtar sohbetin sesini kapatır, böylece artık kendiliğinden açılmaz. Okunmamış bir mesaj olduğunda simge kırmızı olur ve hareketlenir.</li>
+<li><b>Süre zili.</b> En az bir sürenin bugün dolduğu veya geçtiği durumlarda kırmızıdır. Önümüzdeki on gün içinde dolacak süreler varsa turuncudur. Bekleyen bir şey yoksa gridir. Sayıyı görmek için imleci zilin üzerine getirin. Ulusal bir mahkeme portalından alınan bir duruşma bugün için planlanmışsa zil de hareketlenir (ülkeye özgü işlev). Bir tıklama her zaman süre genel bakışını açar.</li>
+<li><b>Güç düğmesi.</b> <span class="irs">IRONSTICK</span> uygulamasını onay sormadan anında kapatır. Geçici dosyalarını ve tarayıcı önbelleğini siler; <span class="irs">IRONSTICK</span> uygulamasını ve başlattığı tüm işlemleri sonlandırır.</li>
+<li value="13"><b>Yapılandırma (dişli çark).</b> Sistem bilgileri, depolama konumu, kullanıcı profili, yapay zekâ ayarları, e-posta hesabı, sunucu bağlantısı, imza ve antetli kâğıt içeren yapılandırma ekranını açar.</li>
+</ol>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>IRONSTICK tarayıcı penceresi (küre)</h4>
+<ul>
+<li><b>Tarayıcı penceresini açma.</b> Zil ile dişli çark arasındaki küre, her zaman tanıyabilmeniz için kırmızı çerçeveli <span class="irs">IRONSTICK</span> tarayıcı penceresini açar. Pencere açık olduğu sürece küre kırmızı yanıp söner. Pencere zaten açıksa başka bir şey olmaz.</li>
+<li><b>Başlangıç sayfası.</b> Başlangıç sayfası pencereyi tanıtır, yaygın sosyal ağlara hızlı erişim sunar ve <a href="index_tr.html"><span class="irs">IRONSTICK</span> web sitesindeki</a> en yeni haberleri gösterir; örneğin indirme bağlantısıyla birlikte yeni bir program sürümünü.</li>
+<li><b>Yapay zekâ sohbetinin sayfayı okumasını sağlama.</b> İstediğiniz sayfaya kendiniz gidin ve ardından sohbete örneğin <i>“Geçerli tarayıcı penceresine bak”</i> yazın. Sohbet sayfayı düz metin olarak (görseller olmadan) okur ve konuşmada kullanabilir. Aynı web sitesinin başka sayfalarını da açabilir ve oradan dosya indirebilir.</li>
+<li><b>Oturum açma ve güvenlik kontrollerini siz yaparsınız.</b> Oturum açma işlemlerini ve “İnsan mısınız?” kontrollerini bu pencerede kendiniz gerçekleştirirsiniz. Pencere, olağan tarayıcınızdan ayrı, kendine ait bir tarayıcı profili kullanır; bu nedenle bazı sitelerde bir kez oturum açmanız gerekir. Bu oturumlar bir sonraki kullanım için kayıtlı kalır. Kişisel gezinme için normal tarayıcınızı kullanın.</li>
+</ul>
+
+<h4>Yalnızca gerektiğinde görünen simgeler</h4>
+<ul>
+<li><b>Belge gelen kutusu (yalnızca Windows).</b> Belge gelen kutusunda işlenmemiş belgeler beklediği sürece kırmızı, hareketli bir gelen kutusu simgesi görünür. Araç ipucu kaç tane olduğunu gösterir. Belge yakalamayı açmak için üzerine tıklayın. Bekleyen bir şey yoksa simge kaybolur.</li>
+<li><b>Not iğnesi (<span class="irs">IRONSTICK</span> SERVER).</b> Meslektaşlarınız sunucuda bir davaya yeni notlar bıraktıysa kırmızı, hareketli bir iğne görünür. Her tıklama sizi okunmamış bir sonraki notun bulunduğu davaya götürür ve davanın pano sayfasını açar.</li>
+<li><b>Yapay zekâ hizmeti kullanılamıyor.</b> Kurduğunuz harici bir yapay zekâ hizmeti şu anda kullanılamıyorsa, ünlem işaretli kırmızı bir daire görünür. Her hizmet için nedeni ve bir sonraki deneme zamanını görmek üzere üzerine tıklayın. Bir hizmet bakiyesi tükendiği için durdurulduysa, <i>Yükle</i> sizi doğrudan yapay zekâ yapılandırmasındaki bu hizmete götürür.</li>
+<li><b>Bağlı masaüstü yapay zekâsı (yalnızca Windows).</b> Harici bir masaüstü yapay zekâ uygulaması verilerinizle çalıştığında, simgesi kaynak göstergesinin sağında görünür. Bir istek işlenirken titreşir. Bu oturumda hangi davaları ne ölçüde okuduğunu, <span class="irs">IRONSTICK</span> talimatlarını onaylayıp onaylamadığını ve kaç kural ihlali yaptığını görmek için imleci üzerine getirin.</li>
+</ul>
+
+<h4>Genel davranış</h4>
+<ul>
+<li><b>Pencereyi taşıma.</b> PC'de, program penceresini taşımak için menü çubuğunun herhangi bir boş alanını sürükleyin; tıpkı normal pencere başlık çubuğu gibi.</li>
+<li><b>Uzun kaydetme işlemlerinde kilitli.</b> Uzun bir kaydetme işlemi sürerken menü çubuğu ve gezinti yolu soluk görünür ve tepki vermez; geri de dönemezsiniz. İlerlemeyi takip edebilmeniz için alttaki ekran görünür kalır.</li>
+<li><b>Android tablette.</b> Çubuğun ortasında program adı yerine kırmızı bir <i>DESTROY</i> düğmesi bulunur. Onaydan sonra tüm <span class="irs">IRONSTICK</span> verilerini tabletten kalıcı olarak siler, uygulamanın kaldırılmasını başlatır ve uygulamayı kapatır. Bu işlem geri alınamaz. Tablette günlük brifing ve kaynak göstergesi yoktur.</li>
+</ul>
+
+<h2 id="s1">1. Ana menü</h2>
+<figure><img src="img/screens/1%20menu.png" alt="Başlangıç, Ajanda ve Isı haritası sekmeleriyle ana menü"><figcaption>Ana menü ve üç sekmesi: Başlangıç, Ajanda ve Isı haritası.</figcaption></figure>
+<p class="scr-intro">Ana menü, <span class="irs">IRONSTICK</span> kilidini açtıktan sonraki ilk ekrandır. Üstte üç sekme bulunur:
+<b>Başlangıç</b> bugün dikkatinizi gerektiren şeyleri gösterir ve programın her bölümünü açar,
+<b>Ajanda</b> tüm davalarınızda olan her şeyi tarih sırasına göre listeler,
+<b>Isı haritası</b> ise büronuzun son on iki ayda ne kadar aktif olduğunu gösterir.</p>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Başlangıç sekmesi</h4>
+<ul>
+<li><b>Bir bakışta süreler.</b> Süre kartı, süresi geçmiş bir şey yoksa önümüzdeki 30 gündeki sürelerin sayısıyla birlikte yeşil bir onay işareti gösterir. Süresi geçmiş süreler, listelenen ilk kayıtlarla birlikte kırmızı görünür. <i>Süre genel bakışı</i> tam listeyi açar.</li>
+<li><b>Müvekkil doğum günleri.</b> Bir müvekkilin doğum gününde ve sonraki iki gün boyunca süre kartının altında bir pasta görünür. Doğrudan o müvekkile gitmek için bir isme tıklayın.</li>
+<li><b>Sessiz davalar.</b> İkinci kart, 14 gündür hareketsiz olan davaları sayar ve ilk üçünü listeler. Hiçbir davanın gözden kaçmaması için tümünü görmek üzere karta tıklayın.</li>
+<li><b>Her modülü açma.</b> Her kutucuk programın bir bölümünü açar – müvekkiller, kişiler, kurumlar, belge yakalama, arama, takvim, günlük protokol, metin işleme, e-posta monitörü, zaman kaydı, kanunlar, yedekleme ve daha fazlası. Her kutucukta işlevinin kısa bir açıklaması bulunur.</li>
+<li><b>Kutucukları dilediğiniz gibi düzenleme.</b> Bir kutucuğu tutamağından tutarak yeni bir konuma sürükleyin. Sıralama bu bilgisayarda kaydedilir.</li>
+<li><b>Etiketler ve güvenlik.</b> Etiketler kutucuğu renkli etiketlerinizi gösterir ve etiket yönetimini açar. Güvenlik kutucuğu bu bilgisayarın durumunu (sistem, sürücüler, ağ) gösterir ve yapılandırmayı açar.</li>
+<li><b>Ses.</b> Ses kutucuğu, mevcut kayıtlar için ses kesme aracını açar; ikinci bağlantısı yapay zekâ transkripsiyonuyla canlı bir kayıt başlatır.</li>
+<li><b>Yalnızca gerektiğinde görünen kutucuklar.</b> <i>Sunucu davaları</i> yalnızca <span class="irs">IRONSTICK</span> SERVER bağlıyken görünür. Ülkeye özgü kutucuklar yalnızca bu işlevler açıksa görünür. PC gerektiren bazı kutucuklar (örneğin belge yakalama ve metin işleme) Android tablette gösterilmez.</li>
+</ul>
+
+<h4>Ajanda sekmesi</h4>
+<ul>
+<li><b>Her şey tek bir zaman çizelgesinde.</b> Akış üç gün geriye ve on gün ileriye uzanır: tüm davalardan kronoloji kayıtları, e-postalar, duruşmalar, süreler, dilekçeler, fotoğraflar ve transkriptler. Bugün eksiksiz gösterilir; gelecek ve geçmiş günler birer çubuk içinde daraltılmıştır. Gelecek günleri tek tek açmak için yukarı kaydırın; bugüne geri dönmek için bugünün çubuğuna tıklayın.</li>
+<li><b>Her kayıt bir sonraki adıma götürür.</b> Gri numaralar (müvekkil / dava / belge) ile mavi müvekkil adı ve yeşil dava numarası, her biri ilgili ekranı açar. PDF belgeleri en fazla dört sayfa önizlemesi gösterir – belgenin tamamında gezinmek için birine tıklayın. Görseller yakınlaştırmalı tam ekranda açılır; ekli dosyalar <span class="irs">IRONSTICK</span> tarayıcı penceresinde açılır. Bir günlük protokol kaydı tam metnini açar.</li>
+<li><b>Hızlı erişimler ve filtreler.</b> Soldaki çubuk müvekkilleri, kişileri, kurumları, aramayı, takvimi, süreleri, günlük protokolü, e-posta monitörünü ve zaman kaydını açar. Yalnızca zamana bağlı kayıtları görmek için <i>Süreler ve duruşmalar</i> seçeneğini, kompakt bir düz metin listesi için <i>Önizleme kapalı</i> seçeneğini işaretleyin.</li>
+</ul>
+
+<h4>Isı haritası sekmesi</h4>
+<ul>
+<li><b>Temel göstergeler.</b> Dört kutucuk son on iki aydaki etkinliği, aktif gün sayısını, en yoğun günü ve süre ile duruşma sayısını gösterir.</li>
+<li><b>Etkinlik takvimi.</b> Her kare bir gündür; yeşil ne kadar koyuysa o kadar çok şey olmuştur. Kırmızı nokta bir süreyi, sarı nokta bir duruşmayı işaret eder. Neler olduğunu (kronoloji kayıtları, dilekçeler, e-postalar, sohbet, çalışılan dakikalar) görmek için imleci bir günün üzerine getirin. Son üç günden birine tıklamak o günü ajandada açar.</li>
+<li><b>Müvekkil bazında.</b> Seçim listesi, ısı haritasının tamamını tek bir müvekkille sınırlar.</li>
+<li><b>Hareketlenen davalar.</b> Takvimin altında aniden hareketlenen davalar listelenir. Davayı açmak için dava numarasına, o müvekkilin davalarını görmek için müvekkil adına tıklayın.</li>
+</ul>
+
+<h4>Başlangıçtaki bildirimler</h4>
+<ul>
+<li><b>Günlük brifing.</b> Günün ilk açılışında <span class="irs">IRONSTICK</span>, gününüze ilişkin kısa, sesli bir genel bakış olan günlük brifingi dinlemek isteyip istemediğinizi sorar.</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER.</b> Sunucu bulunur ancak bu iş istasyonunun sunucuya erişimi yoksa, program her başlatıldığında bir bildirim sizi bu konuda uyarır; normal şekilde çalışmaya devam edebilirsiniz.</li>
+</ul>
+
+<h2 id="s2">2. Yapılandırma</h2>
+
+<h3>Sistem ve veritabanı</h3>
+<figure><img src="img/screens/2%20konfig%201-2.png" alt="Sistem ve Veritabanı kartları açık yapılandırma ekranı"><figcaption>Sistem ve Veritabanı kartları açık olan yapılandırma listesi.</figcaption></figure>
+<p class="scr-intro">Yapılandırma (menü çubuğundaki dişli çark), <span class="irs">IRONSTICK</span> uygulamasının tüm ayarlarını tek bir sayfada kartlardan oluşan bir liste olarak bir araya getirir. Bir kartı açmak için başlığına, kapatmak için yeniden tıklayın. Her seferinde yalnızca bir kart açıktır.
+<b>Sistem</b> kartı, destek için bu bilgisayara ait bilgileri gösterir. <b>Veritabanı</b> kartı, ne kadar veriniz olduğunu ve bunların diskte nerede saklandığını gösterir.
+Program sürümü ve lisans anahtarı sayfanın sonunda yer alır.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Sistem (yalnızca Windows)</b></p>
+<ul>
+<li><b>Bir bakışta bilgisayar.</b> Dört kutucuk işlemciyi, yüklü belleği, grafik kartını ve depolama alanını gösterir. Bunların altında, Windows'un <i>Ayarlar › Sistem › Hakkında</i> bölümünde gösterdiği cihaz ve Windows bilgileri yer alır. Her değeri seçip kopyalayabilirsiniz; örneğin bir destek talebi için.</li>
+<li><b>Sürücüler.</b> Bir liste her sürücüyü kapasitesi, kullanılan alanı ve üreticisiyle birlikte gösterir. Windows Gezgini'nde açmak için bir sürücüye tıklayın.</li>
+<li><b>Windows'a hızlı erişim.</b> Alttaki düğmeler Windows Ayarları'nı, Ethernet ağ bağlantısının özelliklerini, tam ağ yapılandırmasını gösteren bir komut penceresini ve ses düzeyi karıştırıcısını açar.</li>
+</ul>
+<p class="grp"><b>Veritabanı</b></p>
+<ul>
+<li><b>Rakamlarla verileriniz.</b> Kart başlığı veritabanının boyutunu gösterir. İçinde müvekkil, dava, delil kaydı, belge, varlık, dosya, protokol kaydı ve oturum açma sayılarını, ayrıca sürücünün toplam ve boş alanını görürsünüz.</li>
+<li><b>Şu anda kullanılan.</b> Gri bir alan, <span class="irs">IRONSTICK</span> uygulamasının şu anda çalıştığı klasörü gösterir. Tüm veriler bu tek klasörde bulunur: veritabanı, lisans, yapılandırma ve her dosya.</li>
+<li><b>Depolama konumunu değiştirme (PC).</b> <i>Klasör seç</i> ile yeni bir depolama konumu seçersiniz; örneğin bir USB bellek veya başka bir sürücü. <i>IRONSTICK</i> klasörü orada otomatik olarak oluşturulur. Taşımayı başlatmak için <i>Kaydet</i> düğmesine tıklayın. <span class="irs">IRONSTICK</span> önce ne kadar verinin taşınacağını size bildirir. Ardından seçilen sürücüyü test eder (örneğin hız, boş alan ve yazma koruması) ve yalnızca sürücü testi geçerse devam eder. Onayladığınızda <span class="irs">IRONSTICK</span> kapanır ve verileri bir sonraki açılışta taşır.</li>
+<li><b>Veriler zaten yeni konumda.</b> Seçilen klasörde zaten <span class="irs">IRONSTICK</span> verileri varsa, size sorulmadan hiçbir şeyin üzerine yazılmaz. İki kopya karşılaştırılır ve orada bulunan kopyanın mı kullanılacağını yoksa mevcut verilerinizle mi değiştirileceğini siz seçersiniz.</li>
+<li><b>Android tablette.</b> Veri klasörü sabittir (USB senkronizasyonunun kopyaladığı klasördür), bu nedenle orada seçilecek bir şey yoktur.</li>
+</ul>
+<p class="grp"><b>Kullanıcı (yalnızca PC)</b></p>
+<ul>
+<li><b>Profiliniz.</b> Üçüncü kart bilgilerinizi içerir: şirket, görev, hitap, ad ve soyad, adres, ülke, telefon, cep telefonu, e-posta, Facebook, doğum tarihi ve hangi mesajlaşma uygulamalarını kullandığınız (WhatsApp, Signal, Telegram, Viber). Kaydetmek için <i>Kaydet</i> düğmesine tıklayın. <span class="irs">IRONSTICK</span> SERVER kullanıyorsanız, doğum tarihiniz doğum günü kutlamaları için sunucuyla paylaşılır.</li>
+<li><b>Lisansınızdan alınan alanlar.</b> Lisans etkinse şirket, hitap ve ad lisans anahtarından gelir ve burada değiştirilemez.</li>
+<li><b>Numaranız.</b> Kullanıcı numaranız kart başlığının yanında parantez içinde yer alır. Kopyalama simgesi onu panoya alır; örneğin bir lisans talebi için.</li>
+<li><b>Program dili.</b> Programın dilini seçin ve kaydedin. <span class="irs">IRONSTICK</span> ardından yeni dilde yeniden yüklenir ve ana menüye döner. Açık bir sohbet penceresi kapanır ve bir sonraki açılışta yeni dilde açılır.</li>
+</ul>
+
+<h3>Masaüstü yapay zekâsı ve yapay zekâ yapılandırması</h3>
+<figure><img src="img/screens/2%20konfig%203-4.png" alt="Yerel MCP sunuculu yapay zekâ ve Yapay zekâ yapılandırması kartları açık yapılandırma ekranı"><figcaption>Bir masaüstü yapay zekâ uygulamasını bağlamaya ve harici yapay zekâ hizmetlerine yönelik kartlar.</figcaption></figure>
+<p class="scr-intro">Bu iki kart, yapay zekânın verilerinizle nasıl çalıştığını yönetir. <b>Yerel MCP sunuculu yapay zekâ</b>, bu bilgisayarda yüklü bir yapay zekâ uygulamasının <span class="irs">IRONSTICK</span> verilerinize doğrudan erişmesini sağlar. Bu isteğe bağlıdır ve programın çalışması için gerekli değildir.
+<b>Yapay zekâ yapılandırması</b> bölümüne, <span class="irs">IRONSTICK</span> uygulamasının yapay zekâ işlevleri ve arka plan görevleri için kullandığı harici yapay zekâ hizmetlerinin erişim anahtarlarını girersiniz.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Yerel MCP sunuculu yapay zekâ</b></p>
+<ul>
+<li><b>Kartın ne zaman göründüğü.</b> Kart yalnızca PC'de ve yalnızca <a href="download_tr.html">lisansınıza</a> en az bir masaüstü yapay zekâ uygulaması dahilse gösterilir.</li>
+<li><b>Erişime izin verme.</b> İlk anahtar, bağlı masaüstü yapay zekâsının <span class="irs">IRONSTICK</span> uygulamasına erişip erişemeyeceğini belirler. Kapalıysa harici bağlayıcı programa ulaşamaz.</li>
+<li><b>Gezinmeye izin verme.</b> İkinci anahtar, masaüstü yapay zekâsının programı yönetmesine izin verir; örneğin belgeleri açmak veya bir dışa aktarma başlatmak için. Yalnızca erişime izin verildiyse çalışır.</li>
+<li><b>Bir uygulamayı kurma.</b> Lisanslı her <a href="manualbridge_tr.html">masaüstü yapay zekâ uygulaması</a> için renkli bir <i>… kur</i> düğmesi bulunur. Bir tıklama <span class="irs">IRONSTICK</span> uygulamasını o uygulamaya kaydeder ve kalan adımları, genellikle uygulamanın yeniden başlatılmasını açıklar. Qwen Desktop'ta kurulum metni panoya kopyalanır ve siz bunu uygulamanın ayarlar iletişim kutusuna yapıştırırsınız.</li>
+<li><b>Beceri eklentileri.</b> <i>IRONSTICK beceri eklentisi oluştur</i> ve <i>… eklentisi oluştur</i>, masaüstü yapay zekâ uygulaması için bir beceri paketi oluşturur. Bir mesaj, dosyayı uygulamaya sürükleyebilmeniz için nereye kaydedildiğini gösterir.</li>
+<li><b>Masaüstü yapay zekâsını yeniden başlatma (Windows).</b> Açık kırmızı düğme, listelenen masaüstü yapay zekâ uygulamalarını kapatır ve onayınızdan sonra yeniden başlatır. Bir uygulama <span class="irs">IRONSTICK</span> ile bağlantısını kaybettiğinde bunu kullanın.</li>
+<li><b>Bağlantılar.</b> Düğmelerin altındaki bağlantılar, her uygulamanın indirme sayfasını, kullanım koşullarını ve gizlilik politikasını <span class="irs">IRONSTICK</span> tarayıcı penceresinde açar.</li>
+</ul>
+<p class="grp"><b>Yapay zekâ yapılandırması</b></p>
+<ul>
+<li><b>Otomatik sıralama.</b> Tek bir hizmet seçmezsiniz. Anahtarı kayıtlı her hizmet, sabit bir sırayla, en uygun fiyatlısı önce olmak üzere otomatik olarak kullanılır. Bir hizmet devre dışı kalırsa <span class="irs">IRONSTICK</span> isteği bir sonrakine iletir. Devre dışı kalan hizmet, hataya bağlı bir bekleme süresinden sonra yeniden denenir; yalnızca bakiyesi tükendiyse veya neden bilinmiyorsa günün geri kalanında atlanır.</li>
+<li><b>Durum göstergesi.</b> Her hizmetin önündeki yuvarlak gösterge, sıralamadaki yerini gösterir. Yeşil kullanılabilir, kırmızı şu anda kullanılamaz, gri ise anahtar kayıtlı olmadığı anlamına gelir. Nedeni ve bir sonraki deneme zamanını görmek için imleci kırmızı bir göstergenin üzerine getirin.</li>
+<li><b>Arka plan görevleri için ücretsiz hizmetler.</b> Kalın çizginin üstündeki hizmetler, yalnızca arka plan görevleri için kullanılan ücretsiz tekliflerdir; örneğin e-posta önceliklendirmesi, veri tutarlılığı monitörü, günlük brifing ve durum tablosu. Göstergelerinde bir saat bulunur. Her birinin kendi açma/kapama anahtarı vardır ve kırmızı bir uyarı metni, verilerinizin bu sağlayıcıya gittiğini size hatırlatır. Açmadan önce sağlayıcının koşullarını veri koruma (GDPR) açısından dikkatle okuyun.</li>
+<li><b>Ücretli hizmetler.</b> Kalın çizginin altındaki hizmetler gösterilen sırayla kullanılır. <i>Red/Blue Team'e izin ver</i> anahtarları, yapay zekânın tamamlanmış bir dilekçeyi eleştirel bir denetçi olarak ikinci kez okumasını ve metin tarafından desteklenmeyen her şeyi işaretlemesini sağlar. Önemli bulgular sonucun teslimini durdurur. Anahtar, ancak bu hizmet için bir anahtar kaydedildiğinde kullanılabilir.</li>
+<li><b>Anahtar girme.</b> Erişim anahtarını anahtar alanına yapıştırın ve <i>Kaydet</i> düğmesine tıklayın. Göz simgesi anahtarı gösterir veya gizler. Sıralama ve göstergeler anında güncellenir.</li>
+<li><b>Hesap bağlantıları.</b> Her hizmetin altında hesap ve erişim anahtarı oluşturmaya, bakiye sorgulamaya (bazı hizmetlerde) ve kullanım koşulları ile gizlilik politikasına giden bağlantılar bulunur. Bunlar <span class="irs">IRONSTICK</span> tarayıcı penceresinde açılır.</li>
+</ul>
+
+<h3>E-posta monitörü ve arka plan görevleri</h3>
+<figure><img src="img/screens/2%20konfig%205-6.png" alt="E-posta monitörü ve Arka plan görevleri kartları açık yapılandırma ekranı"><figcaption>E-posta hesabı ayarları ve otomatik arka plan görevlerine ait anahtarlar.</figcaption></figure>
+<p class="scr-intro"><b>E-posta monitörü</b> bölümünde, <span class="irs">IRONSTICK</span> uygulamasının yeni e-postaları alıp davalarınızla eşleştirebilmesi için posta kutunuzu bağlarsınız.
+<b>Arka plan görevleri</b>, otomatik çalışan görevleri her biri için bir anahtarla bir araya getirir; böylece neyin kendiliğinden çalışabileceğine ve hangi görevlerin harici yapay zekâ kullanabileceğine siz karar verirsiniz.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>E-posta monitörü</b></p>
+<ul>
+<li><b>Arka planda denetim.</b> Üstteki anahtar otomatik e-posta denetimini açar veya kapatır. Açıksa postalar program başlarken ve ardından her beş dakikada bir denetlenir; e-posta simgesi de menü çubuğunda görünür. Kapalıysa ikisi de gerçekleşmez.</li>
+<li><b>Posta hizmetinizi seçme.</b> Listeden sağlayıcınızı seçin (örneğin Gmail, Outlook / Hotmail, Yahoo, GMX, Web.de, T-Online, Bluewin veya ProtonMail); sunucu, bağlantı noktası ve şifreleme sizin için doldurulur. Başka herhangi bir sağlayıcı için <i>Diğer</i> seçeneğini belirleyip bilgileri elle girersiniz.</li>
+<li><b>Oturum açma.</b> Kullanıcı adınızı veya e-posta adresinizi ve parolanızı girin. Birçok sağlayıcı ayrı bir uygulama parolası ister. Göz simgesi parolayı gösterir veya gizler.</li>
+<li><b>Posta URL şablonu.</b> Bir e-postanın web postanızda açılmasını sağlayan web adresi. <i>{email}</i> ve <i>{subject}</i> yer tutucuları otomatik olarak doldurulur.</li>
+<li><b>Kaydetme ve test etme.</b> <i>Kaydet</i> ayarları kaydeder. <i>Bağlantıyı test et</i> posta kutunuzda oturum açar ve gelen kutunuzdaki mesaj sayısını ya da hatayı bildirir.</li>
+</ul>
+<p class="grp"><b>Arka plan görevleri</b></p>
+<ul>
+<li><b>Dava açıklamalarını otomatik güncelleme (harici yapay zekâ).</b> Dava açıklamalarını günde bir kez yeni belgeler ve tarihlerle güncel hâle getirir. Bu, harici yapay zekâ kullanır. Açarak harici yapay zekâ tarafından işlenmeye açıkça onay vermiş olursunuz.</li>
+<li><b>Mahkeme portalını otomatik sorgulama.</b> Ulusal mahkeme portalından yeni dosya verilerini ve tarihleri alır. Yalnızca veri alır ve yapay zekâ kullanmaz. Ülkeye özgü bu anahtar yalnızca Romanya'ya ait ülke işlevleri etkinse görünür.</li>
+<li><b>E-postaları otomatik alma.</b> Arka planda yeni e-postaları denetler ve davalarla eşleştirir; harici yapay zekâ yalnızca aciliyetlerini değerlendirir. Bu, yukarıdaki E-posta monitörü kartındaki anahtarın aynısıdır.</li>
+</ul>
+
+<h3><span class="irs">IRONSTICK</span> SERVER ve imzalar</h3>
+<figure><img src="img/screens/2%20konfig%207-8.png" alt="IRONSTICK SERVER ve İmzalar kartları açık yapılandırma ekranı"><figcaption><span class="irs">IRONSTICK</span> SERVER bağlantısı ve imza alanı.</figcaption></figure>
+<p class="scr-intro"><b><span class="irs">IRONSTICK</span> SERVER</b>, bu iş istasyonunu büronuzun ortak sunucusu olan <span class="irs">IRONSTICK</span> SERVER'a bağlar ve sunucuda başka kimlerin çalıştığını gösterir.
+<b>İmzalar</b> bölümüne, <span class="irs">IRONSTICK</span> uygulamasının belgelerinize ekleyebileceği el yazısı imzanızı kaydedersiniz. Bu kartların altında antetli kâğıt şablonu, oturum açma günlüğü ve sürüm satırı yer alır.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b><span class="irs">IRONSTICK</span> SERVER</b></p>
+<ul>
+<li><b>Sunucu bağlantısı.</b> Anahtar bağlantıyı açar veya kapatır. Sunucu araması yalnızca anahtar açıkken çalışır. Durum satırı bağlı olup olmadığınızı, erişimin talep edilip onay beklediğini veya hiçbir sunucu bulunamadığını gösterir. Bağlanana kadar kartın geri kalanı soluk görünür.</li>
+<li><b>Sunucu sayfaları.</b> Bağlantı kurulduğunda yeşil durum satırına tıklamak sunucunun web sayfasını açar. İki düğme, sunucu depolamasının yönetim sayfasını ve <span class="irs">IRONSTICK</span> SERVER yönetimini açar. Her sayfa kendi erişim bilgilerini ister.</li>
+<li><b>Kullanıcılar.</b> Liste, sunucuya kayıtlı her kullanıcıyı gösterir. Yeşil nokta kullanıcının çevrim içi olduğu anlamına gelir.</li>
+</ul>
+<p class="grp"><b>İmzalar (yalnızca PC)</b></p>
+<ul>
+<li><b>İmzanızı çizme.</b> Beyaz alanda fare, kalem veya parmakla imza atın ve ardından <i>Kaydet</i> düğmesine tıklayın. <i>İmza alanını temizle</i> çizimi siler; böylece baştan başlayabilirsiniz.</li>
+<li><b>İmza yükleme.</b> <i>Görsel yükle (JPG/PNG)</i>, bunun yerine taranmış bir imzayı kaydeder.</li>
+<li><b>Kayıtlı imza.</b> Yeşil bir onay işareti ve küçük bir önizleme, o anda kayıtlı imzayı gösterir. <i>Sil</i> imzayı kaldırır.</li>
+</ul>
+<p class="grp"><b>Antetli kâğıt şablonu (yalnızca PC)</b></p>
+<ul>
+<li><b>Antetli kâğıdınızı yükleme.</b> <i>Şablon yükle</i>, büronuzun antetini içeren dikey A4 bir PDF'yi alır. Açılan pencerede kırmızı çizgiyi antedin alt kenarına sürükleyin (veya tıklayın) ve ardından kaydedin. Dilekçelerinizin metni bu çizginin altından başlar.</li>
+<li><b>Kontrol etme ve ayarlama.</b> Bir önizleme kayıtlı antedi gösterir. <i>Antet yalnızca ilk sayfada</i> anahtarı, antedi her sayfa yerine yalnızca ilk sayfaya basar. <i>Şablonu kaldır</i> antedi siler.</li>
+</ul>
+<p class="grp"><b>Oturum açma günlüğü ve sürüm</b></p>
+<ul>
+<li><b>Oturum açma günlüğü.</b> Son kart, en yenisi önce olmak üzere son 50 oturum açmayı listeler: zaman, kullanıcı numarası, harici ve dahili IP adresi, konum, ülke, cihaz, işletim sistemi, tarayıcı ve bir güvenlik değerlendirmesi. Metni seçebilir veya tablonun tamamını kopyalama simgesiyle kopyalayabilirsiniz.</li>
+<li><b>Sürüm.</b> Sayfanın sonundaki satır, veri klasörünüzde bulunan Windows programının ve Android uygulamasının sürümünü gösterir.</li>
+<li><b>Lisans anahtarı (PC).</b> Yeni veya uzatılmış bir anahtar girmek için <i>Lisans anahtarı</i> seçeneğine, ardından <i>Etkinleştir</i> düğmesine tıklayın. Anahtar geçersizse, süresi dolmuşsa, henüz geçerli değilse veya başka bir kullanıcıya aitse nedeni size bildirilir. <i>Lisans anahtarı iste</i> hazır bir talep hazırlar. Etkinleştirmeden sonra, gösterilen QR kodunu tarayarak kimlik doğrulama uygulamanızı yeniden kurarsınız ve lisanslı modüller anında etkinleşir.</li>
+</ul>
+
+<h2 id="s3">3. Müvekkiller</h2>
+<figure><img src="img/screens/3%20clients.png" alt="Arama alanı, içe aktarma ve yeni müvekkil düğmeleri, bir QR kodu penceresi ve bir sosyal medya penceresi içeren müvekkil listesi"><figcaption>Bir satırdan açılan QR kodu penceresi ve sosyal medya penceresiyle birlikte müvekkil listesi.</figcaption></figure>
+<p class="scr-intro">Müvekkil listesinde tüm müvekkilleriniz yer alır. Her satır, müvekkilin referans numarasını, adını, şehrini, telefonunu, sosyal medyasını, e-postasını ve dava sayısını gösterir.
+Buradan yeni müvekkiller oluşturur, mevcut kişileri içe aktarır, listeyi yazdırır ve bir müvekkilin davalarını açarsınız.
+Görselde ayrıca WhatsApp simgesiyle açılan QR kodu penceresi ve sosyal medya simgesiyle açılan sosyal medya penceresi de görülmektedir.</p>
+
+<ol class="marks">
+<li><b>Arama.</b> Siz yazdıkça listeyi daraltır. Adlarda, telefon numaralarında ve e-posta adreslerinde arama yapar; yıldız işareti (*) joker karakter olarak çalışır.</li>
+<li><b>Müvekkil içe aktar.</b> Müvekkilleri bir CSV dosyasından veya bir vCard dosyasından içe aktarır.</li>
+<li><b>Yeni müvekkil.</b> Boş bir müvekkil formu açar.</li>
+<li><b>Listeyi yazdır.</b> Müvekkil listesinin tamamının, Belgeler klasörünüze veya Google Drive'a kaydettiğiniz bir PDF'sini oluşturur.</li>
+<li><b>Müvekkil referansı.</b> Mor numara (örneğin <i>@C0000001</i>) müvekkilin referans numarasıdır. Panoya kopyalamak için üzerine tıklayın; örneğin sohbete veya bir belgeye yapıştırmak için.</li>
+<li><b>Davalar.</b> Bu müvekkilin dava sayısı. Kırmızı bir bulut, en az bir davanın <span class="irs">IRONSTICK</span> SERVER üzerinden paylaşıldığını; kırmızı bir alev, en az bir davanın kısa süre önce hareketlendiğini gösterir.</li>
+<li><b>Düzenle.</b> Müvekkil formunu bu müvekkilin bilgileriyle açar.</li>
+<li><b>Sil.</b> Bir onaydan sonra müvekkili kaldırır.</li>
+</ol>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Müvekkil bulma</h4>
+<ul>
+<li><b>Yazarken arama.</b> Arama, adları ve soyadları ayrı ayrı denetler ve benzer sesli adları da bulur; böylece küçük yazım hataları da sonuç verir. Aksanlar yok sayılır, yani “Francois” araması “François” adını da bulur.</li>
+<li><b>Telefon ve e-posta.</b> Bir telefon numarasının bir bölümünü (boşluklar ve tireler önemli değildir) veya bir e-posta adresinin bir bölümünü yazın. Birden fazla kelime yazarsanız müvekkilin hepsini karşılaması gerekir.</li>
+<li><b>Aramayı sıfırlama.</b> Arama alanındaki küçük X yeniden tam listeyi gösterir. Hiçbir şey eşleşmezse liste bunu belirtir.</li>
+<li><b>En acil olan önce.</b> Hareketlenmiş bir davası olan müvekkiller en üstte, ardından en çok davası olan müvekkiller, ardından en son etkinliği olanlar ve sonra alfabetik sırayla yer alır.</li>
+<li><b>Birden fazla sayfa.</b> 25'ten fazla müvekkil olduğunda liste sayfalara bölünür; sayfa gezinmesi bu durumda listenin üstünde ve altında görünür.</li>
+<li><b>Doğum günleri.</b> Bir müvekkilin doğum gününde ve sonraki iki gün boyunca adın önünde küçük bir pasta görünür. Buraya ana menüde bir doğum günü adına tıklayarak geldiyseniz, liste yalnızca o sırada doğum günü olan müvekkilleri gösterir.</li>
+</ul>
+
+<h4>Bir müvekkil satırıyla çalışma</h4>
+<ul>
+<li><b>Davaları açma.</b> Bu müvekkilin dava listesini açmak için bir satırın herhangi bir yerine tıklayın.</li>
+<li><b>QR kodu ile arama, WhatsApp veya e-posta.</b> Telefon numarasına, yeşil WhatsApp simgesine veya e-posta adresine tıklayın. Bir pencere, arama yapmak, WhatsApp'ı açmak veya e-posta yazmak için telefonunuzla tarayabileceğiniz bir QR kodu gösterir. QR koduna tıklamak bu bilgisayarda ilgili programı açar; böyle bir program yoksa değer panoya kopyalanır.</li>
+<li><b>Sosyal medya.</b> <i>Sosyal</i> sütunundaki mavi simge yalnızca profiller kayıtlıysa görünür. Facebook, Instagram, TikTok, LinkedIn ve X'teki profilleri içeren bir pencere açar. Açma simgesi profili <span class="irs">IRONSTICK</span> tarayıcı penceresinde (tablette: sistem tarayıcısında) gösterir; kopyalama düğmesi adresi kopyalar.</li>
+<li><b>Referans numarasını kopyalama.</b> Mor <i>@C</i> numarasına tıklamak onu kopyalar; örneğin bir sohbete veya belgeye yapıştırmak için.</li>
+<li><b>Müvekkil silme.</b> X bir onay penceresi açar. Müvekkilin hâlâ davaları, belgeleri veya dava bağlantıları varsa, sarı bir uyarı bunları onaydan önce listeler. Yapay zekânın bu müvekkil hakkında hafızasına aldığı notlar da kaldırılır.</li>
+</ul>
+
+<h4>Müvekkil listesini yazdırma</h4>
+<ul>
+<li><b>Tüm müvekkillerin PDF'si.</b> Kart başlığındaki yazdırma düğmesi, müvekkil listesini PDF olarak oluşturur. Dışa aktarma penceresinde listeyi Belgeler klasörünüze veya bu bilgisayarda Google Drive yüklüyse bir Google Drive klasörüne kaydedebilirsiniz.</li>
+</ul>
+
+<h4>Müvekkil oluşturma veya düzenleme</h4>
+<ul>
+<li><b>Temel bilgiler.</b> Ad (zorunlu alan), kişisel kimlik numarası, uyruk, dil ve doğum günü. Bir uyruk seçmek uygun dili de önceden seçer. Doğum günü bir takvimden seçilir ve X ile silinebilir.</li>
+<li><b>Adres.</b> Sokak, posta kodu, ilçe/bölge, şehir ve ülke.</li>
+<li><b>Coğrafi koordinatlar.</b> Müvekkili bir haritaya yerleştirmek için anahtarı açın. <span class="irs">IRONSTICK</span> adresi otomatik olarak arar; arama metnini düzeltip yeniden arayabilir, enlem ve boylamı kendiniz yazabilir veya noktayı belirlemek için haritaya tıklamanız yeterlidir.</li>
+<li><b>İletişim.</b> Telefon (numara WhatsApp kullanıyorsa <i>WhatsApp</i> seçeneğini işaretleyin), e-posta ve ayrıntılar için serbest bir metin alanı. Geçersiz bir e-posta adresi kaydetmeden önce bildirilir.</li>
+<li><b>Banka bilgileri ve sosyal medya.</b> Banka adı ve IBAN; Facebook, Instagram, TikTok, LinkedIn ve X profillerinin adresleri.</li>
+<li><b>Kaydetme veya iptal etme.</b> Alttaki düğmeler müvekkili kaydeder veya formdan değişiklik yapmadan çıkar. Düzenleme sırasında başlığın altında müvekkil numarası ve oluşturulma tarihi gösterilir.</li>
+</ul>
+
+<h4>Müvekkilleri içe aktarma</h4>
+<ul>
+<li><b>Bir dosya bırakma.</b> <i>Müvekkil içe aktar</i>, bırakma alanı olan bir pencere açar. Üzerine bir CSV dosyası veya bir vCard dosyası (örneğin telefonunuzdan ya da e-posta programınızdan dışa aktarılmış) sürükleyin.</li>
+<li><b>Sütunları eşleştirme (yalnızca CSV).</b> İkinci bir pencere, dosyanın her sütununu örnek bir değer ve aktarılacağı alanla birlikte listeler. Eşleştirme önceden doldurulmuştur; her alanı seçim listesinden değiştirin veya bir sütunu içe aktarmamayı seçin. Bir sütun ada eşleştirildiği anda <i>İleri</i> kullanılabilir hâle gelir.</li>
+<li><b>Tek bir kişi.</b> Dosya tek bir adres içeriyorsa, <i>Yeni müvekkil</i> formu önceden doldurulmuş olarak açılır; böylece kendiniz kontrol edip tamamlayabilir ve kaydedebilirsiniz.</li>
+<li><b>Birden fazla kişi.</b> Her kişi için bir onay kutusu bulunan bir liste alırsınız; hepsi önceden işaretlidir. Zaten müvekkil olarak kayıtlı kişiler işaretli değildir ve mevcut olarak belirtilmiştir. <i>İçe aktar</i>, işaretli tüm müvekkilleri tek adımda oluşturur ve kaç tanesinin eklendiğini gösterir.</li>
+<li><b>Bir sorun çıkarsa.</b> Dosya okunamıyorsa veya hiç adres içermiyorsa pencere bunu size bildirir. İçe aktarma başarısız olursa hiçbir şey değiştirilmez.</li>
+</ul>
+
+<h2 id="s4">4. Davalar</h2>
+
+<h3>Bir müvekkilin dava listesi</h3>
+<figure><img src="img/screens/4%20cases.png" alt="Konulara göre gruplanmış bir müvekkilin dava listesi, bir konunun Nucleu penceresi ve Snakes penceresiyle"><figcaption>Bir müvekkilin konulara göre gruplanmış davaları ve bir konunun Nucleu ve Snakes pencereleri.</figcaption></figure>
+<p class="scr-intro">Bu ekran bir müvekkilin tüm davalarını gösterir. Birbiriyle ilişkili davalar <b>konular</b> altında gruplanır (örneğin aynı karşı tarafa karşı yürütülen tüm işlemler); henüz bir konuya atanmamış davalar <i>Atanmamış davalar</i> altında görünür.
+Konular oluşturabilir, davaları sürükle-bırak ile bunlara yerleştirebilir ve her davanın önceliğini, durumunu ve başarı şansını bir bakışta görebilirsiniz.
+Görselde ayrıca bir konunun başlık çubuğundaki iki simgeyle açılan Nucleu penceresi ve Snakes penceresi de görülmektedir.</p>
+
+<ol class="marks">
+<li><b>Notlar.</b> Bu müvekkilin not panosunu açar.</li>
+<li><b>Yazdır.</b> Bu müvekkilin tüm davalarının, son durumun yapay zekâ özeti ile veya özeti olmadan, PDF genel bakışını oluşturur.</li>
+<li><b>Yeni konu.</b> Birbiriyle ilişkili davalar için yeni bir grup oluşturur.</li>
+<li><b>Evren.</b> Müvekkilin davalarını bir ağ, bir 3B harita veya bir 2B harita olarak gösterir. Müvekkilin üç veya daha fazla davası olduğunda kullanılabilir.</li>
+<li><b>Yeni dava.</b> Bu müvekkil için yeni bir dava formunu açar.</li>
+<li><b>Konu.</b> Bir konunun başlık çubuğu. Konuyu daraltmak veya genişletmek için üzerine tıklayın. Ortadaki iki simge, konunun Nucleu'sunu ve Snakes'ini açar; sağda dava sayısını, Yeniden adlandır (kalem) ve Sil (X) seçeneklerini görürsünüz.</li>
+<li><b>Konunun Nucleu'su.</b> Bu konudaki her dava için geçerli olan genel bir yapay zekâ talimatı. Bu davalar için hazırlanan her belgenin dikkate alması gerekenleri buraya yazın ve ardından kaydedin.</li>
+<li><b>Konunun Snakes'i.</b> Bu konudaki tüm davaların Snake'leri, liste sırasıyla. Bir davayı Snake sekmesinde açmak için üzerine tıklayın.</li>
+<li><b>Sürükleme tutamağı.</b> Noktalı tutamağı tutun ve davayı bir konuya sürükleyin ya da mevcut bir davanın üzerine bırakarak onu o davanın alt davası yapın.</li>
+<li><b>Konudan çıkar.</b> Davayı bu konudan çıkarır. Davanın kendisi korunur ve başka bir konuda da bulunmuyorsa <i>Atanmamış davalar</i> altında görünür.</li>
+<li><b>Başarı şansı.</b> Davanın en son yapay zekâ değerlendirmesinin sonucunu gösteren küçük bir gösterge. Yüzdeyi okumak için imleci üzerine getirin; davayı Değerlendirme sekmesinde açmak için üzerine tıklayın.</li>
+</ol>
+
+<h4>Burada neler yapabilirsiniz</h4>
+
+<p class="grp"><b>Bir dava satırını okuma</b></p>
+<ul>
+<li><b>Bir davayı açma.</b> Davayı Kronoloji sekmesinde açmak için bir satıra tıklayın.</li>
+<li><b>Numaralar ve etiketler.</b> Her satır müvekkil/dava numarasıyla başlar; bunu ülke, hukuk alanı ve yargılama aşamasına ait mavi etiketler izler. Tam adını görmek için imleci bir etiketin üzerine getirin.</li>
+<li><b>Turuncu dava numarası.</b> Dava ulusal bir mahkeme portalında bulunduysa (ülkeye özgü işlev), mahkemenin esas numarası turuncu renkte gösterilir. Portal ayrıntılarını görmek için üzerine tıklayın: mahkeme, daire, konu, taraflar, kanun yolları ve sonuçlarıyla birlikte tüm duruşmalar. Davayı oradan da açabilirsiniz.</li>
+<li><b>Başlık ve karşı taraf.</b> Dava başlığını gri renkte karşı taraf izler; birden fazla karşı taraf varsa yalnızca ilki ve diğerlerinin sayısı gösterilir. Pasif davalar açık gri renkte görüntülenir.</li>
+<li><b>Alev.</b> Kırmızı bir alev, kısa süre önce hareketlenmiş bir davayı işaret eder.</li>
+<li><b>Öncelik ve durum.</b> İlk etiket önceliği (Acil ve Yüksek kırmızı, Normal gri, Düşük yeşil); ikincisi durumu (Aktif yeşil, Duraklatıldı kırmızı, Pasif gri) gösterir.</li>
+<li><b>Başka bir müvekkilin davaları.</b> Bir dava, yargılamada aynı tarafta yer alan başka bir müvekkilinize aitse, satır <i>Asıl dosya</i> ifadesini o müvekkilin numarası ve adıyla, rolünü de kehribar renkli bir etiketle gösterir. O müvekkilin dava listesine gitmek için numaraya tıklayın.</li>
+<li><b>Kırmızı bulut.</b> <span class="irs">IRONSTICK</span> SERVER bağlıyken ve dava orada paylaşılmışsa görünür. Davayı Dava sekmesinde açmak için üzerine tıklayın.</li>
+</ul>
+
+<p class="grp"><b>Davaları konular hâlinde düzenleme</b></p>
+<ul>
+<li><b>Oluşturma, yeniden adlandırma, silme.</b> <i>Yeni konu</i> bir ad ister. Başlık çubuğundaki kalem konuyu yeniden adlandırır; X ise bir onaydan sonra onu siler. Bir konunun silinmesi hiçbir zaman davalarını silmez; davalar, başka bir konuda da bulunmuyorsa yalnızca <i>Atanmamış davalar</i> bölümüne geri döner.</li>
+<li><b>Daraltma ve genişletme.</b> Davalarını gizlemek veya göstermek için bir konunun başlık çubuğuna tıklayın.</li>
+<li><b>Bir davayı taşıma.</b> Bir davayı noktalı tutamağından tutarak başka bir konuya sürükleyin. Üzerinden sürüklediğiniz konu mavi renkte parlar.</li>
+<li><b>Alt dava oluşturma.</b> Bir davayı başka bir davanın altına yerleştirmek için onu o davanın ortasına bırakın; alt davalar girintili olarak gösterilir. Ana dava olarak tutmak için bir davanın üstüne veya altına (mavi bir çizgi yeri gösterir) ya da konunun boş bir bölümüne bırakın.</li>
+<li><b>Aynı dava iki konuda.</b> Davayı başka bir konuya da eklemek için tutamak yerine çift sayfa simgesini sürükleyin. Dava bu durumda her ikisinde de görünür.</li>
+<li><b>Bir davayı çıkarma.</b> Satırdaki ayırma simgesini kullanın veya davayı tutamağından tutarak <i>Atanmamış davalar</i> üzerine sürükleyin.</li>
+</ul>
+
+<p class="grp"><b>Çalışma klasörleri</b></p>
+<ul>
+<li><b>Konu başına klasörler.</b> Her konunun altında <i>Çalışma klasörleri</i> bir klasör listesini açar. <i>Yeni klasör</i> bir klasör oluşturur; her klasör yeniden adlandırılabilir veya silinebilir.</li>
+<li><b>İçerik.</b> Bir davadan bir çalışma klasörüne atadığınız kayıtlar tarih, başlık ve dava numarasıyla listelenir. Bir kaydın yanındaki X onu klasörden çıkarır.</li>
+</ul>
+
+<p class="grp"><b>Bir konunun Nucleu'su ve Snakes'i</b></p>
+<ul>
+<li><b>Nucleu.</b> Atom simgesi konunun Nucleu'sunu açar: yapay zekâya bu konudaki her dava için nelere dikkat etmesi gerektiğini söyleyen, en fazla 20.000 karakterlik bir metin. Her kaydetme yeni bir sürüm saklar. Bir davanın ayrıca, davanın kendi içinde belirlenen kendine ait bir Nucleu'su da olabilir. Pencereyi kaydedilmemiş değişikliklerle kapatırsanız <span class="irs">IRONSTICK</span> bunların atılıp atılmayacağını sorar.</li>
+<li><b>Snakes.</b> Yılan simgesi, konudaki tüm davaların Snake'lerini açar. Bir Snake, karşı tarafın belgelerle çürütülen iddialarını, her iddianın kaynağı ve onunla çelişen belgelerle birlikte kayıt altına alır. Bu davayı Snake sekmesinde açmak için bir dava başlığına tıklayın. Henüz hiçbir davanın Snake'i yoksa pencere bunu belirtir.</li>
+</ul>
+
+<p class="grp"><b>Yazdırma, yeni dava ve daha fazlası</b></p>
+<ul>
+<li><b>PDF olarak dava genel bakışı.</b> Yazdırma düğmesi, genel bakışı yapay zekânın hazırladığı son durumla mı yoksa onsuz mu istediğinizi sorar. Yapay zekâ sürümünü seçerseniz ve bu sürüm harici yapay zekâ kullanıyorsa, önce onayınız istenir. PDF ardından Belgeler klasörünüze veya Google Drive'a kaydedilir.</li>
+<li><b>Yeni dava.</b> Form bir başlık (zorunlu alan), öncelik ve durum ister. Müvekkilin adını otomatik olarak girmek için <i>Davacı müvekkildir</i> seçeneğini işaretleyin veya başka bir davacı yazın ve karşı tarafı girin.</li>
+<li><b>Aynı yargılamadaki diğer müvekkiller.</b> Başka müvekkilleriniz varsa, bunları ada veya <i>@C</i> numarasına göre arayıp davaya ekleyebilirsiniz. Dava bu durumda onların dava listelerinde de görünür.</li>
+<li><b>Çıkar çatışması kontrolü.</b> Kendi tarafınız ve karşı taraf doldurulduğu anda bu düğme adları kendi müvekkilleriniz, taraflarınız ve davalarınızla karşılaştırır ve sonucu gösterir. Hiçbir şey bu bilgisayardan dışarı çıkmaz.</li>
+<li><b>Diğer seçenekler.</b> Bir davayı kamuya açık (medyada haber olmuş) olarak işaretleyin veya kilitleyin; böylece başka hiçbir dava ona ne elle ne otomatik olarak ne de yapay zekâ tarafından bağlanabilir.</li>
+<li><b>Hukuki bilgiler.</b> Bir mahkeme esas numarası girmek <i>esas numarası var</i> seçeneğini işaretler ve bugünün tarihini girer; bu tarihi değiştirebilirsiniz. Önce ülkeyi seçin; ardından o ülkeye ait hukuk alanları ve yargılama aşamaları sunulur. Serbest bir açıklama alanı formu tamamlar.</li>
+<li><b>Abone olunan davalar.</b> <span class="irs">IRONSTICK</span> SERVER bağlıysa ve bir meslektaşınızın davalarını takip ediyorsanız, bu davalar mavi bir bulut, sahibinin adı ve sahibinin yaptığı son değişiklikle birlikte ayrı bir kartta görünür. Açmak için birine tıklayın.</li>
+<li><b>Henüz dava yok.</b> Davası olmayan bir müvekkil, <i>Yeni dava</i> düğmesi içeren kısa bir bilgi gösterir.</li>
+</ul>
+
+<h3>Notlar ve dava evreni</h3>
+<figure><img src="img/screens/4%20cases%20universe%20notes.png" alt="Not panosu, Evren menüsü ve 2B ile 3B ağ haritalarıyla dava listesi"><figcaption>Not panosu ve bir müvekkilin davalarına ait iki ağ görünümü.</figcaption></figure>
+<p class="scr-intro">Dava listesinin üstündeki iki düğme, müvekkilin tüm davaları genelinde çalışan araçları açar.
+<b>Notlar</b> müvekkil için bir not panosu açar. <b>Evren</b>, müvekkilin davalarının birbiriyle nasıl bağlantılı olduğunu gösterir: içinde uçabileceğiniz bir 3B harita olarak veya kareli kâğıt üzerinde bir 2B çizim olarak.
+Görselde not panosu, açık Evren menüsü ve her iki harita görülmektedir.</p>
+
+<ol class="marks">
+<li value="1"><b>Notlar.</b> Kendi notlarınız ve yapay zekânın bu müvekkil hakkındaki notlarıyla birlikte müvekkilin not panosu.</li>
+<li value="4"><b>Evren menüsü.</b> <i>3B harita</i> veya <i>2B harita</i> seçmek için imleci düğmenin üzerine getirin veya düğmeye tıklayın.</li>
+</ol>
+
+<h4>Burada neler yapabilirsiniz</h4>
+
+<p class="grp"><b>Not panosu</b></p>
+<ul>
+<li><b>Not ekleme.</b> İlk, soluk sarı <i>Yeni not</i> kartı, isteğe bağlı bir tarihle birlikte bir metin alanı (en fazla 1.000 karakter) açar. Kaydetmek notu panoya iğneler; en yeni notlar en üstte yer alır.</li>
+<li><b>Üç tür not.</b> Sarı notlar sizindir; düzenlemek için birine tıklayın. Yapay zekâ notları kareli kâğıt üzerinde görünür: yapay zekânın bu müvekkil için hafızasına aldığı kayıtlar. Beyaz kartlar, paylaşılan bir davayı <span class="irs">IRONSTICK</span> SERVER üzerinden takip eden meslektaşlarınızın notlarıdır.</li>
+<li><b>Kopyalama ve silme.</b> Her notta küçük bir kopyalama düğmesi ve bir silme düğmesi bulunur. Tarihli bir not, tarihi küçük bir çalar saatle gösterir.</li>
+<li><b>Dava listesinden açılan notlar müvekkile aittir.</b> Burada açılan notlar tek bir davaya bağlı değildir.</li>
+</ul>
+
+<p class="grp"><b>3B harita (Evren)</b></p>
+<ul>
+<li><b>Ne görürsünüz.</b> Her dava bir altıgen, kurumlar ise üçgendir. Davalar; kişileri, şirketleri veya kurumları paylaştıklarında, bir davanın belgesi diğerinde anıldığında ya da bir dava diğerinin dava numarasından söz ettiğinde birbirine bağlanır. Aynı konudaki davalar renkli bir bulut oluşturur.</li>
+<li><b>Haritanın oluşması.</b> Bir ilerleme çubuğu ilerlerken harita gözlerinizin önünde oluşur. Sol üstteki satır dava, bağlantı ve konu sayısını gösterir.</li>
+<li><b>İçinde uçma.</b> W/A/S/D ileri, geri ve yanlara, R/F yukarı ve aşağı hareket ettirir; ok tuşları veya fareyle sürükleme görünümü döndürür. Shift daha hızlı hareket ettirir, boşluk tuşu yavaşlatır, fare tekerleği ise ileri veya geri hareket ettirir. Sol alttaki alan tuşları listeler; sağ alttaki çubuk hızınızı gösterir.</li>
+<li><b>Bir noktayı işaretleme ve oraya uçma.</b> Bir davaya veya kuruma tıklayın: görünüm oraya uçar ve nokta, bağlantıları ve her bağlantının nedeniyle birlikte işaretli kalır. İşareti kaldırmak için yeniden tıklayın.</li>
+<li><b>Haritadan açma.</b> Bir davayı açmak için üzerine çift tıklayın. Bir kişiye veya şirkete çift tıklamak kişi listesini, bir kuruma çift tıklamak kurum listesini açar; kayıt orada sarı renkte vurgulanır.</li>
+<li><b>Arama.</b> Sağ alttaki arama alanı bir adı, telefon numarasını veya e-postayı bulur ve en iyi eşleşmeyi, tıpkı bir tıklamada olduğu gibi işaretler.</li>
+<li><b>Kişileri ve şirketleri gösterme.</b> <i>Dava bağlantıları</i> anahtarı davalara ait kişileri ve şirketleri haritaya ekler. Başlangıçta kapalıdır; kurumlar her zaman gösterilir.</li>
+<li><b>Kapatma.</b> Sağ üstteki X veya Escape tuşu haritayı kapatır.</li>
+</ul>
+
+<p class="grp"><b>2B harita</b></p>
+<ul>
+<li><b>Kareli kâğıt üzerinde bir çizim.</b> Aynı ağ, teknik bir çizim gibi düz olarak çizilir. Bir noktanın üzerine geldiğinizde veya onu işaretlediğinizde adlar görünür.</li>
+<li><b>Kaydırma ve yakınlaştırma.</b> Sayfayı kaydırmak için fareyle sürükleyin veya W/A/S/D ya da ok tuşlarını kullanın. Fare tekerleği işaretçiye doğru yakınlaştırır.</li>
+<li><b>İşaretleme, açma, arama.</b> Bir noktaya tıklamak onu ortaya taşır ve işaretler (titreşir); boş kâğıda tıklamak işareti kaldırır ve uzaklaştırır. Çift tıklama davayı, kişiyi veya kurumu açar. Arama alanı en iyi eşleşmeyi işaretler; <i>Dava bağlantıları</i> anahtarı davalara ait kişileri ve şirketleri ekler.</li>
+<li><b>Kapatma.</b> Sağ üstteki X veya Escape tuşu haritayı kapatır.</li>
+</ul>
+
+<h2 id="s5">5. Dava</h2>
+
+<h3>Dava sekmesi, paylaşma ve devretme</h3>
+<figure><img src="img/screens/5%20case%20case.png" alt="Paylaş ve Davayı devret iletişim kutuları ile IRONSTICK SERVER'ın göründüğü, Dava sekmesindeki dava ekranı"><figcaption>Bir davayı IRONSTICK SERVER üzerinden paylaşmaya ve devretmeye yönelik iletişim kutularıyla Dava sekmesi.</figcaption></figure>
+<p class="scr-intro">Dava ekranı bir davaya ait her şeyi içerir. Üstte dava başlığını ve müvekkili, üç düğmeyi (<i>Notlar</i>, <i>Dosya derlemesi</i>, <i>Metin yaz</i>) ve bir dizi sekmeyi görürsünüz. Görsel, dava bilgileri ve davadaki dosyalara ilişkin bir genel bakışla birlikte <b>Dava</b> sekmesini göstermektedir.
+Bir IRONSTICK SERVER bağlıysa, bir dava meslektaşlarla paylaşılabilir veya başka bir kullanıcıya devredilebilir; görseldeki iki iletişim kutusu bunun içindir.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Üst bölüm ve gezinme</b></p>
+<ul>
+<li><b>Gezinti yolu.</b> Üstteki yol ana menüye, müvekkil listesine veya müvekkilin dava listesine geri götürür. Son bölüm, ülke, hukuk alanı ve aşamayla birlikte dava numarasını gösterir.</li>
+<li><b>Başlığın önündeki bulut.</b> Kırmızı bulut, bu davayı IRONSTICK SERVER üzerinde paylaştığınız; mavi bulut ise başka birinin sizinle paylaştığı bir dava olduğu anlamına gelir. Buluta tıklamak Dava sekmesine geçer.</li>
+<li><b>Sekmeler arasında geçiş.</b> Geçiş yapmak için bir sekmeye tıklayın. Dava Nucleu'su veya Dava Snake sekmesinden kaydedilmemiş değişikliklerle çıkarsanız <span class="irs">IRONSTICK</span> bunların atılıp atılmayacağını sorar.</li>
+</ul>
+<p class="grp"><b>Dava bilgileri</b></p>
+<ul>
+<li><b>Numara, başlık ve esas numarası.</b> Kart, dahili müvekkil/dava numarasını, başlığı ve resmî esas numarasını gösterir. Davaya bir mahkeme portalı dosyası atanmışsa, esas numarası noktalı alt çizgiyle turuncu renkte görünür; üzerine tıklamak portal dosyasının ayrıntılarını açar (ülkeye özgü işlev).</li>
+<li><b>Öncelik ve etkinlik.</b> Belirlediğiniz öncelik renkli bir etiket olarak görünür. Yanındaki küçük kırmızı alev, davanın son zamanlarda hareketlendiğini (son 14 gün içinde yeni süreler, duruşmalar, kayıtlar veya e-postalar) gösterir; kendi önceliğinizi hiçbir zaman değiştirmez.</li>
+<li><b>Taraflar ve hukuki sınıflandırma.</b> Kamuya açık evet/hayır, davacı (müvekkiliniz ise işaretli), karşı taraf, ülke, hukuk alanı ve aşama, mahkeme dosya numarası verilip verilmediği (tarihiyle), dava türü, başlangıç tarihi ve açıklama.</li>
+<li><b>Davanın kapsamı.</b> Açıklamanın altında bir tablo, gelen, giden ve delil PDF'lerini, görselleri ve ses dosyalarını kelime sayısı ve dosya boyutuyla, bir dava toplamıyla ve yapay zekânın ne kadar metin okuması gerekeceğine dair bir tahminle birlikte sayar.</li>
+</ul>
+<p class="grp"><b>Dava kartındaki düğmeler</b></p>
+<ul>
+<li><b>Yazdır.</b> <i>Kronoloji</i> veya <i>Dokümantasyon</i> seçeneğini belirleyin; dava PDF olarak dışa aktarılır.</li>
+<li><b>Düzenle.</b> Dava formunu açar: başlık, öncelik, durum, davacı (veya <i>Davacı müvekkildir</i>), aynı yargılamadaki diğer kendi müvekkilleriniz, karşı taraf, bir çıkar çatışması kontrolü (her iki taraf doldurulduğunda etkin), kamuya açık dava, bu davaya bir şey atanmasını (elle, otomatik olarak veya yapay zekâ tarafından) engelleyen bir anahtar, esas numarası, tarihiyle birlikte mahkeme dosya numarası, ülke, hukuk alanı, aşama ve açıklama.</li>
+<li><b>Sil.</b> Bir onaydan sonra dava <span class="irs">IRONSTICK</span> uygulamasından tamamen kaldırılır. Önce davanın tam bir yedeği oluşturulur; yedekleme başarısız olursa hiçbir şey silinmez.</li>
+</ul>
+<p class="grp"><b>Paylaşma ve devretme (yalnızca IRONSTICK SERVER bağlıyken)</b></p>
+<ul>
+<li><b>Paylaş.</b> Davayı <i>tüm kullanıcılar için</i> veya listede işaretlediğiniz <i>seçili kullanıcılar için</i> paylaşın. Dava ardından arka planda IRONSTICK SERVER'a yüklenir. Paylaşıldığı anda aynı düğme kırmızıya döner ve paylaşımı anında geri çeken <i>Paylaşımı geri al</i> adını alır.</li>
+<li><b>Paylaşım kartı.</b> Dava bilgilerinin altında bir kart, yükleme ilerlemesini ve ardından aboneleri, her birini çevrim içi noktası ve son erişim zamanıyla gösterir. Meslektaşlardan gelen talepler <i>İzin ver</i> ve <i>Reddet</i> seçenekleriyle vurgulanmış olarak görünür; her abone tek tek kaldırılabilir.</li>
+<li><b>Davayı devret.</b> IRONSTICK SERVER kullanıcıları listesinden alıcıyı seçin ve <i>Devret</i> düğmesine tıklayın. Dava paketlenir ve IRONSTICK SERVER üzerinden gönderilir; alıcı kabul ettiği anda dava bilgisayarınızdan kaldırılır (bir yedek korunur).</li>
+<li><b>Sizinle paylaşılan davalar.</b> Abone olunan bir dava okunabilir ancak değiştirilemez; düzenleme düğmeleri bunun yerine bir bilgi gösterir. Açıklamanın altında sahibi ve diğer aboneleri görürsünüz. <i>Aboneliği sil</i> aboneliği sonlandırır ve kopyayı kaldırır.</li>
+</ul>
+
+<h3>Bir bakışta sekmeler: Müvekkil'den Harita'ya</h3>
+<figure><img src="img/screens/5%20case%20tab1.png" alt="Dava ekranının ilk altı sekmesi: Müvekkil, Dava, Kurumlar, Varlıklar, Bağlantılar ve Harita"><figcaption>Müvekkil, Dava, Kurumlar, Varlıklar, Bağlantılar ve Harita sekmeleri.</figcaption></figure>
+<p class="scr-intro">Sekme çubuğu davayı görünümlere ayırır. İlk altı sekme, davanın kimi ve neyi konu aldığını gösterir: müvekkil, dava bilgileri, ilgili kurumlar ve kişiler, bunların nasıl bağlantılı olduğu ve bir şeyin nerede gerçekleştiği.
+Görseldeki her çizgi, bir sekmeden onun açtığı görünüme uzanır.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Müvekkil</b></p>
+<ul>
+<li><b>Müvekkil kartı.</b> Müvekkilin numarası, adı, kişisel kimlik numarası, uyruğu, tam adresi, telefonu, e-postası, bankası ve IBAN'ı, dili, sosyal medya bağlantıları, ayrıntıları ve oluşturulma tarihi. Boş alanlar gösterilmez.</li>
+<li><b>Tek tıklamayla iletişim.</b> Bir kişi QR kodu için ada, arama yapmak üzere bir QR kodu için telefon numarasına, WhatsApp için yeşil sohbet simgesine veya yazmak için e-posta adresine tıklayın. Sosyal medya bağlantıları <span class="irs">IRONSTICK</span> tarayıcı penceresinde açılır. <i>Düzenle</i> müvekkil formunu açar.</li>
+</ul>
+<p class="grp"><b>Dava</b></p>
+<ul>
+<li><b>Dava bilgileri.</b> Davayı yazdırma, düzenleme veya silme düğmeleriyle birlikte müvekkil ve dava numarası, başlık, resmî esas numarası, öncelik, taraflar, ülke, hukuk alanı, aşama, başlangıç tarihi, açıklama ve davanın kapsamı.</li>
+</ul>
+<p class="grp"><b>Kurumlar ve varlıklar</b></p>
+<ul>
+<li><b>Kimler dahil.</b> Kurumlar sekmesi mahkemeleri, resmî makamları ve diğer kuruluşları türü, şehri ve iletişim simgeleriyle listeler; Varlıklar sekmesi kişileri ve şirketleri türü, şehri ve iletişim bilgisiyle listeler. Başlık satırı kaç tanesinin atandığını gösterir. Uzun listeler 20 kayıtlık sayfalara bölünür.</li>
+<li><b>Bir kaydı açma.</b> Kurum veya kişi listesini kayıt vurgulanmış olarak açmak için bir satıra tıklayın. Telefon ve e-posta simgeleri bir QR kodu açar, küre ise web sitesini <span class="irs">IRONSTICK</span> tarayıcı penceresinde açar.</li>
+<li><b>Analiz.</b> Varlıklar sekmesinde, bu kişi için bir analiz mevcutsa mor analiz simgesi görünür; kişi analizini açar.</li>
+<li><b>Ekleme ve kaldırma.</b> <i>Ekle</i>, henüz bu davada olmayan tüm kurumlar veya kişiler arasında (ada, şehre veya e-postaya göre) bir arama açar. Birini seçin, önizlemeyi kontrol edin ve <i>Ekle</i> düğmesine tıklayın. Satır sonundaki kopuk bağlantı simgesi, bir onaydan sonra atamayı kaldırır; kurumun veya kişinin kendisi korunur.</li>
+</ul>
+<p class="grp"><b>Bağlantılar</b></p>
+<ul>
+<li><b>İlişki diyagramı.</b> Davanın kişilerini ve kurumlarını ve bunların nasıl bağlantılı olduğunu bir veya birden fazla sayfada gösterir; başlık satırı varlıkları ve bağlantıları sayar. Çok sayıda olduğunda en acil olanlar gösterilir.</li>
+<li><b>Diyagramla çalışma.</b> Büyüteç düğmeleriyle yakınlaştırıp uzaklaştırın. Bir kişiyi veya kurumu açmak için adına tıklayın. <i>Duvar kâğıdı</i> diyagramı büyük bir poster PDF'si olarak indirir; <i>Yakala</i> onu belge yakalamaya aktarır ve orada bir davaya atarsınız. Bu iki dışa aktarma düğmesinin hiçbiri Android tablette kullanılamaz.</li>
+</ul>
+<p class="grp"><b>Harita</b></p>
+<ul>
+<li><b>Her şey haritada.</b> Kişiler (mavi), şirketler (mor), kurumlar (kırmızı) ve olaylar (yeşil) bir uydu haritasında görünür; altındaki bir açıklama renkleri açıklar. Beyaz halkalar, davanın merkez noktası çevresinde 5, 15 ve 30 km'lik mesafeleri işaretler.</li>
+<li><b>Eksik konumlar.</b> Harita açık olduğu sürece koordinatı olmayan adresler otomatik olarak aranır; küçük bir bilgi ilerlemeyi gösterir ve bulunan konum kaydedilir.</li>
+<li><b>Ayrıntılar ve yazdırma.</b> Ad, tür ve adres için bir işaretçiye tıklayın; ayrıntı bağlantısı kişiyi, kurumu veya kronoloji kaydını (kronolojide vurgulanmış olarak) açar. Yazdırma düğmesi haritayı PDF olarak dışa aktarır.</li>
+</ul>
+
+<h3>Bir bakışta sekmeler: Dokümantasyon'dan Yapay zekâ değerlendirmesi'ne</h3>
+<figure><img src="img/screens/5%20case%20tab2.png" alt="Dokümantasyon, Kronoloji, Dava Nucleu'su, Dava Snake ve Yapay zekâ değerlendirmesi sekmeleri"><figcaption>Dokümantasyon, Kronoloji, Dava Nucleu'su (atom), Dava Snake ve Yapay zekâ değerlendirmesi sekmeleri.</figcaption></figure>
+<p class="scr-intro">Kalan sekmeler davanın içeriğini barındırır: dosyalanmış belgeler, olan her şeyin kronolojisi, dava üzerindeki tüm yazılı çalışmalara yön veren iki metin alanı ve yapay zekâ değerlendirmesi.
+Atom ve yılan yalnızca simge olarak gösterilir; adlarını görmek için imleci üzerlerine getirin.</p>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<ul>
+<li><b>Dokümantasyon.</b> Davanın PDF içeren tüm belgeleri — gelen, giden ve deliller — yöne göre filtreler, bir tarihe atlama ve kronoloji diyagramıyla birlikte.</li>
+<li><b>Kronoloji.</b> Davanın kronolojisi: her olay, belge, fotoğraf, telefon görüşmesi ve not zaman sırasına göre.</li>
+<li><b>Dava Nucleu'su (atom).</b> Bu davadaki tüm yazılı çalışmalar için bağlayıcı yönerge — her dilekçenin uyması gereken çerçeve. Metni yazın veya değiştirin ve <i>Kaydet</i> düğmesine tıklayın; her kaydetme yeni bir sürüm oluşturur ve sürüm numarasıyla birlikte kopyalanabilir kod hangisinin güncel olduğunu gösterir. Bir sayaç uzunluğu gösterir (en fazla 20.000 karakter). Altında, bu davanın ait olduğu her konunun Nucleu'sunu salt okunur olarak görürsünüz.</li>
+<li><b>Dava Snake.</b> Bu davada karşı tarafın, dava dosyasının çeliştiği beyanlarının bir kaydı; böylece bunlar dilekçelerde kullanılabilir. Nucleu ile aynı şekilde, kendi sürüm numarasıyla düzenlenir ve kaydedilir.</li>
+<li><b>Yapay zekâ değerlendirmesi.</b> Davanın başarı şansına ilişkin bir yapay zekâ değerlendirmesi: başarı olasılığı, yargılamanın dayanağı, mahkeme dosyası ve IRONSTICK dosyası, güçlü yönler, zayıf yönler ve eleştirel bir not.</li>
+</ul>
+
+<h3>Kronoloji</h3>
+<figure><img src="img/screens/5%20case%20chronicle%201.png" alt="Başlık düğmelerinde, tarih alanında, Yeni kayıt düğmesinde ve bir kayıt satırında numaralı işaretler bulunan Kronoloji sekmesi"><figcaption>Kronoloji sekmesi: davanın kronolojisi, en yeni kayıtlar önce.</figcaption></figure>
+<p class="scr-intro">Kronoloji, davanın her kaydını — olaylar, mektuplar, e-postalar, telefon görüşmeleri, fotoğraflar, kayıtlar — en yenisi önce olmak üzere listeler. Her satır numara ve tarihi, başlığı, açıklama ve etiketleri, ekli dosyaları, bir süre işaretini ve eylemleri gösterir.
+Görselin altındaki büyütülmüş satır, tek bir kaydın bölümlerini göstermektedir.</p>
+<ol class="marks">
+<li><b>Notlar.</b> Davanın pano sayfasını açar. Kendi notlarınız sarıdır, paylaşılan bir davanın abonelerine ait notlar beyaz kartlardır ve yapay zekânın bu dava için hafızasına aldığı notlar kareli kâğıt üzerinde görünür. Not yazmak için <i>Yeni not</i> düğmesine tıklayın (en fazla 1.000 karakter, isteğe bağlı olarak tarihli); düzenlemek için sarı bir nota, tamamını okumak için herhangi bir nota tıklayın; her notta kopyalama ve silme için küçük düğmeler bulunur.</li>
+<li><b>Dosya derlemesi.</b> Davanın eksiksiz bir dosya derlemesini oluşturan dosya derlemesi sihirbazını açar. Yalnızca kronolojide kayıt varsa görünür.</li>
+<li><b>Metin yaz.</b> Yapay zekâ sohbetini bu dava için bir belge taslağı hazırlama isteğiyle açmak üzere <i>Yapay zekâ yardımıyla</i> seçeneğini veya metin işlemcide yazmak için <i>Boş metin belgesi</i> seçeneğini belirleyin. Android tablette görünmez.</li>
+<li><b>Bir tarihe atlama.</b> O tarihi içeren sayfaya gitmek için bir tarih seçin ve büyütece tıklayın.</li>
+<li><b>Yeni kayıt.</b> Yeni bir kronoloji kaydı formunu açar.</li>
+<li><b>Kayıt numarası ve tarih.</b> Mor numara kaydı tanımlar; üzerine tıklamak onu panoya kopyalar. Altında tarih ve girilmişse başlangıç–bitiş saati yer alır.</li>
+<li><b>Ataş ve klasör.</b> <b>Ataş</b> ekli belgeyi açar; dosya, görsel veya transkript içermeyen bir kayıtta kaydın kendisini PDF olarak dışa aktarır. <b>Klasör</b>, kaydın kaç çalışma klasöründe dosyalandığını gösterir — klasörleri işaretlemek veya işaretlerini kaldırmak ya da yeni bir klasör oluşturmak için üzerine tıklayın; artı işaretli boş bir klasör, kaydın henüz hiçbir klasörde olmadığı anlamına gelir. Görseller, transkriptler, ses veya bir konum için burada başka simgeler de görünür.</li>
+<li><b>Eylemler.</b> İki sırada beş simge:
+<table>
+<tr><th>Simge</th><th>Ne işe yarar</th></tr>
+<tr><td>Radar (ilk sıra)</td><td>İlgililik radarını açar: bu davada ve diğer davalarda içerik bakımından en benzer kayıtlar. Oraya gitmek için bir sonuca tıklayın.</td></tr>
+<tr><td>Etiket (ilk sıra)</td><td>Kayda etiketler atar — kırmızı, sarı, yeşil veya mavi genel etiketler ya da dava etiketleri. Simge ilk etiketin rengini alır.</td></tr>
+<tr><td>Kalem (ikinci sıra)</td><td>Kaydı düzenler: belgesiz bir kayıt kronoloji kaydı formunu, PDF içeren bir kayıt ise belge formunu açar.</td></tr>
+<tr><td>Kopyala (ikinci sıra)</td><td>Kaydı belgeleri, görselleri ve transkriptleriyle birlikte aynı müvekkilin başka bir davasına kopyalar.</td></tr>
+<tr><td>× (ikinci sıra)</td><td>Bir onaydan sonra kaydı siler.</td></tr>
+</table>
+Gizli belgelerde etiket, kalem ve kopyalama soluk görünür; yalnızca silme kalır.</li>
+</ol>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Liste</b></p>
+<ul>
+<li><b>Sayfalar ve sıralama.</b> Liste sayfa başına 20 kayıt gösterir; birden fazla sayfa olduğunda sayfa düğmeleri listenin üstünde ve altında görünür. En yeni ve en eski önce sıralaması arasında geçiş yapmak için <i>Tarih</i> sütun başlığına tıklayın.</li>
+<li><b>Bir satırın size anlattıkları.</b> Başlığın altında açıklamayı, renkli etiketleri (ülke, hukuk alanı, aşama, turuncu IN veya yeşil OUT, kurum türü, dil, belge türü) ve ilgili kişileri görürsünüz.</li>
+<li><b>Bir kayıt için metin yazma.</b> Başlığın yanındaki kalem ve satırlardan oluşan küçük simge, tam olarak bu kayıt için <i>Metin yaz</i> işlevini başlatır; önündeki bir sayı, bu kayıt için daha önce yazılmış metinleri sayar. Android tablette görünmez.</li>
+<li><b>Süre sütunu.</b> Turuncu bir zil, kaydın süresinin 10 gün içinde dolacağını; kırmızı çalan bir zil ise sürenin geçtiğini gösterir. Kalan günleri veya tarihi görmek için imleci zilin üzerine getirin.</li>
+<li><b>Aramadan veya radardan gelme.</b> Davayı bir arama sonucundan veya ilgililik radarından açarsanız, kronoloji doğru sayfaya gider ve kayıt birkaç saniye boyunca sarı renkte parlar.</li>
+</ul>
+<p class="grp"><b>Bir kayda ilişkin eylemler</b></p>
+<ul>
+<li><b>İlgililik radarı.</b> Bu davada ve diğer davalarda başka hangi kayıtların içerik bakımından en benzer olduğunu gösterir. Oraya gitmek için bir sonuca tıklayın.</li>
+<li><b>Etiketler.</b> Kayda kısa etiketler atayın (en fazla 100 karakter): kırmızı, sarı, yeşil veya mavi <i>genel</i> etiketler ya da petrol mavisi <i>dava</i> etiketleri. Değiştirmek için mevcut bir etikete, kaldırmak için × işaretine tıklayın. Etiket simgesi ilk etiketin rengini alır.</li>
+<li><b>Çalışma klasörleri.</b> Davanın ait olduğu her konunun klasörlerini listeler; kaydı içine dosyalamak için bir klasörü işaretleyin veya <i>Yeni klasör</i> oluşturun. Dava hiçbir konuya ait değilse bir bilgi bunu belirtir.</li>
+<li><b>Düzenleme.</b> Belgesiz bir kayıt kronoloji kaydı formunu açar. PDF içeren bir kayıt belge formunu açar: sınıflandırma (ülke, dil, hukuk alanı, belge türü, aşama, kurum türü, belge tarihi), kayıt türü (delil, gelen veya giden), mahkeme kararı için bir onay kutusu ve olağan kayıt alanları (başlık, tarih, anahtar kelimeler, saatler, açıklama, ilgili kişiler, süre); oradaki düğmeler PDF'yi görüntülemenizi ve çıkarılan metnini okumanızı sağlar.</li>
+<li><b>Başka bir davaya kopyalama.</b> Aynı müvekkile ait bir hedef dava seçin; kayıt belgeleri, görselleri ve transkriptleriyle birlikte kopyalanır. Bir dava seçildiği anda <i>Kopyala</i> etkinleşir.</li>
+<li><b>Silme.</b> Bir onaydan sonra kaydı kaldırır.</li>
+</ul>
+<p class="grp"><b>Yeni kayıt formu</b></p>
+<ul>
+<li><b>Kayıt ayrıntıları.</b> Başlık, tarih, anahtar kelimeler, başlangıç ve bitiş saati ile bir açıklama. Başlık veya açıklamadan biri zorunludur.</li>
+<li><b>İlgili kişiler.</b> Bu davaya atanmış kişileri ve kurumları aramak için bir adın bir bölümünü yazın; çip olarak eklemek için bir sonuca, kaldırmak için × işaretine tıklayın.</li>
+<li><b>Süre.</b> Bir süre tarihi belirleyin ve etkin olup olmadığını işaretleyin; etkin süreler süre genel bakışında ve zilde görünür.</li>
+<li><b>Konum.</b> Coğrafi koordinatları açın, bir adres girin ve aramak için büyütece tıklayın ya da doğrudan haritaya tıklayın; enlem ve boylam sizin için doldurulur.</li>
+<li><b>Görseller.</b> En fazla dört görsel (JPEG, PNG, WebP) eklemek için medyayı açın: görselleri bırakma alanına sürükleyin veya dosya seçmek için alana tıklayın. Sırayı değiştirmek için bir görseli başka bir yere sürükleyin; × onu kaldırır.</li>
+<li><b>Kaydetme veya iptal etme.</b> Alttaki düğmeler kaydı kaydeder veya formu kaydetmeden kapatır.</li>
+</ul>
+
+<h3>Belgeleri, görselleri ve kayıtları açma</h3>
+<figure><img src="img/screens/5%20case%20chronicle%202.png" alt="Ayrı bir pencerede ekli bir PDF ve dört fotoğraflı görsel görüntüleyiciyle kronoloji"><figcaption>Ekli bir PDF kendi penceresinde açılır; fotoğraflar görsel görüntüleyicide açılır.</figcaption></figure>
+<p class="scr-intro">Bir kayda eklenmiş her dosya doğrudan kronolojiden açılır. Görselde, ilk kaydın ataşı PDF'sini ayrı bir pencerede açmış, başka bir kaydın görsel simgesi ise dört fotoğrafını açmıştır.
+Üstteki tarih alanı, uzun kronolojilerde yolunuzu bulmanıza yardımcı olur.</p>
+<ol class="marks">
+<li><b>Bir tarihe atlama.</b> Kronoloji üç sayfadan uzunsa görünür. Alana tıklayın ve bir tarih seçin — yalnızca davada geçen tarihler seçilebilir —, ardından o tarihi içeren sayfaya gitmek için yanındaki büyütece tıklayın.</li>
+</ol>
+
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Bir kaydın dosyaları</b></p>
+<ul>
+<li><b>Belgeler.</b> Mavi ataş, ekli belgeyi kendi penceresinde açar — bilgisayarınızın PDF'ler için kullandığı programda, aksi takdirde web tarayıcınızda.</li>
+<li><b>PDF olarak kayıt.</b> Belge, görsel veya kayıt içermeyen bir kayıtta ataş, kaydın kendisinin bir PDF'sini oluşturur ve sizin için kaydeder.</li>
+<li><b>Görseller.</b> Mor görsel simgesi (imleci üzerine getirdiğinizde sayıyı görürsünüz), kaydın tüm fotoğraflarını numaralı olarak içeren görsel görüntüleyiciyi açar. Bir fotoğrafı yakınlaştırmalı tam ekranda görmek için üzerine tıklayın; yeniden tıklamak veya × onu kapatır. <i>Belgeyi dışa aktar</i>, fotoğrafları açıklamayla birlikte PDF olarak kaydeder.</li>
+<li><b>Transkriptler ve sohbetler.</b> Mor bir simge, bir telefon görüşmesinin veya bir kaydın transkriptini ya da bir sohbeti; tarih, başlangıç–bitiş saati, tür ve satır sayısıyla birlikte açar; her konuşmacının bir rengi vardır. <i>Belgeyi dışa aktar</i> onu PDF olarak kaydeder.</li>
+<li><b>Ses.</b> Mavi nota, orijinal kaydı bilgisayarınızın medya oynatıcısında oynatır.</li>
+<li><b>Konum.</b> Yeşil işaretçi, kaydın konumunu gösteren küçük bir harita ve bunu Google Maps'te göstermek için bir düğme açar.</li>
+</ul>
+<p class="grp"><b>Belgeler arasındaki bağlantılar</b></p>
+<ul>
+<li><b>Ekler ve bir belgenin nereye sunulduğu.</b> Giden bir mektup eklerini mavi numaralar olarak listeler; gelen bir belge veya bir delil, hangi mektuplarla sunulduğunu, arkasında dava numarası bulunan davaya göre gruplanmış şekilde gösterir. O kaydı açmak için bir numaraya, o davayı açmak için dava numarasına tıklayın.</li>
+<li><b>Referans numaraları.</b> Başka belgeler aynı kayıt veya yazı numarasını taşıyorsa, bu numara altı çizili olarak gösterilir. Bu numarayı taşıyan tüm belgeleri görmek ve birini açmak için üzerine tıklayın.</li>
+</ul>
+
+<h3>Dokümantasyon sekmesi</h3>
+<figure><img src="img/screens/5%20case%20documentation.png" alt="Yön filtresi, tarihe atlama ve yanında açık kronoloji diyagramıyla bir davanın Dokümantasyon sekmesi"><figcaption>Dokümantasyon sekmesi belge içeren her kaydı listeler; kronoloji diyagramı yazışmaları bir akış olarak gösterir.</figcaption></figure>
+<p class="scr-intro"><b>Dokümantasyon</b> sekmesi davanın kâğıt tarafıdır: yalnızca belge taşıyan kayıtları (mektuplar, dilekçeler, kararlar, taramalar), en yenisi önce ve sayfa başına 20 olacak şekilde listeler.
+Her satır kayıt numarasını, tarihi, başlığı, kısa bir özeti, sınıflandırma etiketlerini ve bu belgeye ait araçları gösterir.
+Kartın sağındaki mavi düğme <b>Kronoloji</b> görünümünü açar — görselin sağında gösterildiği gibi, gelen ve giden belgeler yukarıdan aşağıya bir akış diyagramı olarak çizilir.</p>
+<ol class="marks">
+<li><b>Yön filtresi.</b> <i>Tümü</i> her belgeyi, <i>IN</i> (turuncu) yalnızca gelen belgeleri, <i>OUT</i> (yeşil) yalnızca gönderdiğiniz belgeleri gösterir. Etkin çip kalın ve çerçeveli gösterilir.</li>
+<li><b>Tarihe atla.</b> Takvim alanında bir tarih seçin ve o tarihi içeren sayfaya atlamak için büyütece tıklayın. Alan yalnızca liste üç sayfadan uzunsa görünür; takvim yalnızca davada geçen tarihleri sunar.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Liste</b></p>
+<ul>
+<li><b>Sıralama.</b> En yeni ve en eski önce sıralaması arasında geçiş yapmak için <i>Tarih</i> sütun başlığına tıklayın. Açık süreleri en yakını önce olacak şekilde sıralamak için <i>Süre</i> başlığına tıklayın (tersine çevirmek için yeniden tıklayın).</li>
+<li><b>Kayıt numarası.</b> Tarihin üstündeki mor numara, kaydın <span class="irs">IRONSTICK</span> numarasıdır. Panoya kopyalamak için üzerine tıklayın.</li>
+<li><b>Özetin altındaki etiketler.</b> Küçük çipler ülkeyi, hukuk alanını, yargılama aşamasını, yönü (IN turuncu, OUT yeşil), kurum türünü, belge dilini ve diğer sınıflandırmaları gösterir. Tam adını görmek için imleci hukuk alanının veya aşamanın üzerine getirin.</li>
+<li><b>Ekler ve “Sunulduğu yer”.</b> Gönderdiğiniz bir belgede <i>Ekler</i>, birlikte gönderilen kayıtları listeler. Gelen bir belgede veya bir delilde <i>Sunulduğu yer</i>, belgenin nereye sunulduğunu, her grubun arkasında dava numarası bulunacak şekilde davaya göre gruplanmış olarak listeler. Bu kaydı kronolojide açmak için bir numaraya, o davayı açmak için dava numarasına tıklayın — başka bir davaya ait olsa bile.</li>
+<li><b>Referans numaraları.</b> Mavi altı çizili numaralar, başka belgelerde de geçen yazı veya kayıt numaralarıdır. Aynı numarayı taşıyan tüm belgeleri görmek ve birini açmak için birine tıklayın.</li>
+<li><b>Süre.</b> Kayıt açık bir süre taşıyorsa bir zil görünür: süre 10 gün içinde doluyorsa turuncu, geçmişse kırmızı. Kalan günleri veya sürenin geçtiği tarihi görmek için imleci üzerine getirin.</li>
+</ul>
+<p class="grp"><b>Her satırdaki araçlar</b></p>
+<ul>
+<li><b>Metin yaz.</b> Başlığın yanındaki not simgesi bir seçim açar: yapay zekâ yardımıyla bir mektup yazmak (sohbet, bu dava ve bu belge zaten referans alınmış olarak açılır) veya metin işlemcide boş bir metin belgesi açmak. Simgenin önündeki bir sayı, bu kayıt için kaç metnin zaten mevcut olduğunu gösterir. Android tablette kullanılamaz.</li>
+<li><b>Belgeyi açma.</b> Ataş, belgeyi <span class="irs">IRONSTICK</span> tarayıcı penceresinde açar; dosya adını görmek için imleci üzerine getirin. Kaydın bir konumu varsa yeşil bir işaretçi görünür — konumu haritada görmek için üzerine tıklayın.</li>
+<li><b>Çalışma klasörleri.</b> Klasör simgesi belgeyi, bu davanın ait olduğu konuların çalışma klasörlerine dosyalar: bir klasörü işaretleyin veya işaretini kaldırın ya da yeni bir klasör oluşturun. Kayıt zaten dosyalanmışsa simge dolu bir klasör, araç ipucu ise klasör sayısını gösterir.</li>
+<li><b>İlgililik radarı.</b> Radar simgesi, bu davada ve diğer davalarda içerik bakımından en benzer kayıtları bulur. Kronolojide oraya gitmek için bir sonuca tıklayın.</li>
+<li><b>Etiketler.</b> Etiket simgesi belgeye kendi etiketlerinizi atar — genel renkli etiketler veya yalnızca bu dava için geçerli etiketler. Etiketlendiği anda simge ilk etiketin rengini alır.</li>
+<li><b>Düzenleme.</b> Kalem, belge kaydını düzenleme için açar (başlık, tarih, sınıflandırma, süre vb.).</li>
+<li><b>Başka bir davaya kopyalama.</b> Kopyalama simgesi, kaydı belgesiyle birlikte aynı müvekkilin başka bir davasına kopyalar. Hedef davayı seçin ve ardından <i>Kopyala</i> düğmesine tıklayın.</li>
+<li><b>Silme.</b> Çarpı, siz onayladıktan sonra kaydı siler.</li>
+</ul>
+<p class="grp"><b>Kronoloji diyagramı</b></p>
+<ul>
+<li><b>Davanın seyrini okuma.</b> Diyagram, tüm gelen ve giden PDF belgelerini oklarla birbirine bağlı olarak zaman sırasına göre gösterir. Gönderdiğiniz belgelerin başlığı siyahtır, açık süresi olan belgelerin çerçevesi kalındır. Giden bir mektubun ekleri, yanında ayrı kutular olarak görünür.</li>
+<li><b>Bir kaydı açma.</b> Doğrudan o kayda gitmek için bir kutudaki altı çizili kayıt numarasına tıklayın.</li>
+<li><b>Yakınlaştırma ve kaydırma.</b> Yakınlaştırmak ve uzaklaştırmak için iki büyüteç düğmesini kullanın; uzun kronolojiler, aralarında kaydırarak gezindiğiniz birden fazla sayfaya yayılır.</li>
+<li><b>Belge olarak yakalama.</b> <i>Yakala</i>, diyagramdan bir PDF oluşturur ve belge yakalamayı açar; orada onu davaya atar ve diğer her belge gibi kaydedersiniz. Android tablette kullanılamaz; orada diyagram yalnızca görüntülenebilir. Diyagramı X ile kapatın.</li>
+</ul>
+
+<h3>Dosya derlemesi: kayıtları ve sayfaları seçme</h3>
+<figure><img src="img/screens/5%20case%20dossier%201.png" alt="Hariç tutulan kayıtlar, sayfa seçimi ve bir görsel önizlemesiyle Dosya derlemesini hazırla ekranı"><figcaption>Dosya derlemesinin ilk adımı: hangi kayıtların ve hangi sayfaların dahil edileceğine karar verin.</figcaption></figure>
+<p class="scr-intro">Davanın üstündeki <b>Dosya derlemesi</b> düğmesi (yalnızca davada kronoloji kayıtları varsa gösterilir), davanın eksiksiz, sayfa numaralı bir dosyasını — PDF olarak veya EDRM üretim paketi olarak — oluşturan bir sihirbaz açar.
+İlk adım olan <b>Dosya derlemesini hazırla</b> aşamasında tüm kronoloji kayıtlarını gözden geçirir ve neyin dahil edileceğine karar verirsiniz. Görselde hariç tutulmuş bir kayıt (kırmızı işaret), kısmen hariç tutulmuş bir belge (sarı daire), bir belgenin sayfa seçimi ve bir fotoğraf kaydının görsel önizlemesi görülmektedir.</p>
+<h4>Burada neler yapabilirsiniz</h4>
+<ul>
+<li><b>Bir kaydı dışarıda bırakma.</b> Kaydı hariç tutmak için bir satırın herhangi bir yerine tıklayın: kayıt soluklaşır ve ortasında kırmızı bir işaret belirir. Yeniden dahil etmek için tekrar tıklayın.</li>
+<li><b>Tek tek sayfaları dışarıda bırakma.</b> Bir belgenin mavi yuvarlak düğmesi, her sayfanın önizlemesiyle birlikte <i>Sayfaları seç</i> penceresini açar. Bir sayfayı hariç tutmak (kırmızı işaret) veya yeniden dahil etmek için üzerine tıklayın. Bazı sayfalar hariç tutulduğunda düğme sarıya döner, satır da ortasında sarı bir daireyle karartılır; sayfa seçimini değiştirmek için daireye tıklayın.</li>
+<li><b>Karar vermeden önce görüntüleme.</b> Ataş, belgeyi <span class="irs">IRONSTICK</span> tarayıcı penceresinde açar. Görsel simgesi kaydın fotoğraflarını (en fazla dört), mikrofon veya sohbet simgesi ise transkripti veya sohbeti gösterir. Bu önizlemeler hiçbir şeyi değiştirmez.</li>
+<li><b>Bir kaydı bulma.</b> Arama alanına en az iki karakter yazın; eşleşen kayıtlar bir listede görünür. Oraya gitmek için birine tıklayın — doğru sayfa açılır ve kayıt parlar. Bir <span class="irs">IRONSTICK</span> belge damgası da girebilirsiniz; bu belge başka bir davaya aitse, o davanın dosya derlemesi hazırlığı ilgili belgede açılır.</li>
+<li><b>Sıralama.</b> En yeni ve en eski önce sıralaması arasında geçiş yapmak için <i>Tarih</i> başlığına tıklayın. Başlık satırı dava başlığını, dava numarasını ve kayıt sayısını gösterir.</li>
+<li><b>İlerleme veya iptal etme.</b> <i>Dosya derlemesi bilgilerine geç</i> bir sonraki adıma götürür; <i>İptal</i> davaya geri döner. Bu dava için yaptığınız seçim, program açık kaldığı sürece korunur; böylece adımlar arasında ileri geri gidebilirsiniz.</li>
+</ul>
+
+<h3>Dosya derlemesi: bilgiler, baskı önizlemesi ve dışa aktarma</h3>
+<figure><img src="img/screens/5%20case%20dossier%202.png" alt="Dosya derlemesi bilgileri ekranı, sayfa küçük resimleriyle baskı önizlemesi ve dışa aktarma iletişim kutusu"><figcaption>Kapak sayfasını ve yapıyı belirleyin, her sayfayı kontrol edin ve ardından dosya derlemesini PDF veya EDRM ZIP olarak dışa aktarın.</figcaption></figure>
+<p class="scr-intro">İkinci adım olan <b>Dosya derlemesi bilgileri</b> (solda) aşamasında kapak sayfasını doldurur, yargı alanını kontrol eder ve dosya derlemesinin hangi konu bloklarını hangi sırayla içereceğine karar verirsiniz.
+<i>Baskı hazırlığına geç</i>, bitmiş dosya derlemesinin her bir sayfasını gösteren <b>Baskı önizlemesini</b> (ortada) açar. Oradan PDF dosya derlemesi veya EDRM ZIP olarak dışa aktarırsınız; dışa aktarma iletişim kutusu (sağ üstte) dosyayı kaydeder.</p>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Dosya derlemesi bilgileri</b></p>
+<ul>
+<li><b>Kapak sayfası adresi.</b> Alıcıyı otomatik doldurmak için listeden davanın kurumlarından birini seçin veya adı, adresi, posta kodunu, şehri ve ülkeyi kendiniz girin.</li>
+<li><b>Yargı alanı.</b> Ülke ve hukuk alanı davadan alınır. Ülkenin birden fazla resmî hukuk dili varsa, dosya derlemesinin kendi sayfalarının yazılacağı dili seçin.</li>
+<li><b>EDRM dışa aktarma seçenekleri.</b> PDF dosya derlemesi için değil, yalnızca EDRM ZIP için gereklidir. Bir Bates öneki girin — altındaki satır ortaya çıkan numaraları gösterir — ve isterseniz üretim amacını (örneğin discovery sürecinde bir belge ibrazı talebi veya bir delil sunumu) belirtin.</li>
+<li><b>Konu blokları.</b> Dosya derlemesi bloklardan oluşur: kapak sayfası, konu dizini, kronoloji, belgeler, medya, transkriptler, sohbetler, kişi dizini ve kurum dizini. Sırayı değiştirmek için bir bloğu tutamağından sürükleyin; dahil etmek (yeşil onay işareti) veya dışarıda bırakmak (kırmızı işaret) için bir bloğa tıklayın. Davada içeriği bulunmayan bloklar otomatik olarak dışarıda bırakılır.</li>
+<li><b>Geri veya ileri.</b> <i>Geri</i> kayıt seçimine döner; <i>Baskı hazırlığına geç</i> önizlemeyi oluşturur.</li>
+</ul>
+<p class="grp"><b>Baskı önizlemesi</b></p>
+<ul>
+<li><b>Oluşumu izleme.</b> Bir ilerleme çubuğu önizlemenin ne kadar ilerlediğini gösterir. Ekrandan ayrılsanız bile oluşturma arka planda devam eder.</li>
+<li><b>Her sayfayı kontrol etme.</b> Tüm sayfalar bloklara göre gruplanmış, numaralı küçük resimler olarak görünür. Her belge, dosya adını gösteren kesikli bir çizgiyle başlar. Başlık satırı dosya derlemesinin sayfalarını ve bloklarını sayar.</li>
+<li><b>Sayfaları kaldırma.</b> Bir belgenin bir sayfasını dosya derlemesinden kaldırmak için üzerine tıklayın (kırmızı işaret, sayfa numarası yok); geri getirmek için yeniden tıklayın. Belgelerdeki boş sayfalar otomatik olarak algılanır ve kaldırılır. Kapak sayfası veya dizinler gibi <span class="irs">IRONSTICK</span> uygulamasının kendisinin oluşturduğu sayfalar burada kaldırılamaz. Konu dizini gerçek sayfa numaralarıyla güncellenir.</li>
+<li><b>PDF dosya derlemesi.</b> Bitmiş, sayfa numaralı dosya derlemesini oluşturur. Hazır olduğunda dışa aktarma iletişim kutusu kendiliğinden açılır; <i>Önizlemeye dön</i> sayfalara geri döner.</li>
+<li><b>EDRM ZIP.</b> Bates numaraları, yerel belgeler, bunların metni ve olağan yükleme dosyalarıyla elektronik bir üretim paketi oluşturur. Ardından belge sayısını, toplam sayfaları ve Bates aralığını görürsünüz; <i>EDRM ZIP indir</i> paketi kaydeder.</li>
+</ul>
+<p class="grp"><b>Dışa aktarma iletişim kutusu</b></p>
+<ul>
+<li><b>Dosyayı kaydetme.</b> İletişim kutusu dosya adını, boyutu ve davayı gösterir. <i>İndir</i> dosyayı Belgeler klasörünüze kaydeder ve gösterir. <i>Google Drive</i> yalnızca bu bilgisayarda senkronize edilmiş bir Google Drive klasörü varsa görünür ve dosyayı klasörlerinden birine kaydetmenizi sağlar. <i>İptal</i> veya X iletişim kutusunu kapatır.</li>
+</ul>
+
+<h3>Yapay zekâ değerlendirmesi sekmesi</h3>
+<figure><img src="img/screens/5%20case%20assesment.png" alt="Değerlendirme bölümleri ve başarı şansı göstergesiyle Yapay zekâ değerlendirmesi sekmesi"><figcaption>Davanın başarı şansı göstergesiyle birlikte yapay zekâ değerlendirmesi.</figcaption></figure>
+<p class="scr-intro"><b>Yapay zekâ değerlendirmesi</b> sekmesi, yapay zekânın dava hakkındaki yazılı değerlendirmesini sunar. Tanımlayıcı bölümler tüm dava dosyanıza dayanır; başarı şansı ise yalnızca mahkemenin kendi dosyasında bulunanlara göre değerlendirilir. Sekme yargılamanın dayanağını, mahkeme dosyasının (mahkemede veya resmî makamda tutulan dosyanın) durumunu başarı şansı tahminiyle birlikte, eksiksiz <span class="irs">IRONSTICK</span> dosyasının durumunu, eleştirel notları, güçlü yönleri ve riskleri ve ilgili davalara bağlantıları gösterir.
+Metindeki her kayıt numarası, her dava referansı ve her esas numarası bir bağlantıdır. Başlığın altındaki tarih, değerlendirmenin ne zaman oluşturulduğunu gösterir.</p>
+<ol class="marks">
+<li><b>Yeniden değerlendir.</b> Yeni bir değerlendirme başlatır. Değerlendirme yoksa düğmenin adı <i>Değerlendirme iste</i> olur. Son değerlendirmeden bu yana yeni belge gelmediyse (aşağıya bir yorum yazmadığınız sürece) veya dava aktif değilse, görseldeki gibi soluk görünür.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Bir değerlendirme başlatma</b></p>
+<ul>
+<li><b>İsteme veya yenileme.</b> <i>Değerlendirme iste</i> veya <i>Yeniden değerlendir</i> düğmesine tıklayın. Herhangi bir şey gönderilmeden önce <span class="irs">IRONSTICK</span>, harici yapay zekânın kullanılıp kullanılamayacağını sorar; siz onaylayana kadar hiçbir şey bilgisayarınızdan çıkmaz.</li>
+<li><b>Baştan başlamak yerine güncelleme.</b> Tam bir değerlendirmeden kısa süre sonra (bir gün içinde ve art arda en fazla üç kez) düğme, <i>Güncelle</i> ve <i>Yeniden değerlendir</i> seçeneklerini içeren bir menüye dönüşür. <i>Güncelle</i> yalnızca o zamandan beri gelen belgeleri ekler ve değişen bölümleri yeniden yazar; bu çok daha hızlıdır.</li>
+<li><b>Yalnızca aktif davalar.</b> Pasif veya duraklatılmış davalar değerlendirilmez. Düğmeler kilitlidir ve bir bilgi, davayı önce aktif duruma getirmenizi rica eder.</li>
+<li><b>İlerlemeyi takip etme.</b> İşlem sürerken kart güncel aşamayı — hazırlık, henüz metni olmayan belgelerden metin okuma (yerel olarak yapılır), dosyaları tarama, değerlendirmeyi yazma, başarı şansını tahmin etme — ve her adımın canlı bir günlüğünü gösterir.</li>
+<li><b>Çalışmaya devam etme.</b> Değerlendirme arka planda çalışır. Sekmeler arasında geçiş yapabilir, başka davalar açabilir veya birden fazla dava için aynı anda değerlendirme başlatabilirsiniz; biri tamamlandığında bir bildirim sizi haberdar eder.</li>
+</ul>
+<p class="grp"><b>Değerlendirmeyi okuma</b></p>
+<ul>
+<li><b>Yargılamanın dayanağı.</b> Kimin kime karşı hangi mahkeme veya makam önünde neyi talep ettiği.</li>
+<li><b>Mahkeme dosyasının durumu ve başarı şansı.</b> Yalnızca mahkemenin veya makamın kendi dosyasında bulunanları açıklar — her iki tarafın ona gönderdiği veya ondan aldığı her şey. Yanındaki gösterge, yapay zekânın yüzde olarak tahminini, sonucu (açıkça kaybedilmişten açıkça kazanılmışa kadar) ve mevcut olduğunda delil durumu, asıl talep ve diğer talepler için ayrı değerleri gösterir. Bir mahkeme dosyası belirlenemezse bu bölüm yer almaz ve gösterge boş kalır (“tahmin edilemez”).</li>
+<li><b>IRONSTICK dosyasının durumu.</b> Mahkemenin görmediği belgeler de dahil olmak üzere eksiksiz dosyanızdan ortaya çıkan tablo.</li>
+<li><b>Eleştirel not, güçlü yönler ve riskler.</b> Turuncu bir kutu en önemli tehlikeye dikkat çeker. Yeşil kutu konumunuzun güçlü yönlerini, kırmızı kutu ise riskleri ve açık noktaları listeler.</li>
+<li><b>İlgili davalar.</b> <i>Davalar arası bağlantılar</i>, aynı müvekkilin diğer davalarının bu davayı nasıl etkilediğini gösterir (kaynak, hedef, etki — emsal niteliğinde, delil veya stratejik olarak işaretlenir). Sarı bir kutu, aynı karşı tarafa veya aynı ilgililere sahip diğer müvekkillerin davalarını listeler ve bunlardan birini yorum alanı aracılığıyla değerlendirmeye nasıl dahil edeceğinizi açıklar.</li>
+<li><b>Bir bölümü kopyalama.</b> Bir başlığın önündeki küçük kopyalama simgesi, başlığı ve metnini panoya kopyalar.</li>
+<li><b>Bağlantıları izleme.</b> Mor bir kayıt numarası, bu kaydı kronolojide açar. Mavi bir dava referansı veya bir esas numarası, <span class="irs">IRONSTICK</span> içinde mevcutsa o davayı açar.</li>
+<li><b>Uyarılar ve ek okumalar.</b> Değerlendirme eksik olabilecekse (araştırma sınırına ulaşıldı veya araştırma sırasında teknik bir hata oluştu) üstte sarı bir bilgi uyarır. <i>Sonradan yüklenen tam metinler</i>, yapay zekânın tamamen okuduğu belgeleri listeler; açmak için birine tıklayın.</li>
+</ul>
+<p class="grp"><b>İtirazlar ve eklemeler</b></p>
+<ul>
+<li><b>Değerlendirmeyi düzeltme veya tamamlama.</b> İtirazlarınızı, eksik olguları veya talimatlarınızı alttaki alana yazın. En az üç kelime yazdığınız anda <i>Yeniden değerlendir</i> kullanılabilir hâle gelir ve yapay zekâ yorumunuzu dikkate alarak davayı yeniden değerlendirir.</li>
+</ul>
+
+<h3>Yapay zekâ değerlendirmesi nasıl oluşur</h3>
+<figure><img src="img/screens/5%20case%20assesment%20detail.png" alt="Tüm dava dosyasından beslenen bölümlerin yeşil, başarı şansı göstergesiyle mahkeme dosyası bölümünün kırmızı işaretlendiği yapay zekâ değerlendirmesi"><figcaption>Yeşil: tüm dava dosyasından alınmıştır. Kırmızı: yalnızca dosyanın mahkemede bulunan kısmı.</figcaption></figure>
+<p class="scr-intro">Değerlendirme, görselde işaretlenmiş iki farklı kaynakla çalışır.
+<b>Yeşil</b> bölümler, <span class="irs">IRONSTICK</span> içindeki dosyanın tamamından — davanın her belgesi, her kaydı, her e-postası ve her transkripti — ve aynı müvekkilin komşu davalarından yazılır.
+Göstergeli <b>kırmızı</b> bölüm, yalnızca dosyanın mahkemede bulunan kısmını değerlendirir: mahkemeye sunduklarınız ve mahkemenin veya karşı tarafın size gönderdikleri. Mahkemenin hiç görmediği belgeler başarı şansı açısından hesaba katılmaz.</p>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Yeşil bölümler — dosyanızın tamamı</b></p>
+<ul>
+<li><b>Yargılamanın dayanağı.</b> Dosyanın tamamından anlaşıldığı şekliyle, kimin kime karşı hangi mahkeme veya makam önünde neyi talep ettiği.</li>
+<li><b>IRONSTICK dosyasının durumu.</b> Kendi notlarınız, delilleriniz ve mahkemenin haberdar olmadığı yazışmalar ile müvekkilin diğer davalarının etkileri dahil olmak üzere, davanın <span class="irs">IRONSTICK</span> içinde yer aldığı şekliyle eksiksiz tablosu.</li>
+<li><b>Eleştirel not, güçlü yönler ve riskler.</b> Bunlar da dosyanın tamamından ve komşu davalardan yazılır.</li>
+</ul>
+<p class="grp"><b>Kırmızı bölüm — yalnızca mahkeme dosyası</b></p>
+<ul>
+<li><b>Mahkeme dosyasının durumu.</b> Yalnızca mahkemenin kendi dosyasında bulunanları açıklar — bu yargılamada mahkemeden veya karşı taraftan alınan her dilekçe ve her belge.</li>
+<li><b>Başarı şansı.</b> Gösterge alttaki kırmızıdan (kaybedilmiş) üstteki yeşile (kazanılmış) kadar uzanır; ok ve yüzde yapay zekânın tahminini gösterir, altındaki sonuç da (örneğin <i>büyük olasılıkla kazanılmış</i>) bunu kelimelere döker. Mevcut olduğunda delil durumu, asıl talep ve diğer talepler için ayrı değerler bunu izler.</li>
+<li><b>Neden yalnızca mahkeme dosyası.</b> Mahkeme önündekilere göre karar verir. Dosyanızdaki güçlü ama hiç sunulmamış bir belge, mahkemeye ulaşana kadar tahmini iyileştirmez — yeşil bölümler size bu tür boşlukları gösterir.</li>
+<li><b>Mahkeme dosyası yoksa tahmin de yok.</b> <span class="irs">IRONSTICK</span> mahkemeyi veya mahkemenin önündeki belgeleri belirleyemezse kırmızı bölüm yer almaz ve gösterge boş kalır.</li>
+</ul>
+
+<h2 id="s6">6. Kişiler / Varlıklar</h2>
+
+<h3>Kişi listesi, ayrıntılar ve ilişki ağı</h3>
+<figure><img src="img/screens/6%20entities%201.png" alt="Ayrıntı penceresi, telefon QR kodu ve bir şirketin ilişki ağıyla Kişiler / Varlıklar listesi"><figcaption>Ayrıntı penceresi, bir telefon QR kodu ve bir şirketin ilişki ağıyla birlikte kişi listesi.</figcaption></figure>
+<p class="scr-intro">Bu ekran, davalarınızda yer alan her gerçek kişiyi ve her tüzel kişiyi (şirket, dernek, taraf olarak resmî makam) içerir.
+Görselde filtre düğmeleri ve arama alanıyla liste, bir şirketin ayrıntı penceresi, bir telefon simgesine tıklandığında açılan QR kodu
+ve bir satırın ağ simgesiyle açılan ilişki ağı görülmektedir.</p>
+<ol class="marks">
+<li><b>Referans numarası.</b> Her kişinin veya şirketin <i>@E0000279</i> biçiminde kendine ait bir referansı vardır. Panoya kopyalamak için üzerine tıklayın; örneğin kişiye bir kronoloji kaydında, bir notta veya yapay zekâyla bir sohbette atıf yapmak için.</li>
+<li><b>Arama alanı.</b> Siz yazdıkça listeyi ada, telefon numarasına, e-posta adresine veya şehre göre daraltır. Birden fazla kelimenin hepsinin eşleşmesi gerekir; <i>*</i> joker karakter olarak çalışır ve yalnızca benzer sesli adlar da bulunur.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Sayfa başlığı</b></p>
+<ul>
+<li><b>Kayıt sayısı.</b> Başlığın altında kaç kaydın gösterildiğini görürsünüz; bir filtre etkinse bu, sayının yanında belirtilir.</li>
+<li><b>İçe aktar.</b> Başka bir <span class="irs">IRONSTICK</span> kullanıcısından aldığınız bir veri paketi dosyasını (kişiler, şirketler, kurumlar, bunların ilişkileri ve kişi analizleri) sürükleyeceğiniz bir pencere açar. İçe aktarma sırasında bir ilerleme çubuğu çalışır; ardından kaç kaydın yeni olduğunu, kaçının zaten bilindiğini ve kaç ilişkinin eklendiğini görürsünüz. Paket, zaten kayıtlı kişilere ilişkin ek ayrıntılar getiriyorsa, bunlar verilerinizin üzerine yazılmak yerine veri tutarlılığı monitöründe öneri olarak görünür. Hasarlı veya yanlış bir dosya bir mesajla reddedilir.</li>
+<li><b>Evren.</b> Siyah düğme, tüm taraflarınızın üç görsel haritasını açar: 3B harita, 2B harita ve coğrafi harita.</li>
+<li><b>Yeni kişi / varlık.</b> Yeni bir kişi veya yeni bir şirket için giriş formunu açar.</li>
+</ul>
+<p class="grp"><b>Filtreler ve liste</b></p>
+<ul>
+<li><b>Tümü / Gerçek kişiler / Tüzel kişiler.</b> Listenin üstündeki üç düğme her gruptaki sayıyı gösterir. Yalnızca gerçek kişileri veya yalnızca tüzel kişileri görmek için birine tıklayın; liste 1. sayfaya döner.</li>
+<li><b>Sayfalar.</b> Liste sayfa başına 20 kayıt gösterir. Birden fazla sayfa varsa sayfa gezinmesi listenin üstünde ve altında görünür.</li>
+<li><b>Sütunlar.</b> Her satır referans numarasını, mavi bir kişi simgesini veya mor bir şirket simgesini, adı (kişilerde mesleği de), şehri, iletişim simgelerini, kaydın yer aldığı dava sayısını (yeşil) veya <i>Yok</i> (gri), ağ simgesini, analiz simgesini ve eylemleri gösterir.</li>
+<li><b>İletişim simgeleri.</b> Telefon simgesi ve e-posta simgesi birer QR kodu açar: hemen arama yapmak veya e-posta yazmak için telefonunuzla tarayın. QR kodunun kendisine tıklamak bu bilgisayarda ilgili programı açar; böyle bir program yoksa numara veya adres panoya kopyalanır. Bir kitap simgesi, sosyal medya profillerinin veya bir web sitesinin kayıtlı olduğunu gösterir.</li>
+<li><b>Ağ simgesi.</b> Bu kişinin veya şirketin ilişki ağını açar.</li>
+<li><b>Analiz simgesi.</b> Mor simge yalnızca zaten bir kişi analizi bulunan gerçek kişilerde görünür. Analizi açmak için üzerine tıklayın.</li>
+<li><b>Düzenleme ve silme.</b> Kalem giriş formunu açar. Çarpı, bir onaydan sonra kaydı siler; kayıt hâlâ davalara, ilişkilere veya bir kişi analizine bağlıysa, onay penceresi bu bağlantıları sarı bir uyarıda listeler. Bir kişinin silinmesi, o kişinin tüm ilişkilerini de kaldırır.</li>
+<li><b>Diğer ekranlardan geri gelme.</b> Aramadan, bir davadan veya haritalardan birinden buraya geçerseniz, kayıt doğru sayfada bulunur ve birkaç saniye boyunca sarı renkte parlar.</li>
+</ul>
+<p class="grp"><b>Ayrıntı penceresi</b></p>
+<ul>
+<li><b>Ayrıntıları açma.</b> Bir satırın herhangi bir yerine tıklayın. Pencere bir <i>Gerçek kişi</i> veya <i>Tüzel kişi</i> etiketi ile doldurulmuş tüm alanları temel bilgiler, adres, iletişim, çevrim içi / sosyal, meslek (yalnızca kişiler), araç ve sistem verileri (kayıt numarası ve oluşturulma tarihi) olarak gruplanmış hâlde gösterir. Boş alanlar gösterilmez.</li>
+<li><b>QR kodu olarak kartvizit.</b> Başlıktaki ada, sokağa veya şehre tıklayın: doğrudan telefonunuzun rehberine tarayabileceğiniz, kartvizitin tamamını içeren bir QR kodu görünür.</li>
+<li><b>Telefon, e-posta ve web bağlantıları.</b> Mavi telefon numarası ve e-posta adresi kendi QR kodlarını açar. Facebook, LinkedIn, Instagram ve web sitesi bağlantıları <span class="irs">IRONSTICK</span> tarayıcı penceresinde açılır.</li>
+<li><b>PDF dışa aktarma.</b> Yalnızca doldurulmuş alanlarla birlikte PDF olarak bir kişi sayfası oluşturur: temel bilgiler, dava katılımları, kişi analizi ve ilişkiler. Ardından bunu Belgeler klasörünüze veya Google Drive klasörünüze kaydedebilirsiniz.</li>
+</ul>
+<p class="grp"><b>İlişki ağı</b></p>
+<ul>
+<li><b>Kim kiminle bağlantılı.</b> Ağ, kişiyi veya şirketi ortada, doğrudan ilişkileri ve bu kişilerin ilişkileriyle (iki düzey) birlikte, bir veya birden fazla sayfada bir diyagram olarak gösterir.</li>
+<li><b>Ağ içinde gezinme.</b> Diyagramda başka bir kişiye, şirkete veya kuruma tıklayın: pencere bu tarafın çevresinde yeniden oluşturulur. Diyagramdaki sayfa referansları ilgili sayfaya atlar; büyüteç düğmeleri yakınlaştırır ve uzaklaştırır.</li>
+<li><b>Yakala.</b> Diyagramdan bir PDF oluşturur ve onu doğrudan <i>Belge yakala</i> ekranında açar; böylece olağan damgayla bir davaya dosyalayabilirsiniz. Bu düğme Android tablette kullanılamaz.</li>
+</ul>
+<p class="grp"><b>Bir kişiyi kaydetme veya düzenleme</b></p>
+<ul>
+<li><b>Kaydın türü.</b> Önce <i>Gerçek kişi</i> veya <i>Tüzel kişi</i> seçeneğini belirleyin; form buna göre uyarlanır. Yalnızca ad zorunludur. Kişiler için ayrıca kişisel kimlik numarası, doğum tarihi (tarih seçici), uyruk ve din eklenir; şirketler için bunların yerine ticaret sicil numarası.</li>
+<li><b>Adres ve haritadaki konum.</b> Sokak, posta kodu, şehir, ilçe ve ülkeyi girin (yeni bir kayıtta ülke yapılandırmanızdan önceden doldurulur). Adresi haritada aramak, enlem ve boylamı girmek veya haritada doğru yere tıklamanız için coğrafi koordinatları açın.</li>
+<li><b>İletişim, çevrim içi, meslek, araç.</b> Telefon, faks, e-posta (geçerli biçim açısından denetlenir), iletişim ayrıntıları, açıklama, sosyal medya bağlantıları ve web sitesi, meslek ve işveren (yalnızca kişiler), araç ve plaka.</li>
+<li><b>Yapay zekâ ile otomatik doldurma ve Google araması.</b> Adı ve ülkesi girilmiş bir tüzel kişi için başlık satırında bir düğme görünür. Bir yapay zekâ anahtarı yapılandırılmışsa, <i>Yapay zekâ ile otomatik doldur</i> onayınızı ister ve ardından harici yapay zekânın şirketi internette aramasını sağlar; yapay zekâ yalnızca boş alanları doldurur ve bunları mor bir çerçeveyle işaretler. Bundan sonra veya yapay zekâ anahtarı yoksa düğme, aramayı <span class="irs">IRONSTICK</span> tarayıcı penceresinde açan <i>Google araması</i> düğmesine dönüşür.</li>
+<li><b>Kaydetme veya iptal etme.</b> Kaydet düğmesi kaydı kaydeder ve listeye döner. Mevcut bir gerçek kişiyi düzenlerken sol altta ayrıca bir <i>Kişi analizi</i> düğmesi görünür.</li>
+<li><b>IRONSTICK SERVER'daki diğer kullanıcılara ait kayıtlar.</b> Bir kayıt IRONSTICK SERVER'ın başka bir kullanıcısına aitse, bir bant bunu belirtir. Bu durumda kaydetme, değişikliklerinizi sahibine bir değişiklik önerisi olarak gönderir; silme ise silmek yerine bir silme önerisi gönderir.</li>
+</ul>
+<p class="grp"><b>Kişi analizi ve web araştırması (yalnızca gerçek kişiler)</b></p>
+<ul>
+<li><b>Kişi analizi.</b> Bir kişinin yapılandırılmış profili: davadaki rolü (örneğin karşı taraf, tanık, üçüncü kişi), güvenilirlik (doğrulanmamış, kısmen doğrulanmış, doğrulanmış — renkli bir etiket olarak gösterilir) ve analiz tarihi; her biri haritada kendi konumuna sahip en fazla üç ikametgâhla birlikte kimlik ve konum; geçmiş (aile, vergiler, borçlar, ticari faaliyet, çevrim içi varlık, sosyal çevre); ve bir değerlendirme (ağdaki rolü, zayıf noktalar, genel stratejik değerlendirme, kaynaklar). Alt bilgi en son ne zaman kaydedildiğini gösterir. Şirketlerin kişi analizi yoktur.</li>
+<li><b>İlişkiler.</b> Analizin sonunda ilişkiler eklersiniz: bir kişi veya kurum arayın, bir kategori seçin (aile, iş, din, yer, suç, finans, sosyal, siyaset, eğitim, askeriye/polis, dijital/çevrim içi) ve “şunun eşidir” gibi kısa bir açıklama ekleyin. Mevcut ilişkiler düzenlenebilir veya silinebilir; bunlar ağı ve haritaları besler.</li>
+<li><b>Web araştırması.</b> Analizdeki <i>Web araştırması</i> düğmesi internette kişiyi arar ve sonuçları listeler. İstenmeyen sonuçları kaldırın, ardından kalan sayfaların yüklenip özetlenmesini sağlayın, güvendiğiniz kaynakları işaretleyin ve <i>Seçimi analiz et</i> düğmesine tıklayın. Sonuç, kişi analizine kaydettiğiniz analiz alanlarının düzenlenebilir bir önizlemesi olarak görünür. Harici yapay zekâ yalnızca onayınızdan sonra kullanılır; her bağlantı <span class="irs">IRONSTICK</span> tarayıcı penceresinde açılabilir.</li>
+</ul>
+
+<h3>Evren: 3B harita, 2B harita ve coğrafi harita</h3>
+<figure><img src="img/screens/6%20entities%20universe.png" alt="Menüsüyle Evren düğmesi ve üç harita: 3B harita, 2B harita ve coğrafi harita"><figcaption>Evren düğmesi, tüm taraflarınıza ilişkin üç görünüm açar.</figcaption></figure>
+<p class="scr-intro">Kişi listesinin başlık satırındaki <b>Evren</b> düğmesi, dosyalarınızdaki tüm kişilerin ve bunların nasıl bağlantılı olduğunun üç farklı görüntüsünü açar.
+<b>3B harita</b> içinde uçabileceğiniz bir uzaydır, <b>2B harita</b> aynı ağı kareli kâğıt üzerinde teknik bir çizim gibi serer,
+<b>coğrafi harita</b> ise konumu bilinen tüm kişileri ve şirketleri bir uydu haritasına yerleştirir. Her görünüm tam ekran açılır ve X veya Escape ile kapanır.</p>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>3B harita</b></p>
+<ul>
+<li><b>Evren kendiliğinden oluşur.</b> Bir ilerleme çubuğu görüntünün ne kadar ilerlediğini gösterir; birbirine sıkı bağlı taraf grupları (klikler) her biri kendi renginde art arda belirir. Dikkat çekici bağlantı örüntülerine sahip gruplar kırmızı yanıp sönerek vurgulanır. Sol üstteki satır tarafları, bağlantıları ve klikleri sayar.</li>
+<li><b>Uçma.</b> W/A/S/D ileri, sola, geri ve sağa uçurur; R ve F yükseltir ve alçaltır; döndürmek için fareyle sürükleyin veya ok tuşlarını kullanın; fare tekerleği ileri veya geri hareket ettirir; Shift daha hızlı hareket ettirir, boşluk tuşu yavaşlatır. Sol alttaki alan bu tuşları listeler, sağ alttaki küçük bir çubuk da hızınızı gösterir.</li>
+<li><b>Bir tarafı bulma ve ona yönelme.</b> Bir noktayı işaretlemek ve otomatik olarak ona uçmak için üzerine tıklayın; işareti kaldırmak için yeniden tıklayın. Sağ alttaki arama alanı en iyi eşleşen adı bulur ve oraya da uçar.</li>
+<li><b>Listeye dönme.</b> Bir noktaya çift tıklayın: harita kapanır ve kişi, kişi listesinde sarı renkte parlar. Bir kurumda bunun yerine aynı şekilde vurgulanmış olarak kurum listesi açılır.</li>
+<li><b>Dava bağlantıları ve ayrı katmanlar.</b> <i>Dava bağlantıları</i>, aynı davada yer alan tarafları ayrıca birbirine bağlar. <i>Katmanları ayır</i> kurumları üste, kişileri ortaya ve şirketleri alta yerleştirir. Her iki anahtar da görüntüyü yeniden oluşturur ve kaydedilir.</li>
+</ul>
+<figure class="vid"><video src="img/universe-entities.mp4" controls preload="metadata" playsinline></video><figcaption>Tüm tarafların 3B haritasında bir uçuş.</figcaption></figure>
+<p>Klikler — birbirine sıkı bağlı taraf grupları — deterministik bir topluluk algılamasıyla (yapay zekâ olmadan) otomatik olarak hesaplanır. Hesaplama, sizin bir şey yapmanıza gerek kalmadan her zaman <span class="irs">IRONSTICK</span> içindeki tüm kişileri, şirketleri ve kurumları kapsar. Bir tarafın nitelikli bağlantısı ne kadar fazlaysa, küresi o kadar büyük çizilir.</p>
+<p class="grp"><b>2B harita</b></p>
+<ul>
+<li><b>Bir kâğıt üzerindeymiş gibi hareket etme.</b> Sayfayı kaydırmak için fareyle sürükleyin veya W/A/S/D tuşlarını kullanın; fare tekerleği işaretçiye doğru yakınlaştırır.</li>
+<li><b>Bir tarafı inceleme.</b> Bağlantılarını ve ad etiketlerini görmek için imleci bir düğümün üzerine getirin. Bir tıklama onu işaretler (titreşir), boş sayfaya bir tıklama işareti kaldırır, çift tıklama ise kayıt vurgulanmış olarak listeye döner.</li>
+<li><b>Arama ve anahtarlar.</b> Sağ alttaki arama alanı bir tarafı adına göre bulur; <i>Dava bağlantıları</i> aynı davadaki tarafları birbirine bağlar; <i>Katmanları ayır</i> kurumları, kişileri ve şirketleri üst üste dizer.</li>
+</ul>
+<p class="grp"><b>Coğrafi harita</b></p>
+<ul>
+<li><b>Adresi olan herkes haritada.</b> Kişiler mavi, şirketler mor görünür. Yalnızca koordinatları bilinen kayıtlar gösterilir; <span class="irs">IRONSTICK</span> bunları arka planda adreslerden doldurur. Sol alttaki etiket kaç işaretçi olduğunu gösterir.</li>
+<li><b>Gruplanmış işaretçiler.</b> Birbirine çok yakın olan taraflar numaralı tek bir işaretçide toplanır. Yakınlaştırmak veya aynı yerdeyseler listelemek için üzerine tıklayın.</li>
+<li><b>Ayrıntılar.</b> Ad, tür ve adresi görmek için bir işaretçiye tıklayın; <i>Ayrıntılar</i> haritayı kapatır ve kaydı kişi listesinde vurgular.</li>
+</ul>
+
+<h2 id="s7">7. Kurumlar</h2>
+<figure><img src="img/screens/7%20institutions.png" alt="Ayrıntı penceresi ve telefon QR koduyla kurum listesi"><figcaption>Bir resmî makamın ayrıntı penceresi ve telefon QR koduyla birlikte kurum listesi.</figcaption></figure>
+<p class="scr-intro">Kurumlar, davalarınızda muhatap olduğunuz mahkemeler, resmî makamlar, kamu kuruluşları ve benzeri kurumlardır.
+Liste her kurumu sınıflandırma etiketleri, şehri, iletişim simgeleri ve yer aldığı dava sayısıyla birlikte gösterir.
+Görselde ayrıca bir resmî makamın ayrıntı penceresi ve telefon simgesine tıklandığında açılan QR kodu görülmektedir.</p>
+<ol class="marks">
+<li><b>Referans numarası.</b> Her kurumun <i>@I0000030</i> biçiminde kendine ait bir referansı vardır. Üzerine tıklayarak panoya kopyalarsınız; örneğin kuruma bir kayıtta veya yapay zekâyla bir sohbette atıf yapmak için.</li>
+<li><b>Arama alanı.</b> Yazarken listeyi ada, telefon numarasına, e-posta adresine veya şehre göre daraltır. Birden fazla kelimenin hepsinin eşleşmesi gerekir, <i>*</i> joker karakter olarak çalışır ve yalnızca benzer sesli adlar da bulunur.</li>
+</ol>
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Liste</h4>
+<ul>
+<li><b>Genel bakış.</b> Başlık kurumların toplam sayısını, kart başlık satırı ise o anda listelenenlerin sayısını gösterir. Liste sayfa başına 20 kayıt gösterir; birden fazla sayfa olduğunda sayfa gezinmesi listenin üstünde ve altında görünür.</li>
+<li><b>Bir bakışta sınıflandırma.</b> Her adın altında küçük gri etiketler ülke kodunu, tür kodunu ve bölgeyi, ardından tür adını gösterir.</li>
+<li><b>İletişim simgeleri.</b> Telefon ve e-posta simgeleri, telefonunuzla arama yapmanızı veya yazmanızı sağlayan bir QR kodu açar; QR koduna tıklamak bu bilgisayarda ilgili programı açar (ya da program yoksa değeri kopyalar). Küre simgesi web sitesini <span class="irs">IRONSTICK</span> tarayıcı penceresinde açar.</li>
+<li><b>Davalar.</b> Yeşil bir etiket, kurumun kaç davada yer aldığını gösterir; <i>Yok</i>, kurumun henüz hiçbir davaya bağlı olmadığı anlamına gelir.</li>
+<li><b>Düzenleme ve silme.</b> Kalem giriş formunu açar. Çarpı, bir onaydan sonra kurumu siler; kurum hâlâ davalara veya ilişkilere bağlıysa sarı bir uyarı bunları listeler. Silme sırasında kurumun ilişkileri de kaldırılır.</li>
+<li><b>Diğer ekranlardan erişim.</b> Evren haritalarından veya başka bir ekrandan geldiğinizde kurum doğru sayfada bulunur ve birkaç saniye boyunca sarı renkte parlar.</li>
+</ul>
+
+<h4>Ayrıntı penceresi</h4>
+<ul>
+<li><b>Ayrıntıları açma.</b> Bir satıra tıklayın. Pencere sınıflandırmayı (tür, tür kodu, bölge), adresi, iletişim bilgilerini ve sistem verilerini (kurum numarası ve oluşturulma tarihi) gösterir; boş alanlar gösterilmez.</li>
+<li><b>QR kodu olarak iletişim kartı.</b> Telefonunuz için iletişim kartının tamamını içeren bir QR kodu almak üzere başlıktaki ada veya adresin herhangi bir bölümüne tıklayın.</li>
+<li><b>Telefon, e-posta, web sitesi.</b> Telefon ve e-posta kendi QR kodlarını açar; web sitesi <span class="irs">IRONSTICK</span> tarayıcı penceresinde açılır. <i>Kapat</i> pencereyi kapatır.</li>
+</ul>
+
+<h4>Yeni kurum veya kurum düzenleme</h4>
+<ul>
+<li><b>Yeni kurum.</b> Sağ üstteki mavi düğme giriş formunu açar; bir satırdaki kalem aynı formu mevcut bir kurum için açar.</li>
+<li><b>Sınıflandırma.</b> Ad zorunludur. Kurum türünü ve bölgeyi listelerden seçin.</li>
+<li><b>Adres ve haritadaki konum.</b> Sokak, posta kodu, şehir, ilçe ve ülke. Adresi haritada aramak, enlem ve boylamı girmek veya haritada yere tıklamak için coğrafi koordinatları açın.</li>
+<li><b>İletişim.</b> Telefon, faks, e-posta ve web sitesi.</li>
+<li><b>Yapay zekâ doldurma yardımı ve Google araması.</b> Bir ad ve ülke girildiği anda başlık satırında bir düğme görünür. Bir yapay zekâ anahtarı kuruluysa, <i>Yapay zekâ doldurma yardımı</i> onayınızı ister ve harici yapay zekânın kurumu internette aramasını sağlar; yapay zekâ yalnızca boş alanları doldurur ve bunları mor bir çerçeveyle işaretler. Bundan sonra veya anahtar yoksa düğme <span class="irs">IRONSTICK</span> tarayıcı penceresinde bir Google araması açar.</li>
+<li><b>IRONSTICK SERVER'daki diğer kullanıcılara ait kurumlar.</b> Kurum IRONSTICK SERVER'ın başka bir kullanıcısına aitse, kaydetme sahibine bir değişiklik önerisi, silme ise bir silme önerisi gönderir.</li>
+</ul>
+
+<h2 id="s8">8. Belge yakalama</h2>
+
+<h3>Belge gelen kutusu ve yakalama formu</h3>
+<figure><img src="img/screens/8%20capture%20documents.png" alt="Belgeler için gelen kutusu, sayfa seçimi penceresi ve metin görünümüyle Belge yakala formu"><figcaption>Belge gelen kutusu, sayfa seçimi ve metin görünümüyle yakalama formu.</figcaption></figure>
+<p class="scr-intro">Bir davaya girmesi gereken her PDF bu gelen kutusundan geçer. Solda bırakma alanı ve bekleyen dosyaların listesiyle gelen kutusunu,
+sağda belgenin bir davaya atandığı ve tanımlandığı <b>Belge yakala</b> formunu görürsünüz. Önde, birden fazla sayfalı belgelerde ilk olarak açılan sayfa seçimi penceresi
+ve <span class="irs">IRONSTICK</span> uygulamasının dosyadan ne okuduğunu gösteren metin görünümü yer alır.</p>
+<ol class="marks">
+<li><b>Bırakma alanı.</b> PDF veya Markdown dosyalarını buraya sürükleyin ya da seçmek için tıklayın. Markdown dosyaları otomatik olarak PDF'ye dönüştürülür; diğer dosya türleri bir mesajla reddedilir.</li>
+<li><b>Gelen kutusu göstergesi.</b> Gelen kutusunda işlenmemiş belgeler beklediği sürece menü çubuğunda kırmızı, hareketli bir gelen kutusu simgesi görünür; imleci üzerine getirdiğinizde kaç tane olduğunu görürsünüz. Bir tıklamayla doğrudan bu ekrana gelirsiniz. Gelen kutusu boşaldığında simge kaybolur.</li>
+<li><b>Görüntüle.</b> PDF'yi bu bilgisayarda PDF'ler için ayarlanmış programla açar.</li>
+<li><b>Yakala.</b> Bu dosyanın yakalanmasını başlatır: sayfa seçimi, metnin okunması, yapay zekâ ile sınıflandırma ve ardından yakalama formu.</li>
+<li><b>Sil.</b> Bir onaydan sonra dosyayı gelen kutusundan siler. Bu işlem geri alınamaz.</li>
+<li><b>Görüntüle (formda).</b> Formu doldururken okuyabilmeniz için o anda yakaladığınız belgeyi <span class="irs">IRONSTICK</span> tarayıcı penceresinde açar.</li>
+<li><b>Metin görünümü.</b> PDF'den okunan metni, seçip kopyalayabileceğiniz bir pencerede gösterir.</li>
+<li><b>Gizli.</b> Belgeyi gizli olarak işaretler. Gizli belgeler, <b>Ctrl + Shift + S + D</b> tuşlarına basana kadar (yalnızca Windows) <span class="irs">IRONSTICK</span> içinde her yerde gizlenir; aynı kombinasyon onları yeniden gizler. Gizli mod hiçbir zaman kaydedilmez: program yeniden başlatıldığında ve ekran koruyucu, bekleme modu veya ekran kilidi devreye girdiğinde kendiliğinden kapanır. Açık olduğu sürece yapılandırma, gizli belgeler için parolanın bir kez belirlendiği kartı gösterir — bir gizli belge oluşturulduktan sonra bu parola artık değiştirilemez. Bu şekilde işaretlenen bir belge parola korumalı bir PDF (AES-256) olarak kaydedilir ve süre içeremez.
+<br><b>Gizli belgeler <span class="irs">IRONSTICK</span> içinde kalır:</b> Yerleşik veya harici her yapay zekâ işlevi onları filtreler; oluşturulan PDF'lerin ve eklerin dışında tutulurlar; <span class="irs">IRONSTICK</span> tarayıcı penceresi onları açamaz; bir meslektaşa yapılan dava devri ise onları yalnızca açık onayınızdan sonra içerir.
+<br><b>Acil silme:</b> <b>Ctrl + Shift + S + D + K</b> gizli modu anında sonlandırır ve tüm gizli belgeleri (dosyalar ve kayıtlar) kalıcı olarak siler. Bu işlem geri alınamaz.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Gelen kutusu</b></p>
+<ul>
+<li><b>Gelen kutusu klasörü.</b> Kart, gelen kutusu klasöründeki her PDF'yi boyutuyla birlikte, sayfa başına 20 olacak şekilde listeler. Windows'ta tam klasör yolu, kopyalama ve Gezgin'de açma düğmeleriyle birlikte başlığın yanında gösterilir — tarayıcınız doğrudan bu klasöre kaydediyorsa kullanışlıdır.</li>
+<li><b>Diğer giriş yolları.</b> Belgeler buraya e-posta monitöründen ve yakalama için gönderdiğiniz diyagramlardan da (örneğin bir ilişki ağı) gelir.</li>
+<li><b>Yakalamadan sonra.</b> Bir belge bir davaya kaydedildiği anda gelen kutusundan kaybolur.</li>
+</ul>
+<p class="grp"><b>Sayfa seçimi</b></p>
+<ul>
+<li><b>Ana belge ve ekler.</b> İki veya daha fazla sayfalı bir PDF'de <i>Sayfaları seç</i> penceresi her sayfanın önizlemesini gösterir. Ana belgenin hangi sayfaya kadar sürdüğünü girin; bu sayfalar mavi renkte işaretlenir ve her zaman korunur. Yanındaki satır, eklerin hangi sayfalarda geldiğini veya hiç ek olmadığını size söyler.</li>
+<li><b>Sayfaları dahil etme veya dışarıda bırakma.</b> Korunan (mavi çerçeve) ve dışarıda bırakılan (kırmızı çerçeve, üstü çizili) arasında geçiş yapmak için diğer herhangi bir sayfaya tıklayın. Yalnızca korunan sayfalar okunur ve aranabilir metinle kaydedilir — tamamına ihtiyaç duymadığınız uzun ekler için kullanışlıdır. <i>Uygula</i> okumayı başlatır.</li>
+</ul>
+<p class="grp"><b>Okuma ve yapay zekâ ile sınıflandırma</b></p>
+<ul>
+<li><b>Metin yerel olarak okunur.</b> Bir ilerleme ekranı her adımı gösterir. <span class="irs">IRONSTICK</span>, korunan her sayfanın metin katmanını okur; yalnızca kullanılabilir metni olmayan sayfalar (taramalar) metin tanımadan geçer.</li>
+<li><b>Taraflar ve dava otomatik olarak bulunur.</b> Daha önce kaydettiğiniz kişiler ve kurumlar metinde tanınır ve ilgili taraflar olarak önerilir. Başlıktaki bir esas numarası, bilinen bir yazı numarası veya gönderdiğiniz e-postalarınızdan birine yapılan bir atıf, ilgili davayı önerir. Metin işlemcide oluşturduğunuz kendi belgeleriniz damgalarından tanınır.</li>
+<li><b>Onayınızla yapay zekâ ile sınıflandırma.</b> Metin harici yapay zekâya gitmeden önce, program her başlatıldığında size bir kez sorulur. Yapay zekâ ardından başlık, tarih, açıklama, anahtar kelimeler, belge türü, yön ve daha fazlasını önerir. Reddederseniz form bu belge için boş kalır ve siz kendiniz doldurursunuz.</li>
+<li><b>Kesin olgular önceliklidir.</b> E-posta monitöründen gelen belgelerde yön, posta klasöründen (Gelen kutusu veya Gönderilenler) belirlenir; mahkeme postasından yapılan aktarımlarda ise tebliğ belgesi davayı, tarihi ve yönü belirler. Yapay zekâ bunları değiştirmez.</li>
+</ul>
+<p class="grp"><b>Dava ve sınıflandırma atama</b></p>
+<ul>
+<li><b>Müvekkil ve dava.</b> Müvekkili ada, telefona veya e-postaya göre arayın; birini seçtikten sonra dava listesi yalnızca onun davalarını, aktif olanlar önce olmak üzere gösterir. Bir dava seçildiğinde o davanın ülkesi, hukuk alanı ve yargılama aşaması alınır.</li>
+<li><b>Önce ülke.</b> Hukuk alanı ve yargılama aşaması, o ülkenin listesinden geldiği için ancak ülke seçildikten sonra seçilebilir. Belge dili, belge türü ve kurum türü sınıflandırmayı tamamlar; belge türü ve kurum yazarken aranır.</li>
+</ul>
+<p class="grp"><b>Belge ayrıntıları</b></p>
+<ul>
+<li><b>Delil, gelen veya giden.</b> Kaydın türünü seçin. <span class="irs">IRONSTICK</span> bir mahkeme kararı tanıdığında <i>Mahkeme kararı</i> otomatik olarak işaretlenir; bunu istediğiniz zaman değiştirebilirsiniz.</li>
+<li><b>Tarihler ve başlık.</b> Belgenin geçerlilik tarihi, başlık (zorunlu, en fazla 120 karakter), kayıt tarihi (zorunlu), anahtar kelimeler ve isteğe bağlı başlangıç / bitiş saati.</li>
+<li><b>Metin işlemciyle eşleştirme.</b> Belgeyi metin işlemcide oluşturduğunuz kendi metinlerinizden birine bağlar — örneğin yazdığınız bir mektubun imzalı nüshasına. Aynı davaya ait metinler önce listelenir; gelen belgeler hiçbir zaman bağlanmaz.</li>
+<li><b>Açıklama ve ilgililer.</b> Açıklama serbestçe düzenlenebilir. İlgililer çip olarak görünür: birini çarpısıyla kaldırın, aramayla birini ekleyin. Bir ad bilinmiyorsa, bir düğmeyle hemen yeni bir kişi, şirket veya kurum oluşturulabilir. <span class="irs">IRONSTICK</span> tarafından bilinen taraflar kaydetme sırasında davaya bağlanır.</li>
+<li><b>Süre.</b> Bir süre tarihi girin ve bunu etkin bir süreye dönüştürmek için yanındaki kutuyu işaretleyin.</li>
+</ul>
+<p class="grp"><b>Kaydetme</b></p>
+<ul>
+<li><b>Kaydet.</b> Başlık ve dava zorunludur; aksi takdirde kırmızı bir bilgi neyin eksik olduğunu size bildirir. Uzun belgelerde kaydetme biraz zaman alabilir; bu sırada hiçbir şeyin kesintiye uğramaması için menü çubuğu kilitlenir.</li>
+<li><b>Kaydetme sırasında neler olur.</b> PDF <span class="irs">IRONSTICK</span> damgasını alır, korunan sayfalarda aranabilir bir metin katmanı kazanır, şifrelenmiş olarak davaya dosyalanır ve gelen kutusundan kaldırılır. Kısa bir özet ve diğer kayıtlara çapraz referanslar birkaç saniye sonra arka planda eklenir.</li>
+<li><b>İptal.</b> Formdan çıkar; dosya gelen kutusunda kalır.</li>
+</ul>
+
+<h3>Bir belge yakalama sürecinden nasıl geçer</h3>
+<figure><img src="img/screens/8%20capture%20documents%20proces.png" alt="Diyagram: PDF, sayfa seçimi, yerel işleme, internetteki harici yapay zekâ, yakalama formu, AES-256 şifreleme, veritabanı ve damgalı PDF"><figcaption>Gelen kutusundaki PDF'den davadaki şifreli kayda kadar.</figcaption></figure>
+<p class="scr-intro">Diyagram, bir belgenin soldan sağa izlediği yolu gösterir. PDF önce bilgisayarınızda işlenir (sayfa seçimi ve metnin okunması),
+ardından sınıflandırma için internet üzerinden harici yapay zekâya yalnızca metin gider ve sonuç yakalama formuna geri gelir.
+Kaydetmeden sonra belge AES-256 ile şifrelenir ve damgalı PDF ile birlikte veritabanına bir kayıt olarak dosyalanır.</p>
+<h4>Burada neler yapabilirsiniz</h4>
+<ul>
+<li><b>1. adım — bilgisayarınızda.</b> Sayfaları siz seçersiniz; <span class="irs">IRONSTICK</span> bunların metnini okur, bilinen tarafları ve davayı herhangi bir internet bağlantısı olmadan tanır.</li>
+<li><b>2. adım — harici yapay zekâ, yalnızca onayla.</b> Çıkarılan metin, sınıflandırmayı öneren harici yapay zekâya gönderilir. Onayınızdan önce hiçbir şey gönderilmez ve formu istediğiniz zaman kendiniz doldurabilirsiniz.</li>
+<li><b>3. adım — sizin kontrolünüz.</b> Yakalama formundaki her öneriyi kontrol eder ve düzeltirsiniz; yalnızca sizin kaydettiğiniz kaydedilir.</li>
+<li><b>4. adım — şifreli dosyalama.</b> Damgalı PDF ve verileri AES-256 ile şifrelenerek davaya dosyalanır.</li>
+</ul>
+
+<h2 id="s9">9. Genel arama</h2>
+<figure><img src="img/screens/9%20global%20search.png" alt="Sözleşme kelimesi için sonuçlar ve büyütülmüş bir sonuç satırıyla genel arama"><figcaption>Büyütülmüş olarak gösterilen bir satırla birlikte, tüm davalardaki arama sonuçları.</figcaption></figure>
+<p class="scr-intro">Genel arama, tüm davalarınızın tüm kayıtlarında tek seferde arama yapar: başlıklar, anahtar kelimeler, özetler, açıklamalar, ilgililer,
+belge içerikleri ve belgelerin, sohbetlerin ve transkriptlerin tam metni. Görselde <i>sözleşme</i> kelimesi için sonuçlar görülmektedir;
+bileşenleri kolayca seçilebilsin diye bir sonuç satırı büyütülmüştür.</p>
+<ol class="marks">
+<li><b>Arama alanı.</b> Bir veya daha fazla kelime girin ve Enter tuşuna basın ya da <i>Ara</i> düğmesine tıklayın. Birden fazla kelimede her kelimenin kayıtta geçmesi gerekir. Aksanlar yok sayılır ve taranmış metindeki küçük OCR hatalarına tolerans gösterilir.</li>
+<li><b>Tarih.</b> Kaydın tarihi.</li>
+<li><b>Yön.</b> <i>IN</i> (mavi) gelen bir belgeyi, <i>OUT</i> (kırmızı) giden bir belgeyi işaretler. Delil kayıtlarının etiketi yoktur.</li>
+<li><b>Tam kelime sırası.</b> Kelimeleriniz tam olarak bu sırayla bir arada bulunduğunda başlığın arkasında yeşil yıldız görünür — genellikle en ilgili sonuçlardır.</li>
+<li><b>Dava.</b> Dava numarası ve altında kaydın ait olduğu müvekkil.</li>
+<li><b>Bulunduğu yer.</b> Renkli etiket, en iyi eşleşmenin bulunduğu alanı gösterir; örneğin başlık, anahtar kelimeler, özet, açıklama, ilgililer, belge içeriği, tam metin veya yazı numarası. <i>Benzerlik ~N %</i>, kaydın tam kelimeyle değil anlamca benzer olduğu için bulunduğu anlamına gelir.</li>
+</ol>
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Arama</h4>
+<ul>
+<li><b>En iyi sonuçlar önce.</b> Sonuçlar ilgililiğe göre — başlıktaki bir eşleşme tam metindeki bir eşleşmeden daha fazla sayılır — ve ardından en yenisi önce olmak üzere tarihe göre sıralanır. Kart başlık satırı, aramanız için kaç sonuç bulunduğunu gösterir.</li>
+<li><b>Benzer kayıtlar.</b> Dört veya daha fazla harfli tek bir kelimede, tam kelime geçmese bile benzer başlığa veya benzer açıklamaya sahip kayıtlar eklenir.</li>
+<li><b>Doğrudan bir kayda atlama.</b> <i>#1234</i> gibi bir kayıt numarası veya yalnızca numarayı girin ya da bir <span class="irs">IRONSTICK</span> damgasındaki dosya adını / tanımlayıcıyı yapıştırın: arama tam olarak bu kaydı gösterir.</li>
+<li><b>Hiçbir şey bulunamadı.</b> Bir bilgi, aramanız için sonuç olmadığını size bildirir; daha az veya farklı kelimelerle deneyin.</li>
+</ul>
+
+<h4>Sonuçlar</h4>
+<ul>
+<li><b>Sayfalar.</b> Sayfa başına 20 sonuç; birden fazla sayfa olduğunda sayfa gezinmesi listenin üstünde ve altında görünür.</li>
+<li><b>Bir sonucu açma.</b> Bir satıra tıklayın: dava Kronoloji sekmesinde açılır ve kayıt, hemen görebilmeniz için parlar.</li>
+<li><b>Boş başlık.</b> Başlığı olmayan bir kayıt, “Kayıt #” ve ardından numarasıyla gösterilir.</li>
+</ul>
+
+<h2 id="s10">10. Takvim</h2>
+<figure><img src="img/screens/10%20calendar.png" alt="İki aylık takvim, seçilen gün ve randevuları ile .ics dosyası için dışa aktarma iletişim kutusu"><figcaption>Bir bakışta iki ay, seçilen günün randevuları ve takvim dışa aktarma.</figcaption></figure>
+<p class="scr-intro">Takvim duruşmalarınızı, tanık dinlemelerini, toplantıları, telefon görüşmelerini ve görevleri içerir.
+İki ay yan yana gösterilir; renkli sayılar ve noktalar hangi günlerde bir şey planlandığını gösterir.
+Ayların altında seçilen gün için planlanan her şeyi görürsünüz. Görselde ayrıca takvimin .ics dosyası olarak dışa aktarılması sırasında açılan dışa aktarma iletişim kutusu da görülmektedir.</p>
+<ol class="marks">
+<li><b>Bir gün seçme.</b> Randevularını altta görüntülemek için herhangi bir güne tıklayın. Seçilen gün mavi olur; bugünün çevresinde gri bir daire bulunur.</li>
+<li><b>Gün alanı.</b> Seçilen tarihi, randevu sayısını ve <i>Yeni kayıt</i> düğmesini gösterir. Altında o günün randevuları ve ardından ulusal bir mahkeme portalından gelen duruşmalar listelenir.</li>
+<li><b>.ics olarak dışa aktar.</b> Bugünden itibaren randevularınızı ve duruşmalarınızı, diğer takvim programlarının içe aktarabileceği bir takvim dosyası olarak kaydeder.</li>
+</ol>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Takvimde gezinme</h4>
+<ul>
+<li><b>Aylar arasında gezinme.</b> Oklar iki aylık görünümü geri veya ileri kaydırır; <i>Bugün</i> geçerli aya geri döner ve bugünü seçer.</li>
+<li><b>Renkleri okuma.</b> Kayıt içeren bir gün sayısını renkli ve her tür için küçük bir noktayla gösterir: mahkeme portalından gelen bir duruşma veya tanık dinlemesi için turuncu, bir mahkeme randevusu için kırmızı, bir toplantı için mavi, bir telefon görüşmesi için yeşil, diğer kayıtlar için gri ve bir görev için mor. Sayı, en önemli kaydın rengini alır.</li>
+</ul>
+
+<h4>Bir günün randevuları</h4>
+<ul>
+<li><b>Günlük liste.</b> Her randevu saatini, başlığını, yerini, açıklamanın başını, davayı ve müvekkili ve renkli bir tür etiketini gösterir. Bir günde çok sayıda kayıt varsa liste, üstünde ve altında sayfa düğmeleri bulunan sayfalara bölünür.</li>
+<li><b>Ayrıntıları açma.</b> Tarihi, saati, türü, yeri, açıklamanın tamamını ve davayı görmek için bir randevuya tıklayın. <i>Hazırlanan belgeler</i> altında randevuya eklediğiniz kronoloji kayıtlarını bulursunuz: mor numara dava kronolojisini kayıt vurgulanmış olarak açar, ataş ise belgenin kendisini açar.</li>
+<li><b>PDF olarak randevu.</b> Ayrıntı penceresindeki yazdırma düğmesi, randevu için bir kapak sayfası ve ardından tüm hazırlanan belgeleri içeren, kesintisiz sayfa numaralı bir PDF oluşturur.</li>
+<li><b>Düzenleme veya silme.</b> Kalem randevuyu düzenleme için açar; kırmızı çöp kutusu ise bir onaydan sonra onu siler.</li>
+<li><b>Görevler.</b> <i>Görev</i> türündeki bir kayda (örneğin daha önce not edilmiş bir dilekçe) tıklamak, dilekçenin taslağını hazırlama isteğiyle bu dava için yapay zekâ sohbetini açar.</li>
+<li><b>Boş gün.</b> Planlanmış bir şey yoksa alan bunu belirtir ve hemen bir kayıt oluşturabilirsiniz.</li>
+</ul>
+
+<h4>Ulusal bir mahkeme portalından gelen duruşmalar</h4>
+<ul>
+<li><b>Duruşmalar alanı.</b> Ülkeniz için mahkeme portalı işlevleri açıksa, <span class="irs">IRONSTICK</span> uygulamasının davalarınız için kaydettiği duruşmalar randevuların altında ayrı bir turuncu alanda görünür.</li>
+<li><b>Davayı veya portal dosyasını açma.</b> Altı çizili esas numarası ve <i>Dava</i> bağlantısı dava kronolojisini açar. Satırın başka bir yerine tıklamak; konu, taraflar, kanun yolları ve tüm duruşmaların seyriyle birlikte portal dosyasını açar; oradan <i>Davayı aç</i> sizi davaya götürür. Henüz bir davaya bağlanmamış bir dosyaya ait duruşma <i>yeni/kaydedilmemiş</i> olarak işaretlenir.</li>
+</ul>
+
+<h4>Yeni kayıt ve düzenleme</h4>
+<ul>
+<li><b>Randevu.</b> Bir başlık ve bir tarih girin (ikisi de zorunlu), türü seçin (mahkeme randevusu, tanık dinlemesi, toplantı, telefon görüşmesi, diğer veya görev), başlangıç ve bitiş saatini belirleyin ve bir açıklama ekleyin.</li>
+<li><b>Yer.</b> Açılır yer kartı adres, posta kodu, şehir, ilçe ve ülke bilgilerini alır. Bir adres aramak veya haritaya tıklayarak tam noktayı belirlemek için <i>Coğrafi koordinatlar</i> seçeneğini açın.</li>
+<li><b>Atama.</b> Randevuyu bir davaya bağlayın ve ilgili kişileri ve kurumları adlarının bir bölümünü yazıp listeden seçerek ekleyin; birini çipindeki küçük çarpıyla kaldırın.</li>
+<li><b>Hazırlık klasörü.</b> Bir dava seçildiği anda, randevu için elinizin altında olmasını istediğiniz kronoloji kayıtlarını işaretleyin. Bunlar daha sonra <i>Hazırlanan belgeler</i> altında ve randevu PDF'sinde görünür.</li>
+<li><b>Kaydetme.</b> <i>Kaydet</i> (veya yeni bir kayıtta <i>Oluştur</i>) sizi randevunun tarihinde takvime geri götürür; <i>İptal</i> değişiklikleri atar.</li>
+</ul>
+
+<h4>Dışa aktarma ve senkronizasyon</h4>
+<ul>
+<li><b>Veri koruma uyarısı.</b> Program her başlatıldıktan sonraki ilk .ics dışa aktarmadan önce <span class="irs">IRONSTICK</span>, bu biçimdeki takvim kayıtlarının korumalı programdan çıktığını size hatırlatır. Devam etmek için <i>İleri</i> seçeneğini belirleyin.</li>
+<li><b>Dışa aktarma iletişim kutusu.</b> <i>İndir</i> dosyayı Belgeler klasörünüze kaydeder ve bu klasörü açar. <i>Google Drive</i> yalnızca bu bilgisayarda bir Google Drive klasörü varsa görünür ve dosyayı oraya kaydeder.</li>
+<li><b>Tablet takvimi.</b> Android tablette cihazın takvim hesabında IRONSTICK adlı bir takvim varsa, randevular iki yönlü eşitlenir; süreler ve duruşmalar oraya tek yönlü kopyalanır.</li>
+</ul>
+
+<h2 id="s11">11. Süreler</h2>
+<figure><img src="img/screens/11%20deadlines.png" alt="Onay kutuları, süre tarihleri ve süre genel bakışı PDF'si için dışa aktarma iletişim kutusuyla süre listesi"><figcaption>Tüm açık süreler, duruşmalar ve tarihli yapay zekâ hatırlatmaları tek bir listede.</figcaption></figure>
+<p class="scr-intro">Süre listesi, vadesi gelen her şeyi tarih sırasına göre bir araya getirir: dava kronolojilerinizdeki süreler, yaklaşan duruşmalar (ulusal bir mahkeme portalından ve takviminizden) ve yapay zekânın bir vade tarihiyle not ettiği hatırlatmalar.
+Üst çubuktaki zil her zaman bu ekranı açar. Görselde liste ve süre genel bakışı PDF'sinin dışa aktarma iletişim kutusu görülmektedir.</p>
+<ol class="marks">
+<li><b>Referans numaraları.</b> Bir belgenin <i>#0000000</i> numarası ve bir yapay zekâ hatırlatmasının <i>@mem0000</i> numarası tek tıklamayla panoya kopyalanır — örneğin sohbete yapıştırmak için.</li>
+<li><b>Süreleri kaldırma.</b> Süreler ve yapay zekâ hatırlatmaları farklı kaynaklardan geldikleri için farklı yerlerden kaldırılır. Uygulamadaki süreler (belgeler ve kronoloji kayıtları) onay kutularıyla işaretlenir ve birlikte kaldırılır. Yapay zekânın belleğine kaydettiği hatırlatmalar (beyin simgesi) <i>Tarihi sil</i> ile kaldırılır: yalnızca vade tarihi kaldırılır, böylece hatırlatma listeden çıkar.</li>
+</ol>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Listeyi okuma</h4>
+<ul>
+<li><b>Üç tür satır.</b> Sürelerin bir onay kutusu vardır; duruşmalar turuncu bir hâkim tokmağı ve <i>Duruşma</i> kelimesini gösterir; yapay zekâ hatırlatmaları mavi bir beyin simgesi gösterir.</li>
+<li><b>Renkli tarih etiketi.</b> Sağ sütun vade tarihini gösterir: bugünse veya geçmişse kırmızı, on gün içindeyse turuncu, daha fazla zaman varsa yeşil. Altında kaç gün kaldığını veya sürenin kaç gün önce dolduğunu okursunuz.</li>
+<li><b>Her satırın bildirdikleri.</b> Kaydın tarihi ve saati, başlığı, müvekkil, dava numarası ve dava başlığı. Duruşmalar mahkemeyi, daireyi ve duruşma salonunu gösterir.</li>
+<li><b>Doğum günleri.</b> Adın önündeki küçük bir pasta, müvekkilin bugün veya son iki gün içinde doğum günü olduğunu gösterir.</li>
+<li><b>Sayfalar.</b> 20'den fazla kayıt olduğunda liste sayfalara bölünür; sayfa düğmeleri listenin üstünde ve altında görünür, başlık satırı da geçerli sayfayı gösterir.</li>
+</ul>
+
+<h4>Kayıtlarla çalışma</h4>
+<ul>
+<li><b>Davayı açma.</b> Dava kronolojisini doğru sayfada, kayıt sarı renkte vurgulanmış olarak açmak için bir satıra tıklayın. Bağlı bir davası olmayan duruşmaların hedefi yoktur.</li>
+<li><b>Belgeyi açma.</b> Ataş, süreye ait belgeyi açar.</li>
+<li><b>Kayıt numarasını kopyalama.</b> Kopyalamak için tarihin altındaki mor numaraya (veya bir yapay zekâ hatırlatmasının referansına) tıklayın; yerinde kısa bir süre bir onay görünür. Kaydı tarif etmek yerine numarayı yapay zekâ sohbetine yapıştırın.</li>
+<li><b>Süreleri kaldırma.</b> Süreleri işaretledikten sonra bir çubuk kaç tanesinin seçildiğini gösterir. Çubuğun kırmızı kaldırma düğmesi bir onay ister ve ardından süreleri listeden ve zilin sayımından çıkarır. Kronoloji kayıtlarının kendisi davada kalır.</li>
+<li><b>Genel bakışı yazdırma.</b> Sağ üstteki yazdırma düğmesi süre genel bakışını PDF olarak oluşturur ve dışa aktarma iletişim kutusunu açar: <i>İndir</i> onu Belgeler klasörünüze kaydeder, bu bilgisayarda bir Google Drive klasörü varsa <i>Google Drive</i> görünür.</li>
+<li><b>Vadesi gelen bir şey yok.</b> Açık süre yoksa yeşil bir onay işareti bunu size bildirir.</li>
+</ul>
+
+<h2 id="s12">12. Günlük protokol</h2>
+<figure><img src="img/screens/12%20dailyprotocol.png" alt="Günlük protokol listesi, yeni bir günlük kayıt penceresi ve o günün dava kronolojisiyle açılmış bir günlük protokol"><figcaption>Günlük protokol, eklenmekte olan yeni bir kayıt ve açılmış bir gün.</figcaption></figure>
+<p class="scr-intro">Günlük protokol, tüm davalarınızı kapsayan iş günlüğünüzdür: neyin yapıldığını, gönderildiğini, karara bağlandığını veya hazırlandığını içeren günde bir kayıt.
+Kayıtlar, yapıştırdığınız veya bıraktığınız metinlerden gelir ya da isteğiniz üzerine bir çalışma oturumunun sonunda <a href="manualbridge_tr.html"><span class="irs">IRONSTICK</span> Bridge</a> aracılığıyla bağlı bir masaüstü yapay zekâsı tarafından yazılır.
+Görselde liste, yeni bir kayıt penceresi ve o günün dava kronolojisiyle açılmış bir gün görülmektedir.</p>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Liste</h4>
+<ul>
+<li><b>Günde bir satır.</b> Her satır tarihi, günün başlığını ve kaç davayı ilgilendirdiğini gösterir. Bir sayfaya yirmi satır sığar; daha fazlası olduğunda üstte ve altta sayfa düğmeleri görünür.</li>
+<li><b>Günlük protokolü olmayan günler.</b> <i>Dava kronolojisi (günlük protokol yok)</i> olarak işaretlenmiş gri satırlar, davalarınızda bir şey olduğu ancak günlük protokol yazılmadığı günleri kapsar. Bu dönemin kronoloji kayıtlarını görmek ve her birini kendi davasında açmak için birine tıklayın.</li>
+<li><b>Bir günü silme.</b> Bir satırın sonundaki küçük çarpı, bir onaydan sonra o günün protokolünü siler.</li>
+</ul>
+
+<h4>Bir günü açma</h4>
+<ul>
+<li><b>Genel bakış.</b> Pencere tarihi ve o günün davalarını çip olarak gösterir.</li>
+<li><b>Olaylar.</b> Her olay tarihini, metnini ve dava numaralarına veya kayıtlara bağlantılarını gösterir; mavi bir bağlantı dava kronolojisini kayıt vurgulanmış olarak açar.</li>
+<li><b>Kronolojiye aktarma.</b> Sunulduğu yerlerde, bir olaydaki mavi kronoloji düğmesi bir dava seçmenizi sağlar ve ardından bu dava için yeni bir kronoloji kaydı açar; böylece olay dava dosyasının bir parçası olur.</li>
+<li><b>Bu güne ait dava kronolojisi.</b> Tüm davaların o güne ait kronoloji kayıtlarını saat, başlık ve dava numarasıyla listeler; kendi davasında açmak için birine tıklayın.</li>
+<li><b>Tam metin.</b> <i>Tam metni göster</i>, günün seçip kopyalayabileceğiniz tam metnini açar.</li>
+</ul>
+
+<h4>Yeni bir kayıt oluşturma</h4>
+<ul>
+<li><b>Metni getirme.</b> <i>Yeni kayıt oluştur</i>, bir .txt veya .md dosyası bıraktığınız (veya seçmek için tıkladığınız) ya da metni doğrudan yapıştırdığınız bir pencere açar. Bu düğme Android tablette değil, PC'de kullanılabilir.</li>
+<li><b>Analiz etme.</b> Günlük protokol biçimindeki bir metin doğrudan günlere bölünür. Diğer her metin, tarihi, başlığı ve anılan davaları bulan harici yapay zekâya aktarılabilir; <span class="irs">IRONSTICK</span> bundan önce onayınızı ister. Reddederseniz bir bilgi beklenen biçimi açıklar.</li>
+<li><b>İçe aktarmadan önce kontrol etme.</b> Tanınan her gün için bir kart görürsünüz: kartı işaretleyin veya işaretini kaldırın, tarihi ve gün başlığını düzeltin, atanan davaları açın veya kapatın ve bulunan olayları okuyun. <i>Merge</i> rozeti, bu tarih için zaten bir protokol bulunduğu anlamına gelir; yeni metin ona eklenir, hiçbir şeyin üzerine yazılmaz.</li>
+<li><b>İçe aktarma veya geri dönme.</b> İçe aktarma düğmesi işaretli günleri kaydeder; soldaki düğme sizi metne geri götürür. Analizden önce <i>Vazgeç</i> pencereyi kaydetmeden kapatır.</li>
+<li><b>Yapay zekâdan gelen kayıtlar.</b> Yapay zekâdan günlük protokolü güncellemesini isterseniz, o gün gönderilen e-postaları, dilekçeleri ve kararları ekler; mevcut bir gün her zaman genişletilir, asla değiştirilmez.</li>
+</ul>
+
+<h2 id="s13">13. Metinler ve metin işleme</h2>
+
+<h3>Metin listesi</h3>
+<figure><img src="img/screens/13%20texts.png" alt="Müvekkile ve davaya göre gruplanmış metin listesi ve metin işlemcide açılmış bir belge"><figcaption>Müvekkile ve davaya göre gruplanmış tüm mektuplarınız ve dilekçeleriniz.</figcaption></figure>
+<p class="scr-intro">Bu ekran, <span class="irs">IRONSTICK</span> içinde yazılmış her mektubu ve dilekçeyi her zaman en yeni sürümüyle listeler.
+Belgeler müvekkile, davaya ve kronoloji kaydına göre gruplanır; böylece birbiriyle ilişkili metinler bir arada kalır.
+Bir tıklama, belgeyi görselin sağ tarafında görülen metin işlemcide açar.</p>
+<ol class="marks">
+<li><b>Metin yaz.</b> Metin işlemciyi yeni bir belge için boş bir sayfayla açar.</li>
+<li><b>Bir belgeyi açma — sürümler gruplanmış.</b> Bir belgeyi metin işlemcide açmak için üzerine tıklayın. Her belge en yeni sürüm numarası ve son kaydetme tarihiyle bir kez görünür; aynı müvekkil, dava ve kayda ait belgeler, tek tıklamayla daraltıp genişlettiğiniz bir başlık altında gruplanır.</li>
+<li><b>Sil.</b> Çöp kutusu, bir onaydan sonra belgeyi listeden kaldırır.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<ul>
+<li><b>Gruplar.</b> Bir müvekkilin, davanın veya kronoloji kaydının birden fazla belgesi varsa, bunlar belge sayısıyla birlikte tek bir satırda toplanır. Genişletmek veya daraltmak için satıra tıklayın. Tek bir belge, müvekkili ve davasıyla doğrudan gösterilir.</li>
+<li><b>Aramadan erişim.</b> Arama sonuçlarından bir metin açarsanız grubu genişler ve belge birkaç saniye boyunca sarı renkte parlar.</li>
+<li><b>Her zaman güncel.</b> Metin işlemciden döndüğünüzde liste yeniden yüklenir ve yeni sürümü gösterir.</li>
+<li><b>Yalnızca PC'de.</b> Metin işlemci Windows PC'de çalışır. Android tablette liste görünür, ancak bir belgeyi açmak bunun yerine bir bilgi gösterir.</li>
+</ul>
+
+<h3>Düzenleme, sesli okuma ve ekler</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20attachements.png" alt="Araç çubuğu ve açık ek listesiyle metin işlemci"><figcaption>Araç çubuğu ve ek listesiyle düzenleyici.</figcaption></figure>
+<p class="scr-intro">Metin işlemci belgenizi, tam olarak yazdırılacağı gibi A4 sayfalar olarak gösterir.
+Sayfanın üstündeki araç çubuğu biçimlendirme araçlarını, sesli okumayı, ek listesini ve yapay zekâ anahtarını içerir.
+Alttaki durum çubuğu kelimeleri, karakterleri ve sayfaları sayar. Görselde düzenleyicinin üzerinde açılmış ek listesi görülmektedir.</p>
+<ol class="marks">
+<li><b>Sesli oku.</b> Belgeyi, davanın ülkesinin dilinde paragraf paragraf sesli okur ve o anda okunan kısmı vurgular. Duraklatmak için yeniden, devam etmek için bir kez daha tıklayın. Bir davaya ait belgelerde çalışır.</li>
+<li><b>Ek listesi.</b> Bu belgenin ek listesini açar. Ataşın üzerindeki küçük mavi sayı, kaç ekin eklendiğini gösterir.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Araç çubuğu</b></p>
+<ul>
+<li><b>Biçimlendirme.</b> Geri al ve yinele, paragraf biçimi (normal metin, üç başlık düzeyi, alıntı), yazı tipi boyutu, kalın, italik, altı çizili, üstü çizili, metin rengi ve vurgu rengi.</li>
+<li><b>Düzen.</b> Sola, ortaya, sağa veya iki yana hizalama, madde işaretli ve numaralı listeler, girintiyi azaltma ve artırma ile <i>Biçimlendirmeyi temizle</i>.</li>
+<li><b>Antet.</b> Yapılandırmada bir antetli kâğıt şablonu yüklediyseniz, bir düğme onu açar veya kapatır. Varsayılan olarak açıktır ve sayfanın üst kenarını antediniz için ayırır.</li>
+<li><b>Klavye.</b> Tab tuşu bir sekme ekler. Ctrl+S kaydeder ve kapatır, Ctrl+P baskı önizlemesini açar.</li>
+</ul>
+<p class="grp"><b>Yazma ve yapıştırma</b></p>
+<ul>
+<li><b>Diğer programlardan yapıştırma.</b> Word'den, LibreOffice'ten veya bir web sayfasından kopyalanan metin, düzenleyicinin desteklediği biçimlendirmeye göre temizlenir. Markdown'a benzeyen düz metin başlıklara, listelere ve kalın yazıya dönüştürülür.</li>
+<li><b>Bir dosya bırakma.</b> Bir .md veya .txt dosyasını düzenleyiciye sürüklemek, içeriğin tamamını biçimlendirilmiş metne dönüştürülen dosya metniyle değiştirir.</li>
+<li><b>Yer tutucular.</b> Yapay zekâ taslakları köşeli parantez içinde boşluklar içerebilir. Bunlar çip olarak görünür ve bir bant bunları sayar. Bir çipe tıklayın, metni girin ve Enter tuşuna basın; Escape boşluğu açık bırakır. Çift tıklama bir çipi parantezsiz normal metne dönüştürür.</li>
+<li><b>Sayfa sonları.</b> Kesikli çizgiler her sayfanın nerede bittiğini gösterir. Bir sonraki sayfanın daha erken başlaması için bir çizgiyi yukarı sürükleyin; çizgi iki satır arasına oturur ve taşındığında turuncuya döner. Çift tıklama onu sıfırlar. Sayfa sonlarınız belgeyle birlikte kaydedilir.</li>
+</ul>
+<p class="grp"><b>Yapay zekâ ile revizyon</b></p>
+<ul>
+<li><b>Yapay zekâyı açma.</b> <i>Yapay zekâ kapalı / Yapay zekâ açık</i> anahtarı sayfanın yanında renkli çubuklar gösterir: yapay zekânın belgede tanıdığı konular için koyu mavi, her paragraf için orta mavi ve her cümle için açık mavi. İmleci üzerine getirdiğinizde ilgili metin vurgulanır.</li>
+<li><b>Bir pasajı revize etme.</b> Bir çubuğa tıklayın, alana neyin değişmesi gerektiğini yazın ve Enter tuşuna basın ya da <i>Revize et</i> düğmesine tıklayın. Yapay zekâ tam olarak bu konuyu, paragrafı veya cümleyi yeniden yazar ve yeni metni yerine koyar. Belgelerinizdeki adlar, dava numaraları ve diğer tanımlayıcılar, metin harici yapay zekâya gönderilmeden önce nötr yer tutucularla değiştirilir.</li>
+</ul>
+<p class="grp"><b>Ek listesi</b></p>
+<ul>
+<li><b>Delil kimliğiyle ekleme.</b> Bir kronoloji kaydının numarasını girin (örneğin 357 veya 0000357) ve Enter tuşuna basın ya da <i>Ekle</i> düğmesine tıklayın. Kaydın PDF'si eklenir; fotoğraflar, kayıtlar, transkriptler veya PDF'si olmayan kayıtlar için <span class="irs">IRONSTICK</span> ek için bir PDF oluşturur.</li>
+<li><b>Elle ekleme.</b> <i>Elle</i> sekmesinde, <span class="irs">IRONSTICK</span> içinde bulunmayan bir ek için bir başlık ve isteğe bağlı bir not girin; örneğin kendiniz sunduğunuz kâğıt bir belge.</li>
+<li><b>Sıralama ve kaldırma.</b> Her ek numarasını, bir işareti (<span class="irs">IRONSTICK</span> içinden bir kayıt için <i>DB</i>, elle eklenen bir ek için <i>MAN</i>), başlığını ve PDF'sine bir bağlantıyı gösterir. Sırayı değiştirmek için bir eki tutamağından sürükleyin; çarpı onu kaldırır.</li>
+<li><b>Metne ekleme.</b> Numaralı ek listesini belgenizin sonuna yazar veya orada zaten bulunan listeyi değiştirir. Her satır ekin başlığını, varsa belgenin <span class="irs">IRONSTICK</span> damga referansını ve baskı önizlemesinde otomatik olarak doldurulan sayfa aralığını gösterir.</li>
+<li><b>Metinden alınan ekler.</b> Liste boşsa ancak belgeniz kayıt numaraları içeren bir ekler bölümü zaten içeriyorsa, <span class="irs">IRONSTICK</span> bu kayıtları tek adımda ek olarak almayı önerir.</li>
+</ul>
+
+<h3>Düzenleme, önizleme ve kaydetme</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20preview.png" alt="Baskı önizlemesi ile Kaydet ve kapat düğmeleriyle, Düzenle sekmesinde ve Önizleme sekmesinde metin işlemci"><figcaption>Düzenle ve Önizleme sekmeleri; önizleme, baskı önizlemesi ve kaydetme seçenekleri sunar.</figcaption></figure>
+<p class="scr-intro">Araç çubuğunun üstünde iki sekme bulunur. <i>Düzenle</i> yazdığınız yerdir; <i>Önizleme</i> bitmiş sayfaları alt alta, salt okunur ve sayfa numaralarıyla gösterir.
+Önizlemede biçimlendirme araçları gizlenir ve baskı önizlemesi ile kaydetme düğmeleri görünür.</p>
+<ol class="marks">
+<li><b>Düzenle.</b> Tam araç çubuğuyla düzenlenebilir sayfaya geri döner.</li>
+<li><b>Önizleme.</b> Sayfa sonlarını kontrol edebilmeniz için belgeyi, tam olarak yazdırılacakları gibi tek tek A4 sayfalara böler.</li>
+<li><b>Baskı önizlemesi.</b> Belgeyi kaydeder ve belge ile tüm eklerini içeren baskı önizlemesini açar.</li>
+<li><b>Kaydet ve kapat.</b> Belgeyi kaydeder ve metin listesine geri döner.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<ul>
+<li><b>İlk kaydetme.</b> Yeni bir belge bir başlık ister. Başlık başka bir belge tarafından zaten kullanılıyorsa bir uyarı görünür ve başka bir başlık seçersiniz.</li>
+<li><b>Sürümler.</b> Sonraki her kaydetme aynı belgenin yeni bir sürümünü saklar; metin listesi en yeni sürüm numarasını gösterir.</li>
+<li><b>Önizlemede ekler.</b> Ek listesi düğmesi Önizleme sekmesinde de kullanılabilir kalır.</li>
+</ul>
+
+<h3>Baskı önizlemesi, imza ve damga</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png" alt="Dilekçe, damga anahtarlı bir ek, büyütülmüş ve hariç tutulmuş birer ek sayfası ile imzayı yerleştirme penceresini gösteren baskı önizlemesi"><figcaption>Baskı önizlemesi, belgeyi ve tüm ekleri tek bir PDF'de birleştirir.</figcaption></figure>
+<p class="scr-intro">Baskı önizlemesi nihai PDF'nin her sayfasını gösterir: önce belgeniz, ardından başlık satırıyla birlikte her ek.
+Başlık satırı tüm sayfaları, etkin sayfaları ve hariç tutulan sayfaları sayar. Burada imzanızı yerleştirir, gerekmeyen ek sayfalarını dışarıda bırakır ve tasdik damgasını açarsınız.
+Görselde büyütülmüş bir ek sayfası (sol tıklama), hariç tutulmuş bir sayfa (sağ tıklama) ve imza penceresi (belgenin bir sayfasına tıklama) görülmektedir.</p>
+<ol class="marks">
+<li><b>Belgeniz.</b> Mektubun veya dilekçenin sayfaları. İmzanızı yerleştirmek için birine tıklayın.</li>
+<li><b>Ekin başlık satırı.</b> Her ek, kayıt numarasını, ek numarasını ve başlığını gösteren bir satırla başlar.</li>
+<li><b>Tasdik damgası.</b> Satırın başındaki anahtar, bu ek için tasdik damgasını açar veya kapatır; damga metni davanın ülkesinin dilini izler. Gri kapalı, siyah açık anlamına gelir.</li>
+<li><b>DOCX.</b> Belgenizi (ekler olmadan) Word dosyası olarak dışa aktarır.</li>
+<li><b>PDF indir.</b> Tüm etkin sayfalardan nihai PDF'yi oluşturur ve dışa aktarma iletişim kutusunu açar.</li>
+</ol>
+<h4>Burada neler yapabilirsiniz</h4>
+<p class="grp"><b>Ek sayfaları</b></p>
+<ul>
+<li><b>Bir sayfayı büyütme.</b> Bir ek sayfasına sol tıklamak onu büyük gösterir; kapatmak için herhangi bir yere tıklayın veya Escape tuşuna basın.</li>
+<li><b>Bir sayfayı dışarıda bırakma.</b> Sağ tıklama bir ek sayfasını PDF'nin dışında tutar; sayfa soluklaşır ve kırmızı bir işaretle işaretlenir. Geri almak için yeniden sağ tıklayın. Sayfa numaraları yalnızca etkin sayfaları sayar.</li>
+<li><b>Ek başına en az bir sayfa.</b> Bir ekin kalan son sayfası hariç tutulamaz; kısa bir bilgi bunu size bildirir.</li>
+<li><b>Boş sayfalar.</b> Neredeyse boş olan ek sayfaları tanınır ve otomatik olarak hariç tutulur. Sağ tıklamayla bunları geri alabilirsiniz.</li>
+<li><b>Sayfa aralıkları.</b> Bir sayfayı her hariç tuttuğunuzda veya geri getirdiğinizde, belgenizin ek listesindeki sayfa aralıkları yeniden hesaplanır; böylece her zaman nihai PDF ile uyumlu olur.</li>
+<li><b>Açıklamalı.</b> <span class="irs">IRONSTICK</span> uygulamasının kronoloji kayıtlarından oluşturduğu eklerin başlık satırında bir <i>açıklamalı</i> anahtarı bulunur. Açıklamayı dışarıda bırakmak için kapatın; örneğin mahkemeye gitmemesi gereken dahili notlarda. Yalnızca bu ek yeniden oluşturulur.</li>
+</ul>
+<p class="grp"><b>İmza ve damga</b></p>
+<ul>
+<li><b>İmzanızı yerleştirme.</b> Belgenizin bir sayfasına tıklayın. İmza görseliniz sayfada belirir; onu doğru yere sürükleyin. Büyütmek, küçültmek veya hafifçe eğmek için köşe noktasından sürükleyin. <i>Uygula</i> sayfadaki yeri işaretler. Bunun için yapılandırmada bir imza görseli yüklenmiş olmalıdır.</li>
+<li><b>Henüz imza yok.</b> İmza yerleştirmeden PDF indirmeyi başlatırsanız <span class="irs">IRONSTICK</span>, imzasız devam etmek isteyip istemediğinizi sorar.</li>
+<li><b>Tasdik damgası.</b> Damgası açık olan eklerde her sayfa, davanın ülkesinin dilinde ve bugünün tarihiyle, sayfanın alt kısmındaki boş bir yere damgayı alır. İmzanızı belgeye yerleştirdiyseniz, imza damgaya da eklenir.</li>
+</ul>
+<p class="grp"><b>PDF'yi oluşturma</b></p>
+<ul>
+<li><b>Tek bir PDF.</b> <i>PDF indir</i>, belgeyi ve tüm etkin ek sayfalarını, her sayfanın altında kesintisiz sayfa numaraları ve ek sayfalarında ek numarası bulunan tek bir PDF'de birleştirir. Metin aranabilir kalır. Bir ilerleme penceresi işlemin ne kadar ilerlediğini gösterir; işlenemeyen sayfalar bir bilgide listelenir.</li>
+<li><b>Dışa aktarma iletişim kutusu.</b> <i>İndir</i> PDF'yi Belgeler klasörünüze kaydeder; bu bilgisayarda bir Google Drive klasörü varsa <i>Google Drive</i> görünür. <i>E-postayı hazırla</i> belgeyi kaydeder, PDF'yi gönderim için hazırlar ve PDF ekli olarak e-posta gönderme ekranını açar.</li>
+<li><b>İptal.</b> Baskı önizlemesini kapatır ve düzenleyiciye geri döner.</li>
+</ul>
+
+<h2 id="s14">14. E-posta monitörü</h2>
+<figure><img src="img/screens/14%20email%20monitor.png" alt="Gelen kutusu listesi ve ekleriyle birlikte açılmış bir e-postayla e-posta monitörü"><figcaption>Öncelik ve dava atamasıyla gelen kutusu ve ekleriyle birlikte açılmış bir e-posta.</figcaption></figure>
+<p class="scr-intro">E-posta monitörü, yapılandırmada kurduğunuz posta kutusunu <span class="irs">IRONSTICK</span> içine getirir.
+Yeni postalar arka planda otomatik olarak alınır, önceliğe göre değerlendirilir ve mümkün olduğunda doğru davaya atanır.
+Görselde solda gelen kutusu listesi, sağda ise ekleri ve e-postayı bir dava belgesine dönüştüren düğmeyle birlikte açılmış bir e-posta görülmektedir.</p>
+<ol class="marks">
+<li><b>Gelen kutusu ve Gönderilenler.</b> Alınan ve gönderilen e-postalar arasında geçiş yapın. Tüm filtreler, sayaçlar ve liste bu durumda seçilen klasörle ilgilidir.</li>
+<li><b>Tarih, yakalandı onay işareti ve posta numarası.</b> E-postanın yerel saatinizle ne zaman geldiği. <b>Yeşil onay işareti</b>, e-postanın zaten belge olarak yakalandığı anlamına gelir. Mor numara (örneğin <i>@M0000519</i>) e-postayı tanımlar; panoya kopyalamak için üzerine tıklayın.</li>
+<li><b>Öncelik.</b> <i>Yüksek</i> (kırmızı), <i>Orta</i> (turuncu) veya <i>Düşük</i> (gri) değerlendirmesi. Bir tire, e-postanın önemsiz olarak değerlendirildiği (örneğin bir bülten) veya henüz değerlendirilmediği anlamına gelir.</li>
+<li><b>Dava tanıma.</b> Bu e-postanın ait olduğu dava, müvekkil ve dava numarası olarak gösterilir; bir tire hiçbir davanın bulunamadığı anlamına gelir. Altındaki küçük gri satır, davanın nasıl tanındığını söyler. Tanıma şu sırayla yapılır:
+<ol>
+<li><b>Yapay zekâ olmadan, doğrudan metinden:</b> davalarınızdan birinin mahkeme esas numarası (<i>esas numarası ile</i>), belgelerinizden birinden bilinen bir kayıt veya yazı numarası (<i>yazı numarası ile</i>), bir müvekkil numarası (<i>müvekkil numarası ile</i>) veya gönderdiğiniz bir şeye yapılan atıf (<i>gönderimimize yanıt</i>).</li>
+<li><b>Aksi takdirde yapay zekâ</b> yalnızca önceliği değerlendirir ve tek cümlelik bir gerekçe yazar — dava ataması yapmaz.</li>
+<li><b>Ardından son çare:</b> gönderen, bir davaya bağlı bir kurum veya kişidir (<i>kurum ile</i>, <i>kişi ile</i>) ya da bilinen bir gönderendir (<i>bilinen gönderen</i>).</li>
+</ol>
+</li>
+<li><b>Ekler.</b> Açılan e-posta eklerini adı ve boyutuyla listeler. Görüntülemek için bir eke tıklayın: PDF'ler ve görseller <span class="irs">IRONSTICK</span> tarayıcı penceresinde, diğer dosya türleri ise bilgisayarınızın bunlar için kullandığı programda açılır.</li>
+<li><b>Belge olarak ekle.</b> E-postayı ekleriyle birlikte bir PDF'ye dönüştürür ve onu bir davaya dosyalayacağınız belge yakalamayı açar.</li>
+</ol>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Postaları alma ve değerlendirme</h4>
+<ul>
+<li><b>Otomatik alma.</b> <span class="irs">IRONSTICK</span> yeni postaları başlangıçta ve ardından birkaç dakikada bir kendiliğinden alır. Monitör açıkken yeni bir e-posta gelirse liste kendiliğinden güncellenir. Monitörün açılması, üst çubuktaki zarf simgesindeki yeni posta sinyalini temizler.</li>
+<li><b>Postaları al.</b> Sağ üstteki mavi düğme, Gelen kutusu ve Gönderilenler klasörlerinden yeni e-postaları hemen alır. Kısa bir mesaj kaç yeni e-postanın geldiğini size bildirir.</li>
+<li><b>Otomatik değerlendirme.</b> Alındıktan sonra her yeni e-posta incelenir. Metin dava numaralarınızdan birini içeriyorsa dava doğrudan atanır. Aksi takdirde yapay zekâ önceliği değerlendirir ve konunun altında mor italik yazıyla görünen tek cümlelik bir gerekçe yazar. İlerleme ekranın altında gösterilir.</li>
+<li><b>Posta kutusu kurulmamış.</b> Henüz bir posta kutusu yapılandırılmamışsa, üstteki sarı bir bilgi bunu yapılandırmada kurmanızı hatırlatır. Başlık satırı posta kutusu adresinizi ve aktif e-posta sayısını gösterir.</li>
+</ul>
+
+<h4>Filtreler ve liste</h4>
+<ul>
+<li><b>Aktif.</b> Gizlemediğiniz tüm e-postalar — bu varsayılan görünümdür.</li>
+<li><b>Önemli.</b> Yalnızca <i>Yüksek</i> değerlendirmesine sahip aktif e-postalar.</li>
+<li><b>Tümü.</b> Gizlenenler dahil klasördeki her e-posta.</li>
+<li><b>Gizlenen.</b> Yalnızca gizlediğiniz e-postalar. Her filtre sayısını parantez içinde gösterir.</li>
+<li><b>Listeyi okuma.</b> Her satır tarihi, göndereni (<i>Gönderilenler</i> klasöründe: alıcıyı), tek satırlık bir önizlemeyle konuyu, yapay zekânın gerekçesini, ek sayısını (ataş), önceliği ve davayı gösterir. Okunmamış e-postalar kalın gösterilir. 50'den fazla e-posta olduğunda sayfa gezinmesi listenin üstünde ve altında görünür.</li>
+<li><b>Bir e-postayı gizleme.</b> Bir satırın sonundaki üstü çizili göz, e-postayı aktif listeden gizler. E-postayı <i>Gizlenen</i> ve <i>Tümü</i> altında bulmaya devam edersiniz.</li>
+</ul>
+
+<h4>Bir e-postayı okuma</h4>
+<ul>
+<li><b>Açma.</b> E-postayı bir pencerede açmak için bir satıra tıklayın. Pencere göndereni, alıcıyı, bilgi alıcılarını, tarihi, ek listesini ve metnin tamamını gösterir. Açılan e-posta okundu olarak işaretlenir.</li>
+<li><b>İlk seferden sonra hızlı.</b> Metin bir e-posta ilk açıldığında indirilir ve saklanır; böylece daha sonra posta sunucusuna bağlanmadan anında açılır.</li>
+<li><b>Veri koruma.</b> Harici görseller engellenir; böylece izleme görselleri e-postayı ne zaman açtığınızı bildiremez. Görseller engellendiğinde metnin üstündeki küçük bir bilgi bunu size bildirir.</li>
+<li><b>Posta sunucusuna ulaşılamazsa.</b> Pencere bunun yerine kayıtlı önizleme metnini kısa bir bilgiyle gösterir.</li>
+<li><b>Yeniden yakalama.</b> Zaten yakalanmış bir e-postada, aynı e-postayı yanlışlıkla iki kez dosyalamamanız için düğme kırmızıya döner ve <i>Yeniden belge olarak ekle</i> adını alır.</li>
+<li><b>Sohbetten.</b> Sohbet bir e-postaya atıfta bulunursa, monitör bu e-posta doğru klasörde zaten gösterilmiş olarak açılır.</li>
+</ul>
+
+<h4>Ekler belgeye nasıl aktarılır</h4>
+<ul>
+<li><b>Tek bir PDF.</b> Bir e-postayı yakaladığınızda PDF ekleri sayfa sayfa eklenir, görseller kendi sayfalarına dönüşür, Word, OpenDocument ve Markdown ekleri ise metin olarak eklenir. Dönüştürülemeyen bir dosya bir yer tutucu sayfa alır ve ayrıca PDF'nin yanında ayrı olarak kaydedilir.</li>
+</ul>
+
+<h2 id="s15">15. Zaman kaydı</h2>
+<figure><img src="img/screens/15%20time%20tracking.png" alt="Genel bakış, dava başına süre, müvekkil başına süre ve günlük genel bakışla zaman kaydı"><figcaption>Dava başına, müvekkil başına ve gün başına otomatik olarak kaydedilen çalışma süresi.</figcaption></figure>
+<p class="scr-intro">Zaman kaydı otomatik olarak çalışır: <span class="irs">IRONSTICK</span> hangi ekranları ve hangi müvekkil ile dava için açtığınızı kaydeder.
+Buradan ne kadar süre çalıştığınızı hesaplar ve dava başına, müvekkil başına ve gün başına toplamları gösterir.
+Görsel bugünün görünümünü göstermektedir; <span class="irs">IRONSTICK</span> SERVER bağlıysa dava başına günlük toplamlar sunucuya da bildirilir.</p>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Dönemi seçme</h4>
+<ul>
+<li><b>Dönem düğmeleri.</b> <i>Bugün</i>, <i>7 gün</i>, <i>30 gün</i>, <i>90 gün</i> veya <i>Toplam</i>. Altındaki tüm tablolar seçilen dönemi izler. Ekran açıldığında son 30 gün gösterilir.</li>
+</ul>
+
+<h4>Genel bakış</h4>
+<ul>
+<li><b>Üç gösterge.</b> Bugün çalışılan süre, bu hafta çalışılan süre ve seçilen dönemin toplamı. Hangi dönemi seçerseniz seçin bugün ve bu hafta her zaman aynı kalır.</li>
+</ul>
+
+<h4>Tablolar</h4>
+<ul>
+<li><b>Dava başına süre.</b> Her dava numarası, başlığı, müvekkili ve süresiyle, karşılaştırma için bir çubukla birlikte. Dava sayısı kartın sağ üstünde görünür.</li>
+<li><b>Müvekkil başına süre.</b> Aynısı, müvekkil başına toplanmış olarak.</li>
+<li><b>Günlük genel bakış.</b> Her gün için (en fazla 60 gün) tarih, haftanın günü ve süre; sağ üstte dönemin toplamıyla birlikte. Bugünün satırı açık mavi renkle vurgulanır.</li>
+</ul>
+
+<h4>Süre nasıl sayılır</h4>
+<ul>
+<li><b>Otomatik.</b> Açtığınız her ekran, bir sonrakini açana kadar sayılır. 30 dakikadan uzun bir boşluk en fazla 30 dakika olarak sayılır; böylece bir mola rakamları şişirmez. Günün son ekranı bir dakika sayılır.</li>
+<li><b>Henüz veri yok.</b> İlk açılıştan hemen sonra ekran, zaman kaydının yeni açıldığını ve henüz veri bulunmadığını size bildirir.</li>
+<li><b>IRONSTICK SERVER.</b> Sunucu bağlıysa <span class="irs">IRONSTICK</span>, dava başına günlük sürenizi her beş dakikada bir sunucuya bildirir. Hiçbir davaya atanmamış süre bildirilmez.</li>
+</ul>
+
+<h2 id="s16">16. Kanunlar</h2>
+<figure><img src="img/screens/16%20statutes.png" alt="Arama alanı, Oluştur penceresi ve açılmış bir kanunla kanun kütüphanesi"><figcaption>Kanun kütüphanesi, kanun ekleme penceresi ve açılmış bir kanun metni.</figcaption></figure>
+<p class="scr-intro">Kanunlar ekranı kanun kütüphanenizdir: kanunların, yönetmeliklerin, kararların ve normların tam metinleri, bilgisayarınızda kayıtlı ve tamamen aranabilir.
+Bir kanunu bir web bağlantısı veya bir PDF / Markdown dosyası aracılığıyla eklersiniz; <span class="irs">IRONSTICK</span> ardından metni arka planda alır, temizler ve sınıflandırır.
+Yapay zekâ bir hukuk kuralına ihtiyaç duyduğunda her zaman önce bu kütüphaneyi kullanır. Görselde liste, kanun ekleme penceresi ve kendi aramasıyla birlikte açılmış bir kanun görülmektedir.</p>
+<ol class="marks">
+<li><b>Tüm kanunlarda arama.</b> Bir terim girin ve Enter tuşuna basın ya da <i>Ara</i> düğmesine tıklayın. Sonuçlar, kanuna göre sıralanmış ve her eşleşme için bir metin alıntısıyla birlikte ayrı bir ekranda açılır.</li>
+<li><b>Oluştur.</b> Kanun ekleme penceresini açar: alana bir web bağlantısı yapıştırın veya bir ya da daha fazla PDF veya Markdown dosyasını altındaki alana sürükleyin ve ardından <i>Oluştur</i> düğmesine tıklayın.</li>
+<li><b>Açılmış kanun.</b> Tam metnini okumak için listede bir kanuna tıklayın. Başlığın altındaki arama alanı yalnızca bu kanunda arama yapar.</li>
+</ol>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Kanun ekleme</h4>
+<ul>
+<li><b>Bağlantı veya dosya ile.</b> <i>Oluştur</i> penceresinde bir web adresi girin veya PDF / MD dosyaları bırakın; bırakılan dosyalar listelenir ve küçük çarpıyla kaldırılabilir. Kütüphanede zaten bulunan bir bağlantı iki kez eklenmez; geçersiz bir bağlantı <i>Başarısız</i> gösterir.</li>
+<li><b>Arka planda alınır.</b> Bir kanun hazırlanırken bir ilerleme çubuğu ulaşılan aşamayı gösterir. Yükleme kesintiye uğradıysa yeniden başlatmak için çubuğa tıklayın. Kanun hazır olduğu anda liste kendiliğinden güncellenir.</li>
+<li><b>Yapay zekâ tarafından önerilen.</b> Yapay zekâ kütüphanede eksik olan bir kanun bulursa, onu sessizce eklemez. Önerileri içeren bir pencere alırsınız ve saklamak istediklerinizi işaretlersiniz.</li>
+</ul>
+
+<h4>Liste</h4>
+<ul>
+<li><b>Her kayıt.</b> Başlık, eklenme tarihi, hukuk alanı ve kısa bir açıklama, kaynak bağlantısı ile ülke ve hukuki işlem türüne (kanun, yönetmelik, karar …) ait etiketler. Orijinal sayfayı <span class="irs">IRONSTICK</span> tarayıcı penceresinde açmak için kaynak bağlantısına tıklayın. Dosya olarak yüklediğiniz kanunlar bağlantı yerine dosya adını gösterir.</li>
+<li><b>Üstteki kırmızı kayıtlar.</b> Kırmızı gösterilen bir kanun yüklenemedi veya bir aydan uzun süredir yeniden denetlenmedi. Yüklemeyi yeniden denemek için başarısız bir kayda tıklayın.</li>
+<li><b>Soluk kayıtlar.</b> Kaynağı artık doğrulanamayan bir kanun soluk gösterilir ve <i>doğrulanamaz</i> olarak işaretlenir. Kaynağı <span class="irs">IRONSTICK</span> tarayıcı penceresinde açıp kendiniz kontrol etmek için bu etikete tıklayın; açılan metin bu durumda üstte kırmızı bir bilgi gösterir.</li>
+<li><b>Onay bekliyor.</b> Yeni hazırlanmış bir kanun, veri tutarlılığı monitöründe onayınızı bekler. Oraya gitmek için etikete tıklayın. Yalnızca onaylanmış kanunlar IRONSTICK SERVER ile paylaşılır.</li>
+<li><b>Silme.</b> Çöp kutusu simgesi, kendi kanunlarınızdan birini bir onaydan sonra kaldırır. Bir IRONSTICK SERVER bağlıysa kanun orada da kaldırılır.</li>
+<li><b>Sayfalar.</b> 20'den fazla kanun olduğunda sayfa gezinmesi listenin üstünde ve altında görünür.</li>
+</ul>
+
+<h4>Filtreler</h4>
+<ul>
+<li><b>Tümü, Kendi, Diğer.</b> <i>Kendi</i> eklediğiniz kanunları gösterir; <i>Diğer</i>, IRONSTICK SERVER'daki diğer kullanıcıların eklediği kanunları gösterir. Bunlar başlığın altında sahiplerinin kimliğini ve adını taşır ve sizin tarafınızdan silinemez.</li>
+<li><b>Süresi dolmuş.</b> Yalnızca kaynağı artık doğrulanamayan kanunları gösterir.</li>
+<li><b>Ülke.</b> Filtrelerin yanındaki seçim listesi, listeyi tek bir ülkeyle sınırlar.</li>
+</ul>
+
+<h4>Arama</h4>
+<ul>
+<li><b>Tüm kütüphanede.</b> Arama aksanları ve özel harfleri yok sayar ve arama teriminizle başlayan kelimeleri de bulur; madde numaraları tam olarak eşleştirilir. Sonuç ekranında bir kanunu ilk eşleşmede açmak için başlığına veya doğrudan o yere gitmek için bir alıntıya tıklayın.</li>
+<li><b>Bir kanunun içinde.</b> Açılmış kanunda bir terim girin ve Enter tuşuna basın ya da <i>Ara</i> düğmesine tıklayın. Tüm eşleşmeler sarı renkte işaretlenir ve metin ilkine atlar. Bir sonraki yere gitmek için sayaca (örneğin <i>1/12</i>) tıklayın; sonuncudan sonra yeniden ilkinden başlar.</li>
+</ul>
+
+<h2 id="s17">17. Sunucu davaları</h2>
+<figure><img src="img/screens/17%20server%20cases.png" alt="Paylaştığım davalar kartı ve abonelerinin göründüğü sunucu davaları"><figcaption>IRONSTICK SERVER'da paylaştığınız davalar ve aboneleri.</figcaption></figure>
+<p class="scr-intro">Sunucu davaları, <span class="irs">IRONSTICK</span> SERVER kullanıcıları arasında paylaşılan davalarla çalıştığınız yerdir.
+Kendi davalarınızdan hangilerini paylaştığınızı ve bunları kimin takip ettiğini görürsünüz; diğer kullanıcıların paylaştığı davalara da abone olabilirsiniz.
+Bu ekran ve ana menüdeki kutucuğu yalnızca sunucu bağlıyken görünür. Görselde iki abonesi olan paylaşılmış bir dava görülmektedir.</p>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Gelen devirler</h4>
+<ul>
+<li><b>Bir davayı devralma.</b> Başka bir kullanıcı size bir dava devrederse, dava bu kartın en üstünde görünür. Kendi verilerinize almak için <i>İçe aktar</i> düğmesine tıklayın.</li>
+<li><b>Denetimli içe aktarma.</b> Dava paketi indirilir ve önce eksiksizlik açısından denetlenir. Ardından müvekkilin sizde zaten kayıtlı olup olmadığını veya yeni müvekkil olarak mı oluşturulacağını seçersiniz. Aynı numaralı bir davanız zaten varsa, ikisini birleştirmeniz önerilir. Verilerin farklı olduğu yerlerde farkların bir listesi gösterilir ve sonunda bir mesaj kaç kaydın ve dosyanın içe aktarıldığını onaylar.</li>
+</ul>
+
+<h4>Paylaştığım davalar</h4>
+<ul>
+<li><b>Paylaştığınız davalar.</b> Dava ekranından paylaştığınız her davayı dava numarası ve müvekkiliyle listeler. Açmak için davaya tıklayın.</li>
+<li><b>Paylaşımı sonlandır.</b> Bu davanın IRONSTICK SERVER'daki paylaşımını sonlandırır.</li>
+<li><b>Aboneler.</b> Davayı takip eden kullanıcılar altta listelenir. Takip etmek için izin isteyen bir kullanıcı <i>Talep edildi</i> olarak işaretlenir; içeri almak için <i>İzin ver</i> düğmesine tıklayın. <i>Kaldır</i>, etkin bir aboneliği sonlandırır veya bir talebi reddeder. Davayı henüz kimse takip etmiyorsa kart bunu belirtir.</li>
+</ul>
+
+<h4>Başkalarının paylaştığı davalar</h4>
+<ul>
+<li><b>Liste.</b> Diğer kullanıcıların herkesle veya kişisel olarak sizinle paylaştığı davaları dava, sahip ve büro bilgisiyle gösterir. Hiç yoksa kart <i>Kayıt bulunmuyor</i> gösterir.</li>
+<li><b>Abonelik talep et.</b> Herkesle paylaşılan bir davada, sahibinden davayı takip etmenize izin vermesini istersiniz. Sahibi izin verene kadar <i>Talep edildi</i> etiketi görünür.</li>
+<li><b>Abone ol.</b> Kişisel olarak sizinle paylaşılan bir davada abonelik hemen etkin olur; etiket <i>Abone olundu</i> olarak değişir.</li>
+<li><b>Aboneliği bırak.</b> Aboneliğinizi sonlandırır veya talebinizi geri çeker.</li>
+<li><b>Sunucuya ulaşılamıyor.</b> IRONSTICK SERVER ile bağlantı kesilirse kart, hiçbir sunucunun bağlı olmadığını gösterir.</li>
+</ul>
+
+<h2 id="s18">18. Yedekleme</h2>
+<figure><img src="img/screens/18%20backup.png" alt="Veri yedekleme, son yedekler ve geri yükleme içeren yedekleme ekranı"><figcaption>Bir veri yedeği oluşturun, son yedekleri görüntüleyin veya birini geri yükleyin.</figcaption></figure>
+<p class="scr-intro">Yedekleme ekranı tüm dava verilerinizi tek bir ZIP dosyasında yedekler ve gerektiğinde geri yükler.
+Dosyanın nereye gideceğine siz karar verirsiniz — yerel bir klasör, harici bir SSD veya bir USB bellek.
+Veritabanı ve kayıtlı dava dosyaları yedeğin içinde AES-256 şifrelemelerini korur. Görselde yedekleme kartı, son yedeklerin listesi ve geri yükleme kartı görülmektedir.</p>
+
+<h3 class="do">Burada neler yapabilirsiniz</h3>
+
+<h4>Yedekleme</h4>
+<ul>
+<li><b>Veri yedeği oluştur.</b> Veritabanınızı, belgelerinizi ve dosyalarınızı, yapılandırmanızı ve lisansınızı bir ZIP dosyasında yedekler. Yerel yapay zekâ ve sesli çıktı için dil modelleri, yeniden indirilebildikleri için kapsam dışında kalır.</li>
+<li><b>İlerleme.</b> Bir pencere yedeklemenin ne kadar ilerlediğini (X / Y dosya) ve o anda hangi dosyanın paketlendiğini gösterir. Yedekleme ayrı bir arka plan işleminde çalışır; böylece çalışmaya devam edebilirsiniz.</li>
+<li><b>Depolama konumu seçme.</b> ZIP dosyası hazır olduğunda bir kaydetme iletişim kutusu konumu ve dosya adını sorar. İptal ederseniz hiçbir dosya saklanmaz. Kaydetme tamamlandığında bir mesaj dosya adını, boyutu ve dosya sayısını gösterir.</li>
+<li><b>Son yedekler.</b> Son beş yedek tarih ve saat, dosya adı ve boyutla listelenir; böylece en son ne zaman yedek aldığınızı bir bakışta görürsünüz.</li>
+<li><b>Sohbetten.</b> Sohbetten bir yedek oluşturmasını isterseniz bu ekran açılır ve veri yedeklemesi hemen başlar.</li>
+<li><b>IRONSTICK SERVER.</b> Sunucu bağlıysa her yedekleme ve her geri yükleme sunucuya bildirilir: <b>kimin</b> yaptığı, <b>ne zaman</b>, hangi IP adresinden, türü, dosya adı ve boyutu — hiçbir zaman yedek verilerinin kendisi değil. Yönetici bunu sunucunun bir sayfasında, her kullanıcının son yedek tarihiyle (beş günden fazla geçmişse kırmızı gösterilir) birlikte görür ve kullanıcılara yedek almalarını hatırlatabilir.</li>
+</ul>
+
+<h4>Geri yükleme</h4>
+<ul>
+<li><b>Yedek seçme.</b> Bir yedek ZIP dosyası seçin. <span class="irs">IRONSTICK</span> önce bunun gerçekten bir <span class="irs">IRONSTICK</span> yedeği olup olmadığını denetler; diğer her dosya bir bilgiyle reddedilir.</li>
+<li><b>Onaylama.</b> Geri yükleme mevcut verilerinizin üzerine yazar. Bir pencere sizden onay ister; durdurmak için <i>İptal</i>, devam etmek için <i>Geri yükle</i> düğmesine tıklayın.</li>
+<li><b>İlerleme ve sonuç.</b> Bir ilerleme penceresi geri yüklenirken her dosyayı gösterir ve bir mesaj geri yüklemenin başarılı olup olmadığını size bildirir. Yedek yapılandırmanızı ve lisansınızı içerdiğinden, bunlar da geri yüklenir.</li>
+</ul>
+
+<footer class="sd-foot"><p>IRONSTICK, hukuk uygulamasına yönelik bir yazılımdır. Bu web sitesi yalnızca bilgilendirme amaçlıdır ve hukuki danışmanlık niteliği taşımaz. © 2026 IRONSTICK.</p></footer>
+</body></html>

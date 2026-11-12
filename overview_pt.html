@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="utf-8">
+<title>IRONSTICK num relance</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="O software para escritórios de advogados que conhece os seus processos — localmente no seu computador, com a IA ao seu lado.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview_pt.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_pt.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_pt.html">Início</a><a href="overview_pt.html" aria-current="page">Visão geral</a><a href="ki_pt.html">IA</a><span class="mh">Manuais</span><a class="sub" href="manualquickstart_pt.html">Início rápido</a><a class="sub" href="manualironstick_pt.html">App cliente</a><a class="sub" href="manualbridge_pt.html">Bridge</a><a href="gdpr_pt.html">RGPD</a><a href="download_pt.html">Download</a></div></div><nav class="mainnav"><a href="overview_pt.html" aria-current="page">Visão geral</a><a href="ki_pt.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuais</span><div class="menu"><a href="manualquickstart_pt.html">Início rápido</a><a href="manualironstick_pt.html">App cliente</a><a href="manualbridge_pt.html">Bridge</a></div></div><a href="gdpr_pt.html">RGPD</a><a href="download_pt.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_pt.html">Experimentar 30 dias</a><nav class="lang-wrap" tabindex="0" title="Idioma" aria-label="Idioma"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a class="on" lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IRONSTICK num relance</h1></div><p class="gh-sub">O software para escritórios de advogados que conhece os seus processos — localmente no seu computador, com a IA ao seu lado.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> reúne clientes, processos, provas, prazos, e-mails e documentos nos mesmos autos — e coloca ao seu lado uma IA que conhece esses autos por inteiro. Pergunta, e os autos respondem, com referência a cada documento. Verifica e assina, em vez de procurar e transcrever. Tudo fica cifrado no seu próprio hardware.</p>
+
+<h2 class="ov-part">1. O dia de trabalho</h2>
+<h3 class="ov-h">O dia do escritório num relance</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="O dia do escritório num relance" loading="lazy"></figure>
+<p class="scr-intro"><b>O dia inteiro em três páginas.</b> Abra o <span class="irs">IRONSTICK</span> e o dia já está organizado.</p>
+<ul>
+<li><b>Início.</b> Todas as áreas de trabalho e a situação dos seus prazos num relance.</li>
+<li><b>Agenda.</b> Tudo o que entrou nos seus processos, dia a dia — com pré-visualização dos documentos.</li>
+<li><b>Mapa de calor.</b> Cada dia dos últimos doze meses como um quadrado — quanto mais escuro, mais aconteceu nos seus processos; prazos e audiências estão assinalados. Por baixo, os processos em ebulição: os que registaram uma atividade claramente acrescida nos últimos 14 dias.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Monitor de prazos</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Monitor de prazos" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Números de referência. O número de um documento ou de um lembrete da IA é copiado com um clique — por exemplo, para o colar no chat.</li>
+<li>Concluir prazos. Os prazos provenientes de documentos e de registos da cronologia são marcados e removidos em conjunto; os lembretes da IA saem da lista com <i>Eliminar compromisso</i>.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>Também a IA define compromissos e prazos — diretamente a partir da conversa consigo. Aparecem na lista com este símbolo.</li>
+</ol>
+<p class="scr-intro"><b>Nenhum prazo perdido.</b> Um prazo falhado é um caso de responsabilidade profissional. O <span class="irs">IRONSTICK</span> reúne todos os prazos e audiências numa única lista e mostra quanto tempo resta.</p>
+<ul>
+<li><b>Todos os prazos e audiências numa única lista</b> — com data, processo e os dias que faltam até ao termo; os vencidos a vermelho, os próximos a laranja.</li>
+<li><b>Prazos a partir da correspondência recebida.</b> A IA reconhece prazos em cartas e decisões recebidas e regista-os.</li>
+<li><b>Sino de prazos.</b> Laranja quando um prazo termina nos próximos dez dias, vermelho no próprio dia — sempre visível na barra de menu.</li>
+<li><b>Imprimir a lista de prazos</b> ou exportá-la em PDF.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Registo automático de documentos</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Registo automático de documentos" loading="lazy"></figure>
+<p class="scr-intro"><b>A correspondência recebida trata-se sozinha.</b> Digitalizar, arrastar, confirmar: o <span class="irs">IRONSTICK</span> reconhece o texto, atribui o documento ao processo certo e regista o prazo.</p>
+<ul>
+<li><b>Selecionar páginas.</b> Só são incorporadas as páginas que pertencem ao processo.</li>
+<li><b>Reconhecimento de texto integrado.</b> Para mais de 35 línguas europeias, sem nada para instalar.</li>
+<li><b>Sugestão em vez de digitação.</b> A IA sugere cliente, processo, tipo de documento, língua, data e prazo — o utilizador confirma.</li>
+<li><b>Arquivado de forma cifrada</b> e imediatamente pesquisável em texto integral.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">Assim, registar um documento demora pouco mais de 20 segundos — e toda a correspondência recebida fica num instante distribuída pelos processos.</p>
+
+<h2 class="ov-part">2. Da minuta à peça apresentada</h2>
+<h3 class="ov-h">Processamento de texto para peças processuais</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Processamento de texto para peças processuais" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Editar. A página editável com a barra de ferramentas completa.</li>
+<li>Pré-visualização. O documento em páginas A4 individuais, exatamente como serão impressas.</li>
+<li>Pré-visualização de impressão. Guarda o documento e abre a pré-visualização de impressão com todos os anexos.</li>
+<li>Guardar &amp; fechar. Guarda o documento e regressa à lista de textos.</li>
+</ol>
+<p class="scr-intro"><b>Peças processuais em minutos, em vez de horas — sem citações inventadas.</b> O seu tempo é a sua faturação, e uma referência errada é o maior risco na utilização de IA. A minuta nasce em diálogo com a IA, diretamente a partir do processo — e cada norma, cada parte e cada elemento de prova são verificados face ao processo e à biblioteca de legislação antes de os ver.</p>
+<ul>
+<li><b>A partir do processo.</b> Dados de base, cronologia, textos integrais, prazos e anexos alimentam a minuta.</li>
+<li><b>Editar e pré-visualizar.</b> Altere o texto e veja de imediato como fica impresso no seu papel timbrado.</li>
+<li><b>Minuta pronta a apresentar.</b> O utilizador revê, finaliza e assina.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Pré-visualização de impressão: peça processual e anexos num só PDF</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Pré-visualização de impressão: peça processual e anexos num só PDF" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>O seu documento. As páginas da peça processual — um clique esquerdo numa página abre a janela para colocar a sua assinatura.</li>
+<li>Linha de título do anexo. Número de registo, número do anexo e título de cada anexo. Por baixo, as respetivas páginas: um clique esquerdo mostra uma página ampliada, um clique direito exclui-a do PDF; um segundo clique direito volta a incluí-la.</li>
+<li>Carimbo de autenticação. Pode ser ativado ou desativado para cada anexo; o texto do carimbo segue a língua do país do processo.</li>
+<li>DOCX. O documento como ficheiro Word.</li>
+<li>Download do PDF. O PDF final com todas as páginas ativas.</li>
+</ol>
+<p class="scr-intro"><b>A peça está pronta a apresentar.</b> Peça processual e anexos carimbados, paginados e assinados num só PDF — sem passar pela fotocopiadora.</p>
+<ul>
+<li><b>Colocar a assinatura.</b> A sua assinatura guardada é colocada no sítio certo com um clique.</li>
+<li><b>Anexos com carimbo de autenticação.</b> Cada anexo recebe o seu carimbo; páginas individuais podem ser excluídas com um clique.</li>
+<li><b>Exportação em PDF ou DOCX</b> — peça processual e anexos num único ficheiro, paginados página a página.</li>
+<li><b>Também para processos de grande dimensão.</b> 3.000 páginas carimbadas, paginadas e reunidas num único PDF — em menos de 20 minutos.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Dossier de todo o processo</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Dossier de todo o processo" loading="lazy"></figure>
+<p class="scr-intro"><b>Os autos completos num único documento.</b> O assistente de dossier reúne todo o processo num dossier paginado. Primeiro, decide o que nele entra.</p>
+<ul>
+<li><b>Selecionar documentos.</b> Cada registo da cronologia pode ser incluído ou omitido com um clique.</li>
+<li><b>Até à página individual.</b> De cada documento escolhe exatamente as páginas que pertencem ao dossier.</li>
+<li><b>Ver antes.</b> Documentos, fotografias, transcrições e chats abrem-se na pré-visualização, sem alterar a seleção.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Dossier de todo o processo" loading="lazy"></figure>
+<p class="scr-intro"><b>Capa, estrutura e vista de impressão.</b> Em seguida, define a capa e a estrutura e verifica cada página antes de o dossier ser criado.</p>
+<ul>
+<li><b>Capas à escolha.</b> O destinatário é retirado das instituições do processo ou introduzido por si.</li>
+<li><b>Na língua da jurisdição.</b> A capa e os índices são criados na língua do país do processo; se o país tiver várias línguas jurídicas, escolhe a língua.</li>
+<li><b>Estrutura à medida.</b> Capa, índice temático, cronologia, documentos, multimédia, transcrições, chats, índice de pessoas e de instituições — incluir, omitir e ordenar arrastando.</li>
+<li><b>Páginas excluídas imediatamente visíveis.</b> A vista de impressão mostra cada página do dossier final; aí ainda é possível omitir ou recuperar páginas, e o índice temático ajusta os números de página.</li>
+<li><b>Exportação em PDF ou EDRM.</b> Como dossier PDF paginado ou como pacote de produção EDRM com numeração Bates.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Compreender o processo</h2>
+<h3 class="ov-h">Assistente do processo</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Assistente do processo" loading="lazy"></figure>
+<p class="scr-intro"><b>O processo de imediato na memória.</b> Antes da audiência ou da reunião com o cliente, pergunta ao processo em vez de folhear — em linguagem natural, por teclado ou por voz.</p>
+<ul>
+<li>«Resume o estado atual do processo.» — «Já respondemos à última carta da parte contrária?» — «O que disse a testemunha sobre a inspeção ao local?»</li>
+<li><b>Cada resposta com prova.</b> Cada documento citado é uma ligação clicável para o respetivo registo no seu processo.</li>
+<li><b>As perguntas de rotina ficam no seu computador.</b> Uma camada local responde-lhes sem que quaisquer dados saiam do dispositivo.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Avaliação do processo por IA</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="Avaliação do processo por IA" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>Na avaliação geral do processo são tidos em conta os autos completos, incluindo os processos relacionados.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>Nas probabilidades de êxito são tidas em conta apenas as peças dirigidas à autoridade e as provenientes da autoridade.</li>
+</ol>
+<p class="scr-intro"><b>As probabilidades de êxito que pode explicar ao seu cliente.</b> A avaliação do processo por IA lê os autos completos — tanto as suas próprias peças processuais como as peças recebidas da parte contrária — e resume a situação do processo numa apreciação.</p>
+<ul>
+<li><b>Probabilidades de êxito numa escala</b> — com valores individuais para a situação probatória, o pedido principal e os restantes pedidos.</li>
+<li><b>O que joga a seu favor e o que joga contra.</b> Pontos fortes e fracos assinalados a cores, cada afirmação com ligação para o documento em que se baseia.</li>
+<li><b>Próximos passos concretos</b> como recomendação para o seguimento do processo.</li>
+<li><b>Com um clique</b> — sempre de novo, assim que entrem novos documentos no processo.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Rede de pessoas e empresas com pesquisa OSINT</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="Rede de pessoas e empresas com pesquisa OSINT" loading="lazy"></figure>
+<p class="scr-intro"><b>Detetar ligações que ninguém encontraria à mão.</b> Pessoas, empresas, autoridades e tribunais de todos os seus processos formam uma rede comum — como lista, como universo 3D, como mapa 2D e no mapa geográfico. Uma mais-valia sobretudo no direito comercial, da insolvência e penal.</p>
+<ul>
+<li><b>Ligações com prova.</b> Quem aparece em que processos, como os intervenientes estão ligados entre si — e porquê.</li>
+<li><b>Três vistas.</b> O universo 3D para sobrevoar, o mapa 2D dos agrupamentos e o mapa geográfico com todos os intervenientes e locais.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>O seu processo e a pesquisa OSINT da IA trabalham em conjunto.</b> A IA cruza o que os seus processos sabem sobre uma pessoa ou empresa com o que as fontes públicas revelam. Cada pesquisa transforma-se em conhecimento duradouro sobre os intervenientes — cresce com cada processo e fica à sua disposição em todos eles.</p>
+<ul>
+<li><b>Pesquisa OSINT pela IA.</b> Indica à IA uma pessoa ou empresa — ela pesquisa primeiro nos seus próprios processos e depois na Internet: percurso profissional, perfis nas redes sociais, imprensa, participações em empresas, registo comercial.</li>
+<li><b>A pesquisa transforma-se em dados de base.</b> A IA cria novas pessoas, empresas e relações, com indicação da fonte, como proposta; só é incorporado o que o utilizador aprovar.</li>
+<li><b>Análise de decisões.</b> Cada decisão judicial nos seus processos pode ser analisada segundo uma grelha fixa — argumentos, direito, provas, fundamentação; antes de redigir uma peça dirigida a esse tribunal, a IA lê também essas análises.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Segurança e funcionamento</h2>
+<h3 class="ov-h">Sigilo profissional</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Sigilo profissional" loading="lazy"></figure>
+<p class="scr-intro"><b>O sigilo profissional fica no escritório.</b> Nenhum dado de clientes em centros de dados alheios: processo, provas e documentos ficam no seu próprio hardware, <a href="gdpr_pt.html">em conformidade com o RGPD</a>.</p>
+<ul>
+<li><b>Cifrado com AES-256.</b> A base de dados e os documentos estão cifrados no disco.</li>
+<li><b>Acesso com código de autenticação.</b> Os seus dados só aparecem depois de introduzido o código de seis dígitos do seu telemóvel.</li>
+<li><b>Nenhum dado de clientes enviado ao fornecedor.</b> A <a href="ki_pt.html">IA externa</a> funciona com a sua própria chave; as chamadas são pseudonimizadas.</li>
+<li><b>Funciona também offline.</b> Processo, pesquisa, documentos e o assistente local funcionam sem Internet.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Trabalhar em conjunto — sem nuvem.</b> O <a href="download_pt.html"><span class="irs">IRONSTICK</span> SERVER</a> liga os seus postos de trabalho através de um NAS Synology na sua própria rede — sem nuvem.</p>
+<ul>
+<li><b>Partilhar processos.</b> Com todos os utilizadores ou apenas com colegas específicos — cada partilha pode ser revogada a qualquer momento.</li>
+<li><b>Transferir um processo.</b> Um processo passa integralmente para um colega com poucos cliques.</li>
+<li><b>Cifrado no NAS.</b> Os processos partilhados ficam cifrados com AES-256 no servidor do seu escritório.</li>
+<li><b>Cada um mantém os seus autos.</b> Os autos completos continuam também em cada posto de trabalho.</li>
+<li><b>Biblioteca de legislação comum</b> e uma rede comum de pessoas e empresas.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Cópia de segurança</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Cópia de segurança" loading="lazy"></figure>
+<p class="scr-intro"><b>Todo o seu escritório guardado num único ficheiro.</b> Um clique em «Criar cópia de segurança», e a base de dados e os documentos ficam num ficheiro de cópia de segurança cifrado.</p>
+<ul>
+<li><b>Guarde onde quiser:</b> localmente, num SSD externo ou numa pen USB.</li>
+<li><b>Com o <span class="irs">IRONSTICK</span> SERVER</b>, a cópia de segurança fica adicionalmente cifrada no NAS do seu escritório.</li>
+<li><b>Últimas cópias de segurança num relance</b> — com data e tamanho.</li>
+<li><b>Restaurar</b> a partir de um ficheiro de cópia de segurança com poucos cliques.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>Sem esforço de informática — experimente 30 dias gratuitamente.</b> O <span class="irs">IRONSTICK</span> funciona num PC Windows comum; as atualizações são simplesmente instaladas por cima, e todos os dados são mantidos. Descarregue o software na <a href="download_pt.html">página de download</a>; o <a href="manualquickstart_pt.html">Início rápido</a> guia-o em seis passos desde a instalação até aos seus primeiros clientes.</div>
+
+
+<h2 class="ov-part">5. Requisitos de sistema</h2>
+
+<h3 class="ov-h">App cliente e Bridge (opcional)</h3>
+<table>
+<tr><th></th><th>Mínimo</th><th>Recomendado</th></tr>
+<tr><td>Sistema operativo</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, atualizações em dia</td></tr>
+<tr><td>Processador</td><td>x64 moderno de 4 núcleos (p.&nbsp;ex. Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 núcleos — o reconhecimento de texto processa várias páginas
+em paralelo, e o reconhecimento de voz offline beneficia diretamente de cada
+núcleo</td></tr>
+<tr><td>Memória</td><td>8 GB RAM</td><td>16 GB RAM — margem
+confortável para PDFs grandes, criação de dossiers e transcrição de áudio
+em simultâneo</td></tr>
+<tr><td>Armazenamento</td><td>SSD com 20 GB livres</td><td>SSD NVMe com 100+ GB
+livres — o arquivo de processos, a pesquisa em texto integral e a geração de PDF exigem muito do disco;
+um SSD rápido faz uma diferença notória</td></tr>
+<tr><td>Ecrã</td><td>1920 × 1080</td><td>1920 × 1200 ou mais — os
+ecrãs dos processos aproveitam generosamente o espaço vertical</td></tr>
+<tr><td>Gráficos</td><td colspan="2">Não é necessária placa gráfica dedicada —
+qualquer gráfica integrada é suficiente</td></tr>
+<tr><td>Conectividade</td><td colspan="2">Internet apenas para IA externa,
+atualizações legislativas, e-mail, pesquisa na web, mapas e geocodificação de moradas — processo, pesquisa, documentos e o assistente
+local funcionam totalmente offline; uma porta USB livre para a
+sincronização com o tablet</td></tr>
+</table>
+
+<h3 class="ov-h">Guardar os dados numa unidade externa (opcional)</h3>
+<table>
+<tr><th>Critério</th><th>Requisito</th></tr>
+<tr><td>Espaço livre</td><td>Pelo menos 9&nbsp;GB, ou 1&nbsp;GB mais do que o
+volume de dados atual</td></tr>
+<tr><td>Escrita / Leitura</td><td>Pelo menos 80&nbsp;MB/s / 150&nbsp;MB/s —
+também sob carga contínua (não abaixo de 60&nbsp;% do valor inicial)</td></tr>
+<tr><td>Muitos ficheiros pequenos</td><td>Pelo menos 250 ficheiros por
+segundo</td></tr>
+<tr><td>Sistema de ficheiros</td><td>NTFS ou exFAT, não FAT32; sem
+proteção contra escrita nem bloqueio</td></tr>
+<tr><td>Fiabilidade</td><td>Os dados de teste têm de ser relidos sem
+alterações</td></tr>
+<tr><td>Não admitido</td><td>Unidades de rede e pastas de sincronização na nuvem (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Recomendação</td><td>SSD externo — as pens USB comuns raramente atingem
+estes valores</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (opcional)</h3>
+<table>
+<tr><th></th><th>Requisito</th></tr>
+<tr><td>Dispositivo</td><td>Qualquer NAS Synology com DSM 7.0 ou superior — ARM ou
+Intel; o pacote inclui binários nativos para ARMv7, ARM64 e
+x86-64</td></tr>
+<tr><td>Desempenho</td><td>Concebido de forma deliberadamente leve: verificado
+no <b>modelo de entrada DS214se</b> com CPU ARM de núcleo único e
+256&nbsp;MB RAM; funciona em qualquer modelo Synology com DSM 7.0 ou superior, e
+os modelos atuais oferecem reservas bem maiores</td></tr>
+<tr><td>Memória / CPU</td><td>Sem requisitos específicos para além do próprio NAS
+— o servidor não realiza trabalho de análise; as suas tarefas em segundo plano
+limitam-se a encaminhar pacotes e a uma limpeza
+noturna</td></tr>
+<tr><td>Espaço em disco</td><td>Algumas centenas de MB para o pacote e a
+biblioteca de legislação; os pacotes de processos partilhados crescem apenas com o que
+efetivamente partilha</td></tr>
+<tr><td>Rede</td><td>Apenas a LAN do escritório; uma porta TCP (47712) com autenticação por token.
+O DSM, a Web Station e as
+portas 80/443 não são afetados</td></tr>
+<tr><td>Administração</td><td>Qualquer browser na LAN; palavra-passe de
+administrador própria; chave de licença introduzida uma única vez</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contacto</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="Cartão de contacto IRONSTICK (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Leia o código para guardar o nosso cartão de contacto — telefone, e-mail e website.</p><p class="pref">Contacte-nos diretamente por WhatsApp ou Telegram — uma chamada também é bem-vinda. Línguas faladas: alemão, inglês, romeno.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mensagem</h5><h3 class="ct-ask">Interessado no IRONSTICK ou numa demonstração? Escreva-nos.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Pedido de informações IRONSTICK de" name="form"><div class="ct-fg"><label for="ct-name">Nome</label><input id="ct-name" type="text" name="name" placeholder="O seu nome" required></div><div class="ct-fg"><label for="ct-msg">Mensagem</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="A sua mensagem" required></textarea></div><div class="ct-fg"><p class="ct-hint">Ao enviar, abre-se o seu programa de e-mail com a mensagem já preparada.</p><button type="submit">Enviar mensagem</button></div><div class="u-form-send-success">O seu programa de e-mail vai abrir-se. Envie a mensagem a partir daí.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>O IRONSTICK é um software para a prática jurídica. Este website destina-se exclusivamente a fins informativos e não constitui aconselhamento jurídico. © 2026 IRONSTICK.</p></footer>
+</body></html>

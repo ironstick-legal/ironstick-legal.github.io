@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8">
+<title>IRONSTICK — огляд</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Програмне забезпечення для юридичної фірми, яке знає ваші справи, — локально на вашому комп’ютері, зі ШІ поруч із вами.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview_uk.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Меню"><a class="b" href="index_uk.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_uk.html">Головна</a><a href="overview_uk.html" aria-current="page">Огляд</a><a href="ki_uk.html">ШІ</a><span class="mh">Посібники</span><a class="sub" href="manualquickstart_uk.html">Швидкий старт</a><a class="sub" href="manualironstick_uk.html">Клієнтський застосунок</a><a class="sub" href="manualbridge_uk.html">Bridge</a><a href="gdpr_uk.html">GDPR</a><a href="download_uk.html">Download</a></div></div><nav class="mainnav"><a href="overview_uk.html" aria-current="page">Огляд</a><a href="ki_uk.html">ШІ</a><div class="nav-drop" tabindex="0"><span>Посібники</span><div class="menu"><a href="manualquickstart_uk.html">Швидкий старт</a><a href="manualironstick_uk.html">Клієнтський застосунок</a><a href="manualbridge_uk.html">Bridge</a></div></div><a href="gdpr_uk.html">GDPR</a><a href="download_uk.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_uk.html">Спробувати 30 днів</a><nav class="lang-wrap" tabindex="0" title="Мова" aria-label="Мова"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a class="on" lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IRONSTICK — огляд</h1></div><p class="gh-sub">Програмне забезпечення для юридичної фірми, яке знає ваші справи, — локально на вашому комп’ютері, зі ШІ поруч із вами.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> об’єднує клієнтів, справи, докази, строки, електронні листи та документи в одному досьє — і дає вам у помічники ШІ, який знає це досьє повністю. Ви запитуєте — досьє відповідає з посиланням на кожен документ. Ви перевіряєте й підписуєте замість того, щоб шукати й передруковувати. Усе зберігається в зашифрованому вигляді на вашому власному обладнанні.</p>
+
+<h2 class="ov-part">1. Робочий день</h2>
+<h3 class="ov-h">День юридичної фірми з першого погляду</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="День юридичної фірми з першого погляду" loading="lazy"></figure>
+<p class="scr-intro"><b>Увесь день на трьох сторінках.</b> Відкрийте <span class="irs">IRONSTICK</span> — і день уже впорядковано.</p>
+<ul>
+<li><b>Старт.</b> Усі робочі області та стан ваших строків з першого погляду.</li>
+<li><b>Порядок денний.</b> Усе, що надійшло у ваших справах, день за днем — з попереднім переглядом документів.</li>
+<li><b>Теплова карта.</b> Кожен день останніх дванадцяти місяців як окрема клітинка — що темніша, то більше відбулося у ваших справах; строки та судові засідання позначено. Нижче — справи, що спалахнули: ті, в яких за останні 14 днів помітно зросла активність.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Монітор строків</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Монітор строків" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Номери-посилання. Номер документа або нагадування ШІ копіюється одним клацанням — наприклад, щоб вставити його в чат.</li>
+<li>Виконання строків. Строки з документів і записів хроніки позначаються галочкою й видаляються разом; нагадування ШІ зникають зі списку через <i>Видалити термін</i>.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>Зустрічі та строки встановлює й ШІ — безпосередньо з розмови з вами. Вони з’являються в списку з цим символом.</li>
+</ol>
+<p class="scr-intro"><b>Жодного пропущеного строку.</b> Пропущений строк — це випадок професійної відповідальності. <span class="irs">IRONSTICK</span> веде всі строки й судові засідання в одному списку та показує, скільки часу залишилося.</p>
+<ul>
+<li><b>Усі строки й судові засідання в одному списку</b> — з датою, справою та кількістю днів до настання строку; прострочені — червоним, найближчі — помаранчевим.</li>
+<li><b>Строки з вхідних документів.</b> ШІ розпізнає строки у вхідних листах і рішеннях та вносить їх.</li>
+<li><b>Дзвіночок строків.</b> Помаранчевий, якщо строк настає протягом наступних десяти днів, червоний — у сам день строку; завжди видимий у рядку меню.</li>
+<li><b>Друк списку строків</b> або виведення у PDF.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Автоматична реєстрація документів</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Автоматична реєстрація документів" loading="lazy"></figure>
+<p class="scr-intro"><b>Вхідна пошта розбирається сама.</b> Відскануйте, перетягніть, підтвердьте: <span class="irs">IRONSTICK</span> розпізнає текст, прив’язує документ до правильної справи та вносить строк.</p>
+<ul>
+<li><b>Вибір сторінок.</b> До досьє потрапляють лише ті сторінки, які мають там бути.</li>
+<li><b>Вбудоване розпізнавання тексту.</b> Для понад 35 європейських мов, нічого не потрібно встановлювати.</li>
+<li><b>Пропозиція замість набору.</b> ШІ пропонує клієнта, справу, тип документа, мову, дату та строк — ви підтверджуєте.</li>
+<li><b>Зберігається в зашифрованому вигляді</b> й одразу доступне для повнотекстового пошуку.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">Тож реєстрація документа триває ледь більше 20 секунд — і вся вхідна пошта миттєво розподілена по справах.</p>
+
+<h2 class="ov-part">2. Від проєкту до подання</h2>
+<h3 class="ov-h">Текстовий редактор для процесуальних документів</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Текстовий редактор для процесуальних документів" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Редагування. Сторінка для редагування з повною панеллю інструментів.</li>
+<li>Попередній перегляд. Документ окремими сторінками A4 — точно так, як їх буде надруковано.</li>
+<li>Попередній перегляд друку. Зберігає документ і відкриває попередній перегляд друку з усіма додатками.</li>
+<li>Зберегти й закрити. Зберігає документ і повертає до списку текстів.</li>
+</ol>
+<p class="scr-intro"><b>Процесуальні документи за хвилини замість годин — без вигаданих цитат.</b> Ваш час — це ваш дохід, а хибне посилання на джерело — найбільший ризик під час використання ШІ. Проєкт створюється в діалозі зі ШІ безпосередньо з досьє — і кожну норму, кожну сторону та кожен доказ перевіряють за досьє та правовою бібліотекою, перш ніж ви його побачите.</p>
+<ul>
+<li><b>З досьє.</b> Основні дані, хроніка, повні тексти, строки й додатки потрапляють до проєкту.</li>
+<li><b>Редагування та попередній перегляд.</b> Змінюйте текст і одразу бачте, який вигляд він матиме надрукованим на вашому бланку.</li>
+<li><b>Шаблон, готовий до подання.</b> Ви перевіряєте, доопрацьовуєте й підписуєте.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Попередній перегляд друку: процесуальний документ і додатки в одному PDF</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Попередній перегляд друку: процесуальний документ і додатки в одному PDF" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Ваш документ. Сторінки процесуального документа — клацання лівою кнопкою на сторінці відкриває вікно для розміщення вашого підпису.</li>
+<li>Рядок заголовка додатка. Номер запису, номер додатка та назва кожного додатка. Нижче — його сторінки: клацання лівою кнопкою показує сторінку збільшеною, клацання правою кнопкою виключає її з PDF; повторне клацання правою кнопкою повертає її.</li>
+<li>Штамп засвідчення. Вмикається й вимикається для кожного додатка; текст штампа відповідає мові країни справи.</li>
+<li>DOCX. Документ як файл Word.</li>
+<li>Завантаження PDF. Готовий PDF з усіх активних сторінок.</li>
+</ol>
+<p class="scr-intro"><b>Подання готове.</b> Процесуальний документ і додатки — із штампами, пронумеровані й підписані в одному PDF, а не біля копіювального апарата.</p>
+<ul>
+<li><b>Підпис.</b> Ваш збережений підпис розміщується одним клацанням у потрібному місці.</li>
+<li><b>Додатки зі штампом засвідчення.</b> Кожен додаток отримує свій штамп; окремі сторінки можна виключити одним клацанням.</li>
+<li><b>Виведення у PDF або DOCX</b> — процесуальний документ і додатки в одному файлі, з посторінковою нумерацією.</li>
+<li><b>Також для великих проваджень.</b> 3 000 сторінок проштамповано, пронумеровано й об’єднано в один PDF — менш ніж за 20 хвилин.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Досьє на всю справу</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Досьє на всю справу" loading="lazy"></figure>
+<p class="scr-intro"><b>Повні матеріали справи в одному документі.</b> Помічник досьє збирає всю справу в пронумероване досьє. Спершу ви визначаєте, що до нього ввійде.</p>
+<ul>
+<li><b>Вибір документів.</b> Кожен запис хроніки можна одним клацанням включити або пропустити.</li>
+<li><b>До окремої сторінки.</b> З кожного документа ви обираєте саме ті сторінки, які мають увійти до досьє.</li>
+<li><b>Попередній перегляд.</b> Документи, фото, транскрипти й чати відкриваються в попередньому перегляді, не змінюючи вибору.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Досьє на всю справу" loading="lazy"></figure>
+<p class="scr-intro"><b>Титульний аркуш, структура та вигляд для друку.</b> Далі ви визначаєте титульний аркуш і структуру та перевіряєте кожну сторінку, перш ніж буде створено досьє.</p>
+<ul>
+<li><b>Титульні аркуші на вибір.</b> Одержувача ви берете з установ справи або вводите самостійно.</li>
+<li><b>Мовою юрисдикції.</b> Титульний аркуш і покажчики створюються мовою країни справи; якщо країна має кілька мов судочинства, ви обираєте мову.</li>
+<li><b>Структура на ваш вибір.</b> Титульний аркуш, тематичний покажчик, хронологія, документи, медіафайли, транскрипти, чати, покажчик осіб і установ — включайте, пропускайте й упорядковуйте перетягуванням.</li>
+<li><b>Виключені сторінки одразу видно.</b> Вигляд для друку показує кожну сторінку готового досьє; там ще можна пропустити або повернути сторінки, а тематичний покажчик оновлює номери сторінок.</li>
+<li><b>Експорт у PDF або EDRM.</b> Як пронумероване PDF-досьє або як пакет EDRM із номерами Bates.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Розуміння справи</h2>
+<h3 class="ov-h">Помічник справи</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Помічник справи" loading="lazy"></figure>
+<p class="scr-intro"><b>Справа одразу в голові.</b> Перед засіданням чи розмовою з клієнтом ви запитуєте досьє замість того, щоб гортати його, — природною мовою, з клавіатури або голосом.</p>
+<ul>
+<li>«Підсумуй поточний стан провадження». — «Чи відповіли ми на останній лист протилежної сторони?» — «Що сказав свідок про огляд на місці?»</li>
+<li><b>Кожна відповідь із підтвердженням.</b> Кожен наведений документ — це клікабельне посилання на запис у вашому досьє.</li>
+<li><b>Рутинні запитання залишаються на вашому комп’ютері.</b> Локальний шар відповідає на них без того, щоб дані залишали пристрій.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Оцінка справи ШІ</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="Оцінка справи ШІ" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>Для загальної оцінки справи враховується все досьє, включно із суміжними справами.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>Для перспектив успіху враховуються лише процесуальні документи, надіслані до органу та отримані від нього.</li>
+</ol>
+<p class="scr-intro"><b>Перспективи успіху, які ви можете пояснити клієнтові.</b> Оцінка справи ШІ читає все досьє — як ваші власні процесуальні документи, так і надходження від протилежної сторони — і зводить стан провадження в одну оцінку.</p>
+<ul>
+<li><b>Перспективи успіху за шкалою</b> — з окремими значеннями для доказової бази, основної вимоги та додаткових вимог.</li>
+<li><b>Що на вашу користь, а що проти.</b> Сильні та слабкі сторони позначено кольором, кожне твердження — з посиланням на документ, на якому воно ґрунтується.</li>
+<li><b>Конкретні наступні кроки</b> як рекомендація щодо подальших дій.</li>
+<li><b>Одним натисканням</b> — щоразу заново, щойно в досьє з’являються нові документи.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Мережа осіб і компаній із дослідженням OSINT</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="Мережа осіб і компаній із дослідженням OSINT" loading="lazy"></figure>
+<p class="scr-intro"><b>Виявляйте зв’язки, яких вручну не знайде ніхто.</b> Особи, компанії, органи влади й суди з усіх ваших справ утворюють спільну мережу — у вигляді списку, 3D-всесвіту, 2D-карти та на геокарті. Особливо цінно в господарському праві, праві неплатоспроможності та кримінальному праві.</p>
+<ul>
+<li><b>Зв’язки з підтвердженням.</b> Хто фігурує в яких провадженнях, як учасники пов’язані між собою — і через що.</li>
+<li><b>Три подання.</b> 3D-всесвіт для польоту крізь нього, 2D-карта угруповань і геокарта з усіма учасниками та місцями.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>Ваше досьє та дослідження OSINT від ШІ працюють разом.</b> Те, що ваші справи знають про особу чи компанію, ШІ поєднує з тим, що дають відкриті джерела. Кожне дослідження стає сталим знанням про учасників — воно зростає з кожною справою і доступне вам у всіх провадженнях.</p>
+<ul>
+<li><b>Дослідження OSINT силами ШІ.</b> Ви називаєте ШІ особу чи компанію — він спершу шукає у ваших власних справах, потім в інтернеті: кар’єрний шлях, профілі в соцмережах, преса, участь у компаніях, торговельний реєстр.</li>
+<li><b>Дослідження стає основними даними.</b> Нових осіб, компанії та зв’язки ШІ створює з джерелом як пропозицію; приймається лише те, що схвалюєте ви.</li>
+<li><b>Аналіз рішень.</b> Кожне судове рішення у ваших справах можна проаналізувати за фіксованою схемою — аргументи, право, докази, мотивування; перед процесуальним документом до цього суду ШІ також читає ці аналізи.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Безпека та експлуатація</h2>
+<h3 class="ov-h">Професійна таємниця</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Професійна таємниця" loading="lazy"></figure>
+<p class="scr-intro"><b>Професійна таємниця залишається у фірмі.</b> Жодних даних клієнтів у чужих центрах обробки даних: досьє, докази й документи зберігаються на вашому власному обладнанні, <a href="gdpr_uk.html">відповідно до GDPR</a>.</p>
+<ul>
+<li><b>Шифрування AES-256.</b> База даних і документи зашифровані на диску.</li>
+<li><b>Доступ за кодом автентифікатора.</b> Ваші дані з’являються лише після введення шестизначного коду з вашого телефона.</li>
+<li><b>Жодних даних клієнтів постачальнику.</b> <a href="ki_uk.html">Зовнішній ШІ</a> працює з вашим власним ключем; виклики псевдонімізуються.</li>
+<li><b>Працює й офлайн.</b> Досьє, пошук, документи та локальний помічник працюють без інтернету.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Спільна робота — без хмари.</b> <a href="download_uk.html"><span class="irs">IRONSTICK</span> SERVER</a> з’єднує ваші робочі місця через Synology NAS у власній мережі — без хмари.</p>
+<ul>
+<li><b>Надання доступу до справ.</b> Для всіх користувачів або вибірково для окремих колег — кожен доступ можна будь-коли відкликати.</li>
+<li><b>Передання справи.</b> Справа кількома клацаннями повністю переходить до колеги.</li>
+<li><b>Зашифровано на NAS.</b> Спільні справи зберігаються зашифрованими за AES-256 на сервері вашої фірми.</li>
+<li><b>Кожен зберігає своє досьє.</b> Повне досьє додатково залишається на кожному робочому місці.</li>
+<li><b>Спільна правова бібліотека</b> і спільна мережа осіб і компаній.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Резервне копіювання</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Резервне копіювання" loading="lazy"></figure>
+<p class="scr-intro"><b>Уся ваша фірма в одному резервному файлі.</b> Одне клацання на «Створити резервну копію» — і база даних та документи зберігаються в зашифрованому резервному файлі.</p>
+<ul>
+<li><b>Зберігайте, де забажаєте:</b> локально, на зовнішньому SSD або USB-накопичувачі.</li>
+<li><b>З <span class="irs">IRONSTICK</span> SERVER</b> резервна копія додатково зберігається в зашифрованому вигляді на NAS вашої фірми.</li>
+<li><b>Останні резервні копії в огляді</b> — з датою та розміром.</li>
+<li><b>Відновлення</b> з резервного файлу кількома клацаннями.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>Жодних IT-клопотів — 30 днів безкоштовного тестування.</b> <span class="irs">IRONSTICK</span> працює на стандартному ПК з Windows; оновлення просто встановлюються поверх, усі дані зберігаються. Завантажте програму на <a href="download_uk.html">сторінці завантаження</a>; <a href="manualquickstart_uk.html">Швидкий старт</a> за шість кроків проведе вас від встановлення до перших клієнтів.</div>
+
+
+<h2 class="ov-part">5. Системні вимоги</h2>
+
+<h3 class="ov-h">Клієнтський застосунок і Bridge (необов’язково)</h3>
+<table>
+<tr><th></th><th>Мінімум</th><th>Рекомендовано</th></tr>
+<tr><td>Операційна система</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, актуальні оновлення</td></tr>
+<tr><td>Процесор</td><td>Сучасний 4-ядерний x64 (напр.&nbsp;Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 ядер — розпізнавання тексту обробляє кілька сторінок
+паралельно, а офлайн-розпізнавання мовлення безпосередньо виграє від кожного
+ядра</td></tr>
+<tr><td>Оперативна пам’ять</td><td>8 GB RAM</td><td>16 GB RAM — комфортний
+запас для великих PDF, створення досьє та транскрипції аудіо
+одночасно</td></tr>
+<tr><td>Накопичувач</td><td>SSD з 20 GB вільного місця</td><td>NVMe-SSD зі 100+ GB
+вільного місця — архів справ, повнотекстовий пошук і створення PDF інтенсивно навантажують диск;
+швидкий SSD дає відчутну різницю</td></tr>
+<tr><td>Дисплей</td><td>1920 × 1080</td><td>1920 × 1200 або більше —
+екрани справ щедро використовують вертикальний простір</td></tr>
+<tr><td>Графіка</td><td colspan="2">Окрема відеокарта не потрібна —
+достатньо будь-якої вбудованої графіки</td></tr>
+<tr><td>Підключення</td><td colspan="2">Інтернет лише для зовнішнього ШІ,
+оновлень законодавства, e-mail, вебдосліджень, карт і геокодування адрес — досьє, пошук, документи та локальний
+помічник працюють повністю офлайн; вільний USB-порт для
+синхронізації з планшетом</td></tr>
+</table>
+
+<h3 class="ov-h">Зберігання даних на зовнішньому диску (необов’язково)</h3>
+<table>
+<tr><th>Критерій</th><th>Вимога</th></tr>
+<tr><td>Вільне місце</td><td>Щонайменше 9&nbsp;GB або на 1&nbsp;GB більше, ніж
+поточний обсяг даних</td></tr>
+<tr><td>Запис / читання</td><td>Щонайменше 80&nbsp;MB/s / 150&nbsp;MB/s —
+також під тривалим навантаженням (не нижче 60&nbsp;% від початкового значення)</td></tr>
+<tr><td>Багато дрібних файлів</td><td>Щонайменше 250 файлів за
+секунду</td></tr>
+<tr><td>Файлова система</td><td>NTFS або exFAT, не FAT32; без захисту
+від запису та без блокування</td></tr>
+<tr><td>Надійність</td><td>Тестові дані мають зчитуватися назад
+без змін</td></tr>
+<tr><td>Не допускається</td><td>Мережеві диски та папки хмарної синхронізації (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Рекомендація</td><td>Зовнішній SSD — звичайні USB-накопичувачі
+здебільшого не досягають цих значень</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (необов’язково)</h3>
+<table>
+<tr><th></th><th>Вимога</th></tr>
+<tr><td>Пристрій</td><td>Будь-який Synology NAS із DSM 7.0 або новішою — ARM або
+Intel; пакет містить нативні бінарні файли для ARMv7, ARM64 і
+x86-64</td></tr>
+<tr><td>Продуктивність</td><td>Свідомо легка архітектура: перевірено
+на <b>пристрої початкового рівня DS214se</b> з одноядерним процесором ARM і
+256&nbsp;MB RAM; працює на будь-якій моделі Synology з DSM 7.0 або новішою, а
+сучасні моделі мають значно більший запас</td></tr>
+<tr><td>Пам’ять / CPU</td><td>Жодних окремих вимог понад сам NAS
+— сервер не виконує аналітичної роботи; його фонові завдання
+обмежуються передаванням пакетів і нічним
+очищенням</td></tr>
+<tr><td>Дисковий простір</td><td>Кілька сотень MB для пакета та
+правової бібліотеки; спільні пакети справ зростають лише на те, чим ви
+справді ділитеся</td></tr>
+<tr><td>Мережа</td><td>Лише локальна мережа фірми; один TCP-порт (47712) з автентифікацією за токеном.
+DSM, Web Station і
+порти 80/443 залишаються незмінними</td></tr>
+<tr><td>Адміністрування</td><td>Будь-який браузер у локальній мережі; окремий
+пароль адміністратора; ліцензійний ключ вводиться один раз</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Контакти</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Скануйте код, щоб зберегти наш контакт — телефон, e-mail і сайт.</p><p class="pref">Зв’яжіться з нами напряму через WhatsApp або Telegram — дзвінок також вітається. Мови спілкування: німецька, англійська, румунська.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Повідомлення</h5><h3 class="ct-ask">Цікавить IRONSTICK або демонстрація? Напишіть нам.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Запит IRONSTICK від" name="form"><div class="ct-fg"><label for="ct-name">Ім’я</label><input id="ct-name" type="text" name="name" placeholder="Ваше ім’я" required></div><div class="ct-fg"><label for="ct-msg">Повідомлення</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Ваше повідомлення" required></textarea></div><div class="ct-fg"><p class="ct-hint">Під час надсилання відкриється ваша поштова програма з підготовленим повідомленням.</p><button type="submit">Надіслати повідомлення</button></div><div class="u-form-send-success">Відкривається ваша поштова програма. Будь ласка, надішліть повідомлення з неї.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK — програмне забезпечення для юридичної практики. Цей сайт має суто інформаційний характер і не є юридичною консультацією. © 2026 IRONSTICK.</p></footer>
+</body></html>

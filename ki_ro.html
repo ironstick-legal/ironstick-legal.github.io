@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="ro"><head><meta charset="utf-8">
+<title>IRONSTICK — IA la dosarul dumneavoastră</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ki{background-image:url("img/lp_bridge.jpg");background-position:50% 19%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="În chatul integrat sau prin Bridge, către IA dumneavoastră de desktop.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/ki_ro.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/ki.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/ki_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/ki_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/ki_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/ki_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/ki_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/ki_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/ki_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/ki_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/ki_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/ki_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/ki.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="ki_ro.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Meniu"><a class="b" href="index_ro.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_ro.html">Acasă</a><a href="overview_ro.html">Prezentare</a><a href="ki_ro.html" aria-current="page">IA</a><span class="mh">Manuale</span><a class="sub" href="manualquickstart_ro.html">Pornire rapidă</a><a class="sub" href="manualironstick_ro.html">Aplicația client</a><a class="sub" href="manualbridge_ro.html">Bridge</a><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a></div></div><nav class="mainnav"><a href="overview_ro.html">Prezentare</a><a href="ki_ro.html" aria-current="page">IA</a><div class="nav-drop" tabindex="0"><span>Manuale</span><div class="menu"><a href="manualquickstart_ro.html">Pornire rapidă</a><a href="manualironstick_ro.html">Aplicația client</a><a href="manualbridge_ro.html">Bridge</a></div></div><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_ro.html">Testați 30 de zile</a><nav class="lang-wrap" tabindex="0" title="Limbă" aria-label="Limbă"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="ki.html">English</a><a lang="de" hreflang="de" href="ki_de.html">Deutsch</a><a class="on" lang="ro" hreflang="ro" href="ki_ro.html">Română</a><a lang="fr" hreflang="fr" href="ki_fr.html">Français</a><a lang="it" hreflang="it" href="ki_it.html">Italiano</a><a lang="es" hreflang="es" href="ki_es.html">Español</a><a lang="pt" hreflang="pt" href="ki_pt.html">Português</a><a lang="nl" hreflang="nl" href="ki_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="ki_ru.html">Русский</a><a lang="uk" hreflang="uk" href="ki_uk.html">Українська</a><a lang="tr" hreflang="tr" href="ki_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ki" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IA la dosarul dumneavoastră</h1></div><p class="gh-sub">În chatul integrat sau prin Bridge, către IA dumneavoastră de desktop.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> vă oferă două căi de a lucra cu o IA pe dosarele dumneavoastră: chatul IA integrat și Bridge-ul către IA dumneavoastră de desktop. În ambele cazuri, IA ajunge la datele dumneavoastră exclusiv prin <span class="irs">IRONSTICK</span> — prin aceleași instrumente și în spatele acelorași verificări.</p>
+
+<h2 class="ov-part">1. Chatul IA și Bridge-ul — diferența</h2>
+<h3 class="ov-h">Două căi către IA</h3>
+<figure class="ov-fig"><img src="img/66_pseudonymization.png?v=3" alt="Două căi către IA" loading="lazy"></figure>
+<p class="scr-intro"><b>Chatul IA</b> este integrat în <span class="irs">IRONSTICK</span>: scrieți în fereastra <span class="irs">IRONSTICK</span>, iar <span class="irs">IRONSTICK</span> trimite cererea către serviciul IA cu propriile dumneavoastră chei API — numele și numerele părăsesc calculatorul dumneavoastră doar ca <a href="gdpr_ro.html">substituenți neutri</a>. <b>Bridge-ul</b> funcționează invers: scrieți în aplicația IA de desktop pe care o folosiți oricum — Claude, ChatGPT, Qwen sau Kimi Desktop —, iar această aplicație lucrează în timp real pe dosarul dumneavoastră, sub propriul dumneavoastră cont la furnizor.</p>
+<table>
+<tr><th></th><th>Chatul IA (integrat)</th><th>Bridge (IA de desktop)</th></tr>
+<tr><th>Unde scrieți</th><td>În fereastra de chat <span class="irs">IRONSTICK</span></td><td>În aplicația dumneavoastră IA de desktop</td></tr>
+<tr><th>Costuri</th><td>Costuri API per apel</td><td>Abonament — mult mai avantajos pentru dosarele mari</td></tr>
+<tr><th>Licența <span class="irs">IRONSTICK</span></th><td>Inclusă</td><td><a href="download_ro.html">Câte un Bridge per IA de desktop sau toate patru în pachet</a></td></tr>
+<tr><th>Date trimise către IA</th><td>Pseudonimizate</td><td>—</td></tr>
+<tr><th>Consimțământul dumneavoastră</th><td>Înaintea primei cereri externe dintr-o sesiune de chat</td><td>Înaintea primului acces la date după fiecare pornire a programului</td></tr>
+<tr><th>Ideal pentru</th><td>Activitatea zilnică: întrebări despre dosar, scrisori și acte de procedură în dialog — mereu la îndemână, și pe tabletă</td><td>Munca în profunzime pe dosare mari: citirea unor dosare întregi, sute de documente, mai multe runde de redactare</td></tr>
+</table>
+
+<h2 class="ov-part">2. Chatul IA din IRONSTICK</h2>
+<h3 class="ov-h">Configurarea IA</h3>
+<figure class="ov-fig"><img src="img/screens/A%20config%20AI.png?v=3" alt="Configurarea IA" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Configurarea IA. Fișa cu toți furnizorii de IA.</li>
+<li>Groq, OpenRouter și Mistral — furnizori IA gratuiți pentru sarcini de fundal precum prioritizarea e-mailurilor, Monitorul de consistență a datelor și briefingul zilnic; fiecare poate fi activat și dezactivat separat.</li>
+<li>Qwen, Kimi, ChatGPT și Claude — furnizorii IA pentru chatul integrat, fiecare cu <a href="manualquickstart_ro.html#q3">propria dumneavoastră cheie API</a>. Dacă sunt stocați mai mulți, <span class="irs">IRONSTICK</span> îi folosește automat în ordinea afișată; dacă unul nu este disponibil, preia următorul.</li>
+</ol>
+<p class="scr-intro"><b>IA dumneavoastră, contractul dumneavoastră.</b> Alegeți furnizorul de IA și stocați propria dumneavoastră cheie API — Claude, ChatGPT, Kimi sau Qwen. Facturarea se face direct de către furnizorul dumneavoastră.</p>
+<ul>
+<li><b>IA de fundal gratuită.</b> La cerere, Groq, OpenRouter și Mistral preiau sarcini de rutină precum atribuirea e-mailurilor și briefingul zilnic — fiecare furnizor poate fi activat și dezactivat separat.</li>
+<li><b>Red/Blue Team.</b> La cerere, o a doua examinare verifică critic fiecare rezultat al IA.</li>
+<li><b>IA de desktop prin Bridge.</b> Claude, ChatGPT, Qwen și Kimi Desktop lucrează direct pe dosar, cu propriul dumneavoastră abonament.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Chatul integrat</h3>
+<p class="scr-intro"><b>Mai întâi local, apoi extern — cu consimțământul dumneavoastră.</b> Chatul este calea strict controlată către IA.</p>
+<ul>
+<li><b>Mai întâi calculatorul dumneavoastră.</b> Cererile simple — deschiderea unui dosar, afișarea unui client — sunt rezolvate de un strat local, fără model IA și fără internet.</li>
+<li><b>Mai întâi consimțământul dumneavoastră.</b> Înainte ca ceva să ajungă la un serviciu IA extern, chatul vă întreabă.</li>
+<li><b>Pseudonimizat.</b> Numele, numerele de dosar, celelalte numere și adresele părăsesc calculatorul dumneavoastră doar ca <a href="gdpr_ro.html">substituenți neutri</a>; răspunsul este retradus pe calculatorul dumneavoastră.</li>
+<li><b>Înregistrat.</b> Fiecare apel către un serviciu IA extern este consemnat local.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Bridge-ul — IA dumneavoastră de desktop la dosar</h2>
+<h3 class="ov-h">Bridge</h3>
+<figure class="ov-fig"><img src="img/58_mcp_bridge.png?v=3" alt="Bridge" loading="lazy"></figure>
+<p class="scr-intro"><b>Toată profunzimea, pentru dosarele mari.</b> IA dumneavoastră de desktop citește starea actuală a dosarului — cronologii, texte integrale, e-mailuri, termene, date de bază — prin peste 200 de instrumente construite special și lucrează în toată profunzimea:</p>
+<ul>
+<li>„Citește tot dosarul și spune-mi unde este poziția noastră cea mai slabă.”</li>
+<li>„Redactează apelul în formatul nostru de act de procedură și predă-l procesorului de text.” — proiectul apare în <span class="irs">IRONSTICK</span>, gata de tipărit pe antetul dumneavoastră.</li>
+<li>„Compară cele trei expertize și fă-mi un tabel al contradicțiilor.”</li>
+<li><b>Inclus în abonament.</b> Citirea unor dosare întregi și redactarea în mai multe runde se fac prin abonamentul pe care îl plătiți oricum pentru aplicația IA de desktop.</li>
+<li><b>Pornit de dumneavoastră.</b> Bridge-ul funcționează numai dacă <a href="manualironstick_ro.html#s2">permiteți accesul</a>; fiecare IA activă își afișează simbolul în bara de meniu.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Mai multe IA, un singur dosar — echipa dumneavoastră de consilieri</h3>
+<figure class="ov-side"><img src="img/cutout_advisory_board.jpg?v=3" alt="Mai multe IA, un singur dosar — echipa dumneavoastră de consilieri" loading="lazy"></figure>
+<p class="scr-intro"><b>O a doua opinie autentică.</b> Claude, ChatGPT, Qwen și Kimi sunt modele diferite, cu antrenament diferit — și pot lucra simultan pe același dosar, cu aceeași stare a dosarului.</p>
+<ul>
+<li><b>Dezvoltați teorii ale cauzei</b> — o IA construiește, cealaltă face testul de rezistență.</li>
+<li><b>Consolidați actele de procedură</b> — redactare, verificare, contraargumentare, rafinare.</li>
+<li><b>Dumneavoastră dirijați</b> în limbaj natural: „Dezvoltă asta … dă-i-o celuilalt spre verificare … adu-mi evaluarea lui.”</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Verificat, nu presupus</h2>
+<h3 class="ov-h">De ce o IA singură nu face față dosarelor mari</h3>
+<figure class="ov-fig"><img src="img/71_context_overload.png?v=3" alt="De ce o IA singură nu face față dosarelor mari" loading="lazy"></figure>
+<p class="scr-intro"><b>Mai mult decât un chat IA în browser.</b> Când un model lingvistic primește sute de pagini deodată, detaliile din mijloc se pierd, conversația se supraîncarcă, iar fiecare sesiune începe de la zero.</p>
+<ul>
+<li><b>Mai întâi structura.</b> <span class="irs">IRONSTICK</span> a ordonat deja dosarul: documente clasificate, date indexate, anexe legate.</li>
+<li><b>Acces țintit.</b> IA extrage exact pasajele, documentele, e-mailurile și termenele de care are nevoie întrebarea — proaspăt, din dosar.</li>
+<li><b>O memorie.</b> Constatările se păstrează de la o sesiune la alta; IA își construiește dinamic cunoașterea pe măsura lucrului cu dosarul.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Ghidat, nu lăsat la noroc</h3>
+<figure class="ov-fig"><img src="img/73_ironstick_guided_path.png?v=3" alt="Ghidat, nu lăsat la noroc" loading="lazy"></figure>
+<p class="scr-intro"><b>Verificări fixe în loc de bune intenții.</b> Între IA și dosarul dumneavoastră stau verificări fixe — faptele sunt verificate de simpla logică a programului.</p>
+<ul>
+<li><b>Mai întâi citire, apoi scriere.</b> IA scrie doar pe baza a ceea ce a citit în mod demonstrabil.</li>
+<li><b>Mai întâi legile din biblioteca dumneavoastră.</b> Normele sunt citate din biblioteca dumneavoastră de legi; IA merge pe internet doar dacă biblioteca nu conține norma.</li>
+<li><b>Verificare înainte de livrare.</b> Un act de procedură părăsește sistemul numai după ce a trecut verificarea — ca șablon gata de depunere, pentru revizuirea și semnătura dumneavoastră.</li>
+<li><b>Propuneri în loc de scriere.</b> IA doar propune modificări ale datelor de bază și ale memoriei; intră în vigoare numai ce aprobați dumneavoastră.</li>
+<li><b>Documentele secrete rămân invizibile.</b> Înregistrările marcate ca secrete nu ajung la nicio IA.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Fapte și proză</h3>
+<figure class="ov-fig"><img src="img/75_ironstick_coaching_line.png?v=3" alt="Fapte și proză" loading="lazy"></figure>
+<p class="scr-intro"><b>Două căi de verificare pentru două tipuri de conținut.</b> <span class="irs">IRONSTICK</span> face o distincție fundamentală între fapte și proză.</p>
+<ul>
+<li><b>Fapte — verificate determinist.</b> Numerele probelor, datele, părțile, numerele de dosar și citările de norme sunt verificate de <span class="irs">IRONSTICK</span> cu logică fixă de program, față de dosar și de biblioteca de legi.</li>
+<li><b>Proză — verificată de Red/Blue Team.</b> Argumentația, structura și formularea sunt verificate critic de o a doua IA.</li>
+<li><b>Red/Blue Team lucrează el însuși cu <span class="irs">IRONSTICK</span>.</b> Are acces la dosar și își verifică în fundal propriile recomandări față de legi și fapte.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">5. Nucleu și poarta Snake</h2>
+<h3 class="ov-h">Nucleu și Snake</h3>
+<figure class="ov-fig"><img src="img/76_nucleu_snake_path.png?v=3" alt="Nucleu și Snake" loading="lazy"></figure>
+<p class="scr-intro"><b>Nucleu — direcția obligatorie a unui dosar.</b> Nucleul (simbolul atomului în dosar) fixează linia centrală a argumentației: faptele și probele directoare, ce trebuie spus și ce nu trebuie spus niciodată. Fiecare document pe care IA îl redactează pentru dosar i se subordonează.</p>
+<ul>
+<li><b>Pe două niveluri.</b> Pentru o întreagă cauză comună — valabil pentru fiecare dosar din ea — și pentru dosarul individual.</li>
+<li><b>IA redactează, dumneavoastră decideți.</b> Fiecare modificare apare marcată cu roșu; abia aprobarea dumneavoastră o salvează ca versiune nouă.</li>
+<li><b>Lectură obligatorie.</b> Fără să fi citit nucleul actual, IA nu poate redacta, verifica sau livra niciun act de procedură al dosarului.</li>
+<li><b>Runda finală a lanțului de verificare.</b> Fiecare act de procedură este verificat la final, punct cu punct, față de nucleu.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro"><b>Snake — registrul contradicțiilor părții adverse.</b> Snake-ul (simbolul șarpelui în dosar) consemnează fiecare afirmație a părții adverse contrazisă de probele din dosar — cu documentul, data, dosarul și pagina, și cu fiecare document care o contrazice.</p>
+<ul>
+<li><b>Fiecare rând verificat față de dosar.</b> Numărul probei, data, dosarul și pagina trebuie să corespundă; altfel intrarea este respinsă.</li>
+<li><b>Construit prin cercetare sau în plină conversație</b> — de îndată ce apare o contradicție, fără intrări duble.</li>
+<li><b>Poarta Snake.</b> Înainte ca un act de procedură să fie finalizat, IA întreabă dacă trebuie să ruleze runda Snake. La răspunsul dumneavoastră afirmativ, fiecare intrare Snake a clientului este verificată și rezolvată ca preluată, respinsă sau irelevantă — contradicțiile părții adverse intră sistematic în actul dumneavoastră de procedură ca argument susținut de probe.</li>
+<li><b>Aprobarea dumneavoastră pentru fiecare versiune.</b></li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>IA lucrează, dumneavoastră decideți.</b> Configurarea și fluxurile de lucru le găsiți în <a href="manualbridge_ro.html">manualul Bridge</a>.</div>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.</p><p class="pref">Ne puteți contacta direct prin WhatsApp sau Telegram — și un apel telefonic este binevenit. Limbi vorbite: germană, engleză, română.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mesaj</h5><h3 class="ct-ask">Interesat de IRONSTICK sau de o demonstrație? Scrieți-ne.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Solicitare IRONSTICK de la" name="form"><div class="ct-fg"><label for="ct-name">Nume</label><input id="ct-name" type="text" name="name" placeholder="Numele dumneavoastră" required></div><div class="ct-fg"><label for="ct-msg">Mesaj</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Mesajul dumneavoastră" required></textarea></div><div class="ct-fg"><p class="ct-hint">Trimiterea deschide programul dumneavoastră de e-mail cu mesajul pregătit.</p><button type="submit">Trimiteți mesajul</button></div><div class="u-form-send-success">Programul de e-mail se deschide. Vă rugăm să trimiteți mesajul de acolo.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică. © 2026 IRONSTICK.</p></footer>
+</body></html>

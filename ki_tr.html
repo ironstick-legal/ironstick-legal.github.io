@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<title>IRONSTICK — Dosyanızda yapay zekâ</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ki{background-image:url("img/lp_bridge.jpg");background-position:50% 19%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Yerleşik sohbette ya da Bridge aracılığıyla masaüstü yapay zekânızda.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/ki_tr.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/ki.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/ki_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/ki_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/ki_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/ki_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/ki_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/ki_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/ki_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/ki_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/ki_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/ki_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/ki.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="ki_tr.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_tr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_tr.html">Ana sayfa</a><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html" aria-current="page">Yapay zekâ</a><span class="mh">Kılavuzlar</span><a class="sub" href="manualquickstart_tr.html">Hızlı başlangıç</a><a class="sub" href="manualironstick_tr.html">İstemci uygulaması</a><a class="sub" href="manualbridge_tr.html">Bridge</a><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></div></div><nav class="mainnav"><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html" aria-current="page">Yapay zekâ</a><div class="nav-drop" tabindex="0"><span>Kılavuzlar</span><div class="menu"><a href="manualquickstart_tr.html">Hızlı başlangıç</a><a href="manualironstick_tr.html">İstemci uygulaması</a><a href="manualbridge_tr.html">Bridge</a></div></div><a href="gdpr_tr.html">GDPR</a><a href="download_tr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_tr.html">30 gün deneyin</a><nav class="lang-wrap" tabindex="0" title="Dil" aria-label="Dil"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="ki.html">English</a><a lang="de" hreflang="de" href="ki_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="ki_ro.html">Română</a><a lang="fr" hreflang="fr" href="ki_fr.html">Français</a><a lang="it" hreflang="it" href="ki_it.html">Italiano</a><a lang="es" hreflang="es" href="ki_es.html">Español</a><a lang="pt" hreflang="pt" href="ki_pt.html">Português</a><a lang="nl" hreflang="nl" href="ki_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="ki_ru.html">Русский</a><a lang="uk" hreflang="uk" href="ki_uk.html">Українська</a><a class="on" lang="tr" hreflang="tr" href="ki_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ki" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Dosyanızda yapay zekâ</h1></div><p class="gh-sub">Yerleşik sohbette ya da Bridge aracılığıyla masaüstü yapay zekânızda.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span>, dosyalarınız üzerinde bir yapay zekâ ile çalışmanız için size iki yol sunar: yerleşik yapay zekâ sohbeti ve masaüstü yapay zekânıza giden Bridge. Her iki durumda da yapay zekâ verilerinize yalnızca <span class="irs">IRONSTICK</span> üzerinden ulaşır — aynı araçlarla ve aynı denetimlerin arkasından.</p>
+
+<h2 class="ov-part">1. Yapay zekâ sohbeti ve Bridge — farkı</h2>
+<h3 class="ov-h">Yapay zekâya iki yol</h3>
+<figure class="ov-fig"><img src="img/66_pseudonymization.png?v=3" alt="Yapay zekâya iki yol" loading="lazy"></figure>
+<p class="scr-intro"><b>Yapay zekâ sohbeti</b> <span class="irs">IRONSTICK</span>'e yerleşiktir: <span class="irs">IRONSTICK</span> penceresine yazarsınız ve <span class="irs">IRONSTICK</span> isteği kendi API anahtarlarınızla yapay zekâ hizmetine gönderir — adlar ve numaralar bu sırada bilgisayarınızdan yalnızca <a href="gdpr_tr.html">nötr yer tutucular</a> olarak çıkar. <b>Bridge</b> ise tersine çalışır: Zaten kullandığınız masaüstü yapay zekâ uygulamasına — Claude, ChatGPT, Qwen veya Kimi Desktop — yazarsınız ve bu uygulama, sağlayıcıdaki kendi hesabınız altında dosyanız üzerinde canlı olarak çalışır.</p>
+<table>
+<tr><th></th><th>Yapay zekâ sohbeti (yerleşik)</th><th>Bridge (masaüstü yapay zekâ)</th></tr>
+<tr><th>Nereye yazarsınız</th><td><span class="irs">IRONSTICK</span> sohbet penceresine</td><td>Masaüstü yapay zekâ uygulamanıza</td></tr>
+<tr><th>Maliyet</th><td>Çağrı başına API maliyeti</td><td>Abonelik — büyük dosyalar için çok daha uygun</td></tr>
+<tr><th><span class="irs">IRONSTICK</span> lisansı</th><td>Dahil</td><td><a href="download_tr.html">Masaüstü yapay zekâ başına bir Bridge ya da dördü birden paket halinde</a></td></tr>
+<tr><th>Yapay zekâya gönderilen veriler</th><td>Takma adlandırılmış</td><td>—</td></tr>
+<tr><th>Onayınız</th><td>Bir sohbet oturumunun ilk harici isteğinden önce</td><td>Her program başlatıldıktan sonraki ilk veri erişiminden önce</td></tr>
+<tr><th>En uygun olduğu alan</th><td>Günlük iş: dosyaya ilişkin sorular, diyalog içinde yazılar ve dilekçeler — her zaman el altında, tablette de</td><td>Büyük dosyalarda derinlemesine çalışma: davaların tamamını okumak, yüzlerce belge, birden fazla taslak turu</td></tr>
+</table>
+
+<h2 class="ov-part">2. IRONSTICK'teki yapay zekâ sohbeti</h2>
+<h3 class="ov-h">Yapay zekâ yapılandırması</h3>
+<figure class="ov-fig"><img src="img/screens/A%20config%20AI.png?v=3" alt="Yapay zekâ yapılandırması" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Yapay zekâ yapılandırması. Tüm yapay zekâ sağlayıcılarını içeren kart.</li>
+<li>Groq, OpenRouter ve Mistral — e-posta önceliklendirme, veri tutarlılığı monitörü ve günlük brifing gibi arka plan görevleri için ücretsiz yapay zekâ sağlayıcıları; her biri ayrı ayrı açılıp kapatılabilir.</li>
+<li>Qwen, Kimi, ChatGPT ve Claude — yerleşik sohbet için yapay zekâ sağlayıcıları, her biri <a href="manualquickstart_tr.html#q3">kendi API anahtarınızla</a>. Birden fazlası kayıtlıysa <span class="irs">IRONSTICK</span> bunları otomatik olarak gösterilen sırayla kullanır; biri erişilemezse bir sonraki devreye girer.</li>
+</ol>
+<p class="scr-intro"><b>Yapay zekânız, sözleşmeniz.</b> Yapay zekâ sağlayıcısını siz seçer ve kendi API anahtarınızı kaydedersiniz — Claude, ChatGPT, Kimi veya Qwen. Faturalandırma doğrudan sağlayıcınız tarafından yapılır.</p>
+<ul>
+<li><b>Ücretsiz arka plan yapay zekâsı.</b> Groq, OpenRouter ve Mistral, dilerseniz e-postaların atanması ve günlük brifing gibi rutin görevleri üstlenir — her sağlayıcı ayrı ayrı açılıp kapatılabilir.</li>
+<li><b>Red/Blue Team.</b> Dilerseniz ikinci bir inceleme, her yapay zekâ sonucunu eleştirel gözle kontrol eder.</li>
+<li><b>Bridge üzerinden masaüstü yapay zekâ.</b> Claude, ChatGPT, Qwen ve Kimi Desktop, kendi aboneliğinizle doğrudan dosya üzerinde çalışır.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Yerleşik sohbet</h3>
+<p class="scr-intro"><b>Önce yerel, sonra harici — onayınızla.</b> Sohbet, yapay zekâya giden sıkı denetimli yoldur.</p>
+<ul>
+<li><b>Önce bilgisayarınız.</b> Basit istekleri — bir davayı açmak, bir müvekkili görüntülemek — yerel bir katman, yapay zekâ modeli ve internet olmadan yerine getirir.</li>
+<li><b>Önce onayınız.</b> Harici bir yapay zekâ hizmetine bir şey gönderilmeden önce sohbet size sorar.</li>
+<li><b>Takma adlandırılmış.</b> Adlar, dosya numaraları, numaralar ve adresler bilgisayarınızdan yalnızca <a href="gdpr_tr.html">nötr yer tutucular</a> olarak çıkar; yanıt bilgisayarınızda geri çevrilir.</li>
+<li><b>Kayıt altında.</b> Harici bir yapay zekâ hizmetine yapılan her çağrı yerel olarak kaydedilir.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Bridge — masaüstü yapay zekânız dosyanın başında</h2>
+<h3 class="ov-h">Bridge</h3>
+<figure class="ov-fig"><img src="img/58_mcp_bridge.png?v=3" alt="Bridge" loading="lazy"></figure>
+<p class="scr-intro"><b>Büyük dosyalar için tam derinlik.</b> Masaüstü yapay zekânız dosyanın güncel durumunu — kronolojiler, tam metinler, e-postalar, süreler, temel veriler — özel olarak geliştirilmiş 200'den fazla araç üzerinden okur ve tam derinlikte çalışır:</p>
+<ul>
+<li>“Davanın tamamını oku ve bana pozisyonumuzun en zayıf olduğu yeri söyle.”</li>
+<li>“İstinaf dilekçesini bizim dilekçe formatımızda taslak olarak hazırla ve kelime işlemciye aktar.” — taslak, antetli kâğıdınıza basılmaya hazır olarak <span class="irs">IRONSTICK</span>'te görünür.</li>
+<li>“Üç bilirkişi raporunu karşılaştır ve bana bir çelişkiler tablosu hazırla.”</li>
+<li><b>Aboneliğe dahil.</b> Dosyaların tamamını okumak ve birden fazla turda taslak hazırlamak, masaüstü yapay zekâ uygulaması için zaten ödediğiniz abonelik üzerinden yürür.</li>
+<li><b>Sizin tarafınızdan açılır.</b> Bridge yalnızca siz <a href="manualironstick_tr.html#s2">erişime izin verdiğinizde</a> çalışır; etkin olan her yapay zekâ, simgesini menü çubuğunda gösterir.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Birden fazla yapay zekâ, tek dava — danışma kurulunuz</h3>
+<figure class="ov-side"><img src="img/cutout_advisory_board.jpg?v=3" alt="Birden fazla yapay zekâ, tek dava — danışma kurulunuz" loading="lazy"></figure>
+<p class="scr-intro"><b>Gerçek bir ikinci görüş.</b> Claude, ChatGPT, Qwen ve Kimi, farklı eğitimlere sahip farklı modellerdir — ve aynı dosya durumuyla aynı dava üzerinde eş zamanlı çalışabilir.</p>
+<ul>
+<li><b>Dava teorileri geliştirin</b> — bir yapay zekâ kurar, diğeri stres testine tabi tutar.</li>
+<li><b>Dilekçeleri sağlamlaştırın</b> — yazın, kontrol edin, çürütün, geliştirin.</li>
+<li><b>Yönetimi siz yaparsınız</b>, doğal dilde: “Bunu ayrıntılandır … kontrol etmesi için diğerine ver … onun değerlendirmesini bana getir.”</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. İnanılan değil, doğrulanan</h2>
+<h3 class="ov-h">Bir yapay zekâ neden büyük dosyaların altından tek başına kalkamaz</h3>
+<figure class="ov-fig"><img src="img/71_context_overload.png?v=3" alt="Bir yapay zekâ neden büyük dosyaların altından tek başına kalkamaz" loading="lazy"></figure>
+<p class="scr-intro"><b>Tarayıcıdaki bir yapay zekâ sohbetinden fazlası.</b> Bir dil modeline yüzlerce sayfa tek seferde verildiğinde ortadaki ayrıntılar kaybolur, konuşma taşar ve her oturum sıfırdan başlar.</p>
+<ul>
+<li><b>Önce yapı.</b> <span class="irs">IRONSTICK</span> dosyayı zaten düzenlemiştir: belgeler sınıflandırılmış, veriler dizinlenmiş, ekler bağlanmıştır.</li>
+<li><b>Hedefli erişim.</b> Yapay zekâ, sorunun gerektirdiği pasajları, belgeleri, e-postaları ve süreleri tam olarak — dosyadan taze olarak — alır.</li>
+<li><b>Bir bellek.</b> Bulgular oturumlar boyunca korunur; yapay zekâ, dosya çalışmasına ilişkin bilgiyi dinamik olarak biriktirir.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Umut edilen değil, yönlendirilen</h3>
+<figure class="ov-fig"><img src="img/73_ironstick_guided_path.png?v=3" alt="Umut edilen değil, yönlendirilen" loading="lazy"></figure>
+<p class="scr-intro"><b>İyi dilekler yerine sabit denetimler.</b> Yapay zekâ ile dosyanız arasında sabit denetimler bulunur — olguları sade program mantığı kontrol eder.</p>
+<ul>
+<li><b>Önce okumak, sonra yazmak.</b> Yapay zekâ yalnızca okuduğu kanıtlanabilen içerikten yazar.</li>
+<li><b>Önce kütüphanenizdeki mevzuat.</b> Mevzuat hükümleri mevzuat kütüphanenizden alıntılanır; internete yalnızca kütüphanede ilgili hüküm yoksa başvurulur.</li>
+<li><b>Teslimattan önce denetim.</b> Bir dilekçe sistemden ancak denetimi geçtikten sonra çıkar — incelemeniz ve imzanız için sunulmaya hazır bir şablon olarak.</li>
+<li><b>Yazmak yerine öneri.</b> Yapay zekâ temel verilerde ve bellekte yapılacak değişiklikleri yalnızca önerir; yalnızca sizin onayladıklarınız geçerlilik kazanır.</li>
+<li><b>Gizli belgeler görünmez kalır.</b> Gizli olarak işaretlenen kayıtlar hiçbir yapay zekâya ulaşmaz.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Olgular ve metin</h3>
+<figure class="ov-fig"><img src="img/75_ironstick_coaching_line.png?v=3" alt="Olgular ve metin" loading="lazy"></figure>
+<p class="scr-intro"><b>İki tür içerik için iki denetim yolu.</b> <span class="irs">IRONSTICK</span>, olgular ile metin arasında temel bir ayrım yapar.</p>
+<ul>
+<li><b>Olgular — deterministik olarak denetlenir.</b> Delil numaralarını, tarihleri, tarafları, dosya numaralarını ve mevzuat atıflarını <span class="irs">IRONSTICK</span>, sabit program mantığıyla dosyaya ve mevzuat kütüphanesine karşı kontrol eder.</li>
+<li><b>Metin — Red/Blue Team tarafından denetlenir.</b> Argümantasyonu, yapıyı ve üslubu ikinci bir yapay zekâ eleştirel gözle kontrol eder.</li>
+<li><b>Red/Blue Team de <span class="irs">IRONSTICK</span> ile çalışır.</b> Dosyaya erişimi vardır ve kendi önerilerini arka planda mevzuata ve olgulara karşı kontrol eder.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">5. Nucleu ve Snake-Gate</h2>
+<h3 class="ov-h">Nucleu ve Snake</h3>
+<figure class="ov-fig"><img src="img/76_nucleu_snake_path.png?v=3" alt="Nucleu ve Snake" loading="lazy"></figure>
+<p class="scr-intro"><b>Nucleu — bir davanın bağlayıcı ana yönü.</b> Nucleu (davadaki atom simgesi), argümantasyonun ana hattını kayıt altına alır: belirleyici olgular ve deliller, söylenmesi gerekenler ve asla söylenmemesi gerekenler. Yapay zekânın dava için yazdığı her belge ona tabidir.</p>
+<ul>
+<li><b>İki düzeyde.</b> Bütün bir olay için — içindeki her davada geçerli — ve tek bir dava için.</li>
+<li><b>Yapay zekâ taslak hazırlar, siz karar verirsiniz.</b> Her değişiklik kırmızıyla işaretlenmiş olarak görünür; ancak sizin onayınız onu yeni bir sürüm olarak kaydeder.</li>
+<li><b>Zorunlu okuma.</b> Güncel Nucleu'yu okumadan yapay zekâ, davanın hiçbir dilekçesini yazamaz, denetleyemez veya teslim edemez.</li>
+<li><b>Denetim zincirinin son turu.</b> Her dilekçe en son, madde madde Nucleu'ya karşı kontrol edilir.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro"><b>Snake — karşı tarafın çelişkilerinin sicili.</b> Snake (davadaki yılan simgesi), dosyadaki delillerin çeliştiği karşı tarafın her beyanını kayıt altına alır — belge, tarih, dava ve sayfayla birlikte ve onunla çelişen her belgeyle.</p>
+<ul>
+<li><b>Her satır dosyaya karşı kontrol edilir.</b> Delil numarası, tarih, dava ve sayfa doğru olmalıdır; aksi halde kayıt reddedilir.</li>
+<li><b>Araştırmayla ya da konuşmanın ortasında oluşturulur</b> — bir çelişki ortaya çıkar çıkmaz, mükerrer kayıt olmadan.</li>
+<li><b>Snake-Gate.</b> Bir dilekçe tamamlanmadan önce yapay zekâ, Snake turunun çalıştırılıp çalıştırılmayacağını sorar. Onay vermeniz halinde müvekkilin her Snake kaydı kontrol edilir ve kullanıldı, reddedildi ya da ilgisiz olarak işaretlenerek kapatılır — karşı tarafın çelişkileri, delille desteklenen bir argüman olarak sistematik biçimde dilekçenize yansır.</li>
+<li><b>Her sürüm için sizin onayınız.</b></li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>Yapay zekâ çalışır, siz karar verirsiniz.</b> Kurulumu ve iş akışlarını <a href="manualbridge_tr.html">Bridge kılavuzunda</a> bulabilirsiniz.</div>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">İletişim</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK iletişim kartı (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">İletişim kartımızı kaydetmek için kodu tarayın — telefon, e-posta ve web sitesi.</p><p class="pref">Bize doğrudan WhatsApp veya Telegram üzerinden ulaşabilirsiniz — telefonla aramanız da memnuniyetle karşılanır. Konuşulan diller: Almanca, İngilizce, Rumence.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mesaj</h5><h3 class="ct-ask">IRONSTICK'e ya da bir demoya ilgi mi duyuyorsunuz? Bize yazın.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK talebi, gönderen:" name="form"><div class="ct-fg"><label for="ct-name">Ad</label><input id="ct-name" type="text" name="name" placeholder="Adınız" required></div><div class="ct-fg"><label for="ct-msg">Mesaj</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Mesajınız" required></textarea></div><div class="ct-fg"><p class="ct-hint">Gönderdiğinizde e-posta programınız hazırlanmış mesajla açılır.</p><button type="submit">Mesaj gönder</button></div><div class="u-form-send-success">E-posta programınız açılıyor. Lütfen mesajı oradan gönderin.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK, hukuk uygulamasına yönelik bir yazılımdır. Bu web sitesi yalnızca bilgilendirme amaçlıdır ve hukuki danışmanlık niteliği taşımaz. © 2026 IRONSTICK.</p></footer>
+</body></html>

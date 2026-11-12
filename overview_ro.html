@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="ro"><head><meta charset="utf-8">
+<title>IRONSTICK pe scurt</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Software-ul de cabinet care vă cunoaște dosarele — local, pe calculatorul dumneavoastră, cu IA alături.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview_ro.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Meniu"><a class="b" href="index_ro.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_ro.html">Acasă</a><a href="overview_ro.html" aria-current="page">Prezentare</a><a href="ki_ro.html">IA</a><span class="mh">Manuale</span><a class="sub" href="manualquickstart_ro.html">Pornire rapidă</a><a class="sub" href="manualironstick_ro.html">Aplicația client</a><a class="sub" href="manualbridge_ro.html">Bridge</a><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a></div></div><nav class="mainnav"><a href="overview_ro.html" aria-current="page">Prezentare</a><a href="ki_ro.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuale</span><div class="menu"><a href="manualquickstart_ro.html">Pornire rapidă</a><a href="manualironstick_ro.html">Aplicația client</a><a href="manualbridge_ro.html">Bridge</a></div></div><a href="gdpr_ro.html">GDPR</a><a href="download_ro.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_ro.html">Testați 30 de zile</a><nav class="lang-wrap" tabindex="0" title="Limbă" aria-label="Limbă"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a class="on" lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IRONSTICK pe scurt</h1></div><p class="gh-sub">Software-ul de cabinet care vă cunoaște dosarele — local, pe calculatorul dumneavoastră, cu IA alături.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> reunește clienții, dosarele, probele, termenele, e-mailurile și documentele într-un singur dosar — și vă pune alături o IA care cunoaște acest dosar în întregime. Dumneavoastră întrebați, dosarul răspunde, cu trimitere la fiecare document. Verificați și semnați, în loc să căutați și să transcrieți. Totul este stocat criptat, pe propriul dumneavoastră hardware.</p>
+
+<h2 class="ov-part">1. Ziua de lucru</h2>
+<h3 class="ov-h">Ziua cabinetului dintr-o privire</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="Ziua cabinetului dintr-o privire" loading="lazy"></figure>
+<p class="scr-intro"><b>Întreaga zi pe trei pagini.</b> Deschideți <span class="irs">IRONSTICK</span>, iar ziua este deja ordonată.</p>
+<ul>
+<li><b>Start.</b> Toate zonele de lucru și situația termenelor dumneavoastră, dintr-o privire.</li>
+<li><b>Agenda.</b> Tot ce a intrat în dosarele dumneavoastră, zi de zi — cu previzualizarea documentelor.</li>
+<li><b>Heatmap.</b> Fiecare zi din ultimele douăsprezece luni, ca un câmp — cu cât este mai închis la culoare, cu atât s-au întâmplat mai multe în dosarele dumneavoastră; termenele și ședințele de judecată sunt marcate. Dedesubt, dosarele care s-au reaprins: cele cu o activitate vizibil crescută în ultimele 14 zile.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Monitorul termenelor</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Monitorul termenelor" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Numere de referință. Numărul unui document sau al unui memento IA se copiază cu un clic — de exemplu, pentru a-l lipi în chat.</li>
+<li>Rezolvarea termenelor. Termenele din documente și din înregistrările cronologiei se bifează și se elimină împreună; mementourile IA părăsesc lista cu <i>Șterge data</i>.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>Termenele și programările le stabilește și IA — direct din conversația cu dumneavoastră. Ele apar în listă cu acest simbol.</li>
+</ol>
+<p class="scr-intro"><b>Niciun termen ratat.</b> Un termen pierdut atrage răspunderea profesională. <span class="irs">IRONSTICK</span> ține toate termenele și ședințele de judecată într-o singură listă și arată cât timp mai rămâne.</p>
+<ul>
+<li><b>Toate termenele și ședințele de judecată într-o singură listă</b> — cu data, dosarul și zilele rămase până la scadență; cele depășite în roșu, cele apropiate în portocaliu.</li>
+<li><b>Termene din corespondența primită.</b> IA recunoaște termenele din scrisorile și hotărârile primite și le înregistrează.</li>
+<li><b>Clopoțelul termenelor.</b> Portocaliu când un termen expiră în următoarele zece zile, roșu chiar în ziua respectivă — mereu vizibil în bara de meniu.</li>
+<li><b>Imprimați lista termenelor</b> sau exportați-o ca PDF.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Înregistrarea automată a documentelor</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Înregistrarea automată a documentelor" loading="lazy"></figure>
+<p class="scr-intro"><b>Corespondența primită se rezolvă singură.</b> Scanați, trageți, confirmați: <span class="irs">IRONSTICK</span> recunoaște textul, atribuie documentul dosarului corect și înregistrează termenul.</p>
+<ul>
+<li><b>Selectarea paginilor.</b> Sunt preluate doar paginile care își au locul în dosar.</li>
+<li><b>Recunoaștere a textului integrată.</b> Pentru peste 35 de limbi europene, fără nimic de instalat.</li>
+<li><b>Propunere în loc de tastare.</b> IA propune clientul, dosarul, tipul documentului, limba, data și termenul — dumneavoastră confirmați.</li>
+<li><b>Stocat criptat</b> și imediat căutabil în textul integral.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">Astfel, înregistrarea unui document durează abia 20 de secunde — iar întreaga corespondență primită este repartizată pe dosare cât ai clipi.</p>
+
+<h2 class="ov-part">2. De la proiect la depunere</h2>
+<h3 class="ov-h">Procesor de text pentru acte de procedură</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Procesor de text pentru acte de procedură" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Editare. Pagina editabilă, cu bara de instrumente completă.</li>
+<li>Previzualizare. Documentul în pagini A4 separate, exact așa cum vor fi tipărite.</li>
+<li>Previzualizare înainte de tipărire. Salvează documentul și deschide previzualizarea de tipărire cu toate anexele.</li>
+<li>Salvează și închide. Salvează documentul și revine la lista textelor.</li>
+</ol>
+<p class="scr-intro"><b>Acte de procedură în minute, nu în ore — fără citări inventate.</b> Timpul dumneavoastră înseamnă venit, iar o trimitere greșită este cel mai mare risc al utilizării IA. Proiectul se naște în dialog cu IA, direct din dosar — iar fiecare normă, fiecare parte și fiecare probă sunt verificate față de dosar și de biblioteca de legi înainte să îl vedeți.</p>
+<ul>
+<li><b>Din dosar.</b> Datele de bază, cronologia, textele integrale, termenele și anexele intră în proiect.</li>
+<li><b>Editare și previzualizare.</b> Modificați textul și vedeți imediat cum arată tipărit pe antetul dumneavoastră.</li>
+<li><b>Șablon gata de depunere.</b> Dumneavoastră verificați, finalizați și semnați.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Previzualizare de tipărire: actul de procedură și anexele într-un singur PDF</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Previzualizare de tipărire: actul de procedură și anexele într-un singur PDF" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Documentul dumneavoastră. Paginile actului de procedură — un clic stânga pe o pagină deschide fereastra pentru plasarea semnăturii dumneavoastră.</li>
+<li>Rândul de titlu al anexei. Numărul înregistrării, numărul anexei și titlul fiecărei anexe. Dedesubt, paginile ei: un clic stânga afișează o pagină mărită, un clic dreapta o exclude din PDF; un al doilea clic dreapta o readuce.</li>
+<li>Ștampila de certificare. Se poate activa și dezactiva pentru fiecare anexă; textul ștampilei urmează limba țării dosarului.</li>
+<li>DOCX. Documentul ca fișier Word.</li>
+<li>Descărcare PDF. PDF-ul final, din toate paginile active.</li>
+</ol>
+<p class="scr-intro"><b>Depunerea este gata.</b> Actul de procedură și anexele, ștampilate, paginate și semnate într-un singur PDF — în loc de ore la copiator.</p>
+<ul>
+<li><b>Aplicarea semnăturii.</b> Semnătura dumneavoastră stocată se plasează cu un clic la locul potrivit.</li>
+<li><b>Anexe cu ștampilă de certificare.</b> Fiecare anexă își primește ștampila; paginile individuale pot fi excluse cu un clic.</li>
+<li><b>Export ca PDF sau DOCX</b> — actul de procedură și anexele într-un singur fișier, paginate pagină cu pagină.</li>
+<li><b>Și pentru procese de mari dimensiuni.</b> 3.000 de pagini ștampilate, paginate și reunite într-un singur PDF — în mai puțin de 20 de minute.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Dosar complet al cauzei</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Dosar complet al cauzei" loading="lazy"></figure>
+<p class="scr-intro"><b>Dosarul complet într-un singur document.</b> Asistentul de dosar reunește întreaga cauză într-un dosar paginat. Mai întâi stabiliți ce intră în el.</p>
+<ul>
+<li><b>Selectarea documentelor.</b> Fiecare înregistrare din cronologie poate fi inclusă sau omisă cu un clic.</li>
+<li><b>Până la nivel de pagină.</b> Din fiecare document alegeți exact paginile care își au locul în dosar.</li>
+<li><b>Vizualizare prealabilă.</b> Documentele, fotografiile, transcrierile și conversațiile se deschid în previzualizare, fără a modifica selecția.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Dosar complet al cauzei" loading="lazy"></figure>
+<p class="scr-intro"><b>Copertă, structură și vizualizare de tipărire.</b> Apoi stabiliți coperta și structura și verificați fiecare pagină înainte ca dosarul să fie generat.</p>
+<ul>
+<li><b>Coperte la alegere.</b> Destinatarul îl preluați din instituțiile dosarului sau îl introduceți dumneavoastră.</li>
+<li><b>În limba jurisdicției.</b> Coperta și opisurile se generează în limba țării dosarului; dacă țara are mai multe limbi juridice, alegeți dumneavoastră limba.</li>
+<li><b>Structură la alegere.</b> Copertă, opis tematic, cronologie, documente, fișiere media, transcrieri, conversații, lista persoanelor și a instituțiilor — includeți, omiteți și ordonați prin glisare.</li>
+<li><b>Paginile excluse, vizibile imediat.</b> Vizualizarea de tipărire arată fiecare pagină a dosarului final; acolo paginile mai pot fi omise sau readuse, iar opisul tematic își ajustează numerotarea paginilor.</li>
+<li><b>Export ca PDF sau EDRM.</b> Ca dosar PDF paginat sau ca pachet de producție EDRM cu numere Bates.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Înțelegerea dosarului</h2>
+<h3 class="ov-h">Asistentul de dosar</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Asistentul de dosar" loading="lazy"></figure>
+<p class="scr-intro"><b>Dosarul, imediat în minte.</b> Înainte de ședință sau de întâlnirea cu clientul întrebați dosarul, în loc să-l răsfoiți — în limbaj natural, de la tastatură sau prin voce.</p>
+<ul>
+<li>„Rezumă stadiul actual al procedurii.” — „Am răspuns la ultima scrisoare a părții adverse?” — „Ce a declarat martorul despre cercetarea la fața locului?”</li>
+<li><b>Fiecare răspuns, cu sursă.</b> Fiecare document invocat este un link pe care se poate face clic, către înregistrarea din dosarul dumneavoastră.</li>
+<li><b>Întrebările de rutină rămân pe calculatorul dumneavoastră.</b> Un strat local le răspunde fără ca datele să părăsească dispozitivul.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Evaluarea IA a dosarului</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="Evaluarea IA a dosarului" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>Pentru evaluarea generală a dosarului se ia în considerare întregul dosar, inclusiv dosarele conexe.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>Pentru șansele de succes se iau în considerare numai actele adresate autorității și cele emise de aceasta.</li>
+</ol>
+<p class="scr-intro"><b>Șansele de succes pe care le puteți explica clientului.</b> Evaluarea IA a dosarului citește întregul dosar — propriile dumneavoastră acte de procedură, la fel ca înscrisurile părții adverse — și rezumă stadiul procedurii într-o singură apreciere.</p>
+<ul>
+<li><b>Șansele de succes pe o scală</b> — cu valori separate pentru situația probelor, pretenția principală și celelalte pretenții.</li>
+<li><b>Ce pledează pentru dumneavoastră și ce împotrivă.</b> Punctele forte și cele slabe marcate color, fiecare afirmație cu link către documentul pe care se întemeiază.</li>
+<li><b>Pași următori concreți</b>, ca recomandare pentru continuarea demersurilor.</li>
+<li><b>La o apăsare de buton</b> — oricând din nou, de îndată ce în dosar există documente noi.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Rețeaua de persoane și societăți, cu cercetare OSINT</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="Rețeaua de persoane și societăți, cu cercetare OSINT" loading="lazy"></figure>
+<p class="scr-intro"><b>Descoperiți legături pe care nimeni nu le-ar găsi manual.</b> Persoanele, societățile, autoritățile și instanțele din toate dosarele dumneavoastră formează o rețea comună — ca listă, ca univers 3D, ca hartă 2D și pe harta geografică. Un câștig mai ales în dreptul afacerilor, al insolvenței și în dreptul penal.</p>
+<ul>
+<li><b>Legături documentate.</b> Cine apare în ce proceduri, cum sunt legați participanții între ei — și prin ce.</li>
+<li><b>Trei vizualizări.</b> Universul 3D, pe care îl parcurgeți în zbor, harta 2D a grupărilor și harta geografică cu toți participanții și toate locurile.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>Dosarul dumneavoastră și cercetarea OSINT a IA lucrează împreună.</b> Ceea ce știu dosarele dumneavoastră despre o persoană sau o societate, IA leagă cu ceea ce oferă sursele publice. Fiecare cercetare devine cunoaștere durabilă despre participanți — ea crește cu fiecare dosar și vă stă la dispoziție în toate procedurile.</p>
+<ul>
+<li><b>Cercetare OSINT efectuată de IA.</b> Îi indicați IA o persoană sau o societate — ea caută mai întâi în propriile dumneavoastră dosare, apoi pe internet: parcurs profesional, profiluri în rețelele sociale, presă, participații în societăți, registrul comerțului.</li>
+<li><b>Din cercetare rezultă date de bază.</b> IA creează persoane, societăți și relații noi, cu sursa lor, ca propuneri; se preia doar ce aprobați dumneavoastră.</li>
+<li><b>Analiza hotărârilor.</b> Fiecare hotărâre judecătorească din dosarele dumneavoastră poate fi analizată după o grilă fixă — argumente, drept, probe, motivare; înaintea unui act de procedură adresat acelei instanțe, IA citește și aceste analize.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Securitate și funcționare</h2>
+<h3 class="ov-h">Secretul profesional</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Secretul profesional" loading="lazy"></figure>
+<p class="scr-intro"><b>Secretul profesional rămâne în cabinet.</b> Nicio dată a clienților în centre de date străine: dosarul, probele și documentele se află pe propriul dumneavoastră hardware, <a href="gdpr_ro.html">în conformitate cu GDPR</a>.</p>
+<ul>
+<li><b>Criptat AES-256.</b> Baza de date și documentele sunt criptate pe disc.</li>
+<li><b>Acces cu cod de autentificare.</b> Datele dumneavoastră apar numai după introducerea codului din șase cifre de pe telefonul dumneavoastră.</li>
+<li><b>Nicio dată a clienților către furnizor.</b> <a href="ki_ro.html">IA externă</a> funcționează cu propria dumneavoastră cheie; apelurile sunt pseudonimizate.</li>
+<li><b>Funcționează și offline.</b> Dosarul, căutarea, documentele și asistentul local funcționează fără internet.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Lucrați împreună — fără cloud.</b> <a href="download_ro.html"><span class="irs">IRONSTICK</span> SERVER</a> conectează stațiile dumneavoastră de lucru printr-un NAS Synology în propria rețea — fără cloud.</p>
+<ul>
+<li><b>Partajarea dosarelor.</b> Cu toți utilizatorii sau doar cu anumiți colegi — orice partajare poate fi retrasă oricând.</li>
+<li><b>Predarea unui dosar.</b> Un dosar trece integral la un coleg în câteva clicuri.</li>
+<li><b>Criptat pe NAS.</b> Dosarele partajate sunt stocate criptat AES-256 pe serverul cabinetului dumneavoastră.</li>
+<li><b>Fiecare își păstrează dosarul.</b> Dosarul complet rămâne, în plus, pe fiecare stație de lucru.</li>
+<li><b>Bibliotecă de legi comună</b> și o rețea comună de persoane și societăți.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Copia de siguranță</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Copia de siguranță" loading="lazy"></figure>
+<p class="scr-intro"><b>Întregul dumneavoastră cabinet, salvat într-un singur fișier.</b> Un clic pe „Creează copia de siguranță”, iar baza de date și documentele se află într-un fișier de siguranță criptat.</p>
+<ul>
+<li><b>Salvați unde doriți:</b> local, pe un SSD extern sau pe un stick USB.</li>
+<li><b>Cu <span class="irs">IRONSTICK</span> SERVER</b>, copia de siguranță se află, în plus, criptată pe NAS-ul cabinetului dumneavoastră.</li>
+<li><b>Ultimele copii de siguranță dintr-o privire</b> — cu dată și dimensiune.</li>
+<li><b>Restaurare</b> dintr-un fișier de siguranță în câteva clicuri.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>Fără efort IT — testați gratuit 30 de zile.</b> <span class="irs">IRONSTICK</span> rulează pe un PC Windows obișnuit; actualizările se instalează pur și simplu peste versiunea existentă, iar toate datele se păstrează. Descărcați software-ul de pe <a href="download_ro.html">pagina de descărcare</a>; <a href="manualquickstart_ro.html">Pornirea rapidă</a> vă conduce în șase pași de la instalare până la primii dumneavoastră clienți.</div>
+
+
+<h2 class="ov-part">5. Cerințe de sistem</h2>
+
+<h3 class="ov-h">Aplicația client și Bridge (opțional)</h3>
+<table>
+<tr><th></th><th>Minim</th><th>Recomandat</th></tr>
+<tr><td>Sistem de operare</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, cu actualizările la zi</td></tr>
+<tr><td>Procesor</td><td>x64 modern cu 4 nuclee (de ex. Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 nuclee — recunoașterea textului rulează în paralel pe
+mai multe pagini, iar recunoașterea vocală offline profită direct de fiecare
+nucleu</td></tr>
+<tr><td>Memorie</td><td>8 GB RAM</td><td>16 GB RAM — rezervă confortabilă
+pentru PDF-uri mari, generarea de dosare și transcrierea audio
+în paralel</td></tr>
+<tr><td>Stocare</td><td>SSD cu 20 GB liberi</td><td>SSD NVMe cu peste 100 GB
+liberi — arhiva de dosare, căutarea în text integral și generarea PDF solicită intens discul;
+un SSD rapid face o diferență vizibilă</td></tr>
+<tr><td>Afișaj</td><td>1920 × 1080</td><td>1920 × 1200 sau mai mult — ecranele
+dosarelor folosesc generos spațiul vertical</td></tr>
+<tr><td>Grafică</td><td colspan="2">Nu este necesară o placă grafică dedicată —
+orice placă grafică integrată este suficientă</td></tr>
+<tr><td>Conectivitate</td><td colspan="2">Internet doar pentru IA externă,
+actualizări de legi, e-mail, cercetare web, hărți și geocodarea adreselor — dosarul, căutarea, documentele și asistentul
+local funcționează complet offline; un port USB liber pentru
+sincronizarea tabletei</td></tr>
+</table>
+
+<h3 class="ov-h">Stocarea datelor pe o unitate externă (opțional)</h3>
+<table>
+<tr><th>Criteriu</th><th>Cerință</th></tr>
+<tr><td>Spațiu liber</td><td>Cel puțin 9&nbsp;GB, respectiv cu 1&nbsp;GB mai mult decât
+volumul actual de date</td></tr>
+<tr><td>Scriere / citire</td><td>Cel puțin 80&nbsp;MB/s / 150&nbsp;MB/s —
+și sub sarcină continuă (nu sub 60&nbsp;% din valoarea inițială)</td></tr>
+<tr><td>Multe fișiere mici</td><td>Cel puțin 250 de fișiere pe
+secundă</td></tr>
+<tr><td>Sistem de fișiere</td><td>NTFS sau exFAT, nu FAT32; fără protecție
+la scriere și neblocat</td></tr>
+<tr><td>Fiabilitate</td><td>Datele de test trebuie recitite
+neschimbate</td></tr>
+<tr><td>Nu sunt admise</td><td>Unitățile de rețea și folderele sincronizate în cloud (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Recomandare</td><td>SSD extern — stick-urile USB obișnuite nu ating
+de regulă aceste valori</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (opțional)</h3>
+<table>
+<tr><th></th><th>Cerință</th></tr>
+<tr><td>Dispozitiv</td><td>Orice NAS Synology cu DSM 7.0 sau mai nou — ARM sau
+Intel; pachetul conține executabile native pentru ARMv7, ARM64 și
+x86-64</td></tr>
+<tr><td>Performanță</td><td>Conceput deliberat suplu: verificat
+pe <b>modelul de bază DS214se</b>, cu procesor ARM cu un singur nucleu și
+256&nbsp;MB RAM; rulează pe orice model Synology cu DSM 7.0 sau mai nou, iar
+modelele actuale oferă rezerve mult mai mari</td></tr>
+<tr><td>Memorie / CPU</td><td>Nicio cerință dedicată în afara NAS-ului
+însuși — serverul nu face muncă de analiză; sarcinile sale de fundal
+se limitează la transmiterea pachetelor și la o curățare
+nocturnă</td></tr>
+<tr><td>Spațiu de stocare</td><td>Câteva sute de MB pentru pachet și
+biblioteca de legi; pachetele de dosare partajate cresc doar cu ceea ce
+partajați efectiv</td></tr>
+<tr><td>Rețea</td><td>Doar rețeaua LAN a cabinetului; un port TCP (47712) cu autentificare prin token.
+DSM, Web Station și
+porturile 80/443 rămân neatinse</td></tr>
+<tr><td>Administrare</td><td>Orice browser din LAN; parolă de
+administrator proprie; cheia de licență introdusă o singură dată</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scanați codul pentru a salva cartea noastră de contact — telefon, e-mail și site.</p><p class="pref">Ne puteți contacta direct prin WhatsApp sau Telegram — și un apel telefonic este binevenit. Limbi vorbite: germană, engleză, română.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mesaj</h5><h3 class="ct-ask">Interesat de IRONSTICK sau de o demonstrație? Scrieți-ne.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="Solicitare IRONSTICK de la" name="form"><div class="ct-fg"><label for="ct-name">Nume</label><input id="ct-name" type="text" name="name" placeholder="Numele dumneavoastră" required></div><div class="ct-fg"><label for="ct-msg">Mesaj</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Mesajul dumneavoastră" required></textarea></div><div class="ct-fg"><p class="ct-hint">Trimiterea deschide programul dumneavoastră de e-mail cu mesajul pregătit.</p><button type="submit">Trimiteți mesajul</button></div><div class="u-form-send-success">Programul de e-mail se deschide. Vă rugăm să trimiteți mesajul de acolo.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK este software pentru practica juridică. Acest site are doar scop informativ și nu constituie consultanță juridică. © 2026 IRONSTICK.</p></footer>
+</body></html>
