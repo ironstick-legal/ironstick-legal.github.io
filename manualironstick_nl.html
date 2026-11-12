@@ -1,0 +1,1410 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<title>IRONSTICK — Handleiding - Client-app</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Gebruikershandleiding — elk scherm: wat u ziet en wat u kunt doen.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualironstick_nl.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualironstick_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualironstick_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualironstick_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualironstick_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualironstick_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualironstick_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualironstick_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualironstick_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualironstick_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualironstick_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<link rel="alternate" type="text/markdown" href="manualironstick_nl.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_nl.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_nl.html">Home</a><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html">AI</a><span class="mh">Handleidingen</span><a class="sub" href="manualquickstart_nl.html">Snelstart</a><a class="sub" href="manualironstick_nl.html" aria-current="page">Client-app</a><a class="sub" href="manualbridge_nl.html">Bridge</a><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></div></div><nav class="mainnav"><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html">AI</a><div class="nav-drop" tabindex="0"><span>Handleidingen</span><div class="menu"><a href="manualquickstart_nl.html">Snelstart</a><a href="manualironstick_nl.html" aria-current="page">Client-app</a><a href="manualbridge_nl.html">Bridge</a></div></div><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_nl.html">30 dagen proberen</a><nav class="lang-wrap" tabindex="0" title="Taal" aria-label="Taal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualironstick.html">English</a><a lang="de" hreflang="de" href="manualironstick_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualironstick_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualironstick_fr.html">Français</a><a lang="it" hreflang="it" href="manualironstick_it.html">Italiano</a><a lang="es" hreflang="es" href="manualironstick_es.html">Español</a><a lang="pt" hreflang="pt" href="manualironstick_pt.html">Português</a><a class="on" lang="nl" hreflang="nl" href="manualironstick_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualironstick_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualironstick_uk.html">Українська</a><a lang="tr" hreflang="tr" href="manualironstick_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Handleiding - Client-app</h1></div><p class="gh-sub">Gebruikershandleiding — elk scherm: wat u ziet en wat u kunt doen.</p></div></section>
+
+<h2 id="s0">Menubalk</h2>
+<figure><img src="img/screens/0%20menubar.png" alt="De menubalk met hamburgermenu, kruimelpad, resourceweergave en de symbolen rechts, en het IRONSTICK-browservenster"><figcaption>De menubalk, die bovenaan elk scherm staat, en het IRONSTICK-browservenster, dat via de wereldbol wordt geopend.</figcaption></figure>
+<p class="scr-intro">De menubalk staat bovenaan elk scherm van <span class="irs">IRONSTICK</span>, zodat u de belangrijkste functies overal kunt bereiken.
+Links bevinden zich het navigatiemenu en de programmanaam met kleine live-indicatoren. In het midden staat de dagbriefing. Rechts vindt u
+de indicatoren voor nieuwe e-mails, termijnen en berichten, de AI-chat, het browservenster, de configuratie en de aan/uit-knop. Onder de balk toont het kruimelpad waar u zich bevindt.
+Veel symbolen verschijnen alleen wanneer er iets te tonen is. Een rood, geanimeerd symbool betekent dat er iets nieuws op u wacht.</p>
+<ol class="marks">
+<li><b>Kruimelpad.</b> Toont de weg naar het huidige scherm, bijvoorbeeld <i>Hoofdmenu › Instanties</i>. Het laatste deel is het scherm waarop u zich bevindt. Klik op een eerder deel om er direct naar terug te keren.</li>
+<li><b>Navigatiemenu (hamburger).</b> Opent het zijmenu met Hoofdmenu, Cliënten, Instanties, Personen, Termijnen, Tags, Teksten en Zoeken. Het scherm waarop u zich bevindt, is blauw gemarkeerd. Het rode aan/uit-symbool onderaan het menu sluit het programma af, net als de aan/uit-knop.</li>
+<li><b>Resourceweergave (alleen Windows).</b> Een kleine balk en de tekst <i>(CPU / RAM)</i> tonen hoeveel processorkracht en geheugen <span class="irs">IRONSTICK</span> zelf op dat moment verbruikt. De balk is groen, wordt vanaf 50 % oranje en vanaf 80 % rood. Wijs ernaar om te zien welke achtergrondtaken er op dat moment lopen, met voortgang en looptijd. Taken die kunnen worden gestopt, hebben een rood kruisje.</li>
+<li><b>AI-geheugen (roze brein).</b> Verschijnt zodra de AI notities in haar geheugen heeft opgeslagen. Het pulseert terwijl de AI het geheugen leest of erin schrijft. Klik erop om de opgeslagen notities te controleren. U kunt alle notities van een cliënt in één keer verwijderen of afzonderlijke notities uit de laatste 100 aanvinken en verwijderen.</li>
+<li><b>Dagbriefing (luidspreker).</b> Opent op elk moment de dagbriefing: wat er vandaag op het programma staat (termijnen, zittingen, afspraken, e-mails), wat er vandaag al is afgehandeld en een korte terugblik. Klik op een regel om het bijbehorende scherm te openen, bijvoorbeeld de termijnen, de agenda, de e-mailmonitor of de zaak. <i>Voorlezen</i> speelt de gesproken versie af en <i>Stop</i> beëindigt die. Een schakelaar wijzigt alleen de stijl van de gesproken tekst. Is uw laatste back-up ouder dan vijf dagen, dan waarschuwt de briefing u.</li>
+<li><b>Monitor voor gegevensconsistentie.</b> Opent de lijst met wijzigingsvoorstellen voor uw cliënt- en contactgegevens die <span class="irs">IRONSTICK</span> in uw e-mails heeft gevonden. Bij elk voorstel kiest u <i>Toestaan</i> of <i>Afwijzen</i>. Het symbool is grijs als er niets wacht en rood als er voorstellen zijn. Het is ook geanimeerd wanneer een nationaal rechtbankportaal nieuwe zaken heeft voorgesteld (landspecifieke functie).</li>
+<li><b>E-mail.</b> Alleen zichtbaar als de controle van e-mails op de achtergrond in de configuratie is ingeschakeld. Grijs betekent geen nieuwe e-mails. Rood en geanimeerd betekent dat er nieuwe e-mails zijn binnengekomen; de tooltip toont hoeveel. Klik om de e-mailmonitor te openen, waarin alles als gezien geldt.</li>
+<li><b>AI-chat (robot).</b> Klik om de AI-chat te openen. Onder Windows opent die in een eigen venster. Bevindt u zich in een zaak of bij een cliënt, dan geeft een kleine paarse stip aan dat de chat die zaak of die cliënt al kent. Klik er met de rechtermuisknop op (op de tablet: ingedrukt houden) om de spraakherkenning in of uit te schakelen. Zolang die is ingeschakeld, beweegt de robot en luistert de chat mee en antwoordt hij hardop. De robot is verborgen zolang een externe desktop-AI met <span class="irs">IRONSTICK</span> is verbonden. Op de tablet is hij grijs als er geen internetverbinding is.</li>
+<li><b>Serverchat.</b> Verschijnt alleen als de <span class="irs">IRONSTICK</span> SERVER is verbonden. Hij opent een chat met de andere gebruikers van de server. Een groene stip betekent dat de gebruiker online is, rood betekent offline. U kunt uw eigen berichten verwijderen, en met een schakelaar zet u de chat op stil, zodat hij niet meer vanzelf opent. Het symbool wordt rood en is geanimeerd wanneer er een ongelezen bericht is.</li>
+<li><b>Termijnenbel.</b> Rood als ten minste één termijn vandaag afloopt of al verstreken is. Oranje als er termijnen in de komende tien dagen aflopen. Grijs als er niets op het programma staat. Wijs de bel aan om het aantal te zien. De bel is ook geanimeerd wanneer een uit een nationaal rechtbankportaal opgehaalde zitting voor vandaag is gepland (landspecifieke functie). Een klik opent altijd het termijnenoverzicht.</li>
+<li><b>Aan/uit-knop.</b> Sluit <span class="irs">IRONSTICK</span> onmiddellijk af, zonder bevestigingsvraag. De knop verwijdert de tijdelijke bestanden en de browsercache en beëindigt <span class="irs">IRONSTICK</span> en alle processen die het heeft gestart.</li>
+<li value="13"><b>Configuratie (tandwiel).</b> Opent het configuratiescherm met systeeminformatie, opslaglocatie, gebruikersprofiel, AI-instellingen, e-mailaccount, serververbinding, handtekening en briefhoofd.</li>
+</ol>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>IRONSTICK-browservenster (wereldbol)</h4>
+<ul>
+<li><b>Het browservenster openen.</b> De wereldbol tussen bel en tandwiel opent het <span class="irs">IRONSTICK</span>-browservenster, dat een rode rand heeft zodat u het altijd herkent. Zolang het geopend is, knippert de wereldbol rood. Is het venster al open, dan gebeurt er verder niets.</li>
+<li><b>Startpagina.</b> De startpagina legt het venster uit, biedt snelkoppelingen naar gangbare sociale netwerken en toont het laatste nieuws van de <a href="index_nl.html"><span class="irs">IRONSTICK</span>-website</a>, bijvoorbeeld een nieuwe programmaversie met de bijbehorende downloadlink.</li>
+<li><b>De AI-chat laten meelezen.</b> Ga zelf naar de gewenste pagina en schrijf dan in de chat bijvoorbeeld <i>„Bekijk het huidige browservenster”</i>. De chat leest de pagina als platte tekst (zonder afbeeldingen) en kan die in het gesprek gebruiken. Hij kan ook andere pagina's van dezelfde website openen en daar bestanden downloaden.</li>
+<li><b>Logins en beveiligingscontroles doet u zelf.</b> Logins en „Bent u een mens”-controles voert u zelf in dit venster uit. Het venster gebruikt een eigen browserprofiel, gescheiden van uw gebruikelijke browser; op sommige sites moet u zich daarom eenmalig aanmelden. Die logins blijven voor de volgende keer bewaard. Voor privé surfen gebruikt u uw normale browser.</li>
+</ul>
+
+<h4>Symbolen die alleen verschijnen wanneer nodig</h4>
+<ul>
+<li><b>Documentinbox (alleen Windows).</b> Een rood, geanimeerd inboxsymbool verschijnt zolang er onverwerkte documenten in de documentinbox wachten. De tooltip toont hoeveel. Klik erop om de documentregistratie te openen. Wacht er niets, dan verdwijnt het symbool.</li>
+<li><b>Notitiepin (<span class="irs">IRONSTICK</span> SERVER).</b> Hebben collega's op de server nieuwe notities bij een zaak achtergelaten, dan verschijnt een rode, geanimeerde pin. Elke klik brengt u naar de zaak met de volgende ongelezen notitie en opent het bijbehorende prikbord.</li>
+<li><b>AI-dienst niet beschikbaar.</b> Is een door u ingestelde externe AI-dienst op dit moment niet beschikbaar, dan verschijnt een rode cirkel met uitroepteken. Klik erop om per dienst de reden en het tijdstip van de volgende poging te zien. Is een dienst gestopt omdat het tegoed op is, dan brengt <i>Opwaarderen</i> u direct naar die dienst in de AI-configuratie.</li>
+<li><b>Verbonden desktop-AI (alleen Windows).</b> Werkt een externe desktop-AI-app met uw gegevens, dan verschijnt het symbool ervan rechts naast de resourceweergave. Het pulseert terwijl er een verzoek loopt. Wijs het aan om te zien welke zaken de app in deze sessie heeft gelezen en hoe ver, of ze de <span class="irs">IRONSTICK</span>-instructies heeft bevestigd en hoeveel regelovertredingen ze heeft begaan.</li>
+</ul>
+
+<h4>Algemeen gedrag</h4>
+<ul>
+<li><b>Het venster verplaatsen.</b> Sleep op de pc een willekeurig leeg gedeelte van de menubalk om het programmavenster te verplaatsen, net als de normale titelbalk van een venster.</li>
+<li><b>Vergrendeld bij lange opslagprocessen.</b> Terwijl een lang opslagproces loopt, zijn menubalk en kruimelpad grijs en reageren ze niet, en kunt u niet teruggaan. Het scherm eronder blijft zichtbaar, zodat u de voortgang kunt volgen.</li>
+<li><b>Op de Android-tablet.</b> In het midden van de balk staat in plaats van de programmanaam een rode knop <i>DESTROY</i>. Na een bevestiging verwijdert die alle <span class="irs">IRONSTICK</span>-gegevens definitief van de tablet, start de de-installatie van de app en sluit deze af. Dit kan niet ongedaan worden gemaakt. De tablet heeft geen dagbriefing en geen resourceweergave.</li>
+</ul>
+
+<h2 id="s1">1. Hoofdmenu</h2>
+<figure><img src="img/screens/1%20menu.png" alt="Hoofdmenu met de tabbladen Start, Agenda en Heatmap"><figcaption>Het hoofdmenu en de drie tabbladen: Start, Agenda en Heatmap.</figcaption></figure>
+<p class="scr-intro">Het hoofdmenu is het eerste scherm nadat u <span class="irs">IRONSTICK</span> hebt ontgrendeld. Bovenaan staan drie tabbladen:
+<b>Start</b> toont wat vandaag uw aandacht nodig heeft en opent elk onderdeel van het programma,
+<b>Agenda</b> zet alles wat in al uw zaken is gebeurd op datumvolgorde,
+en <b>Heatmap</b> toont hoe actief uw kantoor de afgelopen twaalf maanden was.</p>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Tabblad Start</h4>
+<ul>
+<li><b>Termijnen in één oogopslag.</b> De termijnenkaart toont een groen vinkje als er niets verstreken is, samen met het aantal termijnen in de komende 30 dagen. Verstreken termijnen verschijnen in het rood met de eerste vermeldingen. <i>Termijnenoverzicht</i> opent de volledige lijst.</li>
+<li><b>Verjaardagen van cliënten.</b> Op de verjaardag van een cliënt en twee dagen daarna verschijnt onder de termijnenkaart een taart. Klik op een naam om direct naar die cliënt te gaan.</li>
+<li><b>Stille zaken.</b> De tweede kaart telt de zaken zonder activiteit in de afgelopen 14 dagen en toont de eerste drie. Klik op de kaart om ze allemaal te zien, zodat geen enkele zaak uit het oog raakt.</li>
+<li><b>Elke module openen.</b> Elke tegel opent een onderdeel van het programma – cliënten, personen, instanties, documentregistratie, zoeken, agenda, dagjournaal, tekstverwerking, e-mailmonitor, tijdregistratie, wetten, back-up en meer. Elke tegel heeft een korte beschrijving van zijn functie.</li>
+<li><b>De tegels naar wens rangschikken.</b> Sleep een tegel aan de greep naar een nieuwe positie. De volgorde wordt op deze computer opgeslagen.</li>
+<li><b>Tags en beveiliging.</b> De tegel Tags toont uw gekleurde tags en opent het tagbeheer. De tegel Beveiliging toont de toestand van deze computer (systeem, stations, netwerk) en opent de configuratie.</li>
+<li><b>Audio.</b> De tegel Audio opent de audio-editor voor bestaande opnamen; de tweede link start een live-opname met AI-transcriptie.</li>
+<li><b>Tegels die alleen verschijnen wanneer nodig.</b> <i>Serverzaken</i> verschijnt alleen als de <span class="irs">IRONSTICK</span> SERVER is verbonden. Landspecifieke tegels verschijnen alleen als die functies zijn ingeschakeld. Sommige tegels die een pc nodig hebben (bijvoorbeeld documentregistratie en tekstverwerking), worden op de Android-tablet niet getoond.</li>
+</ul>
+
+<h4>Tabblad Agenda</h4>
+<ul>
+<li><b>Alles in één tijdlijn.</b> De feed beslaat drie dagen terug en tien dagen vooruit: kroniekvermeldingen, e-mails, zittingen, termijnen, processtukken, foto's en transcripties uit alle zaken. Vandaag wordt volledig getoond; de komende en de afgelopen dagen zijn elk in een balk ingeklapt. Scrol omhoog om de komende dagen één voor één te openen; klik op de balk van vandaag om terug te springen naar vandaag.</li>
+<li><b>Elke vermelding leidt verder.</b> De grijze nummers (cliënt / zaak / document) en de blauwe cliëntnaam en het groene zaaknummer openen elk het bijbehorende scherm. Pdf-documenten tonen tot vier paginavoorbeelden – klik op een ervan om door het hele document te bladeren. Afbeeldingen openen schermvullend met zoom; bijgevoegde bestanden openen in het <span class="irs">IRONSTICK</span>-browservenster. Een vermelding in het dagjournaal opent de volledige tekst.</li>
+<li><b>Snelkoppelingen en filters.</b> De balk links opent cliënten, personen, instanties, zoeken, agenda, termijnen, dagjournaal, e-mailmonitor en tijdregistratie. Vink <i>Termijnen en zittingen</i> aan om alleen tijdgebonden vermeldingen te zien, of <i>Voorbeeld uit</i> voor een compacte lijst met alleen tekst.</li>
+</ul>
+
+<h4>Tabblad Heatmap</h4>
+<ul>
+<li><b>Kerncijfers.</b> Vier tegels tonen de activiteit van de afgelopen twaalf maanden, het aantal actieve dagen, de drukste dag en het aantal termijnen en zittingen.</li>
+<li><b>Activiteitenkalender.</b> Elk vakje is een dag; hoe donkerder het groen, hoe meer er gebeurde. Een rode stip markeert een termijn, een gele stip een zitting. Wijs een dag aan om te zien wat er gebeurde (kroniekvermeldingen, processtukken, e-mails, chat, gewerkte minuten). Een klik op een van de laatste drie dagen opent die dag in de agenda.</li>
+<li><b>Per cliënt.</b> De keuzelijst beperkt de hele heatmap tot één cliënt.</li>
+<li><b>Opgeleefde zaken.</b> Onder de kalender staan zaken die plotseling actief werden. Klik op het zaaknummer om de zaak te openen, of op de cliëntnaam om de zaken van die cliënt te zien.</li>
+</ul>
+
+<h4>Meldingen bij het opstarten</h4>
+<ul>
+<li><b>Dagbriefing.</b> Bij de eerste start van de dag vraagt <span class="irs">IRONSTICK</span> of u de dagbriefing wilt horen – een kort gesproken overzicht van uw dag.</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER.</b> Wordt de server gevonden, maar heeft deze werkplek er geen toegang toe, dan wijst een melding u daar bij elke programmastart op; u kunt gewoon verder werken.</li>
+</ul>
+
+<h2 id="s2">2. Configuratie</h2>
+
+<h3>Systeem en database</h3>
+<figure><img src="img/screens/2%20konfig%201-2.png" alt="Configuratiescherm met de geopende kaarten Systeem en Database"><figcaption>De configuratielijst met de geopende kaarten Systeem en Database.</figcaption></figure>
+<p class="scr-intro">De configuratie (tandwiel in de menubalk) brengt alle instellingen van <span class="irs">IRONSTICK</span> samen op één pagina als een lijst met kaarten. Klik op de titel van een kaart om die te openen, en nogmaals om die te sluiten. Er is altijd maar één kaart geopend.
+De kaart <b>Systeem</b> toont de gegevens van deze computer voor de support. De kaart <b>Database</b> toont hoeveel gegevens u hebt en waar die op de schijf zijn opgeslagen.
+De programmaversie en de licentiesleutel staan onderaan de pagina.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Systeem (alleen Windows)</b></p>
+<ul>
+<li><b>De computer in één oogopslag.</b> Vier tegels tonen processor, geïnstalleerd geheugen, grafische kaart en opslagruimte. Daaronder staan dezelfde apparaat- en Windows-gegevens die Windows toont onder <i>Instellingen › Systeem › Info</i>. U kunt elke waarde selecteren en kopiëren, bijvoorbeeld voor een supportaanvraag.</li>
+<li><b>Stations.</b> Een lijst toont elk station met capaciteit, gebruikte ruimte en fabrikant. Klik op een station om het in Windows Verkenner te openen.</li>
+<li><b>Snelle toegang tot Windows.</b> De knoppen onderaan openen de Windows-instellingen, de eigenschappen van de ethernetnetwerkverbinding, een opdrachtvenster dat de volledige netwerkconfiguratie toont, en de volumemixer.</li>
+</ul>
+<p class="grp"><b>Database</b></p>
+<ul>
+<li><b>Uw gegevens in cijfers.</b> De kaarttitel toont de grootte van de database. Daarin ziet u het aantal cliënten, zaken, bewijsvermeldingen, documenten, entiteiten, bestanden, logboekvermeldingen en logins, en de totale en vrije ruimte van het station.</li>
+<li><b>Momenteel in gebruik.</b> Een grijs vak toont de map waarmee <span class="irs">IRONSTICK</span> op dat moment werkt. Alle gegevens staan in deze ene map: database, licentie, configuratie en elk bestand.</li>
+<li><b>De opslaglocatie wijzigen (pc).</b> Met <i>Map kiezen</i> kiest u een nieuwe opslaglocatie, bijvoorbeeld een USB-stick of een ander station. De map <i>IRONSTICK</i> wordt daar automatisch aangemaakt. Klik op <i>Opslaan</i> om de verhuizing te starten. <span class="irs">IRONSTICK</span> laat u eerst weten hoeveel gegevens er worden verplaatst. Daarna test het het gekozen station (bijvoorbeeld snelheid, vrije ruimte en schrijfbeveiliging) en gaat het alleen verder als het station de test doorstaat. Wanneer u bevestigt, sluit <span class="irs">IRONSTICK</span> af en verplaatst het de gegevens bij de volgende start.</li>
+<li><b>Gegevens al op de nieuwe locatie.</b> Bevat de gekozen map al <span class="irs">IRONSTICK</span>-gegevens, dan wordt niets zonder bevestiging overschreven. Beide kopieën worden vergeleken, en u kiest of de daar gevonden kopie wordt gebruikt of door uw huidige gegevens wordt vervangen.</li>
+<li><b>Op de Android-tablet.</b> De gegevensmap ligt vast (het is de map waarnaar de USB-synchronisatie kopieert), zodat daar niets te kiezen valt.</li>
+</ul>
+<p class="grp"><b>Gebruiker (alleen pc)</b></p>
+<ul>
+<li><b>Uw profiel.</b> De derde kaart bevat uw gegevens: bedrijf, functie, aanhef, voor- en achternaam, adres, land, telefoon, mobiele telefoon, e-mail, Facebook, geboortedatum en welke berichtenapps u gebruikt (WhatsApp, Signal, Telegram, Viber). Klik op <i>Opslaan</i> om ze op te slaan. Als u de <span class="irs">IRONSTICK</span> SERVER gebruikt, wordt uw geboortedatum ermee gedeeld voor verjaardagswensen.</li>
+<li><b>Velden uit uw licentie.</b> Bij een actieve licentie komen bedrijf, aanhef en naam uit de licentiesleutel en kunnen ze hier niet worden gewijzigd.</li>
+<li><b>Uw nummer.</b> Uw gebruikersnummer staat tussen haakjes naast de kaarttitel. Het kopieersymbool zet het op het klembord, bijvoorbeeld voor een licentieaanvraag.</li>
+<li><b>Programmataal.</b> Kies de taal van het programma en sla op. <span class="irs">IRONSTICK</span> laadt dan opnieuw in de nieuwe taal en keert terug naar het hoofdmenu. Een geopend chatvenster sluit en opent de volgende keer in de nieuwe taal.</li>
+</ul>
+
+<h3>Desktop-AI en AI-configuratie</h3>
+<figure><img src="img/screens/2%20konfig%203-4.png" alt="Configuratie met de geopende kaarten AI met lokale MCP-server en AI-configuratie"><figcaption>De kaarten voor het koppelen van een desktop-AI-app en voor de externe AI-diensten.</figcaption></figure>
+<p class="scr-intro">Deze twee kaarten bepalen hoe AI met uw gegevens werkt. <b>AI met lokale MCP-server</b> geeft een op deze computer geïnstalleerde AI-app directe toegang tot uw <span class="irs">IRONSTICK</span>-gegevens. Dit is optioneel en niet nodig voor de werking van het programma.
+In de <b>AI-configuratie</b> voert u uw toegangssleutels in voor de externe AI-diensten die <span class="irs">IRONSTICK</span> gebruikt voor zijn AI-functies en achtergrondtaken.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>AI met lokale MCP-server</b></p>
+<ul>
+<li><b>Wanneer de kaart verschijnt.</b> De kaart wordt alleen op de pc getoond, en alleen als ten minste één desktop-AI-app bij uw <a href="download_nl.html">licentie</a> hoort.</li>
+<li><b>Toegang toestaan.</b> De eerste schakelaar bepaalt of de verbonden desktop-AI überhaupt toegang tot <span class="irs">IRONSTICK</span> mag hebben. Staat hij uit, dan kan de externe connector het programma niet bereiken.</li>
+<li><b>Navigatie toestaan.</b> De tweede schakelaar laat de desktop-AI het programma besturen, bijvoorbeeld om documenten te openen of een export te starten. Hij werkt alleen als de toegang is toegestaan.</li>
+<li><b>Een app instellen.</b> Voor elke gelicentieerde <a href="manualbridge_nl.html">desktop-AI-app</a> is er een gekleurde knop <i>… instellen</i>. Een klik registreert <span class="irs">IRONSTICK</span> in die app en legt de overige stappen uit, meestal een herstart van de app. Bij Qwen Desktop wordt de instellingstekst naar het klembord gekopieerd en plakt u die in het instellingenvenster van de app.</li>
+<li><b>Skill-plug-ins.</b> <i>IRONSTICK-skill-plug-in aanmaken</i> en <i>… plug-in aanmaken</i> maken een skillpakket voor de desktop-AI-app. Een melding toont waar het bestand is opgeslagen, zodat u het naar de app kunt slepen.</li>
+<li><b>Desktop-AI herstarten (Windows).</b> De lichtrode knop sluit de vermelde desktop-AI-apps en start ze na uw bevestiging opnieuw. Gebruik deze als een app de verbinding met <span class="irs">IRONSTICK</span> heeft verloren.</li>
+<li><b>Links.</b> De links onder de knoppen openen de downloadpagina, de gebruiksvoorwaarden en de privacyverklaring van elke app in het <span class="irs">IRONSTICK</span>-browservenster.</li>
+</ul>
+<p class="grp"><b>AI-configuratie</b></p>
+<ul>
+<li><b>Automatische volgorde.</b> U kiest niet één afzonderlijke dienst. Elke dienst waarvoor een sleutel is opgeslagen, wordt automatisch gebruikt, in een vaste volgorde, de voordeligste eerst. Valt een dienst uit, dan geeft <span class="irs">IRONSTICK</span> het verzoek door aan de volgende. De uitgevallen dienst wordt na een wachttijd die van de fout afhangt opnieuw geprobeerd; hij wordt alleen voor de rest van de dag overgeslagen als het tegoed op is of de oorzaak onbekend is.</li>
+<li><b>Statusindicator.</b> De ronde indicator voor elke dienst toont de plaats ervan in de volgorde. Groen betekent beschikbaar, rood op dit moment niet beschikbaar, en grijs betekent dat er geen sleutel is opgeslagen. Wijs een rode indicator aan om de reden en het tijdstip van de volgende poging te zien.</li>
+<li><b>Gratis diensten voor achtergrondtaken.</b> De diensten boven de dikke lijn zijn gratis aanbiedingen die alleen voor achtergrondtaken worden gebruikt, zoals de prioritering van e-mails, de monitor voor gegevensconsistentie, de dagbriefing en het situatiebeeld. Hun indicator toont een klok. Elke dienst heeft een eigen aan/uit-schakelaar, en een rode waarschuwingstekst herinnert u eraan dat uw gegevens naar deze aanbieder gaan. Lees diens voorwaarden met het oog op gegevensbescherming (AVG) zorgvuldig voordat u de dienst inschakelt.</li>
+<li><b>Betaalde diensten.</b> De diensten onder de dikke lijn worden in de getoonde volgorde gebruikt. Met hun schakelaar <i>Red/Blue Team toestaan</i> leest de AI een afgerond processtuk een tweede keer als kritische controleur en markeert ze alles wat niet door de tekst wordt gedekt. Wezenlijke bevindingen houden het resultaat tegen. De schakelaar is pas te gebruiken als er voor die dienst een sleutel is opgeslagen.</li>
+<li><b>Een sleutel invoeren.</b> Plak de toegangssleutel in het sleutelveld en klik op <i>Opslaan</i>. Het oogsymbool toont of verbergt de sleutel. Volgorde en indicatoren worden direct bijgewerkt.</li>
+<li><b>Accountlinks.</b> Onder elke dienst staan links om een account en een toegangssleutel aan te maken, om het saldo op te vragen (bij sommige diensten) en naar de gebruiksvoorwaarden en de privacyverklaring. Ze openen in het <span class="irs">IRONSTICK</span>-browservenster.</li>
+</ul>
+
+<h3>E-mailmonitor en achtergrondtaken</h3>
+<figure><img src="img/screens/2%20konfig%205-6.png" alt="Configuratie met de geopende kaarten E-mailmonitor en Achtergrondtaken"><figcaption>De instellingen van het e-mailaccount en de schakelaars voor automatische achtergrondtaken.</figcaption></figure>
+<p class="scr-intro">In de <b>e-mailmonitor</b> koppelt u uw mailbox, zodat <span class="irs">IRONSTICK</span> nieuwe e-mails kan ophalen en aan uw zaken kan toewijzen.
+De <b>achtergrondtaken</b> brengen de automatisch lopende taken samen, elk met een eigen schakelaar, zodat u bepaalt wat vanzelf mag lopen en welke taken externe AI mogen gebruiken.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>E-mailmonitor</b></p>
+<ul>
+<li><b>Controle op de achtergrond.</b> De schakelaar bovenaan zet de automatische e-mailcontrole aan of uit. Staat hij aan, dan wordt de post bij het starten van het programma en daarna elke vijf minuten gecontroleerd, en verschijnt het e-mailsymbool in de menubalk. Staat hij uit, dan gebeurt geen van beide.</li>
+<li><b>Uw maildienst kiezen.</b> Kies uw provider uit de lijst (bijvoorbeeld Gmail, Outlook / Hotmail, Yahoo, GMX, Web.de, T-Online, Bluewin of ProtonMail), en server, poort en versleuteling worden voor u ingevuld. Voor elke andere provider kiest u <i>Overig</i> en vult u de gegevens handmatig in.</li>
+<li><b>Login.</b> Voer uw gebruikersnaam of e-mailadres en uw wachtwoord in. Veel providers vereisen een apart app-wachtwoord. Het oogsymbool toont of verbergt het.</li>
+<li><b>Mail-URL-sjabloon.</b> Het webadres waarmee een e-mail in uw webmail wordt geopend. De plaatshouders <i>{email}</i> en <i>{subject}</i> worden automatisch ingevuld.</li>
+<li><b>Opslaan en testen.</b> <i>Opslaan</i> slaat de instellingen op. <i>Verbinding testen</i> meldt zich aan bij uw mailbox en meldt het aantal berichten in uw inbox of de fout.</li>
+</ul>
+<p class="grp"><b>Achtergrondtaken</b></p>
+<ul>
+<li><b>Zaakbeschrijvingen automatisch bijwerken (externe AI).</b> Brengt de zaakbeschrijvingen eenmaal per dag in lijn met nieuwe documenten en afspraken. Dit gebruikt externe AI. Door het in te schakelen stemt u uitdrukkelijk in met de verwerking door externe AI.</li>
+<li><b>Rechtbankportaal automatisch raadplegen.</b> Haalt nieuwe dossiergegevens en zittingsdata op uit het nationale rechtbankportaal. Het haalt alleen gegevens op en gebruikt geen AI. Deze landspecifieke schakelaar verschijnt alleen als de landfuncties voor Roemenië actief zijn.</li>
+<li><b>E-mails automatisch ophalen.</b> Controleert op de achtergrond op nieuwe e-mails en wijst ze toe aan zaken; externe AI beoordeelt alleen de urgentie ervan. Dit is dezelfde schakelaar als bovenaan in de kaart E-mailmonitor.</li>
+</ul>
+
+<h3><span class="irs">IRONSTICK</span> SERVER en handtekeningen</h3>
+<figure><img src="img/screens/2%20konfig%207-8.png" alt="Configuratie met de geopende kaarten IRONSTICK SERVER en Handtekeningen"><figcaption>De verbinding met de <span class="irs">IRONSTICK</span> SERVER en het handtekeningveld.</figcaption></figure>
+<p class="scr-intro">De <b><span class="irs">IRONSTICK</span> SERVER</b> verbindt deze werkplek met de <span class="irs">IRONSTICK</span> SERVER — de gedeelde server van uw kantoor — en toont wie er verder nog op werkt.
+In <b>Handtekeningen</b> slaat u uw handgeschreven handtekening op, die <span class="irs">IRONSTICK</span> in uw documenten kan invoegen. Onder deze kaarten volgen het briefhoofdsjabloon, het loginlogboek en de versieregel.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b><span class="irs">IRONSTICK</span> SERVER</b></p>
+<ul>
+<li><b>Serververbinding.</b> De schakelaar zet de verbinding aan of uit. Er wordt alleen naar de server gezocht zolang hij aan staat. De statusregel toont of u verbonden bent, of toegang is aangevraagd en op goedkeuring wacht, of dat er geen server is gevonden. De rest van de kaart is grijs totdat u verbonden bent.</li>
+<li><b>Serverpagina's.</b> Bij een bestaande verbinding opent een klik op de groene statusregel de webpagina van de server. Twee knoppen openen de beheerpagina van de serveropslag en het beheer van de <span class="irs">IRONSTICK</span> SERVER. Elke pagina vraagt om eigen inloggegevens.</li>
+<li><b>Gebruikers.</b> De lijst toont elke op de server geregistreerde gebruiker. Een groene stip betekent dat de gebruiker online is.</li>
+</ul>
+<p class="grp"><b>Handtekeningen (alleen pc)</b></p>
+<ul>
+<li><b>Uw handtekening tekenen.</b> Onderteken in het witte veld met de muis, een pen of een vinger en klik daarna op <i>Opslaan</i>. <i>Handtekeningveld wissen</i> wist de tekening, zodat u opnieuw kunt beginnen.</li>
+<li><b>Een handtekening uploaden.</b> <i>Afbeelding uploaden (JPG/PNG)</i> slaat in plaats daarvan een gescande handtekening op.</li>
+<li><b>Opgeslagen handtekening.</b> Een groen vinkje en een klein voorbeeld tonen de momenteel opgeslagen handtekening. <i>Verwijderen</i> verwijdert die.</li>
+</ul>
+<p class="grp"><b>Briefhoofdsjabloon (alleen pc)</b></p>
+<ul>
+<li><b>Uw briefhoofd uploaden.</b> <i>Sjabloon uploaden</i> neemt een staande A4-pdf met het briefhoofd van uw kantoor over. Sleep in het venster dat opent de rode lijn (of klik) naar de onderrand van het briefhoofd en sla daarna op. De tekst van uw processtukken begint onder deze lijn.</li>
+<li><b>Controleren en aanpassen.</b> Een voorbeeld toont het opgeslagen briefhoofd. De schakelaar <i>Briefhoofd alleen op de eerste pagina</i> drukt het alleen op de eerste pagina af in plaats van op elke pagina. <i>Sjabloon verwijderen</i> verwijdert het.</li>
+</ul>
+<p class="grp"><b>Loginlogboek en versie</b></p>
+<ul>
+<li><b>Loginlogboek.</b> De laatste kaart toont de laatste 50 logins, de nieuwste eerst: tijd, gebruikersnummer, extern en intern IP-adres, plaats, land, apparaat, besturingssysteem, browser en een beveiligingsbeoordeling. U kunt de tekst selecteren of de hele tabel met het kopieersymbool kopiëren.</li>
+<li><b>Versie.</b> De regel onderaan de pagina toont de versie van het Windows-programma en van de Android-app die in uw gegevensmap staan.</li>
+<li><b>Licentiesleutel (pc).</b> Klik op <i>Licentiesleutel</i> om een nieuwe of verlengde sleutel in te voeren, en klik op <i>Activeren</i>. Is de sleutel ongeldig, verlopen, nog niet geldig of behoort hij toe aan een andere gebruiker, dan krijgt u de reden te zien. <i>Licentiesleutel aanvragen</i> bereidt een kant-en-klare aanvraag voor. Na de activering stelt u uw authenticator-app opnieuw in door de getoonde QR-code te scannen, en de gelicentieerde modules worden direct vrijgegeven.</li>
+</ul>
+
+<h2 id="s3">3. Cliënten</h2>
+<figure><img src="img/screens/3%20clients.png" alt="Cliëntenlijst met zoekveld, knoppen voor importeren en nieuwe cliënt, een QR-codevenster en een socialemediavenster"><figcaption>De cliëntenlijst, met het QR-codevenster en het socialemediavenster die vanuit een regel worden geopend.</figcaption></figure>
+<p class="scr-intro">In de cliëntenlijst worden al uw cliënten bijgehouden. Elke regel toont referentienummer, naam, plaats, telefoon, sociale media, e-mail en het aantal zaken van de cliënt.
+Van hieruit maakt u nieuwe cliënten aan, importeert u bestaande contacten, drukt u de lijst af en opent u de zaken van een cliënt.
+De afbeelding toont ook het QR-codevenster, dat via het WhatsApp-symbool wordt geopend, en het socialemediavenster, dat via het socialemediasymbool wordt geopend.</p>
+
+<ol class="marks">
+<li><b>Zoeken.</b> Verfijnt de lijst terwijl u typt. Doorzoekt namen, telefoonnummers en e-mailadressen; een sterretje (*) werkt als jokerteken.</li>
+<li><b>Cliënt importeren.</b> Importeert cliënten uit een CSV-bestand of een vCard-bestand.</li>
+<li><b>Nieuwe cliënt.</b> Opent een leeg cliëntformulier.</li>
+<li><b>Lijst afdrukken.</b> Maakt een pdf van de hele cliëntenlijst, die u opslaat in uw map Documenten of in Google Drive.</li>
+<li><b>Cliëntreferentie.</b> Het paarse nummer (bijvoorbeeld <i>@C0000001</i>) is het referentienummer van de cliënt. Klik erop om het naar het klembord te kopiëren, bijvoorbeeld om het in de chat of een document te plakken.</li>
+<li><b>Zaken.</b> Het aantal zaken van deze cliënt. Een rode wolk betekent dat ten minste één zaak via de <span class="irs">IRONSTICK</span> SERVER wordt gedeeld; een rode vlam betekent dat ten minste één zaak onlangs is opgeleefd.</li>
+<li><b>Bewerken.</b> Opent het cliëntformulier met de gegevens van deze cliënt.</li>
+<li><b>Verwijderen.</b> Verwijdert de cliënt na een bevestiging.</li>
+</ol>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Een cliënt vinden</h4>
+<ul>
+<li><b>Zoeken tijdens het typen.</b> De zoekfunctie controleert voor- en achternamen afzonderlijk en vindt ook gelijkklinkende namen, zodat kleine tikfouten toch een resultaat opleveren. Accenten worden genegeerd, dus „Francois” vindt ook „François”.</li>
+<li><b>Telefoon en e-mail.</b> Typ een deel van een telefoonnummer (spaties en streepjes maken niet uit) of een deel van een e-mailadres. Typt u meerdere woorden, dan moet een cliënt aan alle woorden voldoen.</li>
+<li><b>De zoekopdracht wissen.</b> Het kleine kruisje in het zoekveld toont weer de volledige lijst. Komt er niets overeen, dan meldt de lijst dat.</li>
+<li><b>Het dringendste eerst.</b> Cliënten met een opgeleefde zaak staan bovenaan, dan cliënten met de meeste zaken, dan die met de recentste activiteit, dan alfabetisch.</li>
+<li><b>Meerdere pagina's.</b> Bij meer dan 25 cliënten wordt de lijst in pagina's verdeeld; de paginanavigatie verschijnt dan boven en onder de lijst.</li>
+<li><b>Verjaardagen.</b> Op de verjaardag van een cliënt en twee dagen daarna verschijnt voor de naam een kleine taart. Bent u hier gekomen door in het hoofdmenu op een verjaardagsnaam te klikken, dan toont de lijst alleen de cliënten die op dat moment jarig zijn.</li>
+</ul>
+
+<h4>Met een cliëntregel werken</h4>
+<ul>
+<li><b>De zaken openen.</b> Klik ergens op een regel om de zakenlijst van die cliënt te openen.</li>
+<li><b>Bellen, WhatsApp of e-mail via QR-code.</b> Klik op het telefoonnummer, het groene WhatsApp-symbool of het e-mailadres. Een venster toont een QR-code die u met uw telefoon kunt scannen om te bellen, WhatsApp te openen of een e-mail te schrijven. Een klik op de QR-code opent het bijbehorende programma op deze computer; is er geen, dan wordt de waarde naar het klembord gekopieerd.</li>
+<li><b>Sociale media.</b> Het blauwe symbool in de kolom <i>Social</i> verschijnt alleen als er profielen zijn vastgelegd. Het opent een venster met de profielen op Facebook, Instagram, TikTok, LinkedIn en X. Het openen-symbool toont het profiel in het <span class="irs">IRONSTICK</span>-browservenster (op de tablet: in de systeembrowser); de kopieerknop kopieert het adres.</li>
+<li><b>Het referentienummer kopiëren.</b> Een klik op het paarse <i>@C</i>-nummer kopieert het, bijvoorbeeld om het in een chat of een document te plakken.</li>
+<li><b>Een cliënt verwijderen.</b> Het kruisje opent een bevestiging. Heeft de cliënt nog zaken, documenten of zaakkoppelingen, dan somt een gele waarschuwing die vóór de bevestiging op. Notities die de AI over deze cliënt heeft onthouden, worden eveneens verwijderd.</li>
+</ul>
+
+<h4>De cliëntenlijst afdrukken</h4>
+<ul>
+<li><b>Pdf van alle cliënten.</b> De afdrukknop in de kaartkop maakt een cliëntenlijst als pdf. In het exportvenster kunt u die opslaan in uw map Documenten of, als Google Drive op deze computer is geïnstalleerd, in een Google Drive-map.</li>
+</ul>
+
+<h4>Een cliënt aanmaken of bewerken</h4>
+<ul>
+<li><b>Basisgegevens.</b> Naam (verplicht veld), persoonlijk identificatienummer, nationaliteit, taal en verjaardag. Het kiezen van een nationaliteit selecteert ook de bijbehorende taal vooraf. De verjaardag wordt uit een kalender gekozen en kan met het kruisje worden gewist.</li>
+<li><b>Adres.</b> Straat, postcode, district/regio, plaats en land.</li>
+<li><b>Geocoördinaten.</b> Zet de schakelaar aan om de cliënt op een kaart te plaatsen. <span class="irs">IRONSTICK</span> zoekt het adres automatisch op; u kunt de zoektekst corrigeren en opnieuw zoeken, breedte- en lengtegraad zelf intypen of gewoon op de kaart klikken om het punt te plaatsen.</li>
+<li><b>Contact.</b> Telefoon (vink <i>WhatsApp</i> aan als het nummer WhatsApp gebruikt), e-mail en een vrij tekstveld voor details. Een ongeldig e-mailadres wordt vóór het opslaan gemeld.</li>
+<li><b>Bankgegevens en sociale media.</b> Naam van de bank en IBAN; adressen van de profielen op Facebook, Instagram, TikTok, LinkedIn en X.</li>
+<li><b>Opslaan of annuleren.</b> Met de knoppen onderaan slaat u de cliënt op of verlaat u het formulier zonder wijzigingen. Bij het bewerken worden onder de titel het cliëntnummer en de aanmaakdatum getoond.</li>
+</ul>
+
+<h4>Cliënten importeren</h4>
+<ul>
+<li><b>Een bestand neerzetten.</b> <i>Cliënt importeren</i> opent een venster met een neerzetvlak. Sleep er een CSV-bestand of een vCard-bestand naartoe (bijvoorbeeld geëxporteerd uit uw telefoon of mailprogramma).</li>
+<li><b>Kolommen toewijzen (alleen CSV).</b> Een tweede venster toont elke kolom van het bestand met een voorbeeldwaarde en het veld waarin die terechtkomt. De toewijzing is vooraf ingevuld; wijzig elk veld via de keuzelijst of kies ervoor een kolom niet te importeren. <i>Verder</i> wordt beschikbaar zodra er een kolom aan de naam is toegewezen.</li>
+<li><b>Eén contact.</b> Bevat het bestand één adres, dan opent het formulier <i>Nieuwe cliënt</i> al ingevuld, zodat u het zelf kunt controleren, aanvullen en opslaan.</li>
+<li><b>Meerdere contacten.</b> U krijgt een lijst met een selectievakje per contact; alle zijn vooraf aangevinkt. Contacten die al als cliënt bestaan, zijn niet aangevinkt en als al aanwezig gemarkeerd. <i>Importeren</i> maakt alle aangevinkte cliënten in één stap aan en toont hoeveel er zijn toegevoegd.</li>
+<li><b>Als er iets misgaat.</b> Kan het bestand niet worden gelezen of bevat het geen adres, dan laat het venster u dat weten. Mislukt de import, dan wordt er niets gewijzigd.</li>
+</ul>
+
+<h2 id="s4">4. Zaken</h2>
+
+<h3>De zakenlijst van een cliënt</h3>
+<figure><img src="img/screens/4%20cases.png" alt="Zakenlijst van een cliënt, gegroepeerd in feitencomplexen, met het Nucleu-venster en het Snakes-venster van een feitencomplex"><figcaption>De zaken van een cliënt, gegroepeerd in feitencomplexen, met de Nucleu- en Snakes-vensters van een feitencomplex.</figcaption></figure>
+<p class="scr-intro">Dit scherm toont alle zaken van een cliënt. Samenhangende zaken worden gegroepeerd in <b>feitencomplexen</b> (bijvoorbeeld alle procedures tegen dezelfde tegenpartij); zaken die nog niet aan een feitencomplex zijn toegewezen, verschijnen onder <i>Niet toegewezen zaken</i>.
+U kunt feitencomplexen aanmaken, zaken er met slepen en neerzetten in onderbrengen en prioriteit, status en slagingskansen van elke zaak in één oogopslag zien.
+De afbeelding toont ook het Nucleu-venster en het Snakes-venster, die via de twee symbolen in de titelbalk van een feitencomplex worden geopend.</p>
+
+<ol class="marks">
+<li><b>Notities.</b> Opent het notitiebord voor deze cliënt.</li>
+<li><b>Afdrukken.</b> Maakt een pdf-overzicht van alle zaken van deze cliënt, met of zonder AI-samenvatting van de recentste stand van zaken.</li>
+<li><b>Nieuw feitencomplex.</b> Maakt een nieuwe groep voor samenhangende zaken aan.</li>
+<li><b>Universum.</b> Toont de zaken van de cliënt als netwerk, als 3D-kaart of als 2D-kaart. Beschikbaar zodra de cliënt drie of meer zaken heeft.</li>
+<li><b>Nieuwe zaak.</b> Opent het formulier voor een nieuwe zaak van deze cliënt.</li>
+<li><b>Feitencomplex.</b> De titelbalk van een feitencomplex. Klik erop om het feitencomplex in of uit te klappen. De twee symbolen in het midden openen de Nucleu en de Snakes van het feitencomplex; rechts ziet u het aantal zaken, Hernoemen (potlood) en Verwijderen (kruisje).</li>
+<li><b>Nucleu van het feitencomplex.</b> Een algemene AI-instructie die geldt voor elke zaak van dit feitencomplex. Schrijf hier waarmee elk document dat voor deze zaken wordt opgesteld rekening moet houden, en sla daarna op.</li>
+<li><b>Snakes van het feitencomplex.</b> De Snakes van alle zaken in dit feitencomplex, in lijstvolgorde. Klik op een zaak om die in het tabblad Snake te openen.</li>
+<li><b>Sleepgreep.</b> Pak de gestippelde greep en sleep de zaak naar een feitencomplex, of zet die neer op een bestaande zaak om er een subzaak van te maken.</li>
+<li><b>Uit het feitencomplex verwijderen.</b> Haalt de zaak uit dit feitencomplex. De zaak zelf blijft bestaan en verschijnt onder <i>Niet toegewezen zaken</i>, tenzij die ook in een ander feitencomplex zit.</li>
+<li><b>Slagingskansen.</b> Een kleine meter die het resultaat van de recentste AI-beoordeling van de zaak toont. Wijs ernaar om het percentage te lezen; klik erop om de zaak in het tabblad Beoordeling te openen.</li>
+</ol>
+
+<h4>Wat u hier kunt doen</h4>
+
+<p class="grp"><b>Een zaakregel lezen</b></p>
+<ul>
+<li><b>Een zaak openen.</b> Klik op een regel om de zaak in het tabblad Kroniek te openen.</li>
+<li><b>Nummers en tags.</b> Elke regel begint met het cliënt-/zaaknummer, gevolgd door blauwe tags voor land, rechtsgebied en procedurestadium. Wijs een tag aan om de volledige naam te zien.</li>
+<li><b>Zaaknummer in oranje.</b> Is de zaak in een nationaal rechtbankportaal gevonden (landspecifieke functie), dan wordt het zaaknummer van de rechtbank in oranje getoond. Klik erop om de portaldetails te zien: rechtbank, afdeling, onderwerp, partijen, rechtsmiddelen en alle zittingen met hun uitkomsten. Van daaruit kunt u ook de zaak openen.</li>
+<li><b>Titel en tegenpartij.</b> Na de zaaktitel volgt de tegenpartij in grijs; bij meerdere tegenpartijen wordt alleen de eerste getoond, plus het aantal overige. Inactieve zaken worden lichtgrijs weergegeven.</li>
+<li><b>Vlam.</b> Een rode vlam markeert een zaak die onlangs is opgeleefd.</li>
+<li><b>Prioriteit en status.</b> De eerste pil toont de prioriteit (Dringend en Hoog in rood, Normaal in grijs, Laag in groen); de tweede toont de status (Actief in groen, Gepauzeerd in rood, Inactief in grijs).</li>
+<li><b>Zaken van een andere cliënt.</b> Hoort een zaak bij een andere cliënt van u die in de procedure aan dezelfde kant staat, dan toont de regel <i>Origineel dossier</i> met het nummer en de naam van die cliënt en de rol in een amberkleurige pil. Klik op het nummer om naar de zakenlijst van die cliënt te gaan.</li>
+<li><b>Rode wolk.</b> Verschijnt als de <span class="irs">IRONSTICK</span> SERVER is verbonden en de zaak daar wordt gedeeld. Klik erop om de zaak in het tabblad Zaak te openen.</li>
+</ul>
+
+<p class="grp"><b>Zaken in feitencomplexen ordenen</b></p>
+<ul>
+<li><b>Aanmaken, hernoemen, verwijderen.</b> <i>Nieuw feitencomplex</i> vraagt om een naam. Het potlood in de titelbalk hernoemt het feitencomplex; het kruisje verwijdert het na een bevestiging. Het verwijderen van een feitencomplex verwijdert nooit de zaken ervan; die keren gewoon terug naar <i>Niet toegewezen zaken</i>, tenzij ze ook in een ander feitencomplex zitten.</li>
+<li><b>In- en uitklappen.</b> Klik op de titelbalk van een feitencomplex om de zaken ervan te verbergen of te tonen.</li>
+<li><b>Een zaak verplaatsen.</b> Sleep een zaak aan de gestippelde greep naar een ander feitencomplex. Het feitencomplex waarover u sleept, licht blauw op.</li>
+<li><b>Een subzaak maken.</b> Zet een zaak neer op het midden van een andere zaak om die daaronder te plaatsen; subzaken worden ingesprongen getoond. Zet die neer boven of onder een zaak (een blauwe lijn toont de plek) of op een leeg deel van het feitencomplex om die als hoofdzaak te behouden.</li>
+<li><b>Dezelfde zaak in twee feitencomplexen.</b> Sleep in plaats van de greep het symbool met de dubbele pagina om de zaak aan nog een feitencomplex toe te voegen. Die verschijnt dan in beide.</li>
+<li><b>Een zaak eruit halen.</b> Gebruik het ontkoppelsymbool in de regel of sleep de zaak aan de greep naar <i>Niet toegewezen zaken</i>.</li>
+</ul>
+
+<p class="grp"><b>Werkmappen</b></p>
+<ul>
+<li><b>Mappen per feitencomplex.</b> Onder elk feitencomplex klapt <i>Werkmappen</i> een lijst met mappen uit. <i>Nieuwe map</i> maakt er een aan; elke map kan worden hernoemd of verwijderd.</li>
+<li><b>Inhoud.</b> Vermeldingen die u vanuit een zaak aan een werkmap toewijst, worden met datum, titel en zaaknummer opgesomd. Het kruisje naast een vermelding haalt die uit de map.</li>
+</ul>
+
+<p class="grp"><b>Nucleu en Snakes van een feitencomplex</b></p>
+<ul>
+<li><b>Nucleu.</b> Het atoomsymbool opent de Nucleu van het feitencomplex: een tekst van maximaal 20.000 tekens die de AI vertelt waarop ze bij elke zaak van dit feitencomplex moet letten. Bij elke keer opslaan wordt een nieuwe versie bewaard. Een zaak kan daarnaast een eigen Nucleu hebben, die in de zaak zelf wordt ingesteld. Sluit u het venster met niet-opgeslagen wijzigingen, dan vraagt <span class="irs">IRONSTICK</span> of die moeten worden verworpen.</li>
+<li><b>Snakes.</b> Het slangsymbool opent de Snakes van alle zaken van het feitencomplex. Een Snake legt de beweringen van de wederpartij vast die door documenten worden weerlegd, met de vindplaats van elke bewering en de documenten die haar tegenspreken. Klik op een zaaktitel om die zaak in het tabblad Snake te openen. Heeft nog geen enkele zaak een Snake, dan meldt het venster dat.</li>
+</ul>
+
+<p class="grp"><b>Afdrukken, nieuwe zaak en meer</b></p>
+<ul>
+<li><b>Zakenoverzicht als pdf.</b> De afdrukknop vraagt of u het overzicht wilt met of zonder de door de AI opgestelde recentste stand van zaken. Kiest u de AI-versie en gebruikt die externe AI, dan wordt u eerst om uw toestemming gevraagd. De pdf wordt daarna opgeslagen in uw map Documenten of in Google Drive.</li>
+<li><b>Nieuwe zaak.</b> Het formulier vraagt om een titel (verplicht veld), prioriteit en status. Vink <i>Eiser is de cliënt</i> aan om de naam van de cliënt automatisch in te vullen, of typ een andere eiser in, en leg de tegenpartij vast.</li>
+<li><b>Andere cliënten in dezelfde procedure.</b> Hebt u andere cliënten, dan kunt u die op naam of <i>@C</i>-nummer zoeken en aan de zaak toevoegen. De zaak verschijnt dan ook in hun zakenlijsten.</li>
+<li><b>Controle op belangenconflicten.</b> Zodra uw eigen kant en de tegenpartij zijn ingevuld, vergelijkt deze knop de namen met uw eigen cliënten, partijen en zaken en toont het resultaat. Er verlaat niets deze computer.</li>
+<li><b>Meer opties.</b> Markeer een zaak als openbaar (in de media besproken) of vergrendel die, zodat geen andere zaak eraan kan worden gekoppeld, niet handmatig, niet automatisch en niet door de AI.</li>
+<li><b>Juridische gegevens.</b> Het invoeren van een zaaknummer van de rechtbank zet <i>heeft een zaaknummer</i> aan en vult de datum van vandaag in, die u kunt wijzigen. Kies eerst het land; de rechtsgebieden en procedurestadia voor dat land worden dan aangeboden. Een vrij beschrijvingsveld maakt het formulier compleet.</li>
+<li><b>Geabonneerde zaken.</b> Is de <span class="irs">IRONSTICK</span> SERVER verbonden en volgt u zaken van een collega, dan verschijnen die in een eigen kaart met een blauwe wolk, de naam van de eigenaar en de laatste wijziging door de eigenaar. Klik op een zaak om die te openen.</li>
+<li><b>Nog geen zaken.</b> Een cliënt zonder zaken toont een korte melding met een knop <i>Nieuwe zaak</i>.</li>
+</ul>
+
+<h3>Notities en het zakenuniversum</h3>
+<figure><img src="img/screens/4%20cases%20universe%20notes.png" alt="Zakenlijst met het notitiebord, het Universum-menu en de 2D- en 3D-netwerkkaarten"><figcaption>Het notitiebord en de twee netwerkweergaven van de zaken van een cliënt.</figcaption></figure>
+<p class="scr-intro">Twee knoppen boven de zakenlijst openen hulpmiddelen die over alle zaken van de cliënt heen werken.
+<b>Notities</b> opent een notitiebord voor de cliënt. <b>Universum</b> toont hoe de zaken van de cliënt samenhangen: als 3D-kaart waar u doorheen kunt vliegen, of als 2D-tekening op ruitjespapier.
+De afbeelding toont het notitiebord, het geopende Universum-menu en beide kaarten.</p>
+
+<ol class="marks">
+<li value="1"><b>Notities.</b> Het notitiebord van de cliënt, met uw eigen notities en de notities van de AI over deze cliënt.</li>
+<li value="4"><b>Universum-menu.</b> Wijs de knop aan of klik erop om <i>3D-kaart</i> of <i>2D-kaart</i> te kiezen.</li>
+</ol>
+
+<h4>Wat u hier kunt doen</h4>
+
+<p class="grp"><b>Notitiebord</b></p>
+<ul>
+<li><b>Een notitie toevoegen.</b> De eerste, lichtgele kaart <i>Nieuwe notitie</i> opent een tekstveld (tot 1.000 tekens) met een optionele datum. Opslaan prikt de notitie op het bord; de nieuwste notities staan bovenaan.</li>
+<li><b>Drie soorten notities.</b> Gele notities zijn van uzelf; klik op een notitie om die te bewerken. AI-notities verschijnen op ruitjespapier: vermeldingen die de AI voor deze cliënt heeft onthouden. Witte kaarten zijn notities van collega's die een gedeelde zaak via de <span class="irs">IRONSTICK</span> SERVER volgen.</li>
+<li><b>Kopiëren en verwijderen.</b> Elke notitie heeft een kleine kopieerknop en een verwijderknop. Een notitie met een datum toont die met een kleine wekker.</li>
+<li><b>Notities uit de zakenlijst horen bij de cliënt.</b> Notities die u hier opent, zijn niet aan één afzonderlijke zaak gebonden.</li>
+</ul>
+
+<p class="grp"><b>3D-kaart (Universum)</b></p>
+<ul>
+<li><b>Wat u ziet.</b> Elke zaak is een zeshoek, instanties zijn driehoeken. Zaken zijn verbonden als ze personen, bedrijven of instanties delen, als een document uit de ene zaak in de andere wordt genoemd of als een zaak het zaaknummer van de andere vermeldt. Zaken uit hetzelfde feitencomplex vormen een gekleurde wolk.</li>
+<li><b>Opbouw van de kaart.</b> De kaart bouwt zich voor uw ogen op terwijl een voortgangsbalk loopt. De regel linksboven toont het aantal zaken, verbindingen en feitencomplexen.</li>
+<li><b>Erdoorheen vliegen.</b> W/A/S/D bewegen vooruit, achteruit en zijwaarts, R/F omhoog en omlaag; de pijltoetsen of slepen met de muis draaien het beeld. Shift beweegt sneller, de spatiebalk vertraagt, en het muiswiel beweegt vooruit of achteruit. Het vak linksonder somt de toetsen op; de balk rechtsonder toont uw snelheid.</li>
+<li><b>Een punt markeren en ernaartoe vliegen.</b> Klik op een zaak of een instantie: het beeld vliegt ernaartoe, en het blijft gemarkeerd, samen met de verbindingen en de reden van elke verbinding. Klik er nogmaals op om de markering op te heffen.</li>
+<li><b>Vanaf de kaart openen.</b> Dubbelklik op een zaak om die te openen. Een dubbelklik op een persoon of bedrijf opent de personenlijst, een instantie opent de instantielijst; de vermelding is daar geel gemarkeerd.</li>
+<li><b>Zoeken.</b> Het zoekveld rechtsonder vindt een naam, een telefoonnummer of een e-mailadres en markeert de beste treffer, net als een klik.</li>
+<li><b>Personen en bedrijven tonen.</b> De schakelaar <i>Zaakverbindingen</i> voegt de personen en bedrijven van de zaken aan de kaart toe. Hij staat aanvankelijk uit; instanties worden altijd getoond.</li>
+<li><b>Sluiten.</b> Het kruisje rechtsboven of de Escape-toets sluit de kaart.</li>
+</ul>
+
+<p class="grp"><b>2D-kaart</b></p>
+<ul>
+<li><b>Een tekening op ruitjespapier.</b> Hetzelfde netwerk wordt plat getekend, zoals een technische tekening. Namen verschijnen als u een punt aanwijst of markeert.</li>
+<li><b>Verschuiven en zoomen.</b> Sleep met de muis of gebruik W/A/S/D of de pijltoetsen om het blad te verschuiven. Het muiswiel zoomt in naar de aanwijzer.</li>
+<li><b>Markeren, openen, zoeken.</b> Een klik op een punt verplaatst het naar het midden en markeert het (het pulseert); een klik op leeg papier heft de markering op en zoomt uit. Een dubbelklik opent de zaak, de persoon of de instantie. Het zoekveld markeert de beste treffer; de schakelaar <i>Zaakverbindingen</i> voegt de personen en bedrijven van de zaken toe.</li>
+<li><b>Sluiten.</b> Het kruisje rechtsboven of de Escape-toets sluit de kaart.</li>
+</ul>
+
+<h2 id="s5">5. Zaak</h2>
+
+<h3>Tabblad Zaak, delen en overdragen</h3>
+<figure><img src="img/screens/5%20case%20case.png" alt="Zaakscherm op het tabblad Zaak met de dialoogvensters Delen en Zaak overdragen en de IRONSTICK SERVER"><figcaption>Het tabblad Zaak met de dialoogvensters voor het delen van een zaak en het overdragen via de IRONSTICK SERVER.</figcaption></figure>
+<p class="scr-intro">Het zaakscherm bevat alles wat bij een zaak hoort. Bovenaan ziet u de zaaktitel en de cliënt, drie knoppen (<i>Notities</i>, <i>Dossier</i>, <i>Tekst opstellen</i>) en een rij tabbladen. De afbeelding toont het tabblad <b>Zaak</b> met de zaakgegevens en een overzicht van de bestanden in de zaak.
+Is er een IRONSTICK SERVER verbonden, dan kan een zaak met collega's worden gedeeld of aan een andere gebruiker worden overgedragen; daarvoor verschijnen de twee dialoogvensters in de afbeelding.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Kopgedeelte en navigatie</b></p>
+<ul>
+<li><b>Kruimelpad.</b> Het pad bovenaan leidt terug naar het hoofdmenu, de cliëntenlijst of de zakenlijst van de cliënt. Het laatste deel toont het zaaknummer samen met land, rechtsgebied en stadium.</li>
+<li><b>Wolk voor de titel.</b> Een rode wolk betekent dat u deze zaak op de IRONSTICK SERVER hebt gedeeld; een blauwe wolk betekent dat het een zaak is die iemand anders met u heeft gedeeld. Een klik op de wolk springt naar het tabblad Zaak.</li>
+<li><b>Tussen tabbladen wisselen.</b> Klik op een tabblad om te wisselen. Verlaat u het tabblad Zaak-Nucleu of Zaak-Snake met niet-opgeslagen wijzigingen, dan vraagt <span class="irs">IRONSTICK</span> of die moeten worden verworpen.</li>
+</ul>
+<p class="grp"><b>Zaakgegevens</b></p>
+<ul>
+<li><b>Nummer, titel en zaaknummer.</b> De kaart toont het interne cliënt-/zaaknummer, de titel en het officiële zaaknummer. Is er aan de zaak een dossier uit het rechtbankportaal gekoppeld, dan verschijnt het officiële zaaknummer in oranje met een gestippelde onderstreping; een klik erop opent de details van het portaaldossier (landspecifieke functie).</li>
+<li><b>Prioriteit en activiteit.</b> De door u ingestelde prioriteit verschijnt als gekleurd label. Een kleine rode vlam ernaast toont dat de zaak onlangs is opgeleefd (nieuwe termijnen, zittingen, vermeldingen of e-mails in de afgelopen 14 dagen); uw eigen prioriteit verandert daardoor nooit.</li>
+<li><b>Partijen en juridische indeling.</b> Openbaar ja/nee, eiser (gemarkeerd als het uw cliënt is), tegenpartij, land, rechtsgebied en stadium, of er een rolnummer is toegekend (met datum), soort zaak, begindatum en de beschrijving.</li>
+<li><b>Omvang van de zaak.</b> Onder de beschrijving telt een tabel de inkomende, uitgaande en bewijs-pdf's, afbeeldingen en audiobestanden, met aantal woorden en bestandsgrootte, een totaal per zaak en een schatting van hoeveel tekst de AI zou moeten lezen.</li>
+</ul>
+<p class="grp"><b>Knoppen op de zaakkaart</b></p>
+<ul>
+<li><b>Afdrukken.</b> Kies <i>Chronologie</i> of <i>Documentatie</i>, en de zaak wordt als pdf geëxporteerd.</li>
+<li><b>Bewerken.</b> Opent het zaakformulier: titel, prioriteit, status, eiser (of <i>Eiser is de cliënt</i>), andere eigen cliënten in dezelfde procedure, tegenpartij, een controle op belangenconflicten (actief zodra beide kanten zijn ingevuld), openbare zaak, een schakelaar die voorkomt dat er iets aan deze zaak wordt gekoppeld (handmatig, automatisch of door de AI), zaaknummer, rolnummer met datum, land, rechtsgebied, stadium en beschrijving.</li>
+<li><b>Verwijderen.</b> Na een bevestiging wordt de zaak volledig uit <span class="irs">IRONSTICK</span> verwijderd. Vooraf wordt een volledige back-up van de zaak gemaakt; mislukt de back-up, dan wordt er niets verwijderd.</li>
+</ul>
+<p class="grp"><b>Delen en overdragen (alleen bij verbonden IRONSTICK SERVER)</b></p>
+<ul>
+<li><b>Delen.</b> Deel de zaak <i>met alle gebruikers</i> of <i>met geselecteerde gebruikers</i>, die u in de lijst aanvinkt. De zaak wordt dan op de achtergrond naar de IRONSTICK SERVER geüpload. Zodra die gedeeld is, wordt dezelfde knop rood met de tekst <i>Delen intrekken</i>, waarmee het delen direct wordt ingetrokken.</li>
+<li><b>Deelkaart.</b> Onder de zaakgegevens toont een kaart de uploadvoortgang en daarna de abonnees, elk met een onlinestip en het tijdstip van de laatste toegang. Verzoeken van collega's verschijnen gemarkeerd met <i>Toestaan</i> en <i>Afwijzen</i>; elke abonnee kan afzonderlijk worden verwijderd.</li>
+<li><b>Zaak overdragen.</b> Kies de ontvanger uit de lijst met gebruikers van de IRONSTICK SERVER en klik op <i>Overdragen</i>. De zaak wordt verpakt en via de IRONSTICK SERVER verzonden; zodra de ontvanger die heeft aanvaard, wordt de zaak van uw computer verwijderd (er blijft een back-up bewaard).</li>
+<li><b>Met u gedeelde zaken.</b> Een geabonneerde zaak kan worden gelezen, maar niet gewijzigd; bewerkknoppen tonen in plaats daarvan een melding. Onder de beschrijving ziet u de eigenaar en de andere abonnees. <i>Abonnement verwijderen</i> beëindigt het abonnement en verwijdert de kopie.</li>
+</ul>
+
+<h3>De tabbladen in één oogopslag: Cliënt tot Kaart</h3>
+<figure><img src="img/screens/5%20case%20tab1.png" alt="De eerste zes tabbladen van het zaakscherm: Cliënt, Zaak, Instanties, Entiteiten, Verbindingen en Kaart"><figcaption>De tabbladen Cliënt, Zaak, Instanties, Entiteiten, Verbindingen en Kaart.</figcaption></figure>
+<p class="scr-intro">De tabbladbalk verdeelt de zaak in weergaven. De eerste zes tabbladen tonen om wie en wat het in de zaak gaat: de cliënt, de zaakgegevens, de betrokken instanties en personen, hoe ze met elkaar verbonden zijn en waar iets is gebeurd.
+Elke lijn in de afbeelding loopt van een tabblad naar de weergave die het opent.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Cliënt</b></p>
+<ul>
+<li><b>Cliëntkaart.</b> Nummer, naam, persoonlijk identificatienummer, nationaliteit, volledig adres, telefoon, e-mail, bank en IBAN, taal, links naar sociale media, details en de aanmaakdatum van de cliënt. Lege velden worden niet getoond.</li>
+<li><b>Contact met één klik.</b> Klik op de naam voor een contact-QR-code, op het telefoonnummer voor een QR-code om te bellen, op het groene chatsymbool voor WhatsApp of op het e-mailadres om te schrijven. Links naar sociale media openen in het <span class="irs">IRONSTICK</span>-browservenster. <i>Bewerken</i> opent het cliëntformulier.</li>
+</ul>
+<p class="grp"><b>Zaak</b></p>
+<ul>
+<li><b>Zaakgegevens.</b> Cliënt- en zaaknummer, titel, officieel zaaknummer, prioriteit, partijen, land, rechtsgebied, stadium, begindatum, beschrijving en de omvang van de zaak, met knoppen om de zaak af te drukken, te bewerken of te verwijderen.</li>
+</ul>
+<p class="grp"><b>Instanties en entiteiten</b></p>
+<ul>
+<li><b>Wie er betrokken is.</b> Instanties somt rechtbanken, overheidsinstanties en andere organen op met soort, stad en contactsymbolen; Entiteiten somt personen en ondernemingen op met soort, stad en contact. De kopregel toont hoeveel er zijn gekoppeld. Lange lijsten worden verdeeld in pagina's van 20 vermeldingen.</li>
+<li><b>Een vermelding openen.</b> Klik op een regel om de instantie- of personenlijst te openen met de vermelding gemarkeerd. Telefoon- en e-mailsymbolen openen een QR-code, de wereldbol opent de website in het <span class="irs">IRONSTICK</span>-browservenster.</li>
+<li><b>Analyse.</b> In Entiteiten verschijnt het paarse analysesymbool als er voor die persoon een analyse beschikbaar is; het opent de persoonsanalyse.</li>
+<li><b>Toevoegen en verwijderen.</b> <i>Toevoegen</i> opent een zoekopdracht over alle instanties of personen die nog niet in deze zaak staan (op naam, stad of e-mail). Kies er een, controleer het voorbeeld en klik op <i>Toevoegen</i>. Het symbool van de verbroken verbinding aan het einde van de regel verwijdert de koppeling na een bevestiging; de instantie of persoon zelf blijft bestaan.</li>
+</ul>
+<p class="grp"><b>Verbindingen</b></p>
+<ul>
+<li><b>Relatiediagram.</b> Toont de personen en instanties van de zaak en hoe ze met elkaar verbonden zijn, op één of meer pagina's; de kopregel telt entiteiten en verbindingen. Waar het er veel zijn, worden de dringendste getoond.</li>
+<li><b>Met het diagram werken.</b> Zoom in en uit met de vergrootglasknoppen. Klik op een naam om die persoon of instantie te openen. <i>Wallpaper</i> downloadt het diagram als grote poster-pdf; <i>Registreren</i> geeft het door aan de documentregistratie, waar u het aan een zaak koppelt. Geen van beide exportknoppen is beschikbaar op de Android-tablet.</li>
+</ul>
+<p class="grp"><b>Kaart</b></p>
+<ul>
+<li><b>Alles op de kaart.</b> Personen (blauw), ondernemingen (paars), instanties (rood) en gebeurtenissen (groen) verschijnen op een satellietkaart; een legenda eronder verklaart de kleuren. Witte ringen markeren afstanden van 5, 15 en 30 km rond het middelpunt van de zaak.</li>
+<li><b>Ontbrekende posities.</b> Adressen zonder coördinaten worden automatisch opgezocht zolang de kaart geopend is; een kleine melding toont de voortgang, en de gevonden positie wordt onthouden.</li>
+<li><b>Details en afdrukken.</b> Klik op een markering voor naam, soort en adres; de detaillink opent de persoon, de instantie of de kroniekvermelding (gemarkeerd in de kroniek). De afdrukknop exporteert de kaart als pdf.</li>
+</ul>
+
+<h3>De tabbladen in één oogopslag: Documentatie tot AI-beoordeling</h3>
+<figure><img src="img/screens/5%20case%20tab2.png" alt="De tabbladen Documentatie, Kroniek, Zaak-Nucleu, Zaak-Snake en AI-beoordeling"><figcaption>De tabbladen Documentatie, Kroniek, Zaak-Nucleu (atoom), Zaak-Snake en AI-beoordeling.</figcaption></figure>
+<p class="scr-intro">De overige tabbladen bevatten de inhoud van de zaak: de opgeslagen documenten, de kroniek van alles wat er is gebeurd, twee tekstgedeelten die al het schrijfwerk aan de zaak sturen, en de AI-beoordeling.
+Het atoom en de slang worden alleen als symbolen getoond; wijs ze aan om hun namen te zien.</p>
+
+<h4>Wat u hier kunt doen</h4>
+<ul>
+<li><b>Documentatie.</b> Alle documenten van de zaak met een pdf — inkomend, uitgaand en bewijs — met filters op richting, een sprong naar een datum en het chronologiediagram.</li>
+<li><b>Kroniek.</b> De kroniek van de zaak: elke gebeurtenis, elk document, elke foto, elk telefoongesprek en elke notitie in chronologische volgorde.</li>
+<li><b>Zaak-Nucleu (atoom).</b> De bindende richtlijn voor al het schrijfwerk aan deze zaak — waaraan elk processtuk moet voldoen. Schrijf of wijzig de tekst en klik op <i>Opslaan</i>; bij elke keer opslaan ontstaat een nieuwe versie, en de kopieerbare code met het versienummer toont welke de actuele is. Een teller toont de lengte (tot 20.000 tekens). Daaronder ziet u, alleen-lezen, de Nucleu van elk feitencomplex waartoe deze zaak behoort.</li>
+<li><b>Zaak-Snake.</b> Een register van de beweringen van de wederpartij in deze zaak die door het dossier worden tegengesproken, zodat ze in processtukken kunnen worden gebruikt. De Snake wordt op dezelfde manier bewerkt en opgeslagen als de Nucleu, met een eigen versienummer.</li>
+<li><b>AI-beoordeling.</b> Een AI-analyse van de slagingskansen van de zaak: kans op succes, de grondslag van de procedure, het rechtbankdossier en het IRONSTICK-dossier, sterke punten, zwakke punten en een kritische opmerking.</li>
+</ul>
+
+<h3>Kroniek</h3>
+<figure><img src="img/screens/5%20case%20chronicle%201.png" alt="Tabblad Kroniek met genummerde markeringen bij de knoppen in de kop, het datumveld, Nieuwe vermelding en een vermeldingsregel"><figcaption>Het tabblad Kroniek: de kroniek van de zaak, nieuwste vermeldingen eerst.</figcaption></figure>
+<p class="scr-intro">De kroniek somt elke vermelding van de zaak op — gebeurtenissen, brieven, e-mails, telefoongesprekken, foto's, opnamen — met de nieuwste eerst. Elke regel toont nummer en datum, titel, beschrijving en labels, de bijgevoegde bestanden, een termijnmarkering en de acties.
+De vergrote regel onderaan de afbeelding toont de onderdelen van één afzonderlijke vermelding.</p>
+<ol class="marks">
+<li><b>Notities.</b> Opent het prikbord van de zaak. Uw eigen notities zijn geel, notities van abonnees van een gedeelde zaak zijn witte kaarten, en notities die de AI voor deze zaak heeft onthouden, verschijnen op ruitjespapier. Klik op <i>Nieuwe notitie</i> om er een te schrijven (tot 1.000 tekens, optioneel met datum), klik op een gele notitie om die te bewerken, op een willekeurige notitie om die volledig te lezen; elke notitie heeft kleine knoppen om te kopiëren en te verwijderen.</li>
+<li><b>Dossier.</b> Opent de dossierassistent, die een volledig pdf-dossier van de zaak samenstelt. Hij verschijnt alleen als de kroniek vermeldingen bevat.</li>
+<li><b>Tekst opstellen.</b> Kies <i>Met AI-hulp</i> om de AI-chat te openen met het verzoek een document voor deze zaak op te stellen, of <i>Leeg tekstdocument</i> om in de tekstverwerking te schrijven. Niet zichtbaar op de Android-tablet.</li>
+<li><b>Naar een datum springen.</b> Kies een datum en klik op het vergrootglas om naar de pagina te gaan waarop die staat.</li>
+<li><b>Nieuwe vermelding.</b> Opent het formulier voor een nieuwe kroniekvermelding.</li>
+<li><b>Vermeldingsnummer en datum.</b> Het paarse nummer identificeert de vermelding; een klik erop kopieert het naar het klembord. Daaronder staan de datum en, indien vastgelegd, de tijd van–tot.</li>
+<li><b>Paperclip en map.</b> De <b>paperclip</b> opent het bijgevoegde document; bij een vermelding zonder bestand, afbeelding of transcriptie exporteert hij de vermelding zelf als pdf. De <b>map</b> toont in hoeveel werkmappen de vermelding is opgeslagen — klik erop om mappen aan of uit te vinken of een nieuwe aan te maken; een lege map met plusteken betekent dat de vermelding nog in geen enkele map zit. Hier verschijnen ook andere symbolen voor afbeeldingen, transcripties, audio of een locatie.</li>
+<li><b>Acties.</b> Vijf symbolen in twee rijen:
+<table>
+<tr><th>Symbool</th><th>Wat het doet</th></tr>
+<tr><td>Radar (eerste rij)</td><td>Opent de relevantieradar: de inhoudelijk meest vergelijkbare vermeldingen in dit en in andere zaken. Klik op een treffer om ernaartoe te springen.</td></tr>
+<tr><td>Tag (eerste rij)</td><td>Kent tags toe aan de vermelding — globale tags in rood, geel, groen of blauw, of zaaktags. Het symbool neemt de kleur van de eerste tag aan.</td></tr>
+<tr><td>Potlood (tweede rij)</td><td>Bewerkt de vermelding: een vermelding zonder document opent het formulier voor kroniekvermeldingen, een vermelding met pdf opent het documentformulier.</td></tr>
+<tr><td>Kopiëren (tweede rij)</td><td>Kopieert de vermelding met de documenten, afbeeldingen en transcripties naar een andere zaak van dezelfde cliënt.</td></tr>
+<tr><td>× (tweede rij)</td><td>Verwijdert de vermelding na een bevestiging.</td></tr>
+</table>
+Bij geheime documenten zijn Tag, Potlood en Kopiëren grijs; alleen Verwijderen blijft beschikbaar.</li>
+</ol>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>De lijst</b></p>
+<ul>
+<li><b>Pagina's en sortering.</b> De lijst toont 20 vermeldingen per pagina; paginaknoppen verschijnen boven en onder de lijst als er meer dan één pagina is. Klik op de kolomkop <i>Datum</i> om te wisselen tussen nieuwste en oudste eerst.</li>
+<li><b>Wat een regel u vertelt.</b> Onder de titel ziet u de beschrijving, gekleurde labels (land, rechtsgebied, stadium, IN in oranje of OUT in groen, soort instantie, taal, documentsoort) en de betrokken personen.</li>
+<li><b>Een tekst bij een vermelding schrijven.</b> Het kleine symbool van een potlood met regels naast de titel start <i>Tekst opstellen</i> voor precies deze vermelding; een getal ervoor telt de teksten die er al bij zijn opgesteld. Niet zichtbaar op de Android-tablet.</li>
+<li><b>Termijnkolom.</b> Een oranje bel betekent dat de termijn van de vermelding binnen 10 dagen afloopt, een rood luidende bel dat die is verstreken. Wijs de bel aan om het aantal resterende dagen of de datum te zien.</li>
+<li><b>Vanuit de zoekfunctie of de radar.</b> Opent u de zaak vanuit een zoekresultaat of de relevantieradar, dan gaat de kroniek naar de juiste pagina en licht de vermelding enkele seconden geel op.</li>
+</ul>
+<p class="grp"><b>Acties bij een vermelding</b></p>
+<ul>
+<li><b>Relevantieradar.</b> Toont welke andere vermeldingen — in dit en in andere zaken — inhoudelijk het meest vergelijkbaar zijn. Klik op een treffer om ernaartoe te springen.</li>
+<li><b>Tags.</b> Ken korte tags aan de vermelding toe (tot 100 tekens): <i>globale</i> tags in rood, geel, groen of blauw, of <i>zaak</i>tags in petrol. Klik op een bestaande tag om die te wijzigen, of op het × ervan om die te verwijderen. Het tagsymbool neemt de kleur van de eerste tag aan.</li>
+<li><b>Werkmappen.</b> Toont de mappen van elk feitencomplex waartoe de zaak behoort; vink een map aan om de vermelding erin op te slaan, of maak een <i>Nieuwe map</i> aan. Behoort de zaak tot geen enkel feitencomplex, dan wijst een melding u daarop.</li>
+<li><b>Bewerken.</b> Een vermelding zonder document opent het formulier voor kroniekvermeldingen. Een vermelding met pdf opent het documentformulier: classificatie (land, taal, rechtsgebied, documentsoort, stadium, soort instantie, documentdatum), het soort vermelding (bewijs, inkomend of uitgaand), een selectievakje voor rechterlijke beslissing en de gebruikelijke vermeldingsvelden (titel, datum, trefwoorden, tijden, beschrijving, betrokken personen, termijn); met knoppen daar kunt u de pdf bekijken en de geëxtraheerde tekst ervan lezen.</li>
+<li><b>Naar een andere zaak kopiëren.</b> Kies een doelzaak van dezelfde cliënt; de vermelding wordt met de documenten, afbeeldingen en transcripties gekopieerd. <i>Kopiëren</i> wordt actief zodra er een zaak is gekozen.</li>
+<li><b>Verwijderen.</b> Verwijdert de vermelding na een bevestiging.</li>
+</ul>
+<p class="grp"><b>Formulier Nieuwe vermelding</b></p>
+<ul>
+<li><b>Gegevens van de vermelding.</b> Titel, datum, trefwoorden, tijd van en tot, en een beschrijving. Een titel of een beschrijving is verplicht.</li>
+<li><b>Betrokken personen.</b> Typ een deel van een naam om de aan deze zaak gekoppelde personen en instanties te doorzoeken; klik op een treffer om die als chip toe te voegen, en op het × ervan om die te verwijderen.</li>
+<li><b>Termijn.</b> Stel een termijndatum in en vink aan of de termijn actief is; actieve termijnen verschijnen in het termijnenoverzicht en in de bel.</li>
+<li><b>Locatie.</b> Zet de geocoördinaten aan, voer een adres in en klik op het vergrootglas om het op te zoeken, of klik direct op de kaart; breedte- en lengtegraad worden voor u ingevuld.</li>
+<li><b>Afbeeldingen.</b> Zet Media aan om tot vier afbeeldingen toe te voegen (JPEG, PNG, WebP): sleep ze naar het neerzetvlak of klik erop om bestanden te kiezen. Sleep een afbeelding naar een andere plek om de volgorde te wijzigen; het × verwijdert de afbeelding.</li>
+<li><b>Opslaan of annuleren.</b> Met de knoppen onderaan slaat u de vermelding op of sluit u het formulier zonder op te slaan.</li>
+</ul>
+
+<h3>Documenten, afbeeldingen en opnamen openen</h3>
+<figure><img src="img/screens/5%20case%20chronicle%202.png" alt="Kroniek met een bijgevoegde pdf in een apart venster en de afbeeldingsviewer met vier foto's"><figcaption>Een bijgevoegde pdf opent in een eigen venster; foto's openen in de afbeeldingsviewer.</figcaption></figure>
+<p class="scr-intro">Elk bestand dat aan een vermelding is gekoppeld, opent direct vanuit de kroniek. In de afbeelding heeft de paperclip van de eerste vermelding de pdf in een apart venster geopend, en heeft het afbeeldingssymbool van een andere vermelding de vier foto's ervan geopend.
+Het datumveld bovenaan helpt u de weg te vinden in lange kronieken.</p>
+<ol class="marks">
+<li><b>Naar een datum springen.</b> Verschijnt als de kroniek meer dan drie pagina's heeft. Klik in het veld en kies een datum — alleen data die in de zaak voorkomen zijn te kiezen —, en klik dan op het vergrootglas ernaast om naar de pagina met die datum te gaan.</li>
+</ol>
+
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Bestanden van een vermelding</b></p>
+<ul>
+<li><b>Documenten.</b> De blauwe paperclip opent het bijgevoegde document in een eigen venster — in het programma dat uw computer voor pdf's gebruikt, anders in uw webbrowser.</li>
+<li><b>Vermelding als pdf.</b> Bij een vermelding zonder document, afbeeldingen of opname maakt de paperclip een pdf van de vermelding zelf en slaat die voor u op.</li>
+<li><b>Afbeeldingen.</b> Het paarse afbeeldingssymbool (als u het aanwijst, ziet u het aantal) opent de afbeeldingsviewer met alle foto's van de vermelding, genummerd. Klik op een foto om die schermvullend met zoom te zien; nogmaals klikken of het × sluit die. <i>Document exporteren</i> slaat de foto's met de beschrijving als pdf op.</li>
+<li><b>Transcripties en chats.</b> Een paars symbool opent de transcriptie van een telefoongesprek of een opname, of een chat, met datum, tijd van–tot, soort en het aantal regels; elke spreker heeft een eigen kleur. <i>Document exporteren</i> slaat die als pdf op.</li>
+<li><b>Audio.</b> De blauwe muzieknoot speelt de originele opname af in de mediaspeler van uw computer.</li>
+<li><b>Locatie.</b> De groene markering opent een kleine kaart met de locatie van de vermelding en een knop om die in Google Maps te tonen.</li>
+</ul>
+<p class="grp"><b>Koppelingen tussen documenten</b></p>
+<ul>
+<li><b>Producties en waar een document is ingediend.</b> Een uitgaande brief somt de producties op als blauwe nummers; een inkomend document of een bewijsstuk toont in welke brieven het is ingediend, gegroepeerd per zaak met het zaaknummer erachter. Klik op een nummer om die vermelding te openen, of op het zaaknummer om die zaak te openen.</li>
+<li><b>Referentienummers.</b> Dragen andere documenten hetzelfde registratie- of briefnummer, dan wordt dat nummer onderstreept getoond. Klik erop om alle documenten met dat nummer te zien en er een van te openen.</li>
+</ul>
+
+<h3>Tabblad Documentatie</h3>
+<figure><img src="img/screens/5%20case%20documentation.png" alt="Tabblad Documentatie van een zaak met richtingsfilter, datumsprong en daarnaast het geopende chronologiediagram"><figcaption>Het tabblad Documentatie somt elke vermelding met een document op; het chronologiediagram toont de correspondentie als verloop.</figcaption></figure>
+<p class="scr-intro">Het tabblad <b>Documentatie</b> is de papieren kant van de zaak: het somt alleen de vermeldingen op die een document bevatten (brieven, processtukken, beslissingen, scans), nieuwste eerst, 20 per pagina.
+Elke regel toont vermeldingsnummer, datum, titel, een korte samenvatting, de classificatietags en de hulpmiddelen voor dat document.
+De blauwe knop rechts op de kaart opent de <b>Chronologie</b> — de inkomende en uitgaande documenten als stroomdiagram van boven naar beneden getekend, zoals rechts in de afbeelding te zien is.</p>
+<ol class="marks">
+<li><b>Richtingsfilter.</b> <i>Alle</i> toont elk document, <i>IN</i> (oranje) alleen inkomende documenten, <i>OUT</i> (groen) alleen documenten die u hebt verzonden. De actieve chip wordt vet met een rand weergegeven.</li>
+<li><b>Naar datum springen.</b> Kies in het kalenderveld een datum en klik op het vergrootglas om naar de pagina met die datum te springen. Het veld verschijnt alleen als de lijst langer is dan drie pagina's; de kalender biedt alleen data aan die in de zaak voorkomen.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>De lijst</b></p>
+<ul>
+<li><b>Sorteren.</b> Klik op de kolomkop <i>Datum</i> om te wisselen tussen nieuwste en oudste eerst. Klik op <i>Termijn</i> om op openstaande termijnen te sorteren, de eerstvolgende eerst (nogmaals klikken om om te keren).</li>
+<li><b>Vermeldingsnummer.</b> Het paarse nummer boven de datum is het <span class="irs">IRONSTICK</span>-nummer van de vermelding. Klik erop om het naar het klembord te kopiëren.</li>
+<li><b>Tags onder de samenvatting.</b> De kleine chips tonen land, rechtsgebied, procedurestadium, richting (IN oranje, OUT groen), soort instantie, documenttaal en verdere classificatie. Wijs rechtsgebied of stadium aan om de volledige naam te zien.</li>
+<li><b>Producties en „Ingediend in”.</b> Bij een door u verzonden document somt <i>Producties</i> de meegezonden vermeldingen op. Bij een inkomend document of een bewijsstuk somt <i>Ingediend in</i> op waar het is ingediend, gegroepeerd per zaak met het zaaknummer achter elke groep. Klik op een nummer om die vermelding in de kroniek te openen, of op het zaaknummer om die zaak te openen — ook als het bij een andere zaak hoort.</li>
+<li><b>Referentienummers.</b> Blauwe onderstreepte nummers zijn brief- of registratienummers die ook in andere documenten voorkomen. Klik op een nummer om alle documenten met hetzelfde nummer te zien en er een van te openen.</li>
+<li><b>Termijn.</b> Er verschijnt een bel als de vermelding een openstaande termijn heeft: oranje als die binnen 10 dagen afloopt, rood als die is verstreken. Wijs de bel aan om het aantal resterende dagen of de datum van verstrijken te zien.</li>
+</ul>
+<p class="grp"><b>Hulpmiddelen in elke regel</b></p>
+<ul>
+<li><b>Tekst opstellen.</b> Het notitiesymbool naast de titel opent een keuze: een brief schrijven met hulp van de AI (de chat opent met deze zaak en dit document al als referentie) of een leeg tekstdocument openen in de tekstverwerking. Een getal voor het symbool toont hoeveel teksten er bij deze vermelding al bestaan. Niet beschikbaar op de Android-tablet.</li>
+<li><b>Het document openen.</b> De paperclip opent het document in het <span class="irs">IRONSTICK</span>-browservenster; wijs hem aan om de bestandsnaam te zien. Er verschijnt een groene markering als de vermelding een locatie heeft — klik erop om de locatie op een kaart te zien.</li>
+<li><b>Werkmappen.</b> Het mapsymbool slaat het document op in de werkmappen van de feitencomplexen waartoe deze zaak behoort: vink een map aan of uit, of maak een nieuwe map aan. Is de vermelding al opgeslagen, dan toont het symbool een gevulde map en de tooltip het aantal mappen.</li>
+<li><b>Relevantieradar.</b> Het radarsymbool vindt de inhoudelijk meest vergelijkbare vermeldingen in dit en in andere zaken. Klik op een treffer om er in de kroniek naartoe te springen.</li>
+<li><b>Tags.</b> Het labelsymbool kent uw eigen tags aan het document toe — algemene gekleurde tags of tags die alleen voor deze zaak gelden. Zodra het document een tag heeft, neemt het symbool de kleur van de eerste tag aan.</li>
+<li><b>Bewerken.</b> Het potlood opent de documentvermelding om te bewerken (titel, datum, classificatie, termijn enzovoort).</li>
+<li><b>Naar een andere zaak kopiëren.</b> Het kopieersymbool kopieert de vermelding samen met het document naar een andere zaak van dezelfde cliënt. Kies de doelzaak en klik daarna op <i>Kopiëren</i>.</li>
+<li><b>Verwijderen.</b> Het kruisje verwijdert de vermelding nadat u hebt bevestigd.</li>
+</ul>
+<p class="grp"><b>Chronologiediagram</b></p>
+<ul>
+<li><b>Het verloop van de zaak lezen.</b> Het diagram toont alle inkomende en uitgaande pdf-documenten in chronologische volgorde, verbonden door pijlen. Door u verzonden documenten hebben een zwarte kop, documenten met een openstaande termijn een dikke rand. De producties van een uitgaande brief verschijnen als aparte vakken ernaast.</li>
+<li><b>Een vermelding openen.</b> Klik op het onderstreepte vermeldingsnummer in een vak om direct naar die vermelding te gaan.</li>
+<li><b>Zoomen en scrollen.</b> Gebruik de twee vergrootglasknoppen om in en uit te zoomen; lange chronologieën lopen over meerdere pagina's, waar u doorheen scrolt.</li>
+<li><b>Als document registreren.</b> <i>Registreren</i> maakt van het diagram een pdf en opent de documentregistratie, waar u het aan de zaak koppelt en net als elk ander document opslaat. Niet beschikbaar op de Android-tablet; daar kan het diagram alleen worden bekeken. Sluit het diagram met het kruisje.</li>
+</ul>
+
+<h3>Pdf-dossier: vermeldingen en pagina's kiezen</h3>
+<figure><img src="img/screens/5%20case%20dossier%201.png" alt="Scherm Dossier voorbereiden met uitgesloten vermeldingen, de paginaselectie en een afbeeldingsvoorbeeld"><figcaption>Eerste stap van het pdf-dossier: bepaal welke vermeldingen en welke pagina's erin komen.</figcaption></figure>
+<p class="scr-intro">De knop <b>Dossier</b> bovenaan in de zaak (alleen getoond als de zaak kroniekvermeldingen heeft) opent een assistent die een volledig, gepagineerd dossier van de zaak samenstelt — als pdf of als EDRM-productiepakket.
+In de eerste stap, <b>Dossier voorbereiden</b>, loopt u alle kroniekvermeldingen door en bepaalt u wat erin komt. De afbeelding toont een uitgesloten vermelding (rood teken), een gedeeltelijk uitgesloten document (gele cirkel), de paginaselectie van een document en het afbeeldingsvoorbeeld van een fotovermelding.</p>
+<h4>Wat u hier kunt doen</h4>
+<ul>
+<li><b>Een vermelding weglaten.</b> Klik ergens op een regel om de vermelding uit te sluiten: die wordt bleek, en in het midden verschijnt een rood teken. Klik nogmaals om de vermelding weer op te nemen.</li>
+<li><b>Afzonderlijke pagina's weglaten.</b> De blauwe ronde knop van een document opent <i>Pagina's kiezen</i> met een voorbeeld van elke pagina. Klik op een pagina om die uit te sluiten (rood teken) of weer op te nemen. Zijn er pagina's uitgesloten, dan wordt de knop geel en wordt de regel gedimd met een gele cirkel in het midden; klik op de cirkel om de paginaselectie te wijzigen.</li>
+<li><b>Bekijken voordat u beslist.</b> De paperclip opent het document in het <span class="irs">IRONSTICK</span>-browservenster. Het afbeeldingssymbool toont de foto's van de vermelding (tot vier), het microfoon- of chatsymbool de transcriptie of de chat. Deze voorbeelden veranderen niets.</li>
+<li><b>Een vermelding vinden.</b> Typ in het zoekveld minstens twee tekens; overeenkomende vermeldingen verschijnen in een lijst. Klik op een vermelding om ernaartoe te springen — de juiste pagina opent en de vermelding licht op. U kunt ook een <span class="irs">IRONSTICK</span>-documentstempel invoeren; hoort dat document bij een andere zaak, dan opent de voorbereiding van het pdf-dossier van die zaak bij het document.</li>
+<li><b>Sorteren.</b> Klik op de kop <i>Datum</i> om te wisselen tussen nieuwste en oudste eerst. De kopregel toont zaaktitel, zaaknummer en aantal vermeldingen.</li>
+<li><b>Verder of annuleren.</b> <i>Verder naar gegevens pdf-dossier</i> leidt naar de volgende stap; <i>Annuleren</i> gaat terug naar de zaak. Uw selectie voor deze zaak blijft bewaard zolang het programma geopend blijft, zodat u tussen de stappen heen en weer kunt gaan.</li>
+</ul>
+
+<h3>Pdf-dossier: gegevens, afdrukvoorbeeld en export</h3>
+<figure><img src="img/screens/5%20case%20dossier%202.png" alt="Scherm Gegevens pdf-dossier, afdrukvoorbeeld met paginaminiaturen en het exportvenster"><figcaption>Leg voorblad en structuur vast, controleer elke pagina en exporteer het dossier daarna als pdf of EDRM-ZIP.</figcaption></figure>
+<p class="scr-intro">In de tweede stap, <b>Gegevens pdf-dossier</b> (links), vult u het voorblad in, controleert u de jurisdictie en bepaalt u welke themablokken het dossier bevat en in welke volgorde.
+<i>Verder naar afdrukvoorbereiding</i> opent het <b>afdrukvoorbeeld</b> (midden), dat elke afzonderlijke pagina van het voltooide dossier toont. Van daaruit exporteert u het als pdf-dossier of als EDRM-ZIP; het exportvenster (rechtsboven) slaat het bestand op.</p>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Gegevens pdf-dossier</b></p>
+<ul>
+<li><b>Adres op het voorblad.</b> Kies een van de instanties van de zaak uit de lijst om de ontvanger automatisch in te vullen, of voer naam, adres, postcode, plaats en land zelf in.</li>
+<li><b>Jurisdictie.</b> Land en rechtsgebied worden uit de zaak overgenomen. Heeft het land meer dan één proceestaal, dan kiest u de taal waarin de eigen pagina's van het pdf-dossier worden opgesteld.</li>
+<li><b>EDRM-exportopties.</b> Alleen nodig voor de EDRM-ZIP, niet voor het pdf-dossier. Voer een Bates-prefix in — de regel eronder toont de resulterende nummers — en, als u wilt, het productiedoel (bijvoorbeeld een verzoek tot overlegging in een discovery-procedure of het indienen van bewijs).</li>
+<li><b>Themablokken.</b> Het pdf-dossier bestaat uit blokken: voorblad, inhoudsopgave, chronologie, documenten, media, transcripties, chats, personenregister en instantieregister. Sleep een blok aan de greep om de volgorde te wijzigen; klik op een blok om het op te nemen (groen vinkje) of weg te laten (rood teken). Blokken waarvoor de zaak geen inhoud heeft, worden automatisch weggelaten.</li>
+<li><b>Terug of verder.</b> <i>Terug</i> keert terug naar de selectie van vermeldingen; <i>Verder naar afdrukvoorbereiding</i> maakt het voorbeeld aan.</li>
+</ul>
+<p class="grp"><b>Afdrukvoorbeeld</b></p>
+<ul>
+<li><b>De opbouw volgen.</b> Een voortgangsbalk toont hoe ver het voorbeeld is. De opbouw loopt op de achtergrond door, ook als u het scherm verlaat.</li>
+<li><b>Elke pagina controleren.</b> Alle pagina's verschijnen als genummerde miniaturen, gegroepeerd per blok. Elk document begint met een stippellijn die de bestandsnaam toont. De kopregel telt de pagina's en blokken van het pdf-dossier.</li>
+<li><b>Pagina's verwijderen.</b> Klik op een pagina van een document om die uit het pdf-dossier te verwijderen (rood teken, geen paginanummer), en klik nogmaals om die terug te zetten. Lege pagina's in documenten worden automatisch herkend en verwijderd. Pagina's die <span class="irs">IRONSTICK</span> zelf aanmaakt, zoals het voorblad of de registers, kunnen hier niet worden verwijderd. De inhoudsopgave wordt bijgewerkt met de werkelijke paginanummers.</li>
+<li><b>Pdf-dossier.</b> Maakt het voltooide, gepagineerde dossier aan. Is dat klaar, dan opent het exportvenster vanzelf; <i>Terug naar voorbeeld</i> keert terug naar de pagina's.</li>
+<li><b>EDRM-ZIP.</b> Maakt een elektronisch productiepakket met Bates-nummers, de native documenten, hun tekst en de gebruikelijke laadbestanden. Daarna ziet u het aantal documenten, het totale aantal pagina's en het Bates-bereik, en <i>EDRM ZIP downloaden</i> slaat het pakket op.</li>
+</ul>
+<p class="grp"><b>Exportvenster</b></p>
+<ul>
+<li><b>Het bestand opslaan.</b> Het venster toont bestandsnaam, grootte en zaak. <i>Download</i> slaat het bestand op in uw map Documenten en toont het. <i>Google Drive</i> verschijnt alleen als er op deze computer een Google Drive-map wordt gesynchroniseerd, en laat u het bestand in een van de mappen daarvan opslaan. <i>Annuleren</i> of het kruisje sluit het venster.</li>
+</ul>
+
+<h3>Tabblad AI-beoordeling</h3>
+<figure><img src="img/screens/5%20case%20assesment.png" alt="Tabblad AI-beoordeling met de onderdelen van de beoordeling en de meter voor slagingskansen"><figcaption>De AI-beoordeling van de zaak met de meter voor slagingskansen.</figcaption></figure>
+<p class="scr-intro">Het tabblad <b>AI-beoordeling</b> geeft een schriftelijke beoordeling van de zaak door de AI. De beschrijvende onderdelen steunen op uw volledige dossier; de slagingskansen worden uitsluitend beoordeeld op basis van wat de rechtbank in haar dossier heeft. Het tabblad toont de grondslag van de procedure, de stand van het rechtbankdossier (het dossier dat bij de rechtbank of instantie wordt gehouden) met een schatting van de slagingskansen, de stand van het volledige <span class="irs">IRONSTICK</span>-dossier, kritische opmerkingen, sterke punten en risico's, en links naar verwante zaken.
+Elk vermeldingsnummer, elke zaakverwijzing en elk officieel zaaknummer in de tekst is een link. De datum onder de titel toont wanneer de beoordeling is gemaakt.</p>
+<ol class="marks">
+<li><b>Opnieuw beoordelen.</b> Start een nieuwe beoordeling. Zonder beoordeling heet de knop <i>Beoordeling aanvragen</i>. De knop is grijs, zoals in de afbeelding, als er sinds de laatste beoordeling geen nieuwe documenten zijn binnengekomen (tenzij u hieronder een opmerking schrijft) of als de zaak niet actief is.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Een beoordeling starten</b></p>
+<ul>
+<li><b>Aanvragen of vernieuwen.</b> Klik op <i>Beoordeling aanvragen</i> of <i>Opnieuw beoordelen</i>. Voordat er iets wordt verzonden, vraagt <span class="irs">IRONSTICK</span> of de externe AI mag worden gebruikt; tot uw bevestiging verlaat niets uw computer.</li>
+<li><b>Bijwerken in plaats van opnieuw beginnen.</b> Kort na een volledige beoordeling (binnen een dag en maximaal drie keer achter elkaar) wordt de knop een menu met <i>Bijwerken</i> en <i>Opnieuw beoordelen</i>. <i>Bijwerken</i> voegt alleen de sindsdien binnengekomen documenten toe en herschrijft de onderdelen die veranderen, wat aanzienlijk sneller gaat.</li>
+<li><b>Alleen actieve zaken.</b> Inactieve of gepauzeerde zaken worden niet beoordeeld. De knoppen zijn vergrendeld, en een melding vraagt u de zaak eerst op actief te zetten.</li>
+<li><b>De voortgang volgen.</b> Tijdens de uitvoering toont de kaart de huidige fase — voorbereiden, tekst lezen uit documenten die er nog geen hebben (lokaal uitgevoerd), de dossiers doorzoeken, de beoordeling schrijven, de slagingskansen schatten — en een live-logboek van elke stap.</li>
+<li><b>Verder werken.</b> De beoordeling loopt op de achtergrond. U kunt van tabblad wisselen, andere zaken openen of beoordelingen voor meerdere zaken tegelijk starten; een melding laat weten wanneer er een klaar is.</li>
+</ul>
+<p class="grp"><b>De beoordeling lezen</b></p>
+<ul>
+<li><b>Grondslag van de procedure.</b> Wie wat tegen wie vordert, voor welke rechtbank of welke instantie.</li>
+<li><b>Stand van het rechtbankdossier en slagingskansen.</b> Beschrijft alleen wat de rechtbank of de instantie in haar dossier heeft — alles wat beide partijen haar hebben gestuurd of van haar hebben ontvangen. De meter ernaast toont de schatting van de AI in procenten, het oordeel (van duidelijk verloren tot duidelijk gewonnen) en, waar beschikbaar, de afzonderlijke waarden voor de stand van het bewijs, de hoofdvordering en de overige vorderingen. Kan er geen rechtbankdossier worden vastgesteld, dan ontbreekt dit onderdeel en blijft de meter leeg („niet te schatten”).</li>
+<li><b>Stand van het IRONSTICK-dossier.</b> Het beeld uit uw volledige dossier, inclusief documenten die de rechtbank niet heeft gezien.</li>
+<li><b>Kritische opmerking, sterke punten en risico's.</b> Een oranje vak wijst op het belangrijkste gevaar. Het groene vak somt de sterke punten van uw positie op, het rode vak risico's en openstaande punten.</li>
+<li><b>Verwante zaken.</b> <i>Zaakoverstijgende koppelingen</i> tonen hoe andere zaken van dezelfde cliënt deze zaak beïnvloeden (van, naar, effect — aangeduid als prejudicieel, bewijs of strategisch). Een geel vak somt zaken van andere cliënten op met dezelfde tegenpartij of dezelfde betrokkenen en legt uit hoe u via het opmerkingenveld een daarvan in de beoordeling betrekt.</li>
+<li><b>Een onderdeel kopiëren.</b> Het kleine kopieersymbool voor een kop kopieert de kop en de bijbehorende tekst naar het klembord.</li>
+<li><b>De links volgen.</b> Een paars vermeldingsnummer opent die vermelding in de kroniek. Een blauwe zaakverwijzing of een officieel zaaknummer opent die zaak, mits het in <span class="irs">IRONSTICK</span> bestaat.</li>
+<li><b>Waarschuwingen en extra lectuur.</b> Een gele melding bovenaan waarschuwt als de beoordeling mogelijk onvolledig is (onderzoekslimiet bereikt of technische fout bij het onderzoek). <i>Aanvullend geladen volledige teksten</i> somt de documenten op die de AI volledig heeft gelezen; klik op een document om het te openen.</li>
+</ul>
+<p class="grp"><b>Bezwaren en aanvullingen</b></p>
+<ul>
+<li><b>De beoordeling corrigeren of aanvullen.</b> Schrijf uw bezwaren, ontbrekende feiten of instructies in het veld onderaan. Zodra u minstens drie woorden hebt geschreven, wordt <i>Opnieuw beoordelen</i> beschikbaar, en beoordeelt de AI de zaak opnieuw met inachtneming van uw opmerking.</li>
+</ul>
+
+<h3>Hoe de AI-beoordeling tot stand komt</h3>
+<figure><img src="img/screens/5%20case%20assesment%20detail.png" alt="AI-beoordeling met de uit het volledige dossier gevoede onderdelen groen gemarkeerd en het onderdeel van het rechtbankdossier met de meter voor slagingskansen rood gemarkeerd"><figcaption>Groen: gehaald uit het volledige dossier. Rood: alleen het deel van het dossier dat de rechtbank heeft.</figcaption></figure>
+<p class="scr-intro">De beoordeling werkt met twee verschillende bronnen, die in de afbeelding zijn gemarkeerd.
+De <b>groene</b> onderdelen worden geschreven op basis van het volledige dossier in <span class="irs">IRONSTICK</span> — elk document, elke vermelding, elke e-mail en elke transcriptie van de zaak — en van de naburige zaken van dezelfde cliënt.
+Het <b>rode</b> onderdeel met de meter beoordeelt alleen het deel van het dossier dat bij de rechtbank ligt: wat u bij haar hebt ingediend en wat zij of de wederpartij u heeft gestuurd. Documenten die de rechtbank nooit heeft gezien, tellen niet mee voor de slagingskansen.</p>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>De groene onderdelen — uw volledige dossier</b></p>
+<ul>
+<li><b>Grondslag van de procedure.</b> Wie wat tegen wie vordert, voor welke rechtbank of welke instantie, zoals dat uit het volledige dossier blijkt.</li>
+<li><b>Stand van het IRONSTICK-dossier.</b> Het volledige beeld van de zaak zoals die in <span class="irs">IRONSTICK</span> staat, inclusief uw eigen notities, bewijs en correspondentie waarvan de rechtbank niets weet, en de gevolgen van de overige zaken van de cliënt.</li>
+<li><b>Kritische opmerking, sterke punten en risico's.</b> Eveneens geschreven op basis van het volledige dossier en de naburige zaken.</li>
+</ul>
+<p class="grp"><b>Het rode onderdeel — alleen het rechtbankdossier</b></p>
+<ul>
+<li><b>Stand van het rechtbankdossier.</b> Beschrijft alleen wat de rechtbank in haar dossier heeft — elk ingediend stuk en elk document dat in deze procedure van de rechtbank of de wederpartij is ontvangen.</li>
+<li><b>Slagingskansen.</b> De meter loopt van rood (verloren) onderaan tot groen (gewonnen) bovenaan; de pijl en het percentage tonen de schatting van de AI, en het oordeel eronder (bijvoorbeeld <i>eerder gewonnen</i>) brengt die onder woorden. Waar beschikbaar volgen afzonderlijke waarden voor de stand van het bewijs, de hoofdvordering en de overige vorderingen.</li>
+<li><b>Waarom alleen het rechtbankdossier.</b> De rechtbank beslist op basis van wat haar voorligt. Een sterk document in uw dossier dat nooit is ingediend, verbetert de schatting niet totdat het de rechtbank bereikt — de groene onderdelen laten u zulke lacunes zien.</li>
+<li><b>Geen rechtbankdossier, geen schatting.</b> Kan <span class="irs">IRONSTICK</span> de rechtbank of de documenten die haar voorliggen niet vaststellen, dan ontbreekt het rode onderdeel en blijft de meter leeg.</li>
+</ul>
+
+<h2 id="s6">6. Personen / entiteiten</h2>
+
+<h3>Personenlijst, details en relatienetwerk</h3>
+<figure><img src="img/screens/6%20entities%201.png" alt="Lijst Personen / entiteiten met het detailvenster, de telefoon-QR-code en het relatienetwerk van een onderneming"><figcaption>De personenlijst met het detailvenster, een telefoon-QR-code en het relatienetwerk van een onderneming.</figcaption></figure>
+<p class="scr-intro">Dit scherm bevat elke natuurlijke persoon en elke rechtspersoon (onderneming, vereniging, overheidsinstantie als partij) die in uw zaken voorkomt.
+De afbeelding toont de lijst met de filterknoppen en het zoekveld, het detailvenster van een onderneming, de QR-code die opent wanneer u op een telefoonsymbool klikt,
+en het relatienetwerk dat via het netwerksymbool van een regel wordt geopend.</p>
+<ol class="marks">
+<li><b>Referentienummer.</b> Elke persoon of onderneming heeft een eigen referentie in de vorm <i>@E0000279</i>. Klik erop om die naar het klembord te kopiëren, bijvoorbeeld om de persoon aan te halen in een kroniekvermelding, een notitie of een chat met de AI.</li>
+<li><b>Zoekveld.</b> Verfijnt de lijst terwijl u typt: op naam, telefoonnummer, e-mailadres of stad. Meerdere woorden moeten allemaal overeenkomen; <i>*</i> werkt als jokerteken, en ook namen die alleen gelijk klinken, worden gevonden.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Paginakop</b></p>
+<ul>
+<li><b>Aantal vermeldingen.</b> Onder de titel ziet u hoeveel vermeldingen er worden getoond; is er een filter actief, dan wordt dat naast het getal vermeld.</li>
+<li><b>Importeren.</b> Opent een venster waarin u een gegevenspakketbestand sleept dat u van een andere <span class="irs">IRONSTICK</span>-gebruiker hebt ontvangen (personen, ondernemingen, instanties, hun relaties en persoonsanalyses). Tijdens de import loopt een voortgangsbalk; daarna ziet u hoeveel vermeldingen nieuw waren, hoeveel al bekend waren en hoeveel relaties er zijn toegevoegd. Brengt het pakket extra gegevens mee over personen die u al hebt, dan verschijnen die als voorstellen in de monitor voor gegevensconsistentie, in plaats van uw gegevens te overschrijven. Een beschadigd of onjuist bestand wordt met een melding geweigerd.</li>
+<li><b>Universe.</b> De zwarte knop opent de drie visuele kaarten van al uw partijen: 3D-kaart, 2D-kaart en geokaart.</li>
+<li><b>Nieuwe persoon / entiteit.</b> Opent het invoerformulier voor een nieuwe persoon of een nieuwe onderneming.</li>
+</ul>
+<p class="grp"><b>Filters en lijst</b></p>
+<ul>
+<li><b>Alle / Natuurlijke personen / Rechtspersonen.</b> De drie knoppen boven de lijst tonen het aantal in elke groep. Klik op een knop om alleen natuurlijke personen of alleen rechtspersonen te zien; de lijst keert terug naar pagina 1.</li>
+<li><b>Pagina's.</b> De lijst toont 20 vermeldingen per pagina. Is er meer dan één pagina, dan verschijnt de paginanavigatie boven en onder de lijst.</li>
+<li><b>Kolommen.</b> Elke regel toont het referentienummer, een blauw personensymbool of een paars ondernemingssymbool, de naam (bij personen ook het beroep), de stad, contactsymbolen, het aantal zaken waarbij de vermelding betrokken is (groen) of <i>Geen</i> (grijs), het netwerksymbool, het analysesymbool en de acties.</li>
+<li><b>Contactsymbolen.</b> Het telefoonsymbool en het e-mailsymbool openen elk een QR-code: scan die met uw telefoon om direct te bellen of een e-mail te schrijven. Een klik op de QR-code zelf opent het bijbehorende programma op deze computer; is er geen, dan wordt het nummer of adres naar het klembord gekopieerd. Een boeksymbool geeft aan dat er socialemediaprofielen of een website zijn vastgelegd.</li>
+<li><b>Netwerksymbool.</b> Opent het relatienetwerk van deze persoon of onderneming.</li>
+<li><b>Analysesymbool.</b> Het paarse symbool verschijnt alleen bij natuurlijke personen die al een persoonsanalyse hebben. Klik erop om de analyse te openen.</li>
+<li><b>Bewerken en verwijderen.</b> Het potlood opent het invoerformulier. Het kruisje verwijdert de vermelding na een bevestiging; is de vermelding nog gekoppeld aan zaken, relaties of een persoonsanalyse, dan somt de bevestiging die koppelingen op in een gele waarschuwing. Het verwijderen van een persoon verwijdert ook alle relaties van die persoon.</li>
+<li><b>Terugkomen vanuit andere schermen.</b> Springt u hierheen vanuit de zoekfunctie, een zaak of een van de kaarten, dan wordt de vermelding op de juiste pagina gevonden en licht die enkele seconden geel op.</li>
+</ul>
+<p class="grp"><b>Detailvenster</b></p>
+<ul>
+<li><b>De details openen.</b> Klik ergens op een regel. Het venster toont een tag <i>Natuurlijke persoon</i> of <i>Rechtspersoon</i> en alle ingevulde velden, gegroepeerd in basisgegevens, adres, contact, online / sociaal, beroep (alleen personen), voertuig en systeemgegevens (vermeldingsnummer en aanmaakdatum). Lege velden worden weggelaten.</li>
+<li><b>Visitekaartje als QR-code.</b> Klik op de naam in de titel, de straat of de stad: er verschijnt een QR-code met het volledige visitekaartje, die u direct in het adresboek van uw telefoon kunt scannen.</li>
+<li><b>Telefoon-, e-mail- en weblinks.</b> Het blauwe telefoonnummer en e-mailadres openen hun QR-codes. Links naar Facebook, LinkedIn, Instagram en websites openen in het <span class="irs">IRONSTICK</span>-browservenster.</li>
+<li><b>Pdf-export.</b> Maakt een persoonsblad als pdf: basisgegevens, betrokkenheid bij zaken, persoonsanalyse en relaties, alleen met de velden die zijn ingevuld. U kunt het daarna opslaan in uw map Documenten of in uw Google Drive-map.</li>
+</ul>
+<p class="grp"><b>Relatienetwerk</b></p>
+<ul>
+<li><b>Wie met wie verbonden is.</b> Het netwerk toont de persoon of de onderneming in het midden met de directe relaties en de relaties van die contacten (twee niveaus), als diagram op één of meer pagina's.</li>
+<li><b>Door het netwerk bewegen.</b> Klik in het diagram op een andere persoon, onderneming of instantie: het venster bouwt zich opnieuw op rond die partij. Paginaverwijzingen in het diagram springen naar de bijbehorende pagina; de vergrootglasknoppen zoomen in en uit.</li>
+<li><b>Registreren.</b> Maakt van het diagram een pdf en opent die direct in <i>Document registreren</i>, zodat u het met de gebruikelijke stempel in een zaak kunt opslaan. Deze knop is niet beschikbaar op de Android-tablet.</li>
+</ul>
+<p class="grp"><b>Een persoon vastleggen of bewerken</b></p>
+<ul>
+<li><b>Soort vermelding.</b> Kies eerst <i>Natuurlijke persoon</i> of <i>Rechtspersoon</i>; het formulier past zich aan. Alleen de naam is verplicht. Voor personen komen er daarnaast persoonlijk identificatienummer, geboortedatum (datumkiezer), nationaliteit en religie bij; voor ondernemingen in plaats daarvan het handelsregisternummer.</li>
+<li><b>Adres en positie op de kaart.</b> Voer straat, postcode, plaats, district en land in (bij een nieuwe vermelding is het land vooraf ingevuld vanuit uw configuratie). Zet de geocoördinaten aan om het adres op de kaart te zoeken, breedte- en lengtegraad in te voeren of gewoon op de juiste plek op de kaart te klikken.</li>
+<li><b>Contact, online, beroep, voertuig.</b> Telefoon, fax, e-mail (gecontroleerd op geldig formaat), contactgegevens, beschrijving, links naar sociale media en website, beroep en werkgever (alleen personen), auto en kenteken.</li>
+<li><b>AI-autofill en Google-zoekopdracht.</b> Voor een rechtspersoon met naam en land verschijnt een knop in de kopregel. Is er een AI-sleutel geconfigureerd, dan vraagt <i>AI-autofill</i> om uw toestemming en laat daarna de externe AI de onderneming op internet opzoeken; die vult alleen lege velden in en markeert ze met een paarse rand. Daarna, of zonder AI-sleutel, wordt de knop <i>Google-zoekopdracht</i>, die de zoekopdracht in het <span class="irs">IRONSTICK</span>-browservenster opent.</li>
+<li><b>Opslaan of annuleren.</b> De opslaanknop slaat de vermelding op en keert terug naar de lijst. Bewerkt u een bestaande natuurlijke persoon, dan verschijnt linksonder bovendien een knop <i>Persoonsanalyse</i>.</li>
+<li><b>Vermeldingen van andere gebruikers op de IRONSTICK SERVER.</b> Hoort een vermelding bij een andere gebruiker van de IRONSTICK SERVER, dan wijst een banner daarop. Opslaan stuurt uw wijzigingen dan als wijzigingsvoorstel naar de eigenaar, en verwijderen stuurt in plaats van te verwijderen een verwijderingsvoorstel.</li>
+</ul>
+<p class="grp"><b>Persoonsanalyse en webonderzoek (alleen natuurlijke personen)</b></p>
+<ul>
+<li><b>Persoonsanalyse.</b> Een gestructureerd profiel van een persoon: rol in de zaak (bijvoorbeeld tegenpartij, getuige, derde), betrouwbaarheid (onbevestigd, gedeeltelijk bevestigd, bevestigd — als gekleurde tag getoond) en datum van de analyse; identiteit en locatie met maximaal drie woonplaatsen, elk met een eigen kaartpositie; achtergrond (familie, belastingen, schulden, zaken, online aanwezigheid, sociale omgeving); en een inschatting (rol in het netwerk, zwakke plekken, strategische totaalinschatting, bronnen). De voettekst toont wanneer er voor het laatst is opgeslagen. Ondernemingen hebben geen persoonsanalyse.</li>
+<li><b>Relaties.</b> Aan het einde van de analyse voegt u relaties toe: zoek een persoon of instantie, kies een categorie (familie, werk, religie, plaats, strafbaar feit, financiën, sociaal, politiek, onderwijs, leger/politie, digitaal/online) en voeg een korte beschrijving toe zoals „is de echtgenote van”. Bestaande relaties kunnen worden bewerkt of verwijderd; ze voeden het netwerk en de kaarten.</li>
+<li><b>Webonderzoek.</b> De knop <i>Webonderzoek</i> in de analyse doorzoekt het internet naar de persoon en somt de treffers op. Verwijder ongewenste treffers, laat daarna de overige pagina's laden en samenvatten, vink de bronnen aan die u vertrouwt en klik op <i>Selectie analyseren</i>. Het resultaat verschijnt als bewerkbaar voorbeeld van de analysevelden, dat u in de persoonsanalyse opslaat. De externe AI wordt pas na uw toestemming gebruikt; elke link kan in het <span class="irs">IRONSTICK</span>-browservenster worden geopend.</li>
+</ul>
+
+<h3>Universe: 3D-kaart, 2D-kaart en geokaart</h3>
+<figure><img src="img/screens/6%20entities%20universe.png" alt="De knop Universe met het menu en de drie kaarten: 3D-kaart, 2D-kaart en geokaart"><figcaption>De knop Universe opent drie weergaven van al uw partijen.</figcaption></figure>
+<p class="scr-intro">De knop <b>Universe</b> in de kopregel van de personenlijst opent drie verschillende beelden van alle personen in uw dossiers en hoe ze met elkaar verbonden zijn.
+De <b>3D-kaart</b> is een ruimte waar u doorheen kunt vliegen, de <b>2D-kaart</b> legt hetzelfde netwerk uit als een technische tekening op ruitjespapier,
+en de <b>geokaart</b> plaatst alle personen en ondernemingen met een bekende locatie op een satellietkaart. Elke weergave opent schermvullend en sluit met het kruisje of Escape.</p>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>3D-kaart</b></p>
+<ul>
+<li><b>Het universum bouwt zichzelf op.</b> Een voortgangsbalk toont hoe ver het beeld is; groepen nauw verbonden partijen (kliekjes) verschijnen na elkaar, elk in een eigen kleur. Groepen met opvallende verbindingspatronen worden rood knipperend gemarkeerd. De regel linksboven telt partijen, verbindingen en kliekjes.</li>
+<li><b>Vliegen.</b> W/A/S/D vliegen vooruit, naar links, achteruit en naar rechts; R en F stijgen en dalen; sleep met de muis of gebruik de pijltoetsen om te draaien; het muiswiel beweegt vooruit of achteruit; Shift beweegt sneller, de spatiebalk vertraagt. Het vak linksonder somt deze toetsen op, en een kleine balk rechtsonder toont uw snelheid.</li>
+<li><b>Een partij vinden en ernaartoe vliegen.</b> Klik op een punt om het te markeren en er automatisch naartoe te vliegen; klik er nogmaals op om de markering op te heffen. Het zoekveld rechtsonder vindt de best passende naam en vliegt er eveneens naartoe.</li>
+<li><b>Terug naar de lijst.</b> Dubbelklik op een punt: de kaart sluit, en de persoon licht geel op in de personenlijst. Bij een instantie opent in plaats daarvan de instantielijst, op dezelfde manier gemarkeerd.</li>
+<li><b>Zaakverbindingen en gescheiden lagen.</b> <i>Zaakverbindingen</i> verbindt daarnaast partijen die in dezelfde zaak voorkomen. <i>Lagen scheiden</i> plaatst instanties bovenaan, personen in het midden en ondernemingen onderaan. Beide schakelaars bouwen het beeld opnieuw op en worden onthouden.</li>
+</ul>
+<figure class="vid"><video src="img/universe-entities.mp4" controls preload="metadata" playsinline></video><figcaption>Vlucht door de 3D-kaart van alle partijen.</figcaption></figure>
+<p>De kliekjes — groepen nauw verbonden partijen — worden automatisch berekend met een deterministische community-detectie (zonder AI). De berekening omvat altijd alle personen, ondernemingen en instanties in <span class="irs">IRONSTICK</span>, zonder dat u iets hoeft te doen. Hoe meer gekwalificeerde verbindingen een partij heeft, hoe groter de bol wordt getekend.</p>
+<p class="grp"><b>2D-kaart</b></p>
+<ul>
+<li><b>Bewegen als op een vel papier.</b> Sleep met de muis of gebruik W/A/S/D om het blad te verschuiven; het muiswiel zoomt in naar de aanwijzer.</li>
+<li><b>Een partij bekijken.</b> Wijs een knooppunt aan om de verbindingen en naambordjes te zien. Een klik markeert het (het pulseert), een klik op het lege blad heft de markering op, en een dubbelklik keert terug naar de lijst met de vermelding gemarkeerd.</li>
+<li><b>Zoeken en schakelaars.</b> Het zoekveld rechtsonder vindt een partij op naam; <i>Zaakverbindingen</i> verbindt partijen uit dezelfde zaak; <i>Lagen scheiden</i> stapelt instanties, personen en ondernemingen.</li>
+</ul>
+<p class="grp"><b>Geokaart</b></p>
+<ul>
+<li><b>Iedereen met een adres op de kaart.</b> Personen verschijnen in het blauw, ondernemingen in het paars. Alleen vermeldingen met bekende coördinaten worden getoond; <span class="irs">IRONSTICK</span> vult die op de achtergrond aan vanuit de adressen. Het label linksonder toont hoeveel markeringen er zijn.</li>
+<li><b>Gebundelde markeringen.</b> Partijen die heel dicht bij elkaar liggen, worden samengevoegd tot een genummerde markering. Klik erop om in te zoomen of, als ze op dezelfde plek liggen, om ze op te sommen.</li>
+<li><b>Details.</b> Klik op een markering om naam, soort en adres te zien; <i>Details</i> sluit de kaart en markeert de vermelding in de personenlijst.</li>
+</ul>
+
+<h2 id="s7">7. Instanties</h2>
+<figure><img src="img/screens/7%20institutions.png" alt="Instantielijst met detailvenster en telefoon-QR-code"><figcaption>De instantielijst met het detailvenster van een overheidsinstantie en de bijbehorende telefoon-QR-code.</figcaption></figure>
+<p class="scr-intro">Instanties zijn rechtbanken, overheidsinstanties, openbare organen en vergelijkbare instellingen waarmee u in uw zaken te maken hebt.
+De lijst toont elke instantie met de classificatietags, plaats, contactsymbolen en het aantal zaken waarbij ze betrokken is.
+De afbeelding toont ook het detailvenster van een overheidsinstantie en de QR-code die opent wanneer u op het telefoonsymbool klikt.</p>
+<ol class="marks">
+<li><b>Referentienummer.</b> Elke instantie heeft een eigen referentie in de vorm <i>@I0000030</i>. Met een klik erop kopieert u die naar het klembord, bijvoorbeeld om de instantie aan te halen in een vermelding of in een chat met de AI.</li>
+<li><b>Zoekveld.</b> Verfijnt de lijst tijdens het typen: op naam, telefoonnummer, e-mailadres of plaats. Meerdere woorden moeten allemaal overeenkomen, <i>*</i> werkt als jokerteken, en ook namen die alleen gelijk klinken, worden gevonden.</li>
+</ol>
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Lijst</h4>
+<ul>
+<li><b>Overzicht.</b> De titel toont het totale aantal instanties, de kaartkop het aantal dat op dat moment wordt vermeld. De lijst toont 20 vermeldingen per pagina; bij meer dan één pagina verschijnt de paginanavigatie boven en onder de lijst.</li>
+<li><b>Classificatie in één oogopslag.</b> Onder elke naam tonen kleine grijze tags de landcode, de soortcode en de regio, gevolgd door de naam van de soort.</li>
+<li><b>Contactsymbolen.</b> De symbolen voor telefoon en e-mail openen een QR-code waarmee u met uw telefoon kunt bellen of schrijven; een klik op de QR-code opent het bijbehorende programma op deze computer (of kopieert de waarde als er geen is). Het wereldbolsymbool opent de website in het <span class="irs">IRONSTICK</span>-browservenster.</li>
+<li><b>Zaken.</b> Een groene tag toont bij hoeveel zaken de instantie betrokken is; <i>Geen</i> betekent dat ze nog aan geen enkele zaak is gekoppeld.</li>
+<li><b>Bewerken en verwijderen.</b> Het potlood opent het invoerformulier. Het kruisje verwijdert de instantie na een bevestiging; is ze nog aan zaken of relaties gekoppeld, dan somt een gele waarschuwing die op. Bij het verwijderen worden ook de relaties van de instantie verwijderd.</li>
+<li><b>Openen vanuit andere schermen.</b> Komt u van de Universum-kaarten of een ander scherm, dan wordt de instantie op de juiste pagina gevonden en licht ze enkele seconden geel op.</li>
+</ul>
+
+<h4>Detailvenster</h4>
+<ul>
+<li><b>Details openen.</b> Klik op een regel. Het venster toont classificatie (soort, soortcode, regio), adres, contact en systeemgegevens (instantienummer en aanmaakdatum); lege velden worden weggelaten.</li>
+<li><b>Contactkaart als QR-code.</b> Klik op de naam in de titel of op een willekeurig deel van het adres om een QR-code te krijgen met de volledige contactkaart voor uw telefoon.</li>
+<li><b>Telefoon, e-mail, website.</b> Telefoon en e-mail openen hun QR-codes; de website opent in het <span class="irs">IRONSTICK</span>-browservenster. <i>Sluiten</i> sluit het venster.</li>
+</ul>
+
+<h4>Nieuwe instantie of instantie bewerken</h4>
+<ul>
+<li><b>Nieuwe instantie.</b> De blauwe knop rechtsboven opent het invoerformulier; het potlood in een regel opent hetzelfde formulier voor een bestaande instantie.</li>
+<li><b>Classificatie.</b> De naam is verplicht. Kies de soort instantie en de regio uit de lijsten.</li>
+<li><b>Adres en kaartpositie.</b> Straat, postcode, plaats, district en land. Zet de geocoördinaten aan om het adres op de kaart te zoeken, breedte- en lengtegraad in te voeren of de plek op de kaart aan te klikken.</li>
+<li><b>Contact.</b> Telefoon, fax, e-mail en website.</li>
+<li><b>AI-invulhulp en Google-zoekopdracht.</b> Zodra een naam en een land zijn ingevoerd, verschijnt er een knop in de kopregel. Is er een AI-sleutel ingesteld, dan vraagt de <i>AI-invulhulp</i> om uw toestemming en laat de externe AI de instantie op internet opzoeken; die vult alleen lege velden in en markeert ze met een paarse rand. Daarna, of zonder sleutel, opent de knop een Google-zoekopdracht in het <span class="irs">IRONSTICK</span>-browservenster.</li>
+<li><b>Instanties van andere gebruikers op de IRONSTICK SERVER.</b> Hoort de instantie bij een andere gebruiker van de IRONSTICK SERVER, dan stuurt opslaan een wijzigingsvoorstel en verwijderen een verwijderingsvoorstel naar de eigenaar.</li>
+</ul>
+
+<h2 id="s8">8. Documenten registreren</h2>
+
+<h3>Documentinbox en registratieformulier</h3>
+<figure><img src="img/screens/8%20capture%20documents.png" alt="Inbox voor documenten, het venster voor paginaselectie en het formulier Document registreren met de tekstweergave"><figcaption>De documentinbox, de paginaselectie en het registratieformulier met de tekstweergave.</figcaption></figure>
+<p class="scr-intro">Elke pdf die in een zaak moet komen, loopt via deze inbox. Links ziet u de inbox met het neerzetvlak en de lijst met wachtende bestanden;
+rechts het formulier <b>Document registreren</b>, waarin het document aan een zaak wordt gekoppeld en wordt beschreven. Daarvoor ligt het venster voor paginaselectie,
+dat bij documenten met meerdere pagina's als eerste opent, en de tekstweergave, die toont wat <span class="irs">IRONSTICK</span> uit het bestand heeft gelezen.</p>
+<ol class="marks">
+<li><b>Neerzetvlak.</b> Sleep pdf- of Markdown-bestanden hierheen of klik om ze te kiezen. Markdown-bestanden worden automatisch omgezet naar pdf; andere bestandstypen worden met een melding geweigerd.</li>
+<li><b>Inboxindicator.</b> Zolang er onverwerkte documenten in de inbox wachten, verschijnt in de menubalk een rood, geanimeerd inboxsymbool; als u het aanwijst, ziet u hoeveel het er zijn. Met een klik gaat u direct naar dit scherm. Het verdwijnt wanneer de inbox leeg is.</li>
+<li><b>Bekijken.</b> Opent de pdf met het programma dat op deze computer voor pdf's is ingesteld.</li>
+<li><b>Registreren.</b> Start de registratie van dit bestand: paginaselectie, lezen van de tekst, AI-classificatie en daarna het registratieformulier.</li>
+<li><b>Verwijderen.</b> Verwijdert het bestand na een bevestiging uit de inbox. Dit kan niet ongedaan worden gemaakt.</li>
+<li><b>Bekijken (in het formulier).</b> Opent het document dat u op dat moment registreert in het <span class="irs">IRONSTICK</span>-browservenster, zodat u het kunt lezen terwijl u het formulier invult.</li>
+<li><b>Tekstweergave.</b> Toont de uit de pdf gelezen tekst in een venster waarin u die kunt selecteren en kopiëren.</li>
+<li><b>Geheim.</b> Markeert het document als geheim. Geheime documenten zijn overal in <span class="irs">IRONSTICK</span> verborgen totdat u <b>Ctrl + Shift + S + D</b> indrukt (alleen Windows); dezelfde combinatie verbergt ze weer. De geheime modus wordt nooit opgeslagen: hij schakelt zichzelf uit bij een herstart van het programma en bij schermbeveiliging, stand-by of schermvergrendeling. Zolang hij is ingeschakeld, toont de configuratie de kaart waarin het wachtwoord voor geheime documenten eenmalig wordt vastgelegd — het kan niet meer worden gewijzigd zodra er een geheim document bestaat. Een zo gemarkeerd document wordt opgeslagen als met een wachtwoord beveiligde pdf (AES-256) en kan geen termijn hebben.
+<br><b>Geheime documenten blijven in <span class="irs">IRONSTICK</span>:</b> elke AI-functie, ingebouwd of extern, filtert ze eruit; ze zijn uitgesloten van gegenereerde pdf's en producties; het <span class="irs">IRONSTICK</span>-browservenster kan ze niet openen; en een zaakoverdracht aan een collega bevat ze alleen na uw uitdrukkelijke bevestiging.
+<br><b>Noodverwijdering:</b> <b>Ctrl + Shift + S + D + K</b> beëindigt de geheime modus onmiddellijk en verwijdert alle geheime documenten (bestanden en vermeldingen) definitief. Dit kan niet ongedaan worden gemaakt.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Inbox</b></p>
+<ul>
+<li><b>Inboxmap.</b> De kaart somt elke pdf in de inboxmap op met de grootte ervan, 20 per pagina. Onder Windows wordt het exacte mappad naast de titel getoond, met knoppen om het te kopiëren en om het in Verkenner te openen — handig als uw scanner direct in deze map opslaat.</li>
+<li><b>Andere manieren om erin te komen.</b> Documenten komen hier ook terecht vanuit de e-mailmonitor en vanuit diagrammen die u ter registratie verzendt (bijvoorbeeld een relatienetwerk).</li>
+<li><b>Na het registreren.</b> Zodra een document in een zaak is opgeslagen, verdwijnt het uit de inbox.</li>
+</ul>
+<p class="grp"><b>Paginaselectie</b></p>
+<ul>
+<li><b>Hoofddocument en producties.</b> Bij een pdf met twee of meer pagina's toont het venster <i>Pagina's kiezen</i> een voorbeeld van elke pagina. Geef aan tot welke pagina het hoofddocument loopt; die pagina's worden blauw gemarkeerd en altijd behouden. De regel ernaast vertelt u op welke pagina's de producties volgen of dat er geen zijn.</li>
+<li><b>Pagina's opnemen of weglaten.</b> Klik op een willekeurige andere pagina om die te wisselen tussen behouden (blauwe rand) en weggelaten (rode rand, doorgestreept). Alleen de behouden pagina's worden gelezen en met doorzoekbare tekst opgeslagen — handig bij lange producties die u niet volledig nodig hebt. <i>Toepassen</i> start het lezen.</li>
+</ul>
+<p class="grp"><b>Lezen en AI-classificatie</b></p>
+<ul>
+<li><b>De tekst wordt lokaal gelezen.</b> Een voortgangsscherm toont elke stap. <span class="irs">IRONSTICK</span> leest de tekstlaag van elke behouden pagina; alleen pagina's zonder bruikbare tekst (scans) doorlopen de tekstherkenning.</li>
+<li><b>Partijen en zaak worden automatisch gevonden.</b> Personen en instanties die u al hebt vastgelegd, worden in de tekst herkend en als betrokkenen voorgesteld. Een zaaknummer in de kop, een bekend briefnummer of een verwijzing naar een van uw verzonden e-mails wijst op de passende zaak. Uw eigen tekstverwerkingsdocumenten worden aan hun stempel herkend.</li>
+<li><b>AI-classificatie met uw toestemming.</b> Voordat er tekst naar de externe AI gaat, wordt het u eenmaal per programmastart gevraagd. De AI stelt dan titel, datum, beschrijving, trefwoorden, documentsoort, richting en meer voor. Weigert u, dan blijft het formulier voor dit document leeg en vult u het zelf in.</li>
+<li><b>Vaststaande feiten gaan voor.</b> Bij documenten uit de e-mailmonitor volgt de richting uit de mailmap (inbox of verzonden); bij imports uit de rechtbankpost legt de ontvangstbevestiging zaak, datum en richting vast. De AI overschrijft dit niet.</li>
+</ul>
+<p class="grp"><b>Zaak &amp; classificatie toewijzen</b></p>
+<ul>
+<li><b>Cliënt en zaak.</b> Zoek de cliënt op naam, telefoon of e-mail; nadat u er een hebt gekozen, toont de zakenlijst alleen diens zaken, actieve eerst. Met de keuze van een zaak worden het land, het rechtsgebied en het procedurestadium ervan overgenomen.</li>
+<li><b>Eerst het land.</b> Rechtsgebied en procedurestadium kunnen pas na het land worden gekozen, omdat ze uit de lijst van dat land komen. Documenttaal, documentsoort en soort instantie maken de classificatie compleet; documentsoort en instantie worden tijdens het typen gezocht.</li>
+</ul>
+<p class="grp"><b>Documentgegevens</b></p>
+<ul>
+<li><b>Bewijs, inkomend of uitgaand.</b> Kies om welk soort vermelding het gaat. <i>Rechterlijke beslissing</i> wordt automatisch aangevinkt als <span class="irs">IRONSTICK</span> een rechterlijke beslissing herkent; u kunt dat altijd wijzigen.</li>
+<li><b>Data en titel.</b> Feitelijke documentdatum, titel (verplicht, tot 120 tekens), datum van de vermelding (verplicht), trefwoorden en een optionele tijd van / tot.</li>
+<li><b>Koppeling met de tekstverwerking.</b> Koppelt het document aan een van uw eigen teksten uit de tekstverwerking — bijvoorbeeld aan de ondertekende versie van een door u opgestelde brief. Teksten uit dezelfde zaak worden eerst vermeld; inkomende documenten worden nooit gekoppeld.</li>
+<li><b>Beschrijving en betrokkenen.</b> De beschrijving kan vrij worden bewerkt. Betrokkenen verschijnen als chips: verwijder er een met het kruisje, voeg er een toe via de zoekfunctie. Is een naam onbekend, dan kunt u via een knop direct een nieuwe persoon, onderneming of instantie aanmaken. Partijen die <span class="irs">IRONSTICK</span> kent, worden bij het opslaan aan de zaak gekoppeld.</li>
+<li><b>Termijn.</b> Voer een termijndatum in en vink het vakje ernaast aan om er een actieve termijn van te maken.</li>
+</ul>
+<p class="grp"><b>Opslaan</b></p>
+<ul>
+<li><b>Opslaan.</b> Titel en zaak zijn verplicht; anders vertelt een rode melding u wat er ontbreekt. Het opslaan kan bij lange documenten even duren; in die tijd is de menubalk vergrendeld, zodat niets wordt onderbroken.</li>
+<li><b>Wat er bij het opslaan gebeurt.</b> De pdf krijgt de <span class="irs">IRONSTICK</span>-stempel, krijgt op de behouden pagina's een doorzoekbare tekstlaag, wordt versleuteld in de zaak opgeslagen en uit de inbox verwijderd. Een korte samenvatting en kruisverwijzingen naar andere vermeldingen worden enkele seconden later op de achtergrond toegevoegd.</li>
+<li><b>Annuleren.</b> Verlaat het formulier; het bestand blijft in de inbox.</li>
+</ul>
+
+<h3>Hoe een document door de registratie loopt</h3>
+<figure><img src="img/screens/8%20capture%20documents%20proces.png" alt="Diagram: pdf, paginaselectie, lokale verwerking, externe AI op internet, registratieformulier, AES-256-versleuteling, database en gestempelde pdf"><figcaption>Van de pdf in de inbox tot de versleutelde vermelding in de zaak.</figcaption></figure>
+<p class="scr-intro">Het diagram toont de weg van een document van links naar rechts. De pdf wordt eerst op uw computer verwerkt (paginaselectie en lezen van de tekst),
+daarna gaat alleen de tekst via internet ter classificatie naar de externe AI, en het resultaat komt terug in het registratieformulier.
+Na het opslaan wordt het document met AES-256 versleuteld en samen met de gestempelde pdf als vermelding in de database opgeslagen.</p>
+<h4>Wat u hier kunt doen</h4>
+<ul>
+<li><b>Stap 1 — op uw computer.</b> U kiest de pagina's; <span class="irs">IRONSTICK</span> leest de tekst ervan en herkent bekende partijen en de zaak zonder enige internetverbinding.</li>
+<li><b>Stap 2 — externe AI, alleen met toestemming.</b> De geëxtraheerde tekst wordt naar de externe AI gestuurd, die de classificatie voorstelt. Vóór uw toestemming wordt er niets verzonden, en u kunt het formulier altijd zelf invullen.</li>
+<li><b>Stap 3 — uw controle.</b> U controleert en corrigeert elk voorstel in het registratieformulier; alleen wat u opslaat, wordt opgeslagen.</li>
+<li><b>Stap 4 — versleutelde opslag.</b> De gestempelde pdf en de gegevens ervan worden met AES-256 versleuteld in de zaak opgeslagen.</li>
+</ul>
+
+<h2 id="s9">9. Globaal zoeken</h2>
+<figure><img src="img/screens/9%20global%20search.png" alt="Globaal zoeken met resultaten voor het woord contract en een vergrote resultaatregel"><figcaption>Zoekresultaten over alle zaken, met één vergroot weergegeven regel.</figcaption></figure>
+<p class="scr-intro">Globaal zoeken doorzoekt alle vermeldingen van al uw zaken tegelijk: titels, trefwoorden, samenvattingen, beschrijvingen, betrokkenen,
+documentinhoud en de volledige tekst van documenten, chats en transcripties. De afbeelding toont de resultaten voor het woord <i>contract</i>;
+één resultaatregel is vergroot, zodat de onderdelen ervan goed te herkennen zijn.</p>
+<ol class="marks">
+<li><b>Zoekveld.</b> Typ een of meer woorden en druk op Enter of klik op <i>Zoeken</i>. Bij meerdere woorden moet elk woord in de vermelding voorkomen. Accenten worden genegeerd, en kleine OCR-fouten in gescande tekst worden getolereerd.</li>
+<li><b>Datum.</b> De datum van de vermelding.</li>
+<li><b>Richting.</b> <i>IN</i> (blauw) duidt een inkomend document aan, <i>OUT</i> (rood) een uitgaand document. Bewijsvermeldingen hebben geen tag.</li>
+<li><b>Exacte woordvolgorde.</b> De groene ster verschijnt achter de titel als uw woorden precies in deze volgorde samen zijn gevonden — doorgaans de meest relevante treffers.</li>
+<li><b>Zaak.</b> Het zaaknummer en daaronder de cliënt waartoe de vermelding behoort.</li>
+<li><b>Vindplaats.</b> De gekleurde tag toont het veld waarin de beste treffer is gevonden, bijvoorbeeld titel, trefwoorden, samenvatting, beschrijving, betrokkenen, documentinhoud, volledige tekst of briefnummer. <i>Overeenkomst ~N %</i> betekent dat de vermelding is gevonden omdat ze inhoudelijk vergelijkbaar is, niet via het exacte woord.</li>
+</ol>
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Zoeken</h4>
+<ul>
+<li><b>Beste treffers eerst.</b> De resultaten zijn gesorteerd op relevantie — een treffer in de titel telt zwaarder dan een in de volledige tekst — en daarna op datum, nieuwste eerst. De kaartkop toont hoeveel resultaten er voor uw zoekopdracht zijn gevonden.</li>
+<li><b>Vergelijkbare vermeldingen.</b> Bij één woord van vier of meer letters worden vermeldingen met een vergelijkbare titel of beschrijving toegevoegd, ook als het exacte woord niet voorkomt.</li>
+<li><b>Direct naar een vermelding springen.</b> Typ een vermeldingsnummer zoals <i>#1234</i> of alleen het nummer, of plak de bestandsnaam / de identificatie uit een <span class="irs">IRONSTICK</span>-stempel: de zoekfunctie toont precies die vermelding.</li>
+<li><b>Niets gevonden.</b> Een melding laat u weten dat er geen resultaten zijn voor uw zoekopdracht; probeer het met minder of andere woorden.</li>
+</ul>
+
+<h4>Resultaten</h4>
+<ul>
+<li><b>Pagina's.</b> 20 resultaten per pagina; bij meer dan één pagina verschijnt de paginanavigatie boven en onder de lijst.</li>
+<li><b>Een resultaat openen.</b> Klik op een regel: de zaak opent op het tabblad Kroniek, en de vermelding licht op, zodat u die direct ziet.</li>
+<li><b>Lege titel.</b> Een vermelding zonder titel wordt weergegeven als „Vermelding #” gevolgd door het nummer.</li>
+</ul>
+
+<h2 id="s10">10. Agenda</h2>
+<figure><img src="img/screens/10%20calendar.png" alt="Agenda met twee maanden, de geselecteerde dag met de afspraken en het exportvenster voor het .ics-bestand"><figcaption>Twee maanden in één oogopslag, de afspraken van de geselecteerde dag en de agenda-export.</figcaption></figure>
+<p class="scr-intro">De agenda bevat uw zittingen, getuigenverhoren, besprekingen, telefoongesprekken en taken.
+Twee maanden worden naast elkaar getoond; gekleurde cijfers en stippen geven aan op welke dagen er iets gepland is.
+Onder de maanden ziet u alles wat voor de geselecteerde dag gepland is. De afbeelding toont ook het exportvenster dat opent wanneer u de agenda als .ics-bestand exporteert.</p>
+<ol class="marks">
+<li><b>Een dag kiezen.</b> Klik op een willekeurige dag om daaronder de afspraken ervan te tonen. De geselecteerde dag wordt blauw; vandaag heeft een grijze cirkel.</li>
+<li><b>Dagvak.</b> Toont de geselecteerde datum, het aantal afspraken en de knop <i>Nieuwe vermelding</i>. Daaronder staan de afspraken van die dag, gevolgd door zittingen uit een nationaal rechtbankportaal.</li>
+<li><b>.ics exporteren.</b> Slaat uw afspraken en zittingen vanaf vandaag op als agendabestand dat andere agendaprogramma's kunnen importeren.</li>
+</ol>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Navigeren in de agenda</h4>
+<ul>
+<li><b>Door de maanden bladeren.</b> De pijlen verschuiven de tweemaandsweergave terug of vooruit; <i>Vandaag</i> springt terug naar de huidige maand en selecteert vandaag.</li>
+<li><b>De kleuren lezen.</b> Een dag met vermeldingen toont het cijfer in kleur en per soort een kleine stip: oranje voor een zitting uit het rechtbankportaal of een getuigenverhoor, rood voor een zitting, blauw voor een bespreking, groen voor een telefoongesprek, grijs voor overige vermeldingen en paars voor een taak. Het cijfer neemt de kleur van de belangrijkste vermelding aan.</li>
+</ul>
+
+<h4>De afspraken van een dag</h4>
+<ul>
+<li><b>Daglijst.</b> Elke afspraak toont de tijd, de titel, de locatie, het begin van de beschrijving, de zaak en de cliënt, en een gekleurd label voor de soort. Heeft een dag veel vermeldingen, dan wordt de lijst verdeeld in pagina's met paginaknoppen erboven en eronder.</li>
+<li><b>Details openen.</b> Klik op een afspraak om datum, tijd, soort, locatie, de volledige beschrijving en de zaak te zien. Onder <i>Voorbereide documenten</i> vindt u de kroniekvermeldingen die u aan de afspraak hebt gekoppeld: het paarse nummer opent de zaakkroniek met de vermelding gemarkeerd, de paperclip opent het document zelf.</li>
+<li><b>Afspraak als pdf.</b> De afdrukknop in het detailvenster maakt een pdf met een voorblad voor de afspraak, gevolgd door alle voorbereide documenten, met doorlopende paginanummering.</li>
+<li><b>Bewerken of verwijderen.</b> Het potlood opent de afspraak om te bewerken; de rode prullenbak verwijdert die na een bevestiging.</li>
+<li><b>Taken.</b> Een klik op een vermelding van het soort <i>Taak</i> (bijvoorbeeld een eerder genoteerd processtuk) opent de AI-chat voor die zaak met het verzoek het processtuk op te stellen.</li>
+<li><b>Lege dag.</b> Is er niets gepland, dan meldt het vak dat, en kunt u direct een vermelding aanmaken.</li>
+</ul>
+
+<h4>Zittingen uit een nationaal rechtbankportaal</h4>
+<ul>
+<li><b>Gedeelte Zittingen.</b> Zijn de rechtbankportaalfuncties voor uw land ingeschakeld, dan verschijnen zittingen die <span class="irs">IRONSTICK</span> voor uw zaken heeft vastgelegd in een eigen oranje gedeelte onder de afspraken.</li>
+<li><b>De zaak of het portaaldossier openen.</b> Het onderstreepte zaaknummer en de link <i>Zaak</i> openen de zaakkroniek. Een klik elders in de regel opent het portaaldossier met onderwerp, partijen, rechtsmiddelen en het verloop van alle zittingen; van daaruit brengt <i>Zaak openen</i> u naar de zaak. Een zitting in een dossier dat nog niet aan een zaak is gekoppeld, is gemarkeerd met <i>nieuw/niet geregistreerd</i>.</li>
+</ul>
+
+<h4>Nieuwe vermelding en bewerken</h4>
+<ul>
+<li><b>Afspraak.</b> Voer een titel en een datum in (beide verplicht), kies de soort (zitting, getuigenverhoor, bespreking, telefoongesprek, overig of taak), stel de tijd van en tot in en voeg een beschrijving toe.</li>
+<li><b>Locatie.</b> De uitklapbare locatiekaart bevat adres, postcode, plaats, district en land. Zet <i>Geocoördinaten</i> aan om een adres te zoeken of op de kaart te klikken en het exacte punt vast te leggen.</li>
+<li><b>Koppeling.</b> Koppel de afspraak aan een zaak en voeg de betrokken personen en instanties toe door een deel van hun naam te typen en ze uit de lijst te kiezen; verwijder er een met het kleine kruisje op de chip.</li>
+<li><b>Voorbereidingsmap.</b> Zodra er een zaak is gekozen, vinkt u de kroniekvermeldingen aan die u voor de afspraak bij de hand wilt hebben. Ze verschijnen later onder <i>Voorbereide documenten</i> en in de pdf van de afspraak.</li>
+<li><b>Opslaan.</b> <i>Opslaan</i> (of <i>Aanmaken</i> bij een nieuwe vermelding) brengt u terug naar de agenda op de datum van de afspraak; <i>Annuleren</i> verwerpt de wijzigingen.</li>
+</ul>
+
+<h4>Export en synchronisatie</h4>
+<ul>
+<li><b>Privacywaarschuwing.</b> Vóór de eerste .ics-export na elke programmastart herinnert <span class="irs">IRONSTICK</span> u eraan dat agendavermeldingen in dit formaat het beveiligde programma verlaten. Kies <i>Verder</i> om door te gaan.</li>
+<li><b>Exportvenster.</b> <i>Download</i> slaat het bestand op in uw map Documenten en opent die map. <i>Google Drive</i> verschijnt alleen als er op deze computer een Google Drive-map bestaat, en slaat het bestand daar op.</li>
+<li><b>Tabletagenda.</b> Bestaat er op de Android-tablet in het agenda-account van het apparaat een agenda met de naam IRONSTICK, dan worden afspraken in beide richtingen gesynchroniseerd; termijnen en zittingen worden eenzijdig daarnaartoe gekopieerd.</li>
+</ul>
+
+<h2 id="s11">11. Termijnen</h2>
+<figure><img src="img/screens/11%20deadlines.png" alt="Termijnenlijst met selectievakjes, termijndata en het exportvenster voor de pdf met het termijnenoverzicht"><figcaption>Alle openstaande termijnen, zittingen en gedateerde AI-herinneringen in één lijst.</figcaption></figure>
+<p class="scr-intro">De termijnenlijst verzamelt in datumvolgorde alles wat afloopt: termijnen uit uw zaakkronieken, komende zittingen (uit een nationaal rechtbankportaal en uit uw agenda) en herinneringen die de AI met een vervaldatum heeft genoteerd.
+De bel in de bovenste balk opent altijd dit scherm. De afbeelding toont de lijst en het exportvenster van de pdf met het termijnenoverzicht.</p>
+<ol class="marks">
+<li><b>Referentienummers.</b> Het nummer <i>#0000000</i> van een document en het nummer <i>@mem0000</i> van een AI-herinnering worden met één klik naar het klembord gekopieerd — bijvoorbeeld om ze in de chat te plakken.</li>
+<li><b>Termijnen verwijderen.</b> Termijnen en AI-herinneringen worden op verschillende plaatsen verwijderd, omdat ze uit verschillende bronnen komen. Termijnen uit de app (documenten en kroniekvermeldingen) worden via hun selectievakje aangevinkt en samen verwijderd. Herinneringen die de AI in haar geheugen heeft opgeslagen (breinsymbool), worden verwijderd met <i>Datum verwijderen</i>: alleen de vervaldatum wordt weggehaald, zodat de herinnering uit de lijst verdwijnt.</li>
+</ol>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>De lijst lezen</h4>
+<ul>
+<li><b>Drie soorten regels.</b> Termijnen hebben een selectievakje; zittingen tonen een oranje rechtershamer en het woord <i>Zitting</i>; AI-herinneringen tonen een blauw breinsymbool.</li>
+<li><b>Gekleurde datumpil.</b> De rechterkolom toont de vervaldatum: rood als die vandaag is of al verstreken, oranje als die binnen tien dagen valt, groen als er meer tijd is. Daaronder leest u hoeveel dagen er nog resten of hoeveel dagen geleden de termijn is verstreken.</li>
+<li><b>Wat elke regel u vertelt.</b> Datum en tijd van de vermelding, de titel, de cliënt, het zaaknummer en de zaaktitel. Zittingen tonen rechtbank, afdeling en zittingszaal.</li>
+<li><b>Verjaardagen.</b> Een kleine taart voor de naam geeft aan dat de cliënt vandaag jarig is of in de afgelopen twee dagen jarig was.</li>
+<li><b>Pagina's.</b> Bij meer dan 20 vermeldingen wordt de lijst in pagina's verdeeld; de paginaknoppen verschijnen boven en onder de lijst, en de kopregel toont de huidige pagina.</li>
+</ul>
+
+<h4>Met vermeldingen werken</h4>
+<ul>
+<li><b>De zaak openen.</b> Klik op een regel om de zaakkroniek op de juiste pagina te openen, met de vermelding geel gemarkeerd. Zittingen zonder gekoppelde zaak hebben geen bestemming.</li>
+<li><b>Het document openen.</b> De paperclip opent het document dat bij de termijn hoort.</li>
+<li><b>Het vermeldingsnummer kopiëren.</b> Klik op het paarse nummer onder de datum (of op de referentie van een AI-herinnering) om het te kopiëren; op die plek verschijnt kort een bevestiging. Plak het in de AI-chat in plaats van de vermelding te beschrijven.</li>
+<li><b>Termijnen verwijderen.</b> Na het aanvinken van termijnen toont een balk hoeveel er zijn geselecteerd. De rode verwijderknop vraagt om een bevestiging en haalt ze daarna uit de lijst en uit de telling van de bel. De kroniekvermeldingen zelf blijven in de zaak.</li>
+<li><b>Het overzicht afdrukken.</b> De afdrukknop rechtsboven maakt het termijnenoverzicht als pdf en opent het exportvenster: <i>Download</i> slaat het op in uw map Documenten, <i>Google Drive</i> verschijnt als er op deze computer een Google Drive-map bestaat.</li>
+<li><b>Niets te doen.</b> Zijn er geen openstaande termijnen, dan laat een groen vinkje u dat weten.</li>
+</ul>
+
+<h2 id="s12">12. Dagjournaal</h2>
+<figure><img src="img/screens/12%20dailyprotocol.png" alt="Lijst van het dagjournaal, het venster voor een nieuwe dagvermelding en een geopend dagjournaal met de zaakkroniek van die dag"><figcaption>Het dagjournaal, een nieuwe vermelding die net wordt ingevoegd, en een geopende dag.</figcaption></figure>
+<p class="scr-intro">Het dagjournaal is uw werkjournaal over alle zaken heen: één vermelding per dag met wat er is gedaan, verzonden, beslist of voorbereid.
+De vermeldingen komen uit teksten die u plakt of neerzet, of worden op uw verzoek aan het einde van een werksessie geschreven door een verbonden desktop-AI via de <a href="manualbridge_nl.html"><span class="irs">IRONSTICK</span>-Bridge</a>.
+De afbeelding toont de lijst, het venster voor een nieuwe vermelding en een geopende dag met de zaakkroniek van die dag.</p>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>De lijst</h4>
+<ul>
+<li><b>Eén regel per dag.</b> Elke regel toont de datum, de titel van de dag en op hoeveel zaken die betrekking heeft. Twintig regels passen op één pagina; bij meer verschijnen boven en onder paginaknoppen.</li>
+<li><b>Dagen zonder dagjournaal.</b> Grijze regels met de aanduiding <i>Zaakkroniek (geen dagjournaal)</i> beslaan dagen waarop er in uw zaken iets gebeurde, maar geen dagjournaal is geschreven. Klik op zo'n regel om de kroniekvermeldingen van die periode te zien en elk daarvan in de eigen zaak te openen.</li>
+<li><b>Een dag verwijderen.</b> Het kleine kruisje aan het einde van een regel verwijdert het journaal van die dag na een bevestiging.</li>
+</ul>
+
+<h4>Een dag openen</h4>
+<ul>
+<li><b>Overzicht.</b> Het venster toont de datum en de zaken van die dag als chips.</li>
+<li><b>Gebeurtenissen.</b> Elke gebeurtenis toont de datum, de tekst en links naar zaaknummers of vermeldingen; een blauwe link opent de zaakkroniek met de vermelding gemarkeerd.</li>
+<li><b>Naar de kroniek.</b> Waar aangeboden, laat de blauwe kroniekknop bij een gebeurtenis u een zaak kiezen en opent die daarna een nieuwe kroniekvermelding voor die zaak, zodat de gebeurtenis deel wordt van het dossier.</li>
+<li><b>Zaakkroniek voor deze dag.</b> Somt de kroniekvermeldingen van alle zaken op die dag op met tijd, titel en zaaknummer; klik op een vermelding om die in de eigen zaak te openen.</li>
+<li><b>Volledige tekst.</b> <i>Volledige tekst tonen</i> klapt de volledige tekst van de dag uit, die u kunt selecteren en kopiëren.</li>
+</ul>
+
+<h4>Een nieuwe vermelding genereren</h4>
+<ul>
+<li><b>De tekst aanleveren.</b> <i>Nieuwe vermelding genereren</i> opent een venster waarin u een .txt- of .md-bestand neerzet (of klikt om te kiezen) of de tekst direct plakt. Deze knop is beschikbaar op de pc, niet op de Android-tablet.</li>
+<li><b>Analyseren.</b> Een tekst in het formaat van het dagjournaal wordt direct in dagen opgesplitst. Elke andere tekst kan worden doorgegeven aan de externe AI, die datum, titel en de genoemde zaken vindt; <span class="irs">IRONSTICK</span> vraagt vooraf om uw toestemming. Weigert u, dan legt een melding het verwachte formaat uit.</li>
+<li><b>Controleren vóór de import.</b> Voor elke herkende dag ziet u een kaart: vink die aan of uit, corrigeer de datum en de titel van de dag, zet de gekoppelde zaken aan of uit en lees de gevonden gebeurtenissen. Een badge <i>Merge</i> betekent dat er voor die datum al een journaal bestaat; de nieuwe tekst wordt eraan toegevoegd, er wordt niets overschreven.</li>
+<li><b>Importeren of teruggaan.</b> De importknop slaat de aangevinkte dagen op; de linkerknop brengt u terug naar de tekst. Vóór de analyse sluit <i>Verwerpen</i> het venster zonder op te slaan.</li>
+<li><b>Vermeldingen van de AI.</b> Vraagt u de AI het dagjournaal bij te werken, dan vult ze de op die dag verzonden e-mails, processtukken en beslissingen aan; een bestaande dag wordt altijd uitgebreid, nooit vervangen.</li>
+</ul>
+
+<h2 id="s13">13. Teksten en tekstverwerking</h2>
+
+<h3>De lijst met teksten</h3>
+<figure><img src="img/screens/13%20texts.png" alt="Lijst met teksten, gegroepeerd per cliënt en zaak, met een in de tekstverwerking geopend document"><figcaption>Al uw brieven en processtukken, gegroepeerd per cliënt en zaak.</figcaption></figure>
+<p class="scr-intro">Dit scherm somt elke in <span class="irs">IRONSTICK</span> geschreven brief en elk processtuk op, altijd in de nieuwste versie.
+Documenten zijn gegroepeerd per cliënt, zaak en kroniekvermelding, zodat samenhangende teksten bij elkaar blijven.
+Een klik opent het document in de tekstverwerking, die rechts in de afbeelding te zien is.</p>
+<ol class="marks">
+<li><b>Tekst opstellen.</b> Opent de tekstverwerking met een lege pagina voor een nieuw document.</li>
+<li><b>Een document openen — versies gegroepeerd.</b> Klik op een document om het in de tekstverwerking te openen. Elk document verschijnt één keer, met het nieuwste versienummer en de datum waarop het voor het laatst is opgeslagen; documenten van dezelfde cliënt, dezelfde zaak en dezelfde vermelding zijn gegroepeerd onder een kop die u met één klik in- en uitklapt.</li>
+<li><b>Verwijderen.</b> De prullenbak verwijdert het document na een bevestiging uit de lijst.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<ul>
+<li><b>Groepen.</b> Heeft een cliënt, zaak of kroniekvermelding meerdere documenten, dan worden die samengevoegd in één regel met het aantal documenten. Klik op de regel om die uit of in te klappen. Een afzonderlijk document wordt direct met de cliënt en de zaak getoond.</li>
+<li><b>Openen vanuit de zoekfunctie.</b> Opent u een tekst vanuit de zoekresultaten, dan klapt de groep ervan uit en licht het document enkele seconden geel op.</li>
+<li><b>Altijd actueel.</b> Wanneer u terugkeert uit de tekstverwerking, wordt de lijst opnieuw geladen en toont die de nieuwe versie.</li>
+<li><b>Alleen op de pc.</b> De tekstverwerking draait op de Windows-pc. Op de Android-tablet is de lijst zichtbaar, maar het openen van een document toont in plaats daarvan een melding.</li>
+</ul>
+
+<h3>Bewerken, voorlezen en producties</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20attachements.png" alt="Tekstverwerking met de werkbalk en de geopende productielijst"><figcaption>De editor met de werkbalk en de productielijst.</figcaption></figure>
+<p class="scr-intro">De tekstverwerking toont uw document als A4-pagina's, precies zoals het wordt afgedrukt.
+De werkbalk boven de pagina bevat de opmaakhulpmiddelen, het voorlezen, de productielijst en de AI-schakelaar.
+De statusbalk onderaan telt woorden, tekens en pagina's. De afbeelding toont de boven de editor geopende productielijst.</p>
+<ol class="marks">
+<li><b>Voorlezen.</b> Leest het document per alinea hardop voor, in de taal van het land van de zaak, en markeert het deel dat op dat moment wordt gelezen. Klik nogmaals om te pauzeren, en opnieuw om verder te gaan. Werkt bij documenten die bij een zaak horen.</li>
+<li><b>Productielijst.</b> Opent de lijst met producties voor dit document. Het kleine blauwe getal bij de paperclip toont hoeveel producties er zijn toegevoegd.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Werkbalk</b></p>
+<ul>
+<li><b>Opmaak.</b> Ongedaan maken en opnieuw, alinea-opmaak (normale tekst, drie kopniveaus, citaat), lettergrootte, vet, cursief, onderstreept, doorgehaald, tekstkleur en markeringskleur.</li>
+<li><b>Lay-out.</b> Links uitlijnen, centreren, rechts uitlijnen of uitvullen, opsommingstekens en genummerde lijsten, inspringing verkleinen en vergroten, en <i>Opmaak wissen</i>.</li>
+<li><b>Briefhoofd.</b> Hebt u in de configuratie een briefhoofdsjabloon geüpload, dan zet een knop dat aan of uit. Standaard staat het aan en reserveert het de bovenmarge van de pagina voor uw briefhoofd.</li>
+<li><b>Toetsenbord.</b> De Tab-toets voegt een tab in. Ctrl+S slaat op en sluit, Ctrl+P opent het afdrukvoorbeeld.</li>
+</ul>
+<p class="grp"><b>Schrijven en plakken</b></p>
+<ul>
+<li><b>Plakken uit andere programma's.</b> Tekst die is gekopieerd uit Word, LibreOffice of een webpagina, wordt opgeschoond tot de opmaak die de editor ondersteunt. Platte tekst die op Markdown lijkt, wordt omgezet in koppen, lijsten en vetgedrukte tekst.</li>
+<li><b>Een bestand neerzetten.</b> Het slepen van een .md- of .txt-bestand naar de editor vervangt de volledige inhoud door de tekst van het bestand, omgezet in opgemaakte tekst.</li>
+<li><b>Plaatshouders.</b> Concepten van de AI kunnen open plekken tussen vierkante haken bevatten. Die verschijnen als chips, en een banner telt ze. Klik op een chip, typ de tekst en druk op Enter; Escape laat de open plek staan. Een dubbelklik zet een chip om in normale tekst zonder haken.</li>
+<li><b>Paginaeinden.</b> Stippellijnen tonen waar elke pagina eindigt. Sleep een lijn omhoog om de volgende pagina eerder te laten beginnen; die klikt vast tussen twee regels en wordt oranje als hij is verschoven. Een dubbelklik zet hem terug. Uw paginaeinden worden met het document opgeslagen.</li>
+</ul>
+<p class="grp"><b>AI-herziening</b></p>
+<ul>
+<li><b>De AI inschakelen.</b> De schakelaar <i>AI uit / AI aan</i> toont gekleurde balken naast de pagina: donkerblauw voor de thema's die de AI in het document herkent, middenblauw voor elke alinea en lichtblauw voor elke zin. Als u een balk aanwijst, wordt de bijbehorende tekst gemarkeerd.</li>
+<li><b>Een passage herzien.</b> Klik op een balk, beschrijf in het veld wat er moet veranderen en druk op Enter of <i>Herzien</i>. De AI herschrijft precies dat thema, die alinea of die zin en zet de nieuwe tekst op de plaats ervan. Namen, zaaknummers en andere kenmerken uit uw stukken worden vervangen door neutrale plaatshouders voordat de tekst naar de externe AI wordt gestuurd.</li>
+</ul>
+<p class="grp"><b>Productielijst</b></p>
+<ul>
+<li><b>Toevoegen via de bewijs-ID.</b> Voer het nummer van een kroniekvermelding in (bijvoorbeeld 357 of 0000357) en druk op Enter of <i>Toevoegen</i>. De pdf van de vermelding wordt toegevoegd; bij foto's, opnamen, transcripties of vermeldingen zonder pdf maakt <span class="irs">IRONSTICK</span> een pdf voor de productie.</li>
+<li><b>Handmatig toevoegen.</b> Voer op het tabblad <i>Handmatig</i> een titel en een optionele notitie in voor een productie die niet in <span class="irs">IRONSTICK</span> staat, bijvoorbeeld een papieren document dat u zelf indient.</li>
+<li><b>Volgorde en verwijderen.</b> Elke productie toont het nummer, een kenmerk (<i>DB</i> voor een vermelding uit <span class="irs">IRONSTICK</span>, <i>MAN</i> voor een handmatige productie), de titel en een link naar de pdf. Sleep een productie aan de greep om de volgorde te wijzigen; het kruisje verwijdert de productie.</li>
+<li><b>In de tekst invoegen.</b> Schrijft de genummerde productielijst aan het einde van uw document of vervangt de lijst die daar al staat. Elke regel toont de titel van de productie, de <span class="irs">IRONSTICK</span>-stempelreferentie van het document, als het die heeft, en het paginabereik, dat in het afdrukvoorbeeld automatisch wordt ingevuld.</li>
+<li><b>Producties overgenomen uit de tekst.</b> Is de lijst leeg, maar bevat uw document al een productiegedeelte met vermeldingsnummers, dan biedt <span class="irs">IRONSTICK</span> aan die vermeldingen in één stap als producties over te nemen.</li>
+</ul>
+
+<h3>Bewerken, voorbeeld en opslaan</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20preview.png" alt="Tekstverwerking op het tabblad Bewerken en op het tabblad Voorbeeld met de knoppen Afdrukvoorbeeld en Opslaan en sluiten"><figcaption>De tabbladen Bewerken en Voorbeeld; het voorbeeld biedt afdrukvoorbeeld en opslaan.</figcaption></figure>
+<p class="scr-intro">Boven de werkbalk staan twee tabbladen. <i>Bewerken</i> is de plek waar u schrijft; <i>Voorbeeld</i> toont de voltooide pagina's onder elkaar, alleen-lezen, met paginanummers.
+In het voorbeeld zijn de opmaakhulpmiddelen verborgen en verschijnen de knoppen voor het afdrukvoorbeeld en voor opslaan.</p>
+<ol class="marks">
+<li><b>Bewerken.</b> Keert terug naar de bewerkbare pagina met de volledige werkbalk.</li>
+<li><b>Voorbeeld.</b> Verdeelt het document in afzonderlijke A4-pagina's, precies zoals ze worden afgedrukt, zodat u de paginaeinden kunt controleren.</li>
+<li><b>Afdrukvoorbeeld.</b> Slaat het document op en opent het afdrukvoorbeeld met het document en alle producties.</li>
+<li><b>Opslaan &amp; sluiten.</b> Slaat het document op en keert terug naar de lijst met teksten.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<ul>
+<li><b>Eerste keer opslaan.</b> Bij een nieuw document wordt om een titel gevraagd. Wordt de titel al door een ander document gebruikt, dan verschijnt er een waarschuwing en kiest u een andere.</li>
+<li><b>Versies.</b> Elke volgende keer opslaan legt een nieuwe versie van hetzelfde document vast; de lijst met teksten toont het nieuwste versienummer.</li>
+<li><b>Producties in het voorbeeld.</b> De knop van de productielijst blijft ook op het tabblad Voorbeeld beschikbaar.</li>
+</ul>
+
+<h3>Afdrukvoorbeeld, handtekening en stempel</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png" alt="Afdrukvoorbeeld met het processtuk, een productie met stempelschakelaar, een vergrote en een uitgesloten productiepagina en het venster voor het plaatsen van de handtekening"><figcaption>Het afdrukvoorbeeld voegt het document en alle producties samen tot één pdf.</figcaption></figure>
+<p class="scr-intro">Het afdrukvoorbeeld toont elke pagina van de definitieve pdf: eerst uw document, daarna elke productie met de titelregel ervan.
+De kopregel telt alle pagina's, de actieve pagina's en de uitgesloten pagina's. Hier plaatst u uw handtekening, laat u niet-benodigde productiepagina's weg en zet u de waarmerkstempel aan.
+De afbeelding toont een vergrote productiepagina (linksklik), een uitgesloten pagina (rechtsklik) en het handtekeningvenster (klik op een pagina van het document).</p>
+<ol class="marks">
+<li><b>Uw document.</b> De pagina's van de brief of het processtuk. Klik op een pagina om er uw handtekening op te plaatsen.</li>
+<li><b>Titelregel van de productie.</b> Elke productie begint met een regel die het vermeldingsnummer, het productienummer en de titel toont.</li>
+<li><b>Waarmerkstempel.</b> De schakelaar aan het begin van de regel zet de waarmerkstempel voor deze productie aan of uit; de stempeltekst volgt de taal van het land van de zaak. Grijs betekent uit, zwart betekent aan.</li>
+<li><b>DOCX.</b> Exporteert uw document (zonder producties) als Word-bestand.</li>
+<li><b>Pdf-download.</b> Maakt de definitieve pdf van alle actieve pagina's en opent het exportvenster.</li>
+</ol>
+<h4>Wat u hier kunt doen</h4>
+<p class="grp"><b>Productiepagina's</b></p>
+<ul>
+<li><b>Een pagina vergroten.</b> Een linksklik op een productiepagina toont die groot; klik ergens of druk op Escape om die te sluiten.</li>
+<li><b>Een pagina weglaten.</b> Een rechtsklik sluit een productiepagina uit van de pdf; die wordt grijs en gemarkeerd met een rood teken. Klik er nogmaals met rechts op om de pagina terug te nemen. De paginanummers tellen alleen de actieve pagina's.</li>
+<li><b>Minstens één pagina per productie.</b> De laatste resterende pagina van een productie kan niet worden uitgesloten; een korte melding laat u dat weten.</li>
+<li><b>Lege pagina's.</b> Vrijwel lege productiepagina's worden herkend en automatisch uitgesloten. Met een rechtsklik kunt u ze terugnemen.</li>
+<li><b>Paginabereiken.</b> Telkens wanneer u een pagina uitsluit of terugzet, worden de paginabereiken in de productielijst van uw document opnieuw berekend, zodat ze altijd overeenkomen met de definitieve pdf.</li>
+<li><b>Met beschrijving.</b> Producties die <span class="irs">IRONSTICK</span> uit kroniekvermeldingen maakt, hebben in hun titelregel een schakelaar <i>met beschrijving</i>. Zet die uit om de beschrijving weg te laten, bijvoorbeeld bij interne notities die niet naar de rechtbank mogen gaan; alleen die productie wordt opnieuw aangemaakt.</li>
+</ul>
+<p class="grp"><b>Handtekening en stempel</b></p>
+<ul>
+<li><b>Uw handtekening plaatsen.</b> Klik op een pagina van uw document. Uw handtekeningafbeelding verschijnt op de pagina; sleep die naar de juiste plek. Sleep aan het hoekpunt om de handtekening te vergroten of te verkleinen en licht te kantelen. <i>Toepassen</i> markeert de plek op de pagina. Hiervoor moet in de configuratie een handtekeningafbeelding zijn geüpload.</li>
+<li><b>Nog geen handtekening.</b> Start u de pdf-download zonder een handtekening te hebben geplaatst, dan vraagt <span class="irs">IRONSTICK</span> of u zonder handtekening wilt doorgaan.</li>
+<li><b>Waarmerkstempel.</b> Bij producties met ingeschakelde stempel krijgt elke pagina de stempel in de taal van het land van de zaak, met de datum van vandaag, op een vrije plek in het onderste deel van de pagina. Hebt u uw handtekening op het document geplaatst, dan wordt die ook aan de stempel toegevoegd.</li>
+</ul>
+<p class="grp"><b>De pdf maken</b></p>
+<ul>
+<li><b>Eén pdf.</b> <i>Pdf-download</i> voegt het document en alle actieve productiepagina's samen tot één pdf met doorlopende paginanummers onderaan elke pagina en het productienummer op de productiepagina's. De tekst blijft doorzoekbaar. Een voortgangsvenster toont hoe ver het proces is; pagina's die niet konden worden verwerkt, worden in een melding opgesomd.</li>
+<li><b>Exportvenster.</b> <i>Download</i> slaat de pdf op in uw map Documenten; <i>Google Drive</i> verschijnt als er op deze computer een Google Drive-map bestaat. <i>Mail voorbereiden</i> slaat het document op, bereidt de pdf voor op verzending en opent het scherm voor het verzenden van e-mail met de pdf als bijlage.</li>
+<li><b>Annuleren.</b> Sluit het afdrukvoorbeeld en keert terug naar de editor.</li>
+</ul>
+
+<h2 id="s14">14. E-mailmonitor</h2>
+<figure><img src="img/screens/14%20email%20monitor.png" alt="E-mailmonitor met de inboxlijst en een geopende e-mail met de bijlagen"><figcaption>De inbox met prioriteit en zaaktoewijzing en een geopende e-mail met de bijlagen.</figcaption></figure>
+<p class="scr-intro">De e-mailmonitor brengt de mailbox die u in de configuratie hebt ingesteld naar <span class="irs">IRONSTICK</span>.
+Nieuwe e-mails worden automatisch op de achtergrond opgehaald, op prioriteit beoordeeld en waar mogelijk aan de juiste zaak toegewezen.
+De afbeelding toont links de inboxlijst en rechts een geopende e-mail met de bijlagen en de knop die de e-mail omzet in een zaakdocument.</p>
+<ol class="marks">
+<li><b>Inbox en Verzonden.</b> Wissel tussen ontvangen en verzonden e-mails. Alle filters, tellers en de lijst hebben dan betrekking op de gekozen map.</li>
+<li><b>Datum, vinkje voor geregistreerd en mailnummer.</b> Wanneer de e-mail is binnengekomen, in uw lokale tijd. Een <b>groen vinkje</b> betekent dat de e-mail al als document is geregistreerd. Het paarse nummer (bijvoorbeeld <i>@M0000519</i>) identificeert de e-mail; klik erop om het naar het klembord te kopiëren.</li>
+<li><b>Prioriteit.</b> De beoordeling <i>Hoog</i> (rood), <i>Gemiddeld</i> (oranje) of <i>Laag</i> (grijs). Een streepje betekent dat de e-mail als onbelangrijk is beoordeeld (bijvoorbeeld een nieuwsbrief) of nog niet is beoordeeld.</li>
+<li><b>Zaakherkenning.</b> De zaak waartoe deze e-mail behoort, weergegeven als cliënt en zaaknummer; een streepje betekent dat er geen zaak is gevonden. De kleine grijze regel eronder vertelt hoe de zaak is herkend. De herkenning verloopt in deze volgorde:
+<ol>
+<li><b>Zonder AI, direct uit de tekst:</b> het zaaknummer van de rechtbank van een van uw zaken (<i>via zaaknummer</i>), een uit een van uw documenten bekend registratie- of briefnummer (<i>via briefnummer</i>), een cliëntnummer (<i>via cliëntnummer</i>) of een verwijzing naar iets wat u hebt verzonden (<i>Antwoord op onze inzending</i>).</li>
+<li><b>Anders beoordeelt de AI</b> alleen de prioriteit en schrijft ze een motivering van één zin — ze wijst geen zaak toe.</li>
+<li><b>Daarna de terugvaloptie:</b> de afzender is een aan een zaak gekoppelde instantie of persoon (<i>via instantie</i>, <i>via persoon</i>) of een bekende afzender (<i>bekende afzender</i>).</li>
+</ol>
+</li>
+<li><b>Bijlagen.</b> De geopende e-mail somt de bijlagen op met naam en grootte. Klik op een bijlage om die te bekijken: pdf's en afbeeldingen openen in het <span class="irs">IRONSTICK</span>-browservenster, andere bestandstypen in het programma dat uw computer daarvoor gebruikt.</li>
+<li><b>Als document toevoegen.</b> Zet de e-mail met de bijlagen om in een pdf en opent de documentregistratie, waarin u die in een zaak opslaat.</li>
+</ol>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>E-mails ophalen en beoordelen</h4>
+<ul>
+<li><b>Automatisch ophalen.</b> <span class="irs">IRONSTICK</span> haalt nieuwe e-mails bij het opstarten en daarna om de paar minuten zelf op. Komt er een nieuwe e-mail binnen terwijl de monitor geopend is, dan wordt de lijst vanzelf bijgewerkt. Het openen van de monitor wist het signaal voor nieuwe e-mail bij het enveloppensymbool in de bovenste balk.</li>
+<li><b>E-mails ophalen.</b> De blauwe knop rechtsboven haalt direct nieuwe e-mails op uit de inbox en de map Verzonden. Een korte melding laat u weten hoeveel nieuwe e-mails er zijn binnengekomen.</li>
+<li><b>Automatische beoordeling.</b> Na het ophalen wordt elke nieuwe e-mail gecontroleerd. Bevat de tekst een van uw zaaknummers, dan wordt de zaak direct toegewezen. Anders beoordeelt de AI de prioriteit en schrijft ze een motivering van één zin, die in paarse cursieve tekst onder het onderwerp verschijnt. De voortgang wordt onderaan het scherm getoond.</li>
+<li><b>Mailbox niet ingesteld.</b> Is er nog geen mailbox geconfigureerd, dan wijst een gele melding bovenaan erop die in de configuratie in te stellen. De kopregel toont uw mailboxadres en het aantal actieve e-mails.</li>
+</ul>
+
+<h4>Filters en lijst</h4>
+<ul>
+<li><b>Actief.</b> Alle e-mails die u niet hebt verborgen — dit is de standaardweergave.</li>
+<li><b>Belangrijk.</b> Alleen actieve e-mails met de beoordeling <i>Hoog</i>.</li>
+<li><b>Alle.</b> Elke e-mail in de map, inclusief de verborgen e-mails.</li>
+<li><b>Verborgen.</b> Alleen de e-mails die u hebt verborgen. Elk filter toont het aantal tussen haakjes.</li>
+<li><b>De lijst lezen.</b> Elke regel toont datum, afzender (bij <i>Verzonden</i>: ontvanger), onderwerp met een voorbeeld van één regel, de motivering van de AI, het aantal bijlagen (paperclip), prioriteit en zaak. Ongelezen e-mails worden vet weergegeven. Bij meer dan 50 e-mails verschijnt de paginanavigatie boven en onder de lijst.</li>
+<li><b>Een e-mail verbergen.</b> Het doorgestreepte oog aan het einde van een regel verbergt de e-mail uit de actieve lijst. U vindt die nog steeds onder <i>Verborgen</i> en <i>Alle</i>.</li>
+</ul>
+
+<h4>Een e-mail lezen</h4>
+<ul>
+<li><b>Openen.</b> Klik op een regel om de e-mail in een venster te openen. Dat toont afzender, ontvanger, cc-ontvangers, datum, de lijst met bijlagen en de volledige tekst. Door het openen wordt de e-mail als gelezen gemarkeerd.</li>
+<li><b>Snel na de eerste keer.</b> De tekst wordt bij de eerste keer openen van een e-mail gedownload en bewaard, zodat die later direct opent zonder contact met de mailserver.</li>
+<li><b>Privacy.</b> Externe afbeeldingen worden geblokkeerd, zodat trackingafbeeldingen niet kunnen melden wanneer u de e-mail hebt geopend. Een kleine melding boven de tekst laat u weten wanneer er afbeeldingen zijn geblokkeerd.</li>
+<li><b>Als de mailserver niet bereikbaar is.</b> Het venster toont in plaats daarvan de opgeslagen voorbeeldtekst, met een korte melding.</li>
+<li><b>Opnieuw registreren.</b> Bij een al geregistreerde e-mail wordt de knop rood met de tekst <i>Opnieuw als document toevoegen</i>, zodat u dezelfde e-mail niet per ongeluk twee keer opslaat.</li>
+<li><b>Vanuit de chat.</b> Verwijst de chat naar een e-mail, dan opent de monitor met die e-mail al weergegeven, in de juiste map.</li>
+</ul>
+
+<h4>Hoe bijlagen in het document terechtkomen</h4>
+<ul>
+<li><b>Eén pdf.</b> Wanneer u een e-mail registreert, worden pdf-bijlagen pagina voor pagina toegevoegd, worden afbeeldingen eigen pagina's en worden Word-, OpenDocument- en Markdown-bijlagen als tekst toegevoegd. Een bestand dat niet kan worden omgezet, krijgt een plaatshouderpagina en wordt bovendien apart naast de pdf opgeslagen.</li>
+</ul>
+
+<h2 id="s15">15. Tijdregistratie</h2>
+<figure><img src="img/screens/15%20time%20tracking.png" alt="Tijdregistratie met overzicht, tijd per zaak, tijd per cliënt en dagoverzicht"><figcaption>Automatisch geregistreerde werktijd, per zaak, per cliënt en per dag.</figcaption></figure>
+<p class="scr-intro">De tijdregistratie werkt automatisch: <span class="irs">IRONSTICK</span> registreert welke schermen u opent en voor welke cliënt en welke zaak.
+Daaruit berekent het hoe lang u hebt gewerkt, en toont het de totalen per zaak, per cliënt en per dag.
+De afbeelding toont de weergave voor vandaag; is de <span class="irs">IRONSTICK</span> SERVER verbonden, dan worden de dagtotalen per zaak ook aan de server gemeld.</p>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>De periode kiezen</h4>
+<ul>
+<li><b>Periodeknoppen.</b> <i>Vandaag</i>, <i>7 dagen</i>, <i>30 dagen</i>, <i>90 dagen</i> of <i>Totaal</i>. Alle tabellen daaronder volgen de gekozen periode. Bij het openen van het scherm worden de laatste 30 dagen getoond.</li>
+</ul>
+
+<h4>Overzicht</h4>
+<ul>
+<li><b>Drie kerncijfers.</b> De vandaag gewerkte tijd, de deze week gewerkte tijd en het totaal voor de gekozen periode. Vandaag en deze week blijven altijd hetzelfde, welke periode u ook kiest.</li>
+</ul>
+
+<h4>Tabellen</h4>
+<ul>
+<li><b>Tijd per zaak.</b> Elke zaak met nummer, titel, cliënt en tijd, met een balk ter vergelijking. Het aantal zaken verschijnt rechtsboven op de kaart.</li>
+<li><b>Tijd per cliënt.</b> Hetzelfde, opgeteld per cliënt.</li>
+<li><b>Dagoverzicht.</b> Datum, weekdag en tijd voor elke dag (tot 60 dagen), met het totaal voor de periode rechtsboven. De regel van vandaag is lichtblauw gemarkeerd.</li>
+</ul>
+
+<h4>Hoe de tijd wordt geteld</h4>
+<ul>
+<li><b>Automatisch.</b> Elk scherm dat u opent, telt totdat u het volgende opent. Een onderbreking van meer dan 30 minuten telt voor maximaal 30 minuten, zodat een pauze de cijfers niet opblaast. Het laatste scherm van de dag telt voor één minuut.</li>
+<li><b>Nog geen gegevens.</b> Direct na de eerste start laat het scherm u weten dat de tijdregistratie net is ingeschakeld en dat er nog geen gegevens zijn.</li>
+<li><b>IRONSTICK SERVER.</b> Is de server verbonden, dan meldt <span class="irs">IRONSTICK</span> uw dagtijd per zaak elke vijf minuten aan de server. Tijd die niet aan een zaak is gekoppeld, wordt niet gemeld.</li>
+</ul>
+
+<h2 id="s16">16. Wetten</h2>
+<figure><img src="img/screens/16%20statutes.png" alt="Wettenbibliotheek met zoekveld, het venster Aanmaken en een geopende wet"><figcaption>De wettenbibliotheek, het venster voor het toevoegen van een wet en een geopende wettekst.</figcaption></figure>
+<p class="scr-intro">Het scherm Wetten is uw wettenbibliotheek: de volledige teksten van wetten, verordeningen, beslissingen en normen, op uw computer opgeslagen en volledig doorzoekbaar.
+U voegt een wet toe via een weblink of een pdf-/Markdown-bestand; <span class="irs">IRONSTICK</span> haalt de tekst daarna op de achtergrond op, schoont die op en classificeert die.
+De AI gebruikt deze bibliotheek als eerste wanneer ze een rechtsregel nodig heeft. De afbeelding toont de lijst, het venster voor het toevoegen van een wet en een geopende wet met een eigen zoekfunctie.</p>
+<ol class="marks">
+<li><b>Alle wetten doorzoeken.</b> Typ een term en druk op Enter of <i>Zoeken</i>. De resultaten openen op een eigen scherm, gesorteerd per wet, met een tekstfragment voor elke vindplaats.</li>
+<li><b>Aanmaken.</b> Opent het venster voor het toevoegen van een wet: plak een weblink in het veld of sleep een of meer pdf- of Markdown-bestanden naar het vlak daaronder en klik daarna op <i>Aanmaken</i>.</li>
+<li><b>Geopende wet.</b> Klik in de lijst op een wet om de volledige tekst te lezen. Het zoekveld onder de titel doorzoekt alleen deze wet.</li>
+</ol>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Wetten toevoegen</h4>
+<ul>
+<li><b>Via link of bestand.</b> Voer in het venster <i>Aanmaken</i> een webadres in of zet pdf-/MD-bestanden neer; neergezette bestanden worden opgesomd en kunnen met het kleine kruisje worden verwijderd. Een link die al in de bibliotheek staat, wordt niet dubbel toegevoegd; een ongeldige link toont <i>Mislukt</i>.</li>
+<li><b>Op de achtergrond opgehaald.</b> Terwijl een wet wordt verwerkt, toont een voortgangsbalk de bereikte fase. Is het laden onderbroken, klik dan op de balk om het opnieuw te starten. De lijst wordt vanzelf bijgewerkt zodra de wet klaar is.</li>
+<li><b>Voorgesteld door de AI.</b> Vindt de AI een wet die in de bibliotheek ontbreekt, dan voegt ze die niet stilzwijgend toe. U krijgt een venster met de voorstellen en vinkt de wetten aan die u wilt behouden.</li>
+</ul>
+
+<h4>De lijst</h4>
+<ul>
+<li><b>Elke vermelding.</b> Titel, datum van toevoegen, rechtsgebied en een korte beschrijving, de bronlink en labels voor het land en het soort rechtshandeling (wet, verordening, beslissing …). Klik op de bronlink om de oorspronkelijke pagina in het <span class="irs">IRONSTICK</span>-browservenster te openen. Wetten die u als bestand hebt geüpload, tonen de bestandsnaam in plaats van een link.</li>
+<li><b>Rode vermeldingen bovenaan.</b> Een in het rood weergegeven wet kon niet worden geladen of is al meer dan een maand niet opnieuw gecontroleerd. Klik op een mislukte vermelding om het laden opnieuw te proberen.</li>
+<li><b>Grijze vermeldingen.</b> Een wet waarvan de bron niet meer kan worden geverifieerd, wordt grijs weergegeven en gemarkeerd met <i>niet verifieerbaar</i>. Klik op dat label om de bron in het <span class="irs">IRONSTICK</span>-browservenster te openen en zelf te controleren; de geopende tekst toont dan bovenaan een rode melding.</li>
+<li><b>Goedkeuring in afwachting.</b> Een nieuw verwerkte wet wacht in de monitor voor gegevensconsistentie op uw bevestiging. Klik op het label om daarheen te gaan. Alleen goedgekeurde wetten worden met de IRONSTICK SERVER gedeeld.</li>
+<li><b>Verwijderen.</b> Het prullenbaksymbool verwijdert een van uw eigen wetten na een bevestiging. Is er een IRONSTICK SERVER verbonden, dan wordt de wet ook daar verwijderd.</li>
+<li><b>Pagina's.</b> Bij meer dan 20 wetten verschijnt de paginanavigatie boven en onder de lijst.</li>
+</ul>
+
+<h4>Filters</h4>
+<ul>
+<li><b>Alle, Eigen, Van anderen.</b> <i>Eigen</i> toont de wetten die u hebt toegevoegd; <i>Van anderen</i> toont wetten die andere gebruikers op de IRONSTICK SERVER hebben toegevoegd. Die tonen onder de titel de ID en de naam van hun eigenaar en kunnen niet door u worden verwijderd.</li>
+<li><b>Verlopen.</b> Toont alleen de wetten waarvan de bron niet meer kan worden geverifieerd.</li>
+<li><b>Land.</b> De keuzelijst naast de filters beperkt de lijst tot één land.</li>
+</ul>
+
+<h4>Zoeken</h4>
+<ul>
+<li><b>In de hele bibliotheek.</b> De zoekfunctie negeert accenten en speciale letters en vindt ook woorden die met uw zoekterm beginnen; artikelnummers worden exact vergeleken. Klik op het resultatenscherm op de titel van een wet om die bij de eerste vindplaats te openen, of klik op een fragment om direct naar die plek te springen.</li>
+<li><b>Binnen een wet.</b> Typ in de geopende wet een term en druk op Enter of <i>Zoeken</i>. Alle vindplaatsen worden geel gemarkeerd, en de tekst springt naar de eerste. Klik op de teller (bijvoorbeeld <i>1/12</i>) om naar de volgende plek te gaan; na de laatste begint hij weer bij de eerste.</li>
+</ul>
+
+<h2 id="s17">17. Serverzaken</h2>
+<figure><img src="img/screens/17%20server%20cases.png" alt="Serverzaken met de kaart Mijn gedeelde zaken en de abonnees ervan"><figcaption>Zaken die u op de IRONSTICK SERVER deelt, met hun abonnees.</figcaption></figure>
+<p class="scr-intro">Serverzaken is de plek waar u werkt met zaken die tussen gebruikers van de <span class="irs">IRONSTICK</span> SERVER worden gedeeld.
+U ziet welke van uw eigen zaken u hebt gedeeld en wie ze volgt, en u kunt zich abonneren op zaken die andere gebruikers delen.
+Dit scherm en de tegel ervan in het hoofdmenu verschijnen alleen als de server is verbonden. De afbeelding toont een gedeelde zaak met twee abonnees.</p>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Inkomende overdrachten</h4>
+<ul>
+<li><b>Een zaak overnemen.</b> Draagt een andere gebruiker een zaak aan u over, dan verschijnt die helemaal bovenaan in deze kaart. Klik op <i>Importeren</i> om die in uw eigen gegevens over te nemen.</li>
+<li><b>Gecontroleerde import.</b> Het zaakpakket wordt gedownload en eerst op volledigheid gecontroleerd. Daarna kiest u of de cliënt bij u al bestaat of als nieuwe cliënt wordt aangemaakt. Hebt u al een zaak met hetzelfde nummer, dan wordt u aangeboden de twee samen te voegen. Waar de gegevens afwijken, wordt een lijst met de verschillen getoond, en aan het einde bevestigt een melding hoeveel vermeldingen en bestanden er zijn geïmporteerd.</li>
+</ul>
+
+<h4>Mijn gedeelde zaken</h4>
+<ul>
+<li><b>Uw gedeelde zaken.</b> Somt elke zaak op die u vanuit het zaakscherm hebt gedeeld, met zaaknummer en cliënt. Klik op de zaak om die te openen.</li>
+<li><b>Delen beëindigen.</b> Beëindigt het delen van deze zaak op de IRONSTICK SERVER.</li>
+<li><b>Abonnees.</b> De gebruikers die de zaak volgen, staan eronder vermeld. Een gebruiker die heeft gevraagd de zaak te mogen volgen, is gemarkeerd met <i>Aangevraagd</i>; klik op <i>Toestaan</i> om hem toe te laten. <i>Verwijderen</i> beëindigt een actief abonnement of wijst een verzoek af. Volgt nog niemand de zaak, dan meldt de kaart dat.</li>
+</ul>
+
+<h4>Door anderen gedeelde zaken</h4>
+<ul>
+<li><b>De lijst.</b> Toont de zaken die andere gebruikers met iedereen of persoonlijk met u hebben gedeeld, met zaak, eigenaar en kantoor. Zijn er geen, dan toont de kaart <i>Geen vermeldingen aanwezig</i>.</li>
+<li><b>Abonnement aanvragen.</b> Bij een met iedereen gedeelde zaak vraagt u de eigenaar u toe te staan die te volgen. Het label <i>Aangevraagd</i> verschijnt totdat de eigenaar toestemming geeft.</li>
+<li><b>Abonneren.</b> Bij een persoonlijk met u gedeelde zaak is het abonnement direct actief; het label verandert in <i>Geabonneerd</i>.</li>
+<li><b>Afmelden.</b> Beëindigt uw abonnement of trekt uw verzoek in.</li>
+<li><b>Server niet bereikbaar.</b> Gaat de verbinding met de IRONSTICK SERVER verloren, dan toont de kaart dat er geen server is verbonden.</li>
+</ul>
+
+<h2 id="s18">18. Back-up</h2>
+<figure><img src="img/screens/18%20backup.png" alt="Back-upscherm met gegevensback-up, recente back-ups en herstel"><figcaption>Een gegevensback-up maken, de recente back-ups bekijken of er een herstellen.</figcaption></figure>
+<p class="scr-intro">Het back-upscherm slaat al uw zaakgegevens op in één ZIP-bestand en zet ze zo nodig terug.
+U bepaalt waar het bestand naartoe gaat — een lokale map, een externe SSD of een USB-stick.
+De database en de opgeslagen zaakbestanden behouden binnen de back-up hun AES-256-versleuteling. De afbeelding toont de back-upkaart, de lijst met recente back-ups en de herstelkaart.</p>
+
+<h3 class="do">Wat u hier kunt doen</h3>
+
+<h4>Back-up maken</h4>
+<ul>
+<li><b>Gegevensback-up maken.</b> Slaat uw database, uw documenten en bestanden en uw configuratie en licentie op in één ZIP-bestand. Taalmodellen voor de lokale AI en de spraakuitvoer worden niet meegenomen, omdat ze opnieuw kunnen worden gedownload.</li>
+<li><b>Voortgang.</b> Een venster toont hoe ver de back-up is (bestand X van Y) en welk bestand er op dat moment wordt ingepakt. De back-up loopt in een apart achtergrondproces, zodat u verder kunt werken.</li>
+<li><b>Opslaglocatie kiezen.</b> Is het ZIP-bestand klaar, dan vraagt een opslagvenster om locatie en bestandsnaam. Annuleert u, dan wordt er geen bestand bewaard. Is het opslaan voltooid, dan toont een melding bestandsnaam, grootte en aantal bestanden.</li>
+<li><b>Recente back-ups.</b> De laatste vijf back-ups worden opgesomd met datum en tijd, bestandsnaam en grootte, zodat u in één oogopslag ziet wanneer u voor het laatst een back-up hebt gemaakt.</li>
+<li><b>Vanuit de chat.</b> Vraagt u de chat een back-up te maken, dan opent dit scherm en start de gegevensback-up direct.</li>
+<li><b>IRONSTICK SERVER.</b> Is de server verbonden, dan wordt elke back-up en elk herstel aan de server gemeld: <b>wie</b> het heeft gedaan, <b>wanneer</b>, vanaf welk IP-adres, het soort, de bestandsnaam en de grootte — nooit de back-upgegevens zelf. De beheerder ziet dit op een pagina van de server, samen met de datum van de laatste back-up van elke gebruiker (na meer dan vijf dagen rood weergegeven), en kan gebruikers eraan herinneren een back-up te maken.</li>
+</ul>
+
+<h4>Herstellen</h4>
+<ul>
+<li><b>Back-up kiezen.</b> Kies een back-up-ZIP-bestand. <span class="irs">IRONSTICK</span> controleert eerst of het echt om een <span class="irs">IRONSTICK</span>-back-up gaat; elk ander bestand wordt met een melding geweigerd.</li>
+<li><b>Bevestigen.</b> Herstellen overschrijft uw huidige gegevens. Een venster vraagt u om bevestiging; klik op <i>Annuleren</i> om te stoppen, of op <i>Herstellen</i> om door te gaan.</li>
+<li><b>Voortgang en resultaat.</b> Een voortgangsvenster toont elk bestand terwijl het wordt teruggezet, en een melding laat u weten of het herstel is geslaagd. Omdat de back-up uw configuratie en licentie bevat, worden die eveneens hersteld.</li>
+</ul>
+
+<footer class="sd-foot"><p>IRONSTICK is software voor de juridische praktijk. Deze website dient uitsluitend ter informatie en vormt geen juridisch advies. © 2026 IRONSTICK.</p></footer>
+</body></html>

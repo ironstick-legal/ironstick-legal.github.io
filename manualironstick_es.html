@@ -1,0 +1,1409 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<title>IRONSTICK — Manual - App cliente</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Manual de usuario — cada pantalla: qué ve y qué puede hacer.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualironstick_es.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualironstick_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualironstick_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualironstick_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualironstick_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualironstick_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualironstick_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualironstick_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualironstick_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualironstick_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualironstick_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualironstick.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<link rel="alternate" type="text/markdown" href="manualironstick_es.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menú"><a class="b" href="index_es.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_es.html">Inicio</a><a href="overview_es.html">Visión general</a><a href="ki_es.html">IA</a><span class="mh">Manuales</span><a class="sub" href="manualquickstart_es.html">Inicio rápido</a><a class="sub" href="manualironstick_es.html" aria-current="page">App cliente</a><a class="sub" href="manualbridge_es.html">Bridge</a><a href="gdpr_es.html">RGPD</a><a href="download_es.html">Download</a></div></div><nav class="mainnav"><a href="overview_es.html">Visión general</a><a href="ki_es.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuales</span><div class="menu"><a href="manualquickstart_es.html">Inicio rápido</a><a href="manualironstick_es.html" aria-current="page">App cliente</a><a href="manualbridge_es.html">Bridge</a></div></div><a href="gdpr_es.html">RGPD</a><a href="download_es.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_es.html">Probar 30 días</a><nav class="lang-wrap" tabindex="0" title="Idioma" aria-label="Idioma"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualironstick.html">English</a><a lang="de" hreflang="de" href="manualironstick_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualironstick_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualironstick_fr.html">Français</a><a lang="it" hreflang="it" href="manualironstick_it.html">Italiano</a><a class="on" lang="es" hreflang="es" href="manualironstick_es.html">Español</a><a lang="pt" hreflang="pt" href="manualironstick_pt.html">Português</a><a lang="nl" hreflang="nl" href="manualironstick_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualironstick_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualironstick_uk.html">Українська</a><a lang="tr" hreflang="tr" href="manualironstick_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Manual - App cliente</h1></div><p class="gh-sub">Manual de usuario — cada pantalla: qué ve y qué puede hacer.</p></div></section>
+
+<h2 id="s0">Barra de menús</h2>
+<figure><img src="img/screens/0%20menubar.png" alt="La barra de menús con menú hamburguesa, ruta de navegación, indicador de recursos y los símbolos de la derecha, además de la ventana del navegador de IRONSTICK"><figcaption>La barra de menús que se encuentra en la parte superior de cada pantalla y la ventana del navegador de IRONSTICK que se abre desde el globo terráqueo.</figcaption></figure>
+<p class="scr-intro">La barra de menús se encuentra en la parte superior de cada pantalla de <span class="irs">IRONSTICK</span>, de modo que puede acceder a las funciones importantes desde cualquier lugar.
+A la izquierda están el menú de navegación y el nombre del programa, junto con pequeños indicadores en directo. En el centro está el informe diario. A la derecha están los
+indicadores de correos nuevos, plazos y mensajes, el chat de IA, la ventana del navegador, la configuración y el botón de apagado. Bajo la barra, la línea de ruta de navegación muestra dónde se encuentra.
+Muchos símbolos aparecen solo cuando hay algo que mostrar. Un símbolo rojo animado significa que le espera algo nuevo.</p>
+<ol class="marks">
+<li><b>Ruta de navegación.</b> Muestra el camino hasta la pantalla actual, por ejemplo <i>Menú principal › Instituciones</i>. La última parte es la pantalla en la que está. Haga clic en una parte anterior para volver directamente a ella.</li>
+<li><b>Menú de navegación (hamburguesa).</b> Abre el menú lateral con Menú principal, Clientes, Instituciones, Personas, Plazos, Etiquetas, Textos y Búsqueda. La pantalla en la que está aparece resaltada en azul. El símbolo rojo de apagado al pie del menú cierra el programa, igual que el botón de apagado.</li>
+<li><b>Indicador de recursos (solo Windows).</b> Una pequeña barra y el texto <i>(CPU / RAM)</i> muestran cuánta potencia de procesador y memoria utiliza el propio <span class="irs">IRONSTICK</span>. La barra es verde, se vuelve naranja a partir del 50 % y roja a partir del 80 %. Sitúe el puntero sobre ella para ver qué tareas en segundo plano se están ejecutando en ese momento, con su progreso y su tiempo de ejecución. Las tareas que se pueden detener tienen una X roja.</li>
+<li><b>Memoria de la IA (cerebro rosa).</b> Aparece en cuanto la IA ha almacenado notas en su memoria. Late mientras la IA lee o escribe la memoria. Haga clic en él para revisar las notas almacenadas. Puede eliminar de una vez todas las notas de un cliente, o marcar notas sueltas de las últimas 100 y eliminarlas.</li>
+<li><b>Informe diario (altavoz).</b> Abre el informe diario en cualquier momento: qué le espera hoy (plazos, audiencias, citas, correos electrónicos), qué se ha hecho ya hoy y una breve mirada atrás. Haga clic en una línea para abrir la pantalla correspondiente, por ejemplo los plazos, el calendario, el Monitor de correo o el caso. <i>Leer en voz alta</i> reproduce la versión hablada y <i>Detener</i> la finaliza. Un interruptor cambia únicamente el estilo del texto hablado. Si su última copia de seguridad tiene más de cinco días, el informe se lo advierte.</li>
+<li><b>Monitor de coherencia de datos.</b> Abre la lista de cambios propuestos en los datos de sus clientes y contactos que <span class="irs">IRONSTICK</span> ha encontrado en sus correos electrónicos. Para cada propuesta elige <i>Aceptar</i> o <i>Rechazar</i>. El símbolo es gris cuando no hay nada pendiente y rojo cuando hay propuestas. También está animado cuando un portal judicial nacional ha propuesto casos nuevos (función específica de cada país).</li>
+<li><b>Correo electrónico.</b> Visible solo cuando la comprobación de correo en segundo plano está activada en la configuración. Gris significa que no hay correos nuevos. Rojo y animado significa que han llegado correos nuevos, y la información emergente muestra cuántos. Haga clic para abrir el Monitor de correo, donde todo se da por visto.</li>
+<li><b>Chat de IA (robot).</b> Haga clic para abrir el chat de IA. En Windows se abre en su propia ventana. Si está dentro de un caso o de un cliente, un pequeño punto violeta indica que el chat ya conoce ese caso o cliente. Haga clic con el botón derecho en él (o manténgalo pulsado en la tableta) para activar o desactivar el reconocimiento de voz. Mientras está activado, el robot se mueve y el chat escucha y responde en voz alta. El robot se oculta mientras una IA de escritorio externa está conectada a <span class="irs">IRONSTICK</span>. En la tableta aparece en gris cuando no hay Internet.</li>
+<li><b>Chat del servidor.</b> Aparece solo cuando hay un IRONSTICK SERVER —el servidor de despacho— conectado. Abre un chat con los demás usuarios del servidor. Un punto verde significa que el usuario está en línea y rojo que está desconectado. Puede eliminar sus propios mensajes, y un interruptor silencia el chat para que ya no aparezca por sí solo. El símbolo se vuelve rojo y está animado cuando hay un mensaje sin leer.</li>
+<li><b>Campana de plazos.</b> Roja cuando al menos un plazo vence hoy o está vencido. Naranja cuando hay plazos que vencen en los próximos diez días. Gris cuando no hay nada pendiente. Sitúe el puntero sobre la campana para ver el número. La campana también está animada cuando una vista recuperada de un portal judicial nacional está fijada para hoy (función específica de cada país). Un clic abre siempre el resumen de plazos.</li>
+<li><b>Botón de apagado.</b> Cierra <span class="irs">IRONSTICK</span> de inmediato, sin solicitar confirmación. Elimina sus archivos temporales y la caché del navegador y finaliza <span class="irs">IRONSTICK</span> y todos los procesos que ha iniciado.</li>
+<li value="13"><b>Configuración (engranaje).</b> Abre la pantalla de configuración con la información del sistema, la ubicación de almacenamiento, el perfil de usuario, los ajustes de la IA, la cuenta de correo, la conexión con el servidor, la firma y el membrete.</li>
+</ol>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Ventana del navegador de IRONSTICK (globo terráqueo)</h4>
+<ul>
+<li><b>Abrir la ventana del navegador.</b> El globo terráqueo entre la campana y el engranaje abre la ventana del navegador de <span class="irs">IRONSTICK</span>, que tiene un marco rojo para que siempre pueda reconocerla. Mientras está abierta, el globo parpadea en rojo. Si la ventana ya está abierta, no ocurre nada más.</li>
+<li><b>Página de inicio.</b> La página de inicio explica la ventana, ofrece accesos rápidos a las redes sociales habituales y muestra las últimas noticias del <a href="index_es.html">sitio web de <span class="irs">IRONSTICK</span></a>, por ejemplo una nueva versión del programa con su enlace de descarga.</li>
+<li><b>Dejar que el chat de IA lea con usted.</b> Vaya usted mismo a la página que desee y escriba después en el chat algo como <i>«Mira la ventana actual del navegador»</i>. El chat lee la página como texto sin formato (sin imágenes) y puede utilizarla en la conversación. También puede abrir otras páginas del mismo sitio web y descargar archivos de allí.</li>
+<li><b>Los inicios de sesión y las comprobaciones de seguridad son cosa suya.</b> Usted realiza personalmente los inicios de sesión y las comprobaciones de «no soy un robot» en esta ventana. La ventana utiliza su propio perfil de navegador, separado de su navegador habitual, por lo que en algunas páginas tiene que iniciar sesión una vez. Estos inicios de sesión se conservan para la próxima vez. Para la navegación privada, utilice su navegador normal.</li>
+</ul>
+
+<h4>Símbolos que aparecen solo cuando hacen falta</h4>
+<ul>
+<li><b>Bandeja de documentos (solo Windows).</b> Un símbolo de bandeja rojo y animado aparece mientras hay documentos sin procesar esperando en la bandeja de documentos. La información emergente muestra cuántos. Haga clic en él para abrir el registro de documentos. Cuando no hay nada pendiente, el símbolo desaparece.</li>
+<li><b>Chincheta de notas (IRONSTICK SERVER).</b> Cuando los compañeros del servidor han dejado notas nuevas en un caso, aparece una chincheta roja animada. Cada clic le lleva al caso con la siguiente nota sin leer y abre su tablón.</li>
+<li><b>Servicio de IA no disponible.</b> Si un servicio de IA externo que usted ha configurado no está disponible actualmente, aparece un círculo rojo con un signo de exclamación. Haga clic en él para ver, por cada servicio, el motivo y cuándo se volverá a intentar. Si un servicio se detuvo porque se agotó su saldo, <i>Recargar</i> le lleva directamente a ese servicio en la configuración de la IA.</li>
+<li><b>IA de escritorio conectada (solo Windows).</b> Cuando una aplicación de IA de escritorio externa trabaja con sus datos, su símbolo aparece a la derecha del indicador de recursos. Late mientras se ejecuta una solicitud. Sitúe el puntero sobre él para ver qué casos ha leído en esta sesión y hasta dónde, si ha confirmado las instrucciones de <span class="irs">IRONSTICK</span> y cuántas infracciones de las reglas ha cometido.</li>
+</ul>
+
+<h4>Comportamiento general</h4>
+<ul>
+<li><b>Mover la ventana.</b> En el PC, arrastre cualquier zona vacía de la barra de menús para mover la ventana del programa, igual que la barra de título normal de una ventana.</li>
+<li><b>Bloqueada durante los guardados largos.</b> Mientras se ejecuta un guardado largo, la barra de menús y la ruta de navegación aparecen en gris y no reaccionan, y no es posible volver atrás. La pantalla inferior permanece visible para que pueda seguir el progreso.</li>
+<li><b>En la tableta Android.</b> El centro de la barra contiene un botón rojo <i>DESTROY</i> en lugar del nombre del programa. Tras una confirmación, elimina de forma permanente todos los datos de <span class="irs">IRONSTICK</span> de la tableta, inicia la desinstalación de la aplicación y la cierra. Esto no se puede deshacer. La tableta no tiene informe diario ni indicador de recursos.</li>
+</ul>
+
+<h2 id="s1">1. Menú principal</h2>
+<figure><img src="img/screens/1%20menu.png" alt="Menú principal con las pestañas Inicio, Agenda y Mapa de calor"><figcaption>El menú principal y sus tres pestañas: Inicio, Agenda y Mapa de calor.</figcaption></figure>
+<p class="scr-intro">El menú principal es la primera pantalla tras desbloquear <span class="irs">IRONSTICK</span>. En la parte superior hay tres pestañas:
+<b>Inicio</b> muestra lo que requiere su atención hoy y abre cada parte del programa,
+<b>Agenda</b> enumera por orden de fecha todo lo ocurrido en todos sus casos,
+y <b>Mapa de calor</b> muestra lo activo que ha estado su despacho durante los últimos doce meses.</p>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Pestaña Inicio</h4>
+<ul>
+<li><b>Los plazos de un vistazo.</b> La tarjeta de plazos muestra una marca verde cuando no hay nada vencido, junto con el número de plazos de los próximos 30 días. Los plazos vencidos aparecen en rojo con las primeras entradas listadas. <i>Resumen de plazos</i> abre la lista completa.</li>
+<li><b>Cumpleaños de clientes.</b> El día del cumpleaños de un cliente, y durante los dos días siguientes, aparece una tarta bajo la tarjeta de plazos. Haga clic en un nombre para ir directamente a ese cliente.</li>
+<li><b>Casos en silencio.</b> La segunda tarjeta cuenta los casos sin actividad desde hace 14 días y lista los tres primeros. Haga clic en la tarjeta para verlos todos, de modo que ningún caso quede desatendido.</li>
+<li><b>Abrir cualquier módulo.</b> Cada mosaico abre una parte del programa: clientes, personas, instituciones, registro de documentos, búsqueda, calendario, diario, procesamiento de textos, Monitor de correo, control de tiempos, leyes, copia de seguridad y más. Cada mosaico lleva una breve descripción de lo que hace.</li>
+<li><b>Ordenar los mosaicos a su manera.</b> Arrastre un mosaico por su asa a una nueva posición. El orden se recuerda en este ordenador.</li>
+<li><b>Etiquetas y seguridad.</b> El mosaico de etiquetas muestra sus etiquetas de colores y abre la gestión de etiquetas. El mosaico de seguridad muestra el estado de este ordenador (sistema, unidades, red) y abre la configuración.</li>
+<li><b>Audio.</b> El mosaico de audio abre el cortador de audio para grabaciones que ya tiene; su segundo enlace inicia una grabación en directo con transcripción por IA.</li>
+<li><b>Mosaicos que aparecen solo cuando corresponden.</b> <i>Expedientes del servidor</i> aparece solo cuando hay un IRONSTICK SERVER conectado. Los mosaicos específicos de cada país aparecen solo cuando esas funciones están activadas. Algunos mosaicos que necesitan un PC (por ejemplo el registro de documentos y el procesamiento de textos) no se muestran en la tableta Android.</li>
+</ul>
+
+<h4>Pestaña Agenda</h4>
+<ul>
+<li><b>Todo en una sola cronología.</b> El flujo abarca tres días atrás y diez días adelante: entradas de la crónica, correos electrónicos, vistas judiciales, plazos, escritos, fotos y transcripciones de todos los casos. Hoy se muestra completo; los días siguientes y los pasados se pliegan en una barra cada uno. Desplácese hacia arriba para abrir los días siguientes uno a uno; haga clic en la barra de hoy para volver a hoy.</li>
+<li><b>Cada entrada enlaza con más.</b> Los números grises (cliente / caso / documento) y el nombre azul del cliente y el número verde del caso abren cada uno la pantalla correspondiente. Los documentos PDF muestran hasta cuatro vistas previas de página; haga clic en una para recorrer todo el documento. Las imágenes se abren a pantalla completa con zoom; los archivos adjuntos se abren en la ventana del navegador de <span class="irs">IRONSTICK</span>. Una entrada del diario abre su texto completo.</li>
+<li><b>Accesos rápidos y filtros.</b> La barra de la izquierda abre clientes, personas, instituciones, búsqueda, calendario, plazos, diario, Monitor de correo y control de tiempos. Marque <i>Plazos y audiencias</i> para ver solo las entradas sujetas a fecha, o <i>Vista previa desactivada</i> para una lista compacta solo de texto.</li>
+</ul>
+
+<h4>Pestaña Mapa de calor</h4>
+<ul>
+<li><b>Cifras clave.</b> Cuatro mosaicos muestran la actividad de los últimos doce meses, el número de días activos, el día de mayor actividad y el número de plazos y vistas.</li>
+<li><b>Calendario de actividad.</b> Cada cuadrado es un día; cuanto más oscuro el verde, más ocurrió. Un punto rojo marca un plazo, un punto amarillo una vista judicial. Sitúe el puntero sobre un día para ver lo ocurrido (entradas de la crónica, escritos, correos electrónicos, chat, minutos trabajados). Un clic en uno de los tres últimos días abre ese día en la Agenda.</li>
+<li><b>Por cliente.</b> La lista desplegable reduce todo el mapa de calor a un único cliente.</li>
+<li><b>Casos reavivados.</b> Bajo el calendario se enumeran los casos que se han activado de repente. Haga clic en el número del caso para abrirlo, o en el nombre del cliente para ver los casos de ese cliente.</li>
+</ul>
+
+<h4>Avisos al iniciar</h4>
+<ul>
+<li><b>Informe diario.</b> En el primer inicio del día, <span class="irs">IRONSTICK</span> le pregunta si desea escuchar el informe diario: un breve resumen hablado de su jornada.</li>
+<li><b>IRONSTICK SERVER.</b> Si se encuentra el servidor pero este puesto de trabajo no tiene acceso a él, un aviso se lo indica cada vez que se inicia el programa; usted puede seguir trabajando con normalidad.</li>
+</ul>
+
+<h2 id="s2">2. Configuración</h2>
+
+<h3>Sistema y base de datos</h3>
+<figure><img src="img/screens/2%20konfig%201-2.png" alt="Pantalla de configuración con las fichas Sistema y Base de datos abiertas"><figcaption>La lista de configuración con las fichas Sistema y Base de datos abiertas.</figcaption></figure>
+<p class="scr-intro">La configuración (engranaje de la barra de menús) reúne todos los ajustes de <span class="irs">IRONSTICK</span> en una sola página, como una lista de fichas. Haga clic en el título de una ficha para abrirla y vuelva a hacer clic para cerrarla. Solo hay una ficha abierta a la vez.
+La ficha <b>Sistema</b> muestra los datos de este ordenador para el soporte. La ficha <b>Base de datos</b> muestra cuántos datos tiene y dónde se almacenan en el disco.
+La versión del programa y la clave de licencia están al final de la página.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Sistema (solo Windows)</b></p>
+<ul>
+<li><b>El ordenador de un vistazo.</b> Cuatro mosaicos muestran el procesador, la memoria instalada, la tarjeta gráfica y el almacenamiento. Debajo está la misma información del dispositivo y de Windows que Windows muestra en <i>Configuración › Sistema › Acerca de</i>. Puede seleccionar cada valor y copiarlo, por ejemplo para una solicitud de soporte.</li>
+<li><b>Unidades.</b> Una lista muestra cada unidad con su capacidad, espacio utilizado y fabricante. Haga clic en una unidad para abrirla en el Explorador de Windows.</li>
+<li><b>Acceso rápido a Windows.</b> Los botones de la parte inferior abren la configuración de Windows, las propiedades de red Ethernet, una ventana de comandos que muestra la configuración de red completa y el mezclador de volumen.</li>
+</ul>
+<p class="grp"><b>Base de datos</b></p>
+<ul>
+<li><b>Sus datos en cifras.</b> El título de la ficha muestra el tamaño de la base de datos. En su interior ve el número de clientes, casos, entradas de pruebas, documentos, entidades, archivos, entradas de registro e inicios de sesión, así como el espacio total y libre de la unidad.</li>
+<li><b>En uso actualmente.</b> Un cuadro gris muestra la carpeta con la que <span class="irs">IRONSTICK</span> está trabajando ahora mismo. Todos los datos están en esta única carpeta: base de datos, licencia, configuración y todos los archivos.</li>
+<li><b>Cambiar la ubicación de almacenamiento (PC).</b> Con <i>Elegir carpeta</i> selecciona una nueva ubicación, como una memoria USB u otra unidad. La carpeta <i>IRONSTICK</i> se crea allí automáticamente. Haga clic en <i>Guardar</i> para iniciar el traslado. <span class="irs">IRONSTICK</span> le indica primero cuántos datos se trasladarán. Después prueba la unidad elegida (por ejemplo su velocidad, el espacio libre y la protección contra escritura) y solo continúa si la unidad lo supera. Si usted lo confirma, <span class="irs">IRONSTICK</span> se cierra y traslada los datos la próxima vez que se inicie.</li>
+<li><b>Datos ya existentes en la nueva ubicación.</b> Si la carpeta elegida ya contiene datos de <span class="irs">IRONSTICK</span>, no se sobrescribe nada sin preguntar. Se comparan ambas copias y usted elige entre utilizar la copia encontrada allí o sustituirla por sus datos actuales.</li>
+<li><b>En la tableta Android.</b> La carpeta de datos es fija (es la carpeta en la que copia la sincronización por USB), por lo que allí no hay nada que elegir.</li>
+</ul>
+<p class="grp"><b>Usuario (solo PC)</b></p>
+<ul>
+<li><b>Su perfil.</b> La tercera ficha contiene sus datos: empresa, función, tratamiento, nombre y apellidos, dirección, país, teléfono, móvil, correo electrónico, Facebook, fecha de nacimiento y qué aplicaciones de mensajería utiliza (WhatsApp, Signal, Telegram, Viber). Haga clic en <i>Guardar</i> para almacenarlos. Si utiliza IRONSTICK SERVER, su fecha de nacimiento se comparte con él para las felicitaciones de cumpleaños.</li>
+<li><b>Campos tomados de su licencia.</b> Con una licencia activa, la empresa, el tratamiento y el nombre proceden de la clave de licencia y no se pueden cambiar aquí.</li>
+<li><b>Su número.</b> Su número de usuario se muestra entre paréntesis junto al título de la ficha. El símbolo de copiar lo coloca en el portapapeles, por ejemplo para una solicitud de licencia.</li>
+<li><b>Idioma del programa.</b> Elija el idioma del programa y guarde. <span class="irs">IRONSTICK</span> se recarga entonces en el nuevo idioma y vuelve al menú principal. Una ventana de chat abierta se cierra y se abre en el nuevo idioma la próxima vez.</li>
+</ul>
+
+<h3>IA de escritorio y configuración de la IA</h3>
+<figure><img src="img/screens/2%20konfig%203-4.png" alt="Configuración con las fichas IA con servidor MCP local y Configuración de la IA abiertas"><figcaption>Las fichas para conectar una aplicación de IA de escritorio y para los servicios de IA externos.</figcaption></figure>
+<p class="scr-intro">Estas dos fichas controlan cómo trabaja la IA con sus datos. <b>IA con servidor MCP local</b> permite que una aplicación de IA instalada en este ordenador acceda directamente a sus datos de <span class="irs">IRONSTICK</span>. Esto es opcional y no es necesario para ejecutar el programa.
+<b>Configuración de la IA</b> es donde introduce sus claves de acceso a los servicios de IA externos que <span class="irs">IRONSTICK</span> utiliza para sus funciones de IA y tareas en segundo plano.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>IA con servidor MCP local</b></p>
+<ul>
+<li><b>Cuándo aparece la ficha.</b> La ficha se muestra solo en el PC, y solo cuando al menos una aplicación de IA de escritorio forma parte de su <a href="download_es.html">licencia</a>.</li>
+<li><b>Permitir el acceso.</b> El primer interruptor decide si la IA de escritorio conectada puede acceder a <span class="irs">IRONSTICK</span> en absoluto. Cuando está desactivado, el conector externo no puede acceder al programa.</li>
+<li><b>Permitir la navegación.</b> El segundo interruptor permite que la IA de escritorio controle el programa, por ejemplo para abrir documentos o iniciar una exportación. Solo funciona cuando el acceso está permitido.</li>
+<li><b>Configurar una aplicación.</b> Hay un botón de color <i>Configurar …</i> por cada <a href="manualbridge_es.html">aplicación de IA de escritorio</a> con licencia. Un clic registra <span class="irs">IRONSTICK</span> en esa aplicación y explica los pasos restantes, normalmente reiniciar la aplicación. Para Qwen Desktop, el texto de configuración se copia al portapapeles y usted lo pega en el cuadro de diálogo de configuración de la aplicación.</li>
+<li><b>Plugins de habilidades.</b> <i>Crear el plugin de habilidades IRONSTICK</i> y <i>Crear el plugin …</i> generan un paquete de habilidades para la aplicación de IA de escritorio. Un mensaje indica dónde se guardó el archivo, para que pueda arrastrarlo a la aplicación.</li>
+<li><b>Reciclar la IA de escritorio (Windows).</b> El botón rojo claro cierra las aplicaciones de IA de escritorio enumeradas y las reinicia tras su confirmación. Utilícelo cuando una aplicación haya perdido su conexión con <span class="irs">IRONSTICK</span>.</li>
+<li><b>Enlaces.</b> Los enlaces bajo los botones abren la página de descarga, las condiciones de uso y la política de privacidad de cada aplicación en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+</ul>
+<p class="grp"><b>Configuración de la IA</b></p>
+<ul>
+<li><b>Orden automático.</b> Usted no elige un solo servicio. Cada servicio con una clave almacenada se utiliza automáticamente, en un orden fijo, empezando por el más barato. Si un servicio falla, <span class="irs">IRONSTICK</span> pasa la solicitud al siguiente. El servicio fallido se vuelve a intentar tras un tiempo de espera que depende del error; solo se omite durante el resto del día cuando se ha agotado su saldo o se desconoce la causa.</li>
+<li><b>Insignia de estado.</b> La insignia redonda delante de cada servicio muestra su lugar en el orden. Verde significa disponible, rojo significa no disponible actualmente y gris significa que no hay clave almacenada. Sitúe el puntero sobre una insignia roja para ver el motivo y cuándo se volverá a intentar.</li>
+<li><b>Servicios gratuitos para tareas en segundo plano.</b> Los servicios por encima de la línea gruesa son ofertas gratuitas que se utilizan únicamente para tareas en segundo plano, como la priorización de correos electrónicos, el Monitor de coherencia de datos, el informe diario y el informe de situación. Su insignia muestra un reloj. Cada uno tiene su propio interruptor de activación y un texto de advertencia en rojo le recuerda que sus datos van a ese proveedor. Lea con atención sus condiciones en relación con la protección de datos (RGPD) antes de activarlo.</li>
+<li><b>Servicios de pago.</b> Los servicios por debajo de la línea gruesa se utilizan en el orden indicado. Su interruptor <i>Permitir Red/Blue Team</i> hace que la IA lea por segunda vez un escrito terminado como revisor crítico y marque todo lo que el texto no respalde. Los hallazgos sustanciales retienen el resultado. El interruptor solo se puede utilizar una vez guardada una clave para ese servicio.</li>
+<li><b>Introducir una clave.</b> Pegue la clave de acceso en el campo de clave y haga clic en <i>Guardar</i>. El símbolo del ojo muestra u oculta la clave. El orden y las insignias se actualizan de inmediato.</li>
+<li><b>Enlaces de cuenta.</b> Bajo cada servicio hay enlaces para crear una cuenta y una clave de acceso, para consultar su saldo (en algunos servicios) y para leer las condiciones y la política de privacidad. Se abren en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+</ul>
+
+<h3>Monitor de correo y tareas en segundo plano</h3>
+<figure><img src="img/screens/2%20konfig%205-6.png" alt="Configuración con las fichas Monitor de correo y Tareas en segundo plano abiertas"><figcaption>Los ajustes de la cuenta de correo y los interruptores de las tareas automáticas en segundo plano.</figcaption></figure>
+<p class="scr-intro">En <b>Monitor de correo</b> conecta su buzón para que <span class="irs">IRONSTICK</span> pueda recoger los correos nuevos y asignarlos a sus casos.
+<b>Tareas en segundo plano</b> reúne los trabajos que se ejecutan automáticamente, con un interruptor cada uno, de modo que usted decide qué puede ejecutarse por sí solo y qué tareas pueden utilizar IA externa.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Monitor de correo</b></p>
+<ul>
+<li><b>Comprobación en segundo plano.</b> El interruptor superior activa o desactiva la comprobación automática del correo. Cuando está activado, el correo se comprueba al iniciar el programa y cada cinco minutos a partir de entonces, y el símbolo de correo aparece en la barra de menús. Cuando está desactivado, no ocurre ninguna de las dos cosas.</li>
+<li><b>Elegir su servicio de correo.</b> Elija su proveedor de la lista (por ejemplo Gmail, Outlook / Hotmail, Yahoo, GMX, Web.de, T-Online, Bluewin o ProtonMail) y el servidor, el puerto y el cifrado se rellenan por usted. Para cualquier otro proveedor, elija <i>Otro</i> e introduzca los datos a mano.</li>
+<li><b>Inicio de sesión.</b> Introduzca su nombre de usuario o dirección de correo electrónico y su contraseña. Muchos proveedores exigen una contraseña de aplicación aparte. El símbolo del ojo la muestra u oculta.</li>
+<li><b>Plantilla de URL de correo.</b> La dirección web que se utiliza para abrir un correo electrónico en su correo web. Los marcadores <i>{email}</i> y <i>{subject}</i> se rellenan automáticamente.</li>
+<li><b>Guardar y probar.</b> <i>Guardar</i> almacena los ajustes. <i>Probar la conexión</i> inicia sesión en su buzón e informa del número de mensajes de su bandeja de entrada o del error.</li>
+</ul>
+<p class="grp"><b>Tareas en segundo plano</b></p>
+<ul>
+<li><b>Actualizar automáticamente las descripciones de los casos (IA externa).</b> Una vez al día, pone al día las descripciones de los casos con los documentos y fechas nuevos. Utiliza IA externa. Al activarlo, usted acepta expresamente el tratamiento por IA externa.</li>
+<li><b>Recuperar automáticamente el portal judicial.</b> Recupera datos nuevos de expedientes y fechas del portal judicial nacional. Solo obtiene datos y no utiliza IA. Este interruptor específico de cada país aparece solo cuando las funciones de país para Rumanía están activas.</li>
+<li><b>Recuperar automáticamente los correos electrónicos.</b> Comprueba en segundo plano si hay correos electrónicos nuevos y los asigna a los casos; la IA externa solo valora su urgencia. Es el mismo interruptor que el de la parte superior de la ficha Monitor de correo.</li>
+</ul>
+
+<h3>IRONSTICK SERVER y firmas</h3>
+<figure><img src="img/screens/2%20konfig%207-8.png" alt="Configuración con las fichas IRONSTICK SERVER y Firmas abiertas"><figcaption>La conexión con IRONSTICK SERVER y el campo de firma.</figcaption></figure>
+<p class="scr-intro"><b>IRONSTICK SERVER</b> conecta este puesto de trabajo con el servidor y muestra quién más trabaja en él.
+En <b>Firmas</b> almacena su firma manuscrita, que <span class="irs">IRONSTICK</span> puede colocar en sus documentos. Debajo de estas fichas están la plantilla de membrete, el registro de inicios de sesión y la línea de versión.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>IRONSTICK SERVER</b></p>
+<ul>
+<li><b>Conexión con el servidor.</b> El interruptor activa o desactiva la conexión. La búsqueda del servidor solo se ejecuta mientras está activado. La línea de estado muestra si está conectado, si se ha solicitado el acceso y está pendiente de aprobación, o si no se encontró ningún servidor. El resto de la ficha aparece en gris hasta que esté conectado.</li>
+<li><b>Páginas del servidor.</b> Cuando está conectado, haga clic en la línea de estado verde para abrir la página web del servidor. Dos botones abren la página de gestión del almacenamiento del servidor y la administración de IRONSTICK SERVER. Cada página requiere sus propias credenciales.</li>
+<li><b>Usuarios.</b> La lista muestra a cada usuario registrado en el servidor. Un punto verde significa que el usuario está en línea.</li>
+</ul>
+<p class="grp"><b>Firmas (solo PC)</b></p>
+<ul>
+<li><b>Dibujar su firma.</b> Firme en el campo blanco con el ratón, un lápiz o un dedo y haga clic después en <i>Guardar</i>. <i>Borrar el campo de firma</i> borra el dibujo para que pueda empezar de nuevo.</li>
+<li><b>Cargar una firma.</b> <i>Cargar imagen (JPG/PNG)</i> almacena en su lugar una firma escaneada.</li>
+<li><b>Firma almacenada.</b> Una marca verde y una pequeña vista previa muestran la firma almacenada actualmente. <i>Eliminar</i> la borra.</li>
+</ul>
+<p class="grp"><b>Plantilla de membrete (solo PC)</b></p>
+<ul>
+<li><b>Cargar su membrete.</b> <i>Subir plantilla</i> toma un PDF A4 vertical con el membrete de su despacho. En la ventana que se abre, arrastre la línea roja (o haga clic) hasta el borde inferior del membrete y guarde después. El texto de sus escritos empieza por debajo de esta línea.</li>
+<li><b>Comprobar y ajustar.</b> Una vista previa muestra el membrete almacenado. El interruptor <i>Membrete solo en la primera página</i> lo imprime solo en la primera página en lugar de en todas las páginas. <i>Eliminar plantilla</i> lo borra.</li>
+</ul>
+<p class="grp"><b>Registro de inicios de sesión y versión</b></p>
+<ul>
+<li><b>Registro de inicios de sesión.</b> La última ficha enumera los últimos 50 inicios de sesión, los más recientes primero: hora, número de usuario, dirección IP externa e interna, lugar, país, dispositivo, sistema operativo, navegador y una valoración de seguridad. Puede seleccionar el texto o copiar toda la tabla con el símbolo de copiar.</li>
+<li><b>Versión.</b> La línea al pie de la página muestra la versión del programa de Windows y de la aplicación de Android almacenadas en su carpeta de datos.</li>
+<li><b>Clave de licencia (PC).</b> Haga clic en <i>Clave de licencia</i> para introducir una clave nueva o renovada y haga clic en <i>Activar</i>. Si la clave no es válida, ha caducado, aún no es válida o pertenece a otro usuario, se le indica el motivo. <i>Solicitar clave de licencia</i> prepara una solicitud ya redactada. Tras la activación, vuelve a configurar su aplicación de autenticación escaneando el código QR que se muestra, y los módulos con licencia se desbloquean de inmediato.</li>
+</ul>
+
+<h2 id="s3">3. Clientes</h2>
+<figure><img src="img/screens/3%20clients.png" alt="Lista de clientes con campo de búsqueda, botones de importar y de nuevo cliente, una ventana de código QR y una ventana de redes sociales"><figcaption>La lista de clientes, con las ventanas de código QR y de redes sociales que se abren desde una fila.</figcaption></figure>
+<p class="scr-intro">La lista de clientes es donde se guardan todos sus clientes. Cada fila muestra el número de referencia, el nombre, la ciudad, el teléfono, las redes sociales, el correo electrónico y el número de casos del cliente.
+Desde aquí crea clientes nuevos, importa contactos existentes, imprime la lista y abre los casos de un cliente.
+La imagen muestra también la ventana de código QR que se abre desde el símbolo de WhatsApp y la ventana de redes sociales que se abre desde el símbolo social.</p>
+
+<ol class="marks">
+<li><b>Búsqueda.</b> Reduce la lista mientras escribe. Busca en nombres, números de teléfono y direcciones de correo electrónico; un asterisco (*) funciona como comodín.</li>
+<li><b>Importar cliente.</b> Importa clientes desde un archivo CSV o un archivo vCard.</li>
+<li><b>Nuevo cliente.</b> Abre un formulario de cliente vacío.</li>
+<li><b>Imprimir lista.</b> Crea un PDF de toda la lista de clientes, que usted guarda en su carpeta Documentos o en Google Drive.</li>
+<li><b>Referencia del cliente.</b> El número morado (por ejemplo <i>@C0000001</i>) es el número de referencia del cliente. Haga clic en él para copiarlo al portapapeles, por ejemplo para pegarlo en el chat o en un documento.</li>
+<li><b>Casos.</b> El número de casos de este cliente. Una nube roja significa que al menos un caso está compartido a través de IRONSTICK SERVER; una llama roja significa que al menos un caso se ha reavivado recientemente.</li>
+<li><b>Editar.</b> Abre el formulario de cliente con los datos de este cliente.</li>
+<li><b>Eliminar.</b> Elimina al cliente tras una confirmación.</li>
+</ol>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Encontrar un cliente</h4>
+<ul>
+<li><b>Buscar mientras escribe.</b> La búsqueda comprueba por separado nombres y apellidos y encuentra también nombres que suenan parecido, de modo que pequeños errores de escritura siguen dando resultado. Los acentos se ignoran, así que "Francois" encuentra también "François".</li>
+<li><b>Teléfono y correo electrónico.</b> Escriba parte de un número de teléfono (los espacios y los guiones no importan) o parte de una dirección de correo electrónico. Si escribe varias palabras, un cliente debe coincidir con todas ellas.</li>
+<li><b>Borrar la búsqueda.</b> La pequeña X del campo de búsqueda vuelve a mostrar la lista completa. Si nada coincide, la lista lo indica.</li>
+<li><b>Lo más urgente primero.</b> Los clientes con un caso reavivado van arriba, después los clientes con más casos, luego los de actividad más reciente y, por último, por orden alfabético.</li>
+<li><b>Varias páginas.</b> Con más de 25 clientes, la lista se divide en páginas; la navegación por páginas aparece entonces encima y debajo de la lista.</li>
+<li><b>Cumpleaños.</b> El día del cumpleaños de un cliente, y durante los dos días siguientes, aparece una pequeña tarta delante del nombre. Si llegó aquí haciendo clic en un nombre de cumpleaños en el menú principal, la lista muestra solo los clientes que cumplen años en este momento.</li>
+</ul>
+
+<h4>Trabajar con una fila de cliente</h4>
+<ul>
+<li><b>Abrir los casos.</b> Haga clic en cualquier punto de una fila para abrir la lista de casos de ese cliente.</li>
+<li><b>Llamar, WhatsApp o correo electrónico mediante código QR.</b> Haga clic en el número de teléfono, en el símbolo verde de WhatsApp o en la dirección de correo electrónico. Una ventana muestra un código QR que puede escanear con su teléfono para llamar, abrir WhatsApp o escribir un correo electrónico. Un clic en el código QR abre el programa correspondiente en este ordenador; si no hay ninguno, el valor se copia al portapapeles.</li>
+<li><b>Redes sociales.</b> El símbolo azul de la columna <i>Social</i> aparece solo cuando hay perfiles registrados. Abre una ventana que enumera los perfiles de Facebook, Instagram, TikTok, LinkedIn y X. El símbolo de abrir muestra el perfil en la ventana del navegador de <span class="irs">IRONSTICK</span> (en la tableta: en el navegador del sistema); el botón de copiar copia la dirección.</li>
+<li><b>Copiar el número de referencia.</b> Un clic en el número morado <i>@C</i> lo copia, por ejemplo para pegarlo en un chat o en un documento.</li>
+<li><b>Eliminar un cliente.</b> La X abre una confirmación. Si el cliente aún tiene casos, documentos o vínculos con casos, una advertencia amarilla los enumera antes de que usted confirme. Las notas que la IA ha recordado sobre este cliente también se eliminan.</li>
+</ul>
+
+<h4>Imprimir la lista de clientes</h4>
+<ul>
+<li><b>PDF de todos los clientes.</b> El botón de imprimir de la cabecera de la tarjeta crea una lista de clientes en PDF. En la ventana de exportación puede guardarla en su carpeta Documentos, o en una carpeta de Google Drive si Google Drive está instalado en este ordenador.</li>
+</ul>
+
+<h4>Crear o editar un cliente</h4>
+<ul>
+<li><b>Datos maestros.</b> Nombre (obligatorio), número de identificación personal, nacionalidad, idioma y fecha de nacimiento. Al elegir una nacionalidad se preselecciona también el idioma correspondiente. La fecha de nacimiento se elige en un calendario y se puede borrar con la X.</li>
+<li><b>Dirección.</b> Calle, código postal, distrito/provincia, ciudad y país.</li>
+<li><b>Geocoordenadas.</b> Active el interruptor para situar al cliente en un mapa. <span class="irs">IRONSTICK</span> busca la dirección automáticamente; usted puede corregir el texto de búsqueda y buscar de nuevo, introducir usted mismo la latitud y la longitud, o simplemente hacer clic en el mapa para fijar el punto.</li>
+<li><b>Contacto.</b> Teléfono (marque <i>WhatsApp</i> si el número usa WhatsApp), correo electrónico y un campo de texto libre para detalles. Una dirección de correo electrónico no válida se notifica antes de guardar.</li>
+<li><b>Datos bancarios y redes sociales.</b> Nombre del banco e IBAN; direcciones de los perfiles de Facebook, Instagram, TikTok, LinkedIn y X.</li>
+<li><b>Guardar o cancelar.</b> Los botones de la parte inferior guardan al cliente o abandonan el formulario sin cambios. Al editar, el número de cliente y la fecha de creación se muestran bajo el título.</li>
+</ul>
+
+<h4>Importar clientes</h4>
+<ul>
+<li><b>Soltar un archivo.</b> <i>Importar cliente</i> abre una ventana con una zona de colocación. Arrastre sobre ella un archivo CSV o un archivo vCard (por ejemplo exportado desde su teléfono o su programa de correo).</li>
+<li><b>Asignar columnas (solo CSV).</b> Una segunda ventana enumera cada columna del archivo con un valor de ejemplo y el campo al que irá. La asignación viene rellenada de antemano; cambie cualquier campo con la lista desplegable o elija no importar una columna. <i>Continuar</i> queda disponible en cuanto una columna está asignada al nombre.</li>
+<li><b>Un contacto.</b> Si el archivo contiene una sola dirección, el formulario <i>Nuevo cliente</i> se abre ya rellenado, para que usted pueda comprobarlo, completarlo y guardarlo.</li>
+<li><b>Varios contactos.</b> Obtiene una lista con una casilla para cada contacto; todos vienen marcados de antemano. Los contactos que ya existen como clientes no se marcan y se señalan como ya presentes. <i>Importar</i> crea todos los clientes marcados en un solo paso e indica cuántos se añadieron.</li>
+<li><b>Cuando algo sale mal.</b> Si el archivo no se puede leer o no contiene ninguna dirección, la ventana se lo indica. Si la importación falla, no se cambia nada.</li>
+</ul>
+
+<h2 id="s4">4. Casos</h2>
+
+<h3>La lista de casos de un cliente</h3>
+<figure><img src="img/screens/4%20cases.png" alt="Lista de casos de un cliente agrupados en hechos, con la ventana del Nucleu y la ventana de los snakes de un hecho"><figcaption>Los casos de un cliente, agrupados en hechos, con las ventanas del Nucleu y de los snakes de un hecho.</figcaption></figure>
+<p class="scr-intro">Esta pantalla muestra todos los casos de un cliente. Los casos que van juntos se agrupan en <b>hechos</b> (por ejemplo, todos los procedimientos contra la misma parte contraria); los casos que aún no están en un hecho aparecen en <i>Casos sin asignar</i>.
+Puede crear hechos, ordenar casos en ellos arrastrando y soltando, y ver de un vistazo la prioridad, el estado y las perspectivas de éxito de cada caso.
+La imagen muestra también la ventana del Nucleu y la ventana de los snakes que se abren desde los dos símbolos de la barra de título de un hecho.</p>
+
+<ol class="marks">
+<li><b>Notas.</b> Abre el tablón de notas de este cliente.</li>
+<li><b>Imprimir.</b> Crea un resumen en PDF de todos los casos de este cliente, con o sin un resumen por IA del estado más reciente.</li>
+<li><b>Nuevo hecho.</b> Crea un nuevo grupo para casos que van juntos.</li>
+<li><b>Universo.</b> Muestra los casos del cliente como una red, como un mapa 3D o un mapa 2D. Aparece a partir de tres casos.</li>
+<li><b>Nuevo caso.</b> Abre el formulario para un nuevo caso de este cliente.</li>
+<li><b>Hecho.</b> La barra de título de un hecho. Haga clic en ella para plegar o desplegar el hecho. Los dos símbolos del centro abren el Nucleu y los snakes del hecho; a la derecha ve el número de casos, renombrar (lápiz) y eliminar (X).</li>
+<li><b>Nucleu del hecho.</b> Una instrucción general para la IA que se aplica a todos los casos de este hecho. Escriba aquí lo que debe tener en cuenta todo documento redactado para estos casos y guarde después.</li>
+<li><b>Snakes del hecho.</b> Los snakes de todos los casos de este hecho, en el orden de la lista. Haga clic en un caso para abrirlo en su pestaña de snake.</li>
+<li><b>Asa de arrastre.</b> Agarre el asa de puntos y arrastre el caso a un hecho, o suéltelo sobre un caso existente para convertirlo en subcaso de ese caso.</li>
+<li><b>Quitar del hecho.</b> Saca el caso de este hecho. El caso en sí se conserva y aparece en <i>Casos sin asignar</i>, salvo que esté también en otro hecho.</li>
+<li><b>Perspectivas de éxito.</b> Un pequeño indicador que muestra el resultado de la última evaluación por IA del caso. Sitúe el puntero sobre él para leer el porcentaje; haga clic para abrir el caso en la pestaña de evaluación.</li>
+</ol>
+
+<h4>Qué puede hacer aquí</h4>
+
+<p class="grp"><b>Leer una fila de caso</b></p>
+<ul>
+<li><b>Abrir un caso.</b> Haga clic en una fila para abrir el caso en su pestaña Cronología.</li>
+<li><b>Números y etiquetas.</b> Cada fila empieza con el número de cliente/caso, seguido de etiquetas azules de país, área del derecho y fase procesal. Sitúe el puntero sobre una etiqueta para ver su nombre completo.</li>
+<li><b>Número de caso en naranja.</b> Si el caso se encontró en un portal judicial nacional (función específica de cada país), el número de procedimiento judicial se muestra en naranja. Haga clic en él para ver los detalles del portal: tribunal, sección, objeto, partes, recursos y todas las vistas con sus resultados. Desde allí también puede abrir el caso.</li>
+<li><b>Título y parte contraria.</b> El título del caso va seguido de la parte contraria en gris; con varias partes contrarias solo se muestra la primera, más el número de las demás. Los casos inactivos se muestran en gris claro.</li>
+<li><b>Llama.</b> Una llama roja marca un caso que se ha reavivado recientemente.</li>
+<li><b>Prioridad y estado.</b> La primera píldora muestra la prioridad (Urgente y Alta en rojo, Normal en gris, Baja en verde); la segunda muestra el estado (Activo en verde, En pausa en rojo, Inactivo en gris).</li>
+<li><b>Casos de otro cliente.</b> Si un caso pertenece a otro cliente suyo que está en el mismo lado del procedimiento, la fila muestra <i>Expediente original</i> con el número y el nombre de ese cliente, y el papel en una píldora ámbar. Haga clic en el número para ir a la lista de casos de ese cliente.</li>
+<li><b>Nube roja.</b> Aparece cuando hay un IRONSTICK SERVER conectado y el caso está compartido en él. Haga clic en ella para abrir el caso en su pestaña de caso.</li>
+</ul>
+
+<p class="grp"><b>Organizar los casos en hechos</b></p>
+<ul>
+<li><b>Crear, renombrar, eliminar.</b> <i>Nuevo hecho</i> pide un nombre. El lápiz de la barra de título renombra el hecho; la X lo elimina tras una confirmación. Eliminar un hecho nunca elimina sus casos; simplemente vuelven a <i>Casos sin asignar</i>, salvo que estén también en otro hecho.</li>
+<li><b>Plegar y desplegar.</b> Haga clic en la barra de título de un hecho para ocultar o mostrar sus casos.</li>
+<li><b>Mover un caso.</b> Arrastre un caso por su asa de puntos a otro hecho. El hecho sobre el que arrastra se ilumina en azul.</li>
+<li><b>Crear un subcaso.</b> Suelte un caso sobre el centro de otro caso para colocarlo debajo; los subcasos se muestran con sangría. Suéltelo encima o debajo de un caso (una línea azul muestra el lugar) o en una zona vacía del hecho para mantenerlo como caso principal.</li>
+<li><b>El mismo caso en dos hechos.</b> Arrastre el símbolo de la hoja doble en lugar del asa para añadir el caso a otro hecho. Aparece entonces en ambos.</li>
+<li><b>Sacar un caso.</b> Utilice el símbolo de desvincular de la fila, o arrastre el caso por su asa a <i>Casos sin asignar</i>.</li>
+</ul>
+
+<p class="grp"><b>Carpetas de trabajo</b></p>
+<ul>
+<li><b>Carpetas por hecho.</b> Bajo cada hecho, <i>Carpetas de trabajo</i> despliega una lista de carpetas. <i>Nueva carpeta</i> crea una; cada carpeta se puede renombrar o eliminar.</li>
+<li><b>Contenido.</b> Las entradas que usted asigna a una carpeta de trabajo desde dentro de un caso se enumeran con su fecha, título y número de caso. La X junto a una entrada la quita de la carpeta.</li>
+</ul>
+
+<p class="grp"><b>Nucleu y snakes de un hecho</b></p>
+<ul>
+<li><b>Nucleu.</b> El símbolo del átomo abre el Nucleu del hecho: un texto de hasta 20.000 caracteres que indica a la IA qué debe tener presente en todos los casos de este hecho. Cada guardado conserva una nueva versión. Un caso puede tener además su propio Nucleu, definido en el propio caso. Si cierra la ventana con cambios sin guardar, <span class="irs">IRONSTICK</span> pregunta si debe descartarlos.</li>
+<li><b>Snakes.</b> El símbolo de la serpiente abre los snakes de todos los casos del hecho. Un Snake registra las afirmaciones de la parte contraria que quedan contradichas por documentos, con el lugar donde se encontró cada una y los documentos que la contradicen. Haga clic en el título de un caso para abrirlo en su pestaña de snake. Si ningún caso tiene aún un Snake, la ventana lo indica.</li>
+</ul>
+
+<p class="grp"><b>Imprimir, nuevo caso y más</b></p>
+<ul>
+<li><b>Resumen del caso en PDF.</b> El botón de imprimir pregunta si desea el resumen con o sin el último estado redactado por la IA. Si elige la versión con IA y esta utiliza IA externa, primero se le pide su consentimiento. El PDF se guarda después en su carpeta Documentos o en Google Drive.</li>
+<li><b>Nuevo caso.</b> El formulario pide un título (obligatorio), la prioridad y el estado. Marque <i>El demandante es el cliente</i> para rellenar automáticamente el nombre del cliente, o escriba otro demandante, e introduzca la parte contraria.</li>
+<li><b>Otros clientes en el mismo procedimiento.</b> Si tiene más clientes, puede buscarlos por nombre o por número <i>@C</i> y añadirlos al caso. El caso aparece entonces también en sus listas de casos.</li>
+<li><b>Comprobación de conflicto de intereses.</b> En cuanto su propia parte y la parte contraria están rellenadas, este botón compara los nombres con sus propios clientes, partes y casos y muestra el resultado. Nada sale de este ordenador.</li>
+<li><b>Más opciones.</b> Marque un caso como público (difundido en los medios) o bloquéelo para que ningún otro caso pueda vincularse a él, ya sea a mano, automáticamente o por la IA.</li>
+<li><b>Datos jurídicos.</b> Al introducir un número de procedimiento judicial se marca <i>tiene número de procedimiento</i> y se fija la fecha de hoy, que puede cambiar. Elija primero el país; se ofrecen entonces las áreas del derecho y las fases procesales de ese país. Un campo de descripción libre completa el formulario.</li>
+<li><b>Casos suscritos.</b> Cuando hay un IRONSTICK SERVER conectado y usted sigue casos de un compañero, aparecen en su propia tarjeta con una nube azul, el nombre del propietario y el último cambio del propietario. Haga clic en uno para abrirlo.</li>
+<li><b>Aún sin casos.</b> Un cliente sin casos muestra un breve aviso con un botón <i>Nuevo caso</i>.</li>
+</ul>
+
+<h3>Notas y el universo de casos</h3>
+<figure><img src="img/screens/4%20cases%20universe%20notes.png" alt="Lista de casos con el tablón de notas, el menú Universo y los mapas de red 2D y 3D"><figcaption>El tablón de notas y las dos vistas de red de los casos de un cliente.</figcaption></figure>
+<p class="scr-intro">Dos botones sobre la lista de casos abren herramientas que funcionan con todos los casos del cliente.
+<b>Notas</b> abre un tablón de notas del cliente. <b>Universo</b> muestra cómo están conectados los casos del cliente: como un mapa 3D que puede recorrer volando, o como un dibujo 2D sobre papel cuadriculado.
+La imagen muestra el tablón de notas, el menú Universo abierto y ambos mapas.</p>
+
+<ol class="marks">
+<li value="1"><b>Notas.</b> El tablón de notas del cliente, con sus propias notas y las notas de la IA para este cliente.</li>
+<li value="4"><b>Menú Universo.</b> Sitúe el puntero sobre el botón o haga clic en él para elegir <i>Mapa 3D</i> o <i>Mapa 2D</i>.</li>
+</ol>
+
+<h4>Qué puede hacer aquí</h4>
+
+<p class="grp"><b>Tablón de notas</b></p>
+<ul>
+<li><b>Añadir una nota.</b> La primera tarjeta, de color amarillo pálido, <i>Nueva nota</i> abre un campo de texto (hasta 1.000 caracteres) con una fecha opcional. Guardar fija la nota en el tablón; las notas más recientes están arriba.</li>
+<li><b>Tres tipos de notas.</b> Las notas amarillas son suyas; haga clic en una para editarla. Las notas de la IA aparecen en papel cuadriculado: son entradas que la IA ha recordado para este cliente. Las tarjetas blancas son notas de compañeros que siguen un caso compartido a través de IRONSTICK SERVER.</li>
+<li><b>Copiar y eliminar.</b> Cada nota tiene un pequeño botón de copiar y un botón de eliminar. Una nota con fecha la muestra con un pequeño despertador.</li>
+<li><b>Las notas de la lista de casos pertenecen al cliente.</b> Las notas abiertas aquí no están vinculadas a un único caso.</li>
+</ul>
+
+<p class="grp"><b>Mapa 3D (universo)</b></p>
+<ul>
+<li><b>Qué ve.</b> Cada caso es un hexágono; las instituciones son triángulos. Los casos se vinculan cuando comparten personas, empresas o instituciones, cuando un documento de un caso se menciona en el otro, o cuando un caso menciona el número de caso del otro. Los casos del mismo hecho forman una nube de color.</li>
+<li><b>Construcción del mapa.</b> El mapa se construye ante usted mientras avanza una barra de progreso. La línea de arriba a la izquierda muestra el número de casos, conexiones y hechos.</li>
+<li><b>Recorrerlo volando.</b> W/A/S/D se mueven hacia delante, atrás y hacia los lados, R/F arriba y abajo; las teclas de flecha o arrastrar con el ratón giran la vista. Mayús aumenta la velocidad, la barra espaciadora la reduce y la rueda del ratón avanza o retrocede. El panel de abajo a la izquierda enumera las teclas; la barra de abajo a la derecha muestra su velocidad.</li>
+<li><b>Marcar un punto y volar hasta él.</b> Haga clic en un caso o una institución: la vista vuela hasta él y queda marcado, junto con sus conexiones y el motivo de cada conexión. Haga clic de nuevo para quitar la marca.</li>
+<li><b>Abrir desde el mapa.</b> Haga doble clic en un caso para abrirlo. Al hacer doble clic en una persona o una empresa se abre la lista de personas, y una institución abre la lista de instituciones; la entrada se resalta allí en amarillo.</li>
+<li><b>Búsqueda.</b> El campo de búsqueda de abajo a la derecha encuentra un nombre, un teléfono o un correo electrónico y marca la mejor coincidencia, igual que un clic.</li>
+<li><b>Mostrar personas y empresas.</b> El interruptor <i>Conexiones de casos</i> añade al mapa las personas y las empresas de los casos. Empieza desactivado; las instituciones se muestran siempre.</li>
+<li><b>Cerrar.</b> La X de arriba a la derecha o la tecla Escape cierra el mapa.</li>
+</ul>
+
+<p class="grp"><b>Mapa 2D</b></p>
+<ul>
+<li><b>Un dibujo sobre papel cuadriculado.</b> La misma red se dibuja en plano, como un dibujo técnico. Los nombres aparecen cuando sitúa el puntero sobre un punto o lo marca.</li>
+<li><b>Mover y hacer zoom.</b> Arrastre con el ratón, o utilice W/A/S/D o las teclas de flecha, para mover la hoja. La rueda del ratón hace zoom hacia el puntero.</li>
+<li><b>Marcar, abrir, buscar.</b> Un clic en un punto lo lleva al centro y lo marca (palpita); un clic en el papel vacío quita la marca y aleja el zoom. El doble clic abre el caso, la persona o la institución. El campo de búsqueda marca la mejor coincidencia; el interruptor <i>Conexiones de casos</i> añade las personas y empresas de los casos.</li>
+<li><b>Cerrar.</b> La X de arriba a la derecha o la tecla Escape cierra el mapa.</li>
+</ul>
+
+<h2 id="s5">5. Caso</h2>
+
+<h3>Pestaña Expediente, compartir y transferir</h3>
+<figure><img src="img/screens/5%20case%20case.png" alt="Pantalla del caso en la pestaña Expediente con los diálogos Compartir y Transferir caso e IRONSTICK SERVER"><figcaption>La pestaña Expediente con los diálogos para compartir un caso y transferirlo a través de IRONSTICK SERVER.</figcaption></figure>
+<p class="scr-intro">La pantalla del caso reúne todo lo que pertenece a un caso. Arriba se ven el título del caso y el cliente, tres botones (<i>Notas</i>, <i>Dossier</i>, <i>Redactar texto</i>) y una fila de pestañas. La imagen muestra la pestaña <b>Expediente</b> con los datos del caso y un resumen de los archivos del caso.
+Cuando hay un IRONSTICK SERVER conectado, un caso puede compartirse con colegas o transferirse a otro usuario; para ello aparecen los dos diálogos de la imagen.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Cabecera y navegación</b></p>
+<ul>
+<li><b>Ruta de navegación.</b> La ruta de la parte superior lleva de vuelta al menú principal, a la lista de clientes o a la lista de casos del cliente. La última parte muestra el número del caso junto con el país, el ámbito jurídico y la fase.</li>
+<li><b>Nube delante del título.</b> Una nube roja significa que usted ha compartido este caso a través de IRONSTICK SERVER; una nube azul significa que es un caso que otra persona ha compartido con usted. Haga clic en la nube para saltar a la pestaña Expediente.</li>
+<li><b>Moverse entre pestañas.</b> Haga clic en una pestaña para cambiar. Si abandona la pestaña del Nucleu del caso o del Snake del caso con cambios sin guardar, <span class="irs">IRONSTICK</span> pregunta si desea descartarlos.</li>
+</ul>
+<p class="grp"><b>Datos del caso</b></p>
+<ul>
+<li><b>Número, título y número de caso.</b> La tarjeta muestra el número interno de cliente/caso, el título y el número de caso oficial. Si hay un expediente del portal judicial vinculado al caso, el número de caso aparece en naranja con un subrayado punteado; haga clic en él para abrir los detalles del expediente del portal (función específica de cada país).</li>
+<li><b>Prioridad y actividad.</b> La prioridad que usted ha fijado aparece como una etiqueta de color. Una pequeña llama roja a su lado indica que el caso se ha reavivado recientemente (nuevos plazos, vistas, entradas o correos electrónicos en los últimos 14 días); nunca modifica su propia prioridad.</li>
+<li><b>Partes y clasificación jurídica.</b> Público sí/no, demandante (marcado si es su cliente), contraparte, país, ámbito jurídico y fase, si se ha asignado un número de expediente judicial (con su fecha), tipo de caso, fecha de inicio y la descripción.</li>
+<li><b>Tamaño del caso.</b> Debajo de la descripción, una tabla cuenta los PDF entrantes, salientes y de pruebas, las imágenes y los archivos de audio, con el número de palabras y el tamaño de archivo, un total del caso y una estimación de cuánto texto tendría que leer la IA.</li>
+</ul>
+<p class="grp"><b>Botones de la tarjeta Expediente</b></p>
+<ul>
+<li><b>Imprimir.</b> Elija <i>Cronología</i> o <i>Documentación</i> y el caso se exporta como PDF.</li>
+<li><b>Editar.</b> Abre el formulario del caso: título, prioridad, estado, demandante (o «el cliente es el demandante»), otros clientes propios en el mismo procedimiento, contraparte, una comprobación de conflicto de intereses (activa cuando ambas partes están rellenadas), caso público, un interruptor que impide que se adjunte nada a este caso (a mano, automáticamente o por la IA), número de caso, número de expediente judicial con fecha, país, ámbito jurídico, fase y descripción.</li>
+<li><b>Eliminar.</b> Tras una confirmación, el caso se elimina por completo de <span class="irs">IRONSTICK</span>. Antes se realiza una copia de seguridad completa del caso; si la copia de seguridad falla, no se elimina nada.</li>
+</ul>
+<p class="grp"><b>Compartir y transferir (solo con IRONSTICK SERVER conectado)</b></p>
+<ul>
+<li><b>Compartir.</b> Comparta el caso <i>con todos los usuarios</i> o <i>con usuarios seleccionados</i> que marque en la lista. El caso se carga entonces en segundo plano en el servidor. Una vez compartido, el mismo botón se vuelve rojo y dice <i>Revocar</i>, que retira el acceso compartido de inmediato.</li>
+<li><b>Tarjeta de compartición.</b> Debajo de los datos del caso, una tarjeta muestra el progreso de la carga y después los suscriptores, cada uno con un punto de conexión y la hora del último acceso. Las solicitudes de los colegas aparecen resaltadas con <i>Permitir</i> y <i>Rechazar</i>; cualquier suscriptor puede eliminarse individualmente.</li>
+<li><b>Transferir caso.</b> Elija al destinatario en la lista de usuarios del servidor y haga clic en <i>Transferir</i>. El caso se empaqueta y se envía a través de IRONSTICK SERVER; cuando el destinatario lo ha aceptado, el caso se elimina de su ordenador (se conserva una copia de seguridad).</li>
+<li><b>Casos compartidos con usted.</b> Un caso suscrito puede leerse pero no modificarse; los botones de edición muestran un aviso en su lugar. Debajo de la descripción se ven el propietario y los demás suscriptores. <i>Eliminar suscripción</i> pone fin a la suscripción y elimina la copia.</li>
+</ul>
+
+<h3>Las pestañas de un vistazo: del cliente al mapa</h3>
+<figure><img src="img/screens/5%20case%20tab1.png" alt="Las seis primeras pestañas de la pantalla del caso: Cliente, Expediente, Instituciones, Entidades, Conexiones y Mapa"><figcaption>Las pestañas Cliente, Expediente, Instituciones, Entidades, Conexiones y Mapa.</figcaption></figure>
+<p class="scr-intro">La fila de pestañas divide el caso en vistas. Las seis primeras pestañas muestran de quién y de qué trata el caso: el cliente, los datos del caso, las instituciones y personas implicadas, cómo están conectadas y dónde ocurrieron los hechos.
+Cada línea de la imagen señala desde una pestaña la vista que abre.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Cliente</b></p>
+<ul>
+<li><b>Tarjeta del cliente.</b> Número, nombre, número de identificación personal, nacionalidad, dirección completa, teléfono, correo electrónico, banco e IBAN, idioma, enlaces de redes sociales, detalles y la fecha en que se creó el cliente. Los campos vacíos no se muestran.</li>
+<li><b>Contacto con un clic.</b> Haga clic en el nombre para obtener un código QR de contacto, en el número de teléfono para un código QR de llamada, en el símbolo verde de chat para WhatsApp o en la dirección de correo electrónico para escribir. Los enlaces de redes sociales se abren en la ventana del navegador de <span class="irs">IRONSTICK</span>. <i>Editar</i> abre el formulario del cliente.</li>
+</ul>
+<p class="grp"><b>Expediente</b></p>
+<ul>
+<li><b>Datos del caso.</b> Cliente y número de caso, título, número de caso oficial, prioridad, partes, país, ámbito jurídico, fase, fecha de inicio, descripción y el tamaño del caso, con botones para imprimir, editar o eliminar el caso.</li>
+</ul>
+<p class="grp"><b>Instituciones y Entidades</b></p>
+<ul>
+<li><b>Quién está implicado.</b> Instituciones enumera juzgados, autoridades y otros organismos con tipo, ciudad y símbolos de contacto; Entidades enumera personas y empresas con tipo, ciudad y contacto. La cabecera muestra cuántas hay asignadas. Las listas largas se dividen en páginas de 20.</li>
+<li><b>Abrir una entrada.</b> Haga clic en una fila para abrir la lista de instituciones o de personas con esa entrada resaltada. Los símbolos de teléfono y de correo electrónico abren un código QR; el globo abre el sitio web en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+<li><b>Análisis.</b> En Entidades, el símbolo morado de análisis aparece cuando existe un análisis de esa persona; abre el análisis de persona.</li>
+<li><b>Añadir y quitar.</b> <i>Añadir</i> abre una búsqueda entre todas las instituciones o personas que aún no están en este caso (por nombre, ciudad o correo electrónico). Elija una, compruebe la vista previa y haga clic en <i>Añadir</i>. El símbolo de enlace roto al final de una fila quita la asignación tras una confirmación; la institución o persona en sí se conserva.</li>
+</ul>
+<p class="grp"><b>Conexiones</b></p>
+<ul>
+<li><b>Gráfico de relaciones.</b> Muestra las personas e instituciones del caso y cómo están vinculadas, en una o varias páginas; la cabecera cuenta las entidades y las conexiones. Cuando hay muchas, se muestran las más urgentes.</li>
+<li><b>Trabajar con el gráfico.</b> Amplíe y reduzca con los botones de lupa. Haga clic en un nombre para abrir esa persona o institución. <i>Wallpaper</i> descarga el gráfico como un póster grande en PDF; <i>Registrar</i> lo pasa al registro de documentos, donde usted lo asigna a un caso. Ningún botón de exportación está disponible en la tableta Android.</li>
+</ul>
+<p class="grp"><b>Mapa</b></p>
+<ul>
+<li><b>Todo en el mapa.</b> Las personas (azul), las empresas (morado), las instituciones (rojo) y los acontecimientos (verde) aparecen en un mapa de satélite; una leyenda debajo explica los colores. Anillos blancos marcan distancias de 5, 15 y 30 km alrededor del centro del caso.</li>
+<li><b>Posiciones que faltan.</b> Las direcciones sin coordenadas se buscan automáticamente mientras el mapa está abierto; un pequeño aviso muestra el progreso y la posición encontrada se recuerda.</li>
+<li><b>Detalles e impresión.</b> Haga clic en un marcador para ver nombre, tipo y dirección; su enlace de detalle abre la persona, la institución o la entrada de la crónica (resaltada en la Cronología). El botón de impresión exporta el mapa como PDF.</li>
+</ul>
+
+<h3>Las pestañas de un vistazo: de la documentación a la evaluación de la IA</h3>
+<figure><img src="img/screens/5%20case%20tab2.png" alt="Las pestañas Documentación, Cronología, Nucleu del caso, Snake del caso y evaluación de la IA"><figcaption>Las pestañas Documentación, Cronología, Nucleu del caso (átomo), Snake del caso y evaluación de la IA.</figcaption></figure>
+<p class="scr-intro">Las pestañas restantes contienen el contenido del caso: los documentos archivados, la cronología de todo lo ocurrido, dos áreas de texto que guían todo el trabajo escrito del caso, y la evaluación de la IA.
+El átomo y la serpiente se muestran solo como símbolos; sitúe el puntero sobre ellos para ver sus nombres.</p>
+
+<h4>Qué puede hacer aquí</h4>
+<ul>
+<li><b>Documentación.</b> Todos los documentos del caso con un PDF — entrantes, salientes y de pruebas — con filtros por dirección, un salto a una fecha y el gráfico de cronología.</li>
+<li><b>Cronología.</b> La crónica del caso: cada acontecimiento, documento, foto, llamada y nota por orden de fecha.</li>
+<li><b>Nucleu del caso (átomo).</b> La directriz vinculante para todo el trabajo escrito de este caso — lo que debe seguir cada escrito. Escriba o modifique el texto y haga clic en <i>Guardar</i>; cada guardado crea una nueva versión, y el código copiable con su número de versión muestra cuál es la actual. Un contador muestra la longitud (hasta 20.000 caracteres). Debajo, en solo lectura, se ve el Nucleu de cada hecho al que pertenece este caso.</li>
+<li><b>Snake del caso.</b> Un registro de las afirmaciones de la parte contraria en este caso que el expediente contradice, para poder utilizarlas en los escritos. Se edita y se guarda del mismo modo que el Nucleu, con su propio número de versión.</li>
+<li><b>Evaluación de la IA.</b> Una valoración de la IA sobre las perspectivas del caso: probabilidades de éxito, la base del procedimiento, el expediente judicial y el expediente de IRONSTICK, puntos fuertes, puntos débiles y una nota crítica.</li>
+</ul>
+
+<h3>Cronología</h3>
+<figure><img src="img/screens/5%20case%20chronicle%201.png" alt="Pestaña Cronología con marcadores numerados en los botones de la cabecera, el campo de fecha, Nueva entrada y una fila de entrada"><figcaption>La pestaña Cronología: la crónica del caso, con las entradas más recientes primero.</figcaption></figure>
+<p class="scr-intro">La Cronología enumera cada entrada del caso — acontecimientos, cartas, correos electrónicos, llamadas, fotos, grabaciones — con las más recientes primero. Cada fila muestra su número y fecha, título, descripción y etiquetas, los archivos adjuntos, un marcador de plazo y las acciones.
+La fila ampliada en la parte inferior de la imagen muestra las partes de una sola entrada.</p>
+<ol class="marks">
+<li><b>Notas.</b> Abre el tablón del caso. Sus propias notas son amarillas, las notas de los suscriptores de un caso compartido son tarjetas blancas, y las notas que la IA ha recordado para este caso aparecen sobre papel cuadriculado. Haga clic en <i>Nueva nota</i> para escribir una (hasta 1.000 caracteres, opcionalmente con una fecha), haga clic en una nota amarilla para editarla, en cualquier nota para leerla completa; cada una tiene pequeños botones de copiar y eliminar.</li>
+<li><b>Dossier.</b> Abre el asistente de dossier, que elabora un dossier completo del caso. Aparece solo cuando la Cronología tiene entradas.</li>
+<li><b>Redactar texto.</b> Elija <i>Con ayuda de la IA</i> para abrir el chat de IA con una petición de redactar un documento para este caso, o <i>Documento de texto vacío</i> para empezar a escribir en el procesador de textos. No se muestra en la tableta Android.</li>
+<li><b>Saltar a una fecha.</b> Elija una fecha y haga clic en la lupa para ir a la página que la contiene.</li>
+<li><b>Nueva entrada.</b> Abre el formulario para una nueva entrada de la crónica.</li>
+<li><b>Número y fecha de la entrada.</b> El número morado identifica la entrada; haga clic en él para copiarlo al portapapeles. Debajo están la fecha y, si se ha registrado, la hora de–a.</li>
+<li><b>Clip y carpeta.</b> El <b>clip</b> abre el documento adjunto; para una entrada sin ningún archivo, imagen o transcripción, exporta la propia entrada como PDF. La <b>carpeta</b> muestra en cuántas carpetas de trabajo está archivada la entrada — haga clic en ella para marcar o desmarcar carpetas o para crear una nueva; una carpeta vacía con un signo más significa que la entrada aún no está en ninguna carpeta. Aquí aparecen otros símbolos para imágenes, transcripciones, audio o una ubicación.</li>
+<li><b>Acciones.</b> Cinco símbolos en dos filas:
+<table>
+<tr><th>Símbolo</th><th>Qué hace</th></tr>
+<tr><td>Radar (primera fila)</td><td>Abre el radar de relevancia: las entradas de este caso y de otros casos que más se parecen en contenido. Haga clic en un resultado para saltar a él.</td></tr>
+<tr><td>Etiqueta (primera fila)</td><td>Asigna etiquetas a la entrada — etiquetas globales en rojo, amarillo, verde o azul, o etiquetas de caso. El símbolo adopta el color de la primera etiqueta.</td></tr>
+<tr><td>Lápiz (segunda fila)</td><td>Edita la entrada: una entrada sin documento abre el formulario de entrada de la crónica, una entrada con un PDF abre el formulario del documento.</td></tr>
+<tr><td>Copiar (segunda fila)</td><td>Copia la entrada, con sus documentos, imágenes y transcripciones, a otro caso del mismo cliente.</td></tr>
+<tr><td>× (segunda fila)</td><td>Elimina la entrada tras una confirmación.</td></tr>
+</table>
+En los documentos secretos, la etiqueta, el lápiz y copiar aparecen atenuados; solo queda eliminar.</li>
+</ol>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>La lista</b></p>
+<ul>
+<li><b>Páginas y ordenación.</b> La lista muestra 20 entradas por página; los botones de página aparecen encima y debajo de la lista cuando hay más de una página. Haga clic en el encabezado de la columna <i>Fecha</i> para alternar entre las más recientes y las más antiguas primero.</li>
+<li><b>Qué le dice una fila.</b> Debajo del título se ven la descripción, las etiquetas de color (país, ámbito jurídico, fase, IN en naranja u OUT en verde, tipo de institución, idioma, tipo de documento) y las personas implicadas.</li>
+<li><b>Redactar un texto sobre una entrada.</b> El pequeño símbolo de lápiz con líneas junto al título inicia <i>Redactar texto</i> para esa entrada concreta; un número delante cuenta los textos ya redactados sobre ella. No se muestra en la tableta Android.</li>
+<li><b>Columna de plazo.</b> Una campana naranja significa que el plazo de la entrada vence en 10 días, una campana roja que suena que está vencido. Sitúe el puntero sobre la campana para ver los días restantes o la fecha.</li>
+<li><b>Llegar desde la búsqueda o el radar.</b> Cuando abre el caso desde un resultado de búsqueda o desde el radar de relevancia, la Cronología va a la página correcta y la entrada se ilumina en amarillo durante unos segundos.</li>
+</ul>
+<p class="grp"><b>Acciones sobre una entrada</b></p>
+<ul>
+<li><b>Radar de relevancia.</b> Muestra qué otras entradas — de este caso y de otros casos — se parecen más en contenido. Haga clic en un resultado para saltar a él.</li>
+<li><b>Etiquetas.</b> Asigne etiquetas cortas (hasta 100 caracteres) a la entrada: etiquetas <i>globales</i> en rojo, amarillo, verde o azul, o etiquetas de <i>caso</i> en verde azulado. Haga clic en una etiqueta existente para cambiarla, o en su × para quitarla. El símbolo de etiqueta adopta el color de la primera etiqueta.</li>
+<li><b>Carpetas de trabajo.</b> Enumera las carpetas de cada hecho al que pertenece el caso; marque una carpeta para colocar en ella la entrada, o cree una <i>Nueva carpeta</i>. Si el caso no está en ningún hecho, un aviso lo indica.</li>
+<li><b>Editar.</b> Una entrada sin documento abre el formulario de entrada de la crónica. Una entrada con un PDF abre el formulario del documento: clasificación (país, idioma, ámbito jurídico, tipo de documento, fase, tipo de institución, fecha del documento), el tipo de entrada (prueba, entrante o saliente), una casilla de resolución judicial y los campos de entrada habituales (título, fecha, palabras clave, horas, descripción, personas intervinientes, plazo); allí hay botones para ver el PDF y leer su texto extraído.</li>
+<li><b>Copiar a otro caso.</b> Elija un caso de destino del mismo cliente; la entrada se copia con sus documentos, imágenes y transcripciones. <i>Copiar</i> se activa en cuanto se selecciona un caso.</li>
+<li><b>Eliminar.</b> Elimina la entrada tras una confirmación.</li>
+</ul>
+<p class="grp"><b>Formulario de nueva entrada</b></p>
+<ul>
+<li><b>Datos de la entrada.</b> Título, fecha, palabras clave, hora de inicio y de fin, y una descripción. Se requiere un título o una descripción.</li>
+<li><b>Personas implicadas.</b> Escriba parte de un nombre para buscar entre las personas e instituciones asignadas a este caso; haga clic en un resultado para añadirlo como chip, haga clic en su × para quitarlo.</li>
+<li><b>Plazo.</b> Fije una fecha de plazo y marque si está activo; los plazos activos aparecen en el resumen de plazos y en la campana.</li>
+<li><b>Ubicación.</b> Active las geocoordenadas, introduzca una dirección y haga clic en la lupa para buscarla, o haga clic directamente en el mapa; la latitud y la longitud se rellenan por usted.</li>
+<li><b>Imágenes.</b> Active los medios para añadir hasta cuatro imágenes (JPEG, PNG, WebP): arrástrelas al área de soltado o haga clic en ella para elegir archivos. Arrastre una imagen a otra posición para cambiar el orden; la × la quita.</li>
+<li><b>Guardar o cancelar.</b> Los botones de la parte inferior guardan la entrada o cierran el formulario sin guardar.</li>
+</ul>
+
+<h3>Abrir documentos, imágenes y grabaciones</h3>
+<figure><img src="img/screens/5%20case%20chronicle%202.png" alt="Cronología con un PDF adjunto abierto en una ventana aparte y el visor de imágenes con cuatro fotos"><figcaption>Un PDF adjunto se abre en su propia ventana; las fotos se abren en el visor de imágenes.</figcaption></figure>
+<p class="scr-intro">Todo archivo adjunto a una entrada se abre directamente desde la Cronología. En la imagen, el clip de la primera entrada ha abierto su PDF en una ventana aparte, y el símbolo de imagen de otra entrada ha abierto sus cuatro fotos.
+El campo de fecha de la parte superior ayuda a orientarse en líneas de tiempo largas.</p>
+<ol class="marks">
+<li><b>Saltar a una fecha.</b> Aparece cuando la Cronología tiene más de tres páginas. Haga clic en el campo y elija una fecha — solo se pueden elegir fechas que existen en el caso — y después haga clic en la lupa junto a él para ir a la página que contiene esa fecha.</li>
+</ol>
+
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Archivos de una entrada</b></p>
+<ul>
+<li><b>Documentos.</b> El clip azul abre el documento adjunto en su propia ventana — en el programa que su ordenador usa para PDF y, si no, en su navegador web.</li>
+<li><b>Entrada como PDF.</b> Para una entrada sin documento, imágenes ni grabación, el clip crea un PDF de la propia entrada y se lo guarda.</li>
+<li><b>Imágenes.</b> El símbolo morado de imagen (al señalarlo se muestra cuántas hay) abre el visor de imágenes con todas las fotos de la entrada, numeradas. Haga clic en una foto para verla a pantalla completa con zoom; haga clic de nuevo o en la × para cerrar. <i>Exportar el documento</i> guarda las fotos con la descripción como PDF.</li>
+<li><b>Transcripciones y chats.</b> Un símbolo morado abre la transcripción de una llamada o grabación, o un chat, con fecha, hora de–a, tipo y número de líneas; cada interlocutor tiene un color. <i>Exportar el documento</i> la guarda como PDF.</li>
+<li><b>Audio.</b> La nota azul reproduce la grabación original en el reproductor multimedia de su ordenador.</li>
+<li><b>Ubicación.</b> La chincheta verde abre un pequeño mapa con el lugar de la entrada y un botón para mostrarlo en Google Maps.</li>
+</ul>
+<p class="grp"><b>Vínculos entre documentos</b></p>
+<ul>
+<li><b>Anexos y dónde se presentó un documento.</b> Una carta saliente enumera sus anexos como números azules; un documento entrante o una prueba muestra en qué cartas se presentó, agrupados por caso con el número de caso detrás. Haga clic en un número para abrir esa entrada, o en el número de caso para abrir ese caso.</li>
+<li><b>Números de referencia.</b> Si otros documentos llevan el mismo número de registro o de carta, ese número se muestra subrayado. Haga clic en él para ver todos los documentos con ese número y abrir cualquiera de ellos.</li>
+</ul>
+
+<h3>Pestaña Documentación</h3>
+<figure><img src="img/screens/5%20case%20documentation.png" alt="Pestaña Documentación de un caso con filtro de dirección, salto de fecha y el gráfico de cronología abierto al lado"><figcaption>La pestaña Documentación enumera cada entrada que tiene un documento; el gráfico de cronología muestra la correspondencia como un flujo.</figcaption></figure>
+<p class="scr-intro">La pestaña <b>Documentación</b> es la cara documental del caso: enumera solo las entradas que llevan un documento (cartas, escritos, resoluciones, escaneos), las más recientes primero, 20 por página.
+Cada fila muestra el número de entrada, la fecha, el título, un breve resumen, las etiquetas de clasificación y las herramientas para ese documento.
+El botón azul a la derecha de la tarjeta abre la <b>cronología</b> — los documentos entrantes y salientes dibujados como un diagrama de flujo de arriba abajo, como se ve a la derecha de la imagen.</p>
+<ol class="marks">
+<li><b>Filtro de dirección.</b> <i>Todas</i> muestra cada documento, <i>IN</i> (naranja) solo los documentos entrantes, <i>OUT</i> (verde) solo los documentos que usted ha enviado. El chip activo se muestra en negrita con un marco.</li>
+<li><b>Saltar a una fecha.</b> Elija una fecha en el campo de calendario y haga clic en la lupa para saltar a la página que contiene esa fecha. El campo solo aparece cuando la lista tiene más de tres páginas; el calendario solo ofrece fechas que existen en el caso.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>La lista</b></p>
+<ul>
+<li><b>Ordenar.</b> Haga clic en el encabezado de la columna <i>Fecha</i> para alternar entre las más recientes y las más antiguas primero. Haga clic en <i>Plazo</i> para ordenar por plazos abiertos, el más próximo primero (haga clic de nuevo para invertir).</li>
+<li><b>Número de entrada.</b> El número morado sobre la fecha es el número <span class="irs">IRONSTICK</span> de la entrada. Haga clic en él para copiarlo al portapapeles.</li>
+<li><b>Etiquetas bajo el resumen.</b> Los pequeños chips muestran el país, el ámbito jurídico, la fase del procedimiento, la dirección (IN naranja, OUT verde), el tipo de institución, el idioma del documento y otras clasificaciones. Sitúe el puntero sobre el ámbito jurídico o la fase para ver el nombre completo.</li>
+<li><b>Anexos y «presentado en».</b> Para un documento que usted ha enviado, <i>Anexos</i> enumera las entradas adjuntas a él. Para un documento entrante o una prueba, <i>Presentado en</i> enumera dónde se presentó, agrupado por caso con el número de caso tras cada grupo. Haga clic en un número para abrir esa entrada en la cronología, o en el número de caso para abrir ese caso — incluso si pertenece a otro caso.</li>
+<li><b>Números de referencia.</b> Los números azules subrayados son números de carta o de registro que también aparecen en otros documentos. Haga clic en uno para ver todos los documentos con el mismo número y abrir cualquiera de ellos.</li>
+<li><b>Plazo.</b> Aparece una campana cuando la entrada lleva un plazo abierto: naranja cuando vence en 10 días, roja cuando está vencido. Sitúe el puntero sobre ella para ver los días restantes o la fecha de vencimiento.</li>
+</ul>
+<p class="grp"><b>Herramientas de cada fila</b></p>
+<ul>
+<li><b>Redactar texto.</b> El icono de nota junto al título abre una elección: redactar una carta con la ayuda de la IA (el chat se abre con este caso y este documento ya referenciados) o abrir un documento de texto vacío en el procesador de textos. Un número delante del icono muestra cuántos textos existen ya para esta entrada. No disponible en la tableta Android.</li>
+<li><b>Abrir el documento.</b> El clip abre el documento en la ventana del navegador de <span class="irs">IRONSTICK</span>; sitúe el puntero sobre él para ver el nombre del archivo. Aparece una chincheta verde cuando la entrada tiene una ubicación — haga clic en ella para ver el lugar en un mapa.</li>
+<li><b>Carpetas de trabajo.</b> El icono de carpeta archiva el documento en las carpetas de trabajo de los hechos a los que pertenece este caso: marque o desmarque una carpeta, o cree una nueva carpeta. Cuando la entrada ya está archivada, el icono muestra una carpeta rellena y su información sobre herramientas el número de carpetas.</li>
+<li><b>Radar de relevancia.</b> El icono de radar encuentra las entradas que más se parecen en contenido, en este caso y en otros casos. Haga clic en un resultado para saltar a él en la cronología.</li>
+<li><b>Etiquetas.</b> El icono de etiqueta asigna sus propias etiquetas al documento — etiquetas generales de color o etiquetas que solo se aplican a este caso. Una vez etiquetado, el icono adopta el color de la primera etiqueta.</li>
+<li><b>Editar.</b> El lápiz abre la entrada del documento para editarla (título, fecha, clasificación, plazo, etc.).</li>
+<li><b>Copiar a otro caso.</b> El icono de copiar copia la entrada junto con su documento a otro caso del mismo cliente. Elija el caso de destino y después haga clic en <i>Copiar</i>.</li>
+<li><b>Eliminar.</b> La cruz elimina la entrada una vez que usted la confirma.</li>
+</ul>
+<p class="grp"><b>Gráfico de cronología</b></p>
+<ul>
+<li><b>Leer el curso del caso.</b> El gráfico muestra todos los documentos PDF entrantes y salientes por orden de fecha, unidos por flechas. Los documentos que usted ha enviado tienen un encabezado negro, los documentos con un plazo abierto un marco grueso. Los anexos de una carta saliente aparecen como cuadros separados a su lado.</li>
+<li><b>Abrir una entrada.</b> Haga clic en el número de entrada subrayado de un cuadro para ir directamente a esa entrada.</li>
+<li><b>Zoom y desplazamiento.</b> Use los dos botones de lupa para ampliar y reducir; las cronologías largas ocupan varias páginas por las que se desplaza.</li>
+<li><b>Registrar como documento.</b> <i>Registrar</i> convierte el gráfico en un PDF y abre el registro de documentos, donde usted lo asigna al caso y lo guarda como cualquier otro documento. No disponible en la tableta Android, donde el gráfico solo puede verse. Cierre el gráfico con la X.</li>
+</ul>
+
+<h3>Dossier: elegir entradas y páginas</h3>
+<figure><img src="img/screens/5%20case%20dossier%201.png" alt="Pantalla Preparar dossier con entradas excluidas, la selección de páginas y una vista previa de imagen"><figcaption>Primer paso del dossier: decidir qué entradas y qué páginas se incluyen.</figcaption></figure>
+<p class="scr-intro">El botón <b>Dossier</b> de la parte superior del caso (se muestra solo cuando el caso tiene entradas en la cronología) abre un asistente que elabora un único expediente completo y paginado del caso — como PDF o como paquete de producción EDRM.
+En el primer paso, <b>Preparar dossier</b>, usted revisa todas las entradas de la cronología y decide qué se incluye. La imagen muestra una entrada excluida (signo rojo), un documento parcialmente excluido (círculo amarillo), la selección de páginas de un documento y la vista previa de imagen de una entrada de fotos.</p>
+<h4>Qué puede hacer aquí</h4>
+<ul>
+<li><b>Excluir una entrada.</b> Haga clic en cualquier parte de una fila para excluir la entrada: se vuelve pálida y aparece un signo rojo en el centro. Haga clic de nuevo para volver a incluirla.</li>
+<li><b>Excluir páginas sueltas.</b> El botón azul redondo de un documento abre <i>Seleccionar las páginas</i> con una vista previa de cada página. Haga clic en una página para excluirla (signo rojo) o incluirla de nuevo. Cuando se excluyen algunas páginas, el botón se vuelve amarillo y la fila se atenúa con un círculo amarillo en el centro; haga clic en el círculo para cambiar la selección de páginas.</li>
+<li><b>Mirar antes de decidir.</b> El clip abre el documento en la ventana del navegador de <span class="irs">IRONSTICK</span>. El icono de imagen muestra las fotos de la entrada (hasta cuatro), el icono de micrófono o de chat la transcripción o el chat. Estas vistas previas no cambian nada.</li>
+<li><b>Encontrar una entrada.</b> Escriba al menos dos caracteres en el campo de búsqueda; las entradas coincidentes aparecen en una lista. Haga clic en una para saltar a ella — se abre la página correcta y la entrada se ilumina. También puede introducir un sello de documento de <span class="irs">IRONSTICK</span>; si ese documento pertenece a otro caso, se abre la preparación del dossier de ese caso en el documento.</li>
+<li><b>Ordenar.</b> Haga clic en el encabezado <i>Fecha</i> para alternar entre las más recientes y las más antiguas primero. La cabecera muestra el título del caso, el número de caso y el número de entradas.</li>
+<li><b>Continuar o cancelar.</b> <i>Continuar a los datos del dossier</i> le lleva al siguiente paso; <i>Cancelar</i> vuelve al caso. Sus elecciones para este caso se conservan mientras el programa permanezca abierto, de modo que puede ir y volver entre los pasos.</li>
+</ul>
+
+<h3>Dossier: datos, vista previa de impresión y exportación</h3>
+<figure><img src="img/screens/5%20case%20dossier%202.png" alt="Pantalla de datos del dossier, vista previa de impresión con miniaturas de páginas y el diálogo de exportación"><figcaption>Defina la portada y la estructura, compruebe cada página y después exporte el dossier como PDF o ZIP EDRM.</figcaption></figure>
+<p class="scr-intro">En el segundo paso, <b>Datos del dossier</b> (izquierda), usted rellena la portada, comprueba la jurisdicción y decide qué bloques temáticos contiene el dossier y en qué orden.
+<i>Continuar a la preparación de impresión</i> abre la <b>Vista previa de impresión</b> (centro), que muestra cada página del dossier terminado. Desde allí lo exporta como dossier en PDF o como ZIP EDRM; el diálogo de exportación (arriba a la derecha) guarda el archivo.</p>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Datos del dossier</b></p>
+<ul>
+<li><b>Dirección de la portada.</b> Elija una de las instituciones del caso en la lista para rellenar automáticamente el destinatario, o escriba usted mismo nombre, dirección, código postal, ciudad y país.</li>
+<li><b>Jurisdicción.</b> El país y el ámbito jurídico se toman del caso. Si el país tiene más de un idioma jurídico, elija el idioma en que se redactan las páginas propias del dossier.</li>
+<li><b>Opciones de exportación EDRM.</b> Solo necesarias para el ZIP EDRM, no para el dossier en PDF. Introduzca un prefijo Bates — la línea de debajo muestra la numeración resultante — y, si lo desea, la finalidad de la producción (por ejemplo, una solicitud de exhibición de documentos o una presentación de pruebas).</li>
+<li><b>Bloques temáticos.</b> El dossier se compone de bloques: portada, índice temático, cronología, documentos, medios, transcripciones, chats, índice de personas e índice de instituciones. Arrastre un bloque por su asa para cambiar el orden; haga clic en un bloque para incluirlo (marca verde) o excluirlo (signo rojo). Los bloques para los que el caso no tiene contenido se excluyen automáticamente.</li>
+<li><b>Atrás o continuar.</b> <i>Atrás</i> vuelve a la selección de entradas; <i>Continuar a la preparación de impresión</i> genera la vista previa.</li>
+</ul>
+<p class="grp"><b>Vista previa de impresión</b></p>
+<ul>
+<li><b>Verlo construirse.</b> Una barra de progreso muestra hasta dónde llega la vista previa. La generación continúa en segundo plano aunque abandone la pantalla.</li>
+<li><b>Comprobar cada página.</b> Todas las páginas aparecen como miniaturas numeradas, agrupadas por bloque. Cada documento comienza con una línea discontinua que muestra su nombre de archivo. La cabecera cuenta las páginas y los bloques del dossier.</li>
+<li><b>Quitar páginas.</b> Haga clic en una página de un documento para quitarla del dossier (signo rojo, sin número de página) y haga clic de nuevo para restaurarla. Las páginas vacías de los documentos se detectan y se quitan automáticamente. Las páginas que genera el propio <span class="irs">IRONSTICK</span>, como la portada o los índices, no pueden quitarse aquí. El índice temático se actualiza con los números de página reales.</li>
+<li><b>Dossier en PDF.</b> Crea el dossier terminado y paginado. Cuando está listo, el diálogo de exportación se abre por sí solo; <i>Volver a la vista previa</i> regresa a las páginas.</li>
+<li><b>ZIP EDRM.</b> Crea un paquete electrónico de producción con números Bates, los documentos nativos, su texto y los habituales archivos de carga. Después se ven el número de documentos, el total de páginas y el rango Bates, y <i>Descargar ZIP EDRM</i> guarda el paquete.</li>
+</ul>
+<p class="grp"><b>Diálogo de exportación</b></p>
+<ul>
+<li><b>Guardar el archivo.</b> El diálogo muestra el nombre del archivo, el tamaño y el caso. <i>Descargar</i> guarda el archivo en su carpeta Documentos y lo muestra. <i>Google Drive</i> aparece solo cuando hay una carpeta de Google Drive sincronizada en este ordenador y permite guardar el archivo en una de sus carpetas. <i>Cancelar</i> o la X cierra el diálogo.</li>
+</ul>
+
+<h3>Pestaña Evaluación de la IA</h3>
+<figure><img src="img/screens/5%20case%20assesment.png" alt="Pestaña Evaluación de la IA con las secciones de la evaluación y el indicador de probabilidades de éxito"><figcaption>La evaluación del caso por la IA con el indicador de probabilidades de éxito.</figcaption></figure>
+<p class="scr-intro">La pestaña <b>Evaluación de la IA</b> ofrece una valoración escrita del caso por parte de la IA. Las secciones descriptivas se basan en todo su expediente del caso; las probabilidades de éxito se juzgan únicamente según lo que obra en poder del tribunal. Muestra la base del procedimiento, el estado del expediente judicial (el expediente que obra en poder del tribunal o la autoridad) con una estimación de las probabilidades de éxito, el estado del expediente completo de <span class="irs">IRONSTICK</span>, notas críticas, puntos fuertes y riesgos, y enlaces a casos relacionados.
+Cada número de entrada, referencia de caso y número de caso del texto es un enlace. La fecha bajo el título indica cuándo se realizó la evaluación.</p>
+<ol class="marks">
+<li><b>Reevaluar.</b> Inicia una nueva evaluación. Sin una evaluación, el botón dice <i>Solicitar evaluación</i>. Aparece atenuado, como en la imagen, cuando no han llegado documentos nuevos desde la última evaluación (salvo que escriba un comentario abajo) o cuando el caso no está activo.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Iniciar una evaluación</b></p>
+<ul>
+<li><b>Solicitar o renovar.</b> Haga clic en <i>Solicitar evaluación</i> o en <i>Reevaluar</i>. Antes de enviar nada, <span class="irs">IRONSTICK</span> pregunta si puede utilizarse la IA externa; nada sale de su ordenador hasta que usted lo confirma.</li>
+<li><b>Actualizar en lugar de empezar de nuevo.</b> Poco después de una evaluación completa (en el plazo de un día y como máximo tres veces seguidas), el botón se convierte en un menú con <i>Actualizar</i> y <i>Reevaluar</i>. <i>Actualizar</i> solo añade los documentos llegados desde entonces y reescribe las secciones que cambian, lo que es mucho más rápido.</li>
+<li><b>Solo casos activos.</b> Los casos inactivos o en pausa no se evalúan. Los botones están bloqueados y un aviso le pide que primero ponga el caso como activo.</li>
+<li><b>Seguir el progreso.</b> Mientras se ejecuta, la tarjeta muestra la fase actual — preparación, lectura de texto de documentos que aún no lo tienen (se hace localmente), búsqueda en los archivos, redacción de la evaluación, estimación de las probabilidades — y un registro en vivo de cada paso.</li>
+<li><b>Seguir trabajando.</b> La evaluación se ejecuta en segundo plano. Puede cambiar de pestaña, abrir otros casos o iniciar evaluaciones de varios casos a la vez; un aviso le indica cuándo ha terminado una.</li>
+</ul>
+<p class="grp"><b>Leer la evaluación</b></p>
+<ul>
+<li><b>Base del procedimiento.</b> Quién reclama qué contra quién, ante qué tribunal o autoridad.</li>
+<li><b>Estado del expediente judicial y probabilidades de éxito.</b> Describe únicamente lo que obra en el expediente del tribunal o de la autoridad — todo lo que ambas partes le han enviado o recibido de ella. El indicador a su lado muestra la estimación de la IA en porcentaje, el veredicto (de claramente perdido a claramente ganado) y, cuando están disponibles, las cifras separadas del estado de las pruebas, de la pretensión principal y de las demás pretensiones. Si no se puede identificar ningún expediente judicial, esta sección falta y el indicador queda vacío («no estimable»).</li>
+<li><b>Estado del expediente de IRONSTICK.</b> La imagen que resulta de su expediente completo, incluidos los documentos que el tribunal no ha visto.</li>
+<li><b>Nota crítica, puntos fuertes y riesgos.</b> Un cuadro naranja señala el peligro más importante. El cuadro verde enumera los puntos fuertes de su posición, el rojo los riesgos y los puntos abiertos.</li>
+<li><b>Casos relacionados.</b> Los <i>Enlaces entre casos</i> muestran cómo otros casos del mismo cliente afectan a este (de, a, efecto — marcado como perjudicial, prueba o estratégico). Un cuadro amarillo enumera casos de otros clientes con la misma contraparte o los mismos participantes, y explica cómo incorporar uno de ellos a la evaluación mediante el campo de comentario.</li>
+<li><b>Copiar una sección.</b> El pequeño icono de copiar delante de un encabezado copia el encabezado y su texto al portapapeles.</li>
+<li><b>Seguir los enlaces.</b> Un número de entrada morado abre esa entrada en la cronología. Una referencia de caso o un número de caso azul abre ese caso, si existe en <span class="irs">IRONSTICK</span>.</li>
+<li><b>Advertencias y lectura adicional.</b> Un aviso amarillo en la parte superior advierte cuando la evaluación puede estar incompleta (se alcanzó el límite de investigación o hubo un error técnico durante la investigación). <i>Textos completos recargados</i> enumera los documentos que la IA leyó íntegros; haga clic en uno para abrirlo.</li>
+</ul>
+<p class="grp"><b>Objeciones y complementos</b></p>
+<ul>
+<li><b>Corregir o complementar la evaluación.</b> Escriba sus objeciones, hechos que faltan o instrucciones en el campo de la parte inferior. En cuanto haya escrito al menos tres palabras, <i>Reevaluar</i> queda disponible y la IA vuelve a evaluar el caso teniendo en cuenta su comentario.</li>
+</ul>
+
+<h3>Cómo se elabora la evaluación de la IA</h3>
+<figure><img src="img/screens/5%20case%20assesment%20detail.png" alt="Evaluación de la IA con las secciones alimentadas por todo el expediente del caso marcadas en verde y la sección del expediente judicial con el indicador de probabilidades marcada en rojo"><figcaption>Verde: extraído de todo el expediente del caso. Rojo: solo la parte del expediente que obra en poder del tribunal.</figcaption></figure>
+<p class="scr-intro">La evaluación trabaja con dos fuentes distintas, marcadas en la imagen.
+Las secciones <b>verdes</b> se redactan a partir de todo el expediente de <span class="irs">IRONSTICK</span> — cada documento, entrada, correo electrónico y transcripción del caso — y de los casos vecinos del mismo cliente.
+La sección <b>roja</b> con el indicador juzga únicamente la parte del expediente que obra ante el tribunal: lo que usted le presentó y lo que él o la otra parte le enviaron a usted. Los documentos que el tribunal nunca ha visto no cuentan para las probabilidades de éxito.</p>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Las secciones verdes — todo su expediente</b></p>
+<ul>
+<li><b>Base del procedimiento.</b> Quién reclama qué contra quién, ante qué tribunal o autoridad, tal como se desprende de todo el expediente.</li>
+<li><b>Estado del expediente de IRONSTICK.</b> La imagen completa del caso tal como está en <span class="irs">IRONSTICK</span>, incluidas sus propias notas, pruebas y correspondencia que el tribunal desconoce, y los efectos de los demás casos del cliente.</li>
+<li><b>Nota crítica, puntos fuertes y riesgos.</b> También redactados a partir de todo el expediente y de los casos vecinos.</li>
+</ul>
+<p class="grp"><b>La sección roja — solo el expediente judicial</b></p>
+<ul>
+<li><b>Estado del expediente judicial.</b> Describe únicamente lo que obra en el expediente del tribunal — cada escrito presentado y cada documento recibido del tribunal o de la otra parte en este procedimiento.</li>
+<li><b>Probabilidades de éxito.</b> El indicador va del rojo (perdido) abajo al verde (ganado) arriba; la flecha y el porcentaje muestran la estimación de la IA, y el veredicto debajo (por ejemplo <i>más bien ganado</i>) la expresa con palabras. Cuando están disponibles, siguen cifras separadas del estado de las pruebas, de la pretensión principal y de las demás pretensiones.</li>
+<li><b>Por qué solo el expediente judicial.</b> El tribunal decide sobre lo que tiene ante sí. Un documento sólido de su expediente que nunca se presentó no mejora la estimación hasta que llegue al tribunal — las secciones verdes le muestran esas lagunas.</li>
+<li><b>Sin expediente judicial, sin estimación.</b> Si <span class="irs">IRONSTICK</span> no puede identificar el tribunal ni los documentos que obran ante él, la sección roja falta y el indicador queda vacío.</li>
+</ul>
+
+<h2 id="s6">6. Personas / Entidades</h2>
+
+<h3>Lista de personas, detalles y red de relaciones</h3>
+<figure><img src="img/screens/6%20entities%201.png" alt="Lista de Personas / Entidades con la ventana de detalle, el código QR del teléfono y la red de relaciones de una empresa"><figcaption>La lista de personas con la ventana de detalle, un código QR de teléfono y la red de relaciones de una empresa.</figcaption></figure>
+<p class="scr-intro">Esta pantalla reúne a toda persona física y a toda persona jurídica (empresa, asociación, autoridad como parte) que aparece en sus casos.
+La imagen muestra la lista con sus botones de filtro y su campo de búsqueda, la ventana de detalle de una empresa, el código QR que se abre al hacer clic en un icono de teléfono,
+y la red de relaciones que se abre desde el icono de red de una fila.</p>
+<ol class="marks">
+<li><b>Número de referencia.</b> Cada persona o empresa tiene su propia referencia con la forma <i>@E0000279</i>. Haga clic en ella para copiarla al portapapeles, por ejemplo para citar a la persona en una entrada de la crónica, en una nota o en un chat con la IA.</li>
+<li><b>Campo de búsqueda.</b> Acota la lista a medida que escribe: por nombre, número de teléfono, dirección de correo electrónico o ciudad. Todas las palabras deben coincidir; <i>*</i> funciona como comodín, y también se encuentran nombres que solo suenan parecido.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Cabecera de la página</b></p>
+<ul>
+<li><b>Número de entradas.</b> Bajo el título se ve cuántas entradas se muestran; cuando hay un filtro activo, se indica junto al número.</li>
+<li><b>Importar.</b> Abre una ventana en la que se arrastra un archivo de paquete de datos recibido de otro usuario de <span class="irs">IRONSTICK</span> (personas, empresas, instituciones, sus relaciones y análisis de personas). Durante la importación corre una barra de progreso; después se ve cuántas entradas eran nuevas, cuántas ya se conocían y cuántas relaciones se añadieron. Si el paquete aporta detalles adicionales de personas que usted ya tiene, estos aparecen como sugerencias en el Monitor de coherencia de datos en lugar de sobrescribir sus datos. Un archivo dañado o erróneo se rechaza con un mensaje.</li>
+<li><b>Universo.</b> El botón negro abre los tres mapas visuales de todas sus partes: mapa 3D, mapa 2D y mapa geográfico.</li>
+<li><b>Nueva persona / entidad.</b> Abre el formulario de entrada para una nueva persona o empresa.</li>
+</ul>
+<p class="grp"><b>Filtro y lista</b></p>
+<ul>
+<li><b>Todas / Personas físicas / Personas jurídicas.</b> Los tres botones sobre la lista muestran el número de cada grupo. Haga clic en uno para ver solo personas físicas o solo personas jurídicas; la lista vuelve a la página 1.</li>
+<li><b>Páginas.</b> La lista muestra 20 entradas por página. Cuando hay más de una página, la navegación de páginas aparece encima y debajo de la lista.</li>
+<li><b>Columnas.</b> Cada fila muestra el número de referencia, un icono azul de persona o un icono morado de empresa, el nombre (en las personas también la profesión), la ciudad, los iconos de contacto, el número de casos en los que interviene la entrada (verde) o <i>Ninguna</i> (gris), el icono de red, el icono de análisis y las acciones.</li>
+<li><b>Iconos de contacto.</b> El icono de teléfono y el de correo electrónico abren cada uno un código QR: escanéelo con su teléfono para llamar o para escribir un correo electrónico al instante. Un clic en el propio código QR abre el programa correspondiente de este ordenador; si no hay ninguno, el número o la dirección se copia al portapapeles. Un icono de libro indica que hay perfiles de redes sociales o un sitio web almacenados.</li>
+<li><b>Icono de red.</b> Abre la red de relaciones de esta persona o empresa.</li>
+<li><b>Icono de análisis.</b> El icono morado aparece solo para personas físicas que ya tienen un análisis de persona. Haga clic en él para abrir el análisis.</li>
+<li><b>Editar y eliminar.</b> El lápiz abre el formulario de entrada. La cruz elimina la entrada tras una confirmación; si la entrada sigue vinculada a casos, relaciones o un análisis de persona, la confirmación enumera esos vínculos en una advertencia amarilla. Eliminar a una persona elimina también todas sus relaciones.</li>
+<li><b>Volver desde otras pantallas.</b> Cuando llega aquí desde la búsqueda, un caso o uno de los mapas, la entrada se encuentra en la página correcta y se ilumina en amarillo durante unos segundos.</li>
+</ul>
+<p class="grp"><b>Ventana de detalle</b></p>
+<ul>
+<li><b>Abrir los detalles.</b> Haga clic en cualquier parte de una fila. La ventana muestra una etiqueta <i>Persona física</i> o <i>Pers. jurídica</i> y todos los campos rellenados, agrupados en datos maestros, dirección, contacto, en línea / social, profesión (solo personas), vehículo y datos del sistema (número de entrada y fecha de creación). Los campos vacíos se omiten.</li>
+<li><b>Tarjeta de contacto como código QR.</b> Haga clic en el nombre del título, en la calle o en la ciudad: aparece un código QR con la tarjeta de contacto completa, que puede escanear directamente en la agenda de su teléfono.</li>
+<li><b>Enlaces de teléfono, correo electrónico y web.</b> El número de teléfono azul y la dirección de correo electrónico abren sus códigos QR. Los enlaces de Facebook, LinkedIn, Instagram y del sitio web se abren en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+<li><b>Exportación a PDF.</b> Crea una ficha de persona en PDF: datos maestros, intervenciones en casos, análisis de persona y relaciones, solo con los campos rellenados. Después puede guardarla en su carpeta Documentos o en su carpeta de Google Drive.</li>
+</ul>
+<p class="grp"><b>Red de relaciones</b></p>
+<ul>
+<li><b>Quién está conectado con quién.</b> La red muestra a la persona o empresa en el centro con sus relaciones directas y las relaciones de esos contactos (dos niveles), como un gráfico en una o varias páginas.</li>
+<li><b>Moverse por la red.</b> Haga clic en otra persona, empresa o institución del gráfico: la ventana se reconstruye en torno a esa parte. Las referencias de página del gráfico saltan a la página correspondiente; los botones de lupa amplían y reducen.</li>
+<li><b>Registrar.</b> Convierte el gráfico en un PDF y lo abre directamente en <i>Registrar el documento</i>, para que pueda archivarlo en un caso con el sello habitual. Este botón no está disponible en la tableta Android.</li>
+</ul>
+<p class="grp"><b>Introducir o editar una persona</b></p>
+<ul>
+<li><b>Tipo de entrada.</b> Elija primero <i>Persona física</i> o <i>Pers. jurídica</i>; el formulario se adapta. Solo el nombre es obligatorio. Para las personas dispone además de número de identificación personal, fecha de nacimiento (selector de fecha), nacionalidad y religión; para las empresas, en su lugar, el número de registro mercantil.</li>
+<li><b>Dirección y posición en el mapa.</b> Introduzca calle, código postal, ciudad, distrito y país (en una entrada nueva el país viene preestablecido según su configuración). Active las geocoordenadas para buscar la dirección en el mapa, escriba latitud y longitud, o simplemente haga clic en el lugar correcto del mapa.</li>
+<li><b>Contacto, en línea, profesión, vehículo.</b> Teléfono, fax, correo electrónico (se comprueba que tenga un formato válido), datos de contacto, descripción, enlaces de redes sociales y sitio web, profesión y empleador (solo personas), coche y matrícula.</li>
+<li><b>Autocompletado por IA y búsqueda en Google.</b> Para una persona jurídica con nombre y país, aparece un botón en la cabecera. Si hay una clave de IA configurada, <i>Autocompletar con IA</i> pide su consentimiento y después deja que la IA externa busque la empresa en internet; solo rellena campos vacíos y los marca con un marco morado. Después, o sin clave de IA, el botón se convierte en <i>Búsqueda en Google</i>, que abre la búsqueda en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+<li><b>Guardar o cancelar.</b> El botón de guardar almacena la entrada y vuelve a la lista. Cuando edita una persona física existente, abajo a la izquierda aparece además un botón <i>Análisis de persona</i>.</li>
+<li><b>Entradas de otros usuarios en IRONSTICK SERVER.</b> Si una entrada pertenece a otro usuario del servidor, un banner lo indica. Al guardar se envían entonces sus cambios como propuesta de cambio al propietario, y al eliminar se envía una propuesta de eliminación en lugar de eliminar.</li>
+</ul>
+<p class="grp"><b>Análisis de persona e investigación web (solo personas físicas)</b></p>
+<ul>
+<li><b>Análisis de persona.</b> Un perfil estructurado de una persona: papel en el caso (por ejemplo contraparte, testigo, tercero), fiabilidad (sin confirmar, parcialmente confirmada, confirmada — mostrada como una etiqueta de color) y fecha del análisis; identidad y ubicación con hasta tres domicilios, cada uno con su propia posición en el mapa; antecedentes (familia, impuestos, deudas, negocios, presencia en línea, entorno social); y una valoración (papel en la red, vulnerabilidades, valoración estratégica global, fuentes). El pie muestra cuándo se guardó por última vez. Las empresas no tienen análisis de persona.</li>
+<li><b>Relaciones.</b> Al final del análisis se añaden relaciones: busque una persona o institución, elija una categoría (familia, trabajo, religión, ubicación, delito, finanzas, social, política, formación, militar/policía, digital/en línea) y añada una breve descripción como «es la esposa de». Las relaciones existentes pueden editarse o eliminarse; alimentan la red y los mapas.</li>
+<li><b>Investigación web.</b> El botón <i>Investigación web</i> del análisis busca en internet a la persona y enumera los resultados. Elimine los resultados no deseados, deje después que se carguen y resuman las páginas restantes, marque las fuentes en las que confía y haga clic en <i>Analizar selección</i>. El resultado aparece como una vista previa editable de los campos del análisis, que usted guarda en el análisis de persona. La IA externa solo se utiliza después de que usted lo acepte; cada enlace puede abrirse en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+</ul>
+
+<h3>Universo: mapa 3D, mapa 2D y mapa geográfico</h3>
+<figure><img src="img/screens/6%20entities%20universe.png" alt="El botón Universo con su menú y los tres mapas: mapa 3D, mapa 2D y mapa geográfico"><figcaption>El botón Universo abre tres vistas de todas sus partes.</figcaption></figure>
+<p class="scr-intro">El botón <b>Universo</b> de la cabecera de la lista de personas abre tres imágenes distintas de todas las personas de sus expedientes y de cómo están conectadas.
+El <b>mapa 3D</b> es un espacio por el que se puede volar, el <b>mapa 2D</b> dispone la misma red como un dibujo técnico sobre papel cuadriculado,
+y el <b>mapa geográfico</b> sitúa todas las personas y empresas de ubicación conocida en un mapa de satélite. Cada vista se abre a pantalla completa y se cierra con la X o Escape.</p>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Mapa 3D</b></p>
+<ul>
+<li><b>El universo se construye solo.</b> Una barra de progreso muestra hasta dónde llega la imagen; los grupos de partes estrechamente conectadas (camarillas) aparecen uno tras otro, cada uno en su propio color. Los grupos con patrones de conexión llamativos se resaltan con un parpadeo rojo. La línea de arriba a la izquierda cuenta partes, vínculos y camarillas.</li>
+<li><b>Volar.</b> W/A/S/D vuelan hacia delante, a la izquierda, hacia atrás y a la derecha; R y F ascienden y descienden; arrastre el ratón o use las teclas de flecha para girar; la rueda del ratón avanza o retrocede; Mayús aumenta la velocidad, Espacio la reduce. El panel de abajo a la izquierda enumera estas teclas, y una pequeña barra de abajo a la derecha muestra su velocidad.</li>
+<li><b>Encontrar y acercarse a una parte.</b> Haga clic en un punto para marcarlo y volar hacia él automáticamente; haga clic de nuevo para quitar la marca. El campo de búsqueda de abajo a la derecha encuentra el nombre que mejor coincide y también vuela hacia allí.</li>
+<li><b>Volver a la lista.</b> Haga doble clic en un punto: el mapa se cierra y la persona se ilumina en amarillo en la lista de personas. Una institución abre en su lugar la lista de instituciones, resaltada del mismo modo.</li>
+<li><b>Enlaces de caso y niveles separados.</b> <i>Enlaces de caso</i> conecta además las partes que aparecen en el mismo caso. <i>Separar niveles</i> coloca las instituciones arriba, las personas en el medio y las empresas abajo. Ambos interruptores reconstruyen la imagen y se recuerdan.</li>
+</ul>
+<figure class="vid"><video src="img/universe-entities.mp4" controls preload="metadata" playsinline></video><figcaption>Vuelo por el mapa 3D de todas las partes.</figcaption></figure>
+<p>Las camarillas — grupos de partes estrechamente conectadas — se calculan automáticamente mediante detección determinista de comunidades (sin IA). El cálculo abarca siempre todas las personas, empresas e instituciones de <span class="irs">IRONSTICK</span>, sin que usted tenga que hacer nada. Cuantas más conexiones cualificadas tiene una parte, mayor se dibuja su esfera.</p>
+<p class="grp"><b>Mapa 2D</b></p>
+<ul>
+<li><b>Moverse como sobre una hoja de papel.</b> Arrastre con el ratón o use W/A/S/D para mover la hoja; la rueda del ratón hace zoom hacia el puntero.</li>
+<li><b>Mirar una parte.</b> Sitúe el puntero sobre un nodo para ver sus vínculos y etiquetas de nombre. Un clic lo marca (pulsa), un clic en la hoja vacía quita la marca, y un doble clic vuelve a la lista con la entrada resaltada.</li>
+<li><b>Búsqueda e interruptores.</b> El campo de búsqueda de abajo a la derecha encuentra una parte por nombre; <i>Enlaces de caso</i> conecta las partes de un mismo caso; <i>Separar niveles</i> apila instituciones, personas y empresas.</li>
+</ul>
+<p class="grp"><b>Mapa geográfico</b></p>
+<ul>
+<li><b>Todos los que tienen dirección, en el mapa.</b> Las personas aparecen en azul, las empresas en morado. Solo se muestran las entradas con coordenadas conocidas; <span class="irs">IRONSTICK</span> las completa en segundo plano a partir de las direcciones. La etiqueta de abajo a la izquierda muestra cuántos marcadores hay.</li>
+<li><b>Marcadores agrupados.</b> Las partes que están muy juntas se combinan en un marcador numerado. Haga clic en él para acercar o, si están en el mismo lugar, para enumerarlas.</li>
+<li><b>Detalles.</b> Haga clic en un marcador para ver nombre, tipo y dirección; <i>Detalles</i> cierra el mapa y resalta la entrada en la lista de personas.</li>
+</ul>
+
+<h2 id="s7">7. Instituciones</h2>
+<figure><img src="img/screens/7%20institutions.png" alt="Lista de instituciones con la ventana de detalle y un código QR de teléfono"><figcaption>La lista de instituciones con la ventana de detalle de una autoridad y su código QR de teléfono.</figcaption></figure>
+<p class="scr-intro">Las instituciones son tribunales, autoridades, organismos públicos y entidades similares con los que usted trata en sus casos.
+La lista muestra cada institución con sus etiquetas de clasificación, la ciudad, los iconos de contacto y el número de casos en los que participa.
+La imagen muestra además la ventana de detalle de una autoridad y el código QR que se abre al hacer clic en su icono de teléfono.</p>
+<ol class="marks">
+<li><b>Número de referencia.</b> Cada institución tiene su propia referencia con el formato <i>@I0000030</i>. Haga clic en ella para copiarla al portapapeles, por ejemplo para citar la institución en una entrada o en un chat con la IA.</li>
+<li><b>Campo de búsqueda.</b> Reduce la lista mientras escribe: por nombre, número de teléfono, dirección de correo electrónico o ciudad. Todas las palabras deben coincidir, <i>*</i> funciona como comodín y también se encuentran nombres que solo suenan parecido.</li>
+</ol>
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Lista</h4>
+<ul>
+<li><b>Resumen.</b> El título muestra el número total de instituciones y el encabezado de la tarjeta, el número de las que figuran actualmente en la lista. La lista muestra 20 entradas por página; si hay más de una página, la navegación de páginas aparece encima y debajo de la lista.</li>
+<li><b>Clasificación de un vistazo.</b> Debajo de cada nombre, pequeñas etiquetas grises muestran el código de país, el código de tipo y la región, seguidos del nombre del tipo.</li>
+<li><b>Iconos de contacto.</b> Los iconos de teléfono y de correo electrónico abren un código QR para llamar o escribir con su móvil; un clic en el código QR abre el programa correspondiente en este ordenador (o copia el valor si no hay ninguno). El icono del globo abre el sitio web en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+<li><b>Casos.</b> Una etiqueta verde indica en cuántos casos participa la institución; <i>Ninguna</i> significa que todavía no está vinculada a ningún caso.</li>
+<li><b>Editar y eliminar.</b> El lápiz abre el formulario de entrada. La cruz elimina la institución tras una confirmación; si todavía está vinculada a casos o relaciones, una advertencia amarilla los enumera. Al eliminarla también se eliminan las relaciones de la institución.</li>
+<li><b>Llegada desde otras pantallas.</b> Cuando llega desde los mapas del universo u otra pantalla, la institución se encuentra en la página correcta y se ilumina en amarillo durante unos segundos.</li>
+</ul>
+
+<h4>Ventana de detalle</h4>
+<ul>
+<li><b>Abrir los detalles.</b> Haga clic en una fila. La ventana muestra la clasificación (tipo, código de tipo, región), la dirección, el contacto y los datos del sistema (número de la institución y fecha de creación); los campos vacíos se omiten.</li>
+<li><b>Tarjeta de contacto como código QR.</b> Haga clic en el nombre del título o en cualquier parte de la dirección para obtener un código QR con la tarjeta de contacto completa para su móvil.</li>
+<li><b>Teléfono, correo electrónico, sitio web.</b> El teléfono y el correo electrónico abren sus códigos QR; el sitio web se abre en la ventana del navegador de <span class="irs">IRONSTICK</span>. <i>Cerrar</i> cierra la ventana.</li>
+</ul>
+
+<h4>Nueva institución o edición</h4>
+<ul>
+<li><b>Nueva institución.</b> El botón azul de la parte superior derecha abre el formulario de entrada; el lápiz de una fila abre el mismo formulario para una institución existente.</li>
+<li><b>Clasificación.</b> El nombre es obligatorio. Elija el tipo de institución y la región en las listas.</li>
+<li><b>Dirección y posición en el mapa.</b> Calle, código postal, ciudad, distrito y país. Active las geocoordenadas para buscar la dirección en el mapa, escribir la latitud y la longitud o hacer clic en el punto del mapa.</li>
+<li><b>Contacto.</b> Teléfono, fax, correo electrónico y sitio web.</li>
+<li><b>Autorrelleno por IA y búsqueda en Google.</b> Cuando se han introducido un nombre y un país, aparece un botón en el encabezado. Con una clave de IA configurada, <i>Autorrelleno por IA</i> solicita su consentimiento y deja que la IA externa busque la institución en internet; rellena solo los campos vacíos y los marca con un marco morado. Después, o sin clave, el botón abre una búsqueda en Google en la ventana del navegador de <span class="irs">IRONSTICK</span>.</li>
+<li><b>Instituciones de otros usuarios de IRONSTICK SERVER.</b> Si la institución pertenece a otro usuario del servidor, al guardar se envía al propietario una propuesta de modificación y al eliminar, una propuesta de eliminación.</li>
+</ul>
+
+<h2 id="s8">8. Registrar documentos</h2>
+
+<h3>Bandeja de documentos y formulario de registro</h3>
+<figure><img src="img/screens/8%20capture%20documents.png" alt="Bandeja de registro de documentos, la ventana de selección de páginas y el formulario Registrar el documento con la vista de texto"><figcaption>La bandeja de documentos, la selección de páginas y el formulario de registro con su vista de texto.</figcaption></figure>
+<p class="scr-intro">Todo PDF que deba incorporarse a un caso pasa por esta bandeja. A la izquierda se ve la bandeja con su zona de arrastre y la lista de archivos en espera;
+a la derecha, el formulario <b>Registrar el documento</b>, donde el documento se asigna a un caso y se describe. Delante está la ventana de selección de páginas,
+que se abre primero en los documentos de varias páginas, y la vista de texto que muestra lo que <span class="irs">IRONSTICK</span> ha leído del archivo.</p>
+<ol class="marks">
+<li><b>Zona de arrastre.</b> Arrastre aquí archivos PDF o Markdown, o haga clic para elegirlos. Los archivos Markdown se convierten automáticamente en PDF; los demás tipos de archivo se rechazan con un mensaje.</li>
+<li><b>Indicador de la bandeja.</b> Mientras haya documentos sin procesar en la bandeja, aparece en la barra de menús un icono de bandeja rojo y animado; al pasar el puntero por encima se muestra cuántos hay. Haga clic en él para ir directamente a esta pantalla. Desaparece cuando la bandeja está vacía.</li>
+<li><b>Ver.</b> Abre el PDF con el programa configurado para PDF en este ordenador.</li>
+<li><b>Registrar.</b> Inicia el registro de este archivo: selección de páginas, lectura del texto, clasificación por IA y, a continuación, el formulario de registro.</li>
+<li><b>Eliminar.</b> Elimina el archivo de la bandeja tras una confirmación. Esta acción no se puede deshacer.</li>
+<li><b>Ver (en el formulario).</b> Abre el documento que está registrando en la ventana del navegador de <span class="irs">IRONSTICK</span>, para que pueda leerlo mientras rellena el formulario.</li>
+<li><b>Vista de texto.</b> Muestra en una ventana el texto leído del PDF, que puede seleccionar y copiar.</li>
+<li><b>Secreto.</b> Marca el documento como secreto. Los documentos secretos permanecen ocultos en todo <span class="irs">IRONSTICK</span> hasta que pulse <b>Ctrl + Shift + S + D</b> (solo en Windows); la misma combinación vuelve a ocultarlos. El modo secreto nunca se recuerda: se desactiva solo al reiniciar el programa y con el salvapantallas, la suspensión o el bloqueo de pantalla. Mientras está activado, la configuración muestra la tarjeta en la que se establece una sola vez la contraseña de los documentos secretos; ya no puede cambiarse en cuanto existe un documento secreto. Un documento marcado se guarda como PDF protegido con contraseña (AES-256) y no puede tener plazo.
+<br><b>Los documentos secretos permanecen dentro de <span class="irs">IRONSTICK</span>:</b> toda función de IA, integrada o externa, los filtra; se excluyen de los PDF y los anexos generados; la ventana del navegador de <span class="irs">IRONSTICK</span> no puede abrirlos; y una transferencia de caso a un compañero solo los incluye tras su confirmación expresa.
+<br><b>Borrado de emergencia:</b> <b>Ctrl + Shift + S + D + K</b> finaliza de inmediato el modo secreto y elimina de forma permanente todos los documentos secretos (archivos y entradas). Esta acción no se puede deshacer.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Bandeja</b></p>
+<ul>
+<li><b>Carpeta de la bandeja.</b> La tarjeta enumera todos los PDF de la carpeta de la bandeja con su tamaño, 20 por página. En Windows, la ruta exacta de la carpeta se muestra junto al título, con botones para copiarla y abrirla en el Explorador, lo que resulta útil si su escáner guarda directamente en esta carpeta.</li>
+<li><b>Otras vías de entrada.</b> Los documentos también llegan aquí desde el Monitor de correo electrónico y desde los gráficos que envía al registro (por ejemplo, una red de relaciones).</li>
+<li><b>Después del registro.</b> Una vez guardado un documento en un caso, desaparece de la bandeja.</li>
+</ul>
+<p class="grp"><b>Selección de páginas</b></p>
+<ul>
+<li><b>Documento principal y anexos.</b> En un PDF de dos o más páginas, la ventana <i>Seleccionar las páginas</i> muestra una vista previa de cada página. Indique hasta qué página llega el documento principal; esas páginas se marcan en azul y siempre se conservan. La línea contigua le indica en qué páginas siguen los anexos o que no hay ninguno.</li>
+<li><b>Incluir o excluir páginas.</b> Haga clic en cualquier otra página para alternarla entre conservada (marco azul) y excluida (marco rojo, tachada). Solo las páginas conservadas se leen y se guardan con texto con capacidad de búsqueda, lo que resulta útil para anexos largos que no necesita completos. <i>Aplicar</i> inicia la lectura.</li>
+</ul>
+<p class="grp"><b>Lectura y clasificación por IA</b></p>
+<ul>
+<li><b>El texto se lee en local.</b> Una pantalla de progreso muestra cada paso. <span class="irs">IRONSTICK</span> lee la capa de texto de cada página conservada; solo las páginas sin texto utilizable (escaneos) pasan por el reconocimiento de texto.</li>
+<li><b>Partes y caso encontrados automáticamente.</b> Las personas e instituciones que ya tiene se reconocen en el texto y se proponen como partes intervinientes. Un número de expediente en el encabezado, un número de escrito conocido o una referencia a uno de sus correos enviados sugiere el caso correspondiente. Sus propios documentos del procesador de textos se reconocen por su sello.</li>
+<li><b>Clasificación por IA con su consentimiento.</b> Antes de que cualquier texto llegue a la IA externa, se le pregunta una vez por cada inicio del programa. Entonces la IA propone título, fecha, descripción, palabras clave, tipo de documento, dirección y más. Si lo rechaza, el formulario permanece vacío para este documento y usted lo rellena por su cuenta.</li>
+<li><b>Los hechos fijos prevalecen.</b> En los documentos del Monitor de correo electrónico, la dirección procede de la carpeta de correo (recibidos o enviados); en las importaciones de correo judicial, el acuse de recibo determina el caso, la fecha y la dirección. La IA no los modifica.</li>
+</ul>
+<p class="grp"><b>Asignar caso y clasificación</b></p>
+<ul>
+<li><b>Cliente y caso.</b> Busque al cliente por nombre, teléfono o correo electrónico; cuando elija uno, la lista de casos muestra solo los casos de ese cliente, primero los activos. Al elegir un caso se adoptan su país, su área jurídica y su fase procesal.</li>
+<li><b>Primero el país.</b> El área jurídica y la fase procesal solo pueden elegirse después del país, porque proceden de la lista de ese país. El idioma del documento, el tipo de documento y el tipo de institución completan la clasificación; el tipo de documento y la institución se buscan mientras escribe.</li>
+</ul>
+<p class="grp"><b>Detalles del documento</b></p>
+<ul>
+<li><b>Prueba, Entrada o Salida.</b> Elija de qué clase es esta entrada. <i>Resolución judicial</i> se marca automáticamente cuando <span class="irs">IRONSTICK</span> reconoce una resolución judicial; puede cambiarlo en cualquier momento.</li>
+<li><b>Fechas y título.</b> Fecha efectiva del documento, título (obligatorio, hasta 120 caracteres), fecha de la entrada (obligatoria), palabras clave y una hora opcional de / hasta.</li>
+<li><b>Asignación del procesador de textos.</b> Vincula el documento a uno de sus propios textos del procesador de textos, por ejemplo la versión firmada de una carta que usted redactó. Los textos del mismo caso se enumeran primero; los documentos entrantes nunca se vinculan.</li>
+<li><b>Descripción y partes intervinientes.</b> La descripción puede editarse libremente. Las partes intervinientes aparecen como fichas: quite una con su cruz y añada otra buscándola. Si un nombre es desconocido, un botón permite crear al momento una nueva persona, empresa o institución. Las partes conocidas por <span class="irs">IRONSTICK</span> se vinculan al caso al guardar.</li>
+<li><b>Plazo.</b> Introduzca una fecha de plazo y marque la casilla contigua para convertirlo en un plazo activo.</li>
+</ul>
+<p class="grp"><b>Guardado</b></p>
+<ul>
+<li><b>Guardar.</b> El título y el caso son obligatorios; en caso contrario, un aviso rojo le indica qué falta. El guardado puede tardar en documentos largos; durante ese tiempo la barra de menús queda bloqueada para que nada se interrumpa.</li>
+<li><b>Qué ocurre al guardar.</b> El PDF recibe el sello de <span class="irs">IRONSTICK</span>, obtiene una capa de texto con capacidad de búsqueda en las páginas conservadas, se archiva cifrado en el caso y se elimina de la bandeja. Unos segundos después se añaden en segundo plano un breve resumen y referencias cruzadas a otras entradas.</li>
+<li><b>Cancelar.</b> Sale del formulario; el archivo permanece en la bandeja.</li>
+</ul>
+
+<h3>Cómo recorre un documento el registro</h3>
+<figure><img src="img/screens/8%20capture%20documents%20proces.png" alt="Diagrama: PDF, selección de páginas, procesamiento local, IA externa en internet, formulario de registro, cifrado AES-256, base de datos y PDF sellado"><figcaption>Desde el PDF de la bandeja hasta la entrada cifrada en el caso.</figcaption></figure>
+<p class="scr-intro">El diagrama muestra el recorrido de un documento de izquierda a derecha. El PDF se procesa primero en su ordenador (selección de páginas y lectura del texto);
+después solo el texto va por internet a la IA externa para su clasificación, y el resultado vuelve al formulario de registro.
+Cuando usted guarda, el documento se cifra con AES-256 y se almacena como entrada en la base de datos junto con el PDF sellado.</p>
+<h4>Qué puede hacer aquí</h4>
+<ul>
+<li><b>Paso 1: en su ordenador.</b> Usted elige las páginas; <span class="irs">IRONSTICK</span> lee su texto y reconoce las partes conocidas y el caso sin ninguna conexión a internet.</li>
+<li><b>Paso 2: IA externa, solo con consentimiento.</b> El texto extraído se envía a la IA externa para que proponga la clasificación. No se envía nada antes de que usted lo acepte, y siempre puede rellenar usted mismo el formulario.</li>
+<li><b>Paso 3: su revisión.</b> Usted revisa y corrige cada propuesta en el formulario de registro; solo se almacena lo que usted guarda.</li>
+<li><b>Paso 4: almacenamiento cifrado.</b> El PDF sellado y sus datos se almacenan en el caso cifrados con AES-256.</li>
+</ul>
+
+<h2 id="s9">9. Búsqueda global</h2>
+<figure><img src="img/screens/9%20global%20search.png" alt="Búsqueda global con resultados para la palabra contrato y una fila de resultado ampliada"><figcaption>Resultados de búsqueda en todos los casos, con una fila ampliada.</figcaption></figure>
+<p class="scr-intro">La búsqueda global recorre a la vez todas las entradas de todos sus casos: títulos, palabras clave, resúmenes, descripciones, partes intervinientes,
+contenido de los documentos y el texto completo de documentos, chats y transcripciones. La imagen muestra los resultados para la palabra <i>contrato</i>;
+una fila de resultado está ampliada para que se vean fácilmente sus partes.</p>
+<ol class="marks">
+<li><b>Campo de búsqueda.</b> Escriba una o varias palabras y pulse Intro o haga clic en <i>Buscar</i>. Con varias palabras, todas deben aparecer en la entrada. Se ignoran los acentos y se toleran pequeños errores de OCR en el texto escaneado.</li>
+<li><b>Fecha.</b> La fecha de la entrada.</li>
+<li><b>Dirección.</b> <i>IN</i> (azul) marca un documento entrante, <i>OUT</i> (rojo) uno saliente. Las entradas de prueba no llevan etiqueta.</li>
+<li><b>Frase exacta.</b> La estrella verde aparece tras el título cuando sus palabras se encontraron juntas exactamente en este orden; normalmente son los resultados más relevantes.</li>
+<li><b>Caso.</b> El número del caso y, debajo, el cliente al que pertenece la entrada.</li>
+<li><b>Dónde se encontró.</b> La etiqueta de color muestra el campo en el que se halló la mejor coincidencia, por ejemplo título, palabras clave, resumen, descripción, partes intervinientes, contenido del documento, texto completo o número de escrito. <i>Similitud ~N %</i> significa que la entrada se encontró por su similitud de significado, no por la palabra exacta.</li>
+</ol>
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Búsqueda</h4>
+<ul>
+<li><b>Primero los mejores resultados.</b> Los resultados se ordenan por relevancia —una coincidencia en el título pesa más que una en el texto completo— y después por fecha, de más reciente a más antigua. El encabezado de la tarjeta muestra cuántos resultados se encontraron para su búsqueda.</li>
+<li><b>Entradas similares.</b> Para una sola palabra de cuatro letras o más, se añaden entradas con un título o una descripción similares aunque la palabra exacta no aparezca.</li>
+<li><b>Saltar directamente a una entrada.</b> Escriba un número de entrada como <i>#1234</i> o solo el número, o pegue el nombre de archivo o identificador de un sello de <span class="irs">IRONSTICK</span>: la búsqueda muestra exactamente esa entrada.</li>
+<li><b>Sin resultados.</b> Un aviso le indica que no hay resultados para su búsqueda; pruebe con menos palabras o con otras distintas.</li>
+</ul>
+
+<h4>Resultados</h4>
+<ul>
+<li><b>Páginas.</b> 20 resultados por página; si hay más de una página, la navegación de páginas aparece encima y debajo de la lista.</li>
+<li><b>Abrir un resultado.</b> Haga clic en una fila: el caso se abre en su pestaña Cronología y la entrada se ilumina para que la vea de inmediato.</li>
+<li><b>Título vacío.</b> Una entrada sin título se muestra como «Entrada #» seguido de su número.</li>
+</ul>
+
+<h2 id="s10">10. Calendario</h2>
+<figure><img src="img/screens/10%20calendar.png" alt="Calendario con dos meses, el día seleccionado y sus citas, y el cuadro de diálogo de exportación del archivo .ics"><figcaption>Dos meses de un vistazo, las citas del día seleccionado y la exportación del calendario.</figcaption></figure>
+<p class="scr-intro">El calendario contiene sus citas judiciales, interrogatorios de testigos, reuniones, llamadas telefónicas y tareas.
+Se muestran dos meses uno junto al otro; los números y puntos de colores indican en qué días hay algo previsto.
+Debajo de los meses se ve todo lo previsto para el día seleccionado. La imagen muestra además el cuadro de diálogo de exportación que se abre al exportar el calendario como archivo .ics.</p>
+<ol class="marks">
+<li><b>Seleccionar un día.</b> Haga clic en cualquier día para mostrar sus citas debajo. El día seleccionado se vuelve azul; hoy lleva un círculo gris.</li>
+<li><b>Panel del día.</b> Muestra la fecha seleccionada, el número de citas y el botón <i>Nueva entrada</i>. Debajo se enumeran las citas de ese día, seguidas de las vistas judiciales de un portal judicial nacional.</li>
+<li><b>Exportar .ics.</b> Guarda sus citas y vistas judiciales a partir de hoy como un archivo de calendario que otros programas de calendario pueden importar.</li>
+</ol>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Moverse por el calendario</h4>
+<ul>
+<li><b>Recorrer los meses.</b> Las flechas desplazan la vista de dos meses hacia atrás o hacia delante; <i>Hoy</i> vuelve al mes actual y selecciona el día de hoy.</li>
+<li><b>Interpretar los colores.</b> Un día con entradas muestra su número en color y un punto pequeño por tipo: naranja para una vista del portal judicial o un interrogatorio de testigos, rojo para una cita judicial, azul para una reunión, verde para una llamada telefónica, gris para otras entradas y morado para una tarea. El número adopta el color de la entrada más importante.</li>
+</ul>
+
+<h4>Las citas de un día</h4>
+<ul>
+<li><b>Lista del día.</b> Cada cita muestra su hora, título, lugar, el comienzo de la descripción, el caso y el cliente, y una etiqueta de tipo en color. Si un día tiene muchas entradas, la lista se divide en páginas con botones de página encima y debajo.</li>
+<li><b>Abrir los detalles.</b> Haga clic en una cita para ver la fecha, la hora, el tipo, el lugar, la descripción completa y el caso. En <i>Documentos preparados</i> encontrará las entradas de la cronología que adjuntó a la cita: el número morado abre la Cronología del caso con esa entrada resaltada, el clip abre el propio documento.</li>
+<li><b>Cita como PDF.</b> El botón de imprimir de la ventana de detalles crea un PDF con una portada de la cita seguida de todos los documentos preparados, con numeración de páginas continua.</li>
+<li><b>Editar o eliminar.</b> El lápiz abre la cita para editarla; la papelera roja la elimina tras una confirmación.</li>
+<li><b>Tareas.</b> Al hacer clic en una entrada del tipo <i>Tarea</i> (por ejemplo, un escrito anotado con anterioridad) se abre el chat de IA de ese caso con una solicitud para redactar el escrito.</li>
+<li><b>Día vacío.</b> Si no hay nada previsto, el panel lo indica y puede crear una entrada de inmediato.</li>
+</ul>
+
+<h4>Vistas judiciales de un portal judicial nacional</h4>
+<ul>
+<li><b>Sección de vistas.</b> Donde las funciones del portal judicial de su país están activadas, las vistas que <span class="irs">IRONSTICK</span> ha recogido para sus casos aparecen en una sección naranja propia debajo de las citas.</li>
+<li><b>Abrir el caso o el expediente del portal.</b> El número de expediente subrayado y el enlace <i>Caso</i> abren la Cronología del caso. Un clic en cualquier otra parte de la fila abre el expediente del portal con el objeto, las partes, los recursos y el historial de todas las vistas; desde allí, <i>Abrir el caso</i> le lleva al caso. Una vista de un expediente que todavía no está vinculado a un caso se marca como <i>nuevo/no registrado</i>.</li>
+</ul>
+
+<h4>Nueva entrada y edición</h4>
+<ul>
+<li><b>Cita.</b> Introduzca un título y una fecha (ambos obligatorios), elija el tipo (cita judicial, interrogatorio de testigos, reunión, llamada telefónica, otro o tarea), establezca la hora de y hasta, y añada una descripción.</li>
+<li><b>Lugar.</b> La tarjeta desplegable del lugar admite dirección, código postal, ciudad, distrito y país. Active <i>Geocoordenadas</i> para buscar una dirección o haga clic en el mapa para fijar el punto exacto.</li>
+<li><b>Asignación.</b> Vincule la cita a un caso y añada las personas e instituciones implicadas escribiendo parte de su nombre y eligiéndolas en la lista; quite una con la pequeña cruz de su ficha.</li>
+<li><b>Carpeta de preparación.</b> Una vez elegido un caso, marque las entradas de la cronología que quiere tener a mano para la cita. Aparecerán después en <i>Documentos preparados</i> y en el PDF de la cita.</li>
+<li><b>Guardar.</b> <i>Guardar</i> (o <i>Crear</i> en una entrada nueva) le devuelve al calendario en la fecha de la cita; <i>Cancelar</i> descarta los cambios.</li>
+</ul>
+
+<h4>Exportación y sincronización</h4>
+<ul>
+<li><b>Advertencia de privacidad.</b> Antes de la primera exportación .ics tras cada inicio del programa, <span class="irs">IRONSTICK</span> le recuerda que las entradas del calendario salen del programa protegido en este formato. Elija <i>Continuar</i> para seguir.</li>
+<li><b>Cuadro de diálogo de exportación.</b> <i>Descargar</i> guarda el archivo en su carpeta Documentos y abre esa carpeta. <i>Google Drive</i> aparece solo cuando existe una carpeta de Google Drive en este ordenador y guarda el archivo allí.</li>
+<li><b>Calendario de la tableta.</b> En la tableta Android, si existe un calendario llamado IRONSTICK en la cuenta de calendario del dispositivo, las citas se mantienen sincronizadas en ambos sentidos; los plazos y las vistas se copian a él en un solo sentido.</li>
+</ul>
+
+<h2 id="s11">11. Plazos</h2>
+<figure><img src="img/screens/11%20deadlines.png" alt="Lista de plazos con casillas de verificación, fechas de plazo y el cuadro de diálogo de exportación del PDF de resumen de plazos"><figcaption>Todos los plazos abiertos, vistas judiciales y recordatorios de la IA con fecha en una sola lista.</figcaption></figure>
+<p class="scr-intro">La lista de plazos reúne todo lo que vence, por orden de fecha: plazos de las cronologías de sus casos, próximas vistas judiciales (de un portal judicial nacional y de su calendario) y recordatorios que la IA anotó con una fecha de vencimiento.
+La campana de la barra superior siempre abre esta pantalla. La imagen muestra la lista y el cuadro de diálogo de exportación del PDF de resumen de plazos.</p>
+<ol class="marks">
+<li><b>Números de referencia.</b> El número <i>#0000000</i> de un documento y el número <i>@mem0000</i> de un recordatorio de la IA se copian al portapapeles con un clic, por ejemplo para pegarlos en el chat.</li>
+<li><b>Eliminación de plazos.</b> Los plazos y los recordatorios de la IA se eliminan en lugares distintos porque proceden de fuentes distintas. Los plazos de la aplicación (documentos y entradas de la cronología) se marcan con su casilla y se eliminan juntos. Los recordatorios que la IA ha guardado en su memoria (símbolo del cerebro) se eliminan con <i>Eliminar la fecha</i>: solo se retira la fecha de vencimiento, de modo que el recordatorio sale de la lista.</li>
+</ol>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Leer la lista</h4>
+<ul>
+<li><b>Tres clases de filas.</b> Los plazos tienen una casilla; las vistas judiciales muestran un mazo naranja y la palabra <i>Vista</i>; los recordatorios de la IA muestran un símbolo de cerebro azul.</li>
+<li><b>Píldora de fecha en color.</b> La columna de la derecha muestra la fecha de vencimiento: roja si es hoy o ya ha vencido, naranja si vence en diez días, verde si hay más tiempo. Debajo se lee cuántos días faltan o hace cuántos días venció.</li>
+<li><b>Qué indica cada fila.</b> Fecha y hora de la entrada, su título, el cliente, el número del caso y el título del caso. Las vistas muestran el tribunal, la sección y la sala.</li>
+<li><b>Cumpleaños.</b> Una pequeña tarta delante del nombre indica que el cliente cumple años hoy o los cumplió en los últimos dos días.</li>
+<li><b>Páginas.</b> Con más de 20 entradas, la lista se divide en páginas; los botones de página aparecen encima y debajo de la lista y el encabezado muestra la página actual.</li>
+</ul>
+
+<h4>Trabajar con las entradas</h4>
+<ul>
+<li><b>Abrir el caso.</b> Haga clic en una fila para abrir la Cronología del caso en la página correcta, con la entrada resaltada en amarillo. Las vistas sin caso vinculado no tienen destino.</li>
+<li><b>Abrir el documento.</b> El clip abre el documento al que pertenece el plazo.</li>
+<li><b>Copiar el número de la entrada.</b> Haga clic en el número morado situado bajo la fecha (o en la referencia de un recordatorio de la IA) para copiarlo; en su lugar aparece una breve confirmación. Péguelo en el chat de IA en lugar de describir la entrada.</li>
+<li><b>Eliminar plazos.</b> Tras marcar plazos, una barra muestra cuántos están seleccionados. Su botón rojo de eliminar pide confirmación y después los saca de la lista y del recuento de la campana. Las propias entradas de la cronología permanecen en el caso.</li>
+<li><b>Imprimir el resumen.</b> El botón de imprimir de la parte superior derecha crea el resumen de plazos como PDF y abre el cuadro de diálogo de exportación: <i>Descargar</i> lo guarda en su carpeta Documentos; <i>Google Drive</i> aparece cuando existe una carpeta de Google Drive en este ordenador.</li>
+<li><b>Nada pendiente.</b> Cuando no hay plazos abiertos, una marca verde se lo indica.</li>
+</ul>
+
+<h2 id="s12">12. Diario diario</h2>
+<figure><img src="img/screens/12%20dailyprotocol.png" alt="Lista del diario diario, la ventana para una nueva entrada diaria y un diario diario abierto con la cronología de los casos de ese día"><figcaption>El diario diario, una nueva entrada que se pega y un día abierto.</figcaption></figure>
+<p class="scr-intro">El diario diario es su diario de trabajo de todos los casos: una entrada por día con lo que se hizo, envió, decidió o preparó.
+Las entradas proceden de textos que usted pega o arrastra, o las escribe, a petición suya, una IA de escritorio conectada a través del <a href="manualbridge_es.html">Bridge de <span class="irs">IRONSTICK</span></a> al final de una sesión de trabajo.
+La imagen muestra la lista, la ventana para una nueva entrada y un día abierto con la cronología de los casos de ese día.</p>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>La lista</h4>
+<ul>
+<li><b>Una fila por día.</b> Cada fila muestra la fecha, el título del día y a cuántos casos se refiere. En una página caben veinte filas; cuando hay más, aparecen botones de página encima y debajo.</li>
+<li><b>Días sin diario diario.</b> Las filas grises marcadas <i>Cronología del expediente (sin diario diario)</i> abarcan los días en que ocurrió algo en sus casos pero no se escribió ningún diario diario. Haga clic en una para ver las entradas de la cronología de ese período y abrir cualquiera de ellas en su caso.</li>
+<li><b>Eliminar un día.</b> La pequeña cruz al final de una fila elimina el protocolo de ese día tras una confirmación.</li>
+</ul>
+
+<h4>Abrir un día</h4>
+<ul>
+<li><b>Resumen.</b> La ventana muestra la fecha y los casos de ese día como fichas.</li>
+<li><b>Eventos.</b> Cada evento muestra su fecha, su texto y enlaces a números de caso o entradas; un enlace azul abre la Cronología del caso con la entrada resaltada.</li>
+<li><b>A la cronología.</b> Donde se ofrece, el botón azul de cronología de un evento le permite elegir un caso y abre después una nueva entrada de cronología para ese caso, de modo que el evento pasa a formar parte del expediente del caso.</li>
+<li><b>Cronología de los casos de este día.</b> Enumera las entradas de la cronología de todos los casos de ese día con hora, título y número de caso; haga clic en una para abrirla en su caso.</li>
+<li><b>Texto completo.</b> <i>Mostrar texto completo</i> despliega el texto íntegro del día, que puede seleccionar y copiar.</li>
+</ul>
+
+<h4>Generar una nueva entrada</h4>
+<ul>
+<li><b>Aportar el texto.</b> <i>Generar nueva entrada</i> abre una ventana donde arrastra un archivo .txt o .md (o hace clic para elegir uno) o pega el texto directamente. Este botón está disponible en el PC, no en la tableta Android.</li>
+<li><b>Analizar.</b> Un texto con el formato del diario diario se divide directamente en días. Cualquier otro texto puede entregarse a la IA externa, que encuentra la fecha, el título y los casos mencionados; <span class="irs">IRONSTICK</span> solicita antes su consentimiento. Si lo rechaza, una indicación explica el formato esperado.</li>
+<li><b>Comprobar antes de importar.</b> Por cada día reconocido se muestra una tarjeta: márquela o desmárquela, corrija la fecha y el título del día, active o desactive los casos asignados y lea los eventos encontrados. Una insignia <i>Fusión</i> indica que ya existe un protocolo para esa fecha; el nuevo texto se añade a él y no se sobrescribe nada.</li>
+<li><b>Importar o volver.</b> El botón de importar guarda los días marcados; el botón de la izquierda le devuelve al texto. Antes de analizar, <i>Descartar</i> cierra la ventana sin guardar.</li>
+<li><b>Entradas de la IA.</b> Cuando pide a la IA que actualice el diario diario, añade los correos electrónicos enviados, los escritos y las resoluciones del día; un día existente siempre se amplía, nunca se sustituye.</li>
+</ul>
+
+<h2 id="s13">13. Textos y procesador de textos</h2>
+
+<h3>La lista de textos</h3>
+<figure><img src="img/screens/13%20texts.png" alt="Lista de textos agrupados por cliente y caso, con un documento abierto en el procesador de textos"><figcaption>Todas sus cartas y escritos, agrupados por cliente y caso.</figcaption></figure>
+<p class="scr-intro">Esta pantalla enumera todas las cartas y escritos redactados en <span class="irs">IRONSTICK</span>, siempre en su última versión.
+Los documentos se agrupan por cliente, caso y entrada de la cronología, de modo que los textos relacionados permanecen juntos.
+Un clic abre el documento en el procesador de textos, que se muestra a la derecha de la imagen.</p>
+<ol class="marks">
+<li><b>Redactar texto.</b> Abre el procesador de textos con una página vacía para un documento nuevo.</li>
+<li><b>Abrir un documento: versiones agrupadas.</b> Haga clic en un documento para abrirlo en el procesador de textos. Cada documento aparece una sola vez, con su número de versión más reciente y la fecha del último guardado; los documentos del mismo cliente, caso y entrada se agrupan bajo un único encabezado que se pliega y se despliega con un clic.</li>
+<li><b>Eliminar.</b> La papelera quita el documento de la lista tras una confirmación.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<ul>
+<li><b>Grupos.</b> Cuando un cliente, caso o entrada de la cronología tiene varios documentos, se pliegan en una sola fila con el número de documentos. Haga clic en la fila para desplegarla o plegarla. Un documento único se muestra directamente con su cliente y su caso.</li>
+<li><b>Llegada desde la búsqueda.</b> Cuando abre un texto desde los resultados de la búsqueda, su grupo se despliega y el documento se ilumina en amarillo durante unos segundos.</li>
+<li><b>Siempre actualizado.</b> Cuando vuelve del procesador de textos, la lista se recarga y muestra la nueva versión.</li>
+<li><b>Solo PC.</b> El procesador de textos funciona en el PC con Windows. En la tableta Android la lista es visible, pero al abrir un documento se muestra un aviso.</li>
+</ul>
+
+<h3>Edición, lectura en voz alta y anexos</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20attachements.png" alt="Procesador de textos con su barra de herramientas y la lista de anexos abierta"><figcaption>El editor con su barra de herramientas y la lista de anexos.</figcaption></figure>
+<p class="scr-intro">El procesador de textos muestra su documento como páginas A4, exactamente como se imprimirá.
+La barra de herramientas situada sobre la página contiene las herramientas de formato, la lectura en voz alta, la lista de anexos y el interruptor de la IA.
+La barra de estado de la parte inferior cuenta palabras, caracteres y páginas. La imagen muestra la lista de anexos abierta sobre el editor.</p>
+<ol class="marks">
+<li><b>Leer en voz alta.</b> Lee el documento en voz alta, párrafo a párrafo, en el idioma del país del caso, resaltando la parte que se está leyendo. Haga clic de nuevo para pausar y una vez más para continuar. Funciona con documentos que pertenecen a un caso.</li>
+<li><b>Lista de anexos.</b> Abre la lista de anexos de este documento. El pequeño número azul del clip indica cuántos anexos hay adjuntos.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Barra de herramientas</b></p>
+<ul>
+<li><b>Formato.</b> Deshacer y rehacer, estilo de párrafo (texto normal, tres niveles de título, cita), tamaño de fuente, negrita, cursiva, subrayado, tachado, color del texto y color de resaltado.</li>
+<li><b>Diseño.</b> Alineación a la izquierda, centrada, a la derecha o justificada, listas con viñetas y numeradas, disminuir y aumentar sangría, y <i>Borrar formato</i>.</li>
+<li><b>Membrete.</b> Cuando ha cargado una plantilla de membrete en la configuración, un botón la activa o desactiva. Está activado de forma predeterminada y reserva la parte superior de la página para su membrete.</li>
+<li><b>Teclado.</b> La tecla Tab inserta un tabulador. Ctrl+S guarda y cierra, Ctrl+P abre la vista previa de impresión.</li>
+</ul>
+<p class="grp"><b>Escribir y pegar</b></p>
+<ul>
+<li><b>Pegar desde otros programas.</b> El texto copiado de Word, LibreOffice o una página web se depura al formato que admite el editor. El texto sin formato que parece Markdown se convierte en títulos, listas y negrita.</li>
+<li><b>Arrastrar un archivo.</b> Al arrastrar un archivo .md o .txt al editor se sustituye todo el contenido por el texto del archivo, convertido en texto con formato.</li>
+<li><b>Marcadores de posición.</b> Los borradores de la IA pueden contener huecos entre corchetes. Aparecen como fichas y un banner los cuenta. Haga clic en una ficha, escriba el texto y pulse Intro; Escape deja el hueco abierto. Un doble clic convierte una ficha en texto normal sin corchetes.</li>
+<li><b>Saltos de página.</b> Las líneas discontinuas muestran dónde termina cada página. Arrastre una línea hacia arriba para que la página siguiente comience antes; encaja entre dos líneas y se vuelve naranja cuando se mueve. Un doble clic la devuelve a su sitio. Sus saltos se guardan con el documento.</li>
+</ul>
+<p class="grp"><b>Revisión por IA</b></p>
+<ul>
+<li><b>Activar la IA.</b> El interruptor <i>IA desactivada / IA activada</i> muestra barras de colores junto a la página: azul oscuro para los temas que la IA reconoce en el documento, azul medio para cada párrafo y azul claro para cada frase. Al pasar el puntero por una barra se resalta el texto correspondiente.</li>
+<li><b>Revisar un pasaje.</b> Haga clic en una barra, describa en el cuadro qué debe cambiar y pulse Intro o <i>Revisar</i>. La IA reescribe exactamente ese tema, párrafo o frase y coloca el texto nuevo en su lugar. Los nombres, los números de caso y otros identificadores de sus registros se sustituyen por marcadores de posición neutros antes de enviar el texto a la IA externa.</li>
+</ul>
+<p class="grp"><b>Lista de anexos</b></p>
+<ul>
+<li><b>Añadir por ID de prueba.</b> Escriba el número de una entrada de la cronología (por ejemplo 357 o 0000357) y pulse Intro o <i>Añadir</i>. Se adjunta el PDF de la entrada; para fotos, grabaciones, transcripciones o entradas sin PDF, <span class="irs">IRONSTICK</span> crea un PDF para el anexo.</li>
+<li><b>Añadir manualmente.</b> En la pestaña <i>Manual</i> introduzca un título y una nota opcional para un anexo que no está en <span class="irs">IRONSTICK</span>, por ejemplo un documento en papel que usted mismo presentará.</li>
+<li><b>Ordenar y quitar.</b> Cada anexo muestra su número, una insignia (<i>DB</i> para una entrada de <span class="irs">IRONSTICK</span>, <i>MAN</i> para un anexo manual), el título y un enlace a su PDF. Arrastre un anexo por su asa para cambiar el orden; la cruz lo quita.</li>
+<li><b>Insertar en el texto.</b> Escribe la lista numerada de anexos al final de su documento, o sustituye la lista que ya hay. Cada línea muestra el título del anexo, la referencia del sello de <span class="irs">IRONSTICK</span> del documento si la tiene y su intervalo de páginas, que se rellena automáticamente en la vista previa de impresión.</li>
+<li><b>Anexos tomados del texto.</b> Si la lista está vacía pero su documento ya tiene una sección de anexos con números de entrada, <span class="irs">IRONSTICK</span> ofrece adoptar esas entradas como anexos en un solo paso.</li>
+</ul>
+
+<h3>Edición, vista previa y guardado</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20preview.png" alt="Procesador de textos en la pestaña Editar y en la pestaña Vista previa con los botones Vista previa de impresión y Guardar y cerrar"><figcaption>Las pestañas Editar y Vista previa; la vista previa ofrece la vista previa de impresión y el guardado.</figcaption></figure>
+<p class="scr-intro">Dos pestañas se sitúan sobre la barra de herramientas. <i>Editar</i> es donde usted escribe; <i>Vista previa</i> muestra las páginas terminadas una debajo de otra, de solo lectura, con números de página.
+En la vista previa se ocultan las herramientas de formato y aparecen los botones de la vista previa de impresión y del guardado.</p>
+<ol class="marks">
+<li><b>Editar.</b> Vuelve a la página editable con la barra de herramientas completa.</li>
+<li><b>Vista previa.</b> Divide el documento en páginas A4 separadas exactamente como se imprimirán, de modo que pueda comprobar los saltos de página.</li>
+<li><b>Vista previa de impresión.</b> Guarda el documento y abre la vista previa de impresión con el documento y todos los anexos.</li>
+<li><b>Guardar y cerrar.</b> Guarda el documento y vuelve a la lista de textos.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<ul>
+<li><b>Primer guardado.</b> Un documento nuevo solicita un título. Si el título ya lo usa otro documento, aparece una advertencia y usted elige otro distinto.</li>
+<li><b>Versiones.</b> Cada guardado posterior almacena una nueva versión del mismo documento; la lista de textos muestra el número de la última versión.</li>
+<li><b>Anexos en la vista previa.</b> El botón de la lista de anexos sigue disponible en la pestaña de vista previa.</li>
+</ul>
+
+<h3>Vista previa de impresión, firma y sellos</h3>
+<figure><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png" alt="Vista previa de impresión con el escrito jurídico, un anexo con interruptor de sello, una página de anexo ampliada y otra excluida, y la ventana de colocación de la firma"><figcaption>La vista previa de impresión reúne el documento y todos los anexos en un único PDF.</figcaption></figure>
+<p class="scr-intro">La vista previa de impresión muestra todas las páginas del PDF final: primero su documento y después cada anexo con su línea de título.
+El encabezado cuenta todas las páginas, las páginas activas y las páginas excluidas. Aquí coloca su firma, excluye las páginas de anexo innecesarias y activa el sello de certificación.
+La imagen muestra una página de anexo ampliada (clic izquierdo), una página excluida (clic derecho) y la ventana de la firma (clic en una página del documento).</p>
+<ol class="marks">
+<li><b>Su documento.</b> Las páginas de la carta o del escrito. Haga clic en una para colocar en ella su firma.</li>
+<li><b>Línea de título del anexo.</b> Cada anexo comienza con una línea que muestra su número de entrada, su número de anexo y su título.</li>
+<li><b>Sello de certificación.</b> El interruptor al inicio de la línea activa o desactiva para este anexo el sello de copia certificada; el texto del sello sigue el idioma del país del caso. Gris significa desactivado, negro significa activado.</li>
+<li><b>DOCX.</b> Exporta su documento (sin anexos) como archivo de Word.</li>
+<li><b>Descargar PDF.</b> Genera el PDF final con todas las páginas activas y abre el cuadro de diálogo de exportación.</li>
+</ol>
+<h4>Qué puede hacer aquí</h4>
+<p class="grp"><b>Páginas de anexo</b></p>
+<ul>
+<li><b>Ampliar una página.</b> Un clic izquierdo en una página de anexo la muestra en grande; haga clic en cualquier lugar o pulse Escape para cerrarla.</li>
+<li><b>Excluir una página.</b> Un clic derecho excluye una página de anexo del PDF; se atenúa y se marca con un signo rojo. Haga clic derecho de nuevo para recuperarla. La numeración de páginas cuenta solo las páginas activas.</li>
+<li><b>Al menos una página por anexo.</b> La última página que queda de un anexo no puede excluirse; un breve aviso se lo indica.</li>
+<li><b>Páginas en blanco.</b> Las páginas de anexo prácticamente vacías se reconocen y se excluyen automáticamente. Puede recuperarlas con un clic derecho.</li>
+<li><b>Intervalos de páginas.</b> Cada vez que excluye o restaura una página, los intervalos de páginas de la lista de anexos de su documento se recalculan, de modo que siempre coinciden con el PDF final.</li>
+<li><b>Con descripción.</b> Los anexos que <span class="irs">IRONSTICK</span> crea a partir de entradas de la cronología tienen en su línea de título un interruptor <i>con descripción</i>. Desactívelo para omitir la descripción, por ejemplo notas internas que no deben llegar al tribunal; solo se reconstruye ese anexo.</li>
+</ul>
+<p class="grp"><b>Firma y sello</b></p>
+<ul>
+<li><b>Colocar su firma.</b> Haga clic en una página de su documento. La imagen de su firma aparece en la página; arrástrela al lugar adecuado. Arrastre el punto de la esquina para agrandarla o reducirla y para inclinarla ligeramente. <i>Aplicar</i> marca el punto en la página. Para ello se necesita una imagen de firma cargada en la configuración.</li>
+<li><b>Aún sin firma.</b> Si inicia la descarga del PDF sin haber colocado una firma, <span class="irs">IRONSTICK</span> pregunta si desea continuar sin ella.</li>
+<li><b>Sello de certificación.</b> En los anexos con el sello activado, cada página recibe el sello en el idioma del país del caso, con la fecha de hoy, colocado en un lugar libre de la parte inferior de la página. Si colocó su firma en el documento, también se añade al sello.</li>
+</ul>
+<p class="grp"><b>Crear el PDF</b></p>
+<ul>
+<li><b>Un solo PDF.</b> <i>Descargar PDF</i> une el documento y todas las páginas de anexo activas en un único PDF con numeración de páginas continua al pie de cada página y el número de anexo en las páginas de anexo. El texto sigue permitiendo la búsqueda. Una ventana de progreso muestra hasta dónde ha llegado; las páginas que no se pudieron procesar se enumeran en un aviso.</li>
+<li><b>Cuadro de diálogo de exportación.</b> <i>Descargar</i> guarda el PDF en su carpeta Documentos; <i>Google Drive</i> aparece cuando existe una carpeta de Google Drive en este ordenador. <i>Preparar el envío</i> guarda el documento, prepara el PDF para el envío y abre la pantalla de envío de correo con él adjunto.</li>
+<li><b>Cancelar.</b> Cierra la vista previa de impresión y vuelve al editor.</li>
+</ul>
+
+<h2 id="s14">14. Monitor de correo electrónico</h2>
+<figure><img src="img/screens/14%20email%20monitor.png" alt="Monitor de correo electrónico con la lista de la bandeja de entrada y un correo abierto con sus adjuntos"><figcaption>La bandeja de entrada con prioridad y asignación de caso, y un correo abierto con sus adjuntos.</figcaption></figure>
+<p class="scr-intro">El Monitor de correo electrónico incorpora a <span class="irs">IRONSTICK</span> el buzón que usted configuró en la configuración.
+El correo nuevo se recupera automáticamente en segundo plano, se valora por prioridad y, siempre que es posible, se asigna al caso correcto.
+La imagen muestra la lista de la bandeja de entrada a la izquierda y un correo abierto a la derecha, con sus adjuntos y el botón que convierte el correo en un documento del caso.</p>
+<ol class="marks">
+<li><b>Recibidos y Enviados.</b> Alterna entre los correos recibidos y los enviados. Todos los filtros, contadores y la lista se refieren entonces a la carpeta elegida.</li>
+<li><b>Fecha, marca de registrado y número de correo.</b> Cuándo llegó el correo, en su hora local. Una <b>marca verde</b> significa que el correo ya se ha registrado como documento. El número morado (por ejemplo <i>@M0000519</i>) identifica el correo; haga clic en él para copiarlo al portapapeles.</li>
+<li><b>Prioridad.</b> La valoración <i>Alta</i> (rojo), <i>Media</i> (naranja) o <i>Baja</i> (gris). Un guion significa que el correo se consideró sin importancia (por ejemplo un boletín) o que todavía no se ha valorado.</li>
+<li><b>Reconocimiento del caso.</b> El caso al que pertenece este correo, mostrado como cliente y número de caso; un guion significa que no se encontró ningún caso. La pequeña línea gris de debajo indica cómo se reconoció el caso. El reconocimiento se realiza en este orden:
+<ol>
+<li><b>Sin IA, directamente a partir del texto:</b> el número de expediente judicial de uno de sus casos (<i>por número de expediente</i>), un número de registro o de escrito conocido de uno de sus documentos (<i>por número de registro</i>), un número de cliente (<i>por número de cliente</i>) o una referencia a algo que usted envió (<i>respuesta a nuestro envío</i>).</li>
+<li><b>Si no, la IA</b> valora solo la prioridad y escribe un motivo de una frase; no asigna ningún caso.</li>
+<li><b>Después, el recurso de reserva:</b> el remitente es una institución o persona vinculada a un caso (<i>por institución</i>, <i>por persona</i>) o un remitente conocido (<i>remitente conocido</i>).</li>
+</ol></li>
+<li><b>Adjuntos.</b> El correo abierto enumera sus adjuntos con nombre y tamaño. Haga clic en un adjunto para verlo: los PDF y las imágenes se abren en la ventana del navegador de <span class="irs">IRONSTICK</span>, los demás tipos de archivo en el programa que su ordenador utiliza para ellos.</li>
+<li><b>Añadir como documento.</b> Convierte el correo, con sus adjuntos, en un único PDF y abre el registro de documentos, donde lo archiva en un caso.</li>
+</ol>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Recuperar y valorar el correo</h4>
+<ul>
+<li><b>Recuperación automática.</b> <span class="irs">IRONSTICK</span> recoge el correo nuevo al iniciarse y después, por sí mismo, cada pocos minutos. Si llega un correo nuevo mientras el monitor está abierto, la lista se actualiza sola. Al abrir el monitor se borra la señal de correo nuevo del icono del sobre de la barra superior.</li>
+<li><b>Recuperar correos.</b> El botón azul de la parte superior derecha recupera de inmediato los correos nuevos de la bandeja de entrada y de la carpeta de enviados. Un breve mensaje indica cuántos correos nuevos llegaron.</li>
+<li><b>Valoración automática.</b> Tras la recuperación, se comprueba cada correo nuevo. Si el texto contiene uno de sus números de caso, el caso se asigna directamente. En caso contrario, la IA valora la prioridad y escribe un motivo de una frase, que aparece en cursiva morada bajo el asunto. El progreso se muestra en la parte inferior de la pantalla.</li>
+<li><b>Buzón sin configurar.</b> Si todavía no se ha configurado ningún buzón, un aviso amarillo en la parte superior le indica que lo configure en la configuración. La línea del encabezado muestra la dirección de su buzón y el número de correos activos.</li>
+</ul>
+
+<h4>Filtros y lista</h4>
+<ul>
+<li><b>Activos.</b> Todos los correos que no ha ocultado; es la vista predeterminada.</li>
+<li><b>Importantes.</b> Solo los correos activos valorados como <i>Alta</i>.</li>
+<li><b>Todas.</b> Todos los correos de la carpeta, incluidos los ocultos.</li>
+<li><b>Oculto.</b> Solo los correos que usted ha ocultado. Cada filtro muestra su recuento entre paréntesis.</li>
+<li><b>Leer la lista.</b> Cada fila muestra la fecha, el remitente (en <i>Enviados</i>: el destinatario), el asunto con una vista previa de una línea, el motivo de la IA, el número de adjuntos (clip), la prioridad y el caso. Los correos no leídos se muestran en negrita. Cuando hay más de 50 correos, la navegación de páginas aparece encima y debajo de la lista.</li>
+<li><b>Ocultar un correo.</b> El ojo tachado al final de una fila oculta el correo de la lista activa. Todavía puede encontrarlo en <i>Oculto</i> y <i>Todas</i>.</li>
+</ul>
+
+<h4>Leer un correo</h4>
+<ul>
+<li><b>Abrir.</b> Haga clic en una fila para abrir el correo en una ventana. Muestra el remitente, el destinatario, los destinatarios en copia, la fecha, la lista de adjuntos y el texto completo. Al abrirlo, el correo se marca como leído.</li>
+<li><b>Rápido a partir de la primera vez.</b> El texto se descarga la primera vez que abre un correo y se conserva, de modo que después se abre al instante sin contactar con el servidor de correo.</li>
+<li><b>Privacidad.</b> Las imágenes remotas se bloquean, de modo que las imágenes de seguimiento no pueden informar de cuándo abrió el correo. Un pequeño aviso sobre el texto le indica cuándo se bloquearon imágenes.</li>
+<li><b>Si no se puede acceder al servidor de correo.</b> La ventana muestra en su lugar el texto de vista previa almacenado, con un breve aviso.</li>
+<li><b>Registrar de nuevo.</b> En un correo que ya se ha registrado, el botón se vuelve rojo y dice <i>Añadir como documento de nuevo</i>, para que no archive por descuido el mismo correo dos veces.</li>
+<li><b>Desde el chat.</b> Cuando el chat enlaza a un correo, el monitor se abre con ese correo ya mostrado, en la carpeta correcta.</li>
+</ul>
+
+<h4>Cómo llegan los adjuntos al documento</h4>
+<ul>
+<li><b>Un solo PDF.</b> Cuando registra un correo, los adjuntos PDF se añaden página a página, las imágenes se convierten en páginas propias y los adjuntos de Word, OpenDocument y Markdown se añaden como texto. Un archivo que no se puede convertir recibe una página de sustitución y además se guarda por separado junto al PDF.</li>
+</ul>
+
+<h2 id="s15">15. Control de tiempo</h2>
+<figure><img src="img/screens/15%20time%20tracking.png" alt="Control de tiempo con resumen, tiempo por caso, tiempo por cliente y resumen diario"><figcaption>Tiempo de trabajo registrado automáticamente, por caso, por cliente y por día.</figcaption></figure>
+<p class="scr-intro">El control de tiempo funciona automáticamente: <span class="irs">IRONSTICK</span> registra qué pantallas abre y para qué cliente y caso.
+A partir de ello calcula cuánto tiempo trabajó y muestra los totales por caso, por cliente y por día.
+La imagen muestra la vista de hoy; cuando hay un IRONSTICK SERVER conectado, los totales diarios por caso también se comunican al servidor.</p>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Elegir el período</h4>
+<ul>
+<li><b>Botones de período.</b> <i>Hoy</i>, <i>7 días</i>, <i>30 días</i>, <i>90 días</i> o <i>Total</i>. Todas las tablas de abajo siguen el período elegido. Al abrir la pantalla se muestran los últimos 30 días.</li>
+</ul>
+
+<h4>Resumen</h4>
+<ul>
+<li><b>Tres cifras.</b> El tiempo trabajado hoy, el tiempo trabajado esta semana y el total del período elegido. Hoy y esta semana permanecen siempre iguales, sea cual sea el período que elija.</li>
+</ul>
+
+<h4>Tablas</h4>
+<ul>
+<li><b>Tiempo por caso.</b> Cada caso con su número, título, cliente y tiempo, con una barra para comparar. El número de casos aparece en la parte superior derecha de la tarjeta.</li>
+<li><b>Tiempo por cliente.</b> Lo mismo, sumado por cliente.</li>
+<li><b>Resumen diario.</b> Fecha, día de la semana y tiempo de cada día (hasta 60 días), con el total del período en la parte superior derecha. La fila de hoy se resalta en azul claro.</li>
+</ul>
+
+<h4>Cómo se cuenta el tiempo</h4>
+<ul>
+<li><b>Automático.</b> Cada pantalla que abre cuenta hasta que abre la siguiente. Una pausa de más de 30 minutos cuenta como 30 minutos como máximo, de modo que un descanso no infla las cifras. La última pantalla del día cuenta un minuto.</li>
+<li><b>Aún sin datos.</b> Justo después del primer inicio, la pantalla le indica que el control de tiempo se acaba de activar y que todavía no existen datos.</li>
+<li><b>IRONSTICK SERVER.</b> Cuando el servidor está conectado, <span class="irs">IRONSTICK</span> le comunica su tiempo diario por caso cada cinco minutos. El tiempo que no está vinculado a un caso no se comunica.</li>
+</ul>
+
+<h2 id="s16">16. Leyes</h2>
+<figure><img src="img/screens/16%20statutes.png" alt="Biblioteca de leyes con campo de búsqueda, ventana Crear y una ley abierta"><figcaption>La biblioteca jurídica, la ventana para añadir una ley y el texto de una ley abierta.</figcaption></figure>
+<p class="scr-intro">La pantalla de leyes es su biblioteca jurídica: los textos completos de leyes, reglamentos, resoluciones y normas, almacenados en su ordenador y con búsqueda completa.
+Usted añade una ley mediante un enlace web o un archivo PDF/Markdown; <span class="irs">IRONSTICK</span> recupera, depura y clasifica después el texto en segundo plano.
+La IA utiliza esta biblioteca en primer lugar siempre que necesita una disposición legal. La imagen muestra la lista, la ventana para añadir una ley y una ley abierta con su propia búsqueda.</p>
+<ol class="marks">
+<li><b>Buscar en todas las leyes.</b> Escriba un término y pulse Intro o <i>Buscar</i>. Los resultados se abren en su propia pantalla, ordenados por ley, con un extracto de texto por cada lugar encontrado.</li>
+<li><b>Crear.</b> Abre la ventana para añadir una ley: pegue un enlace web en el campo o arrastre uno o varios archivos PDF o Markdown a la zona de debajo, y haga clic en <i>Crear</i>.</li>
+<li><b>Ley abierta.</b> Haga clic en una ley de la lista para leer su texto completo. El campo de búsqueda situado bajo el título busca solo dentro de esta ley.</li>
+</ol>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Añadir leyes</h4>
+<ul>
+<li><b>Por enlace o archivo.</b> En la ventana <i>Crear</i>, introduzca una dirección web o arrastre archivos PDF/MD; los archivos arrastrados se enumeran y pueden quitarse con la pequeña cruz. Un enlace que ya existe en la biblioteca no se añade dos veces; un enlace no válido muestra <i>Fallido</i>.</li>
+<li><b>Recuperada en segundo plano.</b> Mientras se prepara una ley, una barra de progreso muestra la etapa alcanzada. Si la carga se interrumpió, haga clic en la barra para iniciarla de nuevo. La lista se actualiza sola cuando la ley está lista.</li>
+<li><b>Propuesta por la IA.</b> Cuando la IA encuentra una ley que falta en la biblioteca, no la añade en silencio. Recibe una ventana con las propuestas y marca las que desea conservar.</li>
+</ul>
+
+<h4>La lista</h4>
+<ul>
+<li><b>Cada entrada.</b> Título, fecha de incorporación, área jurídica y una breve descripción, el enlace de origen y etiquetas del país y del tipo de norma (ley, reglamento, resolución …). Haga clic en el enlace de origen para abrir la página original en la ventana del navegador de <span class="irs">IRONSTICK</span>. Las leyes que cargó como archivo muestran el nombre del archivo en lugar de un enlace.</li>
+<li><b>Entradas rojas arriba.</b> Una ley mostrada en rojo no pudo cargarse o no se ha vuelto a comprobar desde hace más de un mes. Haga clic en una entrada fallida para intentar cargarla de nuevo.</li>
+<li><b>Entradas atenuadas.</b> Una ley cuyo origen ya no puede verificarse aparece atenuada y con la etiqueta <i>no verificable</i>. Haga clic en esa etiqueta para abrir el origen en la ventana del navegador de <span class="irs">IRONSTICK</span> y comprobarlo usted mismo; el texto abierto muestra entonces un aviso rojo en la parte superior.</li>
+<li><b>Aceptación pendiente.</b> Una ley recién preparada espera su confirmación en el Monitor de coherencia de datos. Haga clic en la etiqueta para ir allí. Solo las leyes aceptadas se comparten a través de IRONSTICK SERVER.</li>
+<li><b>Eliminar.</b> El icono de la papelera quita una de sus propias leyes tras una confirmación. Si hay un IRONSTICK SERVER conectado, la ley también se elimina allí.</li>
+<li><b>Páginas.</b> Con más de 20 leyes, la navegación de páginas aparece encima y debajo de la lista.</li>
+</ul>
+
+<h4>Filtros</h4>
+<ul>
+<li><b>Todas, Propios, Ajenos.</b> <i>Propios</i> muestra las leyes que usted añadió; <i>Ajenos</i> muestra las leyes que otros usuarios añadieron a través de IRONSTICK SERVER. Estas llevan el ID y el nombre de su propietario bajo el título y usted no puede eliminarlas.</li>
+<li><b>Caducadas.</b> Muestra solo las leyes cuyo origen ya no puede verificarse.</li>
+<li><b>País.</b> La lista desplegable situada junto a los filtros limita la lista a un país.</li>
+</ul>
+
+<h4>Búsqueda</h4>
+<ul>
+<li><b>En toda la biblioteca.</b> La búsqueda ignora los acentos y las letras especiales y también encuentra palabras que empiezan por su término de búsqueda; los números de artículo se buscan de forma exacta. En la pantalla de resultados, haga clic en el título de una ley para abrirla en el primer lugar encontrado, o haga clic en un extracto para saltar directamente a ese lugar.</li>
+<li><b>Dentro de una ley.</b> En la ley abierta, escriba un término y pulse Intro o <i>Buscar</i>. Todos los lugares encontrados se marcan en amarillo y el texto salta al primero. Haga clic en el contador (por ejemplo <i>1/12</i>) para pasar al siguiente lugar; tras el último, vuelve a empezar desde el primero.</li>
+</ul>
+
+<h2 id="s17">17. Expedientes del servidor</h2>
+<figure><img src="img/screens/17%20server%20cases.png" alt="Expedientes del servidor con la tarjeta Mis casos compartidos y sus suscriptores"><figcaption>Casos que usted comparte a través de IRONSTICK SERVER, con sus suscriptores.</figcaption></figure>
+<p class="scr-intro">Expedientes del servidor es donde usted trabaja con casos compartidos entre usuarios de IRONSTICK SERVER.
+Ve cuáles de sus propios casos ha compartido y quién los sigue, y puede suscribirse a casos que comparten otros usuarios.
+Esta pantalla, y su icono del menú principal, aparecen solo cuando el servidor está conectado. La imagen muestra un caso compartido con dos suscriptores.</p>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Traspasos entrantes</h4>
+<ul>
+<li><b>Asumir un caso.</b> Cuando otro usuario le traspasa un caso, aparece en esta tarjeta en la parte superior. Haga clic en <i>Importar</i> para incorporarlo a sus propios datos.</li>
+<li><b>Importación comprobada.</b> El paquete del caso se descarga y se comprueba primero su integridad. Después elige si el cliente ya existe en su sistema o se añade como cliente nuevo. Si ya tiene un caso con el mismo número, se le ofrece fusionar ambos. Cuando los datos difieren, se muestra una lista de las diferencias y, al final, un mensaje confirma cuántas entradas y archivos se importaron.</li>
+</ul>
+
+<h4>Mis casos compartidos</h4>
+<ul>
+<li><b>Sus casos compartidos.</b> Enumera todos los casos que ha compartido desde la pantalla del caso, con número de caso y cliente. Haga clic en el caso para abrirlo.</li>
+<li><b>Quitar el uso compartido.</b> Pone fin al uso compartido de este caso en el servidor.</li>
+<li><b>Suscriptores.</b> Los usuarios que siguen el caso se enumeran debajo. Un usuario que ha solicitado seguirlo se marca como <i>Solicitado</i>; haga clic en <i>Permitir</i> para admitirlo. <i>Quitar</i> pone fin a una suscripción activa o rechaza una solicitud. Si todavía nadie sigue el caso, la tarjeta lo indica.</li>
+</ul>
+
+<h4>Casos compartidos por otros</h4>
+<ul>
+<li><b>La lista.</b> Muestra los casos que otros usuarios han compartido con todos o con usted personalmente, con caso, propietario y despacho. Si no hay ninguno, la tarjeta muestra <i>No hay entradas</i>.</li>
+<li><b>Solicitar suscripción.</b> En un caso compartido con todos, usted pide al propietario que le deje seguirlo. La etiqueta <i>Solicitado</i> aparece hasta que el propietario lo acepta.</li>
+<li><b>Suscribirse.</b> En un caso compartido con usted personalmente, la suscripción es activa de inmediato; la etiqueta cambia a <i>Suscrito</i>.</li>
+<li><b>Cancelar suscripción.</b> Pone fin a su suscripción o retira su solicitud.</li>
+<li><b>Servidor no accesible.</b> Si se pierde la conexión con el servidor, la tarjeta indica que no hay ningún servidor conectado.</li>
+</ul>
+
+<h2 id="s18">18. Copia de seguridad</h2>
+<figure><img src="img/screens/18%20backup.png" alt="Pantalla de copia de seguridad con copia de seguridad de datos, copias recientes y restauración"><figcaption>Cree una copia de seguridad de datos, vea las copias recientes o restaure una.</figcaption></figure>
+<p class="scr-intro">La pantalla de copia de seguridad guarda todos los datos de sus casos en un único archivo ZIP y los restituye cuando los necesita.
+Usted decide adónde va el archivo: una carpeta local, un SSD externo o una memoria USB.
+La base de datos y los archivos de caso almacenados conservan su cifrado AES-256 dentro de la copia. La imagen muestra la tarjeta de copia de seguridad, la lista de copias recientes y la tarjeta de restauración.</p>
+
+<h3 class="do">Qué puede hacer aquí</h3>
+
+<h4>Copia de seguridad</h4>
+<ul>
+<li><b>Crear copia de seguridad de datos.</b> Guarda su base de datos, sus documentos y archivos, y su configuración y licencia en un único archivo ZIP. Los modelos de lenguaje de la IA local y de la salida de voz se omiten, porque pueden volver a descargarse.</li>
+<li><b>Progreso.</b> Una ventana muestra hasta dónde ha llegado la copia (archivo X de Y) y qué archivo se está empaquetando. La copia se ejecuta en un proceso independiente en segundo plano, de modo que puede seguir trabajando.</li>
+<li><b>Elegir dónde guardar.</b> Cuando el ZIP está listo, un cuadro de diálogo de guardado solicita la ubicación y el nombre del archivo. Si cancela, no se conserva ningún archivo. Cuando el guardado ha terminado, un mensaje muestra el nombre del archivo, el tamaño y el número de archivos.</li>
+<li><b>Copias recientes.</b> Las últimas cinco copias se enumeran con fecha y hora, nombre de archivo y tamaño, de modo que pueda ver de un vistazo cuándo hizo la última copia.</li>
+<li><b>Desde el chat.</b> Si pide al chat que haga una copia de seguridad, esta pantalla se abre e inicia de inmediato la copia de seguridad de datos.</li>
+<li><b>IRONSTICK SERVER.</b> Cuando el servidor está conectado, cada copia de seguridad y cada restauración se le comunican: <b>quién</b> la hizo, <b>cuándo</b>, desde qué dirección IP, el tipo, el nombre de archivo y el tamaño; nunca los datos de la copia en sí. El administrador lo ve en una página del servidor, junto con la fecha de la última copia de cada usuario (en rojo pasados más de cinco días), y puede recordar a los usuarios que hagan su copia de seguridad.</li>
+</ul>
+
+<h4>Restauración</h4>
+<ul>
+<li><b>Elegir copia de seguridad.</b> Seleccione un ZIP de copia de seguridad. <span class="irs">IRONSTICK</span> comprueba primero que realmente sea una copia de seguridad de <span class="irs">IRONSTICK</span>; cualquier otro archivo se rechaza con un aviso.</li>
+<li><b>Confirmar.</b> La restauración sobrescribe sus datos actuales. Una ventana le pide que confirme; haga clic en <i>Cancelar</i> para detenerla o en <i>Restaurar</i> para continuar.</li>
+<li><b>Progreso y resultado.</b> Una ventana de progreso muestra cada archivo a medida que se repone y un mensaje le indica si la restauración tuvo éxito. Como la copia contiene su configuración y licencia, estas también se restauran.</li>
+</ul>
+
+<footer class="sd-foot"><p>IRONSTICK es software para la práctica jurídica. Este sitio tiene únicamente fines informativos y no constituye asesoramiento jurídico. © 2026 IRONSTICK.</p></footer>
+</body></html>

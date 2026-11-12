@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="utf-8">
+<title>IRONSTICK — Manual - Bridge</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-manual{background-image:url("img/lp_manual.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="Manual da Bridge — trabalhar com a IA: o que acontece nos bastidores e oito fluxos de trabalho, do início do dia à pesquisa legislativa.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/manualbridge_pt.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/manualbridge.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/manualbridge_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/manualbridge_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/manualbridge_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/manualbridge_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/manualbridge_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/manualbridge_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/manualbridge_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/manualbridge_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/manualbridge_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/manualbridge_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/manualbridge.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>
+  .dlg{border:1px solid #dadce0;border-radius:8px;padding:6px 14px 10px;margin:14px 0;background:#f8f9fa}
+  .dlg .u,.dlg .a{margin:10px 0}
+  .dlg .who{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5f6368;margin-bottom:3px}
+  .dlg .u p{background:#e8f0fe;border-radius:8px;padding:8px 12px;margin:0 0 4px}
+  .dlg .a p{background:#fff;border:1px solid #e3e5e8;border-radius:8px;padding:8px 12px;margin:0 0 4px}
+  .dlg .t{font-family:Consolas,'Courier New',monospace;font-size:12px;color:#5f6368;border-left:3px solid #c6dafc;padding:2px 0 2px 10px;margin:6px 0}
+  .cpbtn{font:600 12px 'Segoe UI',Arial,sans-serif;color:#1a73e8;background:#fff;border:1px solid #c6dafc;border-radius:14px;padding:2px 12px;cursor:pointer;margin:0 0 6px}
+  .cpbtn:hover{background:#e8f0fe}
+  figure.chart img{max-width:min(720px,100%)}
+  .boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:26px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}
+  .boxorange b,.boxorange .irs{color:#fff}
+  ol.say{padding-left:1.5em}
+  ol.say li{margin:14px 0}
+  ol.say li::marker{color:#1a73e8;font-weight:700}
+  ol.say p.cp{background:#e8f0fe;border-radius:8px;padding:8px 12px;margin:0 0 4px;font-weight:600}
+  ol.say .does{display:block;color:#5f6368;font-size:14px;margin:2px 0 0}
+</style><link rel="alternate" type="text/markdown" href="manualbridge_pt.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_pt.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_pt.html">Início</a><a href="overview_pt.html">Visão geral</a><a href="ki_pt.html">IA</a><span class="mh">Manuais</span><a class="sub" href="manualquickstart_pt.html">Início rápido</a><a class="sub" href="manualironstick_pt.html">App cliente</a><a class="sub" href="manualbridge_pt.html" aria-current="page">Bridge</a><a href="gdpr_pt.html">RGPD</a><a href="download_pt.html">Download</a></div></div><nav class="mainnav"><a href="overview_pt.html">Visão geral</a><a href="ki_pt.html">IA</a><div class="nav-drop" tabindex="0"><span>Manuais</span><div class="menu"><a href="manualquickstart_pt.html">Início rápido</a><a href="manualironstick_pt.html">App cliente</a><a href="manualbridge_pt.html" aria-current="page">Bridge</a></div></div><a href="gdpr_pt.html">RGPD</a><a href="download_pt.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_pt.html">Experimentar 30 dias</a><nav class="lang-wrap" tabindex="0" title="Idioma" aria-label="Idioma"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="manualbridge.html">English</a><a lang="de" hreflang="de" href="manualbridge_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="manualbridge_ro.html">Română</a><a lang="fr" hreflang="fr" href="manualbridge_fr.html">Français</a><a lang="it" hreflang="it" href="manualbridge_it.html">Italiano</a><a lang="es" hreflang="es" href="manualbridge_es.html">Español</a><a class="on" lang="pt" hreflang="pt" href="manualbridge_pt.html">Português</a><a lang="nl" hreflang="nl" href="manualbridge_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="manualbridge_ru.html">Русский</a><a lang="uk" hreflang="uk" href="manualbridge_uk.html">Українська</a><a lang="tr" hreflang="tr" href="manualbridge_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-manual" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>Manual - Bridge</h1></div><p class="gh-sub">Manual da Bridge — trabalhar com a IA: o que acontece nos bastidores e oito fluxos de trabalho, do início do dia à pesquisa legislativa.</p></div></section>
+
+<p class="part">Fundamentos</p>
+<h2 id="b1">1. Chat de IA e Bridge — qual é a diferença?</h2>
+<p class="scr-intro">O <span class="irs">IRONSTICK</span> oferece-lhe duas formas de trabalhar com uma IA sobre os seus processos.
+O <b>chat de IA</b> está integrado no programa: escreve numa janela do <span class="irs">IRONSTICK</span> e é o próprio <span class="irs">IRONSTICK</span> que envia o pedido a um serviço de IA externo – com as chaves de API que o seu escritório registou na <a href="manualquickstart_pt.html#q3">Configuração de IA</a>.
+A <b>Bridge</b> funciona ao contrário: escreve na aplicação de IA para desktop que já utiliza, e essa aplicação chama as ferramentas do <span class="irs">IRONSTICK</span> em tempo real através de um conector.
+Em ambos os casos, a IA acede aos seus dados exclusivamente através do <span class="irs">IRONSTICK</span>, pelas mesmas ferramentas e por detrás das mesmas barreiras.</p>
+
+<h3>O chat de IA integrado</h3>
+<ul>
+<li><b>Primeiro, uma camada local.</b> Cada mensagem passa primeiro por uma camada baseada em regras que corre no seu computador – sem modelo de IA e sem Internet. Os pedidos simples – abrir um ecrã, um cliente ou um processo, consultas simples – são executados aí diretamente. Tudo o que exija raciocínio ou redação segue para um serviço de IA externo.</li>
+<li><b>As suas chaves, os seus serviços.</b> O chat utiliza os serviços de IA externos para os quais existe uma chave de API registada na Configuração de IA. São utilizados automaticamente por uma ordem fixa. Se um deles não estiver acessível ou o seu saldo se esgotar, o seguinte assume o mesmo pedido.</li>
+<li><b>Primeiro, o seu consentimento.</b> Antes de o chat enviar o que quer que seja a um serviço de IA externo, pergunta-lhe. Se recusar, nada é enviado, e o chat só volta a perguntar quando mudar de modo ou reabrir o chat.</li>
+<li><b>Pseudonimizado.</b> Antes de um pedido sair do seu computador, os nomes de pessoas e empresas, os números de processo e de referência, os números de identificação pessoal, os IBAN, os números de telefone, os endereços de e-mail e as moradas das partes são <a href="gdpr_pt.html">substituídos por marcadores neutros</a>. A resposta é retraduzida no seu computador. As datas e os montantes mantêm-se inalterados. Os marcadores são gerados a partir dos seus próprios registos; além disso, são reconhecidos números, endereços de e-mail e números de telefone no texto livre.</li>
+<li><b>Registado.</b> Cada chamada a um serviço de IA externo é registada localmente, precisamente na forma com marcadores em que saiu do seu computador.</li>
+<li><b>Memória de trabalho compacta.</b> A cada interação, a IA recebe a parte mais recente da conversa (cerca dos últimos 6.000 caracteres) e um breve resumo da parte anterior. Um pedido decorre em até oito rondas de ferramentas.</li>
+<li><b>Onde funciona.</b> No Windows e no tablet Android.</li>
+</ul>
+
+<h3>A Bridge</h3>
+<ul>
+<li><b>Três componentes.</b> A sua aplicação de IA para desktop liga-se, através do Model Context Protocol (MCP), a um pequeno programa Bridge no mesmo computador. A Bridge encaminha cada chamada, através de uma ligação protegida acessível apenas a partir deste computador, para a aplicação <span class="irs">IRONSTICK</span> em execução. A aplicação executa a ferramenta e devolve o resultado pelo mesmo caminho.</li>
+<li><b>O programa Bridge não conhece dados.</b> Não abre nenhuma base de dados nem contém ferramentas próprias; limita-se a encaminhar as chamadas. Também as instruções de trabalho para a IA provêm da aplicação em execução quando a IA desktop se liga.</li>
+<li><b>Apenas enquanto o IRONSTICK estiver em execução.</b> Se a aplicação estiver fechada, cada chamada de ferramenta recebe como resposta a indicação de que o <span class="irs">IRONSTICK</span> não está em execução e de que o deve iniciar. A lista de ferramentas continua visível na IA desktop, pelo que a ordem pela qual inicia os dois programas é indiferente.</li>
+<li><b>Dados reais.</b> Os resultados das ferramentas chegam à IA desktop sem pseudonimização – são os nomes, números e dados reais que tornam possível uma minuta pronta a apresentar. O que a IA lê é tratado na sua própria conta junto do fornecedor da aplicação de IA para desktop e nas condições deste.</li>
+<li><b>Ativada por si.</b> A Bridge só funciona se a opção <i>Permitir acesso do conector por IA desktop local</i> estiver ativada na Configuração de IA e se a Bridge estiver <a href="download_pt.html">licenciada</a> para essa aplicação de IA para desktop. O controlo do programa – abrir ecrãs, processos e documentos, exportar – requer um segundo interruptor.</li>
+<li><b>Várias em simultâneo.</b> As aplicações de IA para desktop licenciadas – Claude Desktop, ChatGPT Desktop, Qwen Desktop e Kimi Desktop – podem estar ligadas em simultâneo e trabalhar no mesmo processo. Cada uma é apresentada, enquanto trabalha, com o seu próprio ícone na barra de menus.</li>
+<li><b>Onde funciona.</b> No Windows.</li>
+</ul>
+
+<h3>Em comparação</h3>
+<table>
+<tr><th></th><th>Chat de IA (integrado)</th><th>Bridge (aplicação de IA para desktop)</th></tr>
+<tr><td>Onde escreve</td><td>Na janela de chat do <span class="irs">IRONSTICK</span></td><td>Na sua aplicação de IA para desktop</td></tr>
+<tr><td>Quem comunica com o serviço de IA</td><td>O <span class="irs">IRONSTICK</span>, com as suas próprias chaves de API</td><td>A sua aplicação de IA para desktop, com a sua própria conta</td></tr>
+<tr><td>Custos da IA</td><td>Faturados pelo serviço de IA em função da utilização, na sua chave de API</td><td>Cobertos pela subscrição que já tem para a aplicação de IA para desktop</td></tr>
+<tr><td>Licença <span class="irs">IRONSTICK</span></td><td>Incluído, sem licença adicional</td><td><a href="download_pt.html">Licença Bridge</a> por utilizador / posto de trabalho – uma Bridge por aplicação de IA para desktop ou o pacote de todas as Bridges</td></tr>
+<tr><td>Dados enviados à IA</td><td>Pseudonimizados; datas e montantes inalterados</td><td>Dados reais, tratados na sua conta junto do fornecedor</td></tr>
+<tr><td>O seu consentimento</td><td>Antes do primeiro pedido externo de uma sessão de chat</td><td>Antes do primeiro acesso a dados por qualquer IA desktop em cada execução do programa</td></tr>
+<tr><td>Instruções de trabalho</td><td>São enviadas com cada pedido</td><td>A IA tem de as ler e confirmar textualmente uma regra antes de abrir uma ferramenta</td></tr>
+<tr><td>Ferramentas e barreiras</td><td>As mesmas ferramentas e as mesmas barreiras, mais uma pesquisa no próprio histórico do chat</td><td>As mesmas ferramentas e as mesmas barreiras; controlo do programa apenas com o respetivo interruptor</td></tr>
+<tr><td>Duração de uma sessão de trabalho</td><td>Conversa mais recente e um breve resumo; até oito rondas de ferramentas por pedido</td><td>A conversa da aplicação de IA para desktop</td></tr>
+<tr><td>Plataformas</td><td>Windows e tablet Android</td><td>Windows</td></tr>
+</table>
+
+<h3>Porque é que a Bridge é indicada para trabalho processual extenso</h3>
+<ul>
+<li><b>Sem custos por chamada através do IRONSTICK.</b> Ler processos completos, analisar centenas de documentos e redigir em várias rondas – tudo isto corre pela subscrição que já paga pela aplicação de IA para desktop. O mesmo trabalho feito através do chat integrado é faturado em função da utilização na sua chave de API, o que, em processos grandes, se acumula rapidamente.</li>
+<li><b>Sessões de trabalho mais longas.</b> A IA desktop mantém a sua própria conversa contínua — ideal para longas sessões de trabalho sobre processos volumosos.</li>
+<li><b>Respostas maiores por chamada.</b> O Claude Desktop e o ChatGPT Desktop recebem diretamente respostas de ferramentas até 40.000 caracteres; o Qwen Desktop, o Kimi Desktop e o chat integrado recebem até 10.000. Tudo o que for maior vai integralmente para o armazenamento intermédio encriptado e é lido a partir daí por partes.</li>
+<li><b>O conjunto completo de ferramentas, o texto completo.</b> A IA desktop trabalha com o conjunto completo de ferramentas e lê os textos integrais na sua própria conversa, por detrás das mesmas barreiras que o chat.</li>
+<li><b>O chat mantém o seu lugar.</b> O chat integrado não precisa de licença adicional, está sempre à mão – também no tablet – e é o canal mais rigorosamente controlado: pseudonimizado, com pedido de consentimento e registado.</li>
+</ul>
+
+<h2 id="b2">2. Um conjunto de ferramentas — na aplicação cliente</h2>
+<p class="scr-intro">Cada operação que uma IA pode executar reside na aplicação cliente <span class="irs">IRONSTICK</span> no seu computador – não na IA nem no programa Bridge.
+O chat de IA e cada IA desktop ligada chamam exatamente as mesmas ferramentas. Cada chamada é executada pela aplicação em execução sobre a sua base de dados em tempo real, e apenas o resultado regressa à IA.</p>
+<ul>
+<li><b>Um único registo de ferramentas.</b> O conjunto de ferramentas é construído por um único módulo, tanto para o chat de IA como para a Bridge: as mesmas ferramentas, pela mesma ordem, por detrás das mesmas barreiras. As ferramentas estão agrupadas por temas em conjuntos de ferramentas – processo, provas, prazos, legislação, cartas e e-mails, entre outros –, que a IA abre conforme necessário.</li>
+<li><b>Um único caminho.</b> Cada chamada de ferramenta, seja do chat ou de uma IA desktop, passa pela mesma camada de controlo: o ícone de atividade na barra de menus, a identificação de quem chama, as barreiras e o encaminhamento de resultados grandes para o armazenamento intermédio. Cada IA desktop e cada serviço de API mantém o seu próprio registo do que leu, de modo que a leitura de uma nunca conta para outra.</li>
+<li><b>Os dados ficam no IRONSTICK.</b> O seu processo permanece na base de dados do <span class="irs">IRONSTICK</span> no seu computador. Uma IA recebe apenas o que uma ferramenta devolve para a respetiva chamada; o <span class="irs">IRONSTICK</span> não lhe entrega nem a base de dados nem a pasta de dados.</li>
+<li><b>Em tempo real a cada chamada.</b> As ferramentas abrem a base de dados a cada chamada. O que guardar é visto pela chamada de ferramenta seguinte.</li>
+<li><b>Funciona em segundo plano.</b> As ferramentas correm em segundo plano dentro da aplicação, pelo que o programa se mantém reativo mesmo durante leituras longas de processos volumosos.</li>
+<li><b>A aplicação tem de estar em execução.</b> Sem a aplicação em execução não há ferramentas: o programa Bridge limita-se a encaminhar chamadas e responde que o <span class="irs">IRONSTICK</span> não está em execução.</li>
+<li><b>A aplicação tem de estar desbloqueada.</b> Enquanto o código de segurança de seis dígitos não for introduzido no ecrã inicial, cada chamada de ferramenta de uma IA desktop recebe como resposta a indicação de que a aplicação está bloqueada, e não são devolvidos dados. Introduza o código no <span class="irs">IRONSTICK</span> e repita depois o pedido.</li>
+<li><b>O acesso é concedido por si.</b> A Bridge só serve uma IA desktop se o interruptor do conector estiver ativado e essa IA desktop estiver licenciada. O primeiro acesso a dados por qualquer IA desktop após cada arranque do programa abre um único diálogo de confirmação. Se aprovar, o acesso fica aberto para todas as IA desktop licenciadas durante o resto da execução do programa. Se recusar, cada chamada de cada IA desktop é rejeitada durante 10 minutos, e no acesso seguinte é-lhe perguntado de novo. Esta decisão não é guardada.</li>
+</ul>
+
+<h2 id="b3">3. As barreiras — o que acontece nos bastidores</h2>
+<p class="scr-intro">Entre a IA e os seus registos existem barreiras incorporadas na camada de ferramentas da aplicação cliente. Trata-se de simples lógica de programa – nenhuma IA verifica outra IA.
+Se uma barreira rejeitar uma chamada, nada é escrito nem entregue; a IA recebe uma mensagem que indica o que falta e qual a chamada que abre a barreira.
+A maioria das barreiras funciona da mesma forma para o chat de IA e para cada IA desktop; a última coluna mostra onde cada uma se aplica.</p>
+<table>
+<tr><th>Barreira</th><th>Quando é acionada</th><th>O que faz</th><th>Aplica-se a</th></tr>
+<tr><td><b>Consentimento antes da IA externa</b></td><td>Quando, numa sessão de chat, um pedido tem de ser enviado pela primeira vez a um serviço de IA externo</td><td>Um diálogo pergunta se a IA externa pode ser utilizada. Se recusar, nada é enviado, e o chat não volta a perguntar nessa sessão.</td><td>Chat de IA</td></tr>
+<tr><td><b>Pseudonimização</b></td><td>Cada pedido do chat de IA a um serviço de IA externo</td><td>Nomes, empresas, números de processo e de referência, números de identificação, IBAN, números de telefone, endereços de e-mail e moradas das partes saem do computador como marcadores e são retraduzidos no seu computador. As datas e os montantes mantêm-se inalterados. Se não for possível construir integralmente a lista de marcadores, o pedido não é enviado.</td><td>Chat de IA</td></tr>
+<tr><td><b>Consentimento para acesso a dados</b></td><td>A primeira chamada de ferramenta de qualquer IA desktop após o arranque do programa</td><td>Surge um diálogo de confirmação comum a todas as IA desktop. Aprovado: aberto durante o resto da execução do programa. Recusado: cada chamada é rejeitada durante 10 minutos; depois é-lhe perguntado de novo.</td><td>Bridge</td></tr>
+<tr><td><b>Bloqueio de arranque</b></td><td>Cada chamada de ferramenta enquanto o código de segurança de seis dígitos não for introduzido</td><td>A chamada recebe como resposta a indicação de que a aplicação está bloqueada; não são devolvidos dados.</td><td>Bridge</td></tr>
+<tr><td><b>Trinco das instruções</b></td><td>Cada chamada de ferramenta de uma IA desktop</td><td>Todas as ferramentas, exceto a leitura das instruções, a sua confirmação e a consulta do idioma do sistema, permanecem fechadas até a IA ter lido as instruções e reproduzido textualmente a regra contra factos inventados. A confirmação caduca 60 minutos após ter sido dada, após 2 horas sem chamadas, à meia-noite, a cada nova ligação e – quando o <span class="irs">IRONSTICK</span> consegue consultar o registo da conversa – quando a IA desktop condensa a sua conversa; nesse caso, a IA tem de voltar a ler e reproduzir textualmente uma regra escolhida aleatoriamente. No chat de IA, as instruções são, em vez disso, enviadas com cada pedido.</td><td>Bridge</td></tr>
+<tr><td><b>Barreira de data</b></td><td>Ferramentas que escrevem conteúdos datados – cronologia, calendário, notas diárias, registo diário, memória, comunicações de legislação, entre outras</td><td>A chamada é rejeitada, a menos que a IA tenha obtido, nos últimos 30 minutos, a data e a hora atuais reais.</td><td>Ambos</td></tr>
+<tr><td><b>Primeiro ler o processo</b></td><td>Ferramentas que leem dados do processo (cronologia, linha temporal, pesquisas, textos integrais, entre outras) e ferramentas que escrevem num processo (notas, entradas na cronologia, verificação de peças processuais, exportação, passagem a outra IA)</td><td>As ferramentas que leem o conteúdo de um processo são rejeitadas até a IA ter lido o digest desse processo. Uma nota ou uma entrada na cronologia exige, além disso, o perfil do processo, a jurisdição e as entradas mais recentes da cronologia. Uma verificação de peça processual, uma exportação ou uma passagem exige ainda que os documentos mais recentes do processo tenham sido lidos na íntegra. A rejeição enumera o que ainda não foi lido.</td><td>Ambos</td></tr>
+<tr><td><b>Escrever apenas a partir do que foi lido</b></td><td>Entradas de memória, alterações a uma Snake, trabalho sobre minutas, a verificação de peças processuais e a entrega relativa a um processo</td><td>Uma entrada de memória relativa a um processo só é aceite se o digest tiver sido lido e se cada documento nele citado tiver sido lido na íntegra nessa sessão. Cada resultado de pesquisa num ficheiro do armazenamento intermédio inclui a indicação de que resultados de pesquisa não equivalem a leitura, juntamente com os documentos ainda não lidos que estão por detrás dos resultados. Se, num processo, a IA tiver aberto um documento da parte contrária ou de uma autoridade, nada mais é escrito nesse processo até esse documento ter sido lido na íntegra.</td><td>Ambos</td></tr>
+<tr><td><b>Primeiro o Nucleu</b></td><td>Redigir, verificar e entregar uma peça processual</td><td>Rejeitado até cada Nucleu atual do processo – o Nucleu do processo e o Nucleu de cada situação de facto a que o processo pertence – ter sido lido na sua versão atual. A última ronda da verificação de peças processuais compara o documento com o Nucleu.</td><td>Ambos</td></tr>
+<tr><td><b>Barreira Snake</b></td><td>Na verificação de peças processuais, imediatamente antes da ronda do Nucleu, se o processo ou outro processo das suas situações de facto tiver uma Snake</td><td>A IA tem de lhe perguntar se a ronda Snake deve ser executada e só prossegue após a sua resposta – ou de imediato, se o tiver solicitado ao atribuir a tarefa. Se responder que sim, cada entrada da Snake tem de ser tratada, com fundamentação, como adotada, rejeitada ou não relevante.</td><td>Ambos</td></tr>
+<tr><td><b>Primeiro a biblioteca de legislação</b></td><td>Uma pesquisa na web ou consulta de página web relativa a uma lei (números de artigos ou parágrafos, nomes de leis, números de diplomas, portais de legislação)</td><td>Rejeitado até a IA ter pesquisado essa norma na sua biblioteca de legislação. Se a biblioteca a contiver, a web permanece fechada para essa norma e a IA cita a partir da biblioteca. Só se a biblioteca não tiver qualquer resultado é que a web é aberta para essa norma – durante 15 minutos.</td><td>Ambos</td></tr>
+<tr><td><b>Comunicar fontes legislativas — abertas, não excertos</b></td><td>Uma pesquisa na web relativa a legislação ou uma página aberta de um portal de legislação que forneça uma fonte legislativa, e cada comunicação de uma nova fonte legislativa</td><td>Cada resposta de ferramenta seguinte começa com o lembrete para comunicar a fonte, até que esta seja comunicada (até 15 minutos). Uma comunicação só é aceite para uma página que a própria IA tenha aberto nas últimas 24 horas com a ferramenta de páginas do <span class="irs">IRONSTICK</span>. As fontes comunicadas aguardam num diálogo de consentimento: as fontes assinaladas são obtidas, verificadas e guardadas na biblioteca; as não assinaladas são rejeitadas.</td><td>Ambos</td></tr>
+<tr><td><b>Memória apenas com a sua autorização</b></td><td>A IA guarda, altera ou elimina uma entrada de memória</td><td>Um diálogo mostra-lhe a entrada. Esta só é guardada, alterada ou eliminada se o autorizar; as entradas recusadas são descartadas. Enquanto o diálogo estiver aberto, qualquer outra chamada dessa sessão é rejeitada. Com exceção das tarefas de passagem entre IA e das suas próprias notas, a IA lê apenas as entradas de memória que autorizou.</td><td>Ambos</td></tr>
+<tr><td><b>Propostas em vez de escrita</b></td><td>A IA pretende alterar dados mestre, adicionar uma pessoa ou instituição, adicionar uma relação, preencher uma análise de pessoa, fundir duplicados ou eliminar um registo</td><td>A ferramenta não escreve nada nos seus registos. Deposita uma proposta no monitor de consistência de dados, onde a aceita ou recusa.</td><td>Ambos</td></tr>
+<tr><td><b>Documentos secretos excluídos</b></td><td>Cada ferramenta de IA que lê documentos, ficheiros multimédia, prazos ou um processo inteiro, e os serviços em segundo plano que utilizam IA externa (monitor de consistência de dados, relatório de situação)</td><td>As entradas marcadas como secretas são filtradas de cada ferramenta de IA e de cada serviço e não são transmitidas à IA.</td><td>Ambos</td></tr>
+<tr><td><b>Probabilidades de êxito apenas com base nos autos do tribunal</b></td><td>A avaliação do processo por IA, iniciada na aplicação ou por uma IA desktop</td><td>A avaliação das probabilidades de êxito baseia-se exclusivamente no perfil do processo e nos documentos do processo que foram enviados ao tribunal ou à autoridade a que se dirige a petição inicial, ou que de lá vieram – de ambas as partes, sem anexos. Sem petição inicial ou sem tribunal ou autoridade identificados, as probabilidades de êxito são assinaladas como não avaliáveis e o indicador fica vazio.</td><td>Ambos</td></tr>
+<tr><td><b>Verificação antes da entrega</b></td><td>Entrega de um documento formal, como uma peça processual</td><td>A entrega é rejeitada sem um resultado positivo recente da verificação determinística de peças processuais para exatamente este estado do processo; qualquer edição invalida-o. O que sai do sistema é uma minuta pronta a apresentar, para revisão e assinatura por si.</td><td>Ambos</td></tr>
+</table>
+
+<p class="part">Fluxos de trabalho</p>
+<h2 id="w1">Fluxo de trabalho 1 — Início do dia</h2>
+<p class="scr-intro">O início do dia responde a três perguntas antes de começar: o que está a vencer, o que entrou e onde ficou.
+Um passo gera o resumo de início de sessão – com a data, os lembretes, os prazos e compromissos dos próximos três dias e as tarefas pendentes. Em seguida, a IA obtém a lista completa de prazos, os compromissos de hoje e o que foi registado hoje ou ontem.
+Utilize-o todas as manhãs e sempre que iniciar uma nova conversa com uma IA desktop.</p>
+<figure class="chart"><img src="img/screens/1%20menu.png" alt="Início, agenda e mapa de calor"><figcaption>Início, agenda e mapa de calor: prazos, compromissos e novas entradas do dia num relance.</figcaption></figure>
+
+<h3>Passo 0 — Estabelecer o contexto</h3>
+<ul>
+<li><b>Iniciar e desbloquear o IRONSTICK.</b> As ferramentas só funcionam enquanto a aplicação estiver em execução e depois de introduzido o código de segurança de seis dígitos.</li>
+<li><b>O seu próprio briefing na aplicação.</b> No Windows, o primeiro arranque do dia pergunta se o <span class="irs">IRONSTICK</span> deve fazer-lhe um briefing sobre o dia. Se responder que sim, o briefing é apresentado com linhas clicáveis que conduzem aos prazos, ao calendário, à caixa de correio, aos documentos e ao processo, e é também lido em voz alta.</li>
+<li><b>IA desktop: uma nova conversa.</b> Inicie uma nova conversa na sua aplicação de IA para desktop. Aprove o diálogo de acesso a dados que o <span class="irs">IRONSTICK</span> apresenta no primeiro acesso de qualquer IA desktop após o arranque do programa.</li>
+<li><b>Chat de IA.</b> Abra o chat de IA no <span class="irs">IRONSTICK</span>; as instruções de trabalho são enviadas com cada pedido.</li>
+<li><b>Não é necessário nenhum processo.</b> O início do dia abrange todos os clientes e processos. Abra um processo apenas se a sua pergunta disser respeito a esse processo.</li>
+</ul>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">Inicia a sessão.</p><span class="does">A IA lê e confirma as suas instruções, fixa a data de hoje e carrega o resumo de início de sessão: lembretes, prazos e compromissos dos próximos três dias, tarefas pendentes.</span></li>
+<li><p class="cp">O que vence hoje e nos próximos três dias?</p><span class="does">Recebe os prazos, as audiências e os compromissos por ordem cronológica, cada um com o respetivo processo.</span></li>
+<li><p class="cp">O que entrou desde ontem?</p><span class="does">Novos e-mails e documentos recém-registados, cada um com o processo a que foi associado.</span></li>
+<li><p class="cp">Lê o novo e-mail no processo [número do processo] e diz-me o que me pede.</p><span class="does">Primeiro é lido o texto integral; recebe o conteúdo, os pontos em aberto e uma proposta para o passo seguinte.</span></li>
+<li><p class="cp">Regista no registo diário a chamada telefónica de hoje com [pessoa] sobre [assunto].</p><span class="does">A entrada é incluída, com data e hora, no registo diário de hoje.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>Barreiras antes da primeira ferramenta.</b> Enquanto o código de segurança não for introduzido, cada chamada de ferramenta de uma IA desktop recebe como resposta a indicação de que a aplicação está bloqueada. O primeiro acesso a dados de qualquer IA desktop após o arranque do programa abre o diálogo de consentimento; uma vez aprovado, o acesso fica aberto para todas as IA desktop durante o resto da execução do programa. Antes de se abrir qualquer outra ferramenta, a IA desktop tem de ler as instruções de trabalho e reproduzir textualmente uma regra.</li>
+<li><b>Início de sessão num só passo.</b> Através da Bridge, a abertura do conjunto de ferramentas de início de sessão gera o resumo de início de sessão. A data e a hora, o idioma do sistema e o ecrã aberto são devolvidos de imediato; o resumo completo é guardado no armazenamento intermédio encriptado, onde a IA o lê.</li>
+<li><b>O que o resumo contém.</b> Lembretes de memória pendentes (de hoje e em atraso), que a IA trata primeiro; os clientes para os quais a memória partilhada da IA contém conhecimento; a âncora de data única; o idioma do sistema, que é também o idioma da conversa; o ecrã atual; a lista dos últimos dez registos diários; os prazos e compromissos que vencem nos próximos três dias, no máximo dez linhas por rubrica; as tarefas pendentes deixadas por outra IA. Cada secção é limitada, e uma secção limitada indica à IA onde obter a versão completa.</li>
+<li><b>Decisões judiciais pendentes.</b> No primeiro início de sessão do dia, se houver decisões judiciais ainda não avaliadas, o resumo instrui a IA a perguntar-lhe de imediato se devem ser avaliadas agora. Sim: a IA trata-as uma a uma. Não: prossegue com a sua tarefa.</li>
+<li><b>A lista completa de prazos.</b> A lista de prazos fornece tudo o que consta do ecrã de prazos do <span class="irs">IRONSTICK</span>, ordenado por data: prazos associados a documentos, audiências agendadas provenientes dos portais dos tribunais e do calendário, bem como prazos que a IA fixou nas suas próprias notas de memória, assinalados como tal. A lista pode ser restringida a críticos (em atraso e de hoje), em breve (até 10 dias, incluindo os em atraso), hoje, esta semana, próxima semana ou uma data. Através da Bridge, a abertura do conjunto de ferramentas de prazos fornece a mesma lista completa, mais os compromissos de hoje.</li>
+<li><b>Compromissos.</b> A lista de compromissos mostra os compromissos de um dia ou de um período, por esta ordem: audiências provenientes dos portais dos tribunais, audiências provenientes do calendário e, por fim, as restantes entradas do calendário.</li>
+<li><b>O que entrou.</b> Duas listas mostram cada entrada registada hoje ou ontem em todos os clientes e processos; o que conta é o dia do registo, não a data do acontecimento. Através da Bridge, a abertura do conjunto de ferramentas de correspondência e e-mail lista os documentos registados hoje e os e-mails recebidos hoje, até dez de cada.</li>
+<li><b>O briefing diário para a IA.</b> A IA pode obter o conteúdo do briefing diário com números de documento e marcações: prazos dos próximos 30 dias, os críticos e os concluídos hoje, as audiências e os compromissos de hoje, correio não lido, documentos registados hoje, as audiências de amanhã, aniversários, processos reativados, estatísticas semanais e o diário de IA mais recente. Uma verificação separada regista, para cada IA desktop individualmente, se esta já recebeu o briefing hoje; caso contrário, fornece os registos diários mais recentes e anota que o briefing foi feito.</li>
+<li><b>Ler um novo documento.</b> O leitor de texto integral fornece o texto integral extraído de uma entrada. As instruções de trabalho dizem à IA que um título ou uma linha de lista não é prova do que uma entrada documenta: antes de indicar o que uma entrada diz, lê o texto integral na sessão atual e mantém o que a fonte comprova separado do que uma parte ou uma inferência sugere.</li>
+<li><b>Perguntas sobre um processo.</b> A cronologia de um processo, os seus prazos e o seu calendário são dados do processo: são rejeitados até a IA ter lido o digest desse processo e, em seguida, a sua memória do processo. As listas globais de todos os processos estão abertas sem isso. A cronologia pode ser filtrada por data; uma data corresponde à data da entrada ou à data do documento.</li>
+<li><b>Proposta para mostrar no IRONSTICK.</b> Após uma lista de prazos ou de compromissos, a IA pode propor abrir a entrada na janela do <span class="irs">IRONSTICK</span>. Só navega depois de ter dado o seu acordo, e apenas se o controlo do programa estiver ativado na Configuração de IA.</li>
+</ul>
+
+<h2 id="w2">Fluxo de trabalho 2 — Regras gerais da conversa</h2>
+<p class="scr-intro">Estas regras aplicam-se a cada conversa com a IA, no chat integrado e através da Bridge: como começa uma sessão, que idioma a IA fala, de onde podem provir os seus factos e como verifica as suas fontes.
+A cada regra corresponde a frase com que a aplica: instruções lidas e confirmadas, respostas que indicam as suas fontes, textos integrais lidos até ao fim antes de uma resposta.
+Leia isto antes da sua primeira sessão de trabalho real; as mesmas regras sustentam todos os outros fluxos de trabalho.</p>
+
+<figure class="chart"><img src="img/73_ironstick_guided_path.png" alt="Caminho guiado: primeiro ler, depois responder"><figcaption>Uma conversa fundamentada: a IA lê o que tem de ler antes de responder — e as fontes, verifica-as pessoalmente.</figcaption></figure>
+
+<h3>Passo 0 — Estabelecer o contexto</h3>
+<ul>
+<li><b>Primeiro, iniciar e desbloquear o IRONSTICK.</b> Sem a aplicação em execução, a Bridge responde que o <span class="irs">IRONSTICK</span> não está em execução; enquanto o código de segurança de seis dígitos não for introduzido, cada chamada de ferramenta recebe como resposta a indicação de que a aplicação está bloqueada.</li>
+<li><b>Iniciar a sessão.</b> Inicie uma nova conversa na sua IA desktop e peça-lhe que inicie a sessão. A abertura do conjunto de ferramentas de início de sessão gera o resumo de início de sessão: a data, o idioma do sistema, o ecrã aberto, os lembretes pendentes, as decisões judiciais pendentes a avaliar, os prazos e compromissos dos próximos três dias, os últimos dez registos diários e as tarefas de passagem pendentes.</li>
+<li><b>Preste atenção ao ícone da IA na barra superior.</b> No caso de uma IA desktop, o seu menu pendente mostra se as instruções estão confirmadas (visto verde ou cruz vermelha), quantas vezes foram lidas e quantas infrações às regras ocorreram; para cada processo em que a IA tocou, mostra o perfil, a jurisdição e o digest como lidos ou não lidos, bem como uma barra dos documentos lidos.</li>
+<li><b>No chat integrado</b>, as instruções de trabalho fazem parte de cada pedido; não há nada a confirmar. Antes de o primeiro pedido seguir para um serviço de IA externo, o <span class="irs">IRONSTICK</span> pede o seu consentimento.</li>
+<li><b>Dê a referência mais precisa de que dispõe.</b> Um número de prova vale mais do que um nome, um nome vale mais do que uma palavra-chave, e um número de processo diz à IA que processo deve ler.</li>
+</ul>
+<p class="cp">Inicia a sessão. Depois lê o digest e a memória do processo [número de processo] e diz-me o que está em aberto.</p>
+
+<h3>As regras — e o que diz para as aplicar</h3>
+<ol class="say">
+<li><p class="cp">Inicia a sessão.</p><span class="does">Regra 1 — a IA lê e confirma as suas instruções antes de tocar em dados do processo e responde no idioma do seu sistema.</span></li>
+<li><p class="cp">Cita a regra [número] das tuas instruções.</p><span class="does">Regra 2 — cada regra pode ser apresentada textualmente, para que possa vincular a IA a ela.</span></li>
+<li><p class="cp">Que documento diz isso? Indica-me o número de prova.</p><span class="does">Regra 3 — cada afirmação indica a sua fonte; um clique no número abre o documento.</span></li>
+<li><p class="cp">Lê [#número de prova] na íntegra antes de responderes.</p><span class="does">Regra 4 — títulos e descrições breves não são factos; a resposta baseia-se no texto integral.</span></li>
+<li><p class="cp">Separa o que está provado do que é apenas suposto.</p><span class="does">Regra 5 — a IA assinala avaliações e suposições como tais e reproduz apenas o que as fontes documentam.</span></li>
+<li><p class="cp">Lê o documento inteiro, não apenas os resultados da pesquisa.</p><span class="does">Regra 6 — os documentos longos são lidos até ao fim; a IA comunica quando cada linha foi lida.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>Trinco das instruções (Bridge).</b> Enquanto a IA desktop não tiver lido as instruções de trabalho e reproduzido textualmente a regra contra factos inventados, todas as ferramentas são rejeitadas, exceto a leitura das instruções, a sua confirmação e a consulta do idioma do sistema. A IA que leu tem de confirmar ela própria; uma confirmação dada noutra conversa não lhe abre o trinco.</li>
+<li><b>Nova leitura.</b> A confirmação caduca 60 minutos após ter sido dada, após duas horas sem chamadas, à meia-noite e a cada nova ligação; quando o <span class="irs">IRONSTICK</span> consegue consultar o registo da conversa da IA desktop, também quando a IA desktop condensa essa conversa. Nesse caso, a IA volta a ler e reproduz textualmente uma regra escolhida aleatoriamente – uma breve pausa, não um erro.</li>
+<li><b>Salvaguardas das regras.</b> A lógica do programa está atenta a atalhos, como chamadas de ferramentas antes da leitura das instruções ou um ficheiro que é desviado do circuito de entrega. Se for detetado um, todas as ferramentas ficam bloqueadas e o motivo é indicado; consoante o contador, a IA recita a regra contra factos inventados ou volta a ler as instruções e reproduz a regra indicada na rejeição. O contador é visível no menu pendente do ícone da IA.</li>
+<li><b>Um idioma de conversa.</b> A IA responde durante toda a sessão no idioma do sistema do <span class="irs">IRONSTICK</span>, independentemente do idioma em que escreva. As peças processuais, os e-mails para o tribunal e as entradas na cronologia são redigidos no idioma da jurisdição do processo; o registo diário, no idioma da conversa.</li>
+<li><b>Factos provenientes das ferramentas, desta sessão.</b> As instruções só admitem factos do processo provenientes das ferramentas do <span class="irs">IRONSTICK</span>, obtidos na sessão atual – não da memória da IA, de mensagens anteriores, de dados de treino, de ficheiros descarregados ou de outro conector. O que não puder ser obtido é identificado como lacuna e nunca preenchido por inferência.</li>
+<li><b>Primeiro pesquisar.</b> A IA tem instruções para nunca perguntar o que as ferramentas podem responder: perante um número de processo, lê em vez de perguntar a que processo se refere.</li>
+<li><b>Títulos e resumos não são factos.</b> Antes de afirmar o que uma entrada documenta, a IA tem de ler o texto integral da entrada na sessão atual; o que um título, uma parte ou uma inferência sugere deve ser assinalado como suposição. Uma entrada sem texto extraído não dá origem a qualquer afirmação de conteúdo.</li>
+<li><b>Resultados de pesquisa não equivalem a leitura.</b> Cada resultado de pesquisa num ficheiro do armazenamento intermédio inclui a indicação de que resultados não equivalem a leitura, juntamente com os documentos ainda não lidos que estão por detrás dos resultados. No caso de extrações completas de processos, um aviso de cobertura de leitura indica cada ficheiro não lido até ao fim, com a respetiva percentagem e os intervalos de linhas não lidos; o aviso volta a aparecer em respostas posteriores até as lacunas terem sido lidas.</li>
+<li><b>O estado de leitura nas respostas.</b> Quando os números de leitura mudam, as respostas das ferramentas incluem os mesmos números que vê no menu pendente do ícone da IA, com a instrução de nunca designar um processo, as suas provas ou a sua memória como integralmente lidos, a menos que esses números o demonstrem.</li>
+<li><b>Primeiro ler o digest e a memória.</b> Os dados do processo só ficam disponíveis depois de lido o digest do processo; para uma tarefa relativa ao processo, é lida primeiro a memória completa do processo.</li>
+<li><b>Só conta a leitura própria.</b> Para a avaliação do processo, o <span class="irs">IRONSTICK</span> verifica cada leitura com base no próprio registo da conversa da IA desktop; o que foi lido por agentes auxiliares não conta.</li>
+<li><b>Fontes que pode verificar.</b> A IA identifica cada documento pelo seu número de prova. No chat integrado, um número só se torna ligação se essa entrada existir nos seus registos e não estiver eliminada nem for secreta; um clique abre-a na cronologia do processo. Um número sem essa entrada permanece texto simples. Com uma IA desktop, procure o número no <span class="irs">IRONSTICK</span> ou peça à IA que leia essa entrada na íntegra.</li>
+<li><b>Legislação a partir da biblioteca.</b> A legislação é verificada primeiro na sua biblioteca de legislação; a web só se abre para uma norma se a biblioteca não tiver qualquer resultado, e só as páginas abertas através da ferramenta de páginas do <span class="irs">IRONSTICK</span> contam como lidas.</li>
+<li><b>Escritas datadas exigem a data de hoje.</b> As ferramentas que escrevem conteúdos datados são rejeitadas, a menos que a IA tenha obtido, nos últimos 30 minutos, a data e a hora reais. Na Bridge, as respostas da IA começam com essa data.</li>
+<li><b>Após uma conversa longa.</b> O que foi lido continua a contar para o respetivo processo quando a IA desktop condensa a sua conversa; o Nucleu de um processo tem de ser lido novamente. Para retomar um processo, a IA pode carregar o digest, o Nucleu, a memória do processo e as Snakes num ficheiro de trabalho.</li>
+<li><b>Documentos grandes.</b> As respostas de ferramentas grandes vão integralmente para o armazenamento intermédio encriptado e são lidas por partes, sendo a cobertura de leitura acompanhada linha a linha.</li>
+</ul>
+
+<h2 id="w3">Fluxo de trabalho 3 — Avaliação do processo</h2>
+<p class="scr-intro">A avaliação do processo é a perspetiva da IA, enquanto analista sénior, sobre um processo, guardada no <span class="irs">IRONSTICK</span> e apresentada no separador Avaliação por IA do processo.
+As probabilidades de êxito são avaliadas exclusivamente com base nos autos do tribunal: naquilo que foi enviado ao tribunal ou à autoridade a que se dirige a petição inicial, ou que de lá veio.
+As secções descritivas baseiam-se nos autos completos do <span class="irs">IRONSTICK</span> e nos processos vizinhos do cliente.
+Utilize-a quando um processo tiver avançado, quando a última avaliação for antiga ou quando uma IA desktop deva elaborar uma nova avaliação segundo os mesmos critérios da aplicação.</p>
+<figure class="chart"><img src="img/screens/5%20case%20assesment%20detail.png" alt="Avaliação do processo por IA com probabilidade de êxito"><figcaption>A avaliação do processo lê os autos e mostra a probabilidade de êxito com a situação probatória, a pretensão principal e as restantes pretensões.</figcaption></figure>
+
+<h3>Passo 0 — Estabelecer o contexto</h3>
+<ul>
+<li><b>Abrir ou indicar o processo.</b> Abra o processo no <span class="irs">IRONSTICK</span>: a IA consegue ver que ecrã e que processo tem aberto. Pode também indicar o número do processo; a IA encontra o processo pelo seu número.</li>
+<li><b>A petição inicial tem de constar dos autos.</b> O prognóstico precisa do documento que deu início ao procedimento, por exemplo a petição inicial da ação, guardado com o respetivo texto extraído. Pode também estar noutro processo do mesmo cliente, por exemplo no processo do qual este foi separado.</li>
+<li><b>O tribunal tem de estar registado.</b> O <span class="irs">IRONSTICK</span> só reconhece o tribunal ou a autoridade se estiver registado entre as suas instituições e se o seu nome constar do endereço da petição inicial. Se faltar, o indicador de êxito fica vazio.</li>
+<li><b>Na aplicação ou por uma IA desktop.</b> No separador Avaliação por IA da aplicação, só podem ser avaliados processos com o estado Ativo. Uma IA desktop pode avaliar qualquer processo, seja qual for o seu estado, e mesmo que nada de novo tenha entrado.</li>
+</ul>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">Abre o processo [número do processo] e indica-me o estado da última avaliação.</p><span class="does">A IA carrega o processo e resume a avaliação guardada, incluindo a respetiva data.</span></li>
+<li><p class="cp">Elabora uma nova avaliação do processo [número do processo].</p><span class="does">Os autos do tribunal são compilados, os documentos são lidos e a avaliação é redigida em etapas fixas; o resultado aparece no separador Avaliação por IA.</span></li>
+<li><p class="cp">Porque é que as probabilidades de êxito não são mais altas?</p><span class="does">Recebe os pontos dos autos do tribunal que jogam contra si, cada um com o respetivo número de prova.</span></li>
+<li><p class="cp">Que documentos do meu processo ajudariam, mas ainda não estão na posse do tribunal?</p><span class="does">A IA compara todo o seu processo com os autos do tribunal e indica o que ainda falta neles.</span></li>
+<li><p class="cp">Tem em conta [#número de prova] e avalia novamente.</p><span class="does">O seu comentário é transmitido e a avaliação é renovada com base nele.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>Primeiro, a última avaliação.</b> O leitor de avaliações fornece a avaliação mais recente do processo. A sua primeira linha indica a data, a antiguidade e se se tratou de uma avaliação completa ou de uma atualização, e a IA tem instruções para indicar quando foi elaborada a última avaliação. Como qualquer ferramenta que lê dados do processo, é rejeitado até a IA ter lido o digest do processo e, em seguida, a memória do processo.</li>
+<li><b>Uma ferramenta, seis etapas.</b> Uma IA desktop só elabora uma nova avaliação com a ferramenta de avaliação própria. Cada chamada fornece apenas a etapa atual; a etapa seguinte só é disponibilizada depois de o <span class="irs">IRONSTICK</span> ter verificado a atual. Nenhuma etapa pode ser saltada. Se a aplicação estiver a avaliar o mesmo processo no mesmo momento, a ferramenta rejeita até a aplicação terminar.</li>
+<li><b>Etapa 1 — Petição inicial.</b> A IA lê os PDF do processo, começando pelo mais antigo, e comunica a petição inicial como segura, incerta ou «nenhuma encontrada». Verifica-se: cada documento comunicado pertence a este cliente e foi lido na íntegra nesta sessão; «nenhuma encontrada» só é aceite se cada PDF do processo tiver sido lido na íntegra. Um documento comunicado como seguro é guardado para avaliações posteriores.</li>
+<li><b>Barreira: autos do tribunal.</b> O <span class="irs">IRONSTICK</span> procura um tribunal ou uma autoridade registado entre as suas instituições no endereço no cabeçalho da primeira página da petição inicial ou como destinatário nessa página. Os autos do tribunal consistem então na petição inicial e em cada documento recebido e enviado do processo cujo interlocutor seja esse tribunal ou essa autoridade – de ambas as partes, sem anexos e sem entradas secretas ou eliminadas.</li>
+<li><b>Etapa 2 — Estado dos autos do tribunal e prognóstico.</b> A IA tem de ler ela própria, na íntegra, cada documento dos autos do tribunal e depois submeter a secção de prognóstico: uma percentagem, a respetiva faixa (claramente perdido, tendencialmente perdido, em aberto, tendencialmente ganho, claramente ganho), o estado dos autos do tribunal, a situação probatória, a pretensão principal, as restantes pretensões, a variação face ao prognóstico anterior e a fundamentação. Verifica-se: cada documento dos autos do tribunal lido; a percentagem situa-se dentro da sua faixa; cada linha está presente; o estado dos autos do tribunal e a fundamentação citam apenas documentos dos autos do tribunal; essas linhas estão redigidas no idioma do sistema; uma variação de mais de 10 pontos face ao prognóstico anterior indica os novos documentos que a justificam.</li>
+<li><b>Sem autos do tribunal — o que a IA lhe comunica.</b> Sem petição inicial ou sem tribunal ou autoridade identificados no respetivo endereço, não há autos do tribunal. O <span class="irs">IRONSTICK</span> instrui então a IA a informá-lo de imediato, antes de prosseguir e no idioma da conversa, de que não é elaborado qualquer prognóstico e de que o indicador de êxito fica vazio – indicando o motivo e, se existir, a petição inicial. A etapa é então concluída apenas com o processo, e o estado do processo no <span class="irs">IRONSTICK</span> substitui o prognóstico.</li>
+<li><b>Etapas 3 e 4 — Leitura.</b> A etapa 3 lista os PDF recebidos e enviados mais recentes do processo e a petição inicial guardada; a etapa 4 lista cada documento dos restantes processos do cliente que esteja ligado a este processo. Cada um tem de ser lido na íntegra; resumos, títulos e resultados de pesquisa não equivalem a leitura. Um resultado que tenha ido para o armazenamento intermédio só conta se cada parte tiver sido lida.</li>
+<li><b>Estado de leitura.</b> O <span class="irs">IRONSTICK</span> mantém um livro de leitura por processo: quantos documentos do processo a IA leu na íntegra e se leu o digest e a memória do processo. São os mesmos números que vê, e chegam com as respostas assim que mudam. A IA é informada de que constituem a única base válida para qualquer afirmação sobre o que leu e de que só pode designar um processo ou os seus documentos como «lidos na íntegra» se os números o demonstrarem.</li>
+<li><b>Só conta a leitura própria da IA.</b> O <span class="irs">IRONSTICK</span> verifica cada leitura com base no registo da conversa dessa IA desktop; o que foi lido por subagentes ou agentes paralelos não é contabilizado. Quando o registo da conversa de uma ligação não pode ser consultado, a resposta indica-o, e a IA tem instruções para o informar de que essa verificação não foi possível.</li>
+<li><b>Etapa 5 — Digest de factos.</b> A IA submete o seu digest com os títulos factos essenciais, factos documentados e citações-chave, contradições, lacunas e prazos não cumpridos, ligações entre processos e os destinatários. Verifica-se: cada título está presente e preenchido; os factos essenciais citam documentos; cada processo vizinho é indicado; cada documento citado foi lido na íntegra.</li>
+<li><b>Etapa 6 — Redação.</b> Só agora a IA recebe as regras de redação. As secções são base, estado do processo no <span class="irs">IRONSTICK</span>, nota crítica, pontos fortes, riscos, articulação entre processos e – se o <span class="irs">IRONSTICK</span> tiver encontrado processos relacionados de outros clientes – esses processos como última secção. O estado do processo no <span class="irs">IRONSTICK</span> assenta no digest de cada documento, e a IA lê na íntegra cada documento importante. Verifica-se: as secções e a sua ordem; a base indica a petição inicial; no máximo seis pontos em pontos fortes e em riscos; cada documento citado existe nos processos deste cliente ou no material, não é secreto nem foi eliminado e foi lido na íntegra; a secção sobre a articulação entre processos indica cada processo vizinho.</li>
+<li><b>Rejeição.</b> Se uma verificação falhar, a resposta começa com REJECTED e uma lista numerada de erros. Nada avança e nada é guardado; a IA corrige exatamente esses pontos e chama de novo. Uma parte submetida na etapa errada é rejeitada. A IA pode recomeçar a cadeia na etapa 1 com material novo, e um reinício da aplicação também a recomeça do princípio.</li>
+<li><b>Guardar.</b> Se a etapa 6 for aceite, o <span class="irs">IRONSTICK</span> insere o prognóstico da etapa 2 – quando existem autos do tribunal – a seguir à base e guarda a avaliação como nova avaliação completa. Mostra então o processo no respetivo separador Avaliação por IA, e a IA tem instruções para lhe comunicar que a nova avaliação foi guardada.</li>
+<li><b>No separador Avaliação por IA.</b> O estado dos autos do tribunal figura ao lado do indicador de êxito, com a faixa, a situação probatória, a pretensão principal e as restantes pretensões. Sem autos do tribunal, o estado do processo no <span class="irs">IRONSTICK</span> passa para o segundo lugar, e o indicador ao lado fica vazio.</li>
+<li><b>A avaliação na aplicação.</b> No próprio separador, solicita uma avaliação para um processo ativo. O separador pede consentimento antes de utilizar um serviço de IA externo; a execução prossegue depois em segundo plano, mesmo que mude de separador ou de ecrã – passando pelo reconhecimento de texto dos novos documentos, pela pesquisa, pela redação e pelo prognóstico. Uma avaliação existente pode ser atualizada no prazo de um dia após a última reavaliação completa, no máximo três vezes seguidas. Se nada de novo tiver entrado desde a última avaliação, uma reavaliação só fica disponível depois de ter escrito no campo de objeções um comentário com pelo menos três palavras.</li>
+</ul>
+
+<h2 id="w4">Fluxo de trabalho 4 — Criar um Nucleu</h2>
+<p class="scr-intro">Um Nucleu é a linha de orientação vinculativa de um processo: a linha central da argumentação, os factos e as provas determinantes, o que tem de ser dito e o que nunca pode ser dito.
+Existe em dois níveis — uma vez para toda uma situação de facto, válido para cada processo nela incluído, e uma vez para o processo individual — e cada documento que a IA redige para o processo fica-lhe subordinado.
+O melhor momento para o criar é imediatamente após uma avaliação do processo, enquanto todo o processo ainda se encontra no contexto de trabalho da IA.
+A IA redige-o, o <span class="irs">IRONSTICK</span> mostra-lhe cada alteração, e só a sua aprovação o guarda como nova versão.</p>
+
+<figure class="chart"><img src="img/screens/5%20case%20tab2.png" alt="Separador do processo com Nucleu (ícone de átomo) e Snake (ícone de serpente)"><figcaption>O Nucleu no separador com o ícone de átomo: a IA redige e propõe, a decisão de adotar é sua; cada alteração adotada torna-se uma nova versão que orienta todas as peças processuais posteriores.</figcaption></figure>
+
+<h3>Passo 0 — Definir o contexto</h3>
+<ul>
+<li><b>Escolher o momento.</b> Peça o Nucleu imediatamente após uma avaliação do processo. Na avaliação, a IA lê o digest, os textos integrais, a memória do processo, bem como um Nucleu e uma Snake existentes; enquanto tudo isso ainda estiver no seu contexto de trabalho, a linha de orientação pode ser destilada de todo o processo, e não apenas de alguns documentos.</li>
+<li><b>Escolher o nível.</b> Um <i>Nucleu da situação de facto</i> pertence a uma situação de facto (um grupo de processos na lista de processos) e aplica-se a cada processo nela incluído. Um <i>Nucleu do processo</i> aplica-se apenas a um processo e ajusta a linha de orientação para esse processo. Um processo é orientado pelo seu próprio Nucleu e pelo Nucleu de cada situação de facto a que pertence; o Nucleu do processo não deve, por isso, contradizer a linha da situação de facto.</li>
+<li><b>Onde o encontra.</b> No ecrã do processo, o separador com o ícone de átomo (<i>Nucleu do processo</i>) contém, em cima, o Nucleu do processo editável e, por baixo, apenas para leitura, o Nucleu de cada situação de facto a que o processo pertence. Na lista de processos, o botão de átomo na barra de título de uma situação de facto abre o respetivo Nucleu da situação de facto. Cada Nucleu tem o seu identificador, por exemplo <i>#KI00041 · v3</i>; um clique copia-o, para que o possa colar no chat.</li>
+<li><b>O que deve conter.</b> A linha de orientação e nada mais: a tese determinante, a posição do processo no litígio mais amplo, as partes, as teses da parte contrária e as respostas a elas, a forma de ponderar provas futuras e as linhas que não podem ser ultrapassadas. Os factos entram como historial documentado; o estado atual do processo é lido de cada vez a partir do digest.</li>
+<li><b>O que não deve conter.</b> Lembretes, notas, tarefas, histórico de sessões, questões em aberto e reflexões de trabalho pertencem à memória do processo. As afirmações da parte contrária que os autos contradizem pertencem à Snake.</li>
+<li><b>Extensão.</b> No máximo 20.000 caracteres por Nucleu. O contador ao lado do texto mostra a extensão e fica vermelho acima do limite. Se a linha de orientação precisar de mais espaço, mantenha a linha comum no Nucleu da situação de facto e coloque o que é específico de um processo no Nucleu desse processo, com o mesmo limite.</li>
+<li><b>Redigir pessoalmente.</b> Pode também escrever ou corrigir um Nucleu diretamente no separador ou na janela da situação de facto e premir <i>Guardar</i>; cada gravação é uma nova versão.</li>
+</ul>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">Cria o Nucleu do processo [número de processo] a partir desta avaliação.</p><span class="does">A IA destila a linha de orientação do processo que acabou de ler e abre a sua proposta no separador <i>Nucleu do processo</i>, onde a adota ou recusa.</span></li>
+<li><p class="cp">Cria um Nucleu para a situação de facto [situação de facto]: a linha central válida para cada processo nela incluído.</p><span class="does">A IA redige o Nucleu da situação de facto e mostra-o na janela da situação de facto; uma vez adotado, aplica-se a cada processo da situação de facto e aparece em cada um deles apenas para leitura.</span></li>
+<li><p class="cp">Qual é a extensão de cada Nucleu do processo [número de processo], e o que poderia passar para o Nucleu da situação de facto?</p><span class="does">A IA lê o Nucleu do processo e cada Nucleu de situação de facto do processo e mede cada um face ao limite de 20.000 caracteres.</span></li>
+<li><p class="cp">Atualiza o Nucleu do processo [número de processo]: já não argumentamos com [ponto].</p><span class="does">A IA explica no chat o que pretende alterar e porquê, e depois propõe apenas as passagens alteradas; vê-as a vermelho e negrito, e uma alteração adotada torna-se a versão seguinte.</span></li>
+<li><p class="cp">Lê-me o Nucleu atual do processo [número de processo], com o Nucleu de cada situação de facto.</p><span class="does">A IA carrega o conjunto completo nas versões atuais, cada uma com o seu identificador, por exemplo #KI00041 · v3.</span></li>
+<li><p class="cp">Esta minuta contradiz o Nucleu?</p><span class="does">A IA compara a minuta, ponto por ponto, com cada Nucleu aplicável ao processo e identifica cada divergência; numa peça processual, esta comparação é a ronda final da cadeia de verificação.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>Um único caminho de escrita, com a sua aprovação.</b> A IA propõe um Nucleu através de uma ferramenta própria: a primeira versão de um Nucleu do processo através do processo, a primeira versão de um Nucleu da situação de facto através da situação de facto (retirada da lista de situações de facto), cada alteração posterior através do número do Nucleu. As alterações ao texto entram como substituições pontuais; a IA tem instruções para nunca reescrever o Nucleu por completo e para explicar no chat o que pretende alterar e porquê, antes de propor.</li>
+<li><b>A janela de revisão.</b> Para um Nucleu do processo, o <span class="irs">IRONSTICK</span> abre o processo no separador <i>Nucleu do processo</i>; para um Nucleu da situação de facto, a janela aparece por cima do ecrã atual. Mostra o texto completo com cada alteração a vermelho e negrito, as eliminações riscadas, e os botões <i>Recusar</i> e <i>Adotar</i>. Só está aberta uma revisão de Nucleu de cada vez. Se precisar de mais de cerca de um minuto, a IA é informada de que a revisão ainda está aberta e não a envia de novo; a sua aprovação posterior guarda a versão na mesma.</li>
+<li><b>Verificação da extensão.</b> Uma proposta com mais de 20.000 caracteres é rejeitada antes de lhe chegar, com a instrução de se limitar ao núcleo determinante e de colocar a linha de orientação específica do processo no Nucleu do processo e a linha de orientação comum no Nucleu da situação de facto.</li>
+<li><b>Data atual.</b> Como qualquer escrita datada, uma proposta de Nucleu requer a data atual, obtida nos últimos 30 minutos.</li>
+<li><b>Versões, nunca substituídas.</b> Cada proposta adotada e cada gravação no separador é guardada como nova linha com o número de versão seguinte; o número <i>#KIxxxxx</i> mantém-se igual em todas as versões, e a versão mais alta é a atual. Texto inalterado não gera nova versão. Se uma situação de facto for eliminada, o seu Nucleu é ocultado e as suas versões são conservadas.</li>
+<li><b>Como a IA o lê.</b> Uma chamada com o processo fornece o conjunto completo: o Nucleu do processo e o Nucleu de cada situação de facto do processo, cada um com o seu cabeçalho <i>#KIxxxxx · vN</i>, na íntegra, e indica os níveis que ainda não têm nenhum. O Nucleu figura, além disso, no topo do digest do processo, do briefing do processo e do pacote de retoma. Uma lista de inventário mostra cada Nucleu sem textos integrais; quem abre o conjunto de ferramentas de instruções de IA vê o inventário de Nucleu do processo atualmente aberto.</li>
+<li><b>Ler de novo após cada alteração.</b> O <span class="irs">IRONSTICK</span> regista que versão de cada Nucleu a IA leu. Uma nova versão ou a condensação da conversa pela IA desktop invalida a leitura anterior.</li>
+<li><b>Onde atua.</b> O Nucleu orienta cada peça processual através do <a href="#w6">Fluxo de trabalho 6 — Redigir uma peça processual</a>. Aí, a barreira do Nucleu impede a redação, a verificação e a entrega de um documento do processo até cada Nucleu aplicável — o Nucleu do processo e cada Nucleu de situação de facto — ter sido lido na sua versão atual; do mesmo modo, o formato de documento vinculativo só é disponibilizado depois de lido cada Nucleu do processo. No fim da cadeia de verificação está a ronda do Nucleu: o documento é comparado ponto por ponto com o Nucleu, cada divergência é corrigida ou tratada, uma contradição nunca pode ser descartada, e uma que não possa ser eliminada é marcada como conflito. Um conflito interrompe o trabalho nesse documento até ter sido avisado em pormenor e ter decidido se o documento é corrigido ou se a divergência se mantém.</li>
+<li><b>Na avaliação do processo.</b> Durante uma avaliação, cada Nucleu existente do processo faz parte do seu contexto como linha de orientação vinculativa, citado com o seu identificador.</li>
+</ul>
+
+<h2 id="w5">Fluxo de trabalho 5 — Construir a Snake</h2>
+<p class="scr-intro">A Snake é o registo de trabalho interno das afirmações da parte contrária num processo que são contraditas pelas provas dos autos. Cada entrada fixa a localização da afirmação — documento, data, processo e página — e enumera cada documento que a refuta.
+Constrói-a de duas formas: através de uma pesquisa direcionada num ou em vários processos ou em documentos que indicar; ou a meio de qualquer conversa, assim que surja uma contradição da parte contrária com os autos.
+O <span class="irs">IRONSTICK</span> verifica cada linha face aos seus documentos, cabe-lhe aprovar cada versão, e em cada peça processual posterior as entradas da Snake são propostas como argumentos contra a parte contrária.</p>
+
+<figure class="chart"><img src="img/76_nucleu_snake_path.png" alt="Nucleu e Snake a caminho da peça processual"><figcaption>A Snake regista as contradições da parte contrária com os autos: cada linha verificada face aos documentos, a sua aprovação para cada versão.</figcaption></figure>
+
+<h3>Passo 0 — Definir o contexto</h3>
+<ul>
+<li><b>Pesquisa direcionada.</b> Indique os processos ou os documentos em que a IA deve procurar afirmações da parte contrária que os documentos refutam. Um bom momento é imediatamente após uma avaliação do processo ou uma leitura completa do processo, enquanto os autos ainda estão no contexto de trabalho da IA. Peça-lhe que lance a rede de forma ampla; a Snake contém apenas o que os documentos provam.</li>
+<li><b>Durante qualquer conversa.</b> Se surgir uma contradição da parte contrária com os autos enquanto trabalha noutra coisa, instrua a IA a incluí-la na Snake, caso ainda não conste dela. A IA verifica primeiro a Snake atual e completa uma entrada existente, em vez de registar o ponto em duplicado.</li>
+<li><b>Uma Snake por processo.</b> Uma Snake pertence a exatamente um processo. Uma situação de facto não tem Snake própria; mostra as Snakes de todos os seus processos.</li>
+<li><b>Onde a encontra.</b> No ecrã do processo, o separador com o ícone de serpente à direita do separador do Nucleu (<i>Snake do processo</i>) contém a Snake desse processo com o seu identificador, por exemplo <i>#SN00004 · v2</i>, e um contador de caracteres. Na lista de processos, o botão Snake na barra de título de uma situação de facto abre as <i>Snakes da situação de facto</i>: as Snakes de todos os seus processos pela ordem da lista; um clique num processo abre-o no separador <i>Snake do processo</i>.</li>
+<li><b>Extensão.</b> No máximo 20.000 caracteres por Snake do processo. O contador fica vermelho acima do limite. Limite cada entrada à localização, a uma breve descrição e às respetivas linhas de referência.</li>
+<li><b>O que deve conter.</b> Apenas afirmações da parte contrária que são contraditas pelas provas dos autos. Suposições, estratégia e lembretes não pertencem aqui; os lembretes vão para a memória do processo, e as contradições da parte contrária vão apenas para a Snake, nunca para a memória.</li>
+</ul>
+
+<p><b>O formato das entradas.</b> As entradas são separadas por uma linha em branco. A primeira linha é a localização da afirmação; depois a descrição; depois cada documento ligado numa linha própria, começando com uma seta:</p>
+<p><code>#0004417 · 12.10.2026 · CaseID 19 · p. 2 em cima</code><br>
+<code>Contra-alegações de recurso, contraparte B: Os tribunais já teriam decidido com trânsito em julgado a propriedade das instalações. Contra isto, os autos: ambas as sentenças remetem expressamente a questão da propriedade para o processo principal, e a contraparte B afirmou o mesmo na audiência anterior.</code><br>
+<code>→ #0003304 · 18.07.2026 · CaseID 19 · p. 5 ao meio</code><br>
+<code>→ #0000586 · 25.04.2026 · CaseID 8 · p. 9 em cima</code><br>
+<code>→ #0001127 · 24.06.2026 · CaseID 8 · p. 15 em baixo</code></p>
+<p>Cada linha de referência tem a forma: número de prova com sete dígitos · a data do documento tal como o <span class="irs">IRONSTICK</span> a regista (DD.MM.AAAA) · o CaseID desse documento · a página e a posição nela (em cima, ao meio ou em baixo, em cada um dos idiomas do sistema) ou um traço para provas sem páginas. Se uma contradição se estender por vários documentos, cada um deles recebe a sua própria linha de referência: a afirmação, a afirmação contrária e cada elemento de prova intermédio. Pode também escrever ou corrigir entradas diretamente no separador e premir <i>Guardar</i>; cada gravação é uma nova versão.</p>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">Constrói a Snake do processo [número de processo] a partir dos autos completos.</p><span class="does">A IA lê o processo e cada documento que refuta a parte contrária e propõe depois a Snake no separador <i>Snake do processo</i>, com cada linha verificada face aos seus documentos.</span></li>
+<li><p class="cp">Pesquisa nos documentos [números de prova] afirmações da parte contrária que os autos contradizem e inclui-as na Snake do processo [número de processo].</p><span class="does">A IA lê na íntegra exatamente esses documentos e regista apenas as afirmações que os seus documentos refutam, cada uma com os documentos que a refutam.</span></li>
+<li><p class="cp">Constrói as Snakes de todos os processos da situação de facto [situação de facto]. Lança a rede de forma ampla.</p><span class="does">A IA trabalha processo a processo, uma Snake por processo; a janela da situação de facto mostra depois todas pela ordem da lista de processos.</span></li>
+<li><p class="cp">Esta contradição já consta da Snake do processo [número de processo]?</p><span class="does">A IA lê a Snake atual e diz-lhe se o ponto já está registado e em que entrada.</span></li>
+<li><p class="cp">Inclui esta contradição da parte contrária na Snake, caso ainda não conste dela.</p><span class="does">A IA lê a Snake atual, completa a entrada existente ou escreve uma nova, com cada documento refutador numa linha própria, e mostra-lhe a alteração para adoção.</span></li>
+<li><p class="cp">Que Snakes temos para o cliente [cliente]?</p><span class="does">A IA lista cada Snake dos processos do cliente, com identificador, versão e número de entradas.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>Primeiro ler.</b> Se o processo já tiver uma Snake, uma alteração só é aceite depois de a IA ter lido a respetiva versão atual nessa sessão, e de novo depois de a IA desktop ter condensado a sua conversa. Um processo sem Snake aceita diretamente as suas primeiras entradas. A IA tem instruções para verificar se o ponto ainda não está registado e para completar a entrada existente, em vez de a registar em duplicado.</li>
+<li><b>Escrever apenas a partir do que foi lido.</b> Se a IA tiver aberto no processo um documento da parte contrária ou de uma autoridade, uma alteração à Snake é rejeitada até esse documento ter sido lido na íntegra.</li>
+<li><b>Sempre o texto completo.</b> A IA propõe a Snake completa, incluindo o seu aditamento; escritas parciais (acréscimos ou substituições pontuais) são rejeitadas, de modo que cada proposta é feita com todo o registo à vista. Uma proposta com mais de 20.000 caracteres é rejeitada antes de lhe chegar.</li>
+<li><b>Cada linha verificada face aos documentos.</b> Antes de a proposta ser apresentada, o <span class="irs">IRONSTICK</span> verifica cada entrada: a primeira linha na forma exigida, uma descrição, pelo menos uma linha de referência, nenhuma descrição após as linhas de referência; e, para cada linha de referência, que a prova existe, pertence ao CaseID indicado, tem exatamente essa data de documento, pertence ao mesmo cliente que o processo e que a página se situa dentro do PDF guardado. Perante qualquer erro, nada é proposto; a IA recebe a lista de erros, entrada a entrada, e corrige-os.</li>
+<li><b>A janela de revisão.</b> O <span class="irs">IRONSTICK</span> abre o processo no separador <i>Snake do processo</i> e mostra o texto completo com cada alteração a vermelho e negrito, com os botões <i>Recusar</i> e <i>Adotar</i>. Se precisar de mais de cerca de um minuto, a IA é informada de que a revisão ainda está aberta e não a envia de novo; a sua aprovação posterior guarda a versão na mesma.</li>
+<li><b>Versões, nunca substituídas.</b> Cada proposta adotada e cada gravação no separador torna-se uma nova versão sob o mesmo número <i>#SNxxxxx</i>; texto inalterado não gera nova versão.</li>
+<li><b>Como a IA a lê.</b> A IA pode ler a Snake de um processo, as Snakes de todos os processos de uma situação de facto pela ordem da lista de processos, as Snakes de todos os processos de um cliente ou uma Snake pelo seu número — cada bloco com o cabeçalho <i>#SNxxxxx · vN</i> e o respetivo processo. Uma lista de inventário mostra cada Snake com o número das suas entradas, sem textos integrais. O pacote de retoma de um processo e a avaliação do processo também incluem a Snake.</li>
+<li><b>Onde atua.</b> A Snake atua através da barreira Snake no <a href="#w6">Fluxo de trabalho 6 — Redigir uma peça processual</a>. Se existirem Snakes para o processo — a sua própria Snake ou as dos outros processos das suas situações de facto —, a IA faz-lhe a pergunta fixa <i>Pretende a barreira Snake?</i>, a menos que já tenha dito <i>com barreira Snake</i> ou dispensado a ronda pelas suas próprias palavras. Após o seu sim, segue-se a ronda Snake da cadeia de verificação, antes da ronda final do Nucleu: a IA lê na íntegra a Snake do processo e as Snakes dos outros processos das suas situações de facto, volta a ler a minuta e trata cada entrada da Snake num ficheiro de resultados como incorporada (com a localização no documento), rejeitada ou não relevante, sempre com fundamentação. Uma entrada é rejeitada se ela ou a sua formulação puderem ser voltadas contra o cliente. <i>Já utilizado</i> ou <i>já do conhecimento do tribunal</i> não é aceite como fundamentação: as entradas são argumentos a repetir em cada documento em que se enquadrem. A ronda só é aceite se cada entrada tiver sido tratada, se as Snakes e a minuta tiverem sido lidas após a atribuição da tarefa e se a minuta tiver sido efetivamente alterada em todos os pontos em que uma entrada foi incorporada.</li>
+</ul>
+
+<h2 id="w6">Fluxo de trabalho 6 — Redigir uma peça processual</h2>
+<p class="scr-intro">Este fluxo de trabalho leva-o de um pedido em palavras simples a uma minuta pronta a apresentar no processador de texto: uma peça processual, um requerimento a um tribunal ou a uma autoridade, ou uma carta.
+A IA lê o processo antes de escrever, constrói o documento no seu armazenamento intermédio encriptado, faz verificar cada facto, cada citação, cada norma e cada parte face aos seus documentos, percorre uma cadeia de verificação fixa e consulta-o em cada ponto de decisão.
+Utilize-o sempre que algo deva sair por escrito do seu escritório. O que sai do <span class="irs">IRONSTICK</span> é sempre uma minuta que revê, assina e envia pessoalmente.</p>
+
+<figure class="chart"><img src="img/75_ironstick_coaching_line.png" alt="Caminho guiado com verificações até à peça processual concluída"><figcaption>Da sua instrução à minuta no processador de texto: a IA lê, redige e verifica, guiada por verificações até ao visto final; a decisão em cada passo é sua.</figcaption></figure>
+
+<h3>Passo 0 — Definir o contexto</h3>
+<ul>
+<li><b>Indicar o processo.</b> Para o chat integrado, abra o processo e escolha <i>Redigir texto</i> › <i>Com ajuda da IA</i>: o chat abre-se com esse processo; a partir de uma entrada da cronologia, o documento já fica indicado. Com uma IA desktop, indique o número de processo na sua primeira mensagem — a IA pode também perguntar ao <span class="irs">IRONSTICK</span> que ecrã e que processo tem aberto.</li>
+<li><b>O processo precisa do seu país.</b> O direito, o idioma e a data do documento provêm da jurisdição definida no processo. Se não estiver definida nenhuma jurisdição, o formato do documento é recusado, com o pedido para a definir primeiro.</li>
+<li><b>Utilize o modelo mais potente da sua IA desktop.</b> Para a redação, a IA tem instruções para recomendar, antes de começar, o nível de modelo mais potente e, após a entrega, novamente um mais ligeiro. A aplicação de IA para desktop só muda por ação sua; o chat integrado muda autonomamente.</li>
+<li><b>Concentre tudo na sua primeira mensagem.</b> Processo, tipo de documento, o que pretende alcançar, os números de prova em que se baseia, tom e extensão, bem como uma peça processual anterior cujo endereçamento tenha funcionado. São os documentos que fundamentam uma peça processual; os adjetivos não.</li>
+<li><b>Diga de antemão o que pretende das rondas de verificação.</b> Expressões como <i>com barreira Snake</i> ou <i>sem Snake e Nucleu</i> na sua própria mensagem são reconhecidas pelo <span class="irs">IRONSTICK</span>; a IA deixa então de perguntar por essas rondas para esse documento. Texto colado não conta como palavras suas.</li>
+</ul>
+<p class="cp">Redige a réplica à contestação #0004127 no processo [número de processo], fundamenta-a em #0003310 e #0003318, breve e objetiva, endereçada como o recurso de 12 de maio, com barreira Snake.</p>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">Escreve uma resposta a [#número de prova] no processo [número de processo]. Objetivo: [objetivo].</p><span class="does">A IA lê o processo, o Nucleu da situação de facto e do processo, bem como o documento a que está a responder, e redige depois no seu armazenamento intermédio.</span></li>
+<li><p class="cp">Utiliza [#números de prova] como prova. Tom: [objetivo / firme].</p><span class="does">As suas instruções são incorporadas na minuta; cada documento citado é lido na íntegra.</span></li>
+<li><p class="cp">Sem correções — continua.</p><span class="does">A cadeia de verificação corre: nova leitura, comparação com as suas peças processuais anteriores, ataque a partir da perspetiva da parte contrária, ronda Snake, verificação do Nucleu.</span></li>
+<li><p class="cp">Altera o ponto [número]: [a sua correção].</p><span class="does">A minuta é corrigida e verificada de novo antes de prosseguir.</span></li>
+<li><p class="cp">Entrega-a.</p><span class="does">O documento aparece na janela de transferências; abra-o no processador de texto, assine-o e envie-o pessoalmente.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>Jurisdição e idioma.</b> A IA determina a jurisdição a partir do processo antes de fazer trabalho jurídico. Fala consigo no idioma do sistema do <span class="irs">IRONSTICK</span>; o documento é redigido na língua oficial do país do processo, e o formato inclui o número de processo e a data de hoje.</li>
+<li><b>Ler o processo antes de escrever.</b> As ferramentas que escrevem num processo são rejeitadas até a IA ter lido o digest do processo; uma peça processual exige, além disso, que os documentos mais recentes do processo tenham sido lidos na íntegra. A rejeição enumera o que ainda não foi lido.</li>
+<li><b>Barreira inicial do formato.</b> O formato de documento vinculativo (consoante o tipo de documento: peça processual ou carta, com representação por advogado ou em causa própria) só é disponibilizado depois de a IA ter lido o digest completo, cada documento enviado pelo cliente nesse processo na íntegra, o documento a que a peça processual responde na íntegra, a memória do processo e cada Nucleu do processo. Tudo o que é dirigido a um tribunal é uma peça processual, nunca uma carta. Para uma peça processual, o formato traz ainda um perfil do tribunal extraído dos seus processos.</li>
+<li><b>Primeiro, os seus pedidos originais.</b> Se a peça processual responder a um documento, a IA tem primeiro de enumerar no chat cada pedido da peça inicial do cliente no processo, citado com o respetivo número de prova, perguntar-lhe se ainda se mantém e terminar a sua intervenção. O formato só é disponibilizado após a sua resposta. Se o próprio documento der início ao procedimento, a IA di-lo numa frase e não pergunta nada.</li>
+<li><b>Primeiro o Nucleu.</b> A redação, a verificação e a entrega são rejeitadas até cada Nucleu atual do processo — o Nucleu do processo e o Nucleu de cada situação de facto a que pertence — ter sido lido na sua versão atual, e de novo após cada nova versão e depois de a IA desktop ter condensado a sua conversa.</li>
+<li><b>Escrever apenas a partir do que foi lido.</b> Se a IA tiver aberto no processo um documento da parte contrária ou de uma autoridade, o trabalho num documento desse processo é rejeitado até esse documento ter sido lido na íntegra. Uma minuta que cite documentos que a IA não leu na íntegra fica bloqueada para qualquer alteração até estes terem sido lidos; eliminar a passagem citada não levanta o bloqueio.</li>
+<li><b>A verificação determinística de peças processuais.</b> Corre sobre o estado atual do ficheiro, sem IA, e verifica: cada referência a provas e cada carimbo, bem como que cada documento citado ou anexado foi lido para este documento; cada citação legal face à biblioteca de legislação verificada; cada citação textual face aos textos integrais do processo, aos documentos obtidos e à biblioteca; os números de processo; os montantes, que têm de corresponder exatamente à forma registada; os nomes do cliente, das pessoas e das instituições letra a letra, incluindo os sinais diacríticos; os IBAN e, como verificação específica de país, os números de identificação pessoal romenos (CNP) por soma de controlo e face aos documentos; que cada pessoa ou empresa mencionada foi lida juntamente com as suas ligações; e o formato vinculativo, incluindo a lista de anexos. Cada constatação é marcada como VERIFICADO, NÃO VERIFICADO ou CONTRADITÓRIO.</li>
+<li><b>Ler antes de escrever, não depois.</b> Uma leitura posterior à última alteração da minuta não conta para esta verificação: a IA tem primeiro de ler, depois incorporar no texto e, em seguida, verificar de novo.</li>
+<li><b>Citações.</b> Uma citação que não seja encontrada em nenhuma fonte bloqueia a entrega; reformulá-la ou retirar as aspas mantém-na bloqueada, e o único remédio é a redação exata da fonte. Uma citação que desapareça do texto é-lhe comunicada no momento da entrega.</li>
+<li><b>Anexos.</b> Cada entrada de anexo tem de incluir a referência à prova, o carimbo de entrada obtido pelo <span class="irs">IRONSTICK</span> e o marcador de página. Um anexo sem ficheiro guardado e sem multimédia é assinalado para verificação. Um anexo que seja um documento enviado ou uma peça da parte contrária é assinalado com a instrução de anexar antes o documento original, caso essa peça tenha sido junta apenas por causa de uma página nela contida; esta marcação é uma indicação de verificação, não um bloqueio.</li>
+<li><b>As constatações em aberto regressam à IA.</b> Cada constatação da verificação é devolvida à IA para correção, e a verificação corre de novo sobre o novo estado. As verificações são contadas por documento, independentemente dos números de versão: se, após a quinta verificação, ainda houver constatações em aberto, o <span class="irs">IRONSTICK</span> passa-lhe a decisão através de uma mensagem do sistema, e a IA apresenta-lhe os pontos em aberto para que decida como prosseguir.</li>
+<li><b>Primeiro, o resumo.</b> Após o primeiro OK, a cadeia de verificação começa com um resumo do documento para si — destinatário e procedimento, pedidos, estrutura, factos essenciais com as respetivas provas, legislação citada. A IA aguarda a sua resposta; as correções são incorporadas antes de a cadeia prosseguir.</li>
+<li><b>A cadeia de verificação.</b> Cada passo é comunicado à verificação de peças processuais e verificado antes de chegar a instrução seguinte: ler novamente todo o ficheiro; as peças processuais anteriores do cliente relativas aos documentos citados, para que o cliente não contradiga as suas próprias intervenções anteriores; uma tabela de resposta que cubra cada passagem do documento respondido; um ataque na perspetiva da parte contrária, escrito num ficheiro próprio e tratado ponto por ponto na minuta; uma avaliação, tratada da mesma forma. Um ficheiro só conta como lido se cada linha tiver sido lida desde a instrução; uma ronda sem qualquer constatação adotada, na qual a maioria das constatações seja descartada como já tratada, é rejeitada.</li>
+<li><b>Perguntas fixas.</b> Seguem-se até duas perguntas fixas — a pergunta do Nucleu, se o processo tiver um Nucleu, e a pergunta da Snake, se existirem Snakes para ele. A IA formula-as textualmente, uma após a outra, e só aceita um sim ou um não vindo da sua própria mensagem. Uma nova peça processual sem versão anterior recebe a ronda do Nucleu sem a pergunta. A sua resposta é memorizada para todas as versões do documento.</li>
+<li><b>Ronda Snake.</b> Após o seu sim, a IA lê as Snakes do processo e das suas situações de facto e regista, para cada entrada da Snake, se é incorporada, rejeitada ou não relevante, sempre com fundamentação; uma entrada é rejeitada se puder ser voltada contra o cliente.</li>
+<li><b>Ronda do Nucleu.</b> O documento é comparado ponto por ponto com o Nucleu. Uma contradição não pode ser descartada: é corrigida ou marcada como conflito. Um conflito interrompe o trabalho nesse documento; a IA tem de o avisar em pormenor e só pode prosseguir após a sua decisão de corrigir o documento ou de manter a divergência.</li>
+<li><b>As suas correções permanecem.</b> As suas próprias mensagens são registadas por documento. Uma correção sua que tenha sido incorporada e mais tarde removida bloqueia a cadeia e a entrega. Uma passagem baseada nas suas próprias palavras não pode ser eliminada antes de a IA lhe ter perguntado.</li>
+<li><b>Uma alteração reinicia a cadeia.</b> Cada edição invalida a última verificação. Uma alteração após a conclusão da cadeia reinicia toda a cadeia.</li>
+<li><b>Uma pergunta de entrega.</b> No fim, a IA indica, em no máximo três linhas, o que a cadeia alterou e pergunta uma vez se pode entregar. A entrega é recusada sem uma verificação positiva recente para exatamente este estado do ficheiro e sem o seu sim.</li>
+<li><b>Decisões judiciais pendentes.</b> Se houver decisões judiciais ainda por avaliar, a IA pergunta-lhe se devem ser avaliadas agora, para que os seus resultados sejam incorporados no documento, ou mais tarde.</li>
+<li><b>Entrega no processador de texto.</b> O ficheiro sai apenas através do diálogo de transferência do <span class="irs">IRONSTICK</span>: guarde-o ou passe o Markdown diretamente para o processador de texto. Aí edita, acrescenta o papel timbrado, exclui páginas, apõe a sua assinatura e exporta um PDF ou DOCX. Um ficheiro inalterado e já entregue só é repetido a pedido, sem novo número de versão.</li>
+<li><b>Após a entrega.</b> A IA pergunta se o documento está concluído ou se precisa de correções. Até responder, a IA só pode ler. A sua correção é anexada à versão entregue, que fica assim invalidada, e é criada a versão seguinte para a correção. Imprimir no processador de texto ou enviar o PDF para a verificação de e-mail conclui o documento.</li>
+<li><b>O pacote de e-mail.</b> Um e-mail para o tribunal só é preparado para um PDF concluído: arrasta o PDF assinado para o chat, a IA verifica-o face à última versão, e só um PDF correspondente abre o formato de e-mail — assunto, texto com remetente, identificador e número de processo, lista do pacote e o destinatário, como campos para copiar. Envios demasiado grandes são divididos, no ecrã de envio de correio, em partes de cerca de dez megabytes, cada uma com o seu próprio e-mail de acompanhamento. O <span class="irs">IRONSTICK</span> não envia nada; o envio é feito por si, a partir do seu próprio programa de correio eletrónico.</li>
+</ul>
+
+<h2 id="w7">Fluxo de trabalho 7 — OSINT: pesquisar uma pessoa ou empresa</h2>
+<p class="scr-intro">Utilize este fluxo de trabalho quando quiser saber quem é uma parte: um adversário, uma testemunha, uma empresa por detrás de um endereço, as pessoas em torno de uma empresa.
+A IA executa um procedimento de pesquisa fixo nos seus próprios documentos e na Internet aberta, abre e lê as fontes e regista o que consegue verificar como propostas no monitor de consistência de dados.
+Nada passa a fazer parte dos seus registos até o adotar aí. A pesquisa não precisa de processo: uma parte pode ser pesquisada isoladamente.</p>
+<figure class="chart"><img src="img/60_mcp_network.png" alt="Pesquisa de pessoas e empresas através da Bridge"><figcaption>Uma parte de cada vez: pesquisar, ler, verificar, propor — e a decisão é sua, no monitor de consistência de dados.</figcaption></figure>
+
+<h3>Passo 0 — Definir o contexto</h3>
+<ul>
+<li><b>Ter à mão os dados essenciais da parte.</b> A verificação OSINT precisa do nome completo, do país e de saber se se trata de uma pessoa singular ou de uma empresa; cidade e distrito, se conhecidos. O país determina o idioma dos termos de pesquisa. Cidade, distrito e país são, além disso, obrigatórios para cada nova parte que a IA venha a propor.</li>
+<li><b>Não é necessário nenhum processo.</b> A verificação OSINT não aceita número de processo. Se quiser, além disso, associar a parte a um processo, diga-o — a associação constitui então uma proposta própria.</li>
+<li><b>Um registo existente ajuda.</b> Se a parte já constar do <span class="irs">IRONSTICK</span>, indique-a ou o seu número (por exemplo @E0001234). A IA lê primeiro o registo; a verificação OSINT enumera, além disso, por si própria as entradas existentes com o mesmo nome.</li>
+<li><b>Vários nomes?</b> Se tiver registado uma lista (uma lista de amigos, uma lista de participantes, uma ficha técnica) como documento, peça à IA que compare primeiro a lista com todas as pessoas no <span class="irs">IRONSTICK</span> e que depois pesquise apenas os nomes relevantes.</li>
+<li><b>Sem a conversa com a IA.</b> Na análise de pessoa de uma pessoa, o botão <i>Pesquisa web</i> abre uma pesquisa própria guiada: ligações candidatas, resumos de páginas, uma pré-visualização dos campos da análise e a gravação na análise da pessoa.</li>
+</ul>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">Pesquisa [nome completo], [cidade], [país] — pessoa singular.</p><span class="does">Primeiro são verificados os seus próprios documentos; depois as fontes na Internet são abertas e lidas.</span></li>
+<li><p class="cp">Pesquisa a empresa [nome], [cidade], [país].</p><span class="does">O mesmo procedimento para uma empresa, incluindo o respetivo número de identificação fiscal e a sede.</span></li>
+<li><p class="cp">Existe alguma ligação entre [pessoa] e [pessoa]?</p><span class="does">As relações existentes são apresentadas; as novas são procuradas nos seus documentos e nas fontes.</span></li>
+<li><p class="cp">Mostra-me a fonte de [resultado].</p><span class="does">Recebe a ligação ou o número de prova por detrás do resultado.</span></li>
+<li><p class="cp">Regista os resultados verificados como propostas.</p><span class="does">Os resultados vão para o monitor de consistência de dados; nada é guardado até o adotar aí.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>A verificação OSINT.</b> A IA inicia a verificação com o nome, a cidade, o distrito, o país e a indicação de se a parte é uma pessoa singular ou coletiva; de cada vez corre o mesmo procedimento. Internamente, o nome é pesquisado em texto integral em toda a base de dados (todos os clientes); por processo, são devolvidas as 10 entradas de prova mais recentes com o parágrafo de cada resultado, bem como quantas mais existem. Na web corre uma lista fixa de pesquisas: currículo, Facebook, LinkedIn, Instagram, distrito, cidade, escândalo, notícias, declarações de património e de interesses (na medida em que estejam publicadas), impostos, empresas; para uma empresa, o registo comercial e a insolvência substituem as pesquisas relativas a pessoas. Os termos de pesquisa estão no idioma do país da parte e são submetidos a três motores de pesquisa. As ligações e os títulos são devolvidos sem duplicados. A pesquisa corre como tarefa em segundo plano; enquanto não estiver concluída, a IA repete a chamada idêntica para continuar a aguardar. A própria verificação não escreve nada.</li>
+<li><b>Primeiro as entradas existentes.</b> Se o <span class="irs">IRONSTICK</span> já contiver pessoas, empresas ou instituições que correspondam ao nome, a primeira resposta enumera-as na íntegra, a melhor correspondência primeiro. A IA indica a entrada que corresponde a esta parte, ou «nenhuma». Uma entrada indicada recebe cada resultado; com uma IA desktop ligada à Bridge, uma proposta para criar de novo a mesma parte é então rejeitada.</li>
+<li><b>Um perfil preparado.</b> A IA verifica-o fonte a fonte e exclui os homónimos. As ligações cujo resultado de pesquisa mostra o nome completo são as ligações correspondentes, ordenadas por qualidade; as restantes são opcionais; meras páginas iniciais são descartadas. A tarefa da IA é ler cada resultado de prova, abrir cada ligação correspondente e utilizar apenas o que a própria página aberta afirma — nunca apenas um título.</li>
+<li><b>Barreira OSINT — uma parte de cada vez.</b> Com uma IA desktop ligada à Bridge, o resultado termina com uma lista de verificação, e a verificação OSINT seguinte para outra parte é rejeitada até essa lista estar cumprida:
+<ul>
+<li>as primeiras 10 ligações correspondentes abertas (pelo menos 20 % delas, se isso for mais);</li>
+<li>cada entrada de prova enumerada lida — um resultado desviado para o cofre temporário só conta se tiver sido lido até ao fim, e uma pesquisa nele nunca conta;</li>
+<li>no caso de uma pessoa, cada página aberta que mencione a pessoa e tenha ido parar ao cofre temporário lida nos pontos em que a menciona;</li>
+<li>depois, ou uma proposta ou a constatação de que nada de aproveitável foi encontrado;</li>
+<li>no caso de uma pessoa, além disso, cada ligação a outras pessoas proposta, ou a constatação de que não existe nenhuma.</li>
+</ul>
+Uma página que indique o nome completo da pessoa juntamente com a cidade ou o distrito não pode ser encerrada como «nada de aproveitável», a menos que a IA a indique como já registada ou como homónimo. A rejeição indica exatamente o que falta. As leituras são contabilizadas por sessão, de modo que a leitura de uma sessão nunca conta para outra.</li>
+<li><b>Nova pessoa apenas após verificação OSINT completa.</b> Com uma IA desktop ligada à Bridge, uma proposta de nova pessoa singular é rejeitada até a verificação OSINT para esse nome ter sido integralmente cumprida. Cidade, distrito e país são obrigatórios para cada nova parte e cada entrada de endereço. Uma nova parte precisa, além disso, de pelo menos dois campos de detalhe além do nome. O endereço de uma pessoa singular é verificado face aos endereços de instituições — o endereço de uma entidade empregadora é rejeitado como endereço privado — e uma nova empresa precisa do seu número de identificação fiscal, exceto associações.</li>
+<li><b>Abertas, não excertos.</b> As páginas web são abertas e lidas com a ferramenta de páginas do <span class="irs">IRONSTICK</span>; os resultados de pesquisa são apenas indicadores de caminho. As páginas grandes são guardadas integralmente no cofre temporário encriptado e lidas a partir daí. Formulários de pesquisa e tabelas de dados que só se preenchem após um filtro podem ser consultados diretamente. Uma página aberta na mesma sessão é novamente fornecida a partir de uma cópia durante 30 minutos. Um documento digitalizado cujo processamento demore mais é comunicado como ainda não pronto; o processamento continua, e a chamada seguinte fornece o texto.</li>
+<li><b>Verificações anti-bot e inícios de sessão ficam a seu cargo.</b> Se um sítio web apresentar uma verificação anti-bot ou bloquear acessos automatizados, o <span class="irs">IRONSTICK</span> abre a página na sua própria janela de navegador, e a IA pede-lhe que conclua aí a verificação. Depois, a IA lê a página nessa janela, abre outras páginas do mesmo sítio web e descarrega os respetivos ficheiros para o cofre temporário encriptado; nada entra num processo até o registar. Para outro sítio web, a IA regressa à ferramenta de páginas; quando termina, comunica o trabalho no navegador como concluído, e a janela pergunta-lhe se deve ser fechada ou mantida aberta.</li>
+<li><b>Instruções ocultas rasuradas.</b> O texto das páginas web abertas e da janela do navegador passa por uma verificação baseada em regras; as passagens que se dirijam a uma IA, imitem texto de controlo do chat ou do <span class="irs">IRONSTICK</span> ou ocultem texto em caracteres invisíveis são substituídas por asteriscos, e é apresentada uma indicação por cima do conteúdo.</li>
+<li><b>Listas de nomes numa só passagem.</b> Uma comparação de listas verifica de forma determinística uma lista registada face a cada pessoa e empresa no <span class="irs">IRONSTICK</span> — acentos normalizados, ordem das palavras ignorada, tolerante a erros de OCR. As correspondências são classificadas como exatas, com ordem trocada, variante ou palavra isolada; as correspondências de palavra isolada são sempre ambíguas e têm de ser verificadas.</li>
+<li><b>Propostas em vez de escritas.</b> Os factos verificados vão como propostas para o monitor de consistência de dados: dados mestre, a análise de pessoa, ligações e duplicados. Para a análise de pessoa, a IA tem primeiro de ler a pessoa; um campo que já tenha conteúdo só é alterado se a IA transmitir esse conteúdo textualmente. Um campo de análise adotado vai para a análise mais recente da pessoa. Uma nova pessoa só recebe o seu número depois de a ter adotado, pelo que as ligações a ela precisam de uma segunda adoção.</li>
+<li><b>Nunca na memória da IA.</b> Os resultados e o progresso OSINT pertencem à parte, não à memória. Enquanto uma verificação OSINT de uma IA desktop estiver em aberto, qualquer tentativa de guardar uma entrada de memória é rejeitada com a instrução de registar os factos na parte.</li>
+<li><b>A pesquisa web de pessoas na aplicação.</b> O botão <i>Pesquisa web</i> na análise de pessoa percorre quatro passos: uma pesquisa web com variantes do nome recolhe ligações candidatas (uma pesquisa web adicional por IA só corre com o seu consentimento); remove os resultados indesejados; as páginas restantes são carregadas e resumidas por uma IA externa; assinala as fontes, e a IA condensa-as numa pré-visualização editável dos campos da análise. A gravação escreve os campos na análise da pessoa, que não está vinculada a um processo, marcados como não confirmados. A IA externa só é utilizada depois de ter dado o seu consentimento num diálogo de consentimento; se recusar, nada é enviado.</li>
+</ul>
+
+<h2 id="w8">Fluxo de trabalho 8 — Pesquisa jurídica: legislação primeiro a partir da biblioteca</h2>
+<p class="scr-intro">Utilize este fluxo de trabalho sempre que uma lei, um artigo de um código ou um regulamento seja relevante: para responder a uma questão jurídica, verificar uma citação ou fundamentar uma peça processual.
+A IA lê as normas textualmente a partir da sua própria biblioteca de legislação e só recorre à Internet se a biblioteca nada contiver sobre essa norma.
+Uma lei encontrada online é aberta, lida, citada com o seu URL e comunicada de volta, para que, após a sua aprovação, entre na biblioteca.
+A biblioteca é a referência com que a verificação de peças processuais confronta cada artigo citado.</p>
+<figure class="chart"><img src="img/43_statutes.png" alt="A biblioteca de legislação"><figcaption>Primeiro a biblioteca, a web apenas em caso de falha, e cada fonte web regressa à biblioteca com a sua aprovação.</figcaption></figure>
+
+<h3>Passo 0 — Definir o contexto</h3>
+<ul>
+<li><b>Abrir ou indicar o processo.</b> O direito aplicável provém do processo. A IA lê a jurisdição registada no processo antes de trabalhar juridicamente sobre o mérito.</li>
+<li><b>Se não for indicada nenhuma jurisdição.</b> A pesquisa na biblioteca utiliza então a jurisdição do processo em que a IA trabalhou por último na sessão, e indica-o; sem processo conhecido, pesquisa em todas as jurisdições e pede à IA que verifique a jurisdição de cada resultado.</li>
+<li><b>Ver o que a biblioteca contém.</b> O ecrã <i>Legislação</i> lista cada lei da biblioteca com título, jurisdição, área, fonte e estado, tem uma pesquisa de texto integral própria e um botão Adicionar para uma ligação ou um ficheiro PDF ou Markdown. Pergunte à IA «Que leis contém a biblioteca para [país]?» para obter a mesma visão geral na conversa.</li>
+<li><b>Pedir a leitura de que precisa.</b> Uma breve visão geral, o texto de um artigo ou a leitura completa de uma lei. Diga qual.</li>
+</ul>
+
+<h3>O que diz — passo a passo</h3>
+<ol class="say">
+<li><p class="cp">O que diz o art. [número] de [lei]? Cita-o.</p><span class="does">O artigo é lido textualmente a partir da sua biblioteca de legislação e citado com a respetiva fonte.</span></li>
+<li><p class="cp">[Questão] está regulada em [lei]? Indica-me os artigos.</p><span class="does">A biblioteca é pesquisada; recebe os artigos pertinentes com o seu texto exato.</span></li>
+<li><p class="cp">Verifica as normas citadas na minha minuta face à biblioteca.</p><span class="does">Cada artigo citado é comparado com o texto integral na biblioteca.</span></li>
+<li><p class="cp">[Lei] não está na biblioteca — procura-a no portal oficial.</p><span class="does">A web só é aberta para uma norma que a biblioteca não contém; a página é lida, citada com a sua ligação e proposta para a sua biblioteca.</span></li>
+</ol>
+
+<h3>O que acontece nos bastidores</h3>
+<ul>
+<li><b>A pesquisa na biblioteca.</b> Pesquisa todos os ficheiros de legislação da biblioteca de duas formas: por designação («Código Civil», «Regulamento (UE) 2016/679»), comparada com o título e a descrição e classificada em primeiro lugar, ou por passagem de texto, uma pesquisa aproximada em que bastam cerca de 60 % das palavras. Cada resultado indica o número de registo interno (número L), o ficheiro, breves excertos com as suas posições exatas de caracteres e uma chamada pronta para obter o texto circundante.</li>
+<li><b>Ler textualmente.</b> O leitor de artigos fornece um artigo pelo número L e pelo número do artigo; a pesquisa de expressões fornece um intervalo de caracteres ou cada ponto em que uma expressão ocorre, com o texto circundante. Ambos registam como lido exatamente o que forneceram. O leitor de leis fornece uma lei inteira; uma lei maior do que o limite do conector vai integralmente para a área de trabalho encriptada; conta como lido o que a IA daí obtém com o leitor de artigos.</li>
+<li><b>Primeiro a biblioteca de legislação.</b> Uma pesquisa na web ou consulta de página que pareça uma consulta legislativa — números de artigos ou de números/parágrafos, nomes de códigos, números de diplomas, portais de legislação — é rejeitada até a IA ter pesquisado essa norma na biblioteca. Se a biblioteca tiver resultados, a web permanece fechada para essa norma e a IA é instruída a citar a partir da biblioteca. Só quando a biblioteca não comunica qualquer resultado é que a web é liberada para essa norma, durante 15 minutos, incluindo as ligações de portais de legislação que essa pesquisa fornecer. Resultados que não tenham no título o número ou a designação da lei procurada, ou que não contenham o número do artigo procurado, não contam como «a biblioteca tem-na» — a menção de um regulamento dentro da sua lei de base é uma dessas falhas. A barreira aplica-se ao chat de IA e a cada IA desktop.</li>
+<li><b>Abertas, não excertos.</b> Uma página utilizada como fonte é aberta e lida com a ferramenta de páginas do <span class="irs">IRONSTICK</span>; os resultados de pesquisa são apenas indicadores de caminho. Cada fonte da Internet é citada com o seu URL. O texto legal é citado a partir do ficheiro da biblioteca assim que a fonte lá estiver.</li>
+<li><b>Comunicar fontes legislativas.</b> Após uma pesquisa na web relativa a legislação, ou depois de a IA ter aberto uma página de um portal de legislação, cada resposta de ferramenta seguinte começa, durante até 15 minutos, com o lembrete para comunicar a fonte. Uma ligação de portal que apareça apenas num resultado de pesquisa sem relação com o tema recebe apenas uma indicação.</li>
+<li><b>Aberta pela própria IA.</b> Uma comunicação de fonte só é aceite se a mesma sessão de IA tiver aberto exatamente essa página nas últimas 24 horas com a ferramenta de páginas. Caso contrário, a comunicação é rejeitada com a instrução de abrir a página e verificar que contém realmente o texto da lei — não uma página de erro, não uma página de início de sessão, não um resultado de pesquisa, não uma visão geral. Como qualquer escrita datada, a comunicação requer a data atual, obtida nos últimos 30 minutos.</li>
+<li><b>O seu consentimento.</b> As fontes comunicadas acumulam-se num diálogo, cada uma com uma caixa de verificação. As fontes assinaladas são obtidas por um processo em segundo plano, convertidas, verificadas e guardadas na biblioteca; as não assinaladas são rejeitadas. Se fechar o diálogo, as fontes permanecem acumuladas; o diálogo regressa com a comunicação seguinte. Uma ligação que já esteja na biblioteca recebe a resposta de que já existe; uma fonte diferente para uma lei que a biblioteca já contém torna-se um pedido para substituir a fonte sob o mesmo número L.</li>
+<li><b>Nenhum portal de legislação na janela do navegador.</b> A janela de navegador do <span class="irs">IRONSTICK</span>, na qual conclui verificações anti-bot e inícios de sessão para outros sítios web, recusa portais de legislação: nada é aí aberto, lido ou descarregado. Um portal de legislação que bloqueie a ferramenta de páginas não é passado para essa janela.</li>
+<li><b>Atualidade da biblioteca.</b> As fontes ligadas são verificadas novamente face à sua fonte cerca de 14 em 14 dias; a IA pode também verificar de novo uma lei individual de imediato. Se uma lei divergir da sua fonte, a IA consulta online a versão atual. Os ficheiros carregados sem fonte estão assinalados como tal.</li>
+<li><b>Citações numa peça processual.</b> A verificação de peças processuais confronta cada artigo citado com o registo de leitura das ferramentas da biblioteca. Um artigo que exista na biblioteca, mas que aí não tenha sido lido antes da última alteração da minuta, é uma constatação bloqueante, com a instrução de o ler textualmente com o leitor de artigos e de o incorporar no texto. Uma norma que não esteja na biblioteca é uma constatação bloqueante até a sua fonte ter sido comunicada e integrada. Uma leitura conta se tiver ocorrido após a última alteração do texto da biblioteca e antes da última alteração da minuta.</li>
+<li><b>Encontrado não é lido.</b> Encontrar um número de artigo num ficheiro de legislação ou mencioná-lo numa visão geral não constitui uma leitura textual. Para uma peça processual, cada artigo citado é lido com o leitor de artigos, e a IA verifica que o texto sustenta efetivamente a sua frase.</li>
+<li><b>Ler uma lei inteira.</b> Se um código completo estiver no cofre temporário e a IA o ler aí parte a parte, tem o texto completo na sua conversa. Para a verificação de peças processuais, um artigo só conta como lido se tiver chegado através do leitor de artigos ou da pesquisa de expressões, ou no caso de uma lei suficientemente pequena para ser devolvida diretamente.</li>
+</ul>
+
+<h2 id="final">Trabalhar com a IA — o seu assistente no processo</h2>
+<p>Em princípio, um chat com uma IA ligada ao <span class="irs">IRONSTICK</span> através da Bridge é uma ferramenta extraordinariamente poderosa. Imagine-a como um assistente jurídico ou como um colega. Através da Bridge, a IA não só pode pesquisar documentos, passagens de texto individuais ou elementos de prova — pode também ver imagens guardadas, ver e verificar ficheiros PDF a pedido, iniciar novas digitalizações OCR e muito mais.</p>
+<p>Quando trabalha com a IA, trabalha com ela como com um assistente jurídico ou um advogado. Dê simplesmente instruções claras sobre o que pretende exatamente. A IA executa as consultas necessárias em segundo plano através da Bridge, diretamente no <span class="irs">IRONSTICK</span> — ou seja, nos seus processos.</p>
+<p><b>Como regra:</b> sem o seu consentimento, a IA pouco mais pode fazer no <span class="irs">IRONSTICK</span> do que ler. As alterações a dados mestre, cronologia, calendário, memória, textos integrais e biblioteca de legislação só produzem efeito depois de as ter aprovado: ou recebe para tal um formulário ou um diálogo no <span class="irs">IRONSTICK</span>, ou o pedido de alteração da IA aparece no monitor de consistência de dados. Sem um diálogo desse tipo, a IA só escreve nas suas próprias áreas de trabalho — o armazenamento intermédio encriptado, o registo diário a seu pedido e a sua própria avaliação do processo após as verificações determinísticas. As etiquetas e as mensagens do chat do escritório requerem a sua confirmação no chat.</p>
+<div class="box"><b>Transparência total:</b> cada aplicação de IA para desktop mostra as suas chamadas de ferramentas — vê a todo o momento que informações a IA obteve do <span class="irs">IRONSTICK</span>.<br><br>
+Seja rigoroso nas suas perguntas e instruções, e diga à IA onde e como deve pesquisar. Não precisa de indicar a ferramenta de pesquisa — a IA conhece-a —, mas diga-lhe claramente que deve obter a informação do <span class="irs">IRONSTICK</span>: no cliente XY, no processo XY, na prova XY. Pode indicar os clientes simplesmente pelo nome — a IA resolve ela própria o ID do cliente — ou copiar o número do cliente (<i>@C0000000</i>) do <span class="irs">IRONSTICK</span> e fornecê-lo à IA. O mesmo funciona, por exemplo, com um número de prova (<i>#0000000</i>).</div>
+<div class="boxorange">A IA cobre aquilo que a lógica de programa determinística não consegue fazer, ou só com um esforço extremo — compreender e escrever linguagem natural. Tudo o resto — o acesso aos seus processos, a seleção dos autos do tribunal, as verificações face aos seus documentos, a regra de que os seus registos só mudam com a sua aprovação — é feito pelo próprio <span class="irs">IRONSTICK</span>, de forma determinística. A IA nunca se torna a fonte dos factos; o <span class="irs">IRONSTICK</span> é que o é. É isto que distingue tão profundamente a abordagem do <span class="irs">IRONSTICK</span> da utilização convencional da IA.<br><br>Para si, enquanto utilizador, o <span class="irs">IRONSTICK</span> apresenta-se, no entanto, na forma habitual — como interface gráfica ou como diálogo.</div>
+
+<footer class="sd-foot"><p>O IRONSTICK é um software para a prática jurídica. Este sítio web destina-se exclusivamente a fins informativos e não constitui aconselhamento jurídico. © 2026 IRONSTICK.</p></footer>
+<script>
+document.querySelectorAll('p.cp').forEach(function(p){
+  var b=document.createElement('button'); b.type='button'; b.className='cpbtn'; b.textContent='Copiar';
+  b.addEventListener('click',function(){
+    var t=p.innerText.trim();
+    var done=function(){b.textContent='Copiado'; setTimeout(function(){b.textContent='Copiar';},1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){});}
+  });
+  p.insertAdjacentElement('afterend',b);
+});
+</script>
+</body></html>

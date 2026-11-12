@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<title>IRONSTICK in één oogopslag</title>
+<style>  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 30px; margin: 10px 0 4px; }
+  .tagline { font-size: 17px; color: #5f6368; margin: 0 0 18px; }
+  h2 { font-size: 21px; color: #1a73e8; margin-top: 40px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 22px; }
+  .part { font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+          color: #5f6368; margin-top: 44px; }
+  .hero { border-bottom: 3px solid #1a73e8; padding-bottom: 14px;
+          display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .hero > .herotext { flex: 1 1 460px; }
+  .heroimg { max-width: 225px; height: auto; flex: 0 0 auto; margin: 0 auto; }
+  .hero > .tiles { flex: 1 1 100%; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+  .tile { border: 1px solid #dadce0; border-radius: 8px; padding: 12px 14px;
+          background: #f8f9fa; }
+  .tile b { color: #1a73e8; display: block; margin-bottom: 4px; font-size: 15px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .quote { border-left: 4px solid #188038; background: #f8f9fa; padding: 10px 14px;
+           margin: 14px 0; font-style: italic; }
+  ul li, ol li { margin: 5px 0; }
+  figure { margin: 18px 0; text-align: center; }
+  figure img { max-width: 100%; border: 1px solid #dadce0; border-radius: 6px; }
+  figcaption { font-size: 12.5px; color: #5f6368; margin-top: 6px; font-style: italic; }
+  figure.cutout img { border: none; border-radius: 0; max-width: min(360px, 100%); }
+  figure.sidepic { float: right; width: 230px; margin: 4px 0 10px 20px; }
+  figure.sidepic img { border: none; border-radius: 0; }
+  .pb { page-break-before: always; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; }
+                 table, figure, .tile { page-break-inside: avoid; } }
+</style><style>
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;border-bottom:1px solid #dadce0;
+    padding:8px 16px;margin:-32px -24px 18px;max-width:none}
+  .lic table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px}
+  .lic th,.lic td{border:1px solid #dadce0;padding:7px 10px;text-align:left;vertical-align:top}
+  .lic th{background:#f1f3f4}
+  .lic a{color:#1a73e8;font-weight:600}
+  .site-foot{margin-top:40px;border-top:3px solid #1a73e8;padding-top:18px;color:#5f6368}
+  .site-foot h2{border:0;color:#1a73e8;margin:0 0 6px}
+  .site-foot a{color:#1a73e8}
+  html{scroll-behavior:smooth}
+  h2{scroll-margin-top:64px}
+  .cc-name{font-size:19px;font-weight:800;color:#111;margin:10px 0 8px}
+  .cc-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .qr{width:180px;height:180px;box-sizing:border-box;display:block;
+    border:1px solid #dadce0;border-radius:12px;padding:8px;background:#fff}
+  .portrait{height:180px;width:auto;border-radius:12px;display:block}
+  .qrhint{font-size:14px;color:#5f6368;margin:0 0 4px}
+  .pref{font-size:15px;color:#202124;margin:6px 0 0;max-width:640px}
+  .disc{font-size:12.5px;color:#80868b;margin-top:12px;line-height:1.5;
+    border-top:1px solid #dadce0;padding-top:10px}
+  img{max-width:100%;height:auto}
+  /* Nur-Hell erzwingen (Handy-Nachtmodus): kein Auto-Abdunkeln. */
+  :root{color-scheme:only light}
+  html,body{background:#fff !important}
+  .hero{border-bottom:0 !important}
+  .showband{margin:30px auto;text-align:center;border:0;background:transparent;
+    max-width:760px}
+  .showband img{display:block;width:100%;height:auto;margin:0 auto;border:0;border-radius:0}
+  figure.repl img{border:0 !important;border-radius:0}
+  figure.serverpic{float:none;width:auto;max-width:760px;margin:30px auto;
+    text-align:center}
+  figure.serverpic img{display:block;width:100%;height:auto;margin:0 auto;
+    border:0;border-radius:0}
+  @media (max-width:640px){
+    .site-bar{flex-wrap:wrap;padding:8px 12px;margin:-32px -24px 14px}
+    .lic table,.lic tbody,.lic tr,.lic td,.lic th{display:block;width:auto}
+    .lic tr{border:1px solid #dadce0;border-radius:8px;margin:8px 0;padding:4px}
+    .lic td,.lic th{border:0;padding:5px 8px}
+  }
+/*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}@media (max-width:640px){.left{flex-wrap:wrap;gap:6px 16px}.left }</style><style>
+  .scr-intro{font-size:15px;margin:10px 0 4px}
+  ol.marks{counter-reset:none;padding-left:1.6em}
+  ol.marks li::marker{color:#1a73e8;font-weight:700}
+  h3.do{margin-top:26px}
+  h4{font-size:14.5px;margin:18px 0 4px;color:#202124}
+  p.grp{margin:14px 0 2px}
+  figure img{border:0 !important;border-radius:0 !important;box-shadow:none !important}
+  figure.vid video{display:block;max-width:50%;max-height:40vh;margin:0 auto;border:0;background:#000}
+  .gh-ov{background-image:url("img/lp_client.jpg");background-position:50% 31%}
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="description" content="De kantoorsoftware die uw dossiers kent — lokaal op uw computer, met AI aan uw zijde.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/overview.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/overview_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/overview_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/overview_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/overview_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/overview_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/overview_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/overview_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/overview_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/overview_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/overview_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/overview.html">
+<link rel="icon" type="image/png" href="https://www.ironstick.legal/favicon.png">
+<link rel="stylesheet" href="fonts/noto-serif.css"><link rel="stylesheet" href="sitebar.css"><link rel="stylesheet" href="contact.css"><link rel="stylesheet" href="hero.css"><link rel="stylesheet" href="site.css"><script src="parallax.js" defer></script>
+<style>.boxorange{background:#ea6d00;color:#fff;border-radius:10px;padding:20px 24px;margin:30px 0;font-size:16.5px;line-height:1.6;box-shadow:0 4px 14px rgba(234,109,0,.35)}.boxorange b,.boxorange .irs{color:#fff}</style><link rel="alternate" type="text/markdown" href="overview_nl.md">
+<link rel="llms-txt" href="/llms.txt">
+<style>/* Nummerierung wie die Legenden auf Überblick/KI: grauer Kreis, schwarzer Rand, schwarze Ziffer */ol.marks,ol.say{list-style:none;counter-reset:mk;padding-left:0}ol.marks>li,ol.say>li{counter-increment:mk;position:relative;padding-left:30px}ol.marks>li::before,ol.say>li::before{content:counter(mk);position:absolute;left:0;top:.2em;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+<style>.boxorange a{color:#fff;text-decoration:underline}.ov-fig img{display:block;width:100%;max-width:860px;height:auto;margin:0 auto}.ov-vid video{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;background:#000}h2.ov-part{font-size:28px;color:#202124;border:0 !important;margin:64px 0 0;padding:0}h3.ov-h{font-size:20px;color:#202124;border:0;margin:34px 0 10px}.ov-side{float:right;width:230px;margin:0 0 12px 28px}.ov-side img{display:block;width:100%;height:auto}@media (max-width:640px){.ov-side{float:none;width:200px;margin:0 auto 12px}}ol.ov-legend li.ov-ai{counter-increment:none}ol.ov-legend li.ov-ai::before{display:none}.ov-ico{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;border:1.5px solid #000;box-sizing:border-box;display:flex;align-items:center;justify-content:center}ol.ov-legend{list-style:none;counter-reset:lg;padding:0;margin:10px 0 18px;font-size:13px;line-height:1.5;color:#3c4043}ol.ov-legend li{counter-increment:lg;position:relative;padding-left:30px;margin:7px 0}ol.ov-legend li::before{content:counter(lg);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#dddddd;color:#000;border:1.5px solid #000;box-sizing:border-box;font-size:11px;font-weight:700;line-height:17px;text-align:center}</style>
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_nl.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_nl.html">Home</a><a href="overview_nl.html" aria-current="page">Overzicht</a><a href="ki_nl.html">AI</a><span class="mh">Handleidingen</span><a class="sub" href="manualquickstart_nl.html">Snelstart</a><a class="sub" href="manualironstick_nl.html">Client-app</a><a class="sub" href="manualbridge_nl.html">Bridge</a><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></div></div><nav class="mainnav"><a href="overview_nl.html" aria-current="page">Overzicht</a><a href="ki_nl.html">AI</a><div class="nav-drop" tabindex="0"><span>Handleidingen</span><div class="menu"><a href="manualquickstart_nl.html">Snelstart</a><a href="manualironstick_nl.html">Client-app</a><a href="manualbridge_nl.html">Bridge</a></div></div><a href="gdpr_nl.html">AVG</a><a href="download_nl.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_nl.html">30 dagen proberen</a><nav class="lang-wrap" tabindex="0" title="Taal" aria-label="Taal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="overview.html">English</a><a lang="de" hreflang="de" href="overview_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="overview_ro.html">Română</a><a lang="fr" hreflang="fr" href="overview_fr.html">Français</a><a lang="it" hreflang="it" href="overview_it.html">Italiano</a><a lang="es" hreflang="es" href="overview_es.html">Español</a><a lang="pt" hreflang="pt" href="overview_pt.html">Português</a><a class="on" lang="nl" hreflang="nl" href="overview_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="overview_ru.html">Русский</a><a lang="uk" hreflang="uk" href="overview_uk.html">Українська</a><a lang="tr" hreflang="tr" href="overview_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-ov" data-parallax="31 100"><div class="gh-in"><div class="gh-box"><h1>IRONSTICK in één oogopslag</h1></div><p class="gh-sub">De kantoorsoftware die uw dossiers kent — lokaal op uw computer, met AI aan uw zijde.</p></div></section>
+
+<p class="scr-intro"><span class="irs">IRONSTICK</span> brengt cliënten, zaken, bewijsstukken, termijnen, e-mails en documenten samen in één dossier — en zet een AI aan uw zijde die dit dossier volledig kent. U vraagt, het dossier antwoordt, met een verwijzing naar elk document. U controleert en ondertekent, in plaats van te zoeken en over te typen. Alles staat versleuteld op uw eigen hardware.</p>
+
+<h2 class="ov-part">1. De werkdag</h2>
+<h3 class="ov-h">De kantoordag in één oogopslag</h3>
+<figure class="ov-fig"><img src="img/screens/1%20menu.png?v=3" alt="De kantoordag in één oogopslag" loading="lazy"></figure>
+<p class="scr-intro"><b>De hele dag op drie pagina's.</b> Open <span class="irs">IRONSTICK</span>, en uw dag is al geordend.</p>
+<ul>
+<li><b>Start.</b> Alle werkgebieden en de stand van uw termijnen in één oogopslag.</li>
+<li><b>Agenda.</b> Alles wat in uw zaken is binnengekomen, dag voor dag — met een voorbeeldweergave van de documenten.</li>
+<li><b>Heatmap.</b> Elke dag van de afgelopen twaalf maanden als vakje — hoe donkerder, hoe meer er in uw zaken is gebeurd; termijnen en zittingen zijn gemarkeerd. Daaronder de opgelaaide zaken: die met duidelijk verhoogde activiteit in de afgelopen 14 dagen.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Termijnmonitor</h3>
+<figure class="ov-fig"><img src="img/screens/11%20deadlines.png?v=3" alt="Termijnmonitor" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Referentienummers. Het nummer van een document of van een AI-herinnering kopieert u met één klik — bijvoorbeeld om het in de chat te plakken.</li>
+<li>Termijnen afhandelen. Termijnen uit documenten en kroniekvermeldingen worden aangevinkt en samen verwijderd; herinneringen van de AI verlaten de lijst met <i>Afspraak verwijderen</i>.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="2 2 20 20" width="15" height="15" aria-hidden="true"><path fill="#1a73e8" d="M13 3C9.25 3 6.2 5.94 6.02 9.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v3h7v-4.68c2.36-1.12 4-3.53 4-6.32 0-3.87-3.13-7-7-7zm3 7c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39zm-3-1.43c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43z"/></svg></span>Afspraken en termijnen worden ook door de AI vastgelegd — rechtstreeks vanuit het gesprek met u. Ze verschijnen met dit symbool in de lijst.</li>
+</ol>
+<p class="scr-intro"><b>Geen termijn meer missen.</b> Een gemiste termijn is een aansprakelijkheidskwestie. <span class="irs">IRONSTICK</span> houdt alle termijnen en zittingsdata bij in één lijst en laat zien hoeveel tijd er nog rest.</p>
+<ul>
+<li><b>Alle termijnen en zittingsdata in één lijst</b> — met datum, zaak en het aantal resterende dagen tot de vervaldatum; verstreken termijnen in rood, binnenkort vervallende in oranje.</li>
+<li><b>Termijnen uit binnenkomende stukken.</b> De AI herkent termijnen in binnenkomende brieven en beslissingen en legt ze vast.</li>
+<li><b>Termijnbel.</b> Oranje wanneer een termijn binnen de komende tien dagen verstrijkt, rood op de dag zelf — altijd zichtbaar in de menubalk.</li>
+<li><b>Termijnenlijst afdrukken</b> of als pdf uitvoeren.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Automatische documentregistratie</h3>
+<figure class="ov-fig"><img src="img/screens/8%20capture%20documents%20proces.png?v=3" alt="Automatische documentregistratie" loading="lazy"></figure>
+<p class="scr-intro"><b>De binnenkomende post handelt zichzelf af.</b> Scannen, erin slepen, bevestigen: <span class="irs">IRONSTICK</span> herkent de tekst, koppelt het document aan de juiste zaak en legt de termijn vast.</p>
+<ul>
+<li><b>Pagina's selecteren.</b> Alleen de pagina's die in het dossier thuishoren, worden overgenomen.</li>
+<li><b>Ingebouwde tekstherkenning.</b> Voor meer dan 35 Europese talen, niets te installeren.</li>
+<li><b>Voorstel in plaats van typen.</b> De AI stelt cliënt, zaak, documenttype, taal, datum en termijn voor — u bevestigt.</li>
+<li><b>Versleuteld opgeslagen</b> en direct doorzoekbaar in de volledige tekst.</li>
+</ul>
+<div style="clear:both"></div>
+<p class="scr-intro">Zo duurt het registreren van een document nauwelijks langer dan 20 seconden — en is de volledige binnenkomende post in een handomdraai over de dossiers verdeeld.</p>
+
+<h2 class="ov-part">2. Van concept tot indiening</h2>
+<h3 class="ov-h">Tekstverwerking voor processtukken</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20preview.png?v=3" alt="Tekstverwerking voor processtukken" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Bewerken. De bewerkbare pagina met de volledige werkbalk.</li>
+<li>Voorbeeld. Het document in afzonderlijke A4-pagina's, precies zoals ze worden afgedrukt.</li>
+<li>Afdrukvoorbeeld. Slaat het document op en opent het afdrukvoorbeeld met alle producties.</li>
+<li>Opslaan &amp; sluiten. Slaat het document op en keert terug naar de lijst met teksten.</li>
+</ol>
+<p class="scr-intro"><b>Processtukken in minuten in plaats van uren — zonder verzonnen citaten.</b> Uw tijd is uw omzet, en een onjuiste vindplaats is het grootste risico bij het gebruik van AI. Het concept ontstaat in dialoog met de AI rechtstreeks uit het dossier — en elke wetsbepaling, elke partij en elk bewijsstuk wordt getoetst aan het dossier en de wettenbibliotheek, voordat u het te zien krijgt.</p>
+<ul>
+<li><b>Uit het dossier.</b> Basisgegevens, kroniek, volledige teksten, termijnen en producties vloeien in het concept.</li>
+<li><b>Bewerken en voorbeeld.</b> Tekst wijzigen en direct zien hoe die er afgedrukt op uw briefpapier uitziet.</li>
+<li><b>Indieningsklaar concept.</b> U controleert, rondt af en ondertekent.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Afdrukvoorbeeld: processtuk en producties in één pdf</h3>
+<figure class="ov-fig"><img src="img/screens/13%20texts%20wordprocesing%20printpreview.png?v=3" alt="Afdrukvoorbeeld: processtuk en producties in één pdf" loading="lazy"></figure>
+<ol class="ov-legend">
+<li>Uw document. De pagina's van het processtuk — een linkerklik op een pagina opent het venster om uw handtekening te plaatsen.</li>
+<li>Titelregel van de productie. Vermeldingsnummer, productienummer en titel van elke productie. Daaronder de pagina's ervan: een linkerklik toont een pagina vergroot, een rechterklik sluit haar uit van de pdf; een tweede rechterklik neemt haar weer op.</li>
+<li>Waarmerkstempel. Per productie in- en uit te schakelen; de stempeltekst volgt de taal van het land van de zaak.</li>
+<li>DOCX. Het document als Word-bestand.</li>
+<li>PDF-download. De definitieve pdf uit alle actieve pagina's.</li>
+</ol>
+<p class="scr-intro"><b>De indiening is klaar.</b> Processtuk en producties gestempeld, gepagineerd en ondertekend in één pdf — in plaats van bij het kopieerapparaat.</p>
+<ul>
+<li><b>Handtekening plaatsen.</b> Uw opgeslagen handtekening wordt met een klik op de juiste plek geplaatst.</li>
+<li><b>Producties met waarmerkstempel.</b> Elke productie krijgt haar stempel; afzonderlijke pagina's zijn met één klik uit te sluiten.</li>
+<li><b>Uitvoer als PDF of DOCX</b> — processtuk en producties in één bestand, pagina voor pagina gepagineerd.</li>
+<li><b>Ook voor omvangrijke procedures.</b> 3.000 pagina's gestempeld, gepagineerd en samengevoegd tot één pdf — in minder dan 20 minuten.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Dossier over de hele zaak</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%201.png?v=3" alt="Dossier over de hele zaak" loading="lazy"></figure>
+<p class="scr-intro"><b>Het volledige dossier in één document.</b> De dossierassistent stelt de hele zaak samen tot een gepagineerd dossier. Eerst bepaalt u wat erin komt.</p>
+<ul>
+<li><b>Documenten selecteren.</b> Elke vermelding in de kroniek kunt u met één klik opnemen of weglaten.</li>
+<li><b>Tot op de afzonderlijke pagina.</b> Uit elk document kiest u precies de pagina's die in het dossier thuishoren.</li>
+<li><b>Vooraf bekijken.</b> Documenten, foto's, transcripties en chats openen in het voorbeeld, zonder de selectie te wijzigen.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-fig"><img src="img/screens/5%20case%20dossier%202.png?v=3" alt="Dossier over de hele zaak" loading="lazy"></figure>
+<p class="scr-intro"><b>Voorblad, opbouw en afdrukweergave.</b> Daarna legt u voorblad en opbouw vast en controleert u elke pagina, voordat het dossier wordt aangemaakt.</p>
+<ul>
+<li><b>Selecteerbare voorbladen.</b> De geadresseerde neemt u over uit de instanties van de zaak of vult u zelf in.</li>
+<li><b>In de taal van de jurisdictie.</b> Voorblad en overzichten worden opgesteld in de taal van het land van de zaak; heeft het land meerdere rechtstalen, dan kiest u de taal.</li>
+<li><b>Opbouw naar wens.</b> Voorblad, onderwerpenregister, chronologie, documenten, media, transcripties, chats, personen- en instantieregister — opnemen, weglaten en door slepen ordenen.</li>
+<li><b>Uitgesloten pagina's direct zichtbaar.</b> De afdrukweergave toont elke pagina van het definitieve dossier; pagina's kunt u daar nog weglaten of terughalen, en het onderwerpenregister past de paginanummers aan.</li>
+<li><b>Export als PDF of EDRM.</b> Als gepagineerd pdf-dossier of als EDRM-productiepakket met Bates-nummers.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">3. Het dossier begrijpen</h2>
+<h3 class="ov-h">Zaakassistent</h3>
+<figure class="ov-side"><img src="img/cutout_assistant.jpg?v=3" alt="Zaakassistent" loading="lazy"></figure>
+<p class="scr-intro"><b>Het dossier direct paraat.</b> Voor de zitting of het gesprek met de cliënt bevraagt u het dossier in plaats van te bladeren — in natuurlijke taal, via toetsenbord of stem.</p>
+<ul>
+<li>„Vat de huidige stand van de procedure samen.” — „Hebben we de laatste brief van de wederpartij beantwoord?” — „Wat heeft de getuige over de plaatsopneming gezegd?”</li>
+<li><b>Elk antwoord met bron.</b> Elk aangehaald document is een klikbare link naar de vermelding in uw dossier.</li>
+<li><b>Routinevragen blijven op uw computer.</b> Een lokale laag beantwoordt ze, zonder dat gegevens het apparaat verlaten.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">AI-zaakbeoordeling</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20assesment%20detail.png?v=3" alt="AI-zaakbeoordeling" loading="lazy"></figure>
+<ol class="ov-legend">
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M2.5 6.5 a1.5 1.5 0 0 1 1.5-1.5 h5 l2 2 h9 a1.5 1.5 0 0 1 1.5 1.5 v9.5 a1.5 1.5 0 0 1-1.5 1.5 h-16 a1.5 1.5 0 0 1-1.5-1.5 z" fill="#f6d36b" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg></span>Voor de algemene zaakbeoordeling wordt het hele dossier meegenomen, inclusief de verwante zaken.</li>
+<li class="ov-ai"><span class="ov-ico"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 2.8 h8.5 l4 4 v14.4 h-12.5 z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 2.8 v4 h4" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M8.5 11 h7 M8.5 14 h7 M8.5 17 h5" stroke="#000" stroke-width="1.3"/></svg></span>Voor de slagingskans worden alleen de processtukken aan en van de instantie meegenomen.</li>
+</ol>
+<p class="scr-intro"><b>De slagingskans die u uw cliënt kunt uitleggen.</b> De AI-zaakbeoordeling leest het volledige dossier — uw eigen processtukken evengoed als de processtukken van de wederpartij — en vat de stand van de procedure samen in één inschatting.</p>
+<ul>
+<li><b>Slagingskans op een schaal</b> — met afzonderlijke scores voor de bewijspositie, de hoofdvordering en verdere vorderingen.</li>
+<li><b>Wat in uw voordeel spreekt, wat ertegen.</b> Sterke en zwakke punten in kleur gemarkeerd, elke bewering met een link naar het onderliggende document.</li>
+<li><b>Concrete volgende stappen</b> als aanbeveling voor de verdere aanpak.</li>
+<li><b>Met één druk op de knop</b> — op elk moment opnieuw, zodra er nieuwe documenten in het dossier zitten.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Netwerk van personen en bedrijven met OSINT-onderzoek</h3>
+<figure class="ov-fig"><img src="img/screens/6%20entities%20universe.png?v=3" alt="Netwerk van personen en bedrijven met OSINT-onderzoek" loading="lazy"></figure>
+<p class="scr-intro"><b>Verwevenheden herkennen die niemand met de hand vindt.</b> Personen, bedrijven, overheidsinstanties en rechtbanken uit al uw zaken vormen één gemeenschappelijk netwerk — als lijst, als 3D-universum, als 2D-kaart en op de geografische kaart. Vooral een winst in het ondernemingsrecht, insolventierecht en strafrecht.</p>
+<ul>
+<li><b>Verbanden met bron.</b> Wie in welke procedures opduikt, hoe betrokkenen met elkaar verbonden zijn — en waardoor.</li>
+<li><b>Drie weergaven.</b> Het 3D-universum om doorheen te vliegen, de 2D-kaart van de groeperingen en de geografische kaart met alle betrokkenen en locaties.</li>
+</ul>
+<div style="clear:both"></div>
+<figure class="ov-vid"><video src="img/universe-entities.mp4" autoplay muted loop playsinline preload="metadata"></video></figure>
+<p class="scr-intro"><b>Uw dossier en het OSINT-onderzoek van de AI werken samen.</b> Wat uw dossiers over een persoon of bedrijf weten, verbindt de AI met wat openbare bronnen opleveren. Elk onderzoek wordt blijvende kennis over de betrokkenen — die groeit met elke zaak en staat u in alle procedures ter beschikking.</p>
+<ul>
+<li><b>OSINT-onderzoek door de AI.</b> U noemt de AI een persoon of bedrijf — zij zoekt eerst in uw eigen dossiers, daarna op internet: loopbaan, socialemediaprofielen, pers, deelnemingen in bedrijven, handelsregister.</li>
+<li><b>Onderzoek wordt basisgegevens.</b> Nieuwe personen, bedrijven en relaties legt de AI met bron als voorstel aan; overgenomen wordt alleen wat u vrijgeeft.</li>
+<li><b>Analyse van uitspraken.</b> Elke rechterlijke uitspraak in uw dossiers kan volgens een vast stramien worden geanalyseerd — argumenten, recht, bewijs, motivering; voor een processtuk aan die rechtbank leest de AI de analyses mee.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h2 class="ov-part">4. Beveiliging en beheer</h2>
+<h3 class="ov-h">Beroepsgeheim</h3>
+<figure class="ov-fig"><img src="img/49_encryption.png?v=3" alt="Beroepsgeheim" loading="lazy"></figure>
+<p class="scr-intro"><b>Het beroepsgeheim blijft binnen het kantoor.</b> Geen cliëntgegevens in externe datacenters: dossier, bewijsstukken en documenten staan op uw eigen hardware, <a href="gdpr_nl.html">AVG-conform</a>.</p>
+<ul>
+<li><b>AES-256-versleuteld.</b> Database en documenten zijn op de schijf versleuteld.</li>
+<li><b>Toegang met authenticatorcode.</b> Uw gegevens verschijnen pas na invoer van de zescijferige code van uw telefoon.</li>
+<li><b>Geen cliëntgegevens naar de leverancier.</b> <a href="ki_nl.html">Externe AI</a> werkt met uw eigen sleutel; aanroepen worden gepseudonimiseerd.</li>
+<li><b>Werkt ook offline.</b> Dossier, zoekfunctie, documenten en de lokale assistent werken zonder internet.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">IRONSTICK SERVER</h3>
+<figure class="ov-fig"><img src="img/screens/5%20case%20case.png?v=3" alt="IRONSTICK SERVER" loading="lazy"></figure>
+<p class="scr-intro"><b>Samenwerken — zonder cloud.</b> De <a href="download_nl.html"><span class="irs">IRONSTICK</span> SERVER</a> verbindt uw werkplekken via een Synology-NAS in uw eigen netwerk — zonder cloud.</p>
+<ul>
+<li><b>Zaken delen.</b> Met alle gebruikers of gericht met afzonderlijke collega's — elke deling kan op elk moment worden ingetrokken.</li>
+<li><b>Zaak overdragen.</b> Een zaak gaat met een paar klikken volledig over naar een collega.</li>
+<li><b>Versleuteld op de NAS.</b> Gedeelde zaken staan AES-256-versleuteld op de server van uw kantoor.</li>
+<li><b>Iedereen houdt zijn dossier.</b> Het volledige dossier blijft daarnaast op elke werkplek staan.</li>
+<li><b>Gemeenschappelijke wettenbibliotheek</b> en een gemeenschappelijk netwerk van personen en bedrijven.</li>
+</ul>
+<div style="clear:both"></div>
+
+<h3 class="ov-h">Back-up</h3>
+<figure class="ov-fig"><img src="img/screens/18%20backup.png?v=3" alt="Back-up" loading="lazy"></figure>
+<p class="scr-intro"><b>Uw hele kantoor veiliggesteld in één bestand.</b> Eén klik op „Back-up maken”, en database en documenten staan in een versleuteld back-upbestand.</p>
+<ul>
+<li><b>Opslaan waar u wilt:</b> lokaal, op een externe SSD of op een USB-stick.</li>
+<li><b>Met de <span class="irs">IRONSTICK</span> SERVER</b> staat de back-up daarnaast versleuteld op de NAS van uw kantoor.</li>
+<li><b>Laatste back-ups in één oogopslag</b> — met datum en grootte.</li>
+<li><b>Herstellen</b> vanuit een back-upbestand met een paar klikken.</li>
+</ul>
+<div style="clear:both"></div>
+
+<div class="boxorange"><b>Geen IT-rompslomp — 30 dagen gratis proberen.</b> <span class="irs">IRONSTICK</span> draait op een gangbare Windows-pc; updates installeert u er eenvoudig overheen, alle gegevens blijven behouden. Download de software op de <a href="download_nl.html">downloadpagina</a>; de <a href="manualquickstart_nl.html">Snelstart</a> leidt u in zes stappen van de installatie naar uw eerste cliënten.</div>
+
+
+<h2 class="ov-part">5. Systeemvereisten</h2>
+
+<h3 class="ov-h">Client-app en Bridge (optioneel)</h3>
+<table>
+<tr><th></th><th>Minimum</th><th>Aanbevolen</th></tr>
+<tr><td>Besturingssysteem</td><td>Windows 11, 64-bit</td>
+<td>Windows 11, 64-bit, actuele updates</td></tr>
+<tr><td>Processor</td><td>Moderne 4-core x64 (bijv. Intel Core i5 /
+AMD Ryzen 5)</td><td>6–8 cores — de tekstherkenning verwerkt meerdere pagina's
+parallel, en de offline spraakherkenning profiteert direct van elke
+core</td></tr>
+<tr><td>Werkgeheugen</td><td>8 GB RAM</td><td>16 GB RAM — ruime
+marge voor grote pdf's, het samenstellen van dossiers en audiotranscriptie
+naast elkaar</td></tr>
+<tr><td>Opslag</td><td>SSD met 20 GB vrij</td><td>NVMe-SSD met 100+ GB
+vrij — dossierarchief, zoeken in de volledige tekst en pdf-generatie belasten de schijf intensief;
+een snelle SSD maakt een merkbaar verschil</td></tr>
+<tr><td>Beeldscherm</td><td>1920 × 1080</td><td>1920 × 1200 of meer — de
+zaakschermen benutten de verticale ruimte royaal</td></tr>
+<tr><td>Grafisch</td><td colspan="2">Geen aparte grafische kaart nodig —
+elke ingebouwde grafische chip volstaat</td></tr>
+<tr><td>Connectiviteit</td><td colspan="2">Internet alleen voor externe AI,
+wetsupdates, e-mail, webonderzoek, kaarten en geocodering van adressen — dossier, zoekfunctie, documenten en de lokale
+assistent werken volledig offline; een vrije USB-poort voor de
+tabletsynchronisatie</td></tr>
+</table>
+
+<h3 class="ov-h">Gegevens op een externe schijf opslaan (optioneel)</h3>
+<table>
+<tr><th>Controlepunt</th><th>Vereiste</th></tr>
+<tr><td>Vrije ruimte</td><td>Minimaal 9&nbsp;GB, of 1&nbsp;GB meer dan de
+huidige hoeveelheid gegevens</td></tr>
+<tr><td>Schrijven / lezen</td><td>Minimaal 80&nbsp;MB/s / 150&nbsp;MB/s —
+ook bij aanhoudende belasting (niet onder 60&nbsp;% van de beginwaarde)</td></tr>
+<tr><td>Veel kleine bestanden</td><td>Minimaal 250 bestanden per
+seconde</td></tr>
+<tr><td>Bestandssysteem</td><td>NTFS of exFAT, geen FAT32; niet
+schrijfbeveiligd of vergrendeld</td></tr>
+<tr><td>Betrouwbaarheid</td><td>Testgegevens moeten ongewijzigd worden
+teruggelezen</td></tr>
+<tr><td>Niet toegestaan</td><td>Netwerkschijven en cloudsynchronisatiemappen (OneDrive,
+Google Drive, Dropbox, iCloud, Box, pCloud, MEGA)</td></tr>
+<tr><td>Aanbeveling</td><td>Externe SSD — gewone USB-sticks halen
+deze waarden meestal niet</td></tr>
+</table>
+
+<h3 class="ov-h"><span class="irs">IRONSTICK</span> SERVER (optioneel)</h3>
+<table>
+<tr><th></th><th>Vereiste</th></tr>
+<tr><td>Apparaat</td><td>Elke Synology-NAS met DSM 7.0 of nieuwer — ARM of
+Intel; het pakket levert native binaries voor ARMv7, ARM64 en
+x86-64</td></tr>
+<tr><td>Prestaties</td><td>Bewust licht ontworpen: geverifieerd
+op het <b>instapmodel DS214se</b> met single-core ARM-cpu en
+256&nbsp;MB RAM; draait op elk Synology-model met DSM 7.0 of nieuwer, en
+actuele modellen bieden aanzienlijk meer reserve</td></tr>
+<tr><td>Geheugen / cpu</td><td>Geen specifieke eisen buiten de NAS
+zelf — de server verricht geen analysewerk; zijn achtergrondtaken
+beperken zich tot het doorgeven van pakketten en een nachtelijke
+opschoning</td></tr>
+<tr><td>Opslagruimte</td><td>Enkele honderden MB voor pakket en
+wettenbibliotheek; gedeelde zaakpakketten groeien alleen met wat u
+daadwerkelijk deelt</td></tr>
+<tr><td>Netwerk</td><td>Alleen het kantoor-LAN; één TCP-poort (47712) met tokenauthenticatie.
+DSM, Web Station en de
+poorten 80/443 blijven onaangeroerd</td></tr>
+<tr><td>Beheer</td><td>Elke browser in het LAN; eigen
+beheerderswachtwoord; licentiesleutel eenmalig ingevoerd</td></tr>
+</table>
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK-contactkaart (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scan de code om onze contactkaart op te slaan — telefoon, e-mail en website.</p><p class="pref">Neem gerust rechtstreeks contact op via WhatsApp of Telegram — ook een telefoontje is welkom. Gesproken talen: Duits, Engels, Roemeens.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Bericht</h5><h3 class="ct-ask">Interesse in IRONSTICK of een demo? Schrijf ons.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK-aanvraag van" name="form"><div class="ct-fg"><label for="ct-name">Naam</label><input id="ct-name" type="text" name="name" placeholder="Uw naam" required></div><div class="ct-fg"><label for="ct-msg">Bericht</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Uw bericht" required></textarea></div><div class="ct-fg"><p class="ct-hint">Bij verzenden opent uw e-mailprogramma met het voorbereide bericht.</p><button type="submit">Bericht verzenden</button></div><div class="u-form-send-success">Uw e-mailprogramma wordt geopend. Verzend het bericht daar.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK is software voor de juridische praktijk. Deze website dient uitsluitend ter informatie en vormt geen juridisch advies. © 2026 IRONSTICK.</p></footer>
+</body></html>
