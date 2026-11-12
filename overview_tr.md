@@ -1,6 +1,6 @@
 # Bir bakışta IRONSTICK
 
-> Dosyalarınızı tanıyan hukuk bürosu yazılımı — yerel olarak bilgisayarınızda, yanınızda yapay zekâ ile.
+> Dosyalarınızı tanıyan hukuk bürosu yazılımı: süreler, belgeler, dilekçeler ve OSINT araştırması — bilgisayarınızda yerel olarak, yapay zekâ ile.
 
 Orijinal sayfa: https://www.ironstick.legal/overview_tr.html
 

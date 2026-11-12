@@ -1,6 +1,6 @@
 # L'IA sul vostro fascicolo
 
-> Nella chat integrata oppure tramite il Bridge verso la Sua IA desktop.
+> L'IA sul Suo fascicolo: nella chat integrata con la Sua chiave API o tramite il Bridge verso la Sua IA desktop — ogni risultato verificato.
 
 Pagina originale: https://www.ironstick.legal/ki_it.html
 

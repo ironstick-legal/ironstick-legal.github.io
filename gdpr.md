@@ -1,6 +1,6 @@
 # GDPR Data-Flow Declaration
 
-> IRONSTICK GDPR data-flow declaration: every path on which data leaves IRONSTICK towards an external AI provider, what is transmitted, and where pseudonymization applies.
+> GDPR data-flow declaration: every path on which data leaves IRONSTICK towards an external AI provider, what is transmitted and where pseudonymization applies.
 
 Original page: https://www.ironstick.legal/gdpr.html
 

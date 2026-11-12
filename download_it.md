@@ -1,6 +1,6 @@
 # Download & licenze
 
-> Scarichi IRONSTICK: Client-App, Bridge, Server e Central Scan-App — con ordine di installazione, regole di licenza e modello d'ordine. Chiave di licenza su richiesta, prova gratuita di 30 giorni della Client-App.
+> Scarichi IRONSTICK: Client-App, Bridge, Server e Central Scan-App, con ordine di installazione e regole di licenza. Prova gratuita di 30 giorni.
 
 Pagina originale: https://www.ironstick.legal/download_it.html
 

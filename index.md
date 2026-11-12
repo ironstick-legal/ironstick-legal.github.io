@@ -1,6 +1,6 @@
 # The Case File That Works With You
 
-> Complete offline-first legal case-management for Windows & Android with a built-in AI that knows your files: clients, cases, evidence, deadlines, e-mail, documents.
+> Offline-first legal case management for Windows & Android, with a built-in AI that knows your files: clients, cases, evidence, deadlines, OSINT.
 
 Original page: https://www.ironstick.legal/index.html
 
@@ -20,7 +20,7 @@ Ask in plain language, by keyboard or by voice. Every document an answer cites i
 - Pleading drafts built from the case file
 - OCR, full-text search, transcription of audio and video
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Lawyers in a meeting room at a conference table, the lawyer at the head with a laptop](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ The result is a submission-ready template that you review, finalise and sign. Th
 
 Through the [Bridge](https://www.ironstick.legal/ki.html), Claude, ChatGPT, Qwen and Kimi work directly on your case file, each with the same set of tools and under your own subscription with the provider. Each Bridge is licensed separately and is unlocked in your [Client App licence key](https://www.ironstick.legal/download.html).
 
-Desktop AIs on the Bridge
+### Desktop AIs on the Bridge
 
 4
 
-Case-file tools for the AI
+### Case-file tools for the AI
 
 200+
 
-Interface languages
+### Interface languages
 
 11
 
-[Days of free trial](https://www.ironstick.legal/download.html)
+### [Days of free trial](https://www.ironstick.legal/download.html)
 
 30
 
@@ -69,7 +69,7 @@ The database and the captured case documents are stored AES-256-encrypted on you
 A Bridge connects your chosen AI provider directly to your case file, under your own subscription with that provider. Your firm stays independent of external data centres: the licence is validated offline on your computer, every case can be exported at any time as a PDF dossier or EDRM evidence ZIP, and a complete backup can be made with one click.
 [Read the GDPR data-flow disclosure](https://www.ironstick.legal/gdpr.html)
 
-Get in touch
+### Get in touch
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Contact us directly by WhatsApp or Telegram, or call us. We speak English, Germa
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Message
+### Message
 
 ### Interested in IRONSTICK or a demo? Write to us.
 

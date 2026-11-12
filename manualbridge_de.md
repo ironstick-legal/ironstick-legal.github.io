@@ -1,6 +1,6 @@
 # Handbuch - Bridge
 
-> Bridge-Handbuch — arbeiten mit der KI: was im Hintergrund passiert, und acht Arbeitsabläufe vom Tagesstart bis zur Gesetzesrecherche.
+> Bridge-Handbuch — arbeiten mit der KI: was im Hintergrund passiert, und acht Arbeitsabläufe vom Tagesstart über OSINT bis zur Gesetzesrecherche.
 
 Originalseite: https://www.ironstick.legal/manualbridge_de.html
 

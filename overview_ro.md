@@ -1,6 +1,6 @@
 # IRONSTICK pe scurt
 
-> Software-ul de cabinet care vă cunoaște dosarele — local, pe calculatorul dumneavoastră, cu IA alături.
+> Software-ul de cabinet care vă cunoaște dosarele: termene, documente, cereri și cercetare OSINT — local, pe calculatorul dumneavoastră, cu IA alături.
 
 Pagina originală: https://www.ironstick.legal/overview_ro.html
 

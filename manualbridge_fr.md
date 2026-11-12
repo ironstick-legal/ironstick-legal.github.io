@@ -1,6 +1,6 @@
 # Manuel - Bridge
 
-> Manuel Bridge — travailler avec l’IA : ce qui se passe en arrière-plan, et huit flux de travail, du début de journée à la recherche juridique.
+> Manuel Bridge — travailler avec l’IA : ce qui se passe en arrière-plan, et huit flux de travail, du début de journée à l’OSINT et à la recherche juridique.
 
 Page originale: https://www.ironstick.legal/manualbridge_fr.html
 

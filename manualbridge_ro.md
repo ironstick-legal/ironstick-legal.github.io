@@ -1,6 +1,6 @@
 # Manual - Bridge
 
-> Manualul Bridge — lucrul cu IA: ce se întâmplă în fundal și opt fluxuri de lucru, de la începutul zilei până la cercetarea legislativă.
+> Manualul Bridge — lucrul cu IA: ce se întâmplă în fundal și opt fluxuri de lucru, de la începutul zilei la OSINT și cercetarea legislativă.
 
 Pagina originală: https://www.ironstick.legal/manualbridge_ro.html
 

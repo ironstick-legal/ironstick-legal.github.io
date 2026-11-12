@@ -1,6 +1,6 @@
 # Download & Licences
 
-> Download IRONSTICK: Client-App, Bridges, Server and Central Scan-App — with installation order, licensing rules and an order template. Licence keys on request, and a free 30-day trial of the Client App.
+> Download IRONSTICK: client app, bridges, server and Central Scan App, with installation order and licensing rules. Free 30-day trial of the client app.
 
 Original page: https://www.ironstick.legal/download.html
 

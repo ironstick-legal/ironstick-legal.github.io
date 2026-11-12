@@ -1,6 +1,6 @@
 # GDPR veri akışı beyanı
 
-> IRONSTICK GDPR veri akışı beyanı: verilerin IRONSTICK'ten harici bir yapay zekâ sağlayıcısına doğru çıktığı her yol, neyin iletildiği ve takma adlandırmanın nerede devreye girdiği.
+> GDPR beyanı: verilerin IRONSTICK'ten harici bir yapay zekâ sağlayıcısına çıktığı her yol, neyin iletildiği ve takma adlandırmanın nerede uygulandığı.
 
 Orijinal sayfa: https://www.ironstick.legal/gdpr_tr.html
 

@@ -1,6 +1,6 @@
 # IRONSTICK num relance
 
-> O software para escritórios de advogados que conhece os seus processos — localmente no seu computador, com a IA ao seu lado.
+> O software jurídico que conhece os seus processos: prazos, documentos, peças processuais e pesquisa OSINT — no seu computador, com a IA ao seu lado.
 
 Página original: https://www.ironstick.legal/overview_pt.html
 

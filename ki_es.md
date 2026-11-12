@@ -1,6 +1,6 @@
 # IA en su expediente
 
-> En el chat integrado o a través del Bridge hacia su IA de escritorio.
+> IA en su expediente: en el chat integrado con su propia clave API o mediante el Bridge hacia su IA de escritorio — cada resultado verificado.
 
 Página original: https://www.ironstick.legal/ki_es.html
 

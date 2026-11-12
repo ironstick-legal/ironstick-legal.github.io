@@ -1,6 +1,6 @@
 # L'IA au cœur de votre dossier
 
-> Dans le chat intégré ou via le Bridge vers votre IA de bureau.
+> L'IA au cœur de votre dossier : dans le chat intégré avec votre clé API ou via le Bridge vers votre IA de bureau — chaque résultat vérifié.
 
 Page originale: https://www.ironstick.legal/ki_fr.html
 

@@ -1,6 +1,6 @@
 # Descărcare & Licențe
 
-> Descărcați IRONSTICK: Client-App, Bridges, Server și Central Scan-App — cu ordinea de instalare, regulile de licențiere și formularul de comandă. Cheie de licență la cerere, și o probă gratuită de 30 de zile a aplicației client.
+> Descărcați IRONSTICK: Client-App, Bridges, Server și Central Scan-App, cu ordinea de instalare și regulile de licențiere. Probă gratuită de 30 de zile.
 
 Pagina originală: https://www.ironstick.legal/download_ro.html
 

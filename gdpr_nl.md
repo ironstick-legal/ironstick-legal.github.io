@@ -1,6 +1,6 @@
 # AVG-verklaring over gegevensstromen
 
-> IRONSTICK AVG-verklaring over gegevensstromen: elke weg waarlangs gegevens IRONSTICK verlaten in de richting van een externe AI-aanbieder, wat er wordt doorgegeven en waar de pseudonimisering ingrijpt.
+> AVG-verklaring: elke weg waarlangs gegevens IRONSTICK verlaten richting een externe AI-aanbieder, wat wordt doorgegeven en waar pseudonimisering ingrijpt.
 
 Originele pagina: https://www.ironstick.legal/gdpr_nl.html
 

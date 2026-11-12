@@ -1,6 +1,6 @@
 # IA no seu processo
 
-> No chat integrado ou através da Bridge para a sua IA de desktop.
+> IA no seu processo: no chat integrado com a sua própria chave API ou através da Bridge para a sua IA de desktop — cada resultado verificado.
 
 Página original: https://www.ironstick.legal/ki_pt.html
 

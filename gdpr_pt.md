@@ -1,6 +1,6 @@
 # Declaração RGPD sobre fluxos de dados
 
-> Declaração RGPD do IRONSTICK sobre fluxos de dados: cada percurso pelo qual os dados saem do IRONSTICK em direção a um fornecedor de IA externo, o que é transmitido e onde atua a pseudonimização.
+> Declaração RGPD: cada percurso pelo qual os dados saem do IRONSTICK para um fornecedor de IA externo, o que é transmitido e onde atua a pseudonimização.
 
 Página original: https://www.ironstick.legal/gdpr_pt.html
 

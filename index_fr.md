@@ -1,6 +1,6 @@
 # Le dossier qui travaille avec vous
 
-> Système complet de gestion de dossiers juridiques, offline-first, pour Windows et Android, avec une IA intégrée qui connaît vos dossiers : clients, affaires, preuves, délais.
+> Gestion de dossiers juridiques hors ligne pour Windows et Android, avec une IA intégrée qui connaît vos dossiers : clients, preuves, délais, OSINT.
 
 Page originale: https://www.ironstick.legal/index_fr.html
 
@@ -20,7 +20,7 @@ Posez vos questions en langage courant, au clavier ou à la voix. Chaque documen
 - Projets d'écritures tirés du dossier
 - OCR, recherche plein texte, transcription audio et vidéo
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Avocats dans une salle de réunion autour d'une table de conférence, l'avocat en bout de table avec un ordinateur portable](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ Le résultat est un modèle prêt à être déposé que vous vérifiez, finalise
 
 Grâce au [Bridge](https://www.ironstick.legal/ki_fr.html), Claude, ChatGPT, Qwen et Kimi travaillent directement sur votre dossier, chacune avec les mêmes outils et sous votre propre abonnement auprès du fournisseur. Chaque Bridge fait l'objet d'une licence distincte et se débloque dans la [clé de licence de votre application client](https://www.ironstick.legal/download_fr.html).
 
-IA de bureau sur le Bridge
+### IA de bureau sur le Bridge
 
 4
 
-Outils de dossier pour l'IA
+### Outils de dossier pour l'IA
 
 200+
 
-Langues de l'interface
+### Langues de l'interface
 
 11
 
-[Jours d'essai gratuit](https://www.ironstick.legal/download_fr.html)
+### [Jours d'essai gratuit](https://www.ironstick.legal/download_fr.html)
 
 30
 
@@ -69,7 +69,7 @@ La base de données et les documents saisis du dossier sont stockés chiffrés e
 Un Bridge relie directement le fournisseur d'IA de votre choix à votre dossier, sous votre propre abonnement auprès de lui. Votre cabinet reste indépendant de tout centre de données externe : la licence est validée hors ligne sur votre ordinateur, chaque dossier peut être exporté à tout moment sous forme de dossier PDF ou de ZIP de preuves EDRM, et une sauvegarde complète se fait en un clic.
 [Lire la déclaration RGPD des flux de données](https://www.ironstick.legal/gdpr_fr.html)
 
-Contact
+### Contact
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Contactez-nous directement par WhatsApp ou Telegram, ou appelez-nous. Nous parlo
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Message
+### Message
 
 ### IRONSTICK ou une démonstration vous intéressent ? Écrivez-nous.
 

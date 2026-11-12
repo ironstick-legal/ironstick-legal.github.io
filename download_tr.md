@@ -1,6 +1,6 @@
 # Download ve lisanslar
 
-> IRONSTICK'i indirin: İstemci uygulaması, Bridge'ler, sunucu ve Central Scan App — kurulum sırası, lisans kuralları ve sipariş şablonuyla. Lisans anahtarı talep üzerine verilir; istemci uygulamasını 30 gün ücretsiz deneyin.
+> IRONSTICK'i indirin: istemci uygulaması, Bridge'ler, sunucu ve Central Scan App; kurulum sırası ve lisans kurallarıyla. 30 gün ücretsiz deneyin.
 
 Orijinal sayfa: https://www.ironstick.legal/download_tr.html
 

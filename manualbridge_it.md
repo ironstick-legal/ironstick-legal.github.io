@@ -1,6 +1,6 @@
 # Manuale - Bridge
 
-> Manuale Bridge — lavorare con l’IA: cosa succede dietro le quinte e otto flussi di lavoro, dall’inizio della giornata alla ricerca normativa.
+> Manuale Bridge — lavorare con l’IA: cosa succede dietro le quinte e otto flussi di lavoro, dall’inizio della giornata all’OSINT e alla ricerca normativa.
 
 Pagina originale: https://www.ironstick.legal/manualbridge_it.html
 

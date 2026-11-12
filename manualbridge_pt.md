@@ -1,6 +1,6 @@
 # Manual - Bridge
 
-> Manual da Bridge — trabalhar com a IA: o que acontece nos bastidores e oito fluxos de trabalho, do início do dia à pesquisa legislativa.
+> Manual da Bridge — trabalhar com a IA: o que acontece nos bastidores e oito fluxos de trabalho, do início do dia ao OSINT e à pesquisa legislativa.
 
 Página original: https://www.ironstick.legal/manualbridge_pt.html
 

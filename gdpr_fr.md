@@ -1,6 +1,6 @@
 # Déclaration RGPD des flux de données
 
-> Déclaration RGPD des flux de données d’IRONSTICK : chaque voie par laquelle des données quittent IRONSTICK vers un fournisseur d’IA externe, ce qui est transmis et où s’applique la pseudonymisation.
+> Déclaration RGPD : chaque voie par laquelle des données quittent IRONSTICK vers une IA externe, ce qui est transmis et où s’applique la pseudonymisation.
 
 Page originale: https://www.ironstick.legal/gdpr_fr.html
 

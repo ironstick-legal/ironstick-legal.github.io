@@ -1,6 +1,6 @@
 # Manual - Bridge
 
-> IRONSTICK bridge manual: AI chat and bridge, the gates in the background, and eight workflows from day start to legal research.
+> IRONSTICK bridge manual: AI chat and bridge, the gates in the background, and eight workflows from day start to OSINT and legal research.
 
 Original page: https://www.ironstick.legal/manualbridge.html
 

@@ -1,6 +1,6 @@
 # Kılavuz - Hızlı başlangıç
 
-> Hızlı başlangıç — kurulumdan ilk müvekkillerinize altı adımda.
+> Hızlı başlangıç — kurulumdan ilk müvekkillerinize altı adımda: lisans, dil, yapay zekâ, imza ve antetli kâğıt.
 
 Orijinal sayfa: https://www.ironstick.legal/manualquickstart_tr.html
 

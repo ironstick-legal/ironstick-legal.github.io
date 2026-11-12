@@ -1,6 +1,6 @@
 # El expediente que trabaja con usted
 
-> Sistema completo de gestión de casos jurídicos, offline-first, para Windows y Android, con una IA integrada que conoce sus expedientes: clientes, casos, pruebas, plazos.
+> Gestión offline de casos jurídicos para Windows y Android, con una IA integrada que conoce sus expedientes: clientes, pruebas, plazos, OSINT.
 
 Página original: https://www.ironstick.legal/index_es.html
 
@@ -20,7 +20,7 @@ Pregunte en lenguaje natural, con el teclado o con la voz. Cada documento que ci
 - Borradores de escritos a partir del expediente
 - OCR, búsqueda de texto completo, transcripción de audio y vídeo
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Abogados en una sala de reuniones en torno a una mesa de conferencias, en la cabecera el abogado con un portátil](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ El resultado es una plantilla apta para su presentación, que usted revisa, fina
 
 A través del [Bridge](https://www.ironstick.legal/ki_es.html), Claude, ChatGPT, Qwen y Kimi trabajan directamente sobre su expediente, cada una con las mismas herramientas y con su propia suscripción al proveedor. Cada Bridge se licencia por separado y se desbloquea en su [clave de licencia de la App cliente](https://www.ironstick.legal/download_es.html).
 
-IA de escritorio en el Bridge
+### IA de escritorio en el Bridge
 
 4
 
-Herramientas de expediente para la IA
+### Herramientas de expediente para la IA
 
 200+
 
-Idiomas de la interfaz
+### Idiomas de la interfaz
 
 11
 
-[Días de prueba gratuita](https://www.ironstick.legal/download_es.html)
+### [Días de prueba gratuita](https://www.ironstick.legal/download_es.html)
 
 30
 
@@ -69,7 +69,7 @@ La base de datos y los documentos de expediente registrados se almacenan cifrado
 Un Bridge conecta al proveedor de IA elegido directamente con su expediente, con su propia suscripción a ese proveedor. Su despacho sigue siendo independiente de centros de datos externos: la licencia se valida sin conexión en su ordenador, cada caso puede exportarse en cualquier momento como dosier en PDF o ZIP de pruebas EDRM, y se puede hacer una copia de seguridad completa con un solo clic.
 [Leer la declaración RGPD de flujos de datos](https://www.ironstick.legal/gdpr_es.html)
 
-Contacto
+### Contacto
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Contáctenos directamente por WhatsApp o Telegram, o llámenos. Hablamos inglés
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Mensaje
+### Mensaje
 
 ### ¿Le interesa IRONSTICK o una demostración? Escríbanos.
 

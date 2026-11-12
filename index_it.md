@@ -1,6 +1,6 @@
 # Il fascicolo che lavora con Lei
 
-> Sistema completo di gestione dei fascicoli legali, offline-first, per Windows e Android, con un'IA integrata che conosce i Suoi fascicoli: clienti, cause, prove, scadenze.
+> Gestione offline dei fascicoli legali per Windows e Android, con un'IA integrata che conosce i Suoi fascicoli: clienti, prove, scadenze, OSINT.
 
 Pagina originale: https://www.ironstick.legal/index_it.html
 
@@ -20,7 +20,7 @@ Chieda in linguaggio naturale, da tastiera o a voce. Ogni documento citato in un
 - Bozze di atti ricavate dal fascicolo
 - OCR, ricerca a testo pieno, trascrizione di audio e video
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Avvocati in sala riunioni al tavolo delle conferenze, a capotavola l'avvocato con il portatile](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ Il risultato è un modello pronto per il deposito che controlla, finalizza e fir
 
 Attraverso il [Bridge](https://www.ironstick.legal/ki_it.html), Claude, ChatGPT, Qwen e Kimi lavorano direttamente sul Suo fascicolo, ciascuna con gli stessi strumenti e con il Suo abbonamento presso il fornitore. Ogni Bridge ha una licenza separata e viene sbloccato nella [chiave di licenza della Sua App client](https://www.ironstick.legal/download_it.html).
 
-IA desktop sul Bridge
+### IA desktop sul Bridge
 
 4
 
-Strumenti del fascicolo per l'IA
+### Strumenti del fascicolo per l'IA
 
 200+
 
-Lingue dell'interfaccia
+### Lingue dell'interfaccia
 
 11
 
-[Giorni di prova gratuita](https://www.ironstick.legal/download_it.html)
+### [Giorni di prova gratuita](https://www.ironstick.legal/download_it.html)
 
 30
 
@@ -69,7 +69,7 @@ La banca dati e i documenti acquisiti dei casi sono conservati cifrati AES-256 s
 Un Bridge collega direttamente il fornitore di IA da Lei scelto al Suo fascicolo, con il Suo abbonamento presso tale fornitore. Il Suo studio resta indipendente dai centri dati esterni: la licenza viene convalidata offline sul Suo computer, ogni caso si esporta in qualsiasi momento come dossier PDF o ZIP di prove EDRM e un backup completo si crea con un clic.
 [Legga la dichiarazione GDPR sui flussi di dati](https://www.ironstick.legal/gdpr_it.html)
 
-Contatti
+### Contatti
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Ci contatti direttamente via WhatsApp o Telegram, oppure ci chiami. Parliamo ing
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Messaggio
+### Messaggio
 
 ### IRONSTICK o una demo Le interessano? Ci scriva.
 

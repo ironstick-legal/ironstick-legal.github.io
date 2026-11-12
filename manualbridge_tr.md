@@ -1,6 +1,6 @@
 # Kılavuz - Bridge
 
-> Bridge kılavuzu — yapay zekâ ile çalışmak: arka planda neler olur ve güne başlangıçtan mevzuat araştırmasına kadar sekiz iş akışı.
+> Bridge kılavuzu — yapay zekâ ile çalışmak: arka planda neler olur ve güne başlangıçtan OSINT ve mevzuat araştırmasına kadar sekiz iş akışı.
 
 Orijinal sayfa: https://www.ironstick.legal/manualbridge_tr.html
 

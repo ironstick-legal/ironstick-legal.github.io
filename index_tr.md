@@ -1,6 +1,6 @@
 # Sizinle birlikte çalışan dosya
 
-> Windows ve Android için, dosyalarınızı tanıyan entegre yapay zekâya sahip eksiksiz çevrimdışı hukuk bürosu yazılımı: müvekkiller, davalar, deliller, süreler, e-posta, belgeler.
+> Windows ve Android için çevrimdışı hukuk bürosu yazılımı; dosyalarınızı tanıyan yapay zekâ: müvekkiller, deliller, süreler, OSINT.
 
 Orijinal sayfa: https://www.ironstick.legal/index_tr.html
 
@@ -20,7 +20,7 @@ Doğal dilde, klavyeyle ya da sesinizle sorun. Bir yanıtın dayandığı her be
 - Dosyadan dilekçe taslakları
 - OCR, tam metin arama, ses ve video transkripsiyonu
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Toplantı odasında konferans masasında avukatlar, masanın başında dizüstü bilgisayarıyla avukat](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ Sonuç, sizin kontrol edip son halini verdiğiniz ve imzaladığınız, sunulmay
 
 [Bridge](https://www.ironstick.legal/ki_tr.html) aracılığıyla Claude, ChatGPT, Qwen ve Kimi doğrudan dosyanız üzerinde çalışır; her biri aynı araçlarla ve ilgili sağlayıcıdaki kendi aboneliğiniz altında. Her Bridge ayrı olarak lisanslanır ve [istemci uygulaması lisans anahtarınızda](https://www.ironstick.legal/download_tr.html) etkinleştirilir.
 
-Bridge'e bağlı masaüstü yapay zekâlar
+### Bridge'e bağlı masaüstü yapay zekâlar
 
 4
 
-Yapay zekâ için dosya araçları
+### Yapay zekâ için dosya araçları
 
 200+
 
-Arayüz dili
+### Arayüz dili
 
 11
 
-[gün ücretsiz deneyin](https://www.ironstick.legal/download_tr.html)
+### [gün ücretsiz deneyin](https://www.ironstick.legal/download_tr.html)
 
 30
 
@@ -69,7 +69,7 @@ Veritabanı ve kaydedilen dava belgeleri AES-256 ile şifrelenmiş olarak kendi 
 Bir Bridge, seçtiğiniz yapay zekâ sağlayıcısını, o sağlayıcıdaki kendi aboneliğiniz altında doğrudan dava dosyanıza bağlar. Büronuz harici veri merkezlerinden bağımsız kalır: Lisans bilgisayarınızda çevrimdışı olarak doğrulanır, her dava istendiği zaman PDF derlemesi ya da EDRM delil ZIP'i olarak dışa aktarılabilir ve tam yedekleme tek tıkla yapılır.
 [GDPR veri akışı beyanına git](https://www.ironstick.legal/gdpr_tr.html)
 
-İletişim
+### İletişim
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Bize doğrudan WhatsApp veya Telegram üzerinden ulaşın ya da bizi arayın. İ
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Mesaj
+### Mesaj
 
 ### IRONSTICK'e ya da bir demoya ilgi mi duyuyorsunuz? Bize yazın.
 

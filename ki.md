@@ -1,6 +1,6 @@
 # AI on Your Case File
 
-> In the built-in chat or through the Bridge to your desktop AI.
+> AI on your case file: in the built-in chat with your own API key, or through the bridge to your desktop AI — every result checked deterministically.
 
 Original page: https://www.ironstick.legal/ki.html
 

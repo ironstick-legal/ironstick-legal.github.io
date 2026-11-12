@@ -1,6 +1,6 @@
 # IRONSTICK at a Glance
 
-> The law-firm software that knows your case files — local on your computer, with AI at your side.
+> The law-firm software that knows your case files: deadlines, documents, pleadings and OSINT research — local on your computer, with AI at your side.
 
 Original page: https://www.ironstick.legal/overview.html
 

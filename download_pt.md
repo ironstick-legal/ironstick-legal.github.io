@@ -1,6 +1,6 @@
 # Download & Licenças
 
-> Descarregar o IRONSTICK: App cliente, Bridges, Server e Central Scan App — com ordem de instalação, regras de licenciamento e modelo de encomenda. Chave de licença mediante pedido; experimente a App cliente gratuitamente durante 30 dias.
+> Descarregue o IRONSTICK: App cliente, Bridges, Server e Central Scan App, com ordem de instalação e regras de licença. Teste gratuito de 30 dias.
 
 Página original: https://www.ironstick.legal/download_pt.html
 

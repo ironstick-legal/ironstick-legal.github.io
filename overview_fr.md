@@ -1,6 +1,6 @@
 # IRONSTICK en un coup d'œil
 
-> Le logiciel de cabinet qui connaît vos dossiers — en local sur votre ordinateur, avec l'IA à vos côtés.
+> Le logiciel de cabinet qui connaît vos dossiers : délais, documents, écritures et recherche OSINT — en local sur votre ordinateur, avec l'IA à vos côtés.
 
 Page originale: https://www.ironstick.legal/overview_fr.html
 

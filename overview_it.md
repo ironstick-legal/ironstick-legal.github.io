@@ -1,6 +1,6 @@
 # IRONSTICK in sintesi
 
-> Il software per studi legali che conosce i Suoi fascicoli — in locale sul Suo computer, con l'IA al Suo fianco.
+> Il software per studi legali che conosce i Suoi fascicoli: scadenze, documenti, atti e ricerca OSINT — in locale sul Suo computer, con l'IA al Suo fianco.
 
 Pagina originale: https://www.ironstick.legal/overview_it.html
 

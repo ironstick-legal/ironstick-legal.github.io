@@ -1,6 +1,6 @@
 # Download & Lizenzen
 
-> IRONSTICK herunterladen: Client-App, Bridges, Server und Central Scan-App — mit Installationsreihenfolge, Lizenzregeln und Bestellvorlage. Lizenzschlüssel auf Anfrage, 30 Tage die Client-App kostenlos testen.
+> IRONSTICK herunterladen: Client-App, Bridges, Server und Central Scan-App, mit Installationsreihenfolge und Lizenzregeln. 30 Tage kostenlos testen.
 
 Originalseite: https://www.ironstick.legal/download_de.html
 

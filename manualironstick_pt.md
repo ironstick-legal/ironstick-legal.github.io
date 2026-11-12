@@ -1,6 +1,6 @@
 # Manual - App cliente
 
-> Manual do utilizador — cada ecrã: o que vê e o que pode fazer.
+> Manual do utilizador — cada ecrã da app cliente: o que vê e o que pode fazer, com capturas de ecrã.
 
 Página original: https://www.ironstick.legal/manualironstick_pt.html
 

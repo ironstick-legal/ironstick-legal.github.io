@@ -1,6 +1,6 @@
 # Handleiding - Client-app
 
-> Gebruikershandleiding — elk scherm: wat u ziet en wat u kunt doen.
+> Gebruikershandleiding — elk scherm van de client-app: wat u ziet en wat u kunt doen, met schermafbeeldingen.
 
 Originele pagina: https://www.ironstick.legal/manualironstick_nl.html
 

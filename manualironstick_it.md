@@ -1,6 +1,6 @@
 # Manuale - App client
 
-> Manuale utente — ogni schermata: cosa vede e cosa può fare.
+> Manuale utente — ogni schermata dell’app client: cosa vede e cosa può fare, con screenshot.
 
 Pagina originale: https://www.ironstick.legal/manualironstick_it.html
 

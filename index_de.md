@@ -1,6 +1,6 @@
 # Die Akte, die mitarbeitet
 
-> Vollständige Offline-Kanzleisoftware für Windows & Android mit integrierter KI, die Ihre Akten kennt: Mandanten, Fälle, Beweise, Fristen, E-Mail, Dokumente.
+> Offline-Kanzleisoftware für Windows & Android mit integrierter KI, die Ihre Akten kennt: Mandanten, Fälle, Beweise, Fristen, Schriftsätze, OSINT.
 
 Originalseite: https://www.ironstick.legal/index_de.html
 
@@ -20,7 +20,7 @@ Fragen Sie in natürlicher Sprache, per Tastatur oder Stimme. Jedes Dokument, da
 - Schriftsatz-Entwürfe aus der Akte
 - OCR, Volltextsuche, Transkription von Audio und Video
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Anwälte im Besprechungsraum am Konferenztisch, am Kopfende der Anwalt mit Laptop](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ Das Ergebnis ist eine einreichungsfähige Vorlage, die Sie prüfen, finalisieren
 
 Über die [Bridge](https://www.ironstick.legal/ki_de.html) arbeiten Claude, ChatGPT, Qwen und Kimi direkt an Ihrer Akte, jede mit denselben Werkzeugen und unter Ihrem eigenen Abo beim jeweiligen Anbieter. Jede Bridge wird separat lizenziert und in Ihrem [Client-App-Lizenzschlüssel](https://www.ironstick.legal/download_de.html) freigeschaltet.
 
-Desktop-KIs an der Bridge
+### Desktop-KIs an der Bridge
 
 4
 
-Aktenwerkzeuge für die KI
+### Aktenwerkzeuge für die KI
 
 200+
 
-Oberflächensprachen
+### Oberflächensprachen
 
 11
 
-[Tage kostenlos testen](https://www.ironstick.legal/download_de.html)
+### [Tage kostenlos testen](https://www.ironstick.legal/download_de.html)
 
 30
 
@@ -69,7 +69,7 @@ Die Datenbank und die erfassten Falldokumente liegen AES-256-verschlüsselt auf 
 Eine Bridge verbindet den von Ihnen gewählten KI-Anbieter direkt mit Ihrer Fallakte, unter Ihrem eigenen Abo bei diesem Anbieter. Ihre Kanzlei bleibt unabhängig von externen Rechenzentren: Die Lizenz wird offline auf Ihrem Rechner geprüft, jeder Fall lässt sich jederzeit als PDF-Dossier oder EDRM-Beweis-ZIP exportieren, und eine vollständige Sicherung gelingt mit einem Klick.
 [Zur DSGVO-Datenfluss-Erklärung](https://www.ironstick.legal/gdpr_de.html)
 
-Kontakt
+### Kontakt
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Kontaktieren Sie uns direkt per WhatsApp oder Telegram, oder rufen Sie uns an. W
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Nachricht
+### Nachricht
 
 ### Interesse an IRONSTICK oder einer Demo? Schreiben Sie uns.
 

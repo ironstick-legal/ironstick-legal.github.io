@@ -1,6 +1,6 @@
 # IRONSTICK de un vistazo
 
-> El software para despachos que conoce sus expedientes — en local en su ordenador, con la IA a su lado.
+> El software para despachos que conoce sus expedientes: plazos, documentos, escritos e investigación OSINT — en local en su ordenador, con la IA a su lado.
 
 Página original: https://www.ironstick.legal/overview_es.html
 

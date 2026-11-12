@@ -1,6 +1,6 @@
 # DSGVO-Datenfluss-Erklärung
 
-> IRONSTICK DSGVO-Datenfluss-Erklärung: jeder Weg, auf dem Daten IRONSTICK in Richtung eines externen KI-Anbieters verlassen, was übermittelt wird und wo die Pseudonymisierung greift.
+> DSGVO-Datenfluss-Erklärung: jeder Weg, auf dem Daten IRONSTICK zu einem externen KI-Anbieter verlassen, was übermittelt wird und wo Pseudonymisierung greift.
 
 Originalseite: https://www.ironstick.legal/gdpr_de.html
 

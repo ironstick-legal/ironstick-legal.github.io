@@ -1,6 +1,6 @@
 # Dosarul care lucrează cu dumneavoastră
 
-> Sistem complet de gestionare a cazurilor juridice, offline-first, pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, cazuri, probe, termene.
+> Gestionare offline a cazurilor juridice pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, probe, termene, OSINT.
 
 Pagina originală: https://www.ironstick.legal/index_ro.html
 
@@ -20,7 +20,7 @@ Fiecare document, e-mail, fotografie și cuvânt rostit poate fi căutat, inclus
 - Proiecte de acte generate din dosar
 - OCR, căutare în text integral, transcriere audio și video
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Avocați într-o sală de ședințe la masa de conferință, în capul mesei avocatul cu laptopul](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ Rezultatul este un șablon apt de depunere, pe care îl verificați, îl finaliz
 
 Prin [Bridge](https://www.ironstick.legal/ki_ro.html), Claude, ChatGPT, Qwen și Kimi lucrează direct pe dosarul dumneavoastră, fiecare cu aceleași instrumente și sub propriul abonament la furnizor. Fiecare Bridge se licențiază separat și se deblochează în [cheia de licență a aplicației client](https://www.ironstick.legal/download_ro.html).
 
-IA de desktop pe Bridge
+### IA de desktop pe Bridge
 
 4
 
-Instrumente de dosar pentru IA
+### Instrumente de dosar pentru IA
 
 200+
 
-Limbi de interfață
+### Limbi de interfață
 
 11
 
-[Zile de testare gratuită](https://www.ironstick.legal/download_ro.html)
+### [Zile de testare gratuită](https://www.ironstick.legal/download_ro.html)
 
 30
 
@@ -69,7 +69,7 @@ Baza de date și documentele de dosar înregistrate sunt stocate criptat AES-256
 Un Bridge conectează furnizorul de IA ales direct la dosarul dumneavoastră, sub propriul abonament la acel furnizor. Cabinetul dumneavoastră rămâne independent de centrele de date externe: licența se validează offline pe calculatorul dumneavoastră, fiecare dosar poate fi exportat oricând ca dosar PDF sau ca ZIP de probe EDRM, iar o copie de siguranță completă se face dintr-un singur clic.
 [Citiți declarația GDPR privind fluxurile de date](https://www.ironstick.legal/gdpr_ro.html)
 
-Contact
+### Contact
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Contactați-ne direct prin WhatsApp sau Telegram ori sunați-ne. Vorbim engleză
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Mesaj
+### Mesaj
 
 ### Interesat de IRONSTICK sau de o demonstrație? Scrieți-ne.
 

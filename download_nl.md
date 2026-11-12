@@ -1,6 +1,6 @@
 # Download & licenties
 
-> IRONSTICK downloaden: Client-app, Bridges, server en Central Scan App — met installatievolgorde, licentieregels en bestelsjabloon. Licentiesleutel op aanvraag, de Client-app 30 dagen gratis proberen.
+> Download IRONSTICK: Client-app, Bridges, server en Central Scan App, met installatievolgorde en licentieregels. De Client-app 30 dagen gratis proberen.
 
 Originele pagina: https://www.ironstick.legal/download_nl.html
 

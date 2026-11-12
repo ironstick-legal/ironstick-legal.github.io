@@ -1,6 +1,6 @@
 # Het dossier dat met u meewerkt
 
-> Volledige offline software voor advocatenkantoren voor Windows & Android met geïntegreerde AI die uw dossiers kent: cliënten, zaken, bewijsstukken, termijnen, e-mail, documenten.
+> Offline software voor advocatenkantoren voor Windows & Android, met ingebouwde AI die uw dossiers kent: cliënten, bewijs, termijnen, OSINT.
 
 Originele pagina: https://www.ironstick.legal/index_nl.html
 
@@ -20,7 +20,7 @@ Stel uw vragen in natuurlijke taal, via toetsenbord of stem. Elk document dat ee
 - Concepten van processtukken uit het dossier
 - OCR, zoeken in de volledige tekst, transcriptie van audio en video
 
-![](https://www.ironstick.legal/img/lp_meeting.jpg)
+![Advocaten in een vergaderruimte aan de vergadertafel, aan het hoofd de advocaat met een laptop](https://www.ironstick.legal/img/lp_meeting.jpg)
 
 ## 01
 
@@ -47,19 +47,19 @@ Het resultaat is een indieningsklaar concept dat u controleert, afrondt en onder
 
 Via de [Bridge](https://www.ironstick.legal/ki_nl.html) werken Claude, ChatGPT, Qwen en Kimi rechtstreeks aan uw dossier, elk met dezelfde tools en onder uw eigen abonnement bij de betreffende aanbieder. Elke Bridge wordt afzonderlijk gelicentieerd en in uw [licentiesleutel voor de Client-app](https://www.ironstick.legal/download_nl.html) vrijgegeven.
 
-Desktop-AI's aan de Bridge
+### Desktop-AI's aan de Bridge
 
 4
 
-Dossiertools voor de AI
+### Dossiertools voor de AI
 
 200+
 
-Interfacetalen
+### Interfacetalen
 
 11
 
-[dagen gratis proberen](https://www.ironstick.legal/download_nl.html)
+### [dagen gratis proberen](https://www.ironstick.legal/download_nl.html)
 
 30
 
@@ -69,7 +69,7 @@ De database en de vastgelegde zaakdocumenten staan met AES-256 versleuteld op uw
 Een Bridge verbindt de door u gekozen AI-aanbieder rechtstreeks met uw dossier, onder uw eigen abonnement bij die aanbieder. Uw kantoor blijft onafhankelijk van externe datacenters: de licentie wordt offline op uw computer gecontroleerd, elke zaak is op elk moment te exporteren als pdf-dossier of als EDRM-bewijs-ZIP, en een volledige back-up maakt u met één klik.
 [Naar de AVG-verklaring over gegevensstromen](https://www.ironstick.legal/gdpr_nl.html)
 
-Contact
+### Contact
 
 ### Tobias Werren
 
@@ -83,7 +83,7 @@ Neem rechtstreeks contact met ons op via WhatsApp of Telegram, of bel ons. Wij s
 
 [WhatsApp](https://wa.me/qr/3UCX3B7NRPECG1)[Telegram](https://t.me/ironstick_legal)
 
-Bericht
+### Bericht
 
 ### Interesse in IRONSTICK of een demo? Schrijf ons.
 

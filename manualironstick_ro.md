@@ -1,6 +1,6 @@
 # Manual - Aplicația client
 
-> Manual de utilizare — fiecare ecran: ce vedeți și ce puteți face.
+> Manual de utilizare — fiecare ecran al aplicației client: ce vedeți și ce puteți face, cu capturi de ecran.
 
 Pagina originală: https://www.ironstick.legal/manualironstick_ro.html
 

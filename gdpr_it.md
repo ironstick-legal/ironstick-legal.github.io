@@ -1,6 +1,6 @@
 # Dichiarazione GDPR sui flussi di dati
 
-> Dichiarazione GDPR sui flussi di dati di IRONSTICK: ogni percorso con cui i dati lasciano IRONSTICK verso un fornitore di IA esterno, cosa viene trasmesso e dove si applica la pseudonimizzazione.
+> Dichiarazione GDPR: ogni percorso con cui i dati lasciano IRONSTICK verso un'IA esterna, cosa viene trasmesso e dove si applica la pseudonimizzazione.
 
 Pagina originale: https://www.ironstick.legal/gdpr_it.html
 

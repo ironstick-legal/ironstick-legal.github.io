@@ -1,6 +1,6 @@
 # Declarația fluxurilor de date (RGPD)
 
-> Declarația IRONSTICK privind fluxurile de date (RGPD): fiecare cale pe care datele părăsesc IRONSTICK către un furnizor extern de IA, ce se transmite și unde se aplică pseudonimizarea.
+> Declarație RGPD: fiecare cale pe care datele părăsesc IRONSTICK spre un furnizor extern de IA, ce se transmite și unde se aplică pseudonimizarea.
 
 Pagina originală: https://www.ironstick.legal/gdpr_ro.html
 

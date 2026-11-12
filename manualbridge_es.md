@@ -1,6 +1,6 @@
 # Manual - Bridge
 
-> Manual Bridge — trabajar con la IA: qué ocurre en segundo plano y ocho flujos de trabajo, desde el inicio del día hasta la investigación jurídica.
+> Manual Bridge — trabajar con la IA: qué ocurre en segundo plano y ocho flujos de trabajo, del inicio del día al OSINT y la investigación jurídica.
 
 Página original: https://www.ironstick.legal/manualbridge_es.html
 

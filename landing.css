@@ -714,3 +714,5 @@ body{overflow-x:clip}
 @media (max-width:575px){.lp-shots-grid{grid-template-columns:minmax(0,1fr)}.lp-shots h2{font-size:28px}.lp-shots{padding:10px 16px 56px}}
 
 .u-section-3 .u-list-item p{color:#111 !important}
+/* former h5 headings of the home page (now h3 for SEO), same look as h5 */
+h3.h5s{font-size:1.25rem;line-height:1.2;margin-top:20px;margin-bottom:20px;font-weight:700;}

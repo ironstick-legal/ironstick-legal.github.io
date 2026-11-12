@@ -1,6 +1,6 @@
 # Manuale - Avvio rapido
 
-> Avvio rapido — dall’installazione ai primi clienti in sei passi.
+> Avvio rapido — dall’installazione ai Suoi primi clienti in sei passi: licenza, lingua, IA, firma e carta intestata.
 
 Pagina originale: https://www.ironstick.legal/manualquickstart_it.html
 

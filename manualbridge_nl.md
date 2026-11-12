@@ -1,6 +1,6 @@
 # Handleiding - Bridge
 
-> Bridge-handleiding — werken met AI: wat er op de achtergrond gebeurt, en acht werkprocessen van de start van de dag tot het onderzoek naar wetgeving.
+> Bridge-handleiding — werken met AI: wat er op de achtergrond gebeurt, en acht werkprocessen van de start van de dag tot OSINT en wetgevingsonderzoek.
 
 Originele pagina: https://www.ironstick.legal/manualbridge_nl.html
 

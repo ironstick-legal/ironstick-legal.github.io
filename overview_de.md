@@ -1,6 +1,6 @@
 # IRONSTICK im Überblick
 
-> Die Kanzleisoftware, die Ihre Akten kennt — lokal auf Ihrem Rechner, mit KI an Ihrer Seite.
+> Die Kanzleisoftware, die Ihre Akten kennt: Fristen, Dokumente, Schriftsätze und OSINT-Recherche — lokal auf Ihrem Rechner, mit KI an Ihrer Seite.
 
 Originalseite: https://www.ironstick.legal/overview_de.html
 

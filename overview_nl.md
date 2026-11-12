@@ -1,6 +1,6 @@
 # IRONSTICK in één oogopslag
 
-> De kantoorsoftware die uw dossiers kent — lokaal op uw computer, met AI aan uw zijde.
+> De kantoorsoftware die uw dossiers kent: termijnen, documenten, processtukken en OSINT-onderzoek — lokaal op uw computer, met AI aan uw zijde.
 
 Originele pagina: https://www.ironstick.legal/overview_nl.html
 

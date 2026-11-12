@@ -1,6 +1,6 @@
 # Dosyanızda yapay zekâ
 
-> Yerleşik sohbette ya da Bridge aracılığıyla masaüstü yapay zekânızda.
+> Dosyanızda yapay zekâ: kendi API anahtarınızla yerleşik sohbette ya da Bridge üzerinden masaüstü yapay zekânızda — her sonuç denetlenir.
 
 Orijinal sayfa: https://www.ironstick.legal/ki_tr.html
 

@@ -1,6 +1,6 @@
 # IA la dosarul dumneavoastră
 
-> În chatul integrat sau prin Bridge, către IA dumneavoastră de desktop.
+> IA la dosarul dumneavoastră: în chatul integrat, cu propria cheie API, sau prin Bridge către IA de desktop — fiecare rezultat verificat determinist.
 
 Pagina originală: https://www.ironstick.legal/ki_ro.html
 
