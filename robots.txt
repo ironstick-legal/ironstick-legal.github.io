@@ -1,8 +1,11 @@
+# AI overview: https://www.ironstick.legal/llms.txt
+# AI full text: https://www.ironstick.legal/llms-full.txt
+
 User-agent: *
 Allow: /
 Disallow: /*.md$
 
-# Suchmaschinen: Markdown-Fassungen nicht indexieren (HTML ist das Original)
+# Search engines: do not index the Markdown versions (HTML is the original)
 User-agent: Googlebot
 Allow: /
 Disallow: /*.md$
@@ -31,7 +34,7 @@ User-agent: Slurp
 Allow: /
 Disallow: /*.md$
 
-# KI-Crawler und KI-Abrufwerkzeuge ausdrücklich willkommen (inkl. Markdown)
+# AI crawlers and AI fetch tools explicitly welcome (including Markdown)
 User-agent: GPTBot
 Allow: /
 
@@ -83,6 +86,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# AI overview: https://www.ironstick.legal/llms.txt
-# AI full text: https://www.ironstick.legal/llms-full.txt
 Sitemap: https://www.ironstick.legal/sitemap.xml
