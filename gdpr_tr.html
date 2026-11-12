@@ -1,0 +1,929 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRONSTICK — GDPR veri akışı beyanı (harici LLM'ler)</title>
+<meta name="description" content="IRONSTICK GDPR veri akışı beyanı: verilerin IRONSTICK'ten harici bir yapay zekâ sağlayıcısına doğru çıktığı her yol, neyin iletildiği ve takma adlandırmanın nerede devreye girdiği.">
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 25px; border-bottom: 3px solid #1a73e8; padding-bottom: 8px; }
+  h2 { font-size: 20px; color: #1a73e8; margin-top: 38px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .meta { color: #5f6368; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .warn { border-left-color: #ea8600; }
+  .crit { border-left-color: #c5221f; }
+  code { background: #f1f3f4; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .yes { color: #188038; font-weight: 600; } .no { color: #c5221f; font-weight: 600; }
+  .clause { border: 1px solid #dadce0; background: #fff; border-radius: 6px;
+            padding: 4px 18px 10px; margin: 10px 0 30px; }
+  .clause p { margin: 10px 0; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; } table { page-break-inside: avoid; } }
+  h1{border-bottom:none;padding-bottom:0}
+  img.flow{display:block;max-width:100%;height:auto;margin:14px auto 18px}
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;
+    border-bottom:1px solid #dadce0;padding:8px 16px;margin:-32px -24px 18px;
+    max-width:none;line-height:1.6}
+  /*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}</style><link rel="stylesheet" href="fonts/noto-serif.css">
+<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
+<link rel="stylesheet" href="sitebar.css">
+<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="hero.css">
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="site.css">
+<link rel="alternate" type="text/markdown" href="gdpr_tr.md">
+<link rel="llms-txt" href="/llms.txt">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/gdpr.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/gdpr_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/gdpr_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/gdpr_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/gdpr_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/gdpr_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/gdpr_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/gdpr_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/gdpr_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/gdpr_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/gdpr_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/gdpr.html">
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_tr.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_tr.html">Ana sayfa</a><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><span class="mh">Kılavuzlar</span><a class="sub" href="manualquickstart_tr.html">Hızlı başlangıç</a><a class="sub" href="manualironstick_tr.html">İstemci uygulaması</a><a class="sub" href="manualbridge_tr.html">Bridge</a><a href="gdpr_tr.html" aria-current="page">GDPR</a><a href="download_tr.html">Download</a></div></div><nav class="mainnav"><a href="overview_tr.html">Genel bakış</a><a href="ki_tr.html">Yapay zekâ</a><div class="nav-drop" tabindex="0"><span>Kılavuzlar</span><div class="menu"><a href="manualquickstart_tr.html">Hızlı başlangıç</a><a href="manualironstick_tr.html">İstemci uygulaması</a><a href="manualbridge_tr.html">Bridge</a></div></div><a href="gdpr_tr.html" aria-current="page">GDPR</a><a href="download_tr.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_tr.html">30 gün deneyin</a><nav class="lang-wrap" tabindex="0" title="Dil" aria-label="Dil"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="gdpr.html">English</a><a lang="de" hreflang="de" href="gdpr_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="gdpr_ro.html">Română</a><a lang="fr" hreflang="fr" href="gdpr_fr.html">Français</a><a lang="it" hreflang="it" href="gdpr_it.html">Italiano</a><a lang="es" hreflang="es" href="gdpr_es.html">Español</a><a lang="pt" hreflang="pt" href="gdpr_pt.html">Português</a><a lang="nl" hreflang="nl" href="gdpr_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="gdpr_ru.html">Русский</a><a lang="uk" hreflang="uk" href="gdpr_uk.html">Українська</a><a class="on" lang="tr" hreflang="tr" href="gdpr_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-gdpr" data-parallax="31 75"><div class="gh-in"><div class="gh-box"><h1>GDPR veri akışı beyanı</h1></div><p class="gh-sub">Harici büyük dil modelleriyle (Large Language Models) ilişkiler</p></div></section>
+<p class="meta">Verilerin <span class="irs">IRONSTICK</span>'ten harici bir LLM'e doğru çıktığı her yolun, tam olarak neyin, hangi biçimde
+iletildiğinin ve takma adlandırma katmanının nerede devreye girdiğinin koddan türetilmiş nesnel açıklaması.
+Windows masaüstü sürümü. Bu belge
+yalnızca <span class="irs">IRONSTICK</span>'in davranışını açıklar — <b>yapay zekâ sağlayıcısının aldığı verilerle ne yaptığı
+yalnızca sağlayıcının kendi koşullarına tabidir</b> (kullanıcının
+yapılandırdığı sağlayıcıların kullanım koşulları ve gizlilik politikaları: Alibaba Cloud (Qwen),
+Moonshot AI (Kimi), OpenAI, Anthropic ve etkinleştirilmişse Groq, OpenRouter ve
+Mistral; Google yalnızca dışa aktarmalar için Google Drive kullanılıyorsa); kullanıcı bunları ayrıca incelemelidir.</p>
+<p class="meta">Sürüm 1.0.7 — Kasım 2026 itibarıyla</p>
+<div class="box"><b>Özet.</b>
+<ul>
+<li><b>Depolama.</b> Tüm veriler tek bir yerel veri dizininde bulunur. Veritabanı,
+belge deposu, yapılandırma dosyası ve yapay zekâ ara belleği, beklemedeyken
+AES-256 ile şifrelenir. Düz metin olarak yalnızca açılmış belgelerin geçici çalışma kopyaları,
+tarama girişi, dışa aktarmalar ve giden dosyalar, kısa ömürlü
+akran incelemesi (peer review) arabelleği ve etkinleştirilmişse tanılama günlüğü kalır (bölüm 8).</li>
+<li><b>Harici yapay zekâ.</b> Uygulama içindeki yapay zekâ çağrıları yalnızca kullanıcının kendi API anahtarıyla yapılır.
+Merkezi yönlendirici üzerinden yapılan çağrılar varsayılan olarak takma adlandırılır ve
+yerel bir denetim günlüğüne kaydedilir; bilinçli düz metin istisnaları 2.3'te listelenmiştir.</li>
+<li><b>Onay.</b> Yapay zekâ sohbeti, belge kaydı ve kişi araştırması, oturum veya program çalışması
+başına bir kez sorar; kelime işlemcide bir yapay zekâ işlevini başlatmak
+onay anlamına gelir. Birkaç arka plan işlevi bulut yapay zekâsını kendi iletişim kutusu olmadan çağırır:
+e-posta ön değerlendirmesi, veri tutarlılığı izleyicisi, günlük brifing, diyalog özeti
+ve Red/Blue Team denetimi (bölüm 3).</li>
+<li><b>Masaüstü yapay zekâ Bridge'i.</b> Gerçek dava verilerini kullanıcının kendi masaüstü yapay zekâsının sağlayıcısına ileten isteğe bağlı bir ek modül;
+her program çalışmasında bir onay iletişim kutusundan sonra (bölüm 4.9).</li>
+<li><b>Diğer hizmetler.</b> Taraf adresleri her gün
+OpenStreetMap Nominatim ile coğrafi olarak kodlanır (yalnızca adres, ad yok); başlangıçtan sonra ve
+ardından her altı saatte bir <a href="index_tr.html">www.ironstick.legal</a> adresinden bir haber dosyası indirilir; yazılım üreticisine hiçbir dava veya
+kişi verisi gönderilmez (bölüm 1 ve 7).</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER.</b> İsteğe bağlı, büronun yerel ağdaki kendi
+NAS cihazında, internet bağlantısı olmadan. Belgeler sunucuya yalnızca
+AES-256 ile şifrelenmiş dosyalar olarak ulaşır ve orada da yalnızca bu şekilde bulunur; sunucu bunların düz metnini asla görmez. Dava başına çalışma süresi
+ve her iş istasyonunun yedekleme olayları büronun yöneticisi tarafından görülebilir
+(bölüm 9).</li>
+</ul></div>
+
+<h2>1. Kapsam ve uç noktalar</h2>
+<img class="flow" src="img/65_ai_client_vault.png" alt="Solda yapay zekâ API'si, masaüstü yapay zekâ uygulaması ve MCP sunucusu, ortada IRONSTICK istemcisi, sağda AES-256 veri kasası, IRONSTICK sunucusu ve tarama uygulaması">
+<p>Uygulama içindeki harici yapay zekâ çağrıları, <b>otomatik kademenin o anda kullandığı
+sağlayıcıya</b> gider. Kullanıcı en fazla dört sağlayıcı yapılandırabilir; anahtarı kayıtlı
+her sağlayıcı, en düşük maliyetli olan önce gelmek üzere şu sabit sırayla
+kullanılır: <b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+ChatGPT (OpenAI) → Claude (Anthropic)</b>. <span class="irs">IRONSTICK</span> her program başlangıcında
+bunlardan hangilerinin yanıt verdiğini kontrol eder. Bir sağlayıcı devre dışı kalırsa aynı istek
+bir sonrakine gider. Devre dışı kalan sağlayıcı, hataya bağlı bir bekleme süresinden sonra yeniden
+denenir; günün geri kalanında
+yalnızca bakiyesi tükenmişse veya nedeni bilinmiyorsa atlanır. İletilen içerik
+her sağlayıcıda aynıdır (bölüm 3'ten itibaren: yönlendirici tarafından takma adlandırılmış,
+onay, denetim günlüğü). Uç noktalar şunlardır:</p>
+<ul>
+<li><b>Claude:</b> <code>POST https://api.anthropic.com/v1/messages</code>,
+kullanıcının kendi API anahtarı.</li>
+<li><b>ChatGPT:</b> <code>POST https://api.openai.com/v1/chat/completions</code>,
+kullanıcının kendi API anahtarı.</li>
+<li><b>Qwen:</b> <code>POST https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions</code>
+(Alibaba Cloud Model Studio, uluslararası bölge), kullanıcının kendi API anahtarı.</li>
+<li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
+(Moonshot AI), kullanıcının kendi API anahtarı.</li>
+</ul>
+<p><b>Ücretsiz arka plan sağlayıcıları (isteğe bağlı).</b> Kullanıcı ayrıca
+<b>Groq</b>, <b>OpenRouter</b> ve <b>Mistral</b>'ın ücretsiz tekliflerini
+kaydedebilir. <span class="irs">IRONSTICK</span> bunları yalnızca arka planda çalışan görevler için kullanır:
+e-posta ön değerlendirmesi, veri tutarlılığı izleyicisi, günlük brifing, diyalog özeti,
+transkripsiyonlarda konuşmacı ataması, mevzuat metinlerinin alınması ve durum tablosu. Bu
+sağlayıcıların her birinin yapılandırmada kendi açma/kapama anahtarı vardır; bir sağlayıcı
+yalnızca anahtarı kayıtlıysa ve açma/kapama anahtarı açıksa kullanılır. Sohbet,
+dilekçeler ve Red/Blue Team denetimi için <b>asla</b> kullanılmazlar. Hiçbiri
+kullanılamıyorsa yukarıda açıklanan kademe devreye girer.
+Takma adlandırma, onay ve denetim günlüğü ilgili
+göreve göre belirlenir (bölüm 4). Uç noktalar şunlardır:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+kullanıcının kendi API anahtarı.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+kullanıcının kendi API anahtarı.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+kullanıcının kendi API anahtarı.</li>
+</ul>
+<div class="box warn"><b>Ücretsiz teklifler — yapılandırmadaki not.</b> Yapılandırmada bu sağlayıcıların her birinin altındaki bir not, IRONSTICK'in onu — API anahtarı kayıtlı ve açma/kapama anahtarı açık olduğu sürece — özetler ve e-posta ön değerlendirmesi gibi arka plan görevleri için kullandığını ve bu sırada bu sağlayıcıya veri ilettiğini belirtir. Bu sağlayıcılardan birini etkinleştirmeden önce, koşullarının
+veri işleyenler için gerekli olan veri işleme sözleşmesini
+öngörüp öngörmediğini ve meslek hukukunuza uygun olup olmadığını kontrol edin. Devre dışı bırakılmış bir sağlayıcı kullanılmaz.</div>
+<p>Her sağlayıcı için yapılandırılabilir üç model kademesi kullanılır (küçük / orta /
+büyük). Ayrı ve isteğe bağlı bir kanal ise
+<b>masaüstü yapay zekâ Bridge'idir</b> (bölüm 4.9): Orada veriler kullanıcının kendi
+yerel masaüstü yapay zekâsına (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
+Desktop <b>veya</b> Kimi Desktop), yani bu yapay zekânın sağlayıcısına (Anthropic, OpenAI,
+Alibaba Cloud/Qwen veya Moonshot AI/Kimi), kullanıcının bu sağlayıcıdaki kendi aboneliği/hesabı çerçevesinde akar.
+Bridge'ler paralel çalışabilir: Her masaüstü yapay zekânın kendi küçük Bridge programı vardır,
+hepsi çalışan uygulamadaki aynı yerel uç noktaya bağlanır ve
+aynı dava üzerinde aynı anda çalışabilirler. Yazılım üreticisine hiçbir dava veya
+kişi verisi gönderilmez. Üreticiyle tek temas, <a href="index_tr.html">www.ironstick.legal</a> adresinden bir haber dosyasının
+basit bir şekilde indirilmesidir (başlangıçtan sonra ve ardından her altı saatte bir, bölüm 7); bu indirme
+teknik bağlantının kendisi dışında hiçbir veri içermez.
+<b><span class="irs">IRONSTICK</span> SERVER</b> (bölüm 9) bunu değiştirmez: Sunucuyu
+büro kendisi, kendi donanımında, kendi
+ağı içinde işletir — sunucu asla üreticiyle ve asla bir yapay zekâ sağlayıcısıyla iletişime geçmez.</p>
+<div class="box"><b>Ana anahtar, kullanıcının kendi erişimidir.</b> Uygulama içinde harici
+yapay zekâ işleme ancak kullanıcı bir yapay zekâ sağlayıcısında kendi hesabını
+açmış ve kendi erişim anahtarını yapılandırmaya girmişse gerçekleşir.
+<b>Yapılandırılmış bir sağlayıcı olmadan uygulama içinde hiçbir harici yapay zekâ çağrısı yapılamaz</b> — bu durumda
+bölüm 4'te açıklanan her işlev yerel kalır veya basitçe kullanılamaz. Bu
+hesap, kullanıcı ile sağlayıcı arasında doğrudan bir sözleşmedir; <span class="irs">IRONSTICK</span>
+sözleşmenin tarafı değildir. Aynı durum, kullanıcının seçilen masaüstü yapay zekâ sağlayıcısında
+kendi aboneliğini/hesabını gerektiren masaüstü yapay zekâ Bridge'i için de geçerlidir
+(Anthropic, OpenAI, Alibaba Cloud/Qwen veya Moonshot AI/Kimi). <b>Gizli</b> olarak işaretlenen belgeler
+masaüstü yapay zekâ Bridge'inin ve sohbetin araçlarından,
+yapay zekâ talimat paketinden ve oluşturulan her çıktıdan (ekler, dosya dökümleri, dışa aktarmalar) hariç tutulur;
+kayıt sırasında işlenmeleri, kullanıcının kayıt anındaki bilinçli
+kararına tabidir (bölüm 4.1).</div>
+<p>Tamamen yerel (bilgisayardan hiçbir şey çıkmaz): metin çıkarma ve OCR,
+deterministik yerel sohbet katmanı, genel arama, ilgililik radarı, yazışma zinciri analizi,
+dosya dökümü/PDF oluşturma, karartma bulucunun yerel çalışması, konuşma tanıma
+(kayıtların transkripsiyonu) ve yapay zekâ talimat paketinin oluşturulması.</p>
+
+<h2>2. Takma adlandırma katmanı</h2>
+<p>Uygulama içinde merkezi yapay zekâ yönlendiricisi üzerinden yapılan her çağrı varsayılan olarak takma adlandırılır:
+Giden metindeki tanımlayıcılar yer tutucularla değiştirilir ve yanıt yerel olarak geri dönüştürülür. Takma adlandırıcı
+eksiksiz oluşturulamazsa hiçbir şey gönderilmez. İstisnalar 2.3'te listelenmiştir. Eşleştirme
+yalnızca çalışma belleğinde, her işlem için yeni bir eşleştirme olarak bulunur; asla kaydedilmez.</p>
+<img class="flow" src="img/66_pseudonymization.png" alt="Üstte: IRONSTICK istemcisi, dişlileri olan anonimleştirilmiş figür, yapay zekâ API'si; altta: IRONSTICK istemcisi, kullanıcı, masaüstü yapay zekâ uygulaması">
+<h3>2.1 Neler değiştirilir</h3>
+<table>
+<tr><th>Kaynak</th><th>Alanlar</th><th>Yer tutucu ailesi (dahili tanımlayıcılar)</th></tr>
+<tr><td>Müvekkil kayıtları</td><td>Ad, tanımlayıcı alanından ulusal kimlik numarası (örn. Romanya CNP), telefon, e-posta, adres ve yer</td>
+<td><code>$PARTEI_A$</code> (taraf), <code>$CNP_A$</code> (kimlik numarası), <code>$TEL_A$</code> (telefon), <code>$MAIL_A$</code> (e-posta), <code>$ADRESSE_A$</code> (adres)</td></tr>
+<tr><td>Kişiler / varlıklar</td><td>tam ad (kişi veya şirket), tanımlayıcı alanından ulusal kimlik veya şirket numarası (örn. Romanya CNP veya CUI)</td>
+<td><code>$PARTEI_B$</code> (taraf) / <code>$FIRMA_A$</code> (şirket), <code>$CNP_B$</code> (kimlik numarası)</td></tr>
+<tr><td>Davalar</td><td>dava numarası, karşı taraf, davacı</td>
+<td><code>$FALL_A$</code> (dava), <code>$PARTEI_C$</code> (taraf)…</td></tr>
+<tr><td>Örüntü katmanı (serbest metindeki bilinmeyen değerler)</td>
+<td>mahkeme dosya numaraları, kişi numaraları, IBAN'lar, e-posta adresleri
+ve telefon numaraları. Diğer ulusal kimlik numaraları yalnızca müvekkil veya kişi kaydında kayıtlıysa değiştirilir.</td><td>aynı yer tutucu aileleri</td></tr>
+</table>
+<h3>2.2 Bilinçli olarak değiştirilmeyenler</h3>
+<ul>
+<li><b>Tarihler, saatler ve para tutarları</b> — hukuki değerlendirme için değiştirilmeden gereklidirler.</li>
+<li><b>Kurum adları</b> (mahkemeler, resmî makamlar) — sözlükte
+yer almazlar ve kamu kurumlarıdır.</li>
+<li><b>Kendi kaydı olmayan üçüncü kişiler</b> — müvekkil, kişi veya dava kaydı olarak kaydedilmemiş tanıklar, doktorlar, avukatlar, hâkimler veya şirketler; bir yer tutucuyla değiştirilmesi gereken kişi basitçe kişi olarak kaydedilir.</li>
+<li><b>Müvekkil olmayanların adresleri</b> — müvekkilin kayıtlı adresi bir yer tutucuyla değiştirilir.</li>
+<li>Belgelerin tüm <b>esasa ilişkin içeriği</b> (iddialar, teşhisler,
+anlatım) — yalnızca tanımlayıcılar değiştirilir, olaylar değil.</li>
+</ul>
+<h3>2.3 Bilinçli gerçek ad istisnaları</h3>
+<ul>
+<li><b>Kişi web araştırması (aşama 1)</b> ve kişiler / kurumlar için <b>formların otomatik doldurulması</b>:
+<code>$PARTEI_A$</code> için bir web araması anlamsızdır; bu nedenle
+gerçek ad bilinçli olarak gönderilir.</li>
+<li><b>Karartmanın yapay zekâ bulucusu</b>: Daha önce yerel olarak
+karartılmış metni alır ve bulduğu <i>bilinmeyen üçüncü kişilerin</i> gerçek adlarıyla
+yanıt vermelidir — takma adlandırma bu tek amaç için kapatılmıştır.</li>
+<li><b>Sesli okuma işlevinin (TTS) ön işlemesi</b>: bkz. 4.6 — cümleler düz metin olarak
+dışarı çıkar.</li>
+<li><b>Masaüstü yapay zekâ Bridge'i</b>: bilinçli olarak ham veriler (bölüm 4.9).</li>
+</ul>
+
+<h2>3. Onay anları ve denetim günlüğü</h2>
+<p>Merkezi yönlendirici üzerinden geçen çağrılar bir onaya bağlıdır ve kayıt altına alınır: Her
+model turu yerel denetim tablosuna, <b>bilgisayardan gerçekten çıktığı, yer tutucularla
+değiştirilmiş biçimiyle</b> tam istek ve yanıtı içeren bir satır
+yazar; reddedilen veya engellenen denemeler içeriksiz olarak kaydedilir. Bir
+işlev onay istediğinde iletişim kutusu model kademesini ve yaklaşık istek boyutunu belirtir ve bir izin
+güncel ekran oturumu için geçerlidir (belge kaydında: güncel program çalışması için).</p>
+<div class="box warn"><b>Kendi onay iletişim kutusu olmayan yönlendirici akışları:</b>
+e-posta ön değerlendirmesi (arka plan modunda olduğu gibi e-posta ekranındaki manuel alımda da,
+bölüm 4.2), veri tutarlılığı izleyicisinin analiz çalışması (4.5),
+günlük brifing (4.4a), API sohbetinin diyalog özeti ve Red/Blue
+Team denetimi (4.7) ile karartmanın yapay zekâ bulucusu (açma/kapama anahtarının açılması
+onay anlamına gelir). Bunlar yine de takma adlandırılır (karartma bulucunun amaçlanan gerçek ad yanıtları
+hariç) ve yine de denetim günlüğüne kaydedilir.</div>
+<div class="box warn"><b>Yönlendiriciyi atlayan akışlar:</b>
+kelime işlemcinin yapay zekâ işlevleri, sesli okuma işlevinin ön işlemesi ve Dosya→Markdown yapay zekâ düzeltmesi
+API'yi doğrudan çağırır. Bunlar takma adlandırılır (istisna: sesli okuma işlevi),
+ancak <b>kendi onay iletişim kutusunu göstermez ve
+denetim günlüğüne satır yazmaz</b>. Bu işlevlerin kullanıcı tarafından kullanılması (yapay zekâ düğmesine basmak,
+bir oluşturmayı başlatmak, yapay zekâ anahtarı açıkken sesli okuma işlevini başlatmak)
+onay anıdır.</div>
+<h2>4. Veri akışları, kullanım senaryosu bazında</h2>
+
+<h3>4.1 Belge kaydı</h3>
+<p>Metin çıkarma ve OCR yerel olarak yapılır. Bir API anahtarı yapılandırılmışsa <span class="irs">IRONSTICK</span>
+program çalışması başına bir kez sorar; ardından en fazla dört çağrı türü çalışır (hepsi takma adlandırılmış, hepsi
+denetim günlüğüne kaydedilmiş):</p>
+<ul>
+<li><b>Ana belgenin tanınması</b> (küçük kademe): OCR ham metninden alıntılar — yalnızca düşük kaliteli taramalarda.</li>
+<li><b>OCR düzeltmesi</b> (küçük kademe): belge metninden sınırlı bir alıntı.</li>
+<li><b>Sınıflandırma</b> (orta kademe): belge metninden sınırlı bir alıntı, <b>artı sistem listeleri</b>: eksiksiz dava listesi (dava numarası,
+müvekkil adı, karşı taraf — yer tutucularla değiştirilmiş), bilinen adlardan oluşan bir küme (yer tutucularla değiştirilmiş) ve kurum türleri ile belge türlerinin kod listeleri
+(yer tutucusuz adlandırmalar). Yedek düzey: küçük kademe,
+listeler olmadan.</li>
+<li><b>Kaydetme sırasında bağlamlandırma</b> (küçük kademe): belgenin üst verileri ve
+sınırlı uzunlukta tam metin, artı <b>aynı müvekkilin her aktif delili</b> için bir dizin satırı (ID, tarih, başlık) — çapraz atıfları
+güvenceye almak için kullanılır. Gizli olarak işaretlenen belgeler için de çalışır (kullanıcının
+bilinçli kararı).</li>
+</ul>
+
+<h3>4.2 E-posta izleyicisi (ön değerlendirme)</h3>
+<p>Dava ataması <b>yerel olarak ve yapay zekâ olmadan</b> yapılır. Yeni e-postalar
+arka planda başlangıçta ve ardından her beş dakikada bir alınır. Davası
+yerel tanıma tarafından zaten belirlenen bir e-posta (dava numarası, mektup numarası, müvekkil numarası veya
+kendi bir dilekçeye atıf) yapay zekâ çağrısı tetiklemez. Diğer her
+e-posta için <b>küçük kademede bir çağrı</b> aciliyeti tam olarak şunlarla değerlendirir: göndericinin adı ve
+adresi, konu ve düz metin olarak kayıtlı önizleme alıntısı (sabit sınırlı) — <b>asla tam mesaj metni değil</b>, hiçbir
+ek değil ve <b>hiçbir dava listesi değil</b>. Yanıt: öncelik ve gerekçe. Ücretsiz
+arka plan sağlayıcıları etkinse (bölüm 1), bu çağrı onlar üzerinden yapılabilir.
+<b>Onay iletişim kutusu gösterilmez</b>; ne arka plan modunda ne de
+e-posta ekranındaki manuel alımda: Ön değerlendirme, bir e-posta hesabı
+ve bir yapay zekâ sağlayıcısı yapılandırıldığı anda otomatik olarak çalışır. Takma adlandırılmış ve denetim günlüğüne kaydedilmiş.</p>
+<p><b>İzleme pikseli yok.</b> İzleyicide bir e-postanın açılması asla
+göndericinin sunucusuyla iletişim kurmaz: Bir internet adresi üzerinden referans verilen görüntüler (görünmez
+izleme pikselleri dahil) yüklenmez ve bir not ile birlikte yer tutucu olarak
+görünür; böylece gönderici bir e-postanın ne zaman, kaç kez veya hangi adresten
+okunduğunu öğrenemez. Yalnızca e-postanın kendisine gömülü görüntüler gösterilir.</p>
+
+<h3>4.3 Kişi analizi (web araştırması)</h3>
+<p>Oturum başına tek seferlik bir onaydan sonra üç aşama:</p>
+<ul>
+<li><b>Aşama 1 — Arama:</b> Arama motorları doğrudan kullanıcının
+bilgisayarından sorgulanır; ayrıca sağlayıcının
+sunucu taraflı web arama aracı <b>kişinin gerçek
+adıyla düz metin olarak</b> çağrılır (bir arama için kaçınılmazdır; düz metin olarak kaydedilir).</li>
+<li><b>Aşama 2 — Sayfa özetleri</b> (orta kademe): her sayfa için kişinin adı
+(yer tutucuyla değiştirilmiş), URL ve sayfa içeriğinden sınırlı bir alıntı.</li>
+<li><b>Aşama 3 — Profil sentezi</b> (büyük kademe): ad ve yer (yer tutucularla değiştirilmiş)
+artı kaynak başına sınırlı uzunlukta toplanan sayfa metinleri.</li>
+</ul>
+<p>Sonuç yerel olarak “onaylanmamış” güvenilirlik düzeyiyle kaydedilir. Kişi/kurum formlarındaki ilgili
+<b>Otomatik doldurma</b> düğmeleri girilen
+adı da düz metin olarak gönderir (belgelenmiş istisna).</p>
+
+<h3>4.3a Kamuya açık kaynaklardan taraf kontrolü</h3>
+<p>Bir tarafın kamuya açık kaynaklardan kontrolü, bağlı bir yapay zekâ onu ad, yer, bölge, ülke ve
+tarafın türüyle (gerçek kişi veya tüzel kişi) çağırdığında uygulamanın
+kendisinin yürüttüğü belirlenmiş bir prosedürdür:</p>
+<ul>
+<li><b>Dosyalar:</b> yerel veritabanında adın tam metin
+araması — <b>tamamen yerel</b>, bilgisayardan hiçbir şey çıkmaz.</li>
+<li><b>İnternet:</b> sabit bir arama sorguları listesi kamuya açık
+arama motorlarına, <b>Google, DuckDuckGo ve Qwant</b>'a gönderilir. Her sorgu, tarafın ülkesinin dilinde bir
+arama teriminden, artı <b>tarafın gerçek
+adından düz metin olarak</b> ve bazı sorgularda yer veya bölgeden oluşur
+(bir arama için kaçınılmazdır). Hiçbir dava, müvekkil veya belge içeriği
+iletilmez. Arama motorları sorguları herhangi bir tarayıcı kullanıcısının sorguları gibi görür.</li>
+</ul>
+<p>Sonuç, çağıran yapay zekâya işlenmiş, doğrulanmamış bir profil olarak döndürülür.
+Ana verilere hiçbir şey yazılmaz: Her bulgu veri tutarlılığı izleyicisinin
+denetim kapısından geçer (bölüm 4.5) ve ancak
+kullanıcı kabul ederse benimsenir. Yalnızca kamuya açık kaynaklar değerlendirilir.</p>
+
+<h3>4.4 Günlük tutanak</h3>
+<p>Ekranın kendisi yereldir. Serbest metin içe aktarılırken önce <b>yerel</b> bir
+ayrıştırıcı çalışır; yalnızca günlük tutanağa ait bir format işareti bulunamazsa bir yapay zekâ yedek düzeyi
+ham metni normalleştirir: Yapıştırılan metin eksiksiz gönderilir, küçük kademe, onay şartına bağlı, takma adlandırılmış, denetim günlüğüne kaydedilmiş. Kayıtlı
+günlük tutanak kayıtları bilgisayardan yalnızca sohbetin veya masaüstü yapay zekâ Bridge'inin araç sonuçları olarak
+(sınırlı alıntılar) veya yapay zekâ talimat paketi içinde çıkar (bölüm 5).</p>
+
+<h3>4.4a Günlük brifing</h3>
+<p>Günün ilk program başlatılışında (Windows) <span class="irs">IRONSTICK</span>
+arka planda sesli bir günlük brifing hazırlar; bu, başlatma sırasında ve
+brifing penceresi kullanıcıya dinlemek isteyip istemediğini sormadan önce gerçekleşir. Brifing metni —
+süre sayıları, bugünün ve yarının duruşmaları dava numarası,
+müvekkil adı, yer ve mahkemeyle birlikte ve bugünkü randevuların başlıkları —
+bulut yapay zekâsına bir kez (küçük kademe) gönderilir; yapay zekâ onu
+sistem dilinde sesli düzyazı olarak yeniden ifade eder. Yönlendirici üzerinden takma adlandırılmış, denetim günlüğüne kaydedilmiş, <b>onay iletişim kutusu yok</b>.
+Ücretsiz arka plan sağlayıcıları etkinse (bölüm 1), bu çağrı
+onlar üzerinden yapılabilir. Hiçbir sağlayıcı kullanılamıyorsa bunun yerine yerel olarak oluşturulmuş bir metin kullanılır.</p>
+
+<h3>4.5 Veri tutarlılığı izleyicisi</h3>
+<p>Aşama 1 (e-posta ↔ ana veriler) tamamen deterministiktir. Aşama 2,
+<b>her yeni gelen belge için küçük kademede bir çağrı</b> gönderir (takma adlandırılmış,
+denetim günlüğüne kaydedilmiş, <b>iletişim kutusu yok</b>); bu çağrı şunları içerir: <b>bu</b> belgenin
+tam metninden tekilleştirilmiş <b>iletişim bölümü alıntıları</b> (adres, telefon ve vergi bilgileri etrafındaki kısa alıntılar),
+bu belgenin ve davasının taraf adları ve
+her taraf için kayıtlı ana verilerden olası eşleşmelerin <b>adları</b> (sözlükte
+bulunduğu ölçüde yer tutucularla değiştirilmiş; kurum adları düz metin olarak).
+<b>Kayıtlı ana verilerden iletişim bilgileri ve kimlik numaraları iletilmez.</b>
+Ücretsiz arka plan sağlayıcıları etkinse (bölüm 1), bu çağrı onlar üzerinden
+yapılabilir. Yanıt her zaman yalnızca,
+kullanıcının izleyicide kabul etmesi gereken bir öneriye dönüşür.</p>
+
+<h3>4.6 Kelime işlemci (metinde yapay zekâ desteği)</h3>
+<ul>
+<li><b>Seçimi düzenle:</b> seçilen cümle/paragraf/bölüm (biçimlendirme
+işaretleriyle) <b>artı bağlam olarak belgeden bir alıntı</b>
+ve kullanıcının talimatı — orta kademe, takma adlandırılmış.</li>
+<li><b>Ana hat/içindekiler:</b> fiilen belgenin tamamı, dizinlenmiş satır listesi olarak
+(uzun satırlar kısaltılmış), sınırlı uzunlukta — orta kademe, takma adlandırılmış.</li>
+<li><b>Sesli okuma işlevi için ön işleme:</b> bir belge sesli okunurken, kısaltmaları ve sayıları açık yazmak için <b>her
+cümle tek tek düz metin olarak küçük kademeye gönderilir</b> —
+<b>takma adlandırma olmadan</b> (kimlik numaraları
+doğru okunabilmeleri için değişmeden geri dönmelidir). Dosya damgaları ve atıf işaretleri
+önceden yerel olarak kaldırılır. Sesli okuma işlevinin başlatılması onay
+anıdır.</li>
+</ul>
+<div class="box warn">Kelime işlemcinin çağrılarından hiçbiri ayrı bir onay iletişim kutusu
+göstermez veya denetim günlüğüne kayıt yazmaz (yönlendiricinin atlanması, bölüm 3).</div>
+
+<h3>4.7 Red/Blue Team denetimi ve diyalog özeti (API)</h3>
+<p>Taslak hazırlamaya iki API akışı daha aittir. <b>Red/Blue Team:</b> Kullanıcı bunu
+etkin sağlayıcı için açtıysa (API anahtarının yanındaki açma/kapama anahtarı; kayıtlı bir
+anahtar gereklidir), teslim iletişim kutusu üzerinden aktarılan her resmî belge —
+uygulama içi sohbetten ve masaüstü yapay zekâ Bridge'inden
+aynı şekilde — aynı sağlayıcı tarafından ayrı bir denetim turunda bir kez daha
+karşı tarafın hukuki temsilcisinin bakış açısıyla okunur
+(orta kademe). İletilenler: taslak metin, davanın tarihi ve yargı
+alanı; yönlendirici üzerinden takma adlandırılmış ve her yönlendirici çağrısı gibi denetim günlüğüne kaydedilmiş;
+<b>onay iletişim kutusu yok</b> — açma/kapama anahtarı onay anlamına gelir; denetçinin raporu kullanıcıya eklenir. Red/Blue Team denetimi
+<b>asla</b> ücretsiz arka plan sağlayıcıları üzerinden çalışmaz (bölüm 1). <b>Diyalog özeti:</b> Uzun
+API sohbet oturumlarında diyaloğun eski bölümü (yalnızca kullanıcının soruları ve
+modelin nihai yanıtları, asla araç sonuçları) etkin sağlayıcı tarafından
+(küçük kademe, arka planda, <b>kendi onay iletişim kutusu yok</b>) ham geçmişin yerini alan kısa bir özete
+yoğunlaştırılır; özet şifreli olarak ara belleğe konur ve her seferinde
+üzerine yazılır. Takma adlandırılmış ve denetim günlüğüne kaydedilmiş. Ücretsiz arka plan sağlayıcıları etkinse (bölüm 1),
+özet onlar üzerinden yapılabilir.</p>
+
+<h3>4.8 Yapay zekâ sohbeti (harici, API)</h3>
+<p>Sohbet oturumu başına bir kez onay; orta kademe, gerektiğinde otomatik olarak
+büyük kademeye yükseltilir (bu durumda bağlamın tamamı yeniden gönderilir); takma adlandırılmış; her tur
+denetim günlüğüne kaydedilir. Her tur şunları iletir: sistem istemi (statik kurallar), <b>güncel arayüz bağlamı</b>
+(güncel ekran, açık dava/müvekkil, müvekkil adı dahil — yer tutucuyla değiştirilmiş),
+açık müvekkilin en fazla <b>10 yapay zekâ hafıza kaydı</b>, en son diyalog artı eski turların bir özeti
+(4.7) ve sohbetin ara bellek dosyalarının listesi. Modelin çağırdığı her araç
+sonucunu API sohbetine geri verir — belge tam metinleri
+(daha büyük sonuçlar şifreli ara belleğe konur), e-posta mesaj metinleri ve
+günlük tutanaktan alıntılar dahil. Sohbet, masaüstü yapay zekâ Bridge'iyle (4.9) aynı araç katmanını
+ve aynı teslim denetimlerini kullanır: dilekçelerin
+denetimi, Red/Blue Team (4.7) ve dışa aktarma iletişim kutusu üzerinden teslim —
+sistemden çıkan şey sunulmaya hazır bir taslaktır. Yerel sohbet katmanı
+rutin istekleri hiçbir iletim olmadan yanıtlar.</p>
+<p>İki yardımcı işlev açıkça belirtilmeyi hak eder. <b>Hava durumu sorgusu</b>,
+adı verilen bir yer için güncel hava durumu verilerini LLM olmayan
+Open-Meteo hizmetinden alır (bölüm 7) — bu hizmete yalnızca yer adı veya koordinatları iletilir,
+asla dava veya kişi verileri iletilmez. <b>Konum sorgusu</b>
+yalnızca <b>en son yerel olarak kaydedilmiş</b>
+güvenlik anlık görüntüsünden yanıt verir (bölüm 8): Yapay zekânın isteği <b>yeni bir harici sorgu</b> tetiklemez —
+yalnızca diskte zaten bulunanı okur. Her araçta olduğu gibi, bu işlevlerin
+döndürdüğü şey yapay zekâ sohbetine, yani yapay zekâ sağlayıcısına geri akar.</p>
+<h3>4.9 Masaüstü yapay zekâ Bridge'i (isteğe bağlı ek modüller)</h3>
+<p><b>Her masaüstü yapay zekâ erişimi, ayrıca satın alınan isteğe bağlı bir modüldür.</b>
+Yalnızca büronun ilgili Bridge modülünü satın aldığı ve
+kurduğu yerlerde bulunur; hiçbir modül yoksa Bridge bölümü
+yapılandırmada kilitli kalır, yerel uç nokta asla başlamaz ve
+bu bölümde açıklanan veri akışlarından hiçbiri gerçekleşemez. Bridge'ler şunlar için mevcuttur:
+<b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> ve <b>Kimi Desktop</b>; her birinin kendi küçük Bridge programı vardır
+ve hepsi çalışan uygulamadaki aynı yerel uç noktaya
+bağlanır. Aşağıda açıklanan veri akışları hepsi için aynıdır; yalnızca alıcı sağlayıcı farklıdır.</p>
+<div class="box crit"><b>Bu kanal gerçek dava verilerini aktarır.</b> Amacı budur: Kullanıcının kendi masaüstü yapay zekâ oturumu
+sunulmaya hazır taslaklar hazırlar ve bu nedenle gerçek adlara ve numaralara ihtiyaç duyar.</div>
+<ul>
+<li>Masaüstü yapay zekâ (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop veya Kimi Desktop)
+Bridge programı üzerinden çalışan uygulamaya bağlanır; bu bağlantı
+bilgisayarda kalır. Yalnızca web araması, sayfa okuma ve sicil araçları internetle iletişime geçer.</li>
+<li><b>Erişim kontrolü olan web siteleri.</b> Bir web sitesi içeriğini açmadan önce bir onay
+isterse <span class="irs">IRONSTICK</span> sayfayı kendi penceresinde açar;
+kullanıcı onayı orada kendisi verir. Sayfanın içeriğini ardından masaüstü yapay zekâ okur —
+içerik, diğer her araç sonucu gibi onun sağlayıcısına akar.</li>
+<li>Bir program çalışmasında herhangi bir masaüstü yapay zekânın ilk veri erişimi, engelleyici bir
+onay iletişim kutusu açar. İzin, erişimi programın geri kalan çalışması boyunca tüm masaüstü yapay zekâlar için
+açar; ret ise hepsini geçici olarak kilitler.</li>
+<li>200'den fazla araç kronolojileri, tam metinleri, e-postaları,
+günlük tutanakları, süreleri, ana verileri, davaların tamamını (bölümler hâlinde) ve çıktı formatlarını
+sunar; gizli olarak işaretlenen belgeler hariç tutulur. Ana verilerde,
+kronolojide, takvimde, yapay zekâ hafızasında, tam metinlerde ve mevzuat kütüphanesinde yapılan değişiklikler ancak
+kullanıcı bunları bir <span class="irs">IRONSTICK</span> formunda, iletişim kutusunda
+veya veri tutarlılığı izleyicisinde onayladıktan sonra geçerli olur: Ana verilere ve ilişkilere yönelik öneriler
+izleyiciye düşer; yapay zekânın davaya bağlı yapay zekâ talimat notlarında önerdiği değişiklikler
+kırmızı/yeşil fark görünümünde gösterilir ve ancak kullanıcı
+açıkça onay verdikten sonra benimsenir; kronoloji kayıtları asla yapay zekâ tarafından yazılmaz — yapay zekâ yalnızca
+kullanıcının tamamlayıp kaydettiği kayıt formunu önceden doldurur; ve yapay zekâ tarafından iyileştirilmiş bir belge tam metni
+(OCR yeniden taraması) kayıtlı tam metnin yerini ancak
+kullanıcı tam metni bir onay iletişim kutusunda görüp kaydettikten sonra alır.
+Böyle bir iletişim kutusu olmadan yapay zekâ yalnızca kendi çalışma alanlarına yazar: şifreli
+ara belleğe, kullanıcının isteği üzerine günlük tutanağa ve deterministik denetimlerden sonra kendi dava değerlendirmesine.
+Etiketler ve büro sohbet mesajları sohbette kullanıcının onayını gerektirir. Bir meslektaşın abone olduğu bir davada
+yapay zekâ, <span class="irs">IRONSTICK</span> SERVER üzerinden
+davanın sahibine ve tüm abonelere ulaşan bir not iliştirebilir
+(bölüm 9). Kelime işlemciye aktarma ve dosya teslimi kullanıcının açık adımlarıdır;
+yönlendirme yalnızca ayrı bir izinle.</li>
+<li><b>OCR yeniden taramasıyla iyileştirme (yerel) ve PDF teslimi (kullanıcı tarafından başlatılır).</b>
+Kayıtlı bir tam metin kesilmişse veya eski bir OCR çalışması nedeniyle kullanılamaz durumdaysa yapay zekâ
+yeniden tarama talep edebilir: Kullanıcı sayfaları seçer, yeniden tarama <b>yerel olarak</b> çalışır
+(yeni harici alıcı yok) ve her iki metin sürümü yerel
+ara bellekte sunulur; yapay zekânın buradan okudukları, diğer her
+araç sonucu gibi onun sağlayıcısına akar. En son çare olarak — yalnızca böyle bir yeniden taramadan sonra ve
+yalnızca Bridge tarafından uygulanan katı sınırlar içinde —
+yapay zekâ kullanıcıdan kendisine <b>orijinal PDF dosyasını</b> vermesini isteyebilir: <span class="irs">IRONSTICK</span>
+yalnızca kaydı açar; kullanıcı PDF'i ataş simgesi üzerinden kendisi kaydeder
+ve masaüstü yapay zekâ sohbetine sürükler. Böylece belge
+<b>dosya olarak</b> (damgalar, imzalar ve görüntüler dahil) bu yapay zekânın sağlayıcısına
+aktarılır — bu yalnızca kullanıcının kendi bilinçli eylemiyle gerçekleşir, asla
+otomatik olarak değil ve gizli olarak işaretlenen belgeler en baştan tüm
+yeniden tarama kanalının dışında tutulur.</li>
+<li><b>Yerel yapay zekâ ara belleği (veri minimizasyonu).</b> Kapsamlı araç sonuçları yerel, şifreli bir ara bellek dosyasına konabilir ve orada işlenebilir; <b>yapay zekâ sağlayıcısına
+hiç aktarılmadan</b>. Yapay zekâ için eksiksiz dava dışa aktarmaları
+ve tek çağrıda oturum başlangıcı özeti de doğrudan bu
+yerel depolamaya yazılır; yalnızca yapay zekânın ardından okuduğu bölümler onun sağlayıcısına akar.
+ Ara bellek
+veri dizini içinde bulunur ve oturumlar boyunca korunur (yapay zekânın çalışma bağlamıdır);
+artık kullanılmayan dosyalar otomatik olarak silinir ve yeni bir harici alıcı ortaya çıkmaz.</li>
+<li><b>Ara bellek şifrelidir.</b>
+Ara bellekteki her dosya beklemedeyken AES-256 ile şifrelenir; dosyalar
+depodan yalnızca <span class="irs">IRONSTICK</span>'in dışa aktarma iletişim kutusu üzerinden çıkar, asla bir indirme klasörüne değil.
+Böylece veritabanı, belge deposu, yapılandırma dosyası ve ara bellek
+beklemedeyken tamamı AES-256 ile şifrelenmiştir. Açılmış belgelerin geçici çalışma kopyaları
+(her başlatmada ve kapanışta temizlenir), kısa ömürlü akran incelemesi (peer review) arabelleği,
+tarama girişi, dışa aktarmalar ve giden dosyalar düz metin olarak kalır
+(bölüm 8).</li>
+<li>Araç sonuçları kullanıcının masaüstü yapay zekâ istemcisine ve oradan
+<b>onun sağlayıcısına</b> iletilir: Claude için Anthropic (kullanıcının Claude aboneliği
+ve Anthropic'in koşulları çerçevesinde), ChatGPT için OpenAI (kullanıcının
+ChatGPT aboneliği ve OpenAI'nin koşulları çerçevesinde), Qwen
+Desktop için Alibaba Cloud/Qwen (kullanıcının Qwen hesabı ve Qwen'in koşulları çerçevesinde) veya Kimi
+Desktop için Moonshot AI (kullanıcının Kimi hesabı ve Moonshot AI'nin koşulları çerçevesinde). <span class="irs">IRONSTICK</span>, Bridge trafiği için
+denetim günlüğü satırı yazmaz; üst çubuk her
+etkin yapay zekâ için titreşen bir logo gösterir (Claude işareti, ChatGPT işareti, Qwen işareti, Kimi işareti) — eş zamanlı erişim
+mümkündür ve her biri ayrı ayrı belirtilir. Her Bridge programı yanında
+zaman, araç adı, başarı/başarısızlık ve
+yanıt boyutunu içeren, <b>asla içerik içermeyen</b> bir <b>yerel günlük</b> tutar. İkinci, daha ayrıntılı bir
+<b>tanılama günlüğü</b> veri dizininde bulunur ve <b>varsayılan olarak kapalıdır</b>;
+hata ayıklama için açıldığında çağrı parametrelerini (adlar içerebilir) düz metin olarak içerebilir ve otomatik olarak kısaltılır. Günlüklerin hiçbiri hiçbir yere aktarılmaz.</li>
+<li>Ortak yapay zekâ hafızası yoğunlaştırılmış bulguları (müvekkile veya davaya bağlı) yerel olarak kaydeder. Yapay zekâ bir
+kaydın kaydedilmesini, değiştirilmesini veya silinmesini önerebilir; her değişiklik ancak kullanıcı onay verdikten sonra geçerli olur. Bir davayla bağlantılı kayıtlar
+asla otomatik olarak silinmez; davası olmayan kayıtlar bir yıl kullanılmadıktan sonra silinir. Hafızanın içeriği her yapay zekâ kanalı için
+görünürdür ve bu kanallar onu okuduğu anda aktarılır.</li>
+<li>Masaüstü yapay zekâlar arasındaki akran incelemesi (peer review), sağlayıcılar arasında doğrudan değil,
+<span class="irs">IRONSTICK</span> üzerinden yürür: Bir yapay zekâ bir çalışma sonucunu (örn. bir taslağı)
+<b>yerel, kısa ömürlü bir değişim arabelleğine</b> (kullanıcının bilgisayarındaki düz metin dosyaları;
+görev kapatıldığında silinir ve uygulamanın her yeniden başlatılışında tamamen temizlenir) ve bir
+görev notu bırakır; diğer yapay zekâ, kullanıcı ona talimat verdiğinde bunları okur. Bu
+<b>yeni bir harici alıcı</b> oluşturmaz — inceleyen yapay zekânın okudukları, yukarıda açıklanan
+diğer her araç sonucu gibi tam olarak <b>kendi</b> sağlayıcısına, onun
+koşullarına göre aktarılır. Sağlayıcılar asla doğrudan veri alışverişi yapmaz; inceleyen yapay zekânın okudukları
+yalnızca kendi sağlayıcısına gider.</li>
+</ul>
+
+<h3>4.10 Ses transkripsiyonu (konuşmacı ataması)</h3>
+<p>Konuşma tanıma tamamen yerel olarak çalışır; kaydın kendisi
+bilgisayardan asla çıkmaz. Kullanıcı birden fazla konuşmacı belirttiyse, ardından
+yapay zekâ tanınan satırları konuşmacılara atar: bölüm bölüm (orta kademe) tanınan metni, bağlam olarak zaten atanmış satırları ve
+konuşmacı sayısını alır. Çağrılar yönlendirici üzerinden yapılır — takma adlandırılmış,
+onay şartına bağlı, denetim günlüğüne kaydedilmiş. Yanıt metni
+değiştiremez: Her satır tanınan metne göre kontrol edilir; bir blok başarısız olursa
+transkript konuşmacı ataması olmadan benimsenir. Yalnızca bir konuşmacı varsa hiçbir
+yapay zekâ çağrısı yapılmaz. Ücretsiz arka plan sağlayıcıları etkinse (bölüm 1),
+bu çağrılar onlar üzerinden yapılabilir.</p>
+
+<h2>5. Yapay zekâ talimat paketi (dışa aktarma ZIP'i)</h2>
+<img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK istemcisi, MD dosyaları ve ZIP arşiviyle kullanıcı, yapay zekâ web uygulaması">
+<p>Paketin oluşturulması yerel olarak yapılır ve hiçbir yapay zekâ çağrısı içermez. Paket,
+kullanıcı tarafından seçtiği harici bir LLM'e yüklenmesi amaçlanan
+<b>düz metin Markdown</b> (takma adlandırma yok) üretir. İçerik:</p>
+<table>
+<tr><th>Dosya</th><th>İçerik</th></tr>
+<tr><td>Davalar</td><td>seçilen müvekkilin tüm davaları, taraflar, durum ve
+delil ID dizini ile (tam metinler yok)</td></tr>
+<tr><td>Varlıklar</td><td><b>tüm büronun tüm kişileri/varlıkları</b> (yalnızca
+bu müvekkilin değil), ulusal kişi ve şirket numaraları (örn. Romanya CNP/CUI), doğum tarihi, eksiksiz iletişim bilgileri, meslek,
+araç dahil — artı kayıtlı analiz blokları (değerlendirme, zayıf noktalar,
+ikamet yerleri, mali durum, sosyal çevre, kaynaklar)</td></tr>
+<tr><td>Kurumlar, süreler</td><td>tüm kurumlar; dosya numarası ve müvekkil adıyla
+aktif süreler</td></tr>
+<tr><td>Posta</td><td><b>büro genelinde</b> en yeni 100 e-posta: gönderen,
+alıcı, konu, eklerin dosya adları, kısa alıntı (tam mesaj metinleri yok)</td></tr>
+<tr><td>Günlük tutanak</td><td>son 10 gün, büro genelinde, bu döneme ait
+dava kronolojisi dahil</td></tr>
+<tr><td>Dava başına</td><td>her dava için bir dava dosyası: <b>belge tam metinleriyle</b>
+eksiksiz kronoloji, kimlik numaraları dahil müvekkil ve
+tarafların tanımlayıcıları; artı sınırlama olmaksızın tüm dava arka plan notları</td></tr>
+<tr><td>Talimat dosyaları</td><td>çalışma kurallarını içeren beş belge — kişisel veri yok</td></tr>
+</table>
+<div class="box crit"><b>Bu ZIP üçüncü bir tarafın yapay zekâ hizmetine yüklendiğinde ne olur:</b>
+Kullanıcı, büronun tamamının önemli kısımlarını — ulusal kimlik numaralarıyla müvekkil kimlikleri, hassas değerlendirmeler
+dahil üçüncü kişilerin profilleri, büro genelindeki yazışma üst verileri ve dosyalar —
+bizzat ve düz metin olarak bu sağlayıcıya
+aktarır. Bu andan itibaren veriler bu sağlayıcının koşullarına göre
+(eğitim için kullanım, saklama, hukuk düzeni) işlenir. <span class="irs">IRONSTICK</span>
+dışa aktarmadan önce (program çalışması başına bir kez) bir veri koruma bildirimi gösterir ve dışa aktarmayı Google Drive'a da sunar; bu durumda
+dosyalar ayrıca Google'da saklanır. Kullanıcı, GDPR anlamında aktarımı yapan
+veri sorumlusu olarak hareket eder ve yüklemeden önce bir hukuki dayanak sağlamalıdır (örn. md. 6,
+meslek hukukuna ilişkin sır saklama kuralları).</div>
+<p>Gizli olarak işaretlenen belgeler sürelerden, günlük tutanaklardan ve
+dava dosyalarından hariç tutulur.</p>
+<h2>6. Genel bakış matrisi</h2>
+<table>
+<tr><th>Veri akışı</th><th>Dışarı çıkan (biçim)</th><th>Takma adlandırılmış</th><th>Kendi onay iletişim kutusu</th><th>Denetim günlüğü</th></tr>
+<tr><td>Belge kaydı (4 çağrı)</td><td>OCR ve belge metni (sınırlı), dava ve ad listeleri</td><td class="yes">evet</td><td>evet — program çalışması başına bir kez</td><td class="yes">evet</td></tr>
+<tr><td>E-posta ön değerlendirmesi (e-posta ekranında manuel alım)</td><td>gönderen, konu, kısa metin alıntısı (dava listesi yok); yalnızca yerel olarak atanmamış e-postalar için</td><td class="yes">evet</td><td class="no">hayır</td><td class="yes">evet</td></tr>
+<tr><td>E-posta ön değerlendirmesi (arka plan, her beş dakikada bir)</td><td>aynı şekilde</td><td class="yes">evet</td><td class="no">hayır</td><td class="yes">evet</td></tr>
+<tr><td>Günlük brifing (API)</td><td>brifing metni: süre sayıları, dava numarası, müvekkil adı, yer ve mahkemeyle duruşmalar, randevu başlıkları</td><td class="yes">evet</td><td class="no">hayır (günün ilk başlatılışı, başlangıçta hazırlanır)</td><td class="yes">evet</td></tr>
+<tr><td>Kişi araştırması, aşama 1</td><td>gerçek ad (web araması)</td><td class="no">hayır — tasarım gereği</td><td>evet — oturum başına bir kez</td><td class="yes">evet (düz metin olarak)</td></tr>
+<tr><td>Kişi araştırması, aşama 2 ve 3</td><td>sayfa metinleri (kaynak başına sınırlı)</td><td class="yes">evet</td><td>aynı onay</td><td class="yes">evet</td></tr>
+<tr><td>Kişi/kurum otomatik doldurma</td><td>girilen ad (web araması)</td><td class="no">hayır — tasarım gereği</td><td>evet — oturum başına bir kez</td><td class="yes">evet (düz metin olarak)</td></tr>
+<tr><td>Günlük tutanağın yapay zekâ ile içe aktarılması</td><td>yapıştırılan ham metin</td><td class="yes">evet</td><td>evet</td><td class="yes">evet</td></tr>
+<tr><td>Veri tutarlılığı izleyicisi</td><td>her yeni belge için: iletişim bölümleri ve olası eşleşmelerin adları (ana verilerden iletişim bilgisi veya kimlik numarası yok)</td><td class="yes">evet (kurum adları düz metin olarak)</td><td class="no">hayır (kısıtlanmış arka plan işlemi)</td><td class="yes">evet</td></tr>
+<tr><td>Kelime işlemci: düzenleme / yapılandırma</td><td>bağlam alıntısıyla seçim / belge satırları (sınırlı)</td><td class="yes">evet</td><td class="no">hayır (düğme = onay)</td><td class="no">hayır</td></tr>
+<tr><td>Sesli okuma için ön işleme</td><td>her cümle, düz metin</td><td class="no">hayır</td><td class="no">hayır (başlatma = onay)</td><td class="no">hayır</td></tr>
+<tr><td>Red/Blue Team denetimi (API)</td><td>taslak metin, tarih ve yargı alanı</td><td class="yes">evet</td><td class="no">hayır (açma/kapama anahtarı = onay)</td><td class="yes">evet</td></tr>
+<tr><td>Diyalog özeti (API)</td><td>eski diyalog turları (yalnızca kullanıcının soruları ve nihai yanıtlar)</td><td class="yes">evet</td><td class="no">hayır (API sohbetinin arka plan çalışması)</td><td class="yes">evet</td></tr>
+<tr><td>Dosya→Markdown yapay zekâ düzeltmesi</td><td>dönüştürülmüş metin</td><td class="yes">evet</td><td class="no">hayır</td><td class="no">hayır</td></tr>
+<tr><td>Karartmanın yapay zekâ bulucusu</td><td>zaten karartılmış metin; yanıtlar üçüncü kişilerin gerçek adlarını içerir</td><td class="no">kapalı — tasarım gereği</td><td class="no">açma/kapama anahtarı = onay</td><td class="yes">evet</td></tr>
+<tr><td>Yapay zekâ sohbeti (harici)</td><td>istem, ekran bağlamı, hafıza, özetle birlikte en son diyalog, araç sonuçları (öğe başına sınırlı)</td><td class="yes">evet</td><td>evet — oturum başına bir kez</td><td class="yes">evet</td></tr>
+<tr><td>Masaüstü yapay zekâ Bridge'i (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>işlenmemiş araç sonuçları (eksiksiz dava verileri)</td><td class="no">hayır — tasarım gereği</td><td>evet — tüm masaüstü yapay zekâlar için program çalışması başına bir kez</td><td class="no">hayır (uygulama tarafında)</td></tr>
+<tr><td>Ses transkripsiyonu: konuşmacı ataması</td><td>bölümler hâlinde tanınan metin — kaydın kendisi asla</td><td class="yes">evet</td><td>evet</td><td class="yes">evet</td></tr>
+<tr><td>Ücretsiz arka plan sağlayıcıları (Groq, OpenRouter, Mistral) — yalnızca etkinse</td><td>ilgili arka plan göreviyle aynı içerikler; asla sohbet, dilekçe veya Red/Blue Team değil</td><td>ilgili görev gibi</td><td class="no">hayır (sağlayıcı başına açma/kapama anahtarı = onay)</td><td class="yes">evet</td></tr>
+<tr><td>Yapay zekâ talimat ZIP'i</td><td>düz metin büro dışa aktarımı (kullanıcı tarafından başlatılan yükleme)</td><td class="no">hayır</td><td>program çalışması başına bir kez uyarı</td><td>uygulanmaz</td></tr>
+</table>
+
+<h2>7. LLM içermeyen harici hizmetler (eksiksizlik adına)</h2>
+<img class="flow" src="img/68_external_services.png" alt="IRONSTICK istemcisi, internet, konum simgesi ve hava durumu simgesi">
+<p>Herhangi bir LLM'den bağımsız olarak aşağıdaki işlevler, gerekli asgari verilerle
+harici hizmetlerle iletişime geçer: numara doğrulama (EU VIES, EORI, GLEIF,
+ticaret sicili — kontrol edilecek numara), kişi aramasının doğrudan web sorguları (ad), IMAP (posta sunucunuz) ve
+Google Drive'a isteğe bağlı dışa aktarmalar (dışa aktarılan dosyalar). Bu işlemlerin hiçbiri
+yapay zekâ sağlayıcısını içermez.</p>
+<p>Aşağıdaki hizmetlerle arka planda veya yine asgari verilerle
+iletişime geçilir:</p>
+<ul>
+<li><b>OpenStreetMap Nominatim (adres coğrafi kodlama)</b> — günde bir kez bir
+arka plan görevi, taraf kayıtlarındaki bir adresi veya yeri olan kişileri ve şirketleri
+işler ve onları haritaya yerleştirmek için sokak, bölge, yer ve ülkeyi
+(asla adı değil) Nominatim'e gönderir; zaten
+yerleştirilmiş bir adres yalnızca değiştiğinde yeniden gönderilir ve bulunamayan bir adres
+bir bekleme süresinden sonra yeniden denenir. Hava durumu sorgusunun yer adı da
+aynı şekilde coğrafi olarak kodlanır. Onay iletişim kutusu yok; koordinatlar yerel olarak kaydedilir.</li>
+<li><b>ipwho.is (coğrafi IP sorgusu)</b> — <span class="irs">IRONSTICK</span> her program başlangıcında bir kez,
+yerel güvenlik anlık görüntüsünün (bölüm 8) parçası olarak bu hizmetten bilgisayarın
+<b>genel</b> IP adresini ve kaba bir konumu (şehir, ülke, İSS) sorgular.
+İstek hiçbir yük verisi içermez; hizmet, isteğin geldiği genel IP adresini
+alır. Yanıt yalnızca yerel olarak kaydedilir ve
+başka hiçbir yere iletilmez.</li>
+<li><b>Open-Meteo (hava durumu)</b> — istek üzerine yapay zekâ hava durumu sorgusu
+(bölüm 4.8) adı verilen bir yer için güncel hava durumu verilerini sorgular; günlük brifing de,
+isteğe bağlı hava durumu modu etkinse, yapılandırmada kayıtlı yer için
+aynısını yapar. Yalnızca yerin koordinatları iletilir — asla
+dava, müvekkil veya kişi verileri değil.</li>
+<li><b><a href="index_tr.html">www.ironstick.legal</a> (haber dosyası)</b> — erişim kodu
+girildikten sonra ve ardından her altı saatte bir uygulama, yazılım üreticisinin web sitesinden
+bildirimler ve uyarılar içeren bir haber dosyasını ve bu dosyada referans verilen her görüntüyü indirir. İstek hiçbir veri içermez; her web sunucusu gibi
+üreticinin sunucusu da isteğin IP adresini ve zamanını görür.</li>
+</ul>
+<p>Bu hizmetlerin hiçbiri yapay zekâ sağlayıcısını içermez.</p>
+
+<h2>8. Yerel depolama, bütünlük ve kullanıcı tarafından kontrol</h2>
+<img class="flow" src="img/69_local_encryption.png" alt="TOTP erişim kilitli IRONSTICK istemcisi; AES-256 ile şifrelenmiş belgeler, ara bellek ve veritabanı">
+<p>Yukarıdaki yapay zekâ kanallarından bağımsız olarak, <span class="irs">IRONSTICK</span>'in tuttuğu <b>tüm</b>
+veriler için şunlar geçerlidir:</p>
+<ul>
+<li><b>Yalnızca yerel depolama.</b> Veri varlığının tamamı — veritabanı, belge dosyaları,
+medya, transkriptler, yapılandırma — kullanıcının belirlediği bir yol altındaki
+tek bir veri dizininde bulunur. <span class="irs">IRONSTICK</span> bir bulut hesabı gerektirmez
+ve hiçbir işlev kullanıcı verilerini üreticiye göndermez (üreticiyle tek temas
+haber dosyasının indirilmesidir, bölüm 7). Bir büro
+isteğe bağlı <span class="irs">IRONSTICK</span> SERVER'ı (bölüm 9) işletiyorsa bu sunucu da büronun
+kendi ağındaki kendi cihazıdır — üreticinin erişimi bundan dolayı değişmez.</li>
+<li><b>Veritabanı beklemedeyken şifreli (AES-256).</b> Veritabanı — müvekkiller,
+davalar, kronoloji, e-postalar, süreler, transkript metinleri ve
+yapay zekâların hafızasından oluşan veri varlığı — AES-256 ile şifrelenmiş olarak, her sayfa ayrı ayrı ve
+sayfa başına bir bütünlük mührüyle kaydedilir. Anahtar uygulama tarafından
+çalışma zamanında türetilir ve asla diske veya yapılandırmaya yazılmaz; böylece depolama cihazından
+veya bir yedekleme arşivinden kopyalanan bir veritabanı dosyası
+<span class="irs">IRONSTICK</span> olmadan okunamaz. Bu, GDPR'nin 32. maddesi anlamında, kullanıcının
+hiçbir yapılandırması olmadan devreye giren ve kapatılamayan teknik bir önlemdir.</li>
+<li><b>Belgeler beklemedeyken şifreli (AES-256).</b> Belge deposu —
+orijinal PDF'ler, taramalar, görüntüler, ses ve transkript dosyaları — aynı şekilde
+dosya dosya, değişiklikleri tespit eden bir bütünlük mührüyle şifrelenir.
+Okuma, istenen dosyayı geçici bir çalışma kopyasına deşifre eden
+ve bu kopyaları uygulama kapatıldığında veya başlatıldığında kaldıran
+tek bir kapı üzerinden yapılır. Yedeklemeler ve dava paketleri belgeleri
+şifreli biçimleriyle içerir. </li>
+<li><b>Düz metin olarak kalanlar.</b> Çalışan oturumun çalışma kopyaları ve dışa aktarmaların yanı sıra: tarama girişinde kaydedilmeyi bekleyen taramalar;
+masaüstü yapay zekâlar arasındaki kısa ömürlü akran incelemesi arabelleği (bölüm 4.9; görev kapatıldığında
+silinir ve her başlatmada temizlenir); ve yalnızca etkinleştirilmişse,
+Bridge'in ayrıntılı tanılama günlüğü (bölüm 4.9).</li>
+<li><b>Başlangıçta erişim kontrolü (TOTP).</b> Lisans anahtarı
+kabul edilir edilmez uygulama, kullanıcı bir
+kimlik doğrulayıcı uygulamadan (RFC 6238) güncel altı haneli zamana dayalı tek kullanımlık kodu girene kadar
+bir kod sorgusundan başka hiçbir şey göstermez. Kodların dayandığı sır
+asla diske yazılmaz; yalnızca onaylanmış kurulumun
+gizli olmayan bir parmak izi kaydedilir; böylece QR kodu
+bir anahtar değişikliğinden sonra yeniden gösterilir. Tekrarlanan hatalı girişler artan bir
+bekleme süresini tetikler. Uygulama kilitli olduğu sürece masaüstü yapay zekâ Bridge'leri
+hiçbir dava verisi almaz. Yapılandırma dosyası (API anahtarları, e-posta erişim bilgileri,
+sunucu erişimi) belgelerle aynı mekanizmayla
+AES-256 ile şifrelenmiş olarak bulunur ve yalnızca çalışma belleğinde deşifre edilir.</li>
+<li><b>Kullanıcı tarafından kontrol edilen depolama konumu.</b> Veri yolu
+kurulum sırasında seçilir ve her zaman değiştirilebilir — şifreli bir USB bellek
+veya şifreli harici bir sabit disk gibi çıkarılabilir bir ortama da. Uygulama yalnızca
+yapılandırılan depolama konumunu izler; ortamın şifrelenmesi (örn. işletim sisteminin
+sürücü şifrelemesiyle) kullanıcının elindedir ve
+taşınabilir ortamlar için önerilir. Ağ sürücüleri ve bir bulutla senkronize edilen klasörler
+(OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) veri depolama konumu olarak
+reddedilir. Yapılandırmada depolama konumu değiştirilirken
+<span class="irs">IRONSTICK</span> hedefi bu kurallara göre kontrol eder; kopyalama sağlama toplamı karşılaştırmasıyla yapılır, geçiş
+ancak başarılı doğrulamadan sonra gerçekleşir ve eski klasör yeniden adlandırılarak korunur.</li>
+<li><b>Hiçbir bulut olmadan cihaz senkronizasyonu.</b> İsteğe bağlı
+Windows&nbsp;↔&nbsp;Android tablet senkronizasyonu doğrudan bir
+USB kablo bağlantısı üzerinden yürür — hiçbir üçüncü taraf hizmeti dahil değildir, aktarımlar
+sağlama toplamıyla doğrulanır ve veritabanı değiştirilmeden önce zorunlu bir yedekleme
+oluşturulur. Gizli olarak işaretlenen belgeler tablete hiç
+aktarılmaz.</li>
+<li><b>Başlangıçta güvenlik anlık görüntüsü (yerel oturum açma günlüğü).</b> <span class="irs">IRONSTICK</span> her
+program başlangıcında arka planda üzerinde çalıştığı bilgisayarın bir anlık görüntüsünü
+kaydeder: ana bilgisayar adı, işletim sistemi, RAM/CPU, yerel IP adresi, varsayılan tarayıcı,
+tespit ettiği çalışan uzaktan erişim araçları ve bunlardan türetilen bir güvenlik değerlendirmesi
+— ayrıca başlangıç başına bir kez, coğrafi IP hizmeti ipwho.is (bölüm 7) üzerinden belirlenen
+genel IP adresi ve kaba konum (şehir, ülke, İSS).
+Anlık görüntü <b>yalnızca yerel olarak</b> veritabanının oturum açma günlüğüne
+kaydedilir ve hiçbir yere iletilmez. Saklama
+otomatik olarak en fazla <b>6 ay</b> ve en fazla <b>1.000
+kayıt</b> ile sınırlıdır (günlük temizlik) ve kullanıcı günlüğü her zaman
+yapılandırıcıda görüntüleyebilir (&laquo;Oturum açma günlüğü&raquo; kartı).</li>
+<li><b>Kaydedilen her dosya için bütünlük parmak izleri.</b> Kayıt
+anında kaydedilen her dosya, kriptografik bir içerik parmak izi
+(belgeler ve medya için SHA-256; transkript ses dosyaları için daha eski bir MD5 parmak izi) alır;
+bu parmak izi veritabanında kaydın yanında tutulur. Kaydedilmiş bir dosyada sonradan yapılan her değişiklik bu nedenle
+dosyanın kaydedilmiş parmak iziyle karşılaştırılmasıyla <b>tespit edilebilir</b>
+ve e-keşif dışa aktarmaları (EDRM) bu parmak izlerini içerir;
+böylece alıcılar dosyaları bağımsız olarak doğrulayabilir. Bu sayede her türlü manipülasyon açıkça görülür ve kanıtlanabilir hâle gelir.</li>
+<li><b>Kullanıcının takdirine göre yedeklemeler.</b> Yerleşik bir yedekleme işlevi
+verilerin eksiksiz bir kopyasını (tam yedekleme veya yalnızca veri yedeklemesi) tek bir ZIP arşivi olarak
+kullanıcının seçtiği herhangi bir hedefe yazar ve istek üzerine böyle bir arşivden
+geri yükler. Yedeklemelerin ne sıklıkla oluşturulacağı, nerede saklanacağı, ne kadar süre
+saklanacağı ve arşivlerin ayrıca şifrelenip şifrelenmeyeceği tamamen
+kullanıcının kararıdır. Her arşivde veritabanı, belgeler,
+yapılandırma ve yapay zekâ ara belleği her durumda AES-256 ile şifrelidir; yalnızca
+tarama girişinde hâlâ bekleyen taramalar değiştirilmeden yer alır —
+<span class="irs">IRONSTICK</span> bir zamanlama dayatmaz ve yedeklemeleri hiçbir yere iletmez.</li>
+<li><b>Oluşturulan belgeler kullanıcıya aittir.</b> Kullanıcı her zaman
+belgeler oluşturabilir — dilekçeler, mektuplar, dosya dökümleri, listeler, dışa aktarmalar — ve
+indirebilir: Belgeler yerel “Belgeler” klasörüne veya,
+kullanıcı hedef olarak açıkça Google Drive'ı seçerse, kullanıcının kendi Google Drive hesabına yazılır.
+Oluşturulan bir belgeyle
+bundan sonra ne olacağına — yazdırma, bir mahkemeye sunma, e-postayla gönderme,
+herhangi bir hizmete yükleme, üçüncü kişilere iletme — yalnızca kullanıcı karar verir.</li>
+</ul>
+<div class="box"><b>Sorumluluğun belirlenmesi.</b> <span class="irs">IRONSTICK</span>
+her şeyi yerel olarak sakladığından ve verileri yalnızca bölüm
+1–7 ve 9'da belgelenen yollarla ilettiğinden — kendi iletişim kutusu olmadan
+çalışan arka plan işlevleri dahil (bölüm 3 ve 7) —, büronun işletmecisi tek
+veri sorumlusudur: Depolama ortamını ve şifrelemesini seçer, yedeklemeleri yönetir ve
+saklar, hangi yapay zekâ işlevlerinin etkin olduğuna karar verir, her
+onayı verir veya reddeder ve yazılımın oluşturduğu her belgeye, her dışa aktarmaya veya her yedeklemeye
+ne olacağına yalnızca kendisi karar verir. Yapay zekâ tarafından üretilen içerikler — taslaklar, özetler, değerlendirmeler,
+sınıflandırmalar — her zaman kullanıcının karar verdiği bir <b>öneridir</b>. Bu belge, bu
+kararların her birinin gerçek
+veri akışları tam olarak bilinerek verilebilmesine hizmet eder.</div>
+<h2>9. <span class="irs">IRONSTICK</span> SERVER (isteğe bağlı, büronun kendi ağında)</h2>
+<img class="flow" src="img/70_server_lan.png" alt="LAN üzerinden bağlı IRONSTICK sunucusu ve IRONSTICK istemcisi; sunucunun internet bağlantısı yok">
+<p>Birden fazla <span class="irs">IRONSTICK</span> iş istasyonuna sahip bürolar isteğe bağlı
+<b><span class="irs">IRONSTICK</span> SERVER</b>'ı işletebilir — büronun kendi yerel ağındaki
+büroya ait Synology NAS üzerinde çalışan bir koordinasyon hizmeti. Bu
+beyanın amaçları bakımından şu olgular belirleyicidir:</p>
+<ul>
+<li><b>Hiçbir harici taraf dahil değildir.</b> Sunucu büronun kendi
+cihazıdır. Yalnızca özel (yerel) ağ adreslerinden gelen bağlantıları kabul eder
+ve <b>kendisi asla internete bağlantı
+kurmaz</b> — telemetri yok, güncelleme kontrolü yok, üreticiyle temas yok.
+Yazılım üreticisinin hiçbir erişimi yoktur.</li>
+<li><b>Aktarım ve depolama.</b> Belgeler sunucuya yalnızca iş istasyonundakiyle aynı kasa formatında AES-256 ile şifrelenmiş dosyalar olarak
+ulaşır ve orada da yalnızca bu şekilde bulunur; sunucu bunların düz metnini asla görmez.
+Sunucu, büronun ağındaki kendi NAS cihazında, internet bağlantısı olmadan çalışır.</li>
+<li><b>Yapay zekâ katılımı yok.</b> Sunucu üzerinden hiçbir yapay zekâ veri trafiği geçmez,
+sunucu hiçbir yapay zekâ anahtarı saklamaz ve hiçbir dil modeli
+sağlayıcısıyla asla iletişim kurmaz. Bölüm 1–6'da açıklanan tüm yapay zekâ kanalları
+kesinlikle tek tek iş istasyonlarıyla sınırlı kalır; takma adlandırma katmanı,
+onay engelleri ve denetim günlüğü sunucunun varlığından
+etkilenmez.</li>
+<li><b>Sunucunun sakladıkları</b> — hepsi NAS üzerinde, büronun
+kontrolü altında: (a) <b>paylaşılan dava paketleri</b> — yalnızca bir
+kullanıcının meslektaşlarıyla açıkça paylaştığı davalar; gizli olarak işaretlenen
+belgeler yapısı gereği hariç tutulur ve asla
+sunucuya ulaşmaz; (b) <b>merkezi mevzuat kütüphanesi</b> — kamuya açık
+kanun metinleri Markdown olarak, her biri katkıda bulunan kullanıcının adı,
+kaynak bağlantısı ve kontrol tarihiyle birlikte; (c) <b>zaman kayıt verileri</b> — kullanıcı,
+gün ve dava başına: dava numarası, müvekkil adı ve dakikalar, her iş istasyonu tarafından
+arka planda bildirilir; (d) kullanıcı ve gün başına <b>mesai toplamları</b>,
+oturum sinyallerinden (heartbeat) türetilir; (e) <b>dava olaylarına ilişkin üst veriler</b> —
+paylaşımlar, geri almalar, aboneliklerin başlangıcı ve sonu ile dışa aktarmalar, her biri
+tarih, saat ve LAN IP adresiyle; (f) yönetimsel olayları ve oturum açma olaylarını içeren,
+LAN IP adresleri dahil bir
+<b>güvenlik günlüğü</b>; (g) <b>dava devir paketleri</b> — bir kullanıcı bir davanın
+sahipliğini bir meslektaşına devrederse davanın tamamı
+bir arşiv olarak sunucudaki geçici bir devir alanı üzerinden geçer; paket,
+alıcı içe aktarmayı onayladıktan sonra sunucudan silinir ve
+gizli olarak işaretlenen belgeler yalnızca sahibin açık ek
+onayından sonra aktarılır (aksi takdirde aktarım
+iptal edilir); (h) <b>merkezi tarama girişi</b> (isteğe bağlı Central Scan
+App): her kullanıcının <b>dava numaralarının ve görünen adının</b> bir dizini
+(iş istasyonları tarafından eşleştirme materyali olarak bildirilir — asla
+dava içerikleri değil) ve taranmış, bir
+kullanıcıya yönelik gelen postayı, bu kullanıcının iş istasyonu onu
+alıp onaylayana kadar tutan, dosya bazında bir <b>belge kuyruğu</b>; ardından sunucu kopyası
+silinir; metin tanıma ve alıcı ataması
+tarama iş istasyonunda yerel olarak, hiçbir yapay zekâ olmadan yapılır; (i) <b>yedekleme olay verileri</b> — her
+iş istasyonu yedekleme ve geri yükleme olaylarını bildirir
+(tür, dosya adı, boyut, zaman, LAN IP); böylece yönetici her kullanıcı için
+son yedeğin ne zaman oluşturulduğunu görebilir ve geride kalan kullanıcılara
+hatırlatma yapabilir; (j) <b>büro genelindeki taraf dizini</b>
+— iş istasyonlarında tutulan <b>kişilere ve şirketlere,
+kurumlara, aralarındaki ilişkilere ve kişi analizlerine</b> ait ana veri kayıtları,
+kullanıcılar arasında değiş tokuş edilen
+değişiklik önerilerinin kuyruğuyla birlikte; (k)
+<b>mahkeme kararlarının değerlendirmeleri</b> — iş istasyonu ve karar başına: mahkeme,
+daire ve heyet, hâkimlerin ve zabıt kâtiplerinin adları,
+karar numarası, tarih, dosya numarası,
+değerlendiren iş istasyonunun dahili dava ve müvekkil numaraları, ölçülen metin oranları ve yapay zekânın yazdığı,
+kararın ve her iki tarafın beyanlarının İngilizce analizi; (l)
+<b>büro sohbeti</b> — kayıtlı kullanıcılar arasındaki mesajlar (bir yıl sonra silinir) —
+ve paylaşılan bir davaya iliştirilen, sahibi ve tüm aboneler tarafından görülebilen notlar.</li>
+<li><b>Büro genelindeki taraf dizini.</b> Bir iş istasyonu
+sunucuya bağlanır bağlanmaz taraf ana verileri (kim kimdir: adlar,
+tanımlayıcılar, iletişim bilgileri, ilişkiler, kişi analizi) <b>otomatik olarak
+yüklenir</b> ve aynı büronun diğer her iş istasyonuna yansıtılır;
+böylece her avukat büronun kimlerle zaten ilişkisi olduğunu görür ve
+büro, çıkar çatışmalarına ilişkin büro genelinde bir görünüm elde eder. Her kaydın
+tam olarak bir sahibi vardır — onu ilk getiren kullanıcı; diğer tüm
+kullanıcılar salt okunur bir kopya tutar ve yalnızca, sahibin veri izleyicisinde kabul ettiği veya
+reddettiği bir <b>değişiklik önerisi</b>
+gönderebilir. Sahibine 48 saat boyunca ulaşılamazsa
+sahiplik öneriyi yapan kullanıcıya geçer. <b>Dava içerikleri bu
+dizinin parçası değildir</b> — belgeler, kronoloji, yazışmalar ve
+dava atamaları, burada açıklanan açık paylaşım ve devir
+işlemlerine tabi olmaya devam eder. Değişim büro içinde kalır
+(tek veri sorumlusu), yerel ağdan asla çıkmaz ve
+<b>hiçbir yapay zekâ sağlayıcısını</b> içermez: Mükerrer kayıt tespiti ve alan karşılaştırması,
+gönderen iş istasyonunda salt program mantığı olarak çalışır; sunucu yalnızca saklar ve
+iletir. Bürolar, taraf verilerinin ve kişi analizlerinin bu dahili paylaşımını
+işleme faaliyetleri
+kayıtlarında belirtmelidir.</li>
+<li><b>Mahkeme kararlarının değerlendirmeleri.</b> Bir değerlendirme yalnızca
+kullanıcının açık komutuyla kaydedilir; ardından taraf dizini gibi
+<b>otomatik olarak yüklenir</b> ve büronun her iş istasyonuna
+yansıtılır. Her iş istasyonu karar başına yalnızca kendisinin değiştirebileceği
+kendi değerlendirmesini tutar. Analiz, bir kararın ve ona ilişkin beyanların
+içeriğini açıklar — bu ölçüde <b>dava içeriği</b> barındırır — ve hâkimleri ve
+zabıt kâtiplerini adlarıyla belirtir. Hiçbir yapay zekâ sağlayıcısı dahil değildir; değişim
+büronun yerel ağında kalır. Bürolar bu paylaşımı da
+işleme faaliyetleri kayıtlarında belirtmelidir.</li>
+<li><b>Yalnızca bilinçli eylemler — dava içerikleri için.</b> Dava içerikleri sunucuya
+yalnızca kullanıcı tarafından onaylanan açık bir paylaşım veya
+devir işlemiyle ulaşır; mevzuat kütüphanesi metinleri ancak
+kullanıcı kaydı veri izleyicisinde kabul ettikten sonra; taranmış gelen posta ise
+ancak büro çalışanı belgeyi kontrol edip seçilen bir alıcıya gönder'e
+tıkladıktan sonra. Taraf dizini ve
+kaydedilmiş mahkeme kararı değerlendirmeleri bilinçli istisnalardır:
+Kayıt başına onay olmadan arka planda senkronize olurlar. Zaman, mesai, olay ve yedekleme verileri,
+çok kullanıcılı çalışmanın kendisinden doğan işletimsel üst verilerdir ve
+web yönetiminde büronun yöneticisi tarafından görülebilir.</li>
+<li><b>Sorumluluk.</b> Sunucuyu işleten büro
+tek veri sorumlusu olarak kalır. Yönetici kayıtların onaylanmasına
+karar verir, abonelikleri sonlandırabilir, mevzuat kütüphanesi kayıtlarını
+silebilir ve paketi kaldırabilir — bu durumda sunucu veri dizini
+NAS üzerinde yöneticinin kontrolünde kalır.</li>
+<li><b>Çalışan verileri.</b> <span class="irs">IRONSTICK</span> SERVER ile her
+iş istasyonu, gün ve dava başına ölçülen çalışma süresini (dava numarası,
+müvekkil adı) ve her yedekleme ve geri yükleme olayını (dosya, boyut, zaman, IP adresi)
+sunucuya bildirir; büronun yöneticisi bunları orada görüntüleyebilir. Büro
+çalışanlarını buna uygun şekilde bilgilendirmelidir.</li>
+<li><b>Zaman kayıt verilerinde müvekkillerin tam adları.</b>
+Zaman kayıt özeti çalışma süresini dava ve müvekkil başına gösterir; bu da
+müvekkil adlarının NAS üzerinde saklandığı anlamına gelir. Bu, büronun kendi altyapısı
+ve mevcut gizlilik rejimi
+içinde kalır — ancak bürolar NAS'ı teknik ve organizasyonel önlemler kayıtlarına
+eklemelidir (NAS işletim sisteminde erişim kontrolü,
+birim şifrelemesi, yedekleme politikası); tıpkı büronun diğer her
+dosya sunucusunda olduğu gibi.</li>
+</ul>
+
+<h2>Ek — Müvekkillere yönelik gizlilik bildiriminiz için örnek madde (öneri)</h2>
+<p>Aşağıdaki metin, <span class="irs">IRONSTICK</span> kullanan bir büronun
+kendi müvekkil gizlilik bildirimine alabileceği bir ifade önerisidir.
+Yukarıda açıklanan veri akışlarına tam olarak karşılık gelecek şekilde yazılmıştır. Her yapıdaki bildirimlere eklenebilmesi için kanun maddelerine
+bilinçli olarak atıf yapmaz.</p>
+<div class="box warn"><b>Metni eklemeden önce — avukat için kontrol listesi:</b>
+<ol style="margin:6px 0 2px">
+<li>Yapılandırdığınız <b>her</b> yapay zekâ sağlayıcısının veri işleme sözleşmesini
+hazır bulundurun, maddede yalnızca gerçekten kullandığınız sağlayıcıları
+belirtin ve eğitim ile saklamaya ilişkin cümleyi gerçekten imzaladığınız
+koşullara göre kontrol edin.
+Ücretsiz arka plan sağlayıcıları (Groq, OpenRouter, Mistral, bölüm 1)
+madde yalnızca orada parantez içine alınmış isteğe bağlı cümleyle kapsanır —
+bunları yalnızca koşulları meslek hukukunuzun gerekliliklerini karşılıyorsa
+etkinleştirin ve kullanmıyorsanız cümleyi silin.</li>
+<li>Yapay zekâ çalışma alanına ilişkin parantez içindeki cümleyi yalnızca
+masaüstü yapay zekâ Bridge'ini (Claude Desktop/Code, ChatGPT Desktop, Qwen
+Desktop veya Kimi Desktop) gerçekten kullanıyorsanız koruyun; aksi takdirde silin.</li>
+<li>Bu madde, bu belgede açıklanan uygulama içi veri akışlarını
+kapsar. Yapay zekâ talimat paketini (bölüm 5)
+<b>kapsamaz</b> — bu dışa aktarımın bir yapay zekâ hizmetine yüklenmesi
+ayrı bir karardır ve kural olarak müvekkilin açık
+onayını gerektirir.</li>
+<li>Yapılandırıcıda tek tek yapay zekâ işlevlerini devre dışı bıraktıysanız amaçlar listesini
+buna göre kısaltın — tam olarak kullandığınızı tanımlayın,
+fazlasını değil.</li>
+<li>Bu bir ifade önerisidir, hukuki danışmanlık değildir. Kullanmadan önce
+baronuzun meslek kurallarına ve yerel
+veri koruma uygulamasına göre kontrol ettirin.</li>
+</ol></div>
+<h3>Türkçe</h3>
+<div class="clause">
+<p><b>Yapay zekâ destekli vekâlet işlemleri.</b> Büromuz, yapay zekâ destekli işlevler içeren
+<span class="irs">IRONSTICK</span> büro yazılımını kullanmaktadır. Bu
+işlevler için dosyanızdan seçilen veriler, bunları bizim adımıza bir
+veri işleme sözleşmesi temelinde işleyen harici bir
+yapay zekâ hizmet sağlayıcısına (kullanılabilirliğe göre: Alibaba Cloud, Moonshot AI, OpenAI veya Anthropic, bunların API'leri üzerinden)
+iletilebilir. Bu işlevleri şunlar için kullanırız:
+gelen belgelerin sınıflandırılması ve kaydedilmesi, gelen
+e-postaların önceliklendirilmesi, veri varlıklarımızın tutarsızlıklara karşı kontrol edilmesi,
+hukuki belgelerin taslağının hazırlanması ve kontrolü ile hukuki analiz
+ve araştırma. [İsteğe bağlı — kullanılmıyorsa silin: Gelen e-postaların önceliklendirilmesi,
+veri varlıklarımızın kontrolü ve özetler gibi arka planda çalışan görevler için
+ayrıca Groq, OpenRouter veya Mistral'ın ücretsiz hizmetleri
+kullanılabilir; bunların koşullarını etkinleştirmeden önce
+inceledik.]</p>
+<p><b>Koruma önlemleri.</b> Yazılım her iletimden önce
+sistemimizde kayıtlı doğrudan tanımlayıcıları — adlar,
+kişisel kimlik numaraları, telefon numaraları, e-posta adresleri, posta adresleri,
+dosya numaraları ve banka bilgileri — kendi bilgisayarımızda nötr
+yer tutucularla değiştirir. Yer tutucular ile gerçek veriler arasındaki eşleştirme tablosu
+büromuzdan asla çıkmaz; hizmet sağlayıcının yanıtları yerel olarak
+geri çevrilir. Yalnızca ilgili işlevin gerektirdiği, sabit kapsam sınırlarıyla
+iletilir. Bazı işlevler teknik nedenlerle
+gerçek verilere ihtiyaç duyar — örneğin bir kişi adına ilişkin kamuya açık internet araştırması
+veya sesli okuma işlevi; bunları yalnızca bilinçli
+tekil bir eylemle kullanırız. [İsteğe bağlı — kullanılmıyorsa silin:
+Dilekçelerin hazırlanması için ayrıca, dosya verilerinin yer tutucu değişimi olmadan
+işlendiği bir yapay zekâ çalışma alanı kullanırız; bu kanal
+yalnızca doğrudan gözetimimiz altında kullanılır.] Yapay zekâ işlevlerinden bağımsız olarak yazılım,
+veri varlıklarımızda kayıtlı posta adreslerini — adlar olmadan — bir harita üzerinde gösterilebilmeleri için
+kamuya açık harita hizmeti OpenStreetMap'e gönderir.</p>
+<p><b>Hizmet sağlayıcı.</b> Hizmet sağlayıcının bizim için geçerli
+koşullarına göre API üzerinden iletilen içerikler
+yapay zekâ modellerinin eğitimi için kullanılmaz ve yalnızca sınırlı bir süre
+saklanır. İşleme Avrupa Ekonomik Alanı dışında
+gerçekleşebilir; bu durumda iletim,
+veri işleme sözleşmemizde kararlaştırılan güvencelerle korunur. Hizmet
+sağlayıcının verilerle ne yapabileceğini bu sözleşme düzenler —
+yapay zekânın takdiri değil.</p>
+<p><b>Sizin seçiminiz.</b> Mesleki sır saklama yükümlülüğümüz
+saklıdır: Burada açıklananın ötesinde hiçbir veri büromuzdan
+çıkmaz. İşleme, bize verilen vekâlete ve
+verimli ve özenli bir vekâlet yürütümüne ilişkin
+meşru menfaatimize dayanır. Yapay zekâ destekli işlevlerin kullanımına
+her zaman itiraz edebilirsiniz; bu durumda mümkün olduğu ölçüde dosyanızı
+bu işlevler olmadan yürütürüz. Yasal veri koruma haklarınız — bilgi alma, düzeltme,
+silme, denetim makamına şikâyet — tamamen
+saklıdır.</p>
+</div>
+
+<p class="meta">Bu beyan, uygulamanın kaynak kodundan türetilmiştir
+(takma adlandırıcı, harici yönlendirici, denetim günlüğü ve her bir işlevin
+iletim yolu) ve 1.0.7 sürümünün (Kasım 2026 itibarıyla) teslim edilen davranışını yansıtır.
+Yapay zekâ sağlayıcısının kendisi tarafından yapılan işleme — saklama,
+eğitim için kullanım, alt işleyenler, hukuk düzeni — yalnızca sağlayıcının
+koşullarına, her birinin güncel sürümüyle tabidir. Her sağlayıcının
+kullanım koşullarına ve gizlilik politikalarına ilişkin bağlantılar ayrıca
+yapay zekâ yapılandırmasının ilgili bölümünde yer alır.</p>
+<table>
+<tr><th>Sağlayıcı</th><th>Kullanım koşulları ve veri koruma</th></tr>
+<tr><td>Alibaba Cloud (Qwen)</td><td><a href="https://www.alibabacloud.com/help/en/legal">alibabacloud.com/help/en/legal</a></td></tr>
+<tr><td>Moonshot AI (Kimi)</td><td><a href="https://platform.kimi.ai/docs/agreement">platform.kimi.ai/docs/agreement</a></td></tr>
+<tr><td>OpenAI (ChatGPT)</td><td><a href="https://openai.com/policies">openai.com/policies</a></td></tr>
+<tr><td>Anthropic (Claude)</td><td>Commercial Terms of Service: <a href="https://www.anthropic.com/legal/commercial-terms">anthropic.com/legal/commercial-terms</a>; Usage Policy: <a href="https://www.anthropic.com/legal/aup">anthropic.com/legal/aup</a>; Privacy Policy: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></td></tr>
+<tr><td>Groq</td><td><a href="https://groq.com/terms-of-use">groq.com/terms-of-use</a></td></tr>
+<tr><td>OpenRouter</td><td><a href="https://openrouter.ai/terms">openrouter.ai/terms</a></td></tr>
+<tr><td>Mistral</td><td><a href="https://legal.mistral.ai/terms/commercial-terms-of-service">legal.mistral.ai/terms/commercial-terms-of-service</a></td></tr>
+</table>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">İletişim</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK iletişim kartı (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">İletişim kartımızı kaydetmek için kodu tarayın — telefon, e-posta ve web sitesi.</p><p class="pref">Bizimle doğrudan WhatsApp veya Telegram üzerinden iletişime geçebilirsiniz — bir telefon araması da memnuniyetle karşılanır. Konuşulan diller: Almanca, İngilizce, Rumence.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Mesaj</h5><h3 class="ct-ask">IRONSTICK'e veya bir demoya ilgi mi duyuyorsunuz? Bize yazın.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK talebi, gönderen:" name="form"><div class="ct-fg"><label for="ct-name">Ad</label><input id="ct-name" type="text" name="name" placeholder="Adınız" required></div><div class="ct-fg"><label for="ct-msg">Mesaj</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Mesajınız" required></textarea></div><div class="ct-fg"><p class="ct-hint">Gönder'e tıklamak, hazırlanmış mesajla e-posta programınızı açar.</p><button type="submit">Mesaj gönder</button></div><div class="u-form-send-success">E-posta programınız açılıyor. Lütfen mesajı oradan gönderin.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK hukuk uygulamasına yönelik bir yazılımdır. Bu web sitesi yalnızca bilgilendirme amaçlıdır ve hukuki danışmanlık niteliği taşımaz. © 2026 IRONSTICK.</p></footer>
+</body></html>

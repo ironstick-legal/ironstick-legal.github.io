@@ -1,0 +1,929 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRONSTICK — DSGVO-Datenfluss-Erklärung (externe LLMs)</title>
+<meta name="description" content="IRONSTICK DSGVO-Datenfluss-Erklärung: jeder Weg, auf dem Daten IRONSTICK in Richtung eines externen KI-Anbieters verlassen, was übermittelt wird und wo die Pseudonymisierung greift.">
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 25px; border-bottom: 3px solid #1a73e8; padding-bottom: 8px; }
+  h2 { font-size: 20px; color: #1a73e8; margin-top: 38px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .meta { color: #5f6368; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .warn { border-left-color: #ea8600; }
+  .crit { border-left-color: #c5221f; }
+  code { background: #f1f3f4; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .yes { color: #188038; font-weight: 600; } .no { color: #c5221f; font-weight: 600; }
+  .clause { border: 1px solid #dadce0; background: #fff; border-radius: 6px;
+            padding: 4px 18px 10px; margin: 10px 0 30px; }
+  .clause p { margin: 10px 0; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; } table { page-break-inside: avoid; } }
+  h1{border-bottom:none;padding-bottom:0}
+  img.flow{display:block;max-width:100%;height:auto;margin:14px auto 18px}
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;
+    border-bottom:1px solid #dadce0;padding:8px 16px;margin:-32px -24px 18px;
+    max-width:none;line-height:1.6}
+  /*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}</style><link rel="stylesheet" href="fonts/noto-serif.css">
+<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
+<link rel="stylesheet" href="sitebar.css">
+<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="hero.css">
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="site.css">
+<link rel="alternate" type="text/markdown" href="gdpr_de.md">
+<link rel="llms-txt" href="/llms.txt">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/gdpr.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/gdpr_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/gdpr_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/gdpr_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/gdpr_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/gdpr_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/gdpr_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/gdpr_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/gdpr_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/gdpr_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/gdpr_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/gdpr.html">
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menü"><a class="b" href="index_de.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_de.html">Startseite</a><a href="overview_de.html">Überblick</a><a href="ki_de.html">KI</a><span class="mh">Handbücher</span><a class="sub" href="manualquickstart_de.html">Schnellstart</a><a class="sub" href="manualironstick_de.html">Client-App</a><a class="sub" href="manualbridge_de.html">Bridge</a><a href="gdpr_de.html" aria-current="page">DSGVO</a><a href="download_de.html">Download</a></div></div><nav class="mainnav"><a href="overview_de.html">Überblick</a><a href="ki_de.html">KI</a><div class="nav-drop" tabindex="0"><span>Handbücher</span><div class="menu"><a href="manualquickstart_de.html">Schnellstart</a><a href="manualironstick_de.html">Client-App</a><a href="manualbridge_de.html">Bridge</a></div></div><a href="gdpr_de.html" aria-current="page">DSGVO</a><a href="download_de.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_de.html">30 Tage testen</a><nav class="lang-wrap" tabindex="0" title="Sprache" aria-label="Sprache"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="gdpr.html">English</a><a class="on" lang="de" hreflang="de" href="gdpr_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="gdpr_ro.html">Română</a><a lang="fr" hreflang="fr" href="gdpr_fr.html">Français</a><a lang="it" hreflang="it" href="gdpr_it.html">Italiano</a><a lang="es" hreflang="es" href="gdpr_es.html">Español</a><a lang="pt" hreflang="pt" href="gdpr_pt.html">Português</a><a lang="nl" hreflang="nl" href="gdpr_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="gdpr_ru.html">Русский</a><a lang="uk" hreflang="uk" href="gdpr_uk.html">Українська</a><a lang="tr" hreflang="tr" href="gdpr_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-gdpr" data-parallax="31 75"><div class="gh-in"><div class="gh-box"><h1>DSGVO-Datenfluss-Erklärung</h1></div><p class="gh-sub">Beziehungen zu externen Large Language Models</p></div></section>
+<p class="meta">Sachliche, aus dem Code abgeleitete Beschreibung jedes Pfades, auf dem Daten
+<span class="irs">IRONSTICK</span> in Richtung eines externen LLM verlassen, was genau übermittelt wird, in welcher Form
+und wo die Pseudonymisierungsschicht greift. Windows-Desktop-Ausgabe. Dieses Dokument
+beschreibt ausschließlich das Verhalten von <span class="irs">IRONSTICK</span> — <b>was der KI-Anbieter mit empfangenen
+Daten tut, richtet sich ausschließlich nach den eigenen Bedingungen des Anbieters</b> (den
+Nutzungsbedingungen und Datenschutzerklärungen der vom Benutzer eingerichteten Anbieter: Alibaba Cloud (Qwen),
+Moonshot AI (Kimi), OpenAI, Anthropic und, falls eingeschaltet, Groq, OpenRouter und
+Mistral; Google nur, wenn Google Drive für Exporte genutzt wird), die der Benutzer gesondert prüfen muss.</p>
+<p class="meta">Version 1.0.7 — Stand November 2026</p>
+<div class="box"><b>Zusammenfassung.</b>
+<ul>
+<li><b>Speicherung.</b> Alle Daten liegen in einem einzigen lokalen Datenverzeichnis. Die Datenbank,
+der Dokumentenspeicher, die Konfigurationsdatei und der KI-Zwischenspeicher sind im Ruhezustand
+AES-256-verschlüsselt. Im Klartext verbleiben nur temporäre Arbeitskopien geöffneter
+Dokumente, der Scan-Eingang, Exporte und ausgehende Dateien, der kurzlebige
+Peer-Review-Puffer und, falls eingeschaltet, das Diagnoseprotokoll (Abschnitt 8).</li>
+<li><b>Externe KI.</b> KI-Aufrufe innerhalb der App gibt es nur mit dem eigenen API-Schlüssel des Benutzers.
+Aufrufe über den zentralen Router werden standardmäßig pseudonymisiert und in einem
+lokalen Audit-Protokoll erfasst; die bewussten Klartext-Ausnahmen sind in 2.3 aufgeführt.</li>
+<li><b>Zustimmung.</b> Der KI-Chat, die Dokumentenerfassung und die Personenrecherche fragen einmal
+pro Sitzung bzw. Programmlauf nach; in der Textverarbeitung ist das Starten einer KI-Funktion
+die Zustimmung. Mehrere Hintergrundfunktionen rufen die Cloud-KI ohne eigenen Dialog auf:
+die E-Mail-Triage, der Datenkonsistenz Monitor, das Tagesbriefing, die Dialog-Zusammenfassung
+und die Red/Blue Team-Prüfung (Abschnitt 3).</li>
+<li><b>Desktop-KI-Bridge.</b> Ein optionales Zusatzmodul, das echte Falldaten an den Anbieter der eigenen Desktop-KI des Benutzers weitergibt, nach
+einem Zustimmungsdialog je Programmlauf (Abschnitt 4.9).</li>
+<li><b>Weitere Dienste.</b> Parteiadressen werden täglich mit
+OpenStreetMap Nominatim geokodiert (nur die Adresse, keine Namen); eine Neuigkeitendatei wird nach dem Start und
+danach alle sechs Stunden von <a href="index_de.html">www.ironstick.legal</a> heruntergeladen; an den Softwarehersteller werden keine Fall- oder
+Personendaten gesendet (Abschnitte 1 und 7).</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER.</b> Optional, auf dem eigenen
+NAS der Kanzlei im lokalen Netzwerk, ohne Internetverbindungen. Dokumente gelangen nur als
+AES-256-verschlüsselte Dateien zum Server und liegen dort auch nur so; der Server sieht ihren Klartext nie. Die Arbeitszeit je Fall
+und die Backup-Ereignisse jedes Arbeitsplatzes sind für den Administrator der Kanzlei sichtbar
+(Abschnitt 9).</li>
+</ul></div>
+
+<h2>1. Geltungsbereich und Endpunkte</h2>
+<img class="flow" src="img/65_ai_client_vault.png" alt="KI-API, KI-Desktop-App und MCP-Server links, der IRONSTICK Client in der Mitte, Daten-Tresor mit AES-256, IRONSTICK Server und Scan-App rechts">
+<p>Externe KI-Aufrufe innerhalb der App gehen an <b>den Anbieter, den die automatische Kaskade
+in diesem Moment verwendet</b>. Der Benutzer kann bis zu vier Anbieter einrichten; jeder
+Anbieter, für den ein Schlüssel hinterlegt ist, wird in dieser festen Reihenfolge
+verwendet, wobei der kostengünstigste zuerst an der Reihe ist: <b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+ChatGPT (OpenAI) → Claude (Anthropic)</b>. Bei jedem Programmstart prüft <span class="irs">IRONSTICK</span>,
+welche von ihnen antworten. Fällt ein Anbieter aus, geht dieselbe Anfrage an den
+nächsten. Der ausgefallene Anbieter wird nach einer vom Fehler abhängigen Wartezeit erneut
+versucht; für den Rest des Tages
+wird er nur übersprungen, wenn sein Guthaben aufgebraucht oder die Ursache unbekannt ist. Der übermittelte Inhalt
+ist bei jedem Anbieter identisch (ab Abschnitt 3: durch den Router pseudonymisiert,
+Zustimmung, Audit-Protokoll). Die Endpunkte sind:</p>
+<ul>
+<li><b>Claude:</b> <code>POST https://api.anthropic.com/v1/messages</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+<li><b>ChatGPT:</b> <code>POST https://api.openai.com/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+<li><b>Qwen:</b> <code>POST https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions</code>
+(Alibaba Cloud Model Studio, internationale Region), der eigene API-Schlüssel des Benutzers.</li>
+<li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
+(Moonshot AI), der eigene API-Schlüssel des Benutzers.</li>
+</ul>
+<p><b>Kostenlose Hintergrund-Anbieter (optional).</b> Zusätzlich kann der Benutzer
+die kostenlosen Angebote von <b>Groq</b>, <b>OpenRouter</b> und <b>Mistral</b>
+hinterlegen. <span class="irs">IRONSTICK</span> verwendet sie ausschließlich für Aufgaben, die im Hintergrund
+laufen: E-Mail-Triage, Datenkonsistenz Monitor, Tagesbriefing, Dialog-Zusammenfassung,
+Sprecherzuordnung bei Transkriptionen, Abruf von Gesetzestexten und Lagebild. Jeder
+dieser Anbieter hat in der Konfiguration einen eigenen Ein-/Ausschalter; verwendet wird
+er nur, wenn ein Schlüssel hinterlegt und sein Schalter eingeschaltet ist. Für den Chat, für
+Schriftsätze und für die Red/Blue Team-Prüfung werden sie <b>nie</b> verwendet. Steht
+keiner von ihnen zur Verfügung, übernimmt die oben beschriebene Kaskade.
+Pseudonymisierung, Zustimmung und Audit-Protokoll richten sich nach der jeweiligen
+Aufgabe (Abschnitt 4). Die Endpunkte sind:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+der eigene API-Schlüssel des Benutzers.</li>
+</ul>
+<div class="box warn"><b>Kostenlose Angebote — Hinweis in der Konfiguration.</b> In der Konfiguration weist ein Hinweis unter jedem dieser Anbieter darauf hin, dass IRONSTICK ihn — sofern der API-Schlüssel hinterlegt und der Schalter eingeschaltet ist — für Hintergrundaufgaben wie Zusammenfassungen und E-Mail-Triage nutzt und dabei Daten an diesen Anbieter übermittelt. Prüfen Sie, bevor Sie einen dieser Anbieter einschalten, ob dessen
+Bedingungen den für Auftragsverarbeiter erforderlichen Auftragsverarbeitungsvertrag
+vorsehen und Ihrem Berufsrecht genügen. Ein ausgeschalteter Anbieter wird nicht verwendet.</div>
+<p>Je Anbieter werden drei konfigurierbare Modellstufen verwendet (klein / mittel /
+groß). Ein separater, optionaler Kanal ist die
+<b>Desktop-KI-Bridge</b> (Abschnitt 4.9): Dort fließen Daten in die eigene
+lokale Desktop-KI des Benutzers (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
+Desktop <b>oder</b> Kimi Desktop), d. h. an den Anbieter dieser KI (Anthropic, OpenAI,
+Alibaba Cloud/Qwen oder Moonshot AI/Kimi) im Rahmen des eigenen Abonnements/Kontos des Benutzers bei diesem Anbieter. Die
+Bridges können parallel laufen: Jede Desktop-KI hat ihr eigenes kleines Bridge-Programm,
+alle verbinden sich mit demselben lokalen Endpunkt in der laufenden Anwendung, und sie können
+gleichzeitig an demselben Fall arbeiten. An den Softwarehersteller werden keine Fall- oder
+Personendaten gesendet. Der einzige Kontakt zum Hersteller ist ein einfacher Download einer Neuigkeitendatei
+von <a href="index_de.html">www.ironstick.legal</a> (nach dem Start und danach alle sechs Stunden, Abschnitt 7), der außer der
+technischen Verbindung selbst keine Daten enthält.
+<b><span class="irs">IRONSTICK</span> SERVER</b> (Abschnitt 9) ändert daran nichts: Er wird
+von der Kanzlei selbst betrieben, auf der eigenen Hardware der Kanzlei, innerhalb des
+eigenen Netzwerks der Kanzlei — er kontaktiert niemals den Hersteller und niemals einen KI-Anbieter.</p>
+<div class="box"><b>Der Hauptschalter ist der eigene Zugang des Benutzers.</b> Externe
+KI-Verarbeitung innerhalb der App gibt es nur, wenn der Benutzer ein eigenes Konto
+bei einem KI-Anbieter eröffnet und seinen eigenen Zugangsschlüssel in der Konfiguration eingetragen hat.
+<b>Ohne eingerichteten Anbieter kann überhaupt kein externer KI-Aufruf innerhalb der App erfolgen</b> — jede
+in Abschnitt 4 beschriebene Funktion bleibt dann lokal oder ist schlicht nicht verfügbar. Dieses
+Konto ist ein unmittelbarer Vertrag zwischen dem Benutzer und dem Anbieter; <span class="irs">IRONSTICK</span> ist
+nicht Vertragspartei. Dasselbe gilt für die Desktop-KI-Bridge, die
+ein eigenes Abonnement/Konto des Benutzers beim gewählten Desktop-KI-Anbieter voraussetzt
+(Anthropic, OpenAI, Alibaba Cloud/Qwen oder Moonshot AI/Kimi). Als <b>geheim</b> markierte Dokumente sind
+von den Werkzeugen der Desktop-KI-Bridge und des Chats, vom
+KI-Instruktionspaket und von jeder erzeugten Ausgabe (Anlagen, Dossiers, Exporte) ausgeschlossen;
+ihre Verarbeitung während der Erfassung folgt der bewussten Entscheidung des Benutzers zum
+Zeitpunkt der Erfassung (Abschnitt 4.1).</div>
+<p>Vollständig lokal (nichts verlässt den Rechner): Textextraktion und OCR, die
+deterministische lokale Chat-Schicht, die globale Suche, das Relevanz-Radar, die Briefketten-Analyse,
+die Dossier-/PDF-Erzeugung, der lokale Durchlauf des Schwärzungs-Finders, die Spracherkennung
+(Transkription von Aufnahmen) und die Erstellung des KI-Instruktionspakets.</p>
+
+<h2>2. Die Pseudonymisierungsschicht</h2>
+<p>Jeder Aufruf innerhalb der App über den zentralen KI-Router wird standardmäßig pseudonymisiert:
+Kennungen im ausgehenden Text werden durch Platzhalter ersetzt, und die Antwort wird lokal wiederhergestellt. Lässt sich der Pseudonymisierer nicht
+vollständig aufbauen, wird nichts gesendet. Die Ausnahmen sind in 2.3 aufgeführt. Die Zuordnung
+existiert nur im Arbeitsspeicher, eine neue Zuordnung je Vorgang; sie wird niemals gespeichert.</p>
+<img class="flow" src="img/66_pseudonymization.png" alt="Oben: IRONSTICK Client, anonymisierte Figur mit Zahnrädern, KI-API; unten: IRONSTICK Client, Benutzer, KI-Desktop-App">
+<h3>2.1 Was ersetzt wird</h3>
+<table>
+<tr><th>Quelle</th><th>Felder</th><th>Platzhalter-Familie (interne Kennungen)</th></tr>
+<tr><td>Mandantendatensätze</td><td>Name, nationale Ausweisnummer aus dem Kennungsfeld (z. B. rumänische CNP), Telefon, E-Mail, Adresse und Ort</td>
+<td><code>$PARTEI_A$</code> (Partei), <code>$CNP_A$</code> (Ausweisnummer), <code>$TEL_A$</code> (Telefon), <code>$MAIL_A$</code> (E-Mail), <code>$ADRESSE_A$</code> (Adresse)</td></tr>
+<tr><td>Personen / Entitäten</td><td>vollständiger Name (Person oder Unternehmen), nationale Ausweis- oder Unternehmensnummer aus dem Kennungsfeld (z. B. rumänische CNP oder CUI)</td>
+<td><code>$PARTEI_B$</code> (Partei) / <code>$FIRMA_A$</code> (Unternehmen), <code>$CNP_B$</code> (Ausweisnummer)</td></tr>
+<tr><td>Fälle</td><td>Fallnummer, Gegner, Kläger</td>
+<td><code>$FALL_A$</code> (Fall), <code>$PARTEI_C$</code> (Partei)…</td></tr>
+<tr><td>Musterschicht (unbekannte Werte im Freitext)</td>
+<td>gerichtliche Aktenzeichen, Personennummern, IBANs, E-Mail-Adressen
+und Telefonnummern. Andere nationale Ausweisnummern werden nur ersetzt, wenn sie im Mandanten- oder Personendatensatz gespeichert sind.</td><td>dieselben Platzhalter-Familien</td></tr>
+</table>
+<h3>2.2 Was bewusst unverändert bleibt</h3>
+<ul>
+<li><b>Datumsangaben, Uhrzeiten und Geldbeträge</b> — sie werden für die juristische Auswertung unverändert benötigt.</li>
+<li><b>Namen von Institutionen</b> (Gerichte, Behörden) — sie sind nicht im
+Wörterbuch enthalten und sind öffentliche Stellen.</li>
+<li><b>Dritte ohne eigenen Datensatz</b> — Zeugen, Ärzte, Rechtsanwälte, Richter oder Unternehmen, die nicht als Mandanten-, Personen- oder Falldatensatz erfasst sind; wer durch einen Platzhalter ersetzt werden soll, wird einfach als Person erfasst.</li>
+<li><b>Adressen von Nicht-Mandanten</b> — durch einen Platzhalter ersetzt wird die gespeicherte Adresse des Mandanten.</li>
+<li>Der gesamte <b>sachliche Inhalt</b> von Dokumenten (Behauptungen, Diagnosen,
+Schilderung) — nur Identifikatoren werden ersetzt, nicht der Sachverhalt.</li>
+</ul>
+<h3>2.3 Bewusste Klarnamen-Ausnahmen</h3>
+<ul>
+<li><b>Personen-Webrecherche (Stufe 1)</b> und <b>automatisches Ausfüllen von Formularen</b> für Personen /
+Institutionen: Eine Websuche nach <code>$PARTEI_A$</code> ist sinnlos, daher wird der
+echte Name bewusst gesendet.</li>
+<li><b>KI-Finder der Schwärzung</b>: Er erhält Text, der bereits lokal
+geschwärzt wurde, und muss mit den Klarnamen der von ihm gefundenen <i>unbekannten Dritten</i>
+antworten — die Pseudonymisierung ist für diesen einen Zweck ausgeschaltet.</li>
+<li><b>Vorverarbeitung der Vorlesefunktion (TTS)</b>: siehe 4.6 — Sätze gehen im Klartext
+hinaus.</li>
+<li><b>Desktop-KI-Bridge</b>: bewusst Rohdaten (Abschnitt 4.9).</li>
+</ul>
+
+<h2>3. Zeitpunkte der Zustimmung und das Audit-Protokoll</h2>
+<p>Aufrufe, die über den zentralen Router geleitet werden, sind an eine Zustimmung gebunden und werden protokolliert: Jede
+Modellrunde schreibt eine Zeile in die lokale Audit-Tabelle mit
+der vollständigen Anfrage und Antwort <b>in der durch Platzhalter ersetzten Form, die den Rechner
+tatsächlich verlassen hat</b>; abgelehnte oder blockierte Versuche werden ohne Inhalt protokolliert. Fragt eine
+Funktion nach Zustimmung, nennt der Dialog Modellstufe und ungefähre Anfragegröße, und eine Freigabe gilt für
+die aktuelle Bildschirmsitzung (bei der Dokumentenerfassung: für den aktuellen Programmlauf).</p>
+<div class="box warn"><b>Router-Flüsse ohne eigenen Zustimmungsdialog:</b>
+die E-Mail-Triage (im Hintergrundbetrieb ebenso wie beim manuellen Abruf im E-Mail-Screen,
+Abschnitt 4.2), der Analyselauf des Datenkonsistenz Monitors (4.5),
+das Tagesbriefing (4.4a), die Dialog-Zusammenfassung des API-Chats und die Red/Blue
+Team-Prüfung (4.7) sowie der KI-Finder der Schwärzung (das Einschalten seines Schalters ist die
+Zustimmung). Diese werden dennoch pseudonymisiert (ausgenommen die beabsichtigten Klarnamen-Antworten des
+Schwärzungs-Finders) und dennoch im Audit-Protokoll erfasst.</div>
+<div class="box warn"><b>Flüsse, die den Router umgehen:</b> die
+KI-Funktionen der Textverarbeitung, die Vorverarbeitung der Vorlesefunktion und die KI-Korrektur Datei→Markdown
+rufen die API direkt auf. Sie werden pseudonymisiert (Ausnahme: Vorlesefunktion),
+zeigen jedoch <b>keinen eigenen Zustimmungsdialog und schreiben keine Zeilen in das
+Audit-Protokoll</b>. Die Bedienung dieser Funktionen durch den Benutzer (Drücken der KI-Schaltfläche,
+Starten einer Erzeugung, Starten der Vorlesefunktion bei eingeschaltetem KI-Schalter) ist der
+Zeitpunkt der Zustimmung.</div>
+<h2>4. Die Datenflüsse, Anwendungsfall für Anwendungsfall</h2>
+
+<h3>4.1 Dokumentenerfassung</h3>
+<p>Textextraktion und OCR erfolgen lokal. Ist ein API-Schlüssel konfiguriert, fragt <span class="irs">IRONSTICK</span>
+einmal pro Programmlauf nach; anschließend laufen bis zu vier Aufrufarten (alle pseudonymisiert, alle
+im Audit-Protokoll erfasst):</p>
+<ul>
+<li><b>Erkennung des Hauptdokuments</b> (kleine Stufe): Auszüge des OCR-Rohtexts — nur bei Scans schlechter Qualität.</li>
+<li><b>OCR-Korrektur</b> (kleine Stufe): ein begrenzter Auszug des Dokumenttexts.</li>
+<li><b>Klassifizierung</b> (mittlere Stufe): ein begrenzter Auszug des Dokumenttexts, <b>zuzüglich Systemlisten</b>: die vollständige Fallliste (Fallnummer,
+Name des Mandanten, Gegenpartei — durch Platzhalter ersetzt), ein Bestand bekannter Namen (durch Platzhalter ersetzt), sowie die Codelisten der Institutionstypen und Dokumenttypen
+(Bezeichnungen ohne Platzhalter). Rückfallebene: kleine Stufe, ohne die
+Listen.</li>
+<li><b>Kontextualisierung beim Speichern</b> (kleine Stufe): die Metadaten des Dokuments und
+der Volltext in begrenzter Länge, zuzüglich einer Indexzeile (ID, Datum, Titel) <b>jedes aktiven Beweismittels desselben Mandanten</b> — verwendet zur Absicherung
+von Querverweisen. Läuft auch für als geheim gekennzeichnete Dokumente (bewusste Entscheidung des
+Benutzers).</li>
+</ul>
+
+<h3>4.2 E-Mail-Monitor (Triage)</h3>
+<p>Die Fallzuordnung erfolgt <b>lokal und ohne KI</b>. Neue E-Mails werden im
+Hintergrund beim Start und danach alle fünf Minuten abgerufen. Eine E-Mail, deren Fall
+die lokale Erkennung bereits bestimmt (Fallnummer, Briefnummer, Mandantennummer oder Bezug auf einen
+eigenen Schriftsatz), löst keinen KI-Aufruf aus. Für jede andere
+E-Mail beurteilt <b>ein Aufruf der kleinen Stufe</b> die Dringlichkeit, mit genau: Name und
+Adresse des Absenders, Betreff und dem gespeicherten Vorschau-Auszug als reinem Text (fest begrenzt) — <b>niemals dem vollständigen Nachrichtentext</b>, keinen
+Anhängen und <b>keiner Fallliste</b>. Antwort: Priorität und Begründung. Sind kostenlose
+Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann dieser Aufruf über diese laufen.
+<b>Es wird kein Zustimmungsdialog angezeigt</b>, weder im Hintergrundbetrieb noch beim
+manuellen Abruf im E-Mail-Screen: Die Triage läuft automatisch, sobald ein E-Mail-Konto
+und ein KI-Anbieter eingerichtet sind. Pseudonymisiert und im Audit-Protokoll erfasst.</p>
+<p><b>Keine Tracking-Pixel.</b> Das Öffnen einer E-Mail im Monitor kontaktiert niemals
+den Server des Absenders: Bilder, die über eine Internetadresse referenziert werden (einschließlich
+unsichtbarer Tracking-Pixel), werden nicht geladen und erscheinen als Platzhalter mit einem
+Hinweis, sodass der Absender nicht erfahren kann, wann, wie oft oder von welcher Adresse aus eine
+E-Mail gelesen wurde. Angezeigt werden ausschließlich Bilder, die in die E-Mail selbst eingebettet sind.</p>
+
+<h3>4.3 Personenanalyse (Webrecherche)</h3>
+<p>Drei Stufen, nach einer einmaligen Zustimmung pro Sitzung:</p>
+<ul>
+<li><b>Stufe 1 — Suche:</b> Suchmaschinen werden direkt vom Rechner des
+Benutzers aus abgefragt; zusätzlich wird das
+serverseitige Websuche-Werkzeug des Anbieters mit dem <b>echten
+Namen der Person im Klartext</b> aufgerufen (für eine Suche unvermeidbar; im Klartext protokolliert).</li>
+<li><b>Stufe 2 — Seitenzusammenfassungen</b> (mittlere Stufe): je Seite der Name der Person
+(durch Platzhalter ersetzt), die URL und ein begrenzter Auszug des Seiteninhalts.</li>
+<li><b>Stufe 3 — Profilsynthese</b> (große Stufe): Name und Ort (durch Platzhalter ersetzt)
+zuzüglich der gesammelten Seitentexte in begrenzter Länge je Quelle.</li>
+</ul>
+<p>Das Ergebnis wird lokal mit der Zuverlässigkeit „unbestätigt" gespeichert. Die zugehörigen
+<b>Autofill</b>-Schaltflächen in den Personen-/Institutionsformularen senden den eingegebenen
+Namen ebenfalls im Klartext (dokumentierte Ausnahme).</p>
+
+<h3>4.3a Parteienprüfung aus öffentlichen Quellen</h3>
+<p>Die Prüfung einer Partei aus öffentlichen Quellen ist ein festgelegtes Verfahren, das die Anwendung
+selbst ausführt, wenn eine verbundene KI es mit Name, Ort, Bezirk, Land und
+der Art der Partei (natürliche Person oder juristische Person) aufruft:</p>
+<ul>
+<li><b>Akten:</b> eine Volltextsuche nach dem Namen in der lokalen
+Datenbank — <b>rein lokal</b>, nichts verlässt den Rechner.</li>
+<li><b>Internet:</b> eine feste Liste von Suchanfragen wird an die öffentlichen
+Suchmaschinen <b>Google, DuckDuckGo und Qwant</b> gesendet. Jede Anfrage besteht aus einem
+Suchbegriff in der Sprache des Landes der Partei zuzüglich des <b>echten
+Namens der Partei im Klartext</b> und, bei einigen Anfragen, des Ortes oder Bezirks
+(für eine Suche unvermeidbar). Es werden keine Fall-, Mandanten- oder Dokumentinhalte
+übermittelt. Die Suchmaschinen sehen die Anfragen wie die jedes Browser-Benutzers.</li>
+</ul>
+<p>Das Ergebnis wird der aufrufenden KI als aufbereitetes, ungeprüftes Profil zurückgegeben.
+Nichts wird in die Stammdaten geschrieben: Jeder Befund durchläuft das Prüftor
+des Datenkonsistenz Monitors (Abschnitt 4.5) und wird nur übernommen, wenn der
+Benutzer ihn annimmt. Ausgewertet werden ausschließlich öffentlich zugängliche Quellen.</p>
+
+<h3>4.4 Tagesprotokoll</h3>
+<p>Der Screen selbst ist lokal. Beim Import von Freitext läuft zunächst ein <b>lokaler</b>
+Parser; nur wenn keine Formatmarkierung eines Tagesprotokolls gefunden wird, normalisiert eine KI-Rückfallebene
+den Rohtext: Der eingefügte Text wird vollständig gesendet, kleine Stufe, unter dem Vorbehalt der Zustimmung, pseudonymisiert, im Audit-Protokoll erfasst. Gespeicherte
+Tagesprotokoll-Einträge verlassen den Rechner nur als Werkzeugergebnisse des Chats oder der Desktop-KI-Bridge
+(begrenzte Auszüge) oder innerhalb des KI-Instruktionspakets (Abschnitt 5).</p>
+
+<h3>4.4a Tagesbriefing</h3>
+<p>Beim ersten Programmstart eines Tages (Windows) bereitet <span class="irs">IRONSTICK</span>
+im Hintergrund ein gesprochenes Tagesbriefing vor, bereits während des Starts und
+bevor das Briefing-Fenster fragt, ob der Benutzer es hören möchte. Der Briefingtext —
+Fristenzahlen, die Gerichtstermine von heute und morgen mit Fallnummer,
+Mandantenname, Ort und Gericht sowie die Titel der heutigen Termine — wird
+einmal (kleine Stufe) an die Cloud-KI gesendet, die ihn als gesprochene Prosa in der
+Systemsprache neu formuliert. Pseudonymisiert über den Router, im Audit-Protokoll erfasst, <b>kein Zustimmungsdialog</b>.
+Sind kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann dieser Aufruf
+über diese laufen. Steht kein Anbieter zur Verfügung, wird stattdessen ein lokal zusammengesetzter Text verwendet.</p>
+
+<h3>4.5 Datenkonsistenz Monitor</h3>
+<p>Phase 1 (E-Mail ↔ Stammdaten) ist vollständig deterministisch. Phase 2 sendet
+<b>je neuem eingehendem Dokument einen Aufruf</b> der kleinen Stufe (pseudonymisiert, im
+Audit-Protokoll erfasst, <b>kein Dialog</b>), der Folgendes enthält: die deduplizierten
+<b>Kontaktbereich-Auszüge</b> (kurze Auszüge um Adress-, Telefon- und Steuerangaben) aus dem
+Volltext <b>dieses</b> Dokuments, die Parteinamen dieses Dokuments und seines Falls sowie zu
+jeder Partei die <b>Namen</b> möglicher Treffer aus den gespeicherten Stammdaten (durch
+Platzhalter ersetzt, soweit im Wörterbuch vorhanden; Namen von Institutionen im Klartext).
+<b>Kontaktdaten und Ausweisnummern aus den gespeicherten Stammdaten werden nicht übermittelt.</b> Sind
+kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann dieser Aufruf über diese
+laufen. Die Antwort wird stets nur zu einem Vorschlag, den der
+Benutzer im Monitor annehmen muss.</p>
+
+<h3>4.6 Textverarbeitung (KI-Unterstützung im Text)</h3>
+<ul>
+<li><b>Auswahl überarbeiten:</b> der ausgewählte Satz/Absatz/Abschnitt (mit
+Auszeichnung) <b>zuzüglich eines Auszugs des Dokuments als Kontext</b>
+und die Anweisung des Benutzers — mittlere Stufe, pseudonymisiert.</li>
+<li><b>Gliederung/Inhaltsverzeichnis:</b> faktisch das gesamte Dokument als indizierte Zeilenliste
+(lange Zeilen gekürzt), in begrenzter Länge — mittlere Stufe, pseudonymisiert.</li>
+<li><b>Vorverarbeitung für die Vorlesefunktion:</b> beim Vorlesen eines Dokuments wird <b>jeder
+Satz einzeln im Klartext an die kleine Stufe gesendet</b>, um
+Abkürzungen und Zahlen auszuschreiben — <b>ohne Pseudonymisierung</b> (Identifikationsnummern
+müssen unverändert zurückkommen, um korrekt vorgelesen zu werden). Aktenstempel und Verweismarkierungen
+werden zuvor lokal entfernt. Das Starten der Vorlesefunktion ist der Zeitpunkt der
+Zustimmung.</li>
+</ul>
+<div class="box warn">Keiner der Aufrufe der Textverarbeitung zeigt einen gesonderten Zustimmungsdialog
+an oder schreibt Einträge in das Audit-Protokoll (Umgehung des Routers, Abschnitt 3).</div>
+
+<h3>4.7 Red/Blue Team-Prüfung und Dialog-Zusammenfassung (API)</h3>
+<p>Zwei weitere API-Flüsse gehören zur Entwurfserstellung. <b>Red/Blue Team:</b> hat der Benutzer
+es für den aktiven Anbieter eingeschaltet (Schalter neben dem API-Schlüssel; ein gespeicherter
+Schlüssel ist erforderlich), wird jedes förmliche Dokument, das über den
+Auslieferungsdialog übergeben wird — aus dem In-App-Chat und aus der Desktop-KI-Bridge
+gleichermaßen —, von demselben Anbieter in einem gesonderten Prüfdurchlauf ein weiteres Mal aus Sicht des
+gegnerischen Rechtsvertreters gelesen
+(mittlere Stufe). Übermittelt werden: der Entwurfstext, das Datum und der Rechtsraum
+des Falls; pseudonymisiert über den Router und im Audit-Protokoll erfasst wie jeder Router-Aufruf;
+<b>kein Zustimmungsdialog</b> — der Schalter ist die Zustimmung; der Bericht des Prüfers wird dem Benutzer beigefügt. Die Red/Blue Team-Prüfung läuft
+<b>nie</b> über die kostenlosen Hintergrund-Anbieter (Abschnitt 1). <b>Dialog-Zusammenfassung:</b> in langen
+API-Chat-Sitzungen wird der ältere Teil des Dialogs (nur die Fragen des Benutzers und die
+endgültigen Antworten des Modells, niemals Werkzeugergebnisse) vom aktiven Anbieter
+(kleine Stufe, im Hintergrund, <b>kein eigener Zustimmungsdialog</b>) zu einer kurzen Zusammenfassung verdichtet, die den Rohverlauf
+ersetzt; sie wird verschlüsselt im Zwischenspeicher abgelegt und jedes Mal
+überschrieben. Pseudonymisiert und im Audit-Protokoll erfasst. Sind kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), kann die
+Zusammenfassung über diese laufen.</p>
+
+<h3>4.8 KI-Chat (extern, API)</h3>
+<p>Zustimmung einmal pro Chat-Sitzung; mittlere Stufe mit automatischer Eskalation zur
+großen Stufe (der gesamte Kontext wird dann erneut gesendet); pseudonymisiert; jede Runde
+im Audit-Protokoll erfasst. Jeder Durchgang übermittelt: den System-Prompt (statische Regeln), den <b>aktuellen GUI-Kontext</b>
+(aktueller Screen, geöffneter Fall/Mandant einschl. Name des Mandanten — durch Platzhalter ersetzt),
+bis zu <b>10 KI-Gedächtniseinträge</b> des geöffneten Mandanten, den jüngsten Dialog zuzüglich einer Zusammenfassung älterer Durchgänge
+(4.7) sowie die Liste der Zwischenspeicher-Dateien des Chats. Jedes Werkzeug, das das Modell aufruft,
+gibt sein Ergebnis in die API-Konversation zurück — einschließlich Dokument-Volltexten
+(größere Ergebnisse werden im verschlüsselten Zwischenspeicher abgelegt), E-Mail-Nachrichtentexten und
+Auszügen aus dem Tagesprotokoll. Der Chat verwendet dieselbe Werkzeugschicht
+und dieselben Auslieferungsprüfungen wie die Desktop-KI-Bridge (4.9): Prüfung von
+Schriftsätzen, Red/Blue Team (4.7) und Übergabe über den Export-Dialog —
+was das System verlässt, ist eine einreichungsfähige Vorlage. Die lokale Chat-Schicht
+beantwortet Routineanfragen ohne jede Übermittlung.</p>
+<p>Zwei Hilfsfunktionen verdienen ausdrückliche Erwähnung. Die <b>Wetterabfrage</b>
+ruft aktuelle Wetterdaten für einen benannten Ort von dem Nicht-LLM-Dienst
+Open-Meteo ab (Abschnitt 7) — an diesen Dienst werden nur der Ortsname bzw. dessen Koordinaten übermittelt,
+niemals Fall- oder Personendaten. Die <b>Standortabfrage</b>
+antwortet ausschließlich aus der <b>jüngsten lokal gespeicherten</b>
+Sicherheits-Momentaufnahme (Abschnitt 8): Die Anfrage der KI löst <b>keine neue externe Abfrage</b> aus —
+sie liest lediglich, was bereits auf dem Datenträger vorhanden ist. Wie bei jedem Werkzeug fließt das, was diese Funktionen
+zurückgeben, in die KI-Konversation zurück, d. h. an den KI-Anbieter.</p>
+<h3>4.9 Desktop-KI-Bridge (optionale Zusatzmodule)</h3>
+<p><b>Jeder Desktop-KI-Zugang ist ein optionales, gesondert erworbenes Modul.</b>
+Er besteht nur dort, wo die Kanzlei das jeweilige Bridge-Modul erworben und
+installiert hat; ohne jedes Modul bleibt der Bridge-Abschnitt in der
+Konfiguration gesperrt, der lokale Endpunkt startet nie, und keiner der in
+diesem Abschnitt beschriebenen Datenflüsse kann stattfinden. Bridges gibt es für
+<b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> und <b>Kimi Desktop</b>; jede hat ihr eigenes kleines Bridge-Programm,
+und alle verbinden sich mit demselben lokalen Endpunkt in der laufenden
+Anwendung. Die nachfolgend beschriebenen Datenflüsse sind für alle identisch; lediglich der empfangende Anbieter unterscheidet sich.</p>
+<div class="box crit"><b>Dieser Kanal überträgt echte Falldaten.</b> Das ist sein Zweck: Die eigene Desktop-KI-Sitzung des Benutzers erstellt
+einreichungsfähige Vorlagen und benötigt daher echte Namen und Nummern.</div>
+<ul>
+<li>Die Desktop-KI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop oder Kimi Desktop)
+verbindet sich über ihr Bridge-Programm mit der laufenden Anwendung; diese Verbindung bleibt auf dem
+Rechner. Nur die Werkzeuge für Websuche, Seitenlesen und Register nehmen Kontakt zum Internet auf.</li>
+<li><b>Websites mit Zugangsprüfung.</b> Verlangt eine Website eine Bestätigung, bevor sie
+ihre Inhalte freigibt, öffnet <span class="irs">IRONSTICK</span> die Seite in einem eigenen Fenster; der
+Benutzer bestätigt dort selbst. Den Inhalt der Seite liest anschließend die Desktop-KI —
+er fließt wie jedes andere Werkzeugergebnis an ihren Anbieter.</li>
+<li>Der erste Datenzugriff irgendeiner Desktop-KI in einem Programmlauf öffnet einen blockierenden
+Zustimmungsdialog. Die Freigabe öffnet den Zugriff für alle Desktop-KIs für den Rest des
+Programmlaufs; eine Ablehnung sperrt sie alle vorübergehend.</li>
+<li>Mehr als 200 Werkzeuge stellen Chroniken, Volltexte, E-Mails,
+Tagesprotokolle, Fristen, Stammdaten, ganze Fälle (in Teilen) und Ausgabeformate
+bereit; als geheim markierte Dokumente sind ausgenommen. Änderungen an Stammdaten,
+Chronik, Kalender, KI-Gedächtnis, Volltexten und der Gesetzesbibliothek werden erst wirksam,
+nachdem der Benutzer sie in einem <span class="irs">IRONSTICK</span>-Formular, -Dialog
+oder im Datenkonsistenz Monitor freigegeben hat: Vorschläge zu Stammdaten und Beziehungen
+landen im Monitor; von der KI vorgeschlagene Änderungen an fallgebundenen KI-Instruktionsnotizen werden als
+Rot/Grün-Diff angezeigt und erst übernommen, nachdem der Benutzer
+ausdrücklich zugestimmt hat; Chronik-Einträge werden niemals von der KI geschrieben — sie füllt lediglich das
+Erfassungsformular vor, das der Benutzer vervollständigt und speichert; und ein von der KI geheilter Dokument-Volltext
+(OCR-Neuscan) ersetzt den gespeicherten Volltext erst, nachdem
+der Benutzer den vollständigen Text in einem Bestätigungsdialog gesehen und gespeichert hat.
+Ohne einen solchen Dialog schreibt die KI nur in ihre eigenen Arbeitsbereiche: den verschlüsselten
+Zwischenspeicher, das Tagesprotokoll auf Wunsch des Benutzers und ihre eigene Fallbewertung nach den deterministischen Prüfungen.
+Tags und Kanzlei-Chat-Nachrichten brauchen die Bestätigung des Benutzers im Chat. Bei einem von einem Kollegen abonnierten Fall
+kann die KI eine Notiz anheften, die über den
+<span class="irs">IRONSTICK</span> SERVER an den Inhaber des Falls und alle Abonnenten gelangt
+(Abschnitt 9). Die Übergabe in die Textverarbeitung und die Dateiauslieferung sind ausdrückliche Schritte des Benutzers;
+Navigation nur bei gesonderter Erlaubnis.</li>
+<li><b>Heilung durch OCR-Neuscan (lokal) und die PDF-Übergabe (vom Benutzer veranlasst).</b>
+Ist ein gespeicherter Volltext abgeschnitten oder durch einen alten OCR-Lauf unbrauchbar, kann die KI
+einen erneuten Scan anfordern: Der Benutzer wählt die Seiten aus, der Neuscan läuft <b>lokal</b>
+(kein neuer externer Empfänger), und beide Textfassungen werden im lokalen
+Zwischenspeicher bereitgestellt; was die KI daraus liest, fließt wie jedes
+andere Werkzeugergebnis an ihren Anbieter. Als äußerstes letztes Mittel — nur nach einem solchen Neuscan und
+nur innerhalb harter, von der Bridge durchgesetzter Grenzen —
+kann die KI den Benutzer bitten, ihr die <b>Original-PDF-Datei</b> zu übergeben: <span class="irs">IRONSTICK</span>
+öffnet lediglich den Eintrag; der Benutzer speichert die PDF selbst über das Büroklammer-Symbol
+und zieht sie in den Desktop-KI-Chat. Dadurch wird das Dokument
+<b>als Datei</b> (einschließlich Stempeln, Unterschriften und Bildern) an den Anbieter dieser KI
+übertragen — dies geschieht ausschließlich durch eigenes, bewusstes Handeln des Benutzers, niemals
+automatisch, und als geheim markierte Dokumente sind von vornherein vom gesamten
+Neuscan-Kanal ausgenommen.</li>
+<li><b>Lokaler KI-Zwischenspeicher (Datenminimierung).</b> Umfangreiche Werkzeugergebnisse können in einer lokalen, verschlüsselten Zwischenspeicher-Datei abgelegt und dort bearbeitet werden, <b>ohne überhaupt an den KI-Anbieter
+übertragen zu werden</b>. Vollständige Fall-Exporte für die KI
+und die Sitzungsstart-Übersicht in einem Aufruf werden ebenfalls unmittelbar in diesen
+lokalen Speicher geschrieben; nur die Teile, welche die KI anschließend liest, fließen an ihren Anbieter.
+ Der Zwischenspeicher befindet sich innerhalb des
+Datenverzeichnisses und bleibt über Sitzungen hinweg erhalten (er ist der Arbeitskontext der KI);
+nicht mehr genutzte Dateien werden automatisch gelöscht, und es entsteht kein neuer externer Empfänger.</li>
+<li><b>Der Zwischenspeicher ist verschlüsselt.</b>
+Jede Datei im Zwischenspeicher ist im Ruhezustand AES-256-verschlüsselt; Dateien verlassen den
+Speicher ausschließlich über den Export-Dialog von <span class="irs">IRONSTICK</span>, niemals in einen Download-Ordner.
+Die Datenbank, der Dokumentenspeicher, die Konfigurationsdatei und der Zwischenspeicher
+sind damit alle im Ruhezustand AES-256-verschlüsselt. Temporäre Arbeitskopien geöffneter
+Dokumente (bei jedem Start und beim Beenden geleert), der kurzlebige Peer-Review-Puffer,
+der Scan-Eingang, Exporte und ausgehende Dateien bleiben im Klartext
+(Abschnitt 8).</li>
+<li>Werkzeugergebnisse werden an den Desktop-KI-Client des Benutzers und von dort
+an <b>dessen Anbieter</b> übermittelt: Anthropic für Claude (im Rahmen des Claude-Abonnements
+des Benutzers und der Bedingungen von Anthropic), OpenAI für ChatGPT (im Rahmen des
+ChatGPT-Abonnements des Benutzers und der Bedingungen von OpenAI), Alibaba Cloud/Qwen für Qwen
+Desktop (im Rahmen des Qwen-Kontos des Benutzers und der Bedingungen von Qwen) oder Moonshot AI für Kimi
+Desktop (im Rahmen des Kimi-Kontos des Benutzers und der Bedingungen von Moonshot AI). <span class="irs">IRONSTICK</span> schreibt keine
+Audit-Protokoll-Zeilen für den Bridge-Verkehr; die obere Leiste zeigt je
+aktiver KI ein pulsierendes Logo (Claude-Zeichen, ChatGPT-Zeichen, Qwen-Zeichen, Kimi-Zeichen) — gleichzeitiger Zugriff ist
+möglich und wird jeweils gesondert signalisiert. Jedes Bridge-Programm führt neben sich ein
+<b>lokales Protokoll</b> mit Zeit, Werkzeugname, Erfolg/Fehlschlag und
+Antwortgröße, <b>niemals mit Inhalten</b>. Ein zweites, detaillierteres
+<b>Diagnoseprotokoll</b> im Datenverzeichnis ist <b>standardmäßig ausgeschaltet</b>; wenn es
+zur Fehlersuche eingeschaltet wird, kann es Aufrufparameter (die Namen enthalten können) im Klartext enthalten und wird automatisch gekürzt. Keines der Protokolle wird irgendwohin übertragen.</li>
+<li>Das gemeinsame KI-Gedächtnis speichert verdichtete Erkenntnisse (mandanten- oder fallgebunden) lokal. Die KI kann vorschlagen, einen
+Eintrag zu speichern, zu ändern oder zu löschen; jede Änderung wird erst wirksam, nachdem der Benutzer zugestimmt hat. Mit einem Fall verknüpfte Einträge
+werden nie automatisch gelöscht; Einträge ohne Fall werden nach einem Jahr ohne Nutzung gelöscht. Der Inhalt des Gedächtnisses ist für jeden KI-Kanal
+sichtbar und wird übertragen, sobald diese Kanäle ihn lesen.</li>
+<li>Das Peer-Review zwischen den Desktop-KIs läuft über <span class="irs">IRONSTICK</span>, nicht unmittelbar
+zwischen den Anbietern: Eine KI hinterlegt ein Arbeitsergebnis (z. B. einen Entwurf) in einem
+<b>lokalen, kurzlebigen Austauschpuffer</b> (Klartextdateien auf dem Rechner des Benutzers,
+gelöscht, wenn die Aufgabe geschlossen wird, und bei jedem Neustart der App vollständig bereinigt) sowie eine
+Aufgabennotiz; die andere KI liest diese, wenn der Benutzer sie dazu anweist. Dadurch entsteht
+<b>kein neuer externer Empfänger</b> — was die prüfende KI liest, wird genau wie jedes andere
+oben beschriebene Werkzeugergebnis an <b>ihren eigenen</b> Anbieter übertragen, zu dessen
+Bedingungen. Die Anbieter tauschen niemals unmittelbar Daten aus; was die prüfende KI liest, geht
+ausschließlich an ihren eigenen Anbieter.</li>
+</ul>
+
+<h3>4.10 Audio-Transkription (Sprecherzuordnung)</h3>
+<p>Die Spracherkennung läuft vollständig lokal; die Aufnahme selbst verlässt den
+Rechner nie. Hat der Benutzer mehr als einen Sprecher angegeben, ordnet anschließend
+die KI die erkannten Zeilen den Sprechern zu: abschnittsweise (mittlere Stufe) den erkannten Text, dazu bereits zugeordnete Zeilen als Kontext und
+die Zahl der Sprecher. Die Aufrufe laufen über den Router — pseudonymisiert, unter dem
+Vorbehalt der Zustimmung, im Audit-Protokoll erfasst. Die Antwort darf den Text nicht
+verändern: jede Zeile wird gegen den erkannten Text geprüft; scheitert ein Block, wird
+das Transkript ohne Sprecherzuordnung übernommen. Bei nur einem Sprecher findet kein
+KI-Aufruf statt. Sind kostenlose Hintergrund-Anbieter eingeschaltet (Abschnitt 1), können
+diese Aufrufe über diese laufen.</p>
+
+<h2>5. Das KI-Instruktionspaket (Export-ZIP)</h2>
+<img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, Benutzer mit MD-Dateien und ZIP-Archiv, KI-Web-App">
+<p>Die Erstellung des Pakets erfolgt lokal und umfasst keinen KI-Aufruf. Sie erzeugt
+<b>Markdown im Klartext</b> (keine Pseudonymisierung), das dazu bestimmt ist, vom
+Benutzer bei einem externen LLM seiner Wahl hochgeladen zu werden. Inhalt:</p>
+<table>
+<tr><th>Datei</th><th>Inhalt</th></tr>
+<tr><td>Fälle</td><td>alle Fälle des ausgewählten Mandanten mit Parteien, Status und
+Beweismittel-ID-Index (keine Volltexte)</td></tr>
+<tr><td>Entitäten</td><td><b>alle Personen/Entitäten der gesamten Kanzlei</b> (nicht
+nur dieses Mandanten) einschließlich nationaler Personen- und Unternehmensnummern (z. B. rumänische CNP/CUI), Geburtsdatum, vollständiger Kontaktdaten, Beruf,
+Fahrzeug — zuzüglich der gespeicherten Analyseblöcke (Einschätzung, Schwachstellen,
+Wohnorte, Finanzen, soziales Umfeld, Quellen)</td></tr>
+<tr><td>Institutionen, Fristen</td><td>alle Institutionen; aktive Fristen mit
+Aktenzeichen und Mandantenname</td></tr>
+<tr><td>Mail</td><td>die 100 neuesten E-Mails <b>kanzleiweit</b>: Absender,
+Empfänger, Betreff, Dateinamen der Anhänge, kurzer Auszug (keine vollständigen Nachrichtentexte)</td></tr>
+<tr><td>Tagesprotokoll</td><td>letzte 10 Tage, kanzleiweit, einschließlich der
+Fallchronologie dieses Zeitraums</td></tr>
+<tr><td>Je Fall</td><td>eine Fallakte je Fall: die vollständige Chronik <b>mit
+Dokument-Volltexten</b>, Kennungen von Mandant und
+Parteien einschließlich Ausweisnummern; zuzüglich aller Fall-Hintergrundnotizen ohne Begrenzung</td></tr>
+<tr><td>Instruktionsdateien</td><td>fünf Dokumente mit Arbeitsregeln — keine personenbezogenen Daten</td></tr>
+</table>
+<div class="box crit"><b>Was geschieht, wenn dieses ZIP bei einem KI-Dienst eines Dritten hochgeladen wird:</b>
+Der Benutzer überträgt persönlich und im Klartext wesentliche Teile der gesamten
+Kanzlei — Mandantenidentitäten mit nationalen Identifikationsnummern, Profile Dritter
+einschließlich sensibler Einschätzungen, kanzleiweite Korrespondenz-Metadaten und Akten
+— an diesen Anbieter. Ab diesem Zeitpunkt werden die Daten zu den Bedingungen
+dieses Anbieters (Nutzung für Training, Aufbewahrung, Rechtsordnung) verarbeitet. <span class="irs">IRONSTICK</span> zeigt vor dem
+Export (einmal je Programmlauf) einen Datenschutzhinweis an und bietet den Export auch zu Google Drive an, wodurch
+die Dateien zusätzlich bei Google abgelegt werden. Der Benutzer handelt als übermittelnder
+Verantwortlicher im Sinne der DSGVO und muss vor dem Hochladen eine Rechtsgrundlage sicherstellen (z. B. Art. 6,
+berufsrechtliche Verschwiegenheitsregeln).</div>
+<p>Als geheim markierte Dokumente sind von Fristen, Tagesprotokollen und
+Fallakten ausgenommen.</p>
+<h2>6. Übersichtsmatrix</h2>
+<table>
+<tr><th>Datenfluss</th><th>Was abfließt (Form)</th><th>Pseudonymisiert</th><th>Eigener Zustimmungsdialog</th><th>Audit-Protokoll</th></tr>
+<tr><td>Dokumentenerfassung (4 Aufrufe)</td><td>OCR- und Dokumenttext (begrenzt), Fall- und Namenslisten</td><td class="yes">ja</td><td>ja — einmal pro Programmlauf</td><td class="yes">ja</td></tr>
+<tr><td>E-Mail-Triage (manueller Abruf im E-Mail-Screen)</td><td>Absender, Betreff, kurzer Textauszug (keine Fallliste); nur für E-Mails, die nicht lokal zugeordnet wurden</td><td class="yes">ja</td><td class="no">nein</td><td class="yes">ja</td></tr>
+<tr><td>E-Mail-Triage (Hintergrund, alle fünf Minuten)</td><td>ebenso</td><td class="yes">ja</td><td class="no">nein</td><td class="yes">ja</td></tr>
+<tr><td>Tagesbriefing (API)</td><td>Briefingtext: Fristenzahlen, Gerichtstermine mit Fallnummer, Mandantenname, Ort und Gericht, Titel der Termine</td><td class="yes">ja</td><td class="no">nein (erster Start des Tages, beim Start vorbereitet)</td><td class="yes">ja</td></tr>
+<tr><td>Personenrecherche, Stufe 1</td><td>Klarname (Websuche)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Sitzung</td><td class="yes">ja (im Klartext)</td></tr>
+<tr><td>Personenrecherche, Stufen 2 und 3</td><td>Seitentexte (begrenzt je Quelle)</td><td class="yes">ja</td><td>dieselbe Zustimmung</td><td class="yes">ja</td></tr>
+<tr><td>Automatisches Ausfüllen Person/Institution</td><td>eingegebener Name (Websuche)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Sitzung</td><td class="yes">ja (im Klartext)</td></tr>
+<tr><td>KI-Import Tagesprotokoll</td><td>eingefügter Rohtext</td><td class="yes">ja</td><td>ja</td><td class="yes">ja</td></tr>
+<tr><td>Datenkonsistenz Monitor</td><td>je neuem Dokument: dessen Kontaktabschnitte und Namen möglicher Treffer (keine Kontaktdaten oder Ausweisnummern aus den Stammdaten)</td><td class="yes">ja (Institutionsnamen im Klartext)</td><td class="no">nein (gedrosselter Hintergrundprozess)</td><td class="yes">ja</td></tr>
+<tr><td>Textverarbeitung: Überarbeiten / Strukturieren</td><td>Auswahl mit Kontextauszug / Dokumentzeilen (begrenzt)</td><td class="yes">ja</td><td class="no">nein (Schaltfläche = Zustimmung)</td><td class="no">nein</td></tr>
+<tr><td>Vorverarbeitung für das Vorlesen</td><td>jeder Satz, Klartext</td><td class="no">nein</td><td class="no">nein (Start = Zustimmung)</td><td class="no">nein</td></tr>
+<tr><td>Red-/Blue-Team-Prüfung (API)</td><td>Entwurfstext, Datum und Rechtsraum</td><td class="yes">ja</td><td class="no">nein (Schalter = Zustimmung)</td><td class="yes">ja</td></tr>
+<tr><td>Dialogzusammenfassung (API)</td><td>ältere Dialogrunden (nur Fragen des Benutzers und endgültige Antworten)</td><td class="yes">ja</td><td class="no">nein (Hintergrunddurchlauf des API-Chats)</td><td class="yes">ja</td></tr>
+<tr><td>KI-Korrektur Datei→Markdown</td><td>konvertierter Text</td><td class="yes">ja</td><td class="no">nein</td><td class="no">nein</td></tr>
+<tr><td>KI-Finder der Schwärzung</td><td>bereits geschwärzter Text; Antworten enthalten Klarnamen Dritter</td><td class="no">aus — konzeptionsbedingt</td><td class="no">Umschalter = Zustimmung</td><td class="yes">ja</td></tr>
+<tr><td>KI-Chat (extern)</td><td>Prompt, Screen-Kontext, Gedächtnis, jüngster Dialog mit Zusammenfassung, Werkzeugergebnisse (begrenzt je Element)</td><td class="yes">ja</td><td>ja — einmal pro Sitzung</td><td class="yes">ja</td></tr>
+<tr><td>Desktop-KI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>unverarbeitete Werkzeugergebnisse (vollständige Falldaten)</td><td class="no">nein — konzeptionsbedingt</td><td>ja — einmal pro Programmlauf für alle Desktop-KIs</td><td class="no">nein (App-seitig)</td></tr>
+<tr><td>Audio-Transkription: Sprecherzuordnung</td><td>erkannter Text in Abschnitten — die Aufnahme nie</td><td class="yes">ja</td><td>ja</td><td class="yes">ja</td></tr>
+<tr><td>Kostenlose Hintergrund-Anbieter (Groq, OpenRouter, Mistral) — nur wenn eingeschaltet</td><td>dieselben Inhalte wie die jeweilige Hintergrundaufgabe; nie Chat, Schriftsatz oder Red/Blue Team</td><td>wie die jeweilige Aufgabe</td><td class="no">nein (Schalter je Anbieter = Zustimmung)</td><td class="yes">ja</td></tr>
+<tr><td>KI-Instruktions-ZIP</td><td>Kanzleiexport im Klartext (vom Benutzer veranlasster Upload)</td><td class="no">nein</td><td>Warnung einmal pro Programmlauf</td><td>entfällt</td></tr>
+</table>
+
+<h2>7. Externe Dienste ohne LLM (der Vollständigkeit halber)</h2>
+<img class="flow" src="img/68_external_services.png" alt="IRONSTICK Client, Internet, Standort-Symbol und Wetter-Symbol">
+<p>Unabhängig von jedem LLM kontaktieren die folgenden Funktionen externe Dienste mit
+den minimal erforderlichen Daten: Nummernvalidierung (EU VIES, EORI, GLEIF,
+Handelsregister — die zu prüfende Nummer), die direkten Webabfragen der Personensuche (der Name), IMAP (Ihr Mailserver) sowie
+optionale Exporte nach Google Drive (die exportierten Dateien). Keiner dieser Vorgänge bezieht
+den KI-Anbieter ein.</p>
+<p>Die folgenden Dienste werden im Hintergrund oder ebenfalls mit minimalen Daten
+kontaktiert:</p>
+<ul>
+<li><b>OpenStreetMap Nominatim (Adress-Geokodierung)</b> — einmal täglich arbeitet ein
+Hintergrundauftrag die Personen und Unternehmen in den Parteidatensätzen ab,
+die eine Adresse oder einen Ort haben, und sendet Straße, Bezirk, Ort und Land
+(niemals den Namen) an Nominatim, um sie auf der Karte zu platzieren; eine bereits
+platzierte Adresse wird nur erneut gesendet, wenn sie sich ändert, und eine nicht gefundene wird
+nach einer Wartezeit erneut versucht. Der Ortsname der Wetterabfrage wird auf
+dieselbe Weise geokodiert. Kein Zustimmungsdialog; die Koordinaten werden lokal gespeichert.</li>
+<li><b>ipwho.is (Geo-IP-Abfrage)</b> — einmal pro Programmstart fragt <span class="irs">IRONSTICK</span> im Rahmen des
+lokalen Sicherheits-Snapshots (Abschnitt 8) bei diesem Dienst die
+<b>öffentliche</b> IP-Adresse des Rechners und einen groben Standort (Stadt, Land, ISP) ab.
+Die Anfrage enthält keine Nutzdaten; der Dienst erhält die öffentliche IP-Adresse, von der die
+Anfrage eingeht. Die Antwort wird ausschließlich lokal gespeichert und
+nirgendwohin sonst übermittelt.</li>
+<li><b>Open-Meteo (Wetter)</b> — auf Anforderung fragt die KI-Wetterabfrage
+(Abschnitt 4.8) aktuelle Wetterdaten für einen benannten Ort ab; das Tagesbriefing tut
+dasselbe für den in der Konfiguration hinterlegten Ort, wenn sein optionaler Modus mit
+Wetterbezug eingeschaltet ist. Übermittelt werden nur die Koordinaten des Ortes — niemals
+Fall-, Mandanten- oder Personendaten.</li>
+<li><b><a href="index_de.html">www.ironstick.legal</a> (Neuigkeitendatei)</b> — nachdem der Zugangscode
+eingegeben wurde, und danach alle sechs Stunden, lädt die Anwendung von der Website des Softwareherstellers eine Neuigkeitendatei mit
+Hinweisen und Warnungen herunter, dazu jedes darin referenzierte Bild. Die Anfrage enthält keine Daten; wie jeder Webserver
+sieht der Server des Herstellers die IP-Adresse und den Zeitpunkt der Anfrage.</li>
+</ul>
+<p>Keiner dieser Dienste bezieht den KI-Anbieter ein.</p>
+
+<h2>8. Lokale Speicherung, Integrität und Kontrolle durch den Benutzer</h2>
+<img class="flow" src="img/69_local_encryption.png" alt="IRONSTICK Client mit TOTP-Zugangssperre; Dokumente, Zwischenspeicher und Datenbank mit AES-256 verschlüsselt">
+<p>Unabhängig von den vorstehenden KI-Kanälen gilt für <b>sämtliche</b>
+Daten, die <span class="irs">IRONSTICK</span> vorhält, Folgendes:</p>
+<ul>
+<li><b>Ausschließlich lokale Speicherung.</b> Der gesamte Datenbestand — Datenbank, Dokumentdateien,
+Medien, Transkripte, Konfiguration — befindet sich in einem einzigen Datenverzeichnis unter
+einem vom Benutzer festgelegten Pfad. <span class="irs">IRONSTICK</span> erfordert kein Cloud-Konto,
+und keine Funktion sendet Benutzerdaten an den Hersteller (der einzige Kontakt zum Hersteller ist
+der Download der Neuigkeitendatei, Abschnitt 7). Betreibt eine Kanzlei
+den optionalen <span class="irs">IRONSTICK</span> SERVER (Abschnitt 9), so ist auch dieser Server ein eigenes Gerät der
+Kanzlei im eigenen Netzwerk der Kanzlei — am Zugriff des Herstellers ändert sich dadurch nichts.</li>
+<li><b>Datenbank im Ruhezustand verschlüsselt (AES-256).</b> Die Datenbank — der Bestand
+an Mandanten, Fällen, Chronik, E-Mails, Fristen, Transkripttexten und dem
+Gedächtnis der KIs — wird mit AES-256 verschlüsselt gespeichert, jede Seite einzeln und
+mit einem Integritätssiegel je Seite. Der Schlüssel wird von der Anwendung zur
+Laufzeit abgeleitet und niemals auf Datenträger oder in die Konfiguration geschrieben, sodass eine Datenbankdatei,
+die vom Speichergerät oder aus einem Backup-Archiv kopiert wird, ohne
+<span class="irs">IRONSTICK</span> nicht gelesen werden kann. Dies ist eine technische Maßnahme im Sinne von Art. 32 DSGVO, die
+ohne jede Konfiguration durch den Benutzer greift und nicht abgeschaltet werden kann.</li>
+<li><b>Dokumente im Ruhezustand verschlüsselt (AES-256).</b> Der Dokumentenspeicher — die
+Original-PDFs, Scans, Bilder, Audio- und Transkriptdateien — wird auf dieselbe Weise
+Datei für Datei verschlüsselt, mit einem Integritätssiegel, das Veränderungen erkennt.
+Das Lesen erfolgt über ein einziges Tor, das die angeforderte Datei
+in eine temporäre Arbeitskopie entschlüsselt und diese Kopien entfernt, wenn die
+Anwendung geschlossen oder gestartet wird. Backups und Fallpakete enthalten die Dokumente
+in ihrer verschlüsselten Form. </li>
+<li><b>Was im Klartext bleibt.</b> Neben den Arbeitskopien der laufenden Sitzung und Exporten: Scans, die im Scan-Eingang auf ihre Erfassung warten;
+der kurzlebige Peer-Review-Puffer zwischen den Desktop-KIs (Abschnitt 4.9, gelöscht,
+wenn die Aufgabe geschlossen wird, und bei jedem Start bereinigt); und, nur wenn eingeschaltet,
+das detaillierte Diagnoseprotokoll der Bridge (Abschnitt 4.9).</li>
+<li><b>Zugangskontrolle beim Start (TOTP).</b> Sobald der Lizenzschlüssel
+akzeptiert ist, zeigt die Anwendung nichts außer einer Code-Abfrage an, bis der Benutzer
+den aktuellen sechsstelligen zeitbasierten Einmalcode aus einer
+Authenticator-App (RFC 6238) eingibt. Das den Codes zugrunde liegende Geheimnis wird
+niemals auf Datenträger geschrieben; gespeichert wird lediglich ein
+nicht geheimer Fingerabdruck der bestätigten Einrichtung, damit der QR-Code
+nach einem Schlüsselwechsel erneut angezeigt wird. Wiederholte Falscheingaben lösen eine zunehmende
+Wartezeit aus. Die Desktop-KI-Bridges erhalten keine Falldaten, solange die Anwendung
+gesperrt ist. Die Konfigurationsdatei (API-Schlüssel, E-Mail-Zugangsdaten,
+Serverzugang) liegt mit demselben Mechanismus wie die
+Dokumente AES-256-verschlüsselt vor und wird ausschließlich im Arbeitsspeicher entschlüsselt.</li>
+<li><b>Vom Benutzer kontrollierter Speicherort.</b> Der Datenpfad wird bei der
+Einrichtung gewählt und kann jederzeit geändert werden — auch auf ein Wechselmedium wie
+einen verschlüsselten USB-Stick oder eine verschlüsselte externe Festplatte. Die Anwendung folgt schlicht
+dem konfigurierten Speicherort; die Verschlüsselung des Mediums (z. B. mit der
+Laufwerksverschlüsselung des Betriebssystems) liegt in der Hand des Benutzers und wird
+für tragbare Medien empfohlen. Netzlaufwerke und mit einer Cloud synchronisierte Ordner
+(OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) werden als Datenspeicherort
+abgelehnt. Beim Wechsel des Speicherorts in der Konfiguration prüft
+<span class="irs">IRONSTICK</span> das Ziel anhand dieser Regeln; kopiert wird mit Prüfsummenvergleich, umgeschaltet
+erst nach erfolgreicher Verifikation, und der alte Ordner bleibt umbenannt erhalten.</li>
+<li><b>Gerätesynchronisation ohne jede Cloud.</b> Die optionale
+Synchronisation Windows&nbsp;↔&nbsp;Android-Tablet läuft über eine direkte
+USB-Kabelverbindung — kein Drittanbieterdienst ist beteiligt, Übertragungen werden
+per Prüfsumme verifiziert, und vor dem Ersetzen der Datenbank wird ein verpflichtendes Backup
+erstellt. Als geheim markierte Dokumente werden überhaupt nicht auf das Tablet
+übertragen.</li>
+<li><b>Sicherheits-Snapshot beim Start (lokales Anmeldeprotokoll).</b> Bei jedem
+Programmstart zeichnet <span class="irs">IRONSTICK</span> im Hintergrund einen Snapshot des Rechners auf, auf dem es
+läuft: Hostname, Betriebssystem, RAM/CPU, lokale IP-Adresse, Standard-Browser,
+laufende Fernzugriffswerkzeuge, die es erkennt, sowie eine daraus abgeleitete Sicherheitsbewertung
+— zudem, einmal pro Start, die öffentliche IP-Adresse und den groben Standort
+(Stadt, Land, ISP), die über den Geo-IP-Dienst ipwho.is (Abschnitt 7) ermittelt werden.
+Der Snapshot wird <b>ausschließlich lokal</b> im Anmeldeprotokoll der Datenbank
+gespeichert und nirgendwohin übermittelt. Die Aufbewahrung ist
+automatisch auf höchstens <b>6 Monate</b> und höchstens <b>1.000
+Einträge</b> begrenzt (tägliche Bereinigung), und der Benutzer kann das Protokoll jederzeit
+im Konfigurator einsehen (Karte &laquo;Anmeldeprotokoll&raquo;).</li>
+<li><b>Integritäts-Fingerabdrücke für jede erfasste Datei.</b> Im Moment der
+Erfassung erhält jede gespeicherte Datei einen kryptografischen Inhalts-Fingerabdruck
+(SHA-256 für Dokumente und Medien; einen älteren MD5-Fingerabdruck für Transkript-Audiodateien),
+der in der Datenbank neben dem Eintrag festgehalten wird. Jede spätere Veränderung einer
+gespeicherten Datei ist daher durch Abgleich der Datei mit ihrem
+festgehaltenen Fingerabdruck <b>erkennbar</b>, und E-Discovery-Exporte (EDRM) enthalten diese Fingerabdrücke,
+sodass Empfänger die Dateien unabhängig verifizieren können. Dadurch wird jede Manipulation offenkundig und beweisbar.</li>
+<li><b>Backups nach Ermessen des Benutzers.</b> Eine integrierte Backup-Funktion schreibt
+eine vollständige Kopie der Daten (vollständiges Backup oder reines Daten-Backup) als einzelnes ZIP-Archiv
+an ein beliebiges vom Benutzer gewähltes Ziel und stellt auf Anforderung aus einem solchen Archiv
+wieder her. Wie oft Backups erstellt werden, wo sie aufbewahrt werden, wie lange sie
+aufbewahrt werden und ob die Archive zusätzlich verschlüsselt werden, liegt vollständig in der
+Entscheidung des Benutzers. In jedem Archiv sind die Datenbank, die Dokumente, die
+Konfiguration und der KI-Zwischenspeicher in jedem Fall AES-256-verschlüsselt; nur
+Scans, die noch im Scan-Eingang warten, sind unverändert enthalten —
+<span class="irs">IRONSTICK</span> gibt keinen Zeitplan vor und übermittelt Backups nirgendwohin.</li>
+<li><b>Erzeugte Dokumente gehören dem Benutzer.</b> Der Benutzer kann jederzeit
+Dokumente erzeugen — Schriftsätze, Briefe, Dossiers, Listen, Exporte — und
+herunterladen: Sie werden in den lokalen Ordner „Dokumente“ geschrieben oder, sofern der
+Benutzer ausdrücklich Google Drive als Ziel wählt, in das eigene Google-Drive-Konto des Benutzers.
+Was danach mit einem
+erzeugten Dokument geschieht — Drucken, Einreichen bei einem Gericht, Versand per E-Mail,
+Hochladen zu einem beliebigen Dienst, Weitergabe an Dritte —, entscheidet allein der Benutzer.</li>
+</ul>
+<div class="box"><b>Zuweisung der Verantwortung.</b> Da <span class="irs">IRONSTICK</span>
+alles lokal speichert und Daten nur auf den in den Abschnitten
+1–7 und 9 dokumentierten Wegen übermittelt — einschließlich der Hintergrundfunktionen, die ohne eigenen
+Dialog laufen (Abschnitte 3 und 7) —, ist der Betreiber der Kanzlei alleiniger
+Verantwortlicher: Er wählt das Speichermedium und dessen Verschlüsselung, verwaltet Backups und
+bewahrt sie auf, entscheidet, welche KI-Funktionen aktiviert sind, erteilt oder verweigert jede
+Zustimmung und entscheidet allein darüber, was mit jedem Dokument, jedem Export oder jedem Backup geschieht,
+das die Software erzeugt. KI-generierte Inhalte — Entwürfe, Zusammenfassungen, Bewertungen,
+Klassifizierungen — sind stets ein <b>Vorschlag</b>, über den der Benutzer entscheidet. Dieses Dokument dient dazu, dass jede
+dieser Entscheidungen in voller Kenntnis der tatsächlichen
+Datenflüsse getroffen werden kann.</div>
+<h2>9. <span class="irs">IRONSTICK</span> SERVER (optional, im eigenen Netzwerk der Kanzlei)</h2>
+<img class="flow" src="img/70_server_lan.png" alt="IRONSTICK Server und IRONSTICK Client über das LAN verbunden; der Server hat keine Verbindung zum Internet">
+<p>Kanzleien mit mehreren <span class="irs">IRONSTICK</span>-Arbeitsplätzen können den optionalen
+<b><span class="irs">IRONSTICK</span> SERVER</b> betreiben — einen Koordinationsdienst, der auf dem
+kanzleieigenen Synology NAS im eigenen lokalen Netzwerk der Kanzlei läuft. Für
+die Zwecke dieser Erklärung sind folgende Tatsachen entscheidend:</p>
+<ul>
+<li><b>Es ist keine externe Partei beteiligt.</b> Der Server ist ein eigenes
+Gerät der Kanzlei. Er nimmt Verbindungen ausschließlich von privaten (lokalen)
+Netzwerkadressen an und <b>baut niemals selbst eine Verbindung ins Internet
+auf</b> — keine Telemetrie, keine Update-Prüfungen, kein Kontakt zum Hersteller.
+Der Softwarehersteller hat keinerlei Zugriff.</li>
+<li><b>Transport und Speicherung.</b> Dokumente gelangen nur als AES-256-verschlüsselte Dateien im selben Tresor-Format wie am
+Arbeitsplatz zum Server und liegen dort auch nur so; der Server sieht ihren Klartext nie.
+Der Server läuft auf dem eigenen NAS der Kanzlei im Netzwerk der Kanzlei, ohne Internetverbindungen.</li>
+<li><b>Keine KI-Beteiligung.</b> Über den Server läuft kein KI-Datenverkehr, er
+speichert keinen KI-Schlüssel und kommuniziert niemals mit einem Anbieter von
+Sprachmodellen. Alle in den Abschnitten 1–6 beschriebenen KI-Kanäle bleiben
+strikt auf den einzelnen Arbeitsplatz beschränkt; die Pseudonymisierungsschicht,
+die Zustimmungs-Schranken und das Audit-Protokoll werden durch das Vorhandensein
+des Servers nicht berührt.</li>
+<li><b>Was der Server speichert</b> — alles auf dem NAS, unter der Kontrolle der
+Kanzlei: (a) <b>freigegebene Fallpakete</b> — ausschließlich Fälle, die ein
+Benutzer ausdrücklich für Kollegen freigegeben hat; als geheim markierte
+Dokumente sind konstruktionsbedingt ausgeschlossen und gelangen niemals auf den
+Server; (b) die <b>zentrale Gesetzesbibliothek</b> — öffentliche
+Gesetzestexte als Markdown, jeweils mit dem Namen des beitragenden Benutzers,
+dem Quellenlink und dem Prüfdatum; (c) <b>Zeiterfassungsdaten</b> — je Benutzer,
+Tag und Fall: Fallnummer, Mandantenname und Minuten, von jedem Arbeitsplatz im
+Hintergrund gemeldet; (d) <b>Anwesenheitssummen</b> je Benutzer und Tag,
+abgeleitet aus Sitzungs-Heartbeats; (e) <b>Metadaten zu Fallereignissen</b> —
+Freigaben, Widerrufe, Beginn und Ende von Abonnements sowie Exporte, jeweils mit
+Datum, Uhrzeit und LAN-IP-Adresse; (f) ein <b>Sicherheitsprotokoll</b> mit
+administrativen Ereignissen und Anmeldeereignissen, einschließlich
+LAN-IP-Adressen; (g) <b>Fallübergabe-Pakete</b> — überträgt ein Benutzer die
+Inhaberschaft an einem Fall auf einen Kollegen, gelangt der vollständige Fall
+als ein Archiv über einen temporären Übergabebereich auf dem Server; das Paket
+wird vom Server gelöscht, nachdem der Empfänger den Import bestätigt hat, und
+als geheim markierte Dokumente werden nur nach ausdrücklicher zusätzlicher
+Bestätigung durch den Inhaber übertragen (andernfalls wird die Übertragung
+abgebrochen); (h) der <b>zentrale Scan-Eingang</b> (optionale Central Scan
+App): ein Verzeichnis der <b>Fallnummern und des Anzeigenamens</b> jedes
+Benutzers (von den Arbeitsplätzen als Abgleichmaterial gemeldet — niemals
+Fallinhalte) sowie ein dateiweiser <b>Dokumenten-Spool</b>, der eingescannte, an
+einen Benutzer adressierte Eingangspost vorhält, bis der Arbeitsplatz dieses
+Benutzers sie abgerufen und bestätigt hat, woraufhin die Serverkopie gelöscht
+wird; Texterkennung und Empfängerzuordnung erfolgen lokal auf dem
+Scan-Arbeitsplatz, ohne jede KI; (i) <b>Backup-Ereignisdaten</b> — jeder
+Arbeitsplatz meldet seine Datensicherungs- und Wiederherstellungsereignisse
+(Art, Dateiname, Größe, Zeitpunkt, LAN-IP), sodass der Administrator je Benutzer
+sehen kann, wann die letzte Sicherung erstellt wurde, und Benutzer erinnern
+kann, die im Rückstand sind; (j) das <b>kanzleiweite Parteienverzeichnis</b>
+— die Stammdatensätze zu <b>Personen und Unternehmen,
+Institutionen, den Beziehungen zwischen ihnen und den Personenanalysen</b>, die
+auf den Arbeitsplätzen geführt werden, zusammen mit der Warteschlange der
+zwischen den Benutzern ausgetauschten Änderungsvorschläge; (k) die
+<b>Bewertungen von Gerichtsentscheiden</b> — je Arbeitsplatz und Entscheid: Gericht,
+Spruchkörper und Besetzung, die Namen der Richter und Gerichtsschreiber,
+Entscheidnummer, Datum, Aktenzeichen, die internen Fall- und Mandantennummern des
+bewertenden Arbeitsplatzes, gemessene Textanteile und die von der KI verfasste
+englische Analyse des Entscheids und der Eingaben beider Seiten; (l) der
+<b>Kanzlei-Chat</b> — Nachrichten zwischen den registrierten Benutzern (nach einem Jahr gelöscht) —
+sowie an einen geteilten Fall angeheftete Notizen, die für dessen Inhaber und alle Abonnenten sichtbar sind.</li>
+<li><b>Das kanzleiweite Parteienverzeichnis.</b> Sobald ein Arbeitsplatz mit dem
+Server verbunden ist, werden seine Parteien-Stammdaten (wer ist wer: Namen,
+Kennungen, Kontaktdaten, Beziehungen, Personenanalyse) <b>automatisch
+hochgeladen</b> und auf jeden anderen Arbeitsplatz derselben Kanzlei gespiegelt,
+sodass jeder Anwalt sieht, mit wem die Kanzlei bereits zu tun hat, und die
+Kanzlei eine kanzleiweite Sicht auf Interessenkonflikte erhält. Jeder Datensatz
+hat genau einen Inhaber — den Benutzer, der ihn als Erster eingebracht hat; alle
+anderen Benutzer halten eine schreibgeschützte Kopie und können lediglich einen
+<b>Änderungsvorschlag</b> senden, den der Inhaber im Datenmonitor annimmt oder
+ablehnt. Ist der Inhaber 48 Stunden lang nicht erreichbar, geht die
+Inhaberschaft auf den vorschlagenden Benutzer über. <b>Fallinhalte sind nicht
+Teil dieses Verzeichnisses</b> — Dokumente, Chronologie, Korrespondenz und
+Fallzuordnungen unterliegen weiterhin den hier beschriebenen ausdrücklichen
+Freigabe- und Übergabehandlungen. Der Austausch bleibt innerhalb der Kanzlei
+(ein Verantwortlicher), verlässt niemals das lokale Netzwerk und bezieht
+<b>keinen KI-Anbieter</b> ein: Dublettenerkennung und Feldabgleich laufen als
+reine Programmlogik auf dem sendenden Arbeitsplatz; der Server speichert und
+leitet lediglich weiter. Kanzleien sollten diese interne Weitergabe von
+Parteidaten und Personenanalysen in ihrem Verzeichnis von
+Verarbeitungstätigkeiten aufführen.</li>
+<li><b>Die Bewertungen von Gerichtsentscheiden.</b> Eine Bewertung wird nur auf
+ausdrücklichen Befehl des Benutzers gespeichert; danach wird sie wie das
+Parteienverzeichnis <b>automatisch hochgeladen</b> und auf jeden Arbeitsplatz der
+Kanzlei gespiegelt. Jeder Arbeitsplatz führt je Entscheid seine eigene Bewertung,
+die nur er ändern kann. Die Analyse beschreibt den Inhalt eines Entscheids und der
+Eingaben dazu — sie enthält insoweit <b>Fallinhalt</b> — und nennt Richter und
+Gerichtsschreiber namentlich. Kein KI-Anbieter ist beteiligt; der Austausch bleibt im
+lokalen Netzwerk der Kanzlei. Kanzleien sollten auch diese Weitergabe in ihrem
+Verzeichnis von Verarbeitungstätigkeiten aufführen.</li>
+<li><b>Nur bewusste Handlungen — für Fallinhalte.</b> Fallinhalte gelangen
+ausschließlich über eine ausdrückliche, vom Benutzer bestätigte Freigabe- oder
+Übergabehandlung auf den Server; Texte der Gesetzesbibliothek erst, nachdem der
+Benutzer den Eintrag im Datenmonitor angenommen hat; eingescannte Eingangspost
+erst, nachdem die Kanzleikraft das Dokument geprüft und auf Senden an einen
+ausgewählten Empfänger geklickt hat. Das Parteienverzeichnis und die
+gespeicherten Bewertungen von Gerichtsentscheiden sind die bewussten Ausnahmen: Sie
+synchronisieren sich im Hintergrund ohne Bestätigung je Datensatz. Zeit-, Anwesenheits-, Ereignis- und Backup-Daten sind
+betriebliche Metadaten, die durch den Mehrbenutzerbetrieb selbst entstehen, und
+sind für den Administrator der Kanzlei in der Web-Administration sichtbar.</li>
+<li><b>Verantwortlichkeit.</b> Die Kanzlei, die den Server betreibt, bleibt
+alleinige Verantwortliche. Der Administrator entscheidet über die Freigabe von
+Registrierungen, kann Abonnements beenden, Einträge der Gesetzesbibliothek
+löschen und das Paket deinstallieren — wodurch das Server-Datenverzeichnis unter
+der Kontrolle des Administrators auf dem NAS verbleibt.</li>
+<li><b>Beschäftigtendaten.</b> Mit dem <span class="irs">IRONSTICK</span> SERVER meldet jeder
+Arbeitsplatz seine gemessene Arbeitszeit je Tag und Fall (Fallnummer,
+Mandantenname) sowie jedes Backup- und Wiederherstellungsereignis (Datei, Größe, Zeit, IP-Adresse)
+an den Server, wo der Administrator der Kanzlei sie einsehen kann. Die Kanzlei muss ihre
+Mitarbeitenden entsprechend informieren.</li>
+<li><b>Vollständige Mandantennamen in Zeiterfassungsdaten.</b> Die
+Zeiterfassungsübersicht zeigt die Arbeitszeit je Fall und je Mandant, was
+bedeutet, dass Mandantennamen auf dem NAS gespeichert werden. Dies verbleibt
+innerhalb der eigenen Infrastruktur der Kanzlei und ihres bestehenden
+Vertraulichkeitsregimes — Kanzleien sollten das NAS jedoch in ihr Verzeichnis
+der technischen und organisatorischen Maßnahmen aufnehmen (Zugriffskontrolle
+im Betriebssystem des NAS, Volume-Verschlüsselung, Backup-Richtlinie), genau wie bei jedem anderen
+Datei-Server der Kanzlei.</li>
+</ul>
+
+<h2>Anhang — Musterklausel für Ihre Mandanten-Datenschutzerklärung (Vorschlag)</h2>
+<p>Der folgende Text ist ein Formulierungsvorschlag, den eine Kanzlei, die
+<span class="irs">IRONSTICK</span> einsetzt, in ihre eigene Mandanten-Datenschutzerklärung übernehmen kann.
+Er ist so verfasst, dass er den oben beschriebenen Datenflüssen genau entspricht. Er verzichtet bewusst auf Zitate von Gesetzesartikeln, damit er in
+Erklärungen jeder Struktur eingefügt werden kann.</p>
+<div class="box warn"><b>Bevor Sie den Text einfügen — Checkliste für den Anwalt:</b>
+<ol style="margin:6px 0 2px">
+<li>Halten Sie den Auftragsverarbeitungsvertrag <b>jedes</b> von Ihnen
+eingerichteten KI-Anbieters bereit, nennen Sie in der Klausel nur die Anbieter,
+die Sie tatsächlich nutzen, und prüfen Sie den Satz zu Training und
+Aufbewahrung anhand der Bedingungen, die Sie tatsächlich unterzeichnet haben.
+Die kostenlosen Hintergrund-Anbieter (Groq, OpenRouter, Mistral, Abschnitt 1)
+deckt die Klausel nur über den dort in Klammern gesetzten optionalen Satz ab —
+schalten Sie diese nur ein, wenn deren Bedingungen Ihren berufsrechtlichen
+Anforderungen genügen, und streichen Sie den Satz, wenn Sie sie nicht nutzen.</li>
+<li>Behalten Sie den in Klammern gesetzten Satz zum KI-Arbeitsbereich nur bei,
+wenn Sie die Desktop-KI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen
+Desktop oder Kimi Desktop) tatsächlich nutzen; andernfalls streichen Sie ihn.</li>
+<li>Diese Klausel deckt die in diesem Dokument beschriebenen Datenflüsse
+innerhalb der App ab. Sie deckt das KI-Instruktionspaket (Abschnitt 5)
+<b>nicht</b> ab — das Hochladen dieses Exports zu einem KI-Dienst ist eine
+gesonderte Entscheidung und erfordert in der Regel die ausdrückliche Zustimmung
+des Mandanten.</li>
+<li>Wenn Sie im Konfigurator einzelne KI-Funktionen deaktiviert haben, kürzen
+Sie die Liste der Zwecke entsprechend — beschreiben Sie genau das, was Sie
+nutzen, nicht mehr.</li>
+<li>Dies ist ein Formulierungsvorschlag, keine Rechtsberatung. Lassen Sie ihn vor
+der Verwendung anhand des Berufsrechts Ihrer Kammer und der örtlichen
+Datenschutzpraxis prüfen.</li>
+</ol></div>
+<h3>Deutsch</h3>
+<div class="clause">
+<p><b>KI-gestützte Mandatsbearbeitung.</b> Unsere Kanzlei verwendet die
+Kanzleisoftware <span class="irs">IRONSTICK</span>, die KI-gestützte Funktionen enthält. Für diese
+Funktionen können ausgewählte Daten aus Ihrer Akte an einen externen
+KI-Dienstleister (je nach Verfügbarkeit: Alibaba Cloud, Moonshot AI, OpenAI oder Anthropic, über deren APIs)
+übermittelt werden, der sie in unserem Auftrag auf Grundlage einer
+Auftragsverarbeitungsvereinbarung verarbeitet. Wir nutzen diese Funktionen für:
+die Klassifizierung und Erfassung eingehender Dokumente, die Priorisierung
+eingehender E-Mails, die Prüfung unserer Datenbestände auf Unstimmigkeiten,
+das Entwerfen und Prüfen juristischer Dokumente sowie für juristische Analyse
+und Recherche. [Optional — streichen, falls nicht genutzt: Für Aufgaben, die im
+Hintergrund laufen, etwa die Priorisierung eingehender E-Mails, die Prüfung unserer
+Datenbestände und Zusammenfassungen, können zusätzlich die kostenlosen Dienste von Groq,
+OpenRouter oder Mistral eingesetzt werden; deren Bedingungen haben wir vor dem Einschalten
+geprüft.]</p>
+<p><b>Schutzmaßnahmen.</b> Vor jeder Übermittlung ersetzt die Software die in
+unserem System gespeicherten direkten Identifikatoren — Namen,
+Personenkennziffern, Telefonnummern, E-Mail-Adressen, Postanschriften,
+Aktenzeichen und Bankverbindungen — auf unserem eigenen Rechner durch neutrale
+Platzhalter. Die Zuordnungstabelle zwischen Platzhaltern und echten Daten
+verlässt unsere Kanzlei nie; die Antworten des Dienstleisters werden lokal
+zurückübersetzt. Übermittelt wird nur, was die jeweilige Funktion erfordert,
+mit festen Umfangsgrenzen. Einzelne Funktionen benötigen technisch bedingt
+echte Daten — etwa die öffentliche Internet-Recherche zu einem Personennamen
+oder die Vorlesefunktion; diese setzen wir nur durch eine bewusste
+Einzelhandlung ein. [Optional — streichen, falls nicht genutzt: Für die
+Erstellung von Schriftsätzen nutzen wir zusätzlich einen KI-Arbeitsbereich, in
+dem Aktendaten ohne Platzhalter-Ersetzung verarbeitet werden; dieser Kanal wird
+nur unter unserer unmittelbaren Aufsicht verwendet.] Unabhängig von den KI-Funktionen sendet die Software
+in unseren Datenbeständen gespeicherte Postanschriften — ohne Namen — an den öffentlichen Kartendienst
+OpenStreetMap, damit sie auf einer Karte dargestellt werden können.</p>
+<p><b>Der Dienstleister.</b> Nach den für uns geltenden Bedingungen des
+Dienstleisters werden über die API übermittelte Inhalte
+nicht zum Training von KI-Modellen verwendet und nur für begrenzte Zeit
+gespeichert. Die Verarbeitung kann außerhalb des Europäischen Wirtschaftsraums
+stattfinden; in diesem Fall ist die Übermittlung durch die in unserer
+Auftragsverarbeitungsvereinbarung vereinbarten Garantien geschützt. Was der
+Dienstleister mit den Daten tun darf, regelt diese Vereinbarung — nicht das
+Ermessen der KI.</p>
+<p><b>Ihre Wahl.</b> Unsere berufliche Verschwiegenheitspflicht bleibt
+unberührt: Über das hier Beschriebene hinaus verlassen keine Daten unsere
+Kanzlei. Die Verarbeitung stützt sich auf das uns erteilte Mandat und unser
+berechtigtes Interesse an einer effizienten und sorgfältigen
+Mandatsbearbeitung. Sie können dem Einsatz der KI-gestützten Funktionen
+jederzeit widersprechen; soweit machbar, bearbeiten wir Ihre Akte dann ohne
+diese Funktionen. Ihre gesetzlichen Datenschutzrechte — Auskunft, Berichtigung,
+Löschung, Beschwerde bei der Aufsichtsbehörde — bleiben vollständig
+erhalten.</p>
+</div>
+
+<p class="meta">Diese Erklärung wurde aus dem Quellcode der Anwendung abgeleitet
+(Pseudonymisierer, externer Router, Audit-Protokoll und der Übermittlungspfad
+jeder einzelnen Funktion) und gibt das ausgelieferte Verhalten der Version 1.0.7 (Stand November 2026) wieder.
+Die Verarbeitung durch den KI-Anbieter selbst — Aufbewahrung,
+Verwendung für Training, Unterauftragsverarbeiter, Rechtsordnung — richtet sich
+ausschließlich nach den Bedingungen des Anbieters, in deren jeweils aktueller Fassung. Die
+Links zu den Nutzungsbedingungen und Datenschutzerklärungen jedes Anbieters stehen auch im
+jeweiligen Abschnitt der KI-Konfiguration.</p>
+<table>
+<tr><th>Anbieter</th><th>Nutzungsbedingungen und Datenschutz</th></tr>
+<tr><td>Alibaba Cloud (Qwen)</td><td><a href="https://www.alibabacloud.com/help/en/legal">alibabacloud.com/help/en/legal</a></td></tr>
+<tr><td>Moonshot AI (Kimi)</td><td><a href="https://platform.kimi.ai/docs/agreement">platform.kimi.ai/docs/agreement</a></td></tr>
+<tr><td>OpenAI (ChatGPT)</td><td><a href="https://openai.com/policies">openai.com/policies</a></td></tr>
+<tr><td>Anthropic (Claude)</td><td>Commercial Terms of Service: <a href="https://www.anthropic.com/legal/commercial-terms">anthropic.com/legal/commercial-terms</a>; Usage Policy: <a href="https://www.anthropic.com/legal/aup">anthropic.com/legal/aup</a>; Privacy Policy: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></td></tr>
+<tr><td>Groq</td><td><a href="https://groq.com/terms-of-use">groq.com/terms-of-use</a></td></tr>
+<tr><td>OpenRouter</td><td><a href="https://openrouter.ai/terms">openrouter.ai/terms</a></td></tr>
+<tr><td>Mistral</td><td><a href="https://legal.mistral.ai/terms/commercial-terms-of-service">legal.mistral.ai/terms/commercial-terms-of-service</a></td></tr>
+</table>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Kontakt</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Code scannen, um unsere Kontaktkarte zu speichern — Telefon, E-Mail und Website.</p><p class="pref">Nehmen Sie gerne direkt per WhatsApp oder Telegram Kontakt auf — auch ein Anruf ist willkommen. Gesprochene Sprachen: Deutsch, Englisch, Rumänisch.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Nachricht</h5><h3 class="ct-ask">Interesse an IRONSTICK oder einer Demo? Schreiben Sie uns.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK-Anfrage von" name="form"><div class="ct-fg"><label for="ct-name">Name</label><input id="ct-name" type="text" name="name" placeholder="Ihr Name" required></div><div class="ct-fg"><label for="ct-msg">Nachricht</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Ihre Nachricht" required></textarea></div><div class="ct-fg"><p class="ct-hint">Das Senden öffnet Ihr E-Mail-Programm mit der vorbereiteten Nachricht.</p><button type="submit">Nachricht senden</button></div><div class="u-form-send-success">Ihr E-Mail-Programm öffnet sich. Bitte senden Sie die Nachricht dort ab.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK ist eine Software für die juristische Praxis. Diese Website dient ausschließlich Informationszwecken und stellt keine Rechtsberatung dar. © 2026 IRONSTICK.</p></footer>
+</body></html>

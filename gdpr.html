@@ -1,0 +1,912 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRONSTICK — GDPR Data-Flow Declaration (External LLMs)</title>
+<meta name="description" content="IRONSTICK GDPR data-flow declaration: every path on which data leaves IRONSTICK towards an external AI provider, what is transmitted, and where pseudonymization applies.">
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 25px; border-bottom: 3px solid #1a73e8; padding-bottom: 8px; }
+  h2 { font-size: 20px; color: #1a73e8; margin-top: 38px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .meta { color: #5f6368; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .warn { border-left-color: #ea8600; }
+  .crit { border-left-color: #c5221f; }
+  code { background: #f1f3f4; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .yes { color: #188038; font-weight: 600; } .no { color: #c5221f; font-weight: 600; }
+  .clause { border: 1px solid #dadce0; background: #fff; border-radius: 6px;
+            padding: 4px 18px 10px; margin: 10px 0 30px; }
+  .clause p { margin: 10px 0; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; } table { page-break-inside: avoid; } }
+  h1{border-bottom:none;padding-bottom:0}
+  img.flow{display:block;max-width:100%;height:auto;margin:14px auto 18px}
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;
+    border-bottom:1px solid #dadce0;padding:8px 16px;margin:-32px -24px 18px;
+    max-width:none;line-height:1.6}
+  /*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}</style><link rel="stylesheet" href="fonts/noto-serif.css">
+<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
+<link rel="stylesheet" href="sitebar.css">
+<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="hero.css">
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="site.css">
+<link rel="alternate" type="text/markdown" href="gdpr.md">
+<link rel="llms-txt" href="/llms.txt">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/gdpr.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/gdpr_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/gdpr_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/gdpr_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/gdpr_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/gdpr_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/gdpr_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/gdpr_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/gdpr_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/gdpr_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/gdpr_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/gdpr.html">
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index.html">Home</a><a href="overview.html">Overview</a><a href="ki.html">AI</a><span class="mh">Manuals</span><a class="sub" href="manualquickstart.html">Quick Start</a><a class="sub" href="manualironstick.html">Client App</a><a class="sub" href="manualbridge.html">Bridge</a><a href="gdpr.html" aria-current="page">GDPR</a><a href="download.html">Download</a></div></div><nav class="mainnav"><a href="overview.html">Overview</a><a href="ki.html">AI</a><div class="nav-drop" tabindex="0"><span>Manuals</span><div class="menu"><a href="manualquickstart.html">Quick Start</a><a href="manualironstick.html">Client App</a><a href="manualbridge.html">Bridge</a></div></div><a href="gdpr.html" aria-current="page">GDPR</a><a href="download.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download.html">Try for 30 days</a><nav class="lang-wrap" tabindex="0" title="Language" aria-label="Language"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a class="on" lang="en" hreflang="en" href="gdpr.html">English</a><a lang="de" hreflang="de" href="gdpr_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="gdpr_ro.html">Română</a><a lang="fr" hreflang="fr" href="gdpr_fr.html">Français</a><a lang="it" hreflang="it" href="gdpr_it.html">Italiano</a><a lang="es" hreflang="es" href="gdpr_es.html">Español</a><a lang="pt" hreflang="pt" href="gdpr_pt.html">Português</a><a lang="nl" hreflang="nl" href="gdpr_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="gdpr_ru.html">Русский</a><a lang="uk" hreflang="uk" href="gdpr_uk.html">Українська</a><a lang="tr" hreflang="tr" href="gdpr_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-gdpr" data-parallax="31 75"><div class="gh-in"><div class="gh-box"><h1>GDPR Data-Flow Declaration</h1></div><p class="gh-sub">Relations with External Large Language Models</p></div></section>
+<p class="meta">Factual, code-derived description of every path on which data leaves
+<span class="irs">IRONSTICK</span> towards an external LLM, what exactly is transmitted, in which form, and
+where the pseudonymisation layer applies. Windows desktop edition. This document
+describes <span class="irs">IRONSTICK</span>'s behaviour only — <b>what the AI provider does with received
+data is governed exclusively by the provider's own terms</b> (the terms and
+privacy policies of the providers the user has set up: Alibaba Cloud (Qwen),
+Moonshot AI (Kimi), OpenAI, Anthropic and, if switched on, Groq, OpenRouter and
+Mistral; Google only if Google Drive is used for exports), which the
+user must review separately.</p>
+<p class="meta">Version 1.0.7 — as of November 2026</p>
+<div class="box"><b>Summary.</b>
+<ul>
+<li><b>Storage.</b> All data lives in one local data directory. The database,
+the document store, the configuration file and the AI scratch store are AES-256
+encrypted at rest. Clear text remains only in temporary working copies of opened
+documents, the scan inbox, exports and outgoing files, the short-lived
+peer-review buffer and, if switched on, the diagnostic log (section 8).</li>
+<li><b>External AI.</b> In-app AI calls exist only with the user's own API key.
+Calls through the central router are pseudonymised by default and recorded in a
+local audit log; the deliberate clear-text exceptions are listed in 2.3.</li>
+<li><b>Consent.</b> The AI chat, document capture and person research ask once
+per session or program run; in the word processor, starting an AI function is
+the consent. Several background functions call the cloud AI without a dialog of their own:
+e-mail triage, the Data Consistency Monitor, the daily briefing, the dialogue
+summary and the Red/Blue Team review (section 3).</li>
+<li><b>Desktop-AI bridge.</b> An optional add-on that passes real case data to the provider of the user's own desktop AI, after
+one consent dialog per program run (section 4.9).</li>
+<li><b>Other services.</b> Party addresses are geocoded daily with
+OpenStreetMap Nominatim (address only, no names); a news file is downloaded from
+<a href="index.html">www.ironstick.legal</a> after start-up and every six hours; no case or personal data
+is sent to the software vendor (sections 1 and 7).</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER.</b> Optional, on the firm's
+own NAS inside its local network, without internet connections. Documents travel
+to the server and rest there only as AES-256-encrypted files; the server never
+sees their plain text. Working time per case
+and backup events of each workstation are visible to the firm's administrator
+(section 9).</li>
+</ul></div>
+
+<h2>1. Scope and endpoints</h2>
+<img class="flow" src="img/65_ai_client_vault.png" alt="AI API, AI desktop app and MCP server on the left, the IRONSTICK Client in the middle, data vault with AES-256, IRONSTICK Server and scan app on the right">
+<p>In-app external AI calls go to <b>the provider the automatic cascade is
+using at that moment</b>. The user can set up up to four providers; the
+providers for which a key has been entered are used in this fixed order,
+lowest cost first: <b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+ChatGPT (OpenAI) → Claude (Anthropic)</b>. At every program start <span class="irs">IRONSTICK</span>
+checks which of them respond. If a provider fails, the same request goes to the
+next one. The failed provider is retried after a waiting time that depends on
+the error; it is
+skipped for the rest of the day only when its credit is used up or the cause is
+unknown. The content transmitted
+is identical on every provider (section 3 onwards: pseudonymised by the
+router, consent, audit log). The endpoints are:</p>
+<ul>
+<li><b>Claude:</b> <code>POST https://api.anthropic.com/v1/messages</code>,
+the user's own API key.</li>
+<li><b>ChatGPT:</b> <code>POST https://api.openai.com/v1/chat/completions</code>,
+the user's own API key.</li>
+<li><b>Qwen:</b> <code>POST https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions</code>
+(Alibaba Cloud Model Studio, international region), the user's own API key.</li>
+<li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
+(Moonshot AI), the user's own API key.</li>
+</ul>
+<p><b>Free background providers (optional).</b> In addition, the user can
+store the free offers of <b>Groq</b>, <b>OpenRouter</b> and <b>Mistral</b>.
+<span class="irs">IRONSTICK</span> uses them exclusively for tasks that run in the background:
+e-mail triage, Data Consistency Monitor, daily briefing, dialogue summary,
+speaker assignment in transcriptions, retrieval of statute texts and situation
+report. Each of these providers has its own on/off switch in the
+configuration; it is used only if a key is stored and its switch is on.
+They are <b>never</b> used for the chat, for pleadings or for the Red/Blue Team
+review. If none of them is available, the cascade described above takes over.
+Pseudonymisation, consent and audit log follow the respective task
+(section 4). The endpoints are:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+the user's own API key.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+the user's own API key.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+the user's own API key.</li>
+</ul>
+<div class="box warn"><b>Free offers — notice in the configuration.</b> In the configuration, a notice below each of these providers points out that IRONSTICK — provided the API key is stored and the switch is on — uses it for background tasks such as summaries and e-mail triage and, in doing so, transmits data to that provider. Before switching any of
+these providers on, check whether its terms provide the data-processing
+agreement required for processors and meet your professional rules. A provider
+that is switched off is not used.</div>
+<p>Three configurable model tiers are used per provider (small / medium /
+large). A separate, optional channel is the
+<b>desktop-AI bridge</b> (section 4.9): there, data flows into the user's own
+local desktop AI (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
+Desktop <b>or</b> Kimi Desktop), i.e. to that AI's provider (Anthropic, OpenAI,
+Alibaba Cloud/Qwen or Moonshot AI/Kimi) under the user's own subscription/account with that provider. The
+bridges may run in parallel: each desktop AI has its own small bridge program,
+all of them connect to the same local endpoint in the running application, and
+they can work on the same case simultaneously. No case or personal data is sent
+to the software vendor. The only vendor contact is a plain download of a news
+file from <a href="index.html">www.ironstick.legal</a> (after start-up and every six hours, section 7),
+which carries no data apart from the technical connection itself.
+<b><span class="irs">IRONSTICK</span> SERVER</b> (section 9) does not change this: it is
+operated by the law firm itself, on the firm's own hardware, inside the
+firm's own network — it never contacts the vendor and never contacts any AI
+provider.</p>
+<div class="box"><b>The master switch is the user's own access.</b> In-app
+external AI processing exists only if the user has opened their own account
+with an AI provider and entered their own access key in the configuration.
+<b>Without any provider set up, no in-app external AI call can occur at all</b> — every
+feature described in section 4 then stays local or is simply unavailable. That
+account is a direct contract between the user and the provider; <span class="irs">IRONSTICK</span> is
+not a party to it. The same applies to the desktop-AI bridge, which requires
+the user's own subscription/account with the chosen desktop AI provider
+(Anthropic, OpenAI, Alibaba Cloud/Qwen or Moonshot AI/Kimi). Documents marked <b>secret</b> are excluded
+from the bridge's and the chat's tools, from the AI instruction
+package and from every generated output (attachments, dossiers, exports);
+their processing during capture follows the user's deliberate choice at
+capture time (section 4.1).</div>
+<p>Fully local (nothing leaves the machine): text extraction and OCR, the
+deterministic local chat layer, global search, relevance radar, letter-chain
+analysis, dossier/PDF generation, the redaction finder's local pass, speech recognition (transcription of recordings), and the building of the AI instruction package.</p>
+
+<h2>2. The pseudonymisation layer</h2>
+<p>Every in-app call through the central AI router is pseudonymised by default:
+identifiers in outgoing text are replaced with tokens, and the answer is
+restored locally. If the pseudonymiser cannot be built
+completely, nothing is sent. The exceptions are listed in 2.3. The mapping lives
+only in memory, one fresh mapping per operation; it is never stored.</p>
+<img class="flow" src="img/66_pseudonymization.png" alt="Top: IRONSTICK Client, anonymised figure with gears, AI API; bottom: IRONSTICK Client, user, AI desktop app">
+<h3>2.1 What is replaced</h3>
+<table>
+<tr><th>Source</th><th>Fields</th><th>Token family (internal identifiers)</th></tr>
+<tr><td>Client records</td><td>name, national ID number from the ID field (e.g. Romanian CNP), phone, e-mail, address and city</td>
+<td><code>$PARTEI_A$</code> (party), <code>$CNP_A$</code> (ID number), <code>$TEL_A$</code> (phone), <code>$MAIL_A$</code> (e-mail), <code>$ADRESSE_A$</code> (address)</td></tr>
+<tr><td>Persons / entities</td><td>full name (person or company), national ID or company number from the ID field (e.g. Romanian CNP or CUI)</td>
+<td><code>$PARTEI_B$</code> (party) / <code>$FIRMA_A$</code> (company), <code>$CNP_B$</code> (ID number)</td></tr>
+<tr><td>Cases</td><td>case number, opponent, claimant</td>
+<td><code>$FALL_A$</code> (case), <code>$PARTEI_C$</code> (party)…</td></tr>
+<tr><td>Pattern layer (unknown values in free text)</td>
+<td>court file numbers, personal identification numbers, IBANs, e-mail addresses and phone numbers. Other
+national ID numbers are replaced only if they are stored on the client or
+person record.</td><td>same token families</td></tr>
+</table>
+<h3>2.2 What deliberately stays real</h3>
+<ul>
+<li><b>Dates, times and monetary amounts</b> — they are needed unchanged for the legal analysis.</li>
+<li><b>Institution names</b> (courts, authorities) — they are not in the
+dictionary and are public bodies.</li>
+<li><b>Third parties without their own record</b> — witnesses, doctors, lawyers, judges or companies that are not recorded as a client, person or case record; anyone who should be replaced by a token is simply recorded as a person.</li>
+<li><b>Addresses of non-clients</b> — the client's stored address is the one replaced by a token.</li>
+<li>The entire <b>factual content</b> of documents (allegations, diagnoses,
+narrative) — only identifiers are replaced, not the story.</li>
+</ul>
+<h3>2.3 Deliberate clear-name exceptions</h3>
+<ul>
+<li><b>Person web research (stage 1)</b> and <b>form autofill</b> for persons /
+institutions: a web search for <code>$PARTEI_A$</code> is meaningless, so the
+real name is sent by design.</li>
+<li><b>Redaction AI finder</b>: it receives text that has already been redacted
+locally, and must answer with the clear names of <i>unknown third parties</i> it
+finds — pseudonymisation is off for this one purpose.</li>
+<li><b>Read-aloud preprocessing (TTS)</b>: see 4.6 — sentences go out in clear
+text.</li>
+<li><b>Desktop-AI bridge</b>: raw data by design (section 4.9).</li>
+</ul>
+
+<h2>3. Consent moments and the audit log</h2>
+<p>Calls routed through the central router are consent-gated and logged: each
+model round writes a row to the local audit table with
+the complete request and response <b>in the tokenised form that actually left the
+machine</b>; refused or blocked attempts are logged without content. Where a
+function asks for consent, the dialog states model tier and approximate request
+size, and one approval covers the current screen session (for document capture:
+the current program run).</p>
+<div class="box warn"><b>Router flows without a consent dialog of their own:</b>
+e-mail triage (in background operation and on a manual fetch in the e-mail
+screen alike, section 4.2), the Data Consistency Monitor's analysis run (4.5),
+the daily briefing (4.4a), the dialogue summary of the API chat and the Red/Blue
+Team review (4.7), and the redaction AI finder (enabling its toggle is the
+consent). These are still pseudonymised (except the redaction finder's intended
+clear-name answers) and still audited.</div>
+<div class="box warn"><b>Flows that bypass the router:</b> the word processor's
+AI functions, read-aloud preprocessing and the File→Markdown AI correction
+call the API directly. They are pseudonymised (exception: read-aloud),
+but they show <b>no consent dialog of their own and write no audit-log
+rows</b>. The user's operation of these features (pressing the AI button,
+starting a generation, starting read-aloud with the AI toggle on) is the
+consent moment.</div>
+
+<h2>4. The data flows, use case by use case</h2>
+
+<h3>4.1 Document capture</h3>
+<p>Text extraction and OCR are local. If an API key is configured, <span class="irs">IRONSTICK</span> asks
+once per program run, then up to four call types run (all pseudonymised, all
+audited):</p>
+<ul>
+<li><b>Main-document detection</b> (small tier): excerpts of the raw OCR text — only for poor-quality scans.</li>
+<li><b>OCR correction</b> (small tier): a limited excerpt of the document text.</li>
+<li><b>Classification</b> (medium tier): a limited excerpt of the document text, <b>plus system lists</b>: the complete case list (case number,
+client name, opponent — tokenised), a known-names pool (tokenised), and the institution-type and document-type code lists
+(untokenised labels). Fallback: small tier, without the
+lists.</li>
+<li><b>Contextualisation on save</b> (small tier): the document's metadata and
+full text of limited length, plus an index line (ID, date, title) of <b>every active evidence item of the same client</b> — used to ground
+cross-references. Runs also for documents marked secret (deliberate user
+decision).</li>
+</ul>
+
+<h3>4.2 E-mail monitor (triage)</h3>
+<p>Case assignment is done <b>locally and without AI</b>. New mail is fetched
+in the background at start-up and then every five minutes. An e-mail whose case
+the local recognition already identifies (case number, letter number, client
+number or reference to an own submission) causes no AI call. For every other
+e-mail, <b>one small-tier call</b> assesses the urgency, with exactly: sender
+name and address, subject, and the stored preview snippet as plain text
+(hard-capped) — <b>never the full body</b>, no attachments
+and <b>no case list</b>. Answer: priority and reasoning. If free background
+providers are switched on (section 1), this call may run through them.
+<b>No consent dialog is shown</b>, neither in background operation nor on a
+manual fetch in the e-mail screen: the triage runs automatically once a mail
+account and an AI provider are set up. Pseudonymised and audited.</p>
+<p><b>No tracking pixels.</b> Opening a mail in the monitor never contacts
+the sender's server: images referenced by an internet address (including
+invisible tracking pixels) are not loaded and appear as placeholders with a
+notice, so the sender cannot learn when, how often or from which address a
+mail was read. Only images embedded in the mail itself are displayed.</p>
+
+<h3>4.3 Person analysis (web research)</h3>
+<p>Three stages, after a once-per-session consent:</p>
+<ul>
+<li><b>Stage 1 — search:</b> search engines are queried directly from the
+user's computer; additionally the
+provider's server-side web-search tool is invoked with the person's <b>real
+name in clear text</b> (unavoidable for a search; logged in clear text).</li>
+<li><b>Stage 2 — page summaries</b> (medium tier): per page, the person's name
+(tokenised), the URL and a limited excerpt of the page content.</li>
+<li><b>Stage 3 — profile synthesis</b> (large tier): name and city (tokenised)
+plus the collected page texts, of limited length per source.</li>
+</ul>
+<p>The result is stored locally with reliability "unconfirmed". The related
+<b>autofill</b> buttons on the person/institution forms likewise send the typed
+name in clear text (documented exception).</p>
+
+<h3>4.3a Public-source party check</h3>
+<p>The public-source check of a party is a fixed procedure the application runs
+itself when a connected AI calls it with name, city, district, country and
+the kind of party (natural person or legal entity):</p>
+<ul>
+<li><b>Case files:</b> a full-text search for the name across the local
+database — <b>purely local</b>, nothing leaves the machine.</li>
+<li><b>Internet:</b> a fixed list of search queries is sent to the public
+search engines <b>Google, DuckDuckGo and Qwant</b>. Each query consists of a
+search term in the language of the party's country plus the party's <b>real
+name in clear text</b> and, for some queries, the city or district
+(unavoidable for a search). No case, client or document content is
+transmitted. The engines see the queries like those of any browser user.</li>
+</ul>
+<p>The result is returned to the calling AI as a prepared, unverified profile.
+Nothing is written into the master data: every finding passes the review gate
+of the Data Consistency Monitor (section 4.5) and is adopted only when the
+user accepts it. Only publicly accessible sources are evaluated.</p>
+
+<h3>4.4 Daily log</h3>
+<p>The screen itself is local. Importing free-form text runs a <b>local</b>
+parser first; only when no daily-log format marker is found does an AI fallback
+normalise the raw text: the pasted text is sent completely, small tier, consent-gated, pseudonymised, audited. Stored
+daily-log entries leave the machine only as tool results of the chat or the
+desktop-AI bridge (capped excerpts) or inside the AI instruction package
+(section 5).</p>
+
+<h3>4.4a Daily briefing</h3>
+<p>On the first program start of a day (Windows), <span class="irs">IRONSTICK</span>
+prepares a spoken daily briefing in the background, already during start-up and
+before the briefing window asks whether the user wants to hear it. The briefing
+text — deadline counts, today's and tomorrow's court dates with case number,
+client name, city and court, and the titles of today's appointments — is sent
+once (small tier) to the cloud AI, which rewrites it as spoken prose in the
+system language. Pseudonymised through the router, audited, <b>no consent
+dialog</b>. If free background providers are switched on (section 1), this call
+may run through them. Without an available provider, a locally assembled text
+is used instead.</p>
+
+<h3>4.5 Data Consistency Monitor</h3>
+<p>Phase 1 (e-mail ↔ master data) is fully deterministic. Phase 2 sends
+<b>one small-tier call per new inbound document</b> (pseudonymised, audited,
+<b>no dialog</b>) containing: the de-duplicated <b>contact-region snippets</b>
+(short excerpts around address, phone and tax details) from the full text of
+<b>that</b> document, the party names of that document and of its case, and, for
+each party, the <b>names</b> of possible matches from the stored master data
+(tokenised where in the dictionary; institution names in clear text). <b>Contact
+data and ID numbers from the stored master data are not transmitted.</b> If free background
+providers are switched on (section 1), this call may run through them. The
+answer only ever becomes a suggestion that the
+user must accept in the monitor.</p>
+
+<h3>4.6 Word processor (AI assistance in the text)</h3>
+<ul>
+<li><b>Revise selection:</b> the selected sentence/paragraph/section (with
+markup) <b>plus an excerpt of the document as context</b>
+and the user's instruction — medium tier, pseudonymised.</li>
+<li><b>Structure/TOC:</b> effectively the whole document as an indexed line list
+(long lines truncated), of limited length — medium tier, pseudonymised.</li>
+<li><b>Read-aloud preprocessing:</b> when reading a document aloud, <b>every
+sentence is sent individually to the small tier in clear text</b> to expand
+abbreviations and numbers — <b>without pseudonymisation</b> (identification
+numbers must return unchanged to be read correctly). File stamps and reference
+markers are stripped locally first. Starting read-aloud is the consent
+moment.</li>
+</ul>
+<div class="box warn">None of the word-processor calls shows a separate consent
+dialog or writes audit-log rows (router bypass, section 3).</div>
+
+<h3>4.7 Red/Blue Team review and dialogue summary (API)</h3>
+<p>Two further API flows belong to drafting. <b>Red/Blue Team:</b> if the user
+has switched it on for the active provider (switch next to the API key; a saved
+key is required), every formal document handed over through the delivery
+dialog — from the in-app chat and from the desktop-AI bridge alike — is read
+once more by the same provider as opposing counsel in a separate review pass
+(medium tier). Transmitted: the draft text, the date and the case's
+jurisdiction; pseudonymised through the router and audited like every router
+call; <b>no consent dialog</b> — the switch is the consent; the reviewer's report is attached for the user. The Red/Blue Team review
+<b>never</b> runs through the free background providers (section 1). <b>Dialogue summary:</b> in long
+API-chat sessions the older part of the dialogue (only the user's questions and
+the model's final answers, never tool results) is condensed by the active
+provider (small tier, background, <b>no consent dialog of its own</b>) into a
+short summary that replaces the raw history; it is stored encrypted
+in the scratch store and overwritten each time. Pseudonymised and audited. If
+free background providers are switched on (section 1), the summary may run
+through them.</p>
+
+<h3>4.8 AI chat (external, API)</h3>
+<p>Consent once per chat session; medium tier with automatic escalation to the
+large tier (the whole context is then sent again); pseudonymised; every round
+audited. Each turn transmits: the system prompt (static rules), the <b>live GUI
+context</b> (current screen, open case/client incl. client name — tokenised),
+up to <b>10 AI-memory entries</b> of the open client, the most recent dialogue plus a summary of older turns
+(4.7) and the list of the chat's scratch files. Every tool the model calls
+returns its result into the API conversation — including document full texts
+(larger results are stored in the encrypted scratch store), e-mail bodies and
+daily-log excerpts. The chat uses the same tool layer and the same delivery
+gates as the desktop-AI bridge (4.9): pleading verification, Red/Blue Team (4.7)
+and hand-over through the export dialog — what leaves the system is a
+submission-ready template. The local chat layer answers routine requests
+without any transmission.</p>
+<p>Two utility functions deserve explicit mention. The <b>weather lookup</b>
+fetches current weather data for a named place from the non-LLM service
+Open-Meteo (section 7) — only the place name / its coordinates are transmitted
+to that service, never case or person data. The <b>location lookup</b>
+answers exclusively from the <b>most recent locally stored</b> security
+snapshot (section 8): the AI's request triggers <b>no new external lookup</b> —
+it only reads what is already on disk. As with every tool, what these functions
+return flows back into the AI conversation, i.e. to the AI provider.</p>
+
+<h3>4.9 Desktop-AI bridge (optional add-on modules)</h3>
+<p><b>Each desktop-AI access is an optional module, purchased separately.</b>
+It exists only where the practice has acquired and installed the respective
+bridge module; without any module, the bridge section stays locked in the
+configuration, the local endpoint never starts, and none of the flows
+described in this section can occur. Bridges are available for
+<b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> and <b>Kimi Desktop</b>; each has its own small bridge
+program, and all of them connect to the same local endpoint in the running
+application. The data flows below are identical for all; only the receiving
+provider differs.</p>
+<div class="box crit"><b>This channel transmits real case data.</b> That is its purpose: the user's own desktop-AI session drafts
+submission-ready templates and therefore needs real names and numbers.</div>
+<ul>
+<li>The desktop AI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop or Kimi Desktop) connects through its bridge program to the running application; this connection stays on the computer. Only the web search, page-reading and register tools contact the internet.</li>
+<li><b>Websites with an access check.</b> If a website requires a confirmation before
+it releases its content, <span class="irs">IRONSTICK</span> opens the page in a separate window; the
+user confirms there personally. The desktop AI then reads the content of the page —
+it flows to its provider like any other tool result.</li>
+<li>The first data access by any desktop AI in a program run opens one blocking
+consent dialog. Approving opens access for all desktop AIs for the rest of the
+program run; refusing blocks all of them temporarily.</li>
+<li>More than 200 tools expose chronicles, full texts, e-mails,
+daily logs, deadlines, master data, whole cases (in parts) and output
+formats; documents marked secret are excluded. Changes to master data,
+chronicle, calendar, AI memory, full texts and the legal library take effect
+only after the user approves them, in an <span class="irs">IRONSTICK</span> form,
+dialog or the Data Consistency Monitor: master-data and relationship suggestions
+land in the monitor; AI-proposed changes to case-bound AI-instruction notes are
+presented as a red/green diff and applied only after the user explicitly
+accepts; chronicle entries are never written by the AI — it only prefills the
+capture form, which the user completes and saves; and an AI-healed document
+full text (OCR re-scan) replaces the stored full text only after
+the user has seen the complete text in a confirmation dialog and saved it.
+Without such a dialog, the AI writes only its own work areas: the encrypted
+scratch store, the daily log at the user's request, and its own case
+assessment after the deterministic checks. Tags and firm-chat messages need the
+user's confirmation in the chat. On a case subscribed from a colleague, the AI
+can pin a note that travels through
+<span class="irs">IRONSTICK</span> SERVER to the case owner and all subscribers
+(section 9). Hand-over into the word processor and file delivery are explicit user
+steps; navigation only if separately permitted.</li>
+<li><b>OCR re-scan healing (local) and the PDF hand-over (user-initiated).</b>
+When a stored full text is truncated or ruined by an old OCR run, the AI may
+request a fresh scan: the user picks the pages, the re-scan runs <b>locally</b>
+(no new external recipient), and both text versions are staged in the local
+scratch store; whatever the AI reads from them flows to its provider like any
+other tool result. As an absolute last resort — only after such a re-scan and
+only within hard bridge-enforced limits —
+the AI may ask the user to hand it the <b>original PDF file</b>: <span class="irs">IRONSTICK</span>
+only opens the entry; the user saves the PDF via the paperclip icon
+and drags it into the desktop-AI chat. This transfers the document
+<b>as a file</b> (including stamps, signatures and images) to that AI's
+provider — it happens exclusively by the user's own deliberate action, never
+automatically, and documents marked secret are excluded from the whole
+re-scan channel from the start.</li>
+<li><b>Local AI scratch store (data minimisation).</b> Large tool results can be stored in a local, encrypted scratch file and reworked there <b>without being transmitted to the AI
+provider at all</b>. Complete case exports for the AI and the one-call
+session-start overview are likewise written straight to this local store; only
+the portions the AI subsequently reads flow to its provider.
+The scratch store lives inside the data
+folder and persists across sessions (it is the AI's working context);
+files no longer in use are deleted automatically, and no new external recipient is created.</li>
+<li><b>The scratch store is encrypted.</b>
+Every file in the scratch store is AES-256 encrypted at rest; files leave the
+store only through <span class="irs">IRONSTICK</span>'s export dialog, never to a download folder.
+The database, the document store, the configuration file and the scratch
+store are thus all AES-256 encrypted at rest. Temporary working copies of opened
+documents (cleared at every start and at shutdown), the short-lived peer-review
+buffer, the scan inbox, exports and outgoing files remain in clear text
+(section 8).</li>
+<li>Tool results are delivered to the user's desktop-AI client and from there
+to <b>its provider</b>: Anthropic for Claude (under the user's Claude
+subscription and Anthropic's terms), OpenAI for ChatGPT (under the user's
+ChatGPT subscription and OpenAI's terms), Alibaba Cloud/Qwen for Qwen
+Desktop (under the user's Qwen account and Qwen's terms) or Moonshot AI for Kimi
+Desktop (under the user's Kimi account and Moonshot AI's terms). <span class="irs">IRONSTICK</span> writes no
+audit-log rows for bridge traffic; the top bar shows one pulsing logo per
+active AI (Claude mark, ChatGPT mark, Qwen mark, Kimi mark) — simultaneous access is
+possible and each is signalled separately. Each bridge program keeps a
+<b>local log</b> next to itself with time, tool name, success/failure and
+answer size, and <b>never content</b>. A second, more detailed
+<b>diagnostic log</b> in the data folder is <b>off by default</b>; when
+switched on for troubleshooting, it can contain call parameters (which may include names) in clear text and is trimmed automatically. Neither log is transmitted anywhere.</li>
+<li>The shared AI memory stores distilled insights (client- or case-bound) locally. The AI can propose to store, change or delete an
+entry; each change takes effect only after the user approves it. Entries linked
+to a case are never deleted automatically; entries without a case are deleted
+after one year without use. The memory's content is visible to every AI
+channel and is transmitted whenever those channels read it.</li>
+<li>Peer review between the desktop AIs runs through <span class="irs">IRONSTICK</span>, not directly
+between the providers: one AI leaves a work product (e.g. a draft) in a
+<b>local, short-lived exchange buffer</b> (plain files on the user's machine,
+deleted when the task is closed and wiped completely on every app restart) and a
+task note; the other AI reads it when the user directs it to. This creates
+<b>no new external recipient</b> — whatever the reviewing AI reads is transmitted
+to <b>its own</b> provider exactly as any other tool result above, under that
+provider's terms. Providers never exchange data directly; what the reviewing AI
+reads goes only to its own provider.</li>
+</ul>
+
+<h3>4.10 Audio transcription (speaker assignment)</h3>
+<p>Speech recognition runs entirely locally; the recording itself never leaves the
+computer. If the user has specified more than one speaker, the AI then assigns the
+recognised lines to the speakers: section by section (medium tier), the recognised text, plus lines already assigned as context and the number of
+speakers. The calls run through the router — pseudonymised, subject to consent,
+recorded in the audit log. The answer must not alter the text: every line is checked
+against the recognised text; if a block fails, the transcript is taken over without
+speaker assignment. With only one speaker, no AI call takes place. If free
+background providers are switched on (section 1), these calls may run through
+them.</p>
+
+<h2>5. The AI instruction package (export ZIP)</h2>
+<img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, user with MD files and ZIP archive, AI web app">
+<p>Building the package is local and involves no AI call. It produces
+<b>clear-text Markdown</b> (no pseudonymisation) intended to be uploaded by the
+user to an external LLM of their choice. Content:</p>
+<table>
+<tr><th>File</th><th>Content</th></tr>
+<tr><td>Cases</td><td>all cases of the selected client with parties, status and
+evidence-ID index (no full texts)</td></tr>
+<tr><td>Entities</td><td><b>all persons/entities of the entire practice</b> (not
+only this client) including national personal and company ID numbers (e.g.
+Romanian CNP/CUI), date of birth, full contact data, profession,
+vehicle — plus the stored analysis blocks (assessment, vulnerabilities,
+residences, finances, social environment, sources)</td></tr>
+<tr><td>Institutions, Deadlines</td><td>all institutions; active deadlines with
+case numbers and client name</td></tr>
+<tr><td>Mail</td><td>the 100 most recent e-mails <b>practice-wide</b>: sender,
+recipient, subject, attachment file names, short snippet (no full
+bodies)</td></tr>
+<tr><td>Daily log</td><td>last 10 days, practice-wide, including the case
+chronology of that window</td></tr>
+<tr><td>Per case</td><td>one case file per case: the complete chronicle <b>with
+document full texts</b>, client and
+party identifiers including ID numbers; plus all case background notes uncapped</td></tr>
+<tr><td>Instruction files</td><td>five working-rule documents — no personal data</td></tr>
+</table>
+<div class="box crit"><b>What happens when this ZIP is uploaded to a third-party AI service:</b>
+the user personally transfers, in clear text, substantial parts of the entire
+practice — client identities with national ID numbers, third-party profiles
+including sensitive assessments, practice-wide correspondence metadata and case
+files — to that provider. From that moment the data is processed under that
+provider's terms (training use, retention, jurisdiction). <span class="irs">IRONSTICK</span> shows a privacy warning before the
+export (once per program run) and offers the export also to Google Drive, which
+additionally places the files with Google. The user acts as the transmitting
+controller under GDPR and must ensure a legal basis (e.g. Art. 6, professional
+secrecy rules) before uploading.</div>
+<p>Documents marked secret are excluded from deadlines, daily logs and case
+files.</p>
+
+<h2>6. Summary matrix</h2>
+<table>
+<tr><th>Flow</th><th>What leaves (form)</th><th>Pseudonymised</th><th>Own consent dialog</th><th>Audit log</th></tr>
+<tr><td>Document capture (4 calls)</td><td>OCR and document text (limited), case and name lists</td><td class="yes">yes</td><td>yes — once per program run</td><td class="yes">yes</td></tr>
+<tr><td>E-mail triage (manual fetch in the e-mail screen)</td><td>sender, subject, short snippet (no case list); only for e-mails not assigned locally</td><td class="yes">yes</td><td class="no">no</td><td class="yes">yes</td></tr>
+<tr><td>E-mail triage (background, every five minutes)</td><td>same</td><td class="yes">yes</td><td class="no">no</td><td class="yes">yes</td></tr>
+<tr><td>Daily briefing (API)</td><td>briefing text: deadline counts, court dates with case number, client name, city and court, appointment titles</td><td class="yes">yes</td><td class="no">no (first start of the day, prepared during start-up)</td><td class="yes">yes</td></tr>
+<tr><td>Person research, stage 1</td><td>real name (web search)</td><td class="no">no — by design</td><td>yes — once per session</td><td class="yes">yes (clear text)</td></tr>
+<tr><td>Person research, stages 2 and 3</td><td>page texts (limited per source)</td><td class="yes">yes</td><td>same consent</td><td class="yes">yes</td></tr>
+<tr><td>Person/institution autofill</td><td>typed name (web search)</td><td class="no">no — by design</td><td>yes — once per session</td><td class="yes">yes (clear text)</td></tr>
+<tr><td>Daily-log AI import</td><td>pasted raw text</td><td class="yes">yes</td><td>yes</td><td class="yes">yes</td></tr>
+<tr><td>Data Consistency Monitor</td><td>per new document: its contact regions and names of possible matches (no contact data or ID numbers from master data)</td><td class="yes">yes (institution names in clear text)</td><td class="no">no (throttled background)</td><td class="yes">yes</td></tr>
+<tr><td>Word processor: revise / structure</td><td>selection with a context excerpt / document lines (limited)</td><td class="yes">yes</td><td class="no">no (button = consent)</td><td class="no">no</td></tr>
+<tr><td>Read-aloud preprocessing</td><td>each sentence, clear text</td><td class="no">no</td><td class="no">no (start = consent)</td><td class="no">no</td></tr>
+<tr><td>Red/Blue Team review (API)</td><td>draft text, date and jurisdiction</td><td class="yes">yes</td><td class="no">no (switch = consent)</td><td class="yes">yes</td></tr>
+<tr><td>Dialogue summary (API)</td><td>older dialogue turns (user questions and final answers only)</td><td class="yes">yes</td><td class="no">no (background pass of the API chat)</td><td class="yes">yes</td></tr>
+<tr><td>File→Markdown AI correction</td><td>converted text</td><td class="yes">yes</td><td class="no">no</td><td class="no">no</td></tr>
+<tr><td>Redaction AI finder</td><td>already-redacted text; answers contain third-party clear names</td><td class="no">off — by design</td><td class="no">toggle = consent</td><td class="yes">yes</td></tr>
+<tr><td>AI chat (external)</td><td>prompt, screen context, memory, most recent dialogue with summary, tool results (limited per item)</td><td class="yes">yes</td><td>yes — once per session</td><td class="yes">yes</td></tr>
+<tr><td>Desktop-AI bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>raw tool results (full case data)</td><td class="no">no — by design</td><td>yes — once per program run for all desktop AIs</td><td class="no">no (app side)</td></tr>
+<tr><td>Audio transcription: speaker assignment</td><td>recognised text in sections — never the recording</td><td class="yes">yes</td><td>yes</td><td class="yes">yes</td></tr>
+<tr><td>Free background providers (Groq, OpenRouter, Mistral) — only when switched on</td><td>the same content as the respective background task; never chat, pleading or Red/Blue Team</td><td>as the respective task</td><td class="no">no (switch per provider = consent)</td><td class="yes">yes</td></tr>
+<tr><td>AI instruction ZIP</td><td>clear-text practice export (user-initiated upload)</td><td class="no">no</td><td>warning once per program run</td><td>n/a</td></tr>
+</table>
+
+<h2>7. Non-LLM external services (for completeness)</h2>
+<img class="flow" src="img/68_external_services.png" alt="IRONSTICK Client, internet, location symbol and weather symbol">
+<p>Independent of any LLM, the following features contact external services with
+the minimum data needed: number validation (EU VIES, EORI, GLEIF, business
+registers — the number being checked), the person search's direct web queries
+(the name), IMAP (your mail server), and optional exports to Google Drive (the
+exported files). None of these involve the AI provider.</p>
+<p>The following services are contacted in the background or with equally
+minimal data:</p>
+<ul>
+<li><b>OpenStreetMap Nominatim (address geocoding)</b> — once a day, a
+background job works through the persons and companies in the party records
+that have an address or a city, and sends street, district, city and country
+(never the name) to Nominatim to place them on the map; an address already
+placed is sent again only when it changes, and one that was not found is retried
+after a waiting period. The place name of the weather lookup is geocoded the
+same way. No consent dialog; the coordinates are stored locally.</li>
+<li><b>ipwho.is (geo-IP lookup)</b> — once per program start, as part of the
+local security snapshot (section 8), <span class="irs">IRONSTICK</span> asks this service for the
+machine's <b>public</b> IP address and a coarse location (city, country, ISP).
+The request carries no payload; the service receives the public IP address from
+which the request arrives. The answer is stored exclusively locally and is
+transmitted nowhere else.</li>
+<li><b>Open-Meteo (weather)</b> — on request, the AI weather lookup (section
+4.8) queries current weather data for a named place; the daily briefing does the
+same for the town stored in the configuration when its optional mode with a
+weather reference is on. Only the place's coordinates are transmitted — never
+case, client or person data.</li>
+<li><b><a href="index.html">www.ironstick.legal</a> (news file)</b> — after the access code has been
+entered and then every six hours, the application downloads a news file with
+notices and warnings from the software vendor's website, plus any image it
+references. The request carries no data; like every web server, the vendor's
+server sees the IP address and the time of the request.</li>
+</ul>
+<p>None of these services involves the AI provider.</p>
+
+<h2>8. Local storage, integrity and user control</h2>
+<img class="flow" src="img/69_local_encryption.png" alt="IRONSTICK Client with TOTP access lock; documents, scratch store and database encrypted with AES-256">
+<p>Independent of the AI channels above, the following applies to <b>all</b>
+data <span class="irs">IRONSTICK</span> holds:</p>
+<ul>
+<li><b>Exclusively local storage.</b> The entire data set — database, document
+files, media, transcripts, configuration — lives in a single data directory at
+a path the user defines. <span class="irs">IRONSTICK</span> requires no cloud account,
+and no function sends user data to the vendor (the only vendor contact is the
+news download, section 7). Where a practice runs
+the optional <span class="irs">IRONSTICK</span> SERVER (section 9), that server too is the firm's own
+device on the firm's own network — nothing about vendor access changes.</li>
+<li><b>Database encrypted at rest (AES-256).</b> The database — the record
+of clients, cases, chronicle, e-mails, deadlines, transcripts' text and the
+AIs' memory — is stored encrypted with AES-256, every page individually and
+with an integrity seal per page. The key is derived by the application at
+run time and is never written to disk or configuration, so a database file
+copied from the storage device or a backup archive cannot be read without
+<span class="irs">IRONSTICK</span>. This is a technical measure in the sense of Art. 32 GDPR that
+applies without any user configuration and cannot be switched off.</li>
+<li><b>Documents encrypted at rest (AES-256).</b> The document store — the
+original PDFs, scans, images, audio and transcript files — is encrypted the
+same way, file by file, with an integrity seal that detects alteration.
+Reading happens through a single gate that decrypts the requested file
+into a temporary working copy and removes those copies when the
+application closes or starts. Backups and case packets carry the documents
+in their encrypted form. </li>
+<li><b>What remains in clear text.</b> Besides the working copies of the current session and exports: scans waiting in the scan inbox before they are captured;
+the short-lived peer-review buffer between desktop AIs (section 4.9, deleted
+when the task is closed and wiped at every start); and, only if switched on,
+the detailed bridge diagnostic log (section 4.9).</li>
+<li><b>Access control at start (TOTP).</b> Once the licence key is
+accepted, the application shows nothing but a code prompt until the user
+enters the current six-digit time-based one-time code from an
+authenticator app (RFC 6238). The secret behind the codes is never written
+to disk; only a
+non-secret fingerprint of the confirmed set-up is stored so the QR code is
+shown again after a key change. Repeated wrong codes trigger a growing
+wait. The desktop-AI bridges receive no case data while the application
+is locked. The configuration file (API keys, e-mail credentials,
+server access) rests AES-256 encrypted with the same mechanism as the
+documents and is decrypted in memory only.</li>
+<li><b>User-controlled storage location.</b> The data path is chosen during
+setup and can be changed at any time — including to a removable medium such as
+an encrypted USB drive or an encrypted external disk. The application simply
+follows the configured location; encrypting the medium (e.g. with the
+operating system's disk encryption) is in the user's hands and is
+recommended for portable media. Network drives and cloud-synchronised folders
+(OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) are refused as data
+location. When the storage location is changed in the configuration, <span class="irs">IRONSTICK</span> checks the target against these rules; copying is done with checksum comparison, the switch happens only after successful verification, and the old folder is kept under a new name.</li>
+<li><b>Device synchronisation without any cloud.</b> The optional
+Windows&nbsp;↔&nbsp;Android-tablet synchronisation runs over a direct USB
+cable connection — no third-party service is involved, transfers are
+checksum-verified, and a mandatory backup is taken before the database is
+replaced. Documents marked secret are never transferred to the tablet at
+all.</li>
+<li><b>Start-up security snapshot (local login log).</b> At every program
+start, <span class="irs">IRONSTICK</span> records in the background a snapshot of the machine it is
+running on: host name, operating system, RAM/CPU, local IP address, default
+browser, running remote-access tools it detects, and a derived security
+score — plus, once per start, the public IP address and coarse location
+(city, country, ISP) obtained from the geo-IP service ipwho.is (section 7).
+The snapshot is stored <b>exclusively locally</b> in the database and is transmitted nowhere. Retention is limited
+automatically to a maximum of <b>6 months</b> and a maximum of <b>1,000
+entries</b> (daily housekeeping), and the user can inspect the log at any
+time in the configurator (card "Login log").</li>
+<li><b>Integrity fingerprints on every captured file.</b> At the moment of
+capture, every stored file receives a cryptographic content fingerprint
+(SHA-256 for documents and media; a legacy MD5 fingerprint for transcript audio
+files), recorded in the database next to the entry. Any later modification of a
+stored file is therefore <b>detectable</b> by comparing the file against its
+recorded fingerprint, and e-discovery exports (EDRM) carry these fingerprints
+so that recipients can verify the files independently. This makes any manipulation evident and provable.</li>
+<li><b>Backups at the user's discretion.</b> A built-in backup function writes
+a complete copy of the data (full backup or data-only backup) as a single ZIP
+archive to any destination the user selects, and restores from such an archive
+on demand. How often backups are made, where they are kept, how long they are
+retained and whether the archives are additionally encrypted is entirely the
+user's decision. Inside every archive, the database, the documents, the
+configuration and the AI scratch store are AES-256 encrypted in any case; only
+scans still waiting in the scan inbox are included as they are —
+<span class="irs">IRONSTICK</span> imposes no schedule and transmits backups nowhere.</li>
+<li><b>Generated documents belong to the user.</b> The user can generate
+documents at any time — pleadings, letters, dossiers, lists, exports — and
+download them: they are written to the local Documents folder or, where the
+user explicitly selects Google Drive as a destination, to the user's own Google
+Drive account.
+Whatever happens to a
+generated document afterwards — printing, filing with a court, e-mailing,
+uploading to any service, sharing with third parties — is decided by the user alone.</li>
+</ul>
+<div class="box"><b>Allocation of responsibility.</b> Because <span class="irs">IRONSTICK</span> stores
+everything locally and transmits data only on the paths documented in sections
+1–7 and 9 — including the background functions that run without a dialog of
+their own (sections 3 and 7) — the operator of the practice is the sole data
+controller: they choose the storage medium and its encryption, manage and
+retain backups, decide which AI functions are enabled, give or withhold each
+consent, and alone decide what is done with every document, export or backup
+the software produces. AI-generated content — drafts, summaries, assessments,
+classifications — is always a <b>proposal</b> on which the user decides. This document exists so that every
+one of those decisions can be made on full knowledge of the actual data
+flows.</div>
+
+<h2>9. <span class="irs">IRONSTICK</span> SERVER (optional, on the firm's own network)</h2>
+<img class="flow" src="img/70_server_lan.png" alt="IRONSTICK Server and IRONSTICK Client connected over the LAN; the server has no connection to the internet">
+<p>Practices with several <span class="irs">IRONSTICK</span> workstations can operate the optional
+<b><span class="irs">IRONSTICK</span> SERVER</b> — a coordination service running on the firm's own
+Synology NAS, inside the firm's own local network. For the purposes of this
+declaration the decisive facts are:</p>
+<ul>
+<li><b>No external party is involved.</b> The server is the firm's own
+device. It accepts connections only from private (local) network addresses
+and <b>never initiates any connection to the internet</b> — no telemetry, no
+update checks, no vendor contact. The software vendor has no access of any
+kind.</li>
+<li><b>Transport and storage.</b> Documents travel to the server and rest there
+only as AES-256-encrypted files in the same vault format as on the workstation;
+the server never sees their plain text. The server runs on the firm's own NAS
+inside the firm's network, without internet connections.</li>
+<li><b>No AI involvement.</b> The server carries no AI traffic, stores no AI
+key and never communicates with any language-model provider. All AI channels
+described in sections 1–6 remain strictly per-workstation; the
+pseudonymisation layer, the consent gates and the audit log are unaffected
+by the server's presence.</li>
+<li><b>What the server stores</b> — all of it on the NAS, under the firm's
+control: (a) <b>shared case packs</b> — only cases a user explicitly
+released for colleagues; documents marked secret are excluded by design and
+never reach the server; (b) the <b>central legal library</b> — public
+statute texts as Markdown, each with the contributing user's name, source
+link and review date; (c) <b>time-tracking records</b> — per user, day and
+case: case number, client name and minutes, reported by each workstation in
+the background; (d) <b>presence totals</b> per user and day, derived from
+session heartbeats; (e) <b>case-event metadata</b> — shares, revocations,
+subscription starts/ends and exports, each with date, time and LAN IP
+address; (f) a <b>security log</b> with administrative and login events,
+including LAN IP addresses; (g) <b>case hand-over parcels</b> — when a user
+transfers case ownership to a colleague, the complete case travels as one
+archive through a temporary transfer area on the server; the parcel is deleted from
+the server after the recipient has confirmed the import, and documents
+marked secret travel only after the owner's explicit additional
+confirmation (otherwise the transfer is aborted); (h) the <b>central
+scan intake</b> (optional Central Scan App): a registry of each user's
+<b>case numbers and display name</b> (reported by the workstations as
+matching material — never case contents) and a per-file <b>document
+spool</b> holding scanned incoming mail addressed to one user until that
+user's workstation has fetched and confirmed it, after which the server
+copy is deleted; text recognition and recipient matching happen locally on
+the scan workstation, without any AI; (i) <b>backup event records</b> —
+each workstation reports its data-backup and restore events (kind, file
+name, size, time, LAN IP), so the administrator can see per user when the
+last backup was taken and remind users who fall behind; (j) the <b>firm-wide
+party directory</b> — the master records of
+<b>persons and companies, institutions, the relations between them and the
+person analyses</b> kept by the workstations, together with the queue of
+change proposals exchanged between users; (k) the <b>assessments of court decisions</b> — per workstation and decision: court, panel and composition, the names of the judges and court clerks, decision number, date, court file number, the internal case and client numbers of the assessing workstation, measured text shares and the English analysis of the decision and of both sides’ submissions written by the AI; (l) the <b>firm chat</b> — messages between the registered users (deleted after one year) — and notes pinned to a shared case, visible to its owner and all subscribers.</li>
+<li><b>The firm-wide party directory.</b> As soon as a workstation is
+connected to the server, its party master data (who is who: names,
+identifiers, contact data, relations, person analysis) is <b>uploaded
+automatically</b> and mirrored to every other workstation of the same firm,
+so that each lawyer sees with whom the firm is already dealing and the firm
+obtains a firm-wide conflict-of-interest view. Every record has exactly one
+owner — the user who brought it in first; all other users hold a read-only
+copy and can only send a <b>change proposal</b>, which the owner accepts or
+rejects in the data monitor. If the owner cannot be reached for 48 hours,
+ownership passes to the proposing user. <b>Case contents are not part of
+this directory</b> — documents, chronology, correspondence and case
+assignments remain governed by the explicit share and hand-over actions
+described here. The exchange stays inside the firm (one controller), never
+leaves the local network and involves <b>no AI provider</b>: duplicate
+detection and field comparison run as plain program logic on the sending
+workstation; the server only stores and forwards. Firms should mention this
+internal sharing of party data and person analyses in their record of
+processing activities.</li>
+<li><b>The assessments of court decisions.</b> An assessment is stored only on the user’s express command; afterwards, like the party directory, it is <b>uploaded automatically</b> and mirrored to every workstation of the firm. Each workstation keeps its own assessment per decision, which only it can change. The analysis describes the content of a decision and of the submissions to it — to that extent it contains <b>case content</b> — and names judges and court clerks. No AI provider is involved; the exchange stays within the firm’s local network. Firms should also list this disclosure in their record of processing activities.</li>
+<li><b>Deliberate actions only — for case content.</b> Case content reaches
+the server exclusively through an explicit share or hand-over action
+confirmed by the user; legal-library texts only after the user accepts the
+entry in the data monitor; scanned incoming mail only after the office clerk
+has reviewed the document and clicked send to a chosen recipient. The party
+directory and the stored assessments of court decisions are the deliberate exceptions: they
+synchronise in the background without a per-record confirmation. Time, presence, event and
+backup records are operational metadata created by the multi-user operation
+itself and are visible to the firm's administrator in the web admin.</li>
+<li><b>Controllership.</b> The firm operating the server remains the sole
+data controller. The administrator controls registration approval, can end
+subscriptions, delete legal-library entries and uninstall the package —
+which leaves the server data directory under the administrator's control on
+the NAS.</li>
+<li><b>Employee data.</b> With <span class="irs">IRONSTICK</span> SERVER, each
+workstation reports its measured working time per day and case (case number,
+client name) and every backup and restore event (file, size, time, IP address)
+to the server, where the firm's administrator sees it. The firm must inform its
+staff accordingly.</li>
+<li><b>Client full names in time records.</b> The time-tracking overview
+shows working time per case and per client, which means client names are
+stored on the NAS. This stays inside the firm's own infrastructure and its
+existing confidentiality regime — but firms should include the NAS in their
+technical-and-organisational-measures inventory (access control on the NAS
+operating system, volume encryption, backup policy), exactly as they would for
+any office file server.</li>
+</ul>
+
+<h2>Annex — Model clause for your client privacy notice (proposal)</h2>
+<p>The following text is a drafting proposal that a law practice using <span class="irs">IRONSTICK</span>
+can copy into its own client privacy notice. It is written to be accurate to the
+data flows described above. It deliberately avoids citations of statutory articles so it
+can be pasted into notices of any structure.</p>
+<div class="box warn"><b>Before you paste this — checklist for the lawyer:</b>
+<ol style="margin:6px 0 2px">
+<li>Have the data-processing agreement of <b>every</b> AI provider you have
+set up in place, name in the clause only the providers you actually use, and
+check the sentence on training and retention against the terms you actually
+signed. The clause covers the free background providers (Groq, OpenRouter,
+Mistral, section 1) only through the optional sentence in brackets there —
+switch them on only if their terms meet your professional-rule requirements,
+and delete the sentence if you do not use them.</li>
+<li>Keep the bracketed sentence about the AI workspace only if you really use
+the desktop-AI bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop
+or Kimi Desktop); delete it otherwise.</li>
+<li>This clause covers the in-app flows described in this document. It does
+<b>not</b> cover the AI instruction package (section 5) — uploading that export
+to any AI service is a separate decision and will normally require the client's
+explicit consent.</li>
+<li>If you have disabled individual AI functions in the configurator, shorten
+the list of purposes accordingly — describe exactly what you use, no more.</li>
+<li>This is a drafting proposal, not legal advice. Have it reviewed against
+your bar's professional rules and local data-protection practice before use.</li>
+</ol></div>
+
+<h3>English (master)</h3>
+<div class="clause">
+<p><b>AI-assisted case processing.</b> Our practice uses the case-management
+software <span class="irs">IRONSTICK</span>, which includes AI-assisted functions. For these functions,
+selected data from your file may be transmitted to an external AI service
+provider (depending on availability: Alibaba Cloud, Moonshot AI, OpenAI or Anthropic, via their APIs), which processes
+it on our behalf under a data-processing agreement. We use these functions for:
+classifying and registering incoming documents, prioritising incoming e-mail,
+checking our records for inconsistencies, drafting and reviewing legal
+documents, and legal analysis and research. [Optional — delete if not used: For
+tasks that run in the background, such as prioritising incoming e-mail, checking
+our records and summaries, the free services of Groq, OpenRouter or Mistral may
+additionally be used; we checked their terms before switching them on.]</p>
+<p><b>Protective measures.</b> Before anything is transmitted, the software
+replaces the direct identifiers stored in our system — names, personal
+identification numbers, telephone numbers, e-mail addresses, postal addresses,
+case numbers and bank details — with neutral placeholders on our own computer.
+The table linking placeholders to real data never leaves our office, and the
+provider's answers are translated back locally. Only what the specific function
+requires is transmitted, within fixed size limits. A small number of functions
+technically require real data — for example public web research on a person's
+name, or the read-aloud function; we use these only through a deliberate
+individual action. [Optional — delete if not used: For drafting court documents
+we additionally use an AI workspace in which case data is processed without
+placeholder replacement; this channel is used only under our direct
+supervision.] Separately from the AI functions, the software sends postal
+addresses stored in our records — without names — to the public map service
+OpenStreetMap so that they can be shown on a map.</p>
+<p><b>The provider.</b> Under the provider's terms applicable to us, content
+transmitted through the API is not used to train AI models
+and is stored only for a limited period. Processing may take place outside the
+European Economic Area; in that case the transfer is protected by the
+safeguards agreed in our data-processing agreement with the provider. What the
+provider may do with the data is governed by that agreement — not by the AI's
+own discretion.</p>
+<p><b>Your choice.</b> Our professional duty of confidentiality remains
+unaffected: beyond what is described here, no data leaves our practice. The
+processing rests on the mandate you have given us and on our legitimate
+interest in handling your case efficiently and accurately. You may object to
+the use of the AI-assisted functions at any time; where feasible, we will then
+handle your file without them. You also retain all your statutory
+data-protection rights, including access, correction, deletion and complaint
+to the supervisory authority.</p>
+</div>
+
+<p class="meta">This declaration was derived from the application source code
+(pseudonymiser, external router, audit log, and each feature's transmission
+path) and reflects the shipped behaviour of version 1.0.7 (as of November 2026). Processing by
+the AI provider itself — retention, training use, sub-processors, jurisdiction —
+is governed solely by the provider's terms, in their current versions. The
+links to each provider's terms and privacy policy are also in the corresponding
+section of the AI configuration.</p>
+<table>
+<tr><th>Provider</th><th>Terms and privacy</th></tr>
+<tr><td>Alibaba Cloud (Qwen)</td><td><a href="https://www.alibabacloud.com/help/en/legal">alibabacloud.com/help/en/legal</a></td></tr>
+<tr><td>Moonshot AI (Kimi)</td><td><a href="https://platform.kimi.ai/docs/agreement">platform.kimi.ai/docs/agreement</a></td></tr>
+<tr><td>OpenAI (ChatGPT)</td><td><a href="https://openai.com/policies">openai.com/policies</a></td></tr>
+<tr><td>Anthropic (Claude)</td><td>Commercial Terms of Service: <a href="https://www.anthropic.com/legal/commercial-terms">anthropic.com/legal/commercial-terms</a>; Usage Policy: <a href="https://www.anthropic.com/legal/aup">anthropic.com/legal/aup</a>; Privacy Policy: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></td></tr>
+<tr><td>Groq</td><td><a href="https://groq.com/terms-of-use">groq.com/terms-of-use</a></td></tr>
+<tr><td>OpenRouter</td><td><a href="https://openrouter.ai/terms">openrouter.ai/terms</a></td></tr>
+<tr><td>Mistral</td><td><a href="https://legal.mistral.ai/terms/commercial-terms-of-service">legal.mistral.ai/terms/commercial-terms-of-service</a></td></tr>
+</table>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Get in touch</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK contact card (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scan the code to save our contact card — phone, e-mail and website.</p><p class="pref">Feel free to contact directly via WhatsApp or Telegram — calls are welcome too. Spoken languages: German, English, Romanian.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Message</h5><h3 class="ct-ask">Interested in IRONSTICK or a demo? Write to us.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK enquiry from" name="form"><div class="ct-fg"><label for="ct-name">Name</label><input id="ct-name" type="text" name="name" placeholder="Your name" required></div><div class="ct-fg"><label for="ct-msg">Message</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Your message" required></textarea></div><div class="ct-fg"><p class="ct-hint">Sending opens your e-mail program with the prepared message.</p><button type="submit">Send message</button></div><div class="u-form-send-success">Your e-mail program is opening. Please send the message there.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK is legal-practice software. This website is for informational purposes only and does not constitute legal advice. © 2026 IRONSTICK.</p></footer>
+</body></html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRONSTICK — AVG-verklaring over gegevensstromen (externe LLM's)</title>
+<meta name="description" content="IRONSTICK AVG-verklaring over gegevensstromen: elke weg waarlangs gegevens IRONSTICK verlaten in de richting van een externe AI-aanbieder, wat er wordt doorgegeven en waar de pseudonimisering ingrijpt.">
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #202124;
+         max-width: 900px; margin: 0 auto; padding: 32px 24px 64px; line-height: 1.55; }
+  h1 { font-size: 25px; border-bottom: 3px solid #1a73e8; padding-bottom: 8px; }
+  h2 { font-size: 20px; color: #1a73e8; margin-top: 38px;
+       border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .meta { color: #5f6368; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 13.5px; }
+  th, td { border: 1px solid #dadce0; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f1f3f4; }
+  .box { border-left: 4px solid #1a73e8; background: #f8f9fa; padding: 10px 14px; margin: 14px 0; }
+  .warn { border-left-color: #ea8600; }
+  .crit { border-left-color: #c5221f; }
+  code { background: #f1f3f4; padding: 1px 5px; border-radius: 4px; font-size: 12.5px; }
+  .yes { color: #188038; font-weight: 600; } .no { color: #c5221f; font-weight: 600; }
+  .clause { border: 1px solid #dadce0; background: #fff; border-radius: 6px;
+            padding: 4px 18px 10px; margin: 10px 0 30px; }
+  .clause p { margin: 10px 0; }
+  @media print { body { max-width: none; } h2 { page-break-after: avoid; } table { page-break-inside: avoid; } }
+  h1{border-bottom:none;padding-bottom:0}
+  img.flow{display:block;max-width:100%;height:auto;margin:14px auto 18px}
+  .site-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;background:#fff;
+    border-bottom:1px solid #dadce0;padding:8px 16px;margin:-32px -24px 18px;
+    max-width:none;line-height:1.6}
+  /*mobile-fix*/@media (max-width:640px){body{overflow-wrap:break-word}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}code{word-break:break-all}.tiles{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}</style><link rel="stylesheet" href="fonts/noto-serif.css">
+<style id="font-noto">body{font-family:'Noto Serif',Georgia,'Times New Roman',serif}.site-bar,table{font-family:'Segoe UI',Arial,sans-serif}.irs{font-family:'Segoe UI',Arial,sans-serif;font-weight:700}</style>
+<link rel="stylesheet" href="sitebar.css">
+<link rel="stylesheet" href="contact.css">
+<link rel="stylesheet" href="hero.css">
+<script src="parallax.js" defer></script>
+<script src="contact.js" defer></script>
+<link rel="stylesheet" href="site.css">
+<link rel="alternate" type="text/markdown" href="gdpr_nl.md">
+<link rel="llms-txt" href="/llms.txt">
+<link rel="alternate" hreflang="en" href="https://www.ironstick.legal/gdpr.html">
+<link rel="alternate" hreflang="de" href="https://www.ironstick.legal/gdpr_de.html">
+<link rel="alternate" hreflang="ro" href="https://www.ironstick.legal/gdpr_ro.html">
+<link rel="alternate" hreflang="fr" href="https://www.ironstick.legal/gdpr_fr.html">
+<link rel="alternate" hreflang="it" href="https://www.ironstick.legal/gdpr_it.html">
+<link rel="alternate" hreflang="es" href="https://www.ironstick.legal/gdpr_es.html">
+<link rel="alternate" hreflang="pt" href="https://www.ironstick.legal/gdpr_pt.html">
+<link rel="alternate" hreflang="nl" href="https://www.ironstick.legal/gdpr_nl.html">
+<link rel="alternate" hreflang="ru" href="https://www.ironstick.legal/gdpr_ru.html">
+<link rel="alternate" hreflang="uk" href="https://www.ironstick.legal/gdpr_uk.html">
+<link rel="alternate" hreflang="tr" href="https://www.ironstick.legal/gdpr_tr.html">
+<link rel="alternate" hreflang="x-default" href="https://www.ironstick.legal/gdpr.html">
+</head><body class="sd">
+<div class="site-bar"><div class="left"><div class="brand-wrap" tabindex="0" title="Menu"><a class="b" href="index_nl.html"><img src="img/ironstick_logo.png" alt="IRONSTICK"><span>IRONSTICK</span></a><span class="burger" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><div class="menu"><a href="index_nl.html">Home</a><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html">AI</a><span class="mh">Handleidingen</span><a class="sub" href="manualquickstart_nl.html">Snelstart</a><a class="sub" href="manualironstick_nl.html">Client-app</a><a class="sub" href="manualbridge_nl.html">Bridge</a><a href="gdpr_nl.html" aria-current="page">AVG</a><a href="download_nl.html">Download</a></div></div><nav class="mainnav"><a href="overview_nl.html">Overzicht</a><a href="ki_nl.html">AI</a><div class="nav-drop" tabindex="0"><span>Handleidingen</span><div class="menu"><a href="manualquickstart_nl.html">Snelstart</a><a href="manualironstick_nl.html">Client-app</a><a href="manualbridge_nl.html">Bridge</a></div></div><a href="gdpr_nl.html" aria-current="page">AVG</a><a href="download_nl.html">Download</a></nav></div><div class="bar-right"><a class="cta" href="download_nl.html">30 dagen proberen</a><nav class="lang-wrap" tabindex="0" title="Taal" aria-label="Taal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><path d="M2.8 8.8h18.4M2.8 15.2h18.4"/></svg><div class="menu"><a lang="en" hreflang="en" href="gdpr.html">English</a><a lang="de" hreflang="de" href="gdpr_de.html">Deutsch</a><a lang="ro" hreflang="ro" href="gdpr_ro.html">Română</a><a lang="fr" hreflang="fr" href="gdpr_fr.html">Français</a><a lang="it" hreflang="it" href="gdpr_it.html">Italiano</a><a lang="es" hreflang="es" href="gdpr_es.html">Español</a><a lang="pt" hreflang="pt" href="gdpr_pt.html">Português</a><a class="on" lang="nl" hreflang="nl" href="gdpr_nl.html">Nederlands</a><a lang="ru" hreflang="ru" href="gdpr_ru.html">Русский</a><a lang="uk" hreflang="uk" href="gdpr_uk.html">Українська</a><a lang="tr" hreflang="tr" href="gdpr_tr.html">Türkçe</a></div></nav></div></div>
+
+<section class="gh gh-gdpr" data-parallax="31 75"><div class="gh-in"><div class="gh-box"><h1>AVG-verklaring over gegevensstromen</h1></div><p class="gh-sub">Relaties met externe Large Language Models</p></div></section>
+<p class="meta">Zakelijke, uit de code afgeleide beschrijving van elk pad waarlangs gegevens
+<span class="irs">IRONSTICK</span> verlaten in de richting van een externe LLM, wat er precies wordt doorgegeven, in welke vorm
+en waar de pseudonimiseringslaag ingrijpt. Windows-desktopeditie. Dit document
+beschrijft uitsluitend het gedrag van <span class="irs">IRONSTICK</span> — <b>wat de AI-aanbieder met ontvangen
+gegevens doet, wordt uitsluitend bepaald door de eigen voorwaarden van de aanbieder</b> (de
+gebruiksvoorwaarden en privacyverklaringen van de door de gebruiker ingestelde aanbieders: Alibaba Cloud (Qwen),
+Moonshot AI (Kimi), OpenAI, Anthropic en, indien ingeschakeld, Groq, OpenRouter en
+Mistral; Google alleen als Google Drive voor exports wordt gebruikt), die de gebruiker afzonderlijk moet controleren.</p>
+<p class="meta">Versie 1.0.7 — stand november 2026</p>
+<div class="box"><b>Samenvatting.</b>
+<ul>
+<li><b>Opslag.</b> Alle gegevens staan in één enkele lokale gegevensmap. De database,
+de documentopslag, het configuratiebestand en de AI-tussenopslag zijn in rust
+met AES-256 versleuteld. In platte tekst blijven alleen tijdelijke werkkopieën van geopende
+documenten, de scaninvoer, exports en uitgaande bestanden, de kortstondige
+peer-reviewbuffer en, indien ingeschakeld, het diagnoselogboek (paragraaf 8).</li>
+<li><b>Externe AI.</b> AI-aanroepen binnen de app zijn er alleen met de eigen API-sleutel van de gebruiker.
+Aanroepen via de centrale router worden standaard gepseudonimiseerd en in een
+lokaal auditlogboek vastgelegd; de bewuste uitzonderingen in platte tekst staan vermeld in 2.3.</li>
+<li><b>Toestemming.</b> De AI-chat, de documentregistratie en het personenonderzoek vragen eenmaal
+per sessie resp. programmasessie om toestemming; in de tekstverwerker is het starten van een AI-functie
+de toestemming. Meerdere achtergrondfuncties roepen de cloud-AI aan zonder eigen venster:
+de e-mailtriage, de monitor voor gegevensconsistentie, de dagbriefing, de gesprekssamenvatting
+en de Red/Blue Team-controle (paragraaf 3).</li>
+<li><b>Desktop-AI-Bridge.</b> Een optionele aanvullende module die echte zaakgegevens doorgeeft aan de aanbieder van de eigen desktop-AI van de gebruiker, na
+een toestemmingsvenster per programmasessie (paragraaf 4.9).</li>
+<li><b>Overige diensten.</b> Adressen van partijen worden dagelijks met
+OpenStreetMap Nominatim gegeocodeerd (alleen het adres, geen namen); een nieuwsbestand wordt na de start en
+daarna elke zes uur gedownload van <a href="index_nl.html">www.ironstick.legal</a>; er worden geen zaak- of
+persoonsgegevens naar de softwarefabrikant gestuurd (paragrafen 1 en 7).</li>
+<li><b><span class="irs">IRONSTICK</span> SERVER.</b> Optioneel, op de eigen
+NAS van het kantoor in het lokale netwerk, zonder internetverbindingen. Documenten bereiken de server alleen als
+met AES-256 versleutelde bestanden en staan daar ook alleen zo; de server ziet nooit hun platte tekst. De werktijd per zaak
+en de back-upgebeurtenissen van elke werkplek zijn zichtbaar voor de beheerder van het kantoor
+(paragraaf 9).</li>
+</ul></div>
+
+<h2>1. Toepassingsgebied en eindpunten</h2>
+<img class="flow" src="img/65_ai_client_vault.png" alt="AI-API, AI-desktop-app en MCP-server links, de IRONSTICK Client in het midden, gegevenskluis met AES-256, IRONSTICK Server en scan-app rechts">
+<p>Externe AI-aanroepen binnen de app gaan naar <b>de aanbieder die de automatische cascade
+op dat moment gebruikt</b>. De gebruiker kan maximaal vier aanbieders instellen; elke
+aanbieder waarvoor een sleutel is vastgelegd, wordt in deze vaste volgorde
+gebruikt, waarbij de voordeligste als eerste aan de beurt is: <b>Qwen (Alibaba Cloud) → Kimi (Moonshot AI) →
+ChatGPT (OpenAI) → Claude (Anthropic)</b>. Bij elke programmastart controleert <span class="irs">IRONSTICK</span>
+welke daarvan antwoorden. Valt een aanbieder uit, dan gaat hetzelfde verzoek naar de
+volgende. De uitgevallen aanbieder wordt na een van de fout afhankelijke wachttijd opnieuw
+geprobeerd; voor de rest van de dag
+wordt hij alleen overgeslagen als zijn tegoed op is of de oorzaak onbekend is. De doorgegeven inhoud
+is bij elke aanbieder identiek (vanaf paragraaf 3: door de router gepseudonimiseerd,
+toestemming, auditlogboek). De eindpunten zijn:</p>
+<ul>
+<li><b>Claude:</b> <code>POST https://api.anthropic.com/v1/messages</code>,
+de eigen API-sleutel van de gebruiker.</li>
+<li><b>ChatGPT:</b> <code>POST https://api.openai.com/v1/chat/completions</code>,
+de eigen API-sleutel van de gebruiker.</li>
+<li><b>Qwen:</b> <code>POST https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions</code>
+(Alibaba Cloud Model Studio, internationale regio), de eigen API-sleutel van de gebruiker.</li>
+<li><b>Kimi:</b> <code>POST https://api.moonshot.ai/v1/chat/completions</code>
+(Moonshot AI), de eigen API-sleutel van de gebruiker.</li>
+</ul>
+<p><b>Gratis achtergrondaanbieders (optioneel).</b> Daarnaast kan de gebruiker
+de gratis aanbiedingen van <b>Groq</b>, <b>OpenRouter</b> en <b>Mistral</b>
+vastleggen. <span class="irs">IRONSTICK</span> gebruikt ze uitsluitend voor taken die op de achtergrond
+lopen: e-mailtriage, monitor voor gegevensconsistentie, dagbriefing, gesprekssamenvatting,
+sprekertoewijzing bij transcripties, ophalen van wetteksten en situatiebeeld. Elk
+van deze aanbieders heeft in de configuratie een eigen aan/uit-schakelaar; gebruikt wordt
+hij alleen als er een sleutel is vastgelegd en zijn schakelaar is ingeschakeld. Voor de chat, voor
+processtukken en voor de Red/Blue Team-controle worden ze <b>nooit</b> gebruikt. Is
+geen van hen beschikbaar, dan neemt de hierboven beschreven cascade het over.
+Pseudonimisering, toestemming en auditlogboek richten zich naar de betreffende
+taak (paragraaf 4). De eindpunten zijn:</p>
+<ul>
+<li><b>Groq:</b> <code>POST https://api.groq.com/openai/v1/chat/completions</code>,
+de eigen API-sleutel van de gebruiker.</li>
+<li><b>OpenRouter:</b> <code>POST https://openrouter.ai/api/v1/chat/completions</code>,
+de eigen API-sleutel van de gebruiker.</li>
+<li><b>Mistral:</b> <code>POST https://api.mistral.ai/v1/chat/completions</code>,
+de eigen API-sleutel van de gebruiker.</li>
+</ul>
+<div class="box warn"><b>Gratis aanbiedingen — melding in de configuratie.</b> In de configuratie wijst een melding onder elk van deze aanbieders erop dat IRONSTICK hem — mits de API-sleutel is vastgelegd en de schakelaar is ingeschakeld — gebruikt voor achtergrondtaken zoals samenvattingen en e-mailtriage en daarbij gegevens aan deze aanbieder doorgeeft. Controleer voordat u een van deze aanbieders inschakelt of diens
+voorwaarden voorzien in de voor verwerkers vereiste verwerkersovereenkomst
+en aan uw beroepsregels voldoen. Een uitgeschakelde aanbieder wordt niet gebruikt.</div>
+<p>Per aanbieder worden drie configureerbare modelniveaus gebruikt (klein / middel /
+groot). Een afzonderlijk, optioneel kanaal is de
+<b>desktop-AI-Bridge</b> (paragraaf 4.9): daar stromen gegevens naar de eigen
+lokale desktop-AI van de gebruiker (Claude Desktop / Claude Code, ChatGPT Desktop, Qwen
+Desktop <b>of</b> Kimi Desktop), d.w.z. naar de aanbieder van deze AI (Anthropic, OpenAI,
+Alibaba Cloud/Qwen of Moonshot AI/Kimi) in het kader van het eigen abonnement/account van de gebruiker bij deze aanbieder. De
+Bridges kunnen parallel draaien: elke desktop-AI heeft een eigen klein Bridge-programma,
+alle maken verbinding met hetzelfde lokale eindpunt in de draaiende applicatie, en ze kunnen
+tegelijk aan dezelfde zaak werken. Er worden geen zaak- of
+persoonsgegevens naar de softwarefabrikant gestuurd. Het enige contact met de fabrikant is een eenvoudige download van een nieuwsbestand
+van <a href="index_nl.html">www.ironstick.legal</a> (na de start en daarna elke zes uur, paragraaf 7), die behalve de
+technische verbinding zelf geen gegevens bevat.
+<b><span class="irs">IRONSTICK</span> SERVER</b> (paragraaf 9) verandert daar niets aan: hij wordt
+door het kantoor zelf beheerd, op de eigen hardware van het kantoor, binnen het
+eigen netwerk van het kantoor — hij neemt nooit contact op met de fabrikant en nooit met een AI-aanbieder.</p>
+<div class="box"><b>De hoofdschakelaar is de eigen toegang van de gebruiker.</b> Externe
+AI-verwerking binnen de app bestaat alleen als de gebruiker een eigen account
+bij een AI-aanbieder heeft geopend en zijn eigen toegangssleutel in de configuratie heeft ingevoerd.
+<b>Zonder ingestelde aanbieder kan er binnen de app helemaal geen externe AI-aanroep plaatsvinden</b> — elke
+in paragraaf 4 beschreven functie blijft dan lokaal of is eenvoudigweg niet beschikbaar. Dit
+account is een rechtstreekse overeenkomst tussen de gebruiker en de aanbieder; <span class="irs">IRONSTICK</span> is
+geen contractpartij. Hetzelfde geldt voor de desktop-AI-Bridge, die
+een eigen abonnement/account van de gebruiker bij de gekozen desktop-AI-aanbieder vereist
+(Anthropic, OpenAI, Alibaba Cloud/Qwen of Moonshot AI/Kimi). Als <b>geheim</b> gemarkeerde documenten zijn
+uitgesloten van de tools van de desktop-AI-Bridge en van de chat, van het
+AI-instructiepakket en van elke gegenereerde uitvoer (producties, dossiers, exports);
+hun verwerking tijdens de registratie volgt de bewuste beslissing van de gebruiker op het
+moment van registratie (paragraaf 4.1).</div>
+<p>Volledig lokaal (niets verlaat de computer): tekstextractie en OCR, de
+deterministische lokale chatlaag, de globale zoekfunctie, de relevantieradar, de analyse van briefketens,
+het genereren van dossiers/pdf's, de lokale doorloop van de weglakzoeker, de spraakherkenning
+(transcriptie van opnamen) en het aanmaken van het AI-instructiepakket.</p>
+
+<h2>2. De pseudonimiseringslaag</h2>
+<p>Elke aanroep binnen de app via de centrale AI-router wordt standaard gepseudonimiseerd:
+identificatoren in de uitgaande tekst worden door plaatshouders vervangen, en het antwoord wordt lokaal hersteld. Kan de pseudonimiseerder niet
+volledig worden opgebouwd, dan wordt er niets verzonden. De uitzonderingen staan vermeld in 2.3. De koppeltabel
+bestaat alleen in het werkgeheugen, een nieuwe koppeltabel per handeling; zij wordt nooit opgeslagen.</p>
+<img class="flow" src="img/66_pseudonymization.png" alt="Boven: IRONSTICK Client, geanonimiseerde figuur met tandwielen, AI-API; onder: IRONSTICK Client, gebruiker, AI-desktop-app">
+<h3>2.1 Wat wordt vervangen</h3>
+<table>
+<tr><th>Bron</th><th>Velden</th><th>Plaatshoudergroep (interne identificatoren)</th></tr>
+<tr><td>Cliëntrecords</td><td>Naam, nationaal identificatienummer uit het identificatieveld (bijv. Roemeense CNP), telefoon, e-mail, adres en woonplaats</td>
+<td><code>$PARTEI_A$</code> (partij), <code>$CNP_A$</code> (identificatienummer), <code>$TEL_A$</code> (telefoon), <code>$MAIL_A$</code> (e-mail), <code>$ADRESSE_A$</code> (adres)</td></tr>
+<tr><td>Personen / entiteiten</td><td>volledige naam (persoon of onderneming), nationaal identificatie- of ondernemingsnummer uit het identificatieveld (bijv. Roemeense CNP of CUI)</td>
+<td><code>$PARTEI_B$</code> (partij) / <code>$FIRMA_A$</code> (onderneming), <code>$CNP_B$</code> (identificatienummer)</td></tr>
+<tr><td>Zaken</td><td>Zaaknummer, wederpartij, eiser</td>
+<td><code>$FALL_A$</code> (zaak), <code>$PARTEI_C$</code> (partij)…</td></tr>
+<tr><td>Patroonlaag (onbekende waarden in vrije tekst)</td>
+<td>gerechtelijke zaaknummers, persoonsnummers, IBAN's, e-mailadressen
+en telefoonnummers. Andere nationale identificatienummers worden alleen vervangen als ze in het cliënt- of persoonsrecord zijn opgeslagen.</td><td>dezelfde plaatshoudergroepen</td></tr>
+</table>
+<h3>2.2 Wat bewust ongewijzigd blijft</h3>
+<ul>
+<li><b>Datums, tijden en geldbedragen</b> — deze zijn voor de juridische beoordeling ongewijzigd nodig.</li>
+<li><b>Namen van instellingen</b> (rechtbanken, overheidsinstanties) — deze staan niet in het
+woordenboek en zijn openbare instanties.</li>
+<li><b>Derden zonder eigen record</b> — getuigen, artsen, advocaten, rechters of ondernemingen die niet als cliënt-, persoons- of zaakrecord zijn geregistreerd; wie door een plaatshouder moet worden vervangen, wordt eenvoudigweg als persoon geregistreerd.</li>
+<li><b>Adressen van niet-cliënten</b> — door een plaatshouder vervangen wordt het opgeslagen adres van de cliënt.</li>
+<li>De volledige <b>inhoudelijke strekking</b> van documenten (beweringen, diagnoses,
+weergave van de feiten) — alleen identificatoren worden vervangen, niet het feitencomplex.</li>
+</ul>
+<h3>2.3 Bewuste uitzonderingen met echte namen</h3>
+<ul>
+<li><b>Webonderzoek naar personen (fase 1)</b> en <b>automatisch invullen van formulieren</b> voor personen /
+instellingen: een webzoekopdracht naar <code>$PARTEI_A$</code> is zinloos, daarom wordt de
+echte naam bewust verzonden.</li>
+<li><b>AI-zoeker van het weglakken</b>: deze ontvangt tekst die al lokaal
+is weggelakt, en moet antwoorden met de echte namen van de door hem gevonden <i>onbekende derden</i>
+— de pseudonimisering is voor dit ene doel uitgeschakeld.</li>
+<li><b>Voorbewerking van de voorleesfunctie (TTS)</b>: zie 4.6 — zinnen gaan in platte tekst
+naar buiten.</li>
+<li><b>Desktop-AI-Bridge</b>: bewust ruwe gegevens (paragraaf 4.9).</li>
+</ul>
+
+<h2>3. Momenten van toestemming en het auditlogboek</h2>
+<p>Aanroepen die via de centrale router worden geleid, zijn gebonden aan toestemming en worden gelogd: elke
+modelronde schrijft een regel in de lokale audittabel met
+het volledige verzoek en antwoord <b>in de door plaatshouders vervangen vorm die de computer
+daadwerkelijk heeft verlaten</b>; geweigerde of geblokkeerde pogingen worden zonder inhoud gelogd. Vraagt een
+functie om toestemming, dan noemt het venster het modelniveau en de geschatte omvang van het verzoek, en een goedkeuring geldt voor
+de huidige schermsessie (bij de documentregistratie: voor de huidige programmasessie).</p>
+<div class="box warn"><b>Routerstromen zonder eigen toestemmingsvenster:</b>
+de e-mailtriage (zowel in de achtergrondmodus als bij handmatig ophalen op het e-mailscherm,
+paragraaf 4.2), de analyserun van de monitor voor gegevensconsistentie (4.5),
+de dagbriefing (4.4a), de gesprekssamenvatting van de API-chat en de Red/Blue
+Team-controle (4.7) en de AI-zoeker van het weglakken (het inschakelen van zijn schakelaar is de
+toestemming). Deze worden toch gepseudonimiseerd (met uitzondering van de beoogde antwoorden met echte namen van de
+weglakzoeker) en toch in het auditlogboek vastgelegd.</div>
+<div class="box warn"><b>Stromen die de router omzeilen:</b> de
+AI-functies van de tekstverwerker, de voorbewerking van de voorleesfunctie en de AI-correctie bestand→Markdown
+roepen de API rechtstreeks aan. Ze worden gepseudonimiseerd (uitzondering: voorleesfunctie),
+maar tonen <b>geen eigen toestemmingsvenster en schrijven geen regels in het
+auditlogboek</b>. De bediening van deze functies door de gebruiker (drukken op de AI-knop,
+starten van een generatie, starten van de voorleesfunctie bij ingeschakelde AI-schakelaar) is het
+moment van toestemming.</div>
+<h2>4. De gegevensstromen, toepassing voor toepassing</h2>
+
+<h3>4.1 Documentregistratie</h3>
+<p>Tekstextractie en OCR vinden lokaal plaats. Is er een API-sleutel geconfigureerd, dan vraagt <span class="irs">IRONSTICK</span>
+eenmaal per programmasessie om toestemming; daarna lopen maximaal vier soorten aanroepen (alle gepseudonimiseerd, alle
+in het auditlogboek vastgelegd):</p>
+<ul>
+<li><b>Herkenning van het hoofddocument</b> (klein niveau): fragmenten van de ruwe OCR-tekst — alleen bij scans van slechte kwaliteit.</li>
+<li><b>OCR-correctie</b> (klein niveau): een begrensd fragment van de documenttekst.</li>
+<li><b>Classificatie</b> (middelniveau): een begrensd fragment van de documenttekst, <b>plus systeemlijsten</b>: de volledige zakenlijst (zaaknummer,
+naam van de cliënt, wederpartij — door plaatshouders vervangen), een bestand van bekende namen (door plaatshouders vervangen), en de codelijsten van de instellingstypen en documenttypen
+(benamingen zonder plaatshouders). Terugvaloptie: klein niveau, zonder de
+lijsten.</li>
+<li><b>Contextualisering bij het opslaan</b> (klein niveau): de metagegevens van het document en
+de volledige tekst in begrensde lengte, plus een indexregel (ID, datum, titel) <b>van elk actief bewijsstuk van dezelfde cliënt</b> — gebruikt ter onderbouwing
+van kruisverwijzingen. Loopt ook voor als geheim gemarkeerde documenten (bewuste beslissing van de
+gebruiker).</li>
+</ul>
+
+<h3>4.2 E-mailmonitor (triage)</h3>
+<p>De toewijzing aan zaken gebeurt <b>lokaal en zonder AI</b>. Nieuwe e-mails worden op de
+achtergrond bij de start en daarna elke vijf minuten opgehaald. Een e-mail waarvan de zaak
+al door de lokale herkenning wordt bepaald (zaaknummer, briefnummer, cliëntnummer of verwijzing naar een
+eigen processtuk), leidt niet tot een AI-aanroep. Voor elke andere
+e-mail beoordeelt <b>een aanroep van het kleine niveau</b> de urgentie, met precies: naam en
+adres van de afzender, onderwerp en het opgeslagen voorbeeldfragment als platte tekst (vast begrensd) — <b>nooit de volledige berichttekst</b>, geen
+bijlagen en <b>geen zakenlijst</b>. Antwoord: prioriteit en motivering. Zijn gratis
+achtergrondaanbieders ingeschakeld (paragraaf 1), dan kan deze aanroep via die aanbieders lopen.
+<b>Er wordt geen toestemmingsvenster getoond</b>, noch in de achtergrondmodus noch bij
+handmatig ophalen op het e-mailscherm: de triage loopt automatisch zodra een e-mailaccount
+en een AI-aanbieder zijn ingesteld. Gepseudonimiseerd en in het auditlogboek vastgelegd.</p>
+<p><b>Geen trackingpixels.</b> Het openen van een e-mail in de monitor neemt nooit contact op met
+de server van de afzender: afbeeldingen waarnaar via een internetadres wordt verwezen (inclusief
+onzichtbare trackingpixels), worden niet geladen en verschijnen als plaatshouder met een
+melding, zodat de afzender niet te weten kan komen wanneer, hoe vaak of vanaf welk adres een
+e-mail is gelezen. Alleen afbeeldingen die in de e-mail zelf zijn ingebed, worden weergegeven.</p>
+
+<h3>4.3 Persoonsanalyse (webonderzoek)</h3>
+<p>Drie fasen, na een eenmalige toestemming per sessie:</p>
+<ul>
+<li><b>Fase 1 — Zoeken:</b> zoekmachines worden rechtstreeks vanaf de computer van de
+gebruiker bevraagd; daarnaast wordt de
+serverzijdige webzoektool van de aanbieder aangeroepen met de <b>echte
+naam van de persoon in platte tekst</b> (onvermijdelijk voor een zoekopdracht; in platte tekst gelogd).</li>
+<li><b>Fase 2 — Paginasamenvattingen</b> (middelniveau): per pagina de naam van de persoon
+(door een plaatshouder vervangen), de URL en een begrensd fragment van de pagina-inhoud.</li>
+<li><b>Fase 3 — Profielsynthese</b> (groot niveau): naam en woonplaats (door plaatshouders vervangen)
+plus de verzamelde paginateksten in begrensde lengte per bron.</li>
+</ul>
+<p>Het resultaat wordt lokaal opgeslagen met de betrouwbaarheid “onbevestigd”. De bijbehorende
+<b>Autofill</b>-knoppen in de formulieren voor personen/instellingen sturen de ingevoerde
+naam eveneens in platte tekst (gedocumenteerde uitzondering).</p>
+
+<h3>4.3a Controle van partijen uit openbare bronnen</h3>
+<p>De controle van een partij uit openbare bronnen is een vastgelegde procedure die de applicatie
+zelf uitvoert wanneer een verbonden AI haar aanroept met naam, woonplaats, district, land en
+het soort partij (natuurlijke persoon of rechtspersoon):</p>
+<ul>
+<li><b>Dossiers:</b> een zoekopdracht in de volledige tekst naar de naam in de lokale
+database — <b>zuiver lokaal</b>, niets verlaat de computer.</li>
+<li><b>Internet:</b> een vaste lijst van zoekopdrachten wordt naar de openbare
+zoekmachines <b>Google, DuckDuckGo en Qwant</b> gestuurd. Elke zoekopdracht bestaat uit een
+zoekterm in de taal van het land van de partij plus de <b>echte
+naam van de partij in platte tekst</b> en, bij sommige zoekopdrachten, de woonplaats of het district
+(onvermijdelijk voor een zoekopdracht). Er worden geen zaak-, cliënt- of documentinhouden
+doorgegeven. De zoekmachines zien de zoekopdrachten zoals die van iedere browsergebruiker.</li>
+</ul>
+<p>Het resultaat wordt aan de aanroepende AI teruggegeven als bewerkt, ongecontroleerd profiel.
+Niets wordt in de stamgegevens geschreven: elke bevinding doorloopt de controlepoort
+van de monitor voor gegevensconsistentie (paragraaf 4.5) en wordt alleen overgenomen als de
+gebruiker haar aanvaardt. Uitsluitend openbaar toegankelijke bronnen worden geanalyseerd.</p>
+
+<h3>4.4 Dagjournaal</h3>
+<p>Het scherm zelf is lokaal. Bij het importeren van vrije tekst loopt eerst een <b>lokale</b>
+parser; alleen als er geen formaatmarkering van een dagjournaal wordt gevonden, normaliseert een AI-terugvaloptie
+de ruwe tekst: de geplakte tekst wordt volledig verzonden, klein niveau, onder voorbehoud van toestemming, gepseudonimiseerd, in het auditlogboek vastgelegd. Opgeslagen
+vermeldingen in het dagjournaal verlaten de computer alleen als toolresultaten van de chat of de desktop-AI-Bridge
+(begrensde fragmenten) of binnen het AI-instructiepakket (paragraaf 5).</p>
+
+<h3>4.4a Dagbriefing</h3>
+<p>Bij de eerste programmastart van een dag (Windows) bereidt <span class="irs">IRONSTICK</span>
+op de achtergrond een gesproken dagbriefing voor, al tijdens de start en
+voordat het briefingvenster vraagt of de gebruiker deze wil horen. De briefingtekst —
+aantallen termijnen, de zittingen van vandaag en morgen met zaaknummer,
+naam van de cliënt, plaats en rechtbank, en de titels van de afspraken van vandaag — wordt
+eenmaal (klein niveau) naar de cloud-AI gestuurd, die haar herformuleert als gesproken proza in de
+systeemtaal. Gepseudonimiseerd via de router, in het auditlogboek vastgelegd, <b>geen toestemmingsvenster</b>.
+Zijn gratis achtergrondaanbieders ingeschakeld (paragraaf 1), dan kan deze aanroep
+via die aanbieders lopen. Is er geen aanbieder beschikbaar, dan wordt in plaats daarvan een lokaal samengestelde tekst gebruikt.</p>
+
+<h3>4.5 Monitor voor gegevensconsistentie</h3>
+<p>Fase 1 (e-mail ↔ stamgegevens) is volledig deterministisch. Fase 2 stuurt
+<b>per nieuw inkomend document één aanroep</b> van het kleine niveau (gepseudonimiseerd, in het
+auditlogboek vastgelegd, <b>geen venster</b>), die het volgende bevat: de ontdubbelde
+<b>fragmenten uit contactgedeelten</b> (korte fragmenten rond adres-, telefoon- en fiscale gegevens) uit de
+volledige tekst van <b>dit</b> document, de namen van de partijen van dit document en van zijn zaak, en bij
+elke partij de <b>namen</b> van mogelijke overeenkomsten uit de opgeslagen stamgegevens (door
+plaatshouders vervangen voor zover ze in het woordenboek staan; namen van instellingen in platte tekst).
+<b>Contactgegevens en identificatienummers uit de opgeslagen stamgegevens worden niet doorgegeven.</b> Zijn
+gratis achtergrondaanbieders ingeschakeld (paragraaf 1), dan kan deze aanroep via die aanbieders
+lopen. Het antwoord wordt altijd alleen een voorstel, dat de
+gebruiker in de monitor moet aanvaarden.</p>
+
+<h3>4.6 Tekstverwerker (AI-ondersteuning in de tekst)</h3>
+<ul>
+<li><b>Selectie herzien:</b> de geselecteerde zin/alinea/sectie (met
+opmaak) <b>plus een fragment van het document als context</b>
+en de instructie van de gebruiker — middelniveau, gepseudonimiseerd.</li>
+<li><b>Indeling/inhoudsopgave:</b> feitelijk het volledige document als geïndexeerde lijst van regels
+(lange regels ingekort), in begrensde lengte — middelniveau, gepseudonimiseerd.</li>
+<li><b>Voorbewerking voor de voorleesfunctie:</b> bij het voorlezen van een document wordt <b>elke
+zin afzonderlijk in platte tekst naar het kleine niveau gestuurd</b>, om
+afkortingen en getallen uit te schrijven — <b>zonder pseudonimisering</b> (identificatienummers
+moeten ongewijzigd terugkomen om correct te worden voorgelezen). Dossierstempels en verwijsmarkeringen
+worden vooraf lokaal verwijderd. Het starten van de voorleesfunctie is het moment van
+toestemming.</li>
+</ul>
+<div class="box warn">Geen van de aanroepen van de tekstverwerker toont een afzonderlijk toestemmingsvenster
+of schrijft vermeldingen in het auditlogboek (omzeiling van de router, paragraaf 3).</div>
+
+<h3>4.7 Red/Blue Team-controle en gesprekssamenvatting (API)</h3>
+<p>Twee verdere API-stromen horen bij het opstellen van concepten. <b>Red/Blue Team:</b> heeft de gebruiker
+dit voor de actieve aanbieder ingeschakeld (schakelaar naast de API-sleutel; een opgeslagen
+sleutel is vereist), dan wordt elk formeel document dat via het
+opleveringsvenster wordt overgedragen — uit de chat in de app en uit de desktop-AI-Bridge
+evenzeer —, door dezelfde aanbieder in een afzonderlijke controleronde nog een keer gelezen vanuit het perspectief van de
+advocaat van de wederpartij
+(middelniveau). Doorgegeven worden: de concepttekst, de datum en de jurisdictie
+van de zaak; gepseudonimiseerd via de router en in het auditlogboek vastgelegd zoals elke routeraanroep;
+<b>geen toestemmingsvenster</b> — de schakelaar is de toestemming; het rapport van de controleur wordt aan de gebruiker toegevoegd. De Red/Blue Team-controle loopt
+<b>nooit</b> via de gratis achtergrondaanbieders (paragraaf 1). <b>Gesprekssamenvatting:</b> in lange
+API-chatsessies wordt het oudere deel van het gesprek (alleen de vragen van de gebruiker en de
+definitieve antwoorden van het model, nooit toolresultaten) door de actieve aanbieder
+(klein niveau, op de achtergrond, <b>geen eigen toestemmingsvenster</b>) verdicht tot een korte samenvatting die het ruwe verloop
+vervangt; deze wordt versleuteld in de tussenopslag geplaatst en telkens
+overschreven. Gepseudonimiseerd en in het auditlogboek vastgelegd. Zijn gratis achtergrondaanbieders ingeschakeld (paragraaf 1), dan kan de
+samenvatting via die aanbieders lopen.</p>
+
+<h3>4.8 AI-chat (extern, API)</h3>
+<p>Toestemming eenmaal per chatsessie; middelniveau met automatische escalatie naar het
+grote niveau (de volledige context wordt dan opnieuw verzonden); gepseudonimiseerd; elke ronde
+in het auditlogboek vastgelegd. Elke beurt geeft door: de systeemprompt (statische regels), de <b>actuele GUI-context</b>
+(huidig scherm, geopende zaak/cliënt incl. naam van de cliënt — door plaatshouders vervangen),
+maximaal <b>10 AI-geheugenvermeldingen</b> van de geopende cliënt, het recentste gesprek plus een samenvatting van oudere beurten
+(4.7) en de lijst van bestanden in de tussenopslag van de chat. Elke tool die het model aanroept,
+geeft zijn resultaat terug in het API-gesprek — inclusief volledige documentteksten
+(grotere resultaten worden in de versleutelde tussenopslag geplaatst), e-mailberichtteksten en
+fragmenten uit het dagjournaal. De chat gebruikt dezelfde toollaag
+en dezelfde opleveringscontroles als de desktop-AI-Bridge (4.9): controle van
+processtukken, Red/Blue Team (4.7) en overdracht via het exportvenster —
+wat het systeem verlaat, is een indieningsklaar concept. De lokale chatlaag
+beantwoordt routineverzoeken zonder enige doorgifte.</p>
+<p>Twee hulpfuncties verdienen uitdrukkelijke vermelding. De <b>weersopvraging</b>
+haalt actuele weergegevens op voor een genoemde plaats bij de niet-LLM-dienst
+Open-Meteo (paragraaf 7) — aan deze dienst worden alleen de plaatsnaam of de coördinaten daarvan doorgegeven,
+nooit zaak- of persoonsgegevens. De <b>locatieopvraging</b>
+antwoordt uitsluitend op basis van de <b>recentste lokaal opgeslagen</b>
+beveiligingsmomentopname (paragraaf 8): het verzoek van de AI leidt <b>niet tot een nieuwe externe opvraging</b> —
+zij leest alleen wat al op de gegevensdrager aanwezig is. Zoals bij elke tool stroomt wat deze functies
+teruggeven terug in het AI-gesprek, d.w.z. naar de AI-aanbieder.</p>
+<h3>4.9 Desktop-AI-Bridge (optionele aanvullende modules)</h3>
+<p><b>Elke desktop-AI-toegang is een optionele, afzonderlijk aangeschafte module.</b>
+Deze bestaat alleen waar het kantoor de betreffende Bridge-module heeft aangeschaft en
+geïnstalleerd; zonder enige module blijft het Bridge-gedeelte in de
+configuratie vergrendeld, start het lokale eindpunt nooit, en kan geen van de in
+deze paragraaf beschreven gegevensstromen plaatsvinden. Bridges zijn er voor
+<b>Claude Desktop/Claude Code</b>, <b>ChatGPT Desktop</b>,
+<b>Qwen Desktop</b> en <b>Kimi Desktop</b>; elke heeft een eigen klein Bridge-programma,
+en alle maken verbinding met hetzelfde lokale eindpunt in de draaiende
+applicatie. De hierna beschreven gegevensstromen zijn voor alle identiek; alleen de ontvangende aanbieder verschilt.</p>
+<div class="box crit"><b>Dit kanaal draagt echte zaakgegevens over.</b> Dat is het doel ervan: de eigen desktop-AI-sessie van de gebruiker stelt
+indieningsklare concepten op en heeft daarom echte namen en nummers nodig.</div>
+<ul>
+<li>De desktop-AI (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop of Kimi Desktop)
+maakt via haar Bridge-programma verbinding met de draaiende applicatie; deze verbinding blijft op de
+computer. Alleen de tools voor webzoeken, pagina's lezen en registers nemen contact op met het internet.</li>
+<li><b>Websites met toegangscontrole.</b> Vraagt een website om een bevestiging voordat zij
+haar inhoud vrijgeeft, dan opent <span class="irs">IRONSTICK</span> de pagina in een eigen venster; de
+gebruiker bevestigt daar zelf. De inhoud van de pagina leest vervolgens de desktop-AI —
+deze stroomt zoals elk ander toolresultaat naar haar aanbieder.</li>
+<li>De eerste gegevenstoegang door welke desktop-AI dan ook in een programmasessie opent een blokkerend
+toestemmingsvenster. De goedkeuring opent de toegang voor alle desktop-AI's voor de rest van de
+programmasessie; een weigering blokkeert ze allemaal tijdelijk.</li>
+<li>Meer dan 200 tools stellen kronieken, volledige teksten, e-mails,
+dagjournaals, termijnen, stamgegevens, volledige zaken (in delen) en uitvoerformaten
+beschikbaar; als geheim gemarkeerde documenten zijn uitgezonderd. Wijzigingen aan stamgegevens,
+kroniek, agenda, AI-geheugen, volledige teksten en de wettenbibliotheek worden pas van kracht
+nadat de gebruiker ze in een <span class="irs">IRONSTICK</span>-formulier, -venster
+of in de monitor voor gegevensconsistentie heeft goedgekeurd: voorstellen voor stamgegevens en relaties
+komen in de monitor terecht; door de AI voorgestelde wijzigingen aan zaakgebonden AI-instructienotities worden als
+rood/groen-diff weergegeven en pas overgenomen nadat de gebruiker
+uitdrukkelijk heeft ingestemd; kroniekvermeldingen worden nooit door de AI geschreven — zij vult alleen het
+registratieformulier vooraf in, dat de gebruiker aanvult en opslaat; en een door de AI herstelde volledige documenttekst
+(OCR-herscan) vervangt de opgeslagen volledige tekst pas nadat
+de gebruiker de volledige tekst in een bevestigingsvenster heeft gezien en opgeslagen.
+Zonder zo'n venster schrijft de AI alleen in haar eigen werkruimten: de versleutelde
+tussenopslag, het dagjournaal op verzoek van de gebruiker en haar eigen beoordeling van de zaak na de deterministische controles.
+Tags en berichten in de kantoorchat vereisen de bevestiging van de gebruiker in de chat. Bij een zaak waarop een collega is geabonneerd,
+kan de AI een notitie vastzetten die via de
+<span class="irs">IRONSTICK</span> SERVER de eigenaar van de zaak en alle abonnees bereikt
+(paragraaf 9). De overdracht naar de tekstverwerker en de levering van bestanden zijn uitdrukkelijke stappen van de gebruiker;
+navigatie alleen met afzonderlijke toestemming.</li>
+<li><b>Herstel via OCR-herscan (lokaal) en de pdf-overdracht (door de gebruiker geïnitieerd).</b>
+Is een opgeslagen volledige tekst afgekapt of door een oude OCR-run onbruikbaar, dan kan de AI
+een nieuwe scan aanvragen: de gebruiker selecteert de pagina's, de herscan loopt <b>lokaal</b>
+(geen nieuwe externe ontvanger), en beide tekstversies worden in de lokale
+tussenopslag beschikbaar gesteld; wat de AI daaruit leest, stroomt zoals elk
+ander toolresultaat naar haar aanbieder. Als uiterste laatste middel — alleen na zo'n herscan en
+alleen binnen harde, door de Bridge afgedwongen grenzen —
+kan de AI de gebruiker vragen haar het <b>originele pdf-bestand</b> te geven: <span class="irs">IRONSTICK</span>
+opent alleen de vermelding; de gebruiker slaat de pdf zelf op via het paperclippictogram
+en sleept haar naar de desktop-AI-chat. Daardoor wordt het document
+<b>als bestand</b> (inclusief stempels, handtekeningen en afbeeldingen) naar de aanbieder van deze AI
+overgedragen — dit gebeurt uitsluitend door eigen, bewust handelen van de gebruiker, nooit
+automatisch, en als geheim gemarkeerde documenten zijn bij voorbaat uitgesloten van het volledige
+herscankanaal.</li>
+<li><b>Lokale AI-tussenopslag (gegevensminimalisatie).</b> Omvangrijke toolresultaten kunnen in een lokaal, versleuteld bestand in de tussenopslag worden geplaatst en daar worden bewerkt, <b>zonder überhaupt naar de AI-aanbieder
+te worden overgedragen</b>. Volledige zaakexports voor de AI
+en het sessiestartoverzicht in één aanroep worden eveneens direct in deze
+lokale opslag geschreven; alleen de delen die de AI vervolgens leest, stromen naar haar aanbieder.
+ De tussenopslag bevindt zich binnen de
+gegevensmap en blijft over sessies heen behouden (hij is de werkcontext van de AI);
+niet meer gebruikte bestanden worden automatisch verwijderd, en er ontstaat geen nieuwe externe ontvanger.</li>
+<li><b>De tussenopslag is versleuteld.</b>
+Elk bestand in de tussenopslag is in rust met AES-256 versleuteld; bestanden verlaten de
+opslag uitsluitend via het exportvenster van <span class="irs">IRONSTICK</span>, nooit naar een downloadmap.
+De database, de documentopslag, het configuratiebestand en de tussenopslag
+zijn daarmee allemaal in rust met AES-256 versleuteld. Tijdelijke werkkopieën van geopende
+documenten (bij elke start en bij het afsluiten geleegd), de kortstondige peer-reviewbuffer,
+de scaninvoer, exports en uitgaande bestanden blijven in platte tekst
+(paragraaf 8).</li>
+<li>Toolresultaten worden doorgegeven aan de desktop-AI-client van de gebruiker en van daaruit
+aan <b>diens aanbieder</b>: Anthropic voor Claude (in het kader van het Claude-abonnement
+van de gebruiker en de voorwaarden van Anthropic), OpenAI voor ChatGPT (in het kader van het
+ChatGPT-abonnement van de gebruiker en de voorwaarden van OpenAI), Alibaba Cloud/Qwen voor Qwen
+Desktop (in het kader van het Qwen-account van de gebruiker en de voorwaarden van Qwen) of Moonshot AI voor Kimi
+Desktop (in het kader van het Kimi-account van de gebruiker en de voorwaarden van Moonshot AI). <span class="irs">IRONSTICK</span> schrijft geen
+regels in het auditlogboek voor het Bridge-verkeer; de bovenste balk toont per
+actieve AI een pulserend logo (Claude-teken, ChatGPT-teken, Qwen-teken, Kimi-teken) — gelijktijdige toegang is
+mogelijk en wordt telkens afzonderlijk gesignaleerd. Elk Bridge-programma houdt naast zich een
+<b>lokaal logboek</b> bij met tijd, toolnaam, succes/mislukking en
+grootte van het antwoord, <b>nooit met inhoud</b>. Een tweede, gedetailleerder
+<b>diagnoselogboek</b> in de gegevensmap is <b>standaard uitgeschakeld</b>; als het
+voor foutopsporing wordt ingeschakeld, kan het aanroepparameters (die namen kunnen bevatten) in platte tekst bevatten en wordt het automatisch ingekort. Geen van de logboeken wordt ergens naartoe overgedragen.</li>
+<li>Het gemeenschappelijke AI-geheugen slaat verdichte inzichten (cliënt- of zaakgebonden) lokaal op. De AI kan voorstellen een
+vermelding op te slaan, te wijzigen of te verwijderen; elke wijziging wordt pas van kracht nadat de gebruiker heeft ingestemd. Met een zaak gekoppelde vermeldingen
+worden nooit automatisch verwijderd; vermeldingen zonder zaak worden na een jaar zonder gebruik verwijderd. De inhoud van het geheugen is voor elk AI-kanaal
+zichtbaar en wordt overgedragen zodra deze kanalen hem lezen.</li>
+<li>De peer review tussen de desktop-AI's loopt via <span class="irs">IRONSTICK</span>, niet rechtstreeks
+tussen de aanbieders: een AI plaatst een werkresultaat (bijv. een concept) in een
+<b>lokale, kortstondige uitwisselingsbuffer</b> (bestanden in platte tekst op de computer van de gebruiker,
+verwijderd wanneer de taak wordt gesloten, en bij elke herstart van de app volledig opgeschoond) samen met een
+taaknotitie; de andere AI leest deze wanneer de gebruiker haar daartoe opdracht geeft. Daardoor ontstaat
+<b>geen nieuwe externe ontvanger</b> — wat de controlerende AI leest, wordt precies zoals elk ander
+hierboven beschreven toolresultaat overgedragen aan <b>haar eigen</b> aanbieder, volgens diens
+voorwaarden. De aanbieders wisselen nooit rechtstreeks gegevens uit; wat de controlerende AI leest, gaat
+uitsluitend naar haar eigen aanbieder.</li>
+</ul>
+
+<h3>4.10 Audiotranscriptie (sprekertoewijzing)</h3>
+<p>De spraakherkenning loopt volledig lokaal; de opname zelf verlaat de
+computer nooit. Heeft de gebruiker meer dan één spreker opgegeven, dan wijst vervolgens
+de AI de herkende regels toe aan de sprekers: per gedeelte (middelniveau) de herkende tekst, daarbij al toegewezen regels als context en
+het aantal sprekers. De aanroepen lopen via de router — gepseudonimiseerd, onder
+voorbehoud van toestemming, in het auditlogboek vastgelegd. Het antwoord mag de tekst niet
+veranderen: elke regel wordt gecontroleerd tegen de herkende tekst; mislukt een blok, dan wordt
+het transcript zonder sprekertoewijzing overgenomen. Bij slechts één spreker vindt geen
+AI-aanroep plaats. Zijn gratis achtergrondaanbieders ingeschakeld (paragraaf 1), dan kunnen
+deze aanroepen via die aanbieders lopen.</p>
+
+<h2>5. Het AI-instructiepakket (export-ZIP)</h2>
+<img class="flow" src="img/67_instruction_zip.png" alt="IRONSTICK Client, gebruiker met MD-bestanden en ZIP-archief, AI-webapp">
+<p>Het aanmaken van het pakket gebeurt lokaal en omvat geen AI-aanroep. Het levert
+<b>Markdown in platte tekst</b> op (geen pseudonimisering), bedoeld om door de
+gebruiker bij een externe LLM naar keuze te worden geüpload. Inhoud:</p>
+<table>
+<tr><th>Bestand</th><th>Inhoud</th></tr>
+<tr><td>Zaken</td><td>alle zaken van de geselecteerde cliënt met partijen, status en
+index van bewijsstuk-ID's (geen volledige teksten)</td></tr>
+<tr><td>Entiteiten</td><td><b>alle personen/entiteiten van het volledige kantoor</b> (niet
+alleen van deze cliënt) inclusief nationale persoons- en ondernemingsnummers (bijv. Roemeense CNP/CUI), geboortedatum, volledige contactgegevens, beroep,
+voertuig — plus de opgeslagen analyseblokken (inschatting, zwakke punten,
+woonplaatsen, financiën, sociale omgeving, bronnen)</td></tr>
+<tr><td>Instellingen, termijnen</td><td>alle instellingen; actieve termijnen met
+zaaknummer en naam van de cliënt</td></tr>
+<tr><td>Mail</td><td>de 100 nieuwste e-mails <b>kantoorbreed</b>: afzender,
+ontvanger, onderwerp, bestandsnamen van de bijlagen, kort fragment (geen volledige berichtteksten)</td></tr>
+<tr><td>Dagjournaal</td><td>laatste 10 dagen, kantoorbreed, inclusief de
+zaakchronologie van deze periode</td></tr>
+<tr><td>Per zaak</td><td>één dossier per zaak: de volledige kroniek <b>met
+volledige documentteksten</b>, identificatoren van cliënt en
+partijen inclusief identificatienummers; plus alle achtergrondnotities bij de zaak zonder begrenzing</td></tr>
+<tr><td>Instructiebestanden</td><td>vijf documenten met werkregels — geen persoonsgegevens</td></tr>
+</table>
+<div class="box crit"><b>Wat er gebeurt wanneer deze ZIP bij een AI-dienst van een derde wordt geüpload:</b>
+De gebruiker draagt persoonlijk en in platte tekst wezenlijke delen van het volledige
+kantoor — identiteiten van cliënten met nationale identificatienummers, profielen van derden
+inclusief gevoelige inschattingen, kantoorbrede metagegevens van correspondentie en dossiers
+— over aan deze aanbieder. Vanaf dat moment worden de gegevens verwerkt volgens de voorwaarden
+van deze aanbieder (gebruik voor training, bewaring, rechtsstelsel). <span class="irs">IRONSTICK</span> toont vóór de
+export (eenmaal per programmasessie) een privacymelding en biedt de export ook naar Google Drive aan, waardoor
+de bestanden daarnaast bij Google worden opgeslagen. De gebruiker handelt als doorgevende
+verwerkingsverantwoordelijke in de zin van de AVG en moet vóór het uploaden een rechtsgrondslag waarborgen (bijv. art. 6,
+beroepsrechtelijke geheimhoudingsregels).</div>
+<p>Als geheim gemarkeerde documenten zijn uitgesloten van termijnen, dagjournaals en
+dossiers.</p>
+<h2>6. Overzichtsmatrix</h2>
+<table>
+<tr><th>Gegevensstroom</th><th>Wat er wegvloeit (vorm)</th><th>Gepseudonimiseerd</th><th>Eigen toestemmingsvenster</th><th>Auditlogboek</th></tr>
+<tr><td>Documentregistratie (4 aanroepen)</td><td>OCR- en documenttekst (begrensd), zaak- en namenlijsten</td><td class="yes">ja</td><td>ja — eenmaal per programmasessie</td><td class="yes">ja</td></tr>
+<tr><td>E-mailtriage (handmatig ophalen op het e-mailscherm)</td><td>afzender, onderwerp, kort tekstfragment (geen zakenlijst); alleen voor e-mails die niet lokaal zijn toegewezen</td><td class="yes">ja</td><td class="no">nee</td><td class="yes">ja</td></tr>
+<tr><td>E-mailtriage (achtergrond, elke vijf minuten)</td><td>idem</td><td class="yes">ja</td><td class="no">nee</td><td class="yes">ja</td></tr>
+<tr><td>Dagbriefing (API)</td><td>briefingtekst: aantallen termijnen, zittingen met zaaknummer, naam van de cliënt, plaats en rechtbank, titels van de afspraken</td><td class="yes">ja</td><td class="no">nee (eerste start van de dag, bij de start voorbereid)</td><td class="yes">ja</td></tr>
+<tr><td>Personenonderzoek, fase 1</td><td>echte naam (webzoekopdracht)</td><td class="no">nee — inherent aan het ontwerp</td><td>ja — eenmaal per sessie</td><td class="yes">ja (in platte tekst)</td></tr>
+<tr><td>Personenonderzoek, fasen 2 en 3</td><td>paginateksten (begrensd per bron)</td><td class="yes">ja</td><td>dezelfde toestemming</td><td class="yes">ja</td></tr>
+<tr><td>Automatisch invullen persoon/instelling</td><td>ingevoerde naam (webzoekopdracht)</td><td class="no">nee — inherent aan het ontwerp</td><td>ja — eenmaal per sessie</td><td class="yes">ja (in platte tekst)</td></tr>
+<tr><td>AI-import dagjournaal</td><td>geplakte ruwe tekst</td><td class="yes">ja</td><td>ja</td><td class="yes">ja</td></tr>
+<tr><td>Monitor voor gegevensconsistentie</td><td>per nieuw document: de contactgedeelten ervan en namen van mogelijke overeenkomsten (geen contactgegevens of identificatienummers uit de stamgegevens)</td><td class="yes">ja (namen van instellingen in platte tekst)</td><td class="no">nee (gedoseerd achtergrondproces)</td><td class="yes">ja</td></tr>
+<tr><td>Tekstverwerker: herzien / structureren</td><td>selectie met contextfragment / documentregels (begrensd)</td><td class="yes">ja</td><td class="no">nee (knop = toestemming)</td><td class="no">nee</td></tr>
+<tr><td>Voorbewerking voor het voorlezen</td><td>elke zin, platte tekst</td><td class="no">nee</td><td class="no">nee (start = toestemming)</td><td class="no">nee</td></tr>
+<tr><td>Red/Blue Team-controle (API)</td><td>concepttekst, datum en jurisdictie</td><td class="yes">ja</td><td class="no">nee (schakelaar = toestemming)</td><td class="yes">ja</td></tr>
+<tr><td>Gesprekssamenvatting (API)</td><td>oudere gespreksrondes (alleen vragen van de gebruiker en definitieve antwoorden)</td><td class="yes">ja</td><td class="no">nee (achtergrondrun van de API-chat)</td><td class="yes">ja</td></tr>
+<tr><td>AI-correctie bestand→Markdown</td><td>geconverteerde tekst</td><td class="yes">ja</td><td class="no">nee</td><td class="no">nee</td></tr>
+<tr><td>AI-zoeker van het weglakken</td><td>al weggelakte tekst; antwoorden bevatten echte namen van derden</td><td class="no">uit — inherent aan het ontwerp</td><td class="no">schakelaar = toestemming</td><td class="yes">ja</td></tr>
+<tr><td>AI-chat (extern)</td><td>prompt, schermcontext, geheugen, recentste gesprek met samenvatting, toolresultaten (begrensd per element)</td><td class="yes">ja</td><td>ja — eenmaal per sessie</td><td class="yes">ja</td></tr>
+<tr><td>Desktop-AI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen Desktop, Kimi Desktop)</td><td>onbewerkte toolresultaten (volledige zaakgegevens)</td><td class="no">nee — inherent aan het ontwerp</td><td>ja — eenmaal per programmasessie voor alle desktop-AI's</td><td class="no">nee (aan de kant van de app)</td></tr>
+<tr><td>Audiotranscriptie: sprekertoewijzing</td><td>herkende tekst in gedeelten — de opname nooit</td><td class="yes">ja</td><td>ja</td><td class="yes">ja</td></tr>
+<tr><td>Gratis achtergrondaanbieders (Groq, OpenRouter, Mistral) — alleen indien ingeschakeld</td><td>dezelfde inhoud als de betreffende achtergrondtaak; nooit chat, processtuk of Red/Blue Team</td><td>zoals de betreffende taak</td><td class="no">nee (schakelaar per aanbieder = toestemming)</td><td class="yes">ja</td></tr>
+<tr><td>AI-instructie-ZIP</td><td>kantoorexport in platte tekst (door de gebruiker geïnitieerde upload)</td><td class="no">nee</td><td>waarschuwing eenmaal per programmasessie</td><td>n.v.t.</td></tr>
+</table>
+
+<h2>7. Externe diensten zonder LLM (volledigheidshalve)</h2>
+<img class="flow" src="img/68_external_services.png" alt="IRONSTICK Client, internet, locatiepictogram en weerpictogram">
+<p>Los van elke LLM nemen de volgende functies contact op met externe diensten met
+de minimaal vereiste gegevens: nummervalidatie (EU VIES, EORI, GLEIF,
+handelsregister — het te controleren nummer), de directe webzoekopdrachten van het personenonderzoek (de naam), IMAP (uw mailserver) en
+optionele exports naar Google Drive (de geëxporteerde bestanden). Bij geen van deze handelingen is
+de AI-aanbieder betrokken.</p>
+<p>De volgende diensten worden op de achtergrond of eveneens met minimale gegevens
+benaderd:</p>
+<ul>
+<li><b>OpenStreetMap Nominatim (geocodering van adressen)</b> — eenmaal per dag verwerkt een
+achtergrondtaak de personen en ondernemingen in de partijrecords
+die een adres of een woonplaats hebben, en stuurt straat, district, woonplaats en land
+(nooit de naam) naar Nominatim om ze op de kaart te plaatsen; een al
+geplaatst adres wordt alleen opnieuw verzonden als het verandert, en een niet gevonden adres wordt
+na een wachttijd opnieuw geprobeerd. De plaatsnaam van de weersopvraging wordt op
+dezelfde manier gegeocodeerd. Geen toestemmingsvenster; de coördinaten worden lokaal opgeslagen.</li>
+<li><b>ipwho.is (geo-IP-opvraging)</b> — eenmaal per programmastart vraagt <span class="irs">IRONSTICK</span> in het kader van de
+lokale beveiligingssnapshot (paragraaf 8) bij deze dienst het
+<b>openbare</b> IP-adres van de computer en een globale locatie (stad, land, ISP) op.
+Het verzoek bevat geen inhoudelijke gegevens; de dienst ontvangt het openbare IP-adres van waaruit het
+verzoek binnenkomt. Het antwoord wordt uitsluitend lokaal opgeslagen en
+nergens anders naartoe doorgegeven.</li>
+<li><b>Open-Meteo (weer)</b> — op verzoek vraagt de AI-weersopvraging
+(paragraaf 4.8) actuele weergegevens op voor een genoemde plaats; de dagbriefing doet
+hetzelfde voor de in de configuratie vastgelegde plaats als de optionele modus met
+weersinformatie is ingeschakeld. Alleen de coördinaten van de plaats worden doorgegeven — nooit
+zaak-, cliënt- of persoonsgegevens.</li>
+<li><b><a href="index_nl.html">www.ironstick.legal</a> (nieuwsbestand)</b> — nadat de toegangscode
+is ingevoerd, en daarna elke zes uur, downloadt de applicatie van de website van de softwarefabrikant een nieuwsbestand met
+mededelingen en waarschuwingen, plus elke daarin gerefereerde afbeelding. Het verzoek bevat geen gegevens; zoals elke webserver
+ziet de server van de fabrikant het IP-adres en het tijdstip van het verzoek.</li>
+</ul>
+<p>Bij geen van deze diensten is de AI-aanbieder betrokken.</p>
+
+<h2>8. Lokale opslag, integriteit en controle door de gebruiker</h2>
+<img class="flow" src="img/69_local_encryption.png" alt="IRONSTICK Client met TOTP-toegangsvergrendeling; documenten, tussenopslag en database met AES-256 versleuteld">
+<p>Los van de hierboven beschreven AI-kanalen geldt voor <b>alle</b>
+gegevens die <span class="irs">IRONSTICK</span> bewaart het volgende:</p>
+<ul>
+<li><b>Uitsluitend lokale opslag.</b> Het volledige gegevensbestand — database, documentbestanden,
+media, transcripten, configuratie — bevindt zich in één enkele gegevensmap onder
+een door de gebruiker vastgelegd pad. <span class="irs">IRONSTICK</span> vereist geen cloudaccount,
+en geen enkele functie stuurt gebruikersgegevens naar de fabrikant (het enige contact met de fabrikant is
+de download van het nieuwsbestand, paragraaf 7). Gebruikt een kantoor
+de optionele <span class="irs">IRONSTICK</span> SERVER (paragraaf 9), dan is ook deze server een eigen apparaat van het
+kantoor in het eigen netwerk van het kantoor — aan de toegang van de fabrikant verandert daardoor niets.</li>
+<li><b>Database in rust versleuteld (AES-256).</b> De database — het bestand
+van cliënten, zaken, kroniek, e-mails, termijnen, transcriptteksten en het
+geheugen van de AI's — wordt met AES-256 versleuteld opgeslagen, elke pagina afzonderlijk en
+met een integriteitszegel per pagina. De sleutel wordt door de applicatie tijdens de
+uitvoering afgeleid en nooit naar een gegevensdrager of de configuratie geschreven, zodat een databasebestand
+dat van het opslagapparaat of uit een back-uparchief wordt gekopieerd, zonder
+<span class="irs">IRONSTICK</span> niet kan worden gelezen. Dit is een technische maatregel in de zin van art. 32 AVG, die
+zonder enige configuratie door de gebruiker werkt en niet kan worden uitgeschakeld.</li>
+<li><b>Documenten in rust versleuteld (AES-256).</b> De documentopslag — de
+originele pdf's, scans, afbeeldingen, audio- en transcriptbestanden — wordt op dezelfde manier
+bestand voor bestand versleuteld, met een integriteitszegel dat wijzigingen detecteert.
+Het lezen gebeurt via één enkele poort, die het opgevraagde bestand
+ontsleutelt naar een tijdelijke werkkopie en deze kopieën verwijdert wanneer de
+applicatie wordt gesloten of gestart. Back-ups en zaakpakketten bevatten de documenten
+in hun versleutelde vorm. </li>
+<li><b>Wat in platte tekst blijft.</b> Naast de werkkopieën van de lopende sessie en exports: scans die in de scaninvoer op registratie wachten;
+de kortstondige peer-reviewbuffer tussen de desktop-AI's (paragraaf 4.9, verwijderd
+wanneer de taak wordt gesloten, en bij elke start opgeschoond); en, alleen indien ingeschakeld,
+het gedetailleerde diagnoselogboek van de Bridge (paragraaf 4.9).</li>
+<li><b>Toegangscontrole bij de start (TOTP).</b> Zodra de licentiesleutel
+is aanvaard, toont de applicatie niets anders dan een codeverzoek, totdat de gebruiker
+de actuele zescijferige tijdgebonden eenmalige code uit een
+authenticator-app (RFC 6238) invoert. Het geheim waarop de codes zijn gebaseerd, wordt
+nooit naar een gegevensdrager geschreven; opgeslagen wordt alleen een
+niet-geheime vingerafdruk van de bevestigde inrichting, zodat de QR-code
+na een sleutelwissel opnieuw wordt getoond. Herhaalde foutieve invoer leidt tot een oplopende
+wachttijd. De desktop-AI-Bridges ontvangen geen zaakgegevens zolang de applicatie
+vergrendeld is. Het configuratiebestand (API-sleutels, e-mailtoegangsgegevens,
+servertoegang) is met hetzelfde mechanisme als de
+documenten met AES-256 versleuteld en wordt uitsluitend in het werkgeheugen ontsleuteld.</li>
+<li><b>Door de gebruiker gecontroleerde opslaglocatie.</b> Het gegevenspad wordt bij de
+inrichting gekozen en kan op elk moment worden gewijzigd — ook naar een verwisselbaar medium zoals
+een versleutelde USB-stick of een versleutelde externe harde schijf. De applicatie volgt eenvoudigweg
+de geconfigureerde opslaglocatie; de versleuteling van het medium (bijv. met de
+schijfversleuteling van het besturingssysteem) ligt in handen van de gebruiker en wordt
+aanbevolen voor draagbare media. Netwerkstations en met een cloud gesynchroniseerde mappen
+(OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) worden als opslaglocatie voor gegevens
+geweigerd. Bij het wijzigen van de opslaglocatie in de configuratie controleert
+<span class="irs">IRONSTICK</span> het doel aan de hand van deze regels; er wordt gekopieerd met vergelijking van controlesommen, omgeschakeld
+pas na geslaagde verificatie, en de oude map blijft hernoemd bewaard.</li>
+<li><b>Apparaatsynchronisatie zonder enige cloud.</b> De optionele
+synchronisatie Windows&nbsp;↔&nbsp;Android-tablet loopt via een directe
+USB-kabelverbinding — er is geen dienst van derden bij betrokken, overdrachten worden
+via controlesom geverifieerd, en vóór het vervangen van de database wordt een verplichte back-up
+gemaakt. Als geheim gemarkeerde documenten worden helemaal niet naar de tablet
+overgedragen.</li>
+<li><b>Beveiligingssnapshot bij de start (lokaal aanmeldlogboek).</b> Bij elke
+programmastart legt <span class="irs">IRONSTICK</span> op de achtergrond een snapshot vast van de computer waarop het
+draait: hostnaam, besturingssysteem, RAM/CPU, lokaal IP-adres, standaardbrowser,
+actieve tools voor externe toegang die het herkent, en een daaruit afgeleide beveiligingsbeoordeling
+— daarnaast, eenmaal per start, het openbare IP-adres en de globale locatie
+(stad, land, ISP), die via de geo-IP-dienst ipwho.is (paragraaf 7) worden bepaald.
+De snapshot wordt <b>uitsluitend lokaal</b> in het aanmeldlogboek van de database
+opgeslagen en nergens naartoe doorgegeven. De bewaring is
+automatisch begrensd tot hoogstens <b>6 maanden</b> en hoogstens <b>1.000
+vermeldingen</b> (dagelijkse opschoning), en de gebruiker kan het logboek op elk moment
+in de configurator inzien (kaart &laquo;Aanmeldlogboek&raquo;).</li>
+<li><b>Integriteitsvingerafdrukken voor elk geregistreerd bestand.</b> Op het moment van de
+registratie krijgt elk opgeslagen bestand een cryptografische inhoudsvingerafdruk
+(SHA-256 voor documenten en media; een oudere MD5-vingerafdruk voor audiobestanden van transcripties),
+die in de database naast de vermelding wordt vastgelegd. Elke latere wijziging van een
+opgeslagen bestand is daardoor door vergelijking van het bestand met de
+vastgelegde vingerafdruk <b>detecteerbaar</b>, en e-discovery-exports (EDRM) bevatten deze vingerafdrukken,
+zodat ontvangers de bestanden onafhankelijk kunnen verifiëren. Daardoor wordt elke manipulatie zichtbaar en bewijsbaar.</li>
+<li><b>Back-ups naar goeddunken van de gebruiker.</b> Een geïntegreerde back-upfunctie schrijft
+een volledige kopie van de gegevens (volledige back-up of back-up van alleen gegevens) als één ZIP-archief
+naar een willekeurig door de gebruiker gekozen doel en herstelt op verzoek vanuit zo'n archief.
+Hoe vaak back-ups worden gemaakt, waar ze worden bewaard, hoelang ze
+worden bewaard en of de archieven daarnaast worden versleuteld, ligt volledig in de
+beslissing van de gebruiker. In elk archief zijn de database, de documenten, de
+configuratie en de AI-tussenopslag in elk geval met AES-256 versleuteld; alleen
+scans die nog in de scaninvoer wachten, zijn ongewijzigd opgenomen —
+<span class="irs">IRONSTICK</span> schrijft geen schema voor en geeft back-ups nergens naartoe door.</li>
+<li><b>Gegenereerde documenten behoren toe aan de gebruiker.</b> De gebruiker kan op elk moment
+documenten genereren — processtukken, brieven, dossiers, lijsten, exports — en
+downloaden: ze worden in de lokale map “Documenten” geschreven of, als de
+gebruiker uitdrukkelijk Google Drive als doel kiest, in het eigen Google Drive-account van de gebruiker.
+Wat daarna met een
+gegenereerd document gebeurt — afdrukken, indienen bij een rechtbank, verzenden per e-mail,
+uploaden naar een willekeurige dienst, doorgeven aan derden —, beslist uitsluitend de gebruiker.</li>
+</ul>
+<div class="box"><b>Toewijzing van de verantwoordelijkheid.</b> Omdat <span class="irs">IRONSTICK</span>
+alles lokaal opslaat en gegevens alleen doorgeeft langs de in de paragrafen
+1–7 en 9 gedocumenteerde wegen — inclusief de achtergrondfuncties die zonder eigen
+venster lopen (paragrafen 3 en 7) —, is de exploitant van het kantoor de enige
+verwerkingsverantwoordelijke: hij kiest het opslagmedium en de versleuteling daarvan, beheert back-ups en
+bewaart ze, beslist welke AI-functies zijn geactiveerd, verleent of weigert elke
+toestemming en beslist als enige over wat er gebeurt met elk document, elke export of elke back-up
+die de software genereert. Door AI gegenereerde inhoud — concepten, samenvattingen, beoordelingen,
+classificaties — is altijd een <b>voorstel</b>, waarover de gebruiker beslist. Dit document dient ervoor dat elk
+van deze beslissingen met volledige kennis van de werkelijke
+gegevensstromen kan worden genomen.</div>
+<h2>9. <span class="irs">IRONSTICK</span> SERVER (optioneel, in het eigen netwerk van het kantoor)</h2>
+<img class="flow" src="img/70_server_lan.png" alt="IRONSTICK Server en IRONSTICK Client via het LAN verbonden; de server heeft geen verbinding met het internet">
+<p>Kantoren met meerdere <span class="irs">IRONSTICK</span>-werkplekken kunnen de optionele
+<b><span class="irs">IRONSTICK</span> SERVER</b> gebruiken — een coördinatiedienst die draait op de
+eigen Synology NAS van het kantoor in het eigen lokale netwerk van het kantoor. Voor
+de doeleinden van deze verklaring zijn de volgende feiten doorslaggevend:</p>
+<ul>
+<li><b>Er is geen externe partij bij betrokken.</b> De server is een eigen
+apparaat van het kantoor. Hij aanvaardt verbindingen uitsluitend van private (lokale)
+netwerkadressen en <b>bouwt nooit zelf een verbinding met het internet
+op</b> — geen telemetrie, geen updatecontroles, geen contact met de fabrikant.
+De softwarefabrikant heeft geen enkele toegang.</li>
+<li><b>Transport en opslag.</b> Documenten bereiken de server alleen als met AES-256 versleutelde bestanden in hetzelfde kluisformaat als op de
+werkplek en staan daar ook alleen zo; de server ziet nooit hun platte tekst.
+De server draait op de eigen NAS van het kantoor in het netwerk van het kantoor, zonder internetverbindingen.</li>
+<li><b>Geen AI-betrokkenheid.</b> Via de server loopt geen AI-dataverkeer, hij
+slaat geen AI-sleutel op en communiceert nooit met een aanbieder van
+taalmodellen. Alle in de paragrafen 1–6 beschreven AI-kanalen blijven
+strikt beperkt tot de afzonderlijke werkplek; de pseudonimiseringslaag,
+de toestemmingsdrempels en het auditlogboek worden door de aanwezigheid
+van de server niet geraakt.</li>
+<li><b>Wat de server opslaat</b> — alles op de NAS, onder controle van het
+kantoor: (a) <b>vrijgegeven zaakpakketten</b> — uitsluitend zaken die een
+gebruiker uitdrukkelijk voor collega's heeft vrijgegeven; als geheim gemarkeerde
+documenten zijn door het ontwerp uitgesloten en komen nooit op de
+server terecht; (b) de <b>centrale wettenbibliotheek</b> — openbare
+wetteksten als Markdown, elk met de naam van de bijdragende gebruiker,
+de bronlink en de controledatum; (c) <b>tijdregistratiegegevens</b> — per gebruiker,
+dag en zaak: zaaknummer, naam van de cliënt en minuten, door elke werkplek op de
+achtergrond gemeld; (d) <b>aanwezigheidstotalen</b> per gebruiker en dag,
+afgeleid uit sessie-heartbeats; (e) <b>metagegevens over zaakgebeurtenissen</b> —
+vrijgaven, intrekkingen, begin en einde van abonnementen en exports, elk met
+datum, tijd en LAN-IP-adres; (f) een <b>beveiligingslogboek</b> met
+administratieve gebeurtenissen en aanmeldgebeurtenissen, inclusief
+LAN-IP-adressen; (g) <b>zaakoverdrachtspakketten</b> — draagt een gebruiker de
+eigendom van een zaak over aan een collega, dan komt de volledige zaak
+als één archief via een tijdelijk overdrachtsgebied op de server terecht; het pakket
+wordt van de server verwijderd nadat de ontvanger de import heeft bevestigd, en
+als geheim gemarkeerde documenten worden alleen na uitdrukkelijke aanvullende
+bevestiging door de eigenaar overgedragen (anders wordt de overdracht
+afgebroken); (h) de <b>centrale scaninvoer</b> (optionele Central Scan
+App): een register van de <b>zaaknummers en de weergavenaam</b> van elke
+gebruiker (door de werkplekken gemeld als vergelijkingsmateriaal — nooit
+zaakinhoud) en een <b>documentspool</b> per bestand, die gescande, aan
+een gebruiker geadresseerde inkomende post vasthoudt totdat de werkplek van deze
+gebruiker haar heeft opgehaald en bevestigd, waarna de serverkopie wordt verwijderd;
+tekstherkenning en toewijzing aan de ontvanger gebeuren lokaal op de
+scanwerkplek, zonder enige AI; (i) <b>gegevens over back-upgebeurtenissen</b> — elke
+werkplek meldt zijn back-up- en herstelgebeurtenissen
+(soort, bestandsnaam, grootte, tijdstip, LAN-IP), zodat de beheerder per gebruiker
+kan zien wanneer de laatste back-up is gemaakt, en gebruikers die achterlopen
+kan herinneren; (j) het <b>kantoorbrede partijenregister</b>
+— de stamrecords van <b>personen en ondernemingen,
+instellingen, de relaties daartussen en de persoonsanalyses</b> die
+op de werkplekken worden bijgehouden, samen met de wachtrij van de
+tussen de gebruikers uitgewisselde wijzigingsvoorstellen; (k) de
+<b>beoordelingen van rechterlijke beslissingen</b> — per werkplek en beslissing: rechtbank,
+kamer en samenstelling, de namen van de rechters en griffiers,
+beslissingsnummer, datum, zaaknummer, de interne zaak- en cliëntnummers van de
+beoordelende werkplek, gemeten tekstaandelen en de door de AI opgestelde
+Engelstalige analyse van de beslissing en van de stukken van beide partijen; (l) de
+<b>kantoorchat</b> — berichten tussen de geregistreerde gebruikers (na een jaar verwijderd) —
+en aan een gedeelde zaak vastgezette notities, die zichtbaar zijn voor de eigenaar ervan en alle abonnees.</li>
+<li><b>Het kantoorbrede partijenregister.</b> Zodra een werkplek met de
+server is verbonden, worden zijn stamgegevens van partijen (wie is wie: namen,
+identificatoren, contactgegevens, relaties, persoonsanalyse) <b>automatisch
+geüpload</b> en naar elke andere werkplek van hetzelfde kantoor gespiegeld,
+zodat elke advocaat ziet met wie het kantoor al te maken heeft, en het
+kantoor een kantoorbreed zicht op belangenconflicten krijgt. Elk record
+heeft precies één eigenaar — de gebruiker die het als eerste heeft ingebracht; alle
+andere gebruikers hebben een alleen-lezenkopie en kunnen alleen een
+<b>wijzigingsvoorstel</b> sturen, dat de eigenaar in de gegevensmonitor aanvaardt of
+weigert. Is de eigenaar 48 uur lang niet bereikbaar, dan gaat de
+eigendom over op de voorstellende gebruiker. <b>Zaakinhoud maakt geen
+deel uit van dit register</b> — documenten, chronologie, correspondentie en
+zaaktoewijzingen blijven onderworpen aan de hier beschreven uitdrukkelijke
+vrijgave- en overdrachtshandelingen. De uitwisseling blijft binnen het kantoor
+(één verwerkingsverantwoordelijke), verlaat nooit het lokale netwerk en betrekt
+<b>geen AI-aanbieder</b> erbij: herkenning van dubbele records en veldvergelijking lopen als
+zuivere programmalogica op de verzendende werkplek; de server slaat alleen op en
+geeft door. Kantoren moeten deze interne doorgifte van
+partijgegevens en persoonsanalyses opnemen in hun register van
+verwerkingsactiviteiten.</li>
+<li><b>De beoordelingen van rechterlijke beslissingen.</b> Een beoordeling wordt alleen opgeslagen op
+uitdrukkelijk bevel van de gebruiker; daarna wordt zij net als het
+partijenregister <b>automatisch geüpload</b> en naar elke werkplek van het
+kantoor gespiegeld. Elke werkplek houdt per beslissing een eigen beoordeling bij,
+die alleen hij kan wijzigen. De analyse beschrijft de inhoud van een beslissing en van de
+stukken daarbij — zij bevat in zoverre <b>zaakinhoud</b> — en noemt rechters en
+griffiers bij naam. Er is geen AI-aanbieder bij betrokken; de uitwisseling blijft in het
+lokale netwerk van het kantoor. Kantoren moeten ook deze doorgifte opnemen in hun
+register van verwerkingsactiviteiten.</li>
+<li><b>Alleen bewuste handelingen — voor zaakinhoud.</b> Zaakinhoud komt
+uitsluitend via een uitdrukkelijke, door de gebruiker bevestigde vrijgave- of
+overdrachtshandeling op de server terecht; teksten van de wettenbibliotheek pas nadat de
+gebruiker de vermelding in de gegevensmonitor heeft aanvaard; gescande inkomende post
+pas nadat de medewerker van het kantoor het document heeft gecontroleerd en op verzenden naar een
+geselecteerde ontvanger heeft geklikt. Het partijenregister en de
+opgeslagen beoordelingen van rechterlijke beslissingen zijn de bewuste uitzonderingen: zij
+synchroniseren op de achtergrond zonder bevestiging per record. Tijd-, aanwezigheids-, gebeurtenis- en back-upgegevens zijn
+operationele metagegevens die door het gebruik met meerdere gebruikers zelf ontstaan, en
+zijn voor de beheerder van het kantoor zichtbaar in de webbeheeromgeving.</li>
+<li><b>Verantwoordelijkheid.</b> Het kantoor dat de server gebruikt, blijft
+de enige verwerkingsverantwoordelijke. De beheerder beslist over het goedkeuren van
+registraties, kan abonnementen beëindigen, vermeldingen in de wettenbibliotheek
+verwijderen en het pakket verwijderen — waarbij de servergegevensmap onder
+controle van de beheerder op de NAS blijft.</li>
+<li><b>Werknemersgegevens.</b> Met de <span class="irs">IRONSTICK</span> SERVER meldt elke
+werkplek zijn gemeten werktijd per dag en zaak (zaaknummer,
+naam van de cliënt) en elke back-up- en herstelgebeurtenis (bestand, grootte, tijd, IP-adres)
+aan de server, waar de beheerder van het kantoor ze kan inzien. Het kantoor moet zijn
+medewerkers hierover dienovereenkomstig informeren.</li>
+<li><b>Volledige cliëntnamen in tijdregistratiegegevens.</b> Het
+tijdregistratieoverzicht toont de werktijd per zaak en per cliënt, wat
+betekent dat namen van cliënten op de NAS worden opgeslagen. Dit blijft
+binnen de eigen infrastructuur van het kantoor en het bestaande
+vertrouwelijkheidsregime — kantoren moeten de NAS echter opnemen in hun overzicht
+van technische en organisatorische maatregelen (toegangscontrole
+in het besturingssysteem van de NAS, volumeversleuteling, back-upbeleid), net als bij elke andere
+bestandsserver van het kantoor.</li>
+</ul>
+
+<h2>Bijlage — modelclausule voor de privacyverklaring voor uw cliënten (voorstel)</h2>
+<p>De volgende tekst is een formuleringsvoorstel dat een kantoor dat
+<span class="irs">IRONSTICK</span> gebruikt, in zijn eigen privacyverklaring voor cliënten kan overnemen.
+Hij is zo opgesteld dat hij precies overeenkomt met de hierboven beschreven gegevensstromen. Hij ziet bewust af van citaten van wetsartikelen, zodat hij in
+verklaringen van elke structuur kan worden ingevoegd.</p>
+<div class="box warn"><b>Voordat u de tekst invoegt — checklist voor de advocaat:</b>
+<ol style="margin:6px 0 2px">
+<li>Houd de verwerkersovereenkomst van <b>elke</b> door u
+ingestelde AI-aanbieder bij de hand, noem in de clausule alleen de aanbieders
+die u werkelijk gebruikt, en controleer de zin over training en
+bewaring aan de hand van de voorwaarden die u werkelijk hebt ondertekend.
+De gratis achtergrondaanbieders (Groq, OpenRouter, Mistral, paragraaf 1)
+dekt de clausule alleen via de daar tussen haken geplaatste optionele zin —
+schakel deze alleen in als hun voorwaarden aan uw beroepsrechtelijke
+vereisten voldoen, en schrap de zin als u ze niet gebruikt.</li>
+<li>Behoud de tussen haken geplaatste zin over de AI-werkruimte alleen
+als u de desktop-AI-Bridge (Claude Desktop/Code, ChatGPT Desktop, Qwen
+Desktop of Kimi Desktop) werkelijk gebruikt; schrap hem anders.</li>
+<li>Deze clausule dekt de in dit document beschreven gegevensstromen
+binnen de app. Zij dekt het AI-instructiepakket (paragraaf 5)
+<b>niet</b> — het uploaden van deze export naar een AI-dienst is een
+afzonderlijke beslissing en vereist in de regel de uitdrukkelijke toestemming
+van de cliënt.</li>
+<li>Hebt u in de configurator afzonderlijke AI-functies uitgeschakeld, kort dan
+de lijst van doeleinden dienovereenkomstig in — beschrijf precies wat u
+gebruikt, niet meer.</li>
+<li>Dit is een formuleringsvoorstel, geen juridisch advies. Laat het vóór
+gebruik toetsen aan de beroepsregels van uw orde en de plaatselijke
+privacypraktijk.</li>
+</ol></div>
+<h3>Nederlands</h3>
+<div class="clause">
+<p><b>AI-ondersteunde behandeling van zaken.</b> Ons kantoor gebruikt de
+kantoorsoftware <span class="irs">IRONSTICK</span>, die AI-ondersteunde functies bevat. Voor deze
+functies kunnen geselecteerde gegevens uit uw dossier worden doorgegeven aan een externe
+AI-dienstverlener (afhankelijk van beschikbaarheid: Alibaba Cloud, Moonshot AI, OpenAI of Anthropic, via hun API's),
+die ze in onze opdracht verwerkt op basis van een
+verwerkersovereenkomst. Wij gebruiken deze functies voor:
+de classificatie en registratie van inkomende documenten, de prioritering van
+inkomende e-mails, de controle van onze gegevensbestanden op inconsistenties,
+het opstellen en controleren van juridische documenten en voor juridische analyse
+en onderzoek. [Optioneel — schrappen indien niet gebruikt: voor taken die op de
+achtergrond lopen, zoals de prioritering van inkomende e-mails, de controle van onze
+gegevensbestanden en samenvattingen, kunnen daarnaast de gratis diensten van Groq,
+OpenRouter of Mistral worden ingezet; de voorwaarden daarvan hebben wij vóór het inschakelen
+gecontroleerd.]</p>
+<p><b>Beschermingsmaatregelen.</b> Vóór elke doorgifte vervangt de software de in
+ons systeem opgeslagen directe identificatoren — namen,
+persoonlijke identificatienummers, telefoonnummers, e-mailadressen, postadressen,
+zaaknummers en bankgegevens — op onze eigen computer door neutrale
+plaatshouders. De koppeltabel tussen plaatshouders en echte gegevens
+verlaat ons kantoor nooit; de antwoorden van de dienstverlener worden lokaal
+terugvertaald. Er wordt alleen doorgegeven wat de betreffende functie vereist,
+met vaste omvangsgrenzen. Afzonderlijke functies hebben om technische redenen
+echte gegevens nodig — bijvoorbeeld het openbare internetonderzoek naar een persoonsnaam
+of de voorleesfunctie; deze zetten wij alleen in door een bewuste
+afzonderlijke handeling. [Optioneel — schrappen indien niet gebruikt: voor het
+opstellen van processtukken gebruiken wij daarnaast een AI-werkruimte waarin
+dossiergegevens zonder vervanging door plaatshouders worden verwerkt; dit kanaal wordt
+alleen onder ons rechtstreeks toezicht gebruikt.] Los van de AI-functies stuurt de software
+in onze gegevensbestanden opgeslagen postadressen — zonder namen — naar de openbare kaartdienst
+OpenStreetMap, zodat ze op een kaart kunnen worden weergegeven.</p>
+<p><b>De dienstverlener.</b> Volgens de voor ons geldende voorwaarden van de
+dienstverlener worden via de API doorgegeven inhouden
+niet gebruikt voor het trainen van AI-modellen en slechts gedurende beperkte tijd
+opgeslagen. De verwerking kan buiten de Europese Economische Ruimte
+plaatsvinden; in dat geval is de doorgifte beschermd door de in onze
+verwerkersovereenkomst overeengekomen waarborgen. Wat de
+dienstverlener met de gegevens mag doen, regelt deze overeenkomst — niet het
+oordeel van de AI.</p>
+<p><b>Uw keuze.</b> Onze beroepsmatige geheimhoudingsplicht blijft
+onverlet: buiten wat hier is beschreven, verlaten geen gegevens ons
+kantoor. De verwerking berust op de aan ons verleende opdracht en ons
+gerechtvaardigd belang bij een efficiënte en zorgvuldige
+behandeling van uw zaak. U kunt op elk moment bezwaar maken tegen het gebruik van de AI-ondersteunde functies;
+voor zover mogelijk behandelen wij uw dossier dan zonder
+deze functies. Uw wettelijke privacyrechten — inzage, rectificatie,
+wissing, klacht bij de toezichthoudende autoriteit — blijven volledig
+behouden.</p>
+</div>
+
+<p class="meta">Deze verklaring is afgeleid uit de broncode van de applicatie
+(pseudonimiseerder, externe router, auditlogboek en het doorgiftepad
+van elke afzonderlijke functie) en geeft het geleverde gedrag van versie 1.0.7 (stand november 2026) weer.
+De verwerking door de AI-aanbieder zelf — bewaring,
+gebruik voor training, subverwerkers, rechtsstelsel — wordt
+uitsluitend bepaald door de voorwaarden van de aanbieder, in de telkens actuele versie daarvan. De
+links naar de gebruiksvoorwaarden en privacyverklaringen van elke aanbieder staan ook in het
+betreffende gedeelte van de AI-configuratie.</p>
+<table>
+<tr><th>Aanbieder</th><th>Gebruiksvoorwaarden en privacy</th></tr>
+<tr><td>Alibaba Cloud (Qwen)</td><td><a href="https://www.alibabacloud.com/help/en/legal">alibabacloud.com/help/en/legal</a></td></tr>
+<tr><td>Moonshot AI (Kimi)</td><td><a href="https://platform.kimi.ai/docs/agreement">platform.kimi.ai/docs/agreement</a></td></tr>
+<tr><td>OpenAI (ChatGPT)</td><td><a href="https://openai.com/policies">openai.com/policies</a></td></tr>
+<tr><td>Anthropic (Claude)</td><td>Commercial Terms of Service: <a href="https://www.anthropic.com/legal/commercial-terms">anthropic.com/legal/commercial-terms</a>; Usage Policy: <a href="https://www.anthropic.com/legal/aup">anthropic.com/legal/aup</a>; Privacy Policy: <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></td></tr>
+<tr><td>Groq</td><td><a href="https://groq.com/terms-of-use">groq.com/terms-of-use</a></td></tr>
+<tr><td>OpenRouter</td><td><a href="https://openrouter.ai/terms">openrouter.ai/terms</a></td></tr>
+<tr><td>Mistral</td><td><a href="https://legal.mistral.ai/terms/commercial-terms-of-service">legal.mistral.ai/terms/commercial-terms-of-service</a></td></tr>
+</table>
+
+<section class="ct" id="contact"><div class="ct-in"><div class="ct-l"><h5 class="ct-h">Contact</h5><h3 class="ct-name">Tobias Werren</h3><div class="cc-row"><img class="qr" src="img/contact_qr.png" alt="IRONSTICK-contactkaart (QR)" width="180" height="180" loading="lazy"><img class="portrait" src="img/tobias_werren.webp" alt="Tobias Werren" loading="lazy"></div><p class="qrhint">Scan de code om onze contactkaart op te slaan — telefoon, e-mail en website.</p><p class="pref">Neem gerust rechtstreeks contact op via WhatsApp of Telegram — ook een telefoontje is welkom. Gesproken talen: Duits, Engels, Roemeens.</p><p class="cbtn"><a class="wa" href="https://wa.me/qr/3UCX3B7NRPECG1" rel="nofollow noopener" target="_blank">WhatsApp</a><a class="tg" href="https://t.me/ironstick_legal" rel="nofollow noopener" target="_blank">Telegram</a></p></div><div class="ct-r"><h5 class="ct-h">Bericht</h5><h3 class="ct-ask">Interesse in IRONSTICK of een demo? Schrijf ons.</h3><div class="ct-box"><div class="ct-fw u-form"><form action="#" data-subject="IRONSTICK-aanvraag van" name="form"><div class="ct-fg"><label for="ct-name">Naam</label><input id="ct-name" type="text" name="name" placeholder="Uw naam" required></div><div class="ct-fg"><label for="ct-msg">Bericht</label><textarea id="ct-msg" name="message" rows="4" cols="50" placeholder="Uw bericht" required></textarea></div><div class="ct-fg"><p class="ct-hint">Verzenden opent uw e-mailprogramma met het voorbereide bericht.</p><button type="submit">Bericht verzenden</button></div><div class="u-form-send-success">Uw e-mailprogramma wordt geopend. Verzend het bericht daar.</div></form></div></div></div></div></section>
+<footer class="sd-foot"><p>IRONSTICK is software voor de juridische praktijk. Deze website dient uitsluitend ter informatie en vormt geen juridisch advies. © 2026 IRONSTICK.</p></footer>
+</body></html>
