@@ -1,6 +1,6 @@
 # AI aan uw dossier
 
-> In de ingebouwde chat of via de Bridge naar uw desktop-AI.
+> AI aan uw dossier: in de ingebouwde chat met uw eigen API-sleutel of via de Bridge naar uw desktop-AI — elk resultaat deterministisch gecontroleerd.
 
 Originele pagina: https://www.ironstick.legal/ki_nl.html
 

@@ -1,6 +1,6 @@
 # KI an Ihrer Akte
 
-> Im eingebauten Chat oder über die Bridge zu Ihrer Desktop-KI.
+> KI an Ihrer Akte: im eingebauten Chat mit eigenem API-Key oder über die Bridge zu Ihrer Desktop-KI — jedes Ergebnis deterministisch geprüft.
 
 Originalseite: https://www.ironstick.legal/ki_de.html
 
