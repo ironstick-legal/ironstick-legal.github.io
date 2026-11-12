@@ -83,5 +83,6 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# KI-Übersicht: https://www.ironstick.legal/llms.txt
+# AI overview: https://www.ironstick.legal/llms.txt
+# AI full text: https://www.ironstick.legal/llms-full.txt
 Sitemap: https://www.ironstick.legal/sitemap.xml
