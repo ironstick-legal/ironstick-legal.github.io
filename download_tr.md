@@ -26,25 +26,25 @@ Yapay zekâ masaüstü uygulamalarını yerel bir MCP sunucusu üzerinden istemc
 
 Claude Desktop uygulaması için bağlayıcı.
 
-[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-claude-setup-2.16.15.exe)
+[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.8/ironstick-bridge-claude-setup-2.16.21.exe)
 
 #### ChatGPT Desktop
 
 ChatGPT Desktop uygulaması için bağlayıcı.
 
-[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-chatgpt-setup-2.16.15.exe)
+[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.8/ironstick-bridge-chatgpt-setup-2.16.21.exe)
 
 #### Qwen
 
 Qwen masaüstü uygulaması için bağlayıcı.
 
-[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-qwen-setup-2.16.15.exe)
+[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.8/ironstick-bridge-qwen-setup-2.16.21.exe)
 
 #### Kimi
 
 Kimi masaüstü uygulaması için bağlayıcı.
 
-[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-bridge-kimi-setup-2.16.15.exe)
+[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.8/ironstick-bridge-kimi-setup-2.16.21.exe)
 
 ## Yapay zekâ bağlantısı
 
@@ -64,13 +64,13 @@ IRONSTICK SERVER, hazır bir Synology paketi (SPK) olarak sunulur ve NAS'ınıza
 
 Standart bir Synology NAS üzerinde çalışır ve birden fazla çalışma istasyonunu birbirine bağlar: paylaşılan davalar, büro genelinde ortak bir mevzuat kütüphanesi ve kendi NAS'ınızda merkezi tarama girişi. Çalışma istasyonlarından kendini yeniden oluşturur ve her kullanıcının son yedeğini gösterir. Sunucu, bulut ve yapay zekâ trafiği olmadan tamamen büronuzun ağı içinde çalışır. İki istemci uygulaması lisansından itibaren.
 
-[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-server-synology-1.0.0.spk)
+[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.8/ironstick-server-synology-1.0.0.spk)
 
 ### Central Scan App
 
 Tarama cihazının başındaki kayıt istasyonu: Gelen posta ve belgeler merkezi olarak taranır, davalara atanır ve otomatik olarak sisteme aktarılır. IRONSTICK SERVER gerektirir.
 
-[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.7/ironstick-centralscan-setup-1.0.3.exe)
+[İndir](https://github.com/ironstick-legal/ironstick-legal.github.io/releases/download/v1.0.8/ironstick-centralscan-setup-1.0.4.exe)
 
 ## Kurulum sırası
 
