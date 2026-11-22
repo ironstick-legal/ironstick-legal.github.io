@@ -69,6 +69,11 @@ De database en de vastgelegde zaakdocumenten staan met AES-256 versleuteld op uw
 Een Bridge verbindt de door u gekozen AI-aanbieder rechtstreeks met uw dossier, onder uw eigen abonnement bij die aanbieder. Uw kantoor blijft onafhankelijk van externe datacenters: de licentie wordt offline op uw computer gecontroleerd, elke zaak is op elk moment te exporteren als pdf-dossier of als EDRM-bewijs-ZIP, en een volledige back-up maakt u met één klik.
 [Naar de AVG-verklaring over gegevensstromen](https://www.ironstick.legal/gdpr_nl.html)
 
+## Eenvoudige onboarding
+
+AI-ondersteunde onboarding via de [Bridge](https://www.ironstick.legal/ki_nl.html): in een begeleid proces helpt de AI u uw gegevens te sorteren, voor te bereiden en in IRONSTICK over te nemen, in welke vorm ze vandaag ook voorliggen.
+Of uw gegevens nu als lijsten bestaan of nog in software zitten die u tot nu toe gebruikte: u wordt in eenvoudige stappen volledig begeleid om uw gegevens zaak voor zaak in IRONSTICK over te nemen, en de AI neemt u daarbij het grootste deel van het werk uit handen.
+
 ### Contact
 
 ### Tobias Werren

@@ -69,6 +69,11 @@ Baza de date și documentele de dosar înregistrate sunt stocate criptat AES-256
 Un Bridge conectează furnizorul de IA ales direct la dosarul dumneavoastră, sub propriul abonament la acel furnizor. Cabinetul dumneavoastră rămâne independent de centrele de date externe: licența se validează offline pe calculatorul dumneavoastră, fiecare dosar poate fi exportat oricând ca dosar PDF sau ca ZIP de probe EDRM, iar o copie de siguranță completă se face dintr-un singur clic.
 [Citiți declarația GDPR privind fluxurile de date](https://www.ironstick.legal/gdpr_ro.html)
 
+## Onboarding simplu
+
+Onboarding asistat de IA prin [Bridge](https://www.ironstick.legal/ki_ro.html): într-un proces ghidat, IA vă ajută să vă sortați datele, să le pregătiți și să le preluați în IRONSTICK, indiferent de forma în care se află astăzi.
+Fie că datele dumneavoastră există sub formă de liste, fie că se află încă într-un software folosit până acum: sunteți însoțit pe deplin, în pași simpli, ca să vă preluați datele în IRONSTICK dosar cu dosar, iar IA preia cea mai mare parte a muncii.
+
 ### Contact
 
 ### Tobias Werren

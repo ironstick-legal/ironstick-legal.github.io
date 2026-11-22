@@ -69,6 +69,11 @@ La banca dati e i documenti acquisiti dei casi sono conservati cifrati AES-256 s
 Un Bridge collega direttamente il fornitore di IA da Lei scelto al Suo fascicolo, con il Suo abbonamento presso tale fornitore. Il Suo studio resta indipendente dai centri dati esterni: la licenza viene convalidata offline sul Suo computer, ogni caso si esporta in qualsiasi momento come dossier PDF o ZIP di prove EDRM e un backup completo si crea con un clic.
 [Legga la dichiarazione GDPR sui flussi di dati](https://www.ironstick.legal/gdpr_it.html)
 
+## Onboarding semplice
+
+Onboarding assistito dall’IA tramite il [Bridge](https://www.ironstick.legal/ki_it.html): in un processo guidato l’IA La aiuta a ordinare i Suoi dati, a prepararli e a trasferirli in IRONSTICK, qualunque sia la forma in cui si trovano oggi.
+Che i Suoi dati esistano sotto forma di elenchi o si trovino ancora in un software usato finora: viene accompagnato pienamente, con passi semplici, nel trasferire i Suoi dati in IRONSTICK caso per caso, e l’IA Le toglie gran parte del lavoro.
+
 ### Contatti
 
 ### Tobias Werren

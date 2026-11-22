@@ -69,6 +69,11 @@ Veritabanı ve kaydedilen dava belgeleri AES-256 ile şifrelenmiş olarak kendi 
 Bir Bridge, seçtiğiniz yapay zekâ sağlayıcısını, o sağlayıcıdaki kendi aboneliğiniz altında doğrudan dava dosyanıza bağlar. Büronuz harici veri merkezlerinden bağımsız kalır: Lisans bilgisayarınızda çevrimdışı olarak doğrulanır, her dava istendiği zaman PDF derlemesi ya da EDRM delil ZIP'i olarak dışa aktarılabilir ve tam yedekleme tek tıkla yapılır.
 [GDPR veri akışı beyanına git](https://www.ironstick.legal/gdpr_tr.html)
 
+## Kolay geçiş
+
+[Bridge](https://www.ironstick.legal/ki_tr.html) üzerinden yapay zekâ destekli geçiş: Yönlendirmeli bir süreçte yapay zekâ, verilerinizi bugün hangi biçimde olursa olsun sıralamanıza, hazırlamanıza ve IRONSTICK'e aktarmanıza yardımcı olur.
+Verileriniz ister listeler hâlinde olsun ister şimdiye kadar kullandığınız bir yazılımda dursun: Verilerinizi dava dava IRONSTICK'e aktarırken basit adımlarla tam olarak desteklenirsiniz ve işin büyük kısmını yapay zekâ sizin yerinize üstlenir.
+
 ### İletişim
 
 ### Tobias Werren

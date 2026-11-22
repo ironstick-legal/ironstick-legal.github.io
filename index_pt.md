@@ -69,6 +69,11 @@ A base de dados e os documentos dos processos registados ficam cifrados com AES-
 Uma Bridge liga o fornecedor de IA que escolheu diretamente ao seu processo, com a sua própria subscrição junto desse fornecedor. O seu escritório mantém-se independente de centros de dados externos: a licença é verificada offline no seu computador, cada processo pode ser exportado a qualquer momento como dossier PDF ou como ZIP de provas EDRM, e uma cópia de segurança completa faz-se com um clique.
 [Ver a Declaração RGPD sobre fluxos de dados](https://www.ironstick.legal/gdpr_pt.html)
 
+## Onboarding simples
+
+Onboarding assistido por IA através da [Bridge](https://www.ironstick.legal/ki_pt.html): num processo guiado, a IA ajuda-o a ordenar os seus dados, a prepará-los e a transferi-los para o IRONSTICK, seja qual for a forma em que se encontrem hoje.
+Quer os seus dados existam em listas, quer ainda estejam num software que utilizou até agora: é acompanhado por completo, em passos simples, na transferência dos seus dados para o IRONSTICK processo a processo, e a IA poupa-lhe a maior parte do trabalho.
+
 ### Contacto
 
 ### Tobias Werren

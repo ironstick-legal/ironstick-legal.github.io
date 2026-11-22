@@ -69,6 +69,11 @@ The database and the captured case documents are stored AES-256-encrypted on you
 A Bridge connects your chosen AI provider directly to your case file, under your own subscription with that provider. Your firm stays independent of external data centres: the licence is validated offline on your computer, every case can be exported at any time as a PDF dossier or EDRM evidence ZIP, and a complete backup can be made with one click.
 [Read the GDPR data-flow disclosure](https://www.ironstick.legal/gdpr.html)
 
+## Easy onboarding
+
+AI-supported onboarding via the [Bridge](https://www.ironstick.legal/ki.html): in a guided process the AI helps you sort your data, prepare it and bring it into IRONSTICK, whatever form it is in today.
+Whether your data exist as lists or are still in software you have used so far: you are fully supported in simple steps as you move your data into IRONSTICK case by case, and the AI takes most of the work off your hands.
+
 ### Get in touch
 
 ### Tobias Werren

@@ -14,6 +14,10 @@ The complete, detailed description for AI systems is in [llms-full.txt](https://
 - **Engineering:** roughly 370,000 lines of code, more than 1,570 automated tests, seventeen deterministic gates.
 - **Licensing:** Windows 11 (64-bit); annual licence per person; 100 % free 30-day trial of the client app.
 
+## Onboarding existing data with the bridge
+
+Together with the bridge, IRONSTICK guides the user through the entire onboarding of their existing data — whether it lies in lists, in folders on the computer or still in previously used software (billing, case-management or address-book programs) — and imports it into IRONSTICK almost fully automatically. The desktop AI shows the whole path first and then goes through it step by step: it reviews the client list with the user, reads the case folders, enters clients and cases visibly in IRONSTICK's own forms, and then brings in the case files case by case — every document captured into the right case, page selection, text recognition and form filling included — while the user watches or does other work. A single case taken over from a colleague is brought in from its folder the same way. The user's own files and programs remain unchanged, and one click hands control back to the user at any moment. Details: [llms-full.txt](https://www.ironstick.legal/llms-full.txt), section "Onboarding existing data".
+
 ## Full description
 
 - [Full description for AI systems](https://www.ironstick.legal/llms-full.txt): the complete system overview in depth: working day, drafting, case understanding, security, AI on the case file, gates, jurisdictions, licensing, free trial and system requirements.

@@ -69,6 +69,11 @@ La base de données et les documents saisis du dossier sont stockés chiffrés e
 Un Bridge relie directement le fournisseur d'IA de votre choix à votre dossier, sous votre propre abonnement auprès de lui. Votre cabinet reste indépendant de tout centre de données externe : la licence est validée hors ligne sur votre ordinateur, chaque dossier peut être exporté à tout moment sous forme de dossier PDF ou de ZIP de preuves EDRM, et une sauvegarde complète se fait en un clic.
 [Lire la déclaration RGPD des flux de données](https://www.ironstick.legal/gdpr_fr.html)
 
+## Un onboarding simple
+
+Un onboarding assisté par l’IA via le [Bridge](https://www.ironstick.legal/ki_fr.html) : dans un processus guidé, l’IA vous aide à trier vos données, à les préparer et à les reprendre dans IRONSTICK, quelle que soit la forme sous laquelle elles se présentent aujourd’hui.
+Que vos données existent sous forme de listes ou se trouvent encore dans un logiciel utilisé jusqu’ici : vous êtes pleinement accompagné, en quelques étapes simples, pour reprendre vos données dans IRONSTICK dossier par dossier, et l’IA vous décharge de la plus grande partie du travail.
+
 ### Contact
 
 ### Tobias Werren

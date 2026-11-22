@@ -69,6 +69,11 @@ La base de datos y los documentos de expediente registrados se almacenan cifrado
 Un Bridge conecta al proveedor de IA elegido directamente con su expediente, con su propia suscripción a ese proveedor. Su despacho sigue siendo independiente de centros de datos externos: la licencia se valida sin conexión en su ordenador, cada caso puede exportarse en cualquier momento como dosier en PDF o ZIP de pruebas EDRM, y se puede hacer una copia de seguridad completa con un solo clic.
 [Leer la declaración RGPD de flujos de datos](https://www.ironstick.legal/gdpr_es.html)
 
+## Incorporación sencilla
+
+Incorporación asistida por IA a través del [Bridge](https://www.ironstick.legal/ki_es.html): en un proceso guiado, la IA le ayuda a ordenar sus datos, prepararlos y llevarlos a IRONSTICK, sea cual sea la forma en que se encuentren hoy.
+Tanto si sus datos existen en forma de listas como si siguen en un software que ha utilizado hasta ahora: en pasos sencillos recibe pleno acompañamiento para trasladar sus datos a IRONSTICK caso por caso, y la IA le quita de encima la mayor parte del trabajo.
+
 ### Contacto
 
 ### Tobias Werren

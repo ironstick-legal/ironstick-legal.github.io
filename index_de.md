@@ -69,6 +69,11 @@ Die Datenbank und die erfassten Falldokumente liegen AES-256-verschlüsselt auf 
 Eine Bridge verbindet den von Ihnen gewählten KI-Anbieter direkt mit Ihrer Fallakte, unter Ihrem eigenen Abo bei diesem Anbieter. Ihre Kanzlei bleibt unabhängig von externen Rechenzentren: Die Lizenz wird offline auf Ihrem Rechner geprüft, jeder Fall lässt sich jederzeit als PDF-Dossier oder EDRM-Beweis-ZIP exportieren, und eine vollständige Sicherung gelingt mit einem Klick.
 [Zur DSGVO-Datenfluss-Erklärung](https://www.ironstick.legal/gdpr_de.html)
 
+## Einfaches Onboarding
+
+KI-unterstütztes Onboarding über die [Bridge](https://www.ironstick.legal/ki_de.html): In einem geführten Prozess hilft Ihnen die KI, Ihre Daten zu sortieren, aufzubereiten und in IRONSTICK zu übernehmen, ganz gleich, in welcher Form sie heute vorliegen.
+Ob Ihre Daten als Listen vorliegen oder noch in einer bisher genutzten Software stecken: Sie werden in einfachen Schritten vollständig begleitet, Ihre Daten Fall für Fall in IRONSTICK zu übernehmen, und die KI nimmt Ihnen den Großteil der Arbeit dabei gleich ab.
+
 ### Kontakt
 
 ### Tobias Werren
