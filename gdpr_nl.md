@@ -626,12 +626,6 @@ aanbevolen voor draagbare media. Netwerkstations en met een cloud gesynchronisee
 geweigerd. Bij het wijzigen van de opslaglocatie in de configuratie controleert
 IRONSTICK het doel aan de hand van deze regels; er wordt gekopieerd met vergelijking van controlesommen, omgeschakeld
 pas na geslaagde verificatie, en de oude map blijft hernoemd bewaard.
-- **Apparaatsynchronisatie zonder enige cloud.** De optionele
-synchronisatie Windows ↔ Android-tablet loopt via een directe
-USB-kabelverbinding — er is geen dienst van derden bij betrokken, overdrachten worden
-via controlesom geverifieerd, en vóór het vervangen van de database wordt een verplichte back-up
-gemaakt. Als geheim gemarkeerde documenten worden helemaal niet naar de tablet
-overgedragen.
 - **Beveiligingssnapshot bij de start (lokaal aanmeldlogboek).** Bij elke
 programmastart legt IRONSTICK op de achtergrond een snapshot vast van de computer waarop het
 draait: hostnaam, besturingssysteem, RAM/CPU, lokaal IP-adres, standaardbrowser,

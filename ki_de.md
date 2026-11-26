@@ -25,7 +25,7 @@ IRONSTICK bietet Ihnen zwei Wege, mit einer KI an Ihren Akten zu arbeiten: den e
 | IRONSTICK-Lizenz | Inbegriffen | [Eine Bridge je Desktop-KI oder alle vier im Bündel](https://www.ironstick.legal/download_de.html) |
 | An die KI gesendete Daten | Pseudonymisiert | — |
 | Ihre Zustimmung | Vor der ersten externen Anfrage einer Chat-Sitzung | Vor dem ersten Datenzugriff nach jedem Programmstart |
-| Am besten für | Den Alltag: Fragen zur Akte, Briefe und Schriftsätze im Dialog — immer zur Hand, auch auf dem Tablet | Tiefenarbeit an großen Akten: ganze Fälle lesen, Hunderte Dokumente, mehrere Entwurfsrunden |
+| Am besten für | Den Alltag: Fragen zur Akte, Briefe und Schriftsätze im Dialog — immer zur Hand | Tiefenarbeit an großen Akten: ganze Fälle lesen, Hunderte Dokumente, mehrere Entwurfsrunden |
 
 ## 2. Der KI-Chat in IRONSTICK
 

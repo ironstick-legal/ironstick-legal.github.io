@@ -25,7 +25,7 @@ IRONSTICK, dosyalarınız üzerinde bir yapay zekâ ile çalışmanız için siz
 | IRONSTICK lisansı | Dahil | [Masaüstü yapay zekâ başına bir Bridge ya da dördü birden paket halinde](https://www.ironstick.legal/download_tr.html) |
 | Yapay zekâya gönderilen veriler | Takma adlandırılmış | — |
 | Onayınız | Bir sohbet oturumunun ilk harici isteğinden önce | Her program başlatıldıktan sonraki ilk veri erişiminden önce |
-| En uygun olduğu alan | Günlük iş: dosyaya ilişkin sorular, diyalog içinde yazılar ve dilekçeler — her zaman el altında, tablette de | Büyük dosyalarda derinlemesine çalışma: davaların tamamını okumak, yüzlerce belge, birden fazla taslak turu |
+| En uygun olduğu alan | Günlük iş: dosyaya ilişkin sorular, diyalog içinde yazılar ve dilekçeler — her zaman el altında | Büyük dosyalarda derinlemesine çalışma: davaların tamamını okumak, yüzlerce belge, birden fazla taslak turu |
 
 ## 2. IRONSTICK'teki yapay zekâ sohbeti
 

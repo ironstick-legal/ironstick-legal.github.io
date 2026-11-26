@@ -195,7 +195,7 @@ So dauert das Erfassen eines Dokuments kaum länger als 20 Sekunden — und der 
 | Speicher | SSD mit 20 GB frei | NVMe-SSD mit 100+ GB frei — Aktenarchiv, Volltextsuche und PDF-Erzeugung sind platten-intensiv; eine schnelle SSD macht einen spürbaren Unterschied |
 | Anzeige | 1920 × 1080 | 1920 × 1200 oder mehr — die Fall-Bildschirme nutzen die vertikale Fläche großzügig |
 | Grafik | Keine dedizierte Grafikkarte nötig — jede Onboard-Grafik reicht |
-| Konnektivität | Internet nur für externe KI, Gesetzes-Updates, E-Mail, Web-Recherche, Karten und Adress-Geocoding — Akte, Suche, Dokumente und der lokale Assistent laufen vollständig offline; ein freier USB-Port für den Tablet-Sync |
+| Konnektivität | Internet nur für externe KI, Gesetzes-Updates, E-Mail, Web-Recherche, Karten und Adress-Geocoding — Akte, Suche, Dokumente und der lokale Assistent laufen vollständig offline |
 
 ### Daten auf einem externen Laufwerk speichern (optional)
 

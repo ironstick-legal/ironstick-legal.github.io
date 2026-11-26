@@ -25,7 +25,7 @@ IRONSTICK offers you two ways of working on your case files with an AI: the buil
 | IRONSTICK licence | Included | [One Bridge per desktop AI, or all four as a bundle](https://www.ironstick.legal/download.html) |
 | Data sent to the AI | Pseudonymised | — |
 | Your consent | Before the first external request of a chat session | Before the first data access after each program start |
-| Best for | Everyday work: questions about the case file, letters and pleadings in dialogue — always at hand, on the tablet too | In-depth work on large case files: reading entire cases, hundreds of documents, several drafting rounds |
+| Best for | Everyday work: questions about the case file, letters and pleadings in dialogue — always at hand | In-depth work on large case files: reading entire cases, hundreds of documents, several drafting rounds |
 
 ## 2. The AI Chat in IRONSTICK
 

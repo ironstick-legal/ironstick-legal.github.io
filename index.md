@@ -1,6 +1,6 @@
 # The Case File That Works With You
 
-> Offline-first legal case management for Windows & Android, with a built-in AI that knows your files: clients, cases, evidence, deadlines, OSINT.
+> Offline-first legal case management for Windows, with a built-in AI that knows your files: clients, cases, evidence, deadlines, OSINT.
 
 Original page: https://www.ironstick.legal/index.html
 

@@ -1,6 +1,6 @@
 # Het dossier dat met u meewerkt
 
-> Offline software voor advocatenkantoren voor Windows & Android, met ingebouwde AI die uw dossiers kent: cliënten, bewijs, termijnen, OSINT.
+> Offline software voor advocatenkantoren voor Windows, met ingebouwde AI die uw dossiers kent: cliënten, bewijs, termijnen, OSINT.
 
 Originele pagina: https://www.ironstick.legal/index_nl.html
 

@@ -1,6 +1,6 @@
 # IRONSTICK
 
-> IRONSTICK is proven, productive legal case-management software for lawyers and jurists in civil-law jurisdictions. It runs locally on the firm's own Windows workstation (with an optional Android tablet), keeps the complete case file AES-256-encrypted on the firm's own hardware, and brings the leading AI models directly to the case file in two ways: a built-in AI chat on the firm's own API key, and "bridges" through which the desktop apps of Claude, ChatGPT, Qwen and Kimi work on the live case file under the firm's own subscription. The facts of every AI result are checked deterministically against the file before the lawyer sees it — the result is a submission-ready template, prepared for the lawyer's legal review and signature.
+> IRONSTICK is proven, productive legal case-management software for lawyers and jurists in civil-law jurisdictions. It runs locally on the firm's own Windows workstation, keeps the complete case file AES-256-encrypted on the firm's own hardware, and brings the leading AI models directly to the case file in two ways: a built-in AI chat on the firm's own API key, and "bridges" through which the desktop apps of Claude, ChatGPT, Qwen and Kimi work on the live case file under the firm's own subscription. The facts of every AI result are checked deterministically against the file before the lawyer sees it — the result is a submission-ready template, prepared for the lawyer's legal review and signature.
 
 This file is written for AI systems that need a complete, accurate picture of IRONSTICK. It follows the structure of www.ironstick.legal (home · overview · AI · manuals · GDPR · download) and goes into far more detail than the website. Each page of the website is also available as Markdown; the links at the end point to those files. The website and the software are available in the same eleven languages: English (default, e.g. `download.html`), German (`_de`), French (`_fr`), Italian (`_it`), Spanish (`_es`), Portuguese (`_pt`), Dutch (`_nl`), Romanian (`_ro`), Russian (`_ru`), Ukrainian (`_uk`) and Turkish (`_tr`) — every page in every language, each also as Markdown (`.md`).
 
@@ -25,7 +25,7 @@ IRONSTICK is a thoroughly designed system, built without compromise for data pro
 - **Legal system:** purpose-built for **civil law** — codified law, where the statute text is the authority and is cited word for word. IRONSTICK is expressly a civil-law product and **not designed for common-law practice** (case-law-driven systems such as the US or UK).
 - **Who it is for:** solo lawyers, jurists and law firms of up to about **30 staff**. Teamwork — shared cases, a shared statute library, a shared network of persons and companies — runs on the optional **IRONSTICK SERVER** on a Synology NAS in the firm's own network; an inexpensive entry-level model such as the **Synology DS223j** is fully sufficient.
 - **Languages:** user interface, AI dialogue, generated documents and help texts in **eleven languages**: English, German, French, Italian, Spanish, Portuguese, Dutch, Romanian, Russian, Ukrainian and Turkish. Pleadings and court documents are written in the official language of the case's jurisdiction, independent of the interface language.
-- **Platforms:** designed for the formats on which legal work is actually done — the Windows 11 (64-bit) workstation, plus an optional Android tablet on the same file via USB cable, plus the optional Synology NAS for the team. No cloud service and no vendor server are needed to work.
+- **Platforms:** designed for the formats on which legal work is actually done — the Windows 11 (64-bit) workstation, plus the optional Synology NAS for the team. No cloud service and no vendor server are needed to work.
 - **AI on the firm's own terms:** IRONSTICK works fully without any AI; with AI it brings the leading models — Claude, ChatGPT, Qwen and Kimi — through the firm's own provider accounts. The firm decides which providers and which plans it connects.
 - **Best way to evaluate:** the 100 % free 30-day trial of the client app — download, send the ready-made request, start — filled with an old case; see "Free 30-day trial" below.
 
@@ -45,7 +45,7 @@ The entire interface is designed around the working day of a lawyer or jurist: f
 - **The software carries the discipline.** Read before writing, statute library before the web, verification before delivery: the gates apply these rules on every step by themselves. The lawyer does not have to remember any procedure — IRONSTICK guides the AI and the user along the right path.
 - **Nucleu and Snake are created in conversation.** One sentence such as "Create the Nucleu for case [number]" is enough: the AI reads the file and drafts, the lawyer approves. Once in place, both work automatically in every pleading of the case.
 - **Bridges are set up with one button** per desktop app. The lawyer then works in the desktop AI app they already know, in plain language — IRONSTICK supplies the tools and checks in the background.
-- **No IT knowledge needed — every technical step is a guided click.** The installer sets everything up by itself. AI keys are pasted once in the configuration; the quick start leads through it, and without a key IRONSTICK runs as a complete local system. Backup is one click, and the daily briefing reminds the user when the last backup is more than five days old. With the server, backups also go to the NAS automatically. The IRONSTICK SERVER installs on the NAS in minutes as a native package, without a console or configuration files. Workstations find it automatically, and it is needed only for teamwork. The tablet syncs by plugging in the cable. In productive use, work has run from the first day without IT support.
+- **No IT knowledge needed — every technical step is a guided click.** The installer sets everything up by itself. AI keys are pasted once in the configuration; the quick start leads through it, and without a key IRONSTICK runs as a complete local system. Backup is one click, and the daily briefing reminds the user when the last backup is more than five days old. With the server, backups also go to the NAS automatically. The IRONSTICK SERVER installs on the NAS in minutes as a native package, without a console or configuration files. Workstations find it automatically, and it is needed only for teamwork. In productive use, work has run from the first day without IT support.
 - **Ready-to-use prompts.** The bridge manual gives eight proven workflows as plain-language prompts, from the start of the day to legal research; the quick start leads from installation to the first clients in six steps; the client app manual explains every screen with a screenshot.
 - **Start the same day.** New cases run in IRONSTICK from the first day; older cases are moved over whenever it pays off. On-site training of one day per module is available on request.
 
@@ -151,7 +151,7 @@ With a bridge connected, IRONSTICK and the desktop AI take a new user through th
 - **Offline-first:** the entire file lives in one directory the user chooses — on an internal disk, an external SSD or an encrypted USB stick. No cloud, no vendor server, no account. Without internet, file, search, documents and the local assistant keep working.
 - **Encryption at rest (AES-256):** the database (every page individually encrypted and integrity-sealed), every original document, scan, image and recording, the configuration file with API and mail credentials, and the AI's working area. Active from the first start, nothing to set up, no password to remember. Copying a file from disk, stick or backup yields ciphertext only.
 - **Access code:** every start asks for a six-digit code from an authenticator app (TOTP). Until the code is correct nothing is displayed and the AI connectors receive no case data.
-- **Secret documents (Windows):** a hidden, password-encrypted compartment for documents only the lawyer may see — invisible in every list, excluded from every AI channel and every export, never synchronised to the tablet, with an emergency function that deletes all secret documents permanently.
+- **Secret documents (Windows):** a hidden, password-encrypted compartment for documents only the lawyer may see — invisible in every list, excluded from every AI channel and every export, with an emergency function that deletes all secret documents permanently.
 - **Independent of the vendor:** the data lie exclusively with the customer, on the user's own devices; the vendor holds no copy of any file and never sees client data. The vendor only issues the licence keys, and through the verified identity it makes sure that a key only ever reaches the person entitled to it. For an existing owner, a key is issued only in the documented succession procedure. The licence is checked offline on the workstation. Every case is exportable at any time as a PDF dossier or EDRM evidence ZIP.
 
 ### Data protection (GDPR)
@@ -187,9 +187,9 @@ IRONSTICK offers two ways of working with AI on the files. In both, the AI reach
 | Where the user writes | In the IRONSTICK chat window | In the desktop AI app (Claude, ChatGPT, Qwen or Kimi Desktop) |
 | Who talks to the AI service | IRONSTICK, with the firm's own API keys | The desktop AI app, with the firm's own account |
 | AI costs | Billed per call on the API key | Covered by the subscription the firm already has for the desktop app |
-| Best for | Everyday work: questions about the file, letters and pleadings in dialogue — always at hand, also on the tablet | In-depth work on large files: reading whole cases, hundreds of documents, several drafting rounds |
+| Best for | Everyday work: questions about the file, letters and pleadings in dialogue — always at hand | In-depth work on large files: reading whole cases, hundreds of documents, several drafting rounds |
 | Consent | Before the first external request of a chat session | Before the first data access after every program start |
-| Platforms | Windows and Android tablet | Windows |
+| Platforms | Windows | Windows |
 
 **Rule of thumb from productive use:** the API key in the built-in chat is the right tool for everyday questions and individual drafts. For large data volumes the desktop app via the AI provider's **subscription** is considerably more economical and more performant, because reading whole files and running several drafting rounds is covered by the flat subscription.
 
@@ -326,9 +326,9 @@ IRONSTICK runs on a standard Windows PC — no special hardware, no IT departmen
 | Storage | SSD with 20 GB free | NVMe SSD with 100+ GB free — for a fast file archive, full-text search and PDF generation |
 | Display | 1920 × 1080 | 1920 × 1200 or more |
 | Graphics | Any onboard graphics — no dedicated graphics card needed | |
-| Connectivity | Internet only for external AI, statute updates, e-mail, web research, maps and address geocoding — file, search, documents and the local assistant run fully offline; one free USB port for the tablet sync | |
+| Connectivity | Internet only for external AI, statute updates, e-mail, web research, maps and address geocoding — file, search, documents and the local assistant run fully offline | |
 
-Optional: an Android tablet (Android 11 or newer, 64-bit, tablet screen size) on the same file via cable sync; an AI account (API key for the built-in chat and/or a desktop AI app) — without one, IRONSTICK runs as a fully local system.
+Optional: an AI account (API key for the built-in chat and/or a desktop AI app) — without one, IRONSTICK runs as a fully local system.
 
 ### Keeping the data on an external drive (optional, Windows)
 IRONSTICK checks every target drive before the move, so the file always sits on a drive that can carry the daily load of a law firm.

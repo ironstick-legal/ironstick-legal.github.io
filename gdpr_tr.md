@@ -626,12 +626,6 @@ taşınabilir ortamlar için önerilir. Ağ sürücüleri ve bir bulutla senkron
 reddedilir. Yapılandırmada depolama konumu değiştirilirken
 IRONSTICK hedefi bu kurallara göre kontrol eder; kopyalama sağlama toplamı karşılaştırmasıyla yapılır, geçiş
 ancak başarılı doğrulamadan sonra gerçekleşir ve eski klasör yeniden adlandırılarak korunur.
-- **Hiçbir bulut olmadan cihaz senkronizasyonu.** İsteğe bağlı
-Windows ↔ Android tablet senkronizasyonu doğrudan bir
-USB kablo bağlantısı üzerinden yürür — hiçbir üçüncü taraf hizmeti dahil değildir, aktarımlar
-sağlama toplamıyla doğrulanır ve veritabanı değiştirilmeden önce zorunlu bir yedekleme
-oluşturulur. Gizli olarak işaretlenen belgeler tablete hiç
-aktarılmaz.
 - **Başlangıçta güvenlik anlık görüntüsü (yerel oturum açma günlüğü).** IRONSTICK her
 program başlangıcında arka planda üzerinde çalıştığı bilgisayarın bir anlık görüntüsünü
 kaydeder: ana bilgisayar adı, işletim sistemi, RAM/CPU, yerel IP adresi, varsayılan tarayıcı,

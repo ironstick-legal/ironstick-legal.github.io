@@ -1,6 +1,6 @@
 # O processo que trabalha consigo
 
-> Software offline para advogados, para Windows e Android, com IA integrada que conhece os seus processos: clientes, provas, prazos, OSINT.
+> Software offline para advogados, para Windows, com IA integrada que conhece os seus processos: clientes, provas, prazos, OSINT.
 
 Página original: https://www.ironstick.legal/index_pt.html
 

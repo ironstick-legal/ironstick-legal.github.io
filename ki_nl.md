@@ -25,7 +25,7 @@ IRONSTICK biedt u twee manieren om met een AI aan uw dossiers te werken: de inge
 | IRONSTICK-licentie | Inbegrepen | [Eén Bridge per desktop-AI of alle vier als bundel](https://www.ironstick.legal/download_nl.html) |
 | Naar de AI verzonden gegevens | Gepseudonimiseerd | — |
 | Uw toestemming | Vóór het eerste externe verzoek van een chatsessie | Vóór de eerste gegevenstoegang na elke programmastart |
-| Het meest geschikt voor | Het dagelijkse werk: vragen over het dossier, brieven en processtukken in dialoog — altijd bij de hand, ook op de tablet | Diepgaand werk aan grote dossiers: complete zaken lezen, honderden documenten, meerdere conceptrondes |
+| Het meest geschikt voor | Het dagelijkse werk: vragen over het dossier, brieven en processtukken in dialoog — altijd bij de hand | Diepgaand werk aan grote dossiers: complete zaken lezen, honderden documenten, meerdere conceptrondes |
 
 ## 2. De AI-chat in IRONSTICK
 

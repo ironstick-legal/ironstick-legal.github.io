@@ -195,7 +195,7 @@ Zo duurt het registreren van een document nauwelijks langer dan 20 seconden — 
 | Opslag | SSD met 20 GB vrij | NVMe-SSD met 100+ GB vrij — dossierarchief, zoeken in de volledige tekst en pdf-generatie belasten de schijf intensief; een snelle SSD maakt een merkbaar verschil |
 | Beeldscherm | 1920 × 1080 | 1920 × 1200 of meer — de zaakschermen benutten de verticale ruimte royaal |
 | Grafisch | Geen aparte grafische kaart nodig — elke ingebouwde grafische chip volstaat |
-| Connectiviteit | Internet alleen voor externe AI, wetsupdates, e-mail, webonderzoek, kaarten en geocodering van adressen — dossier, zoekfunctie, documenten en de lokale assistent werken volledig offline; een vrije USB-poort voor de tabletsynchronisatie |
+| Connectiviteit | Internet alleen voor externe AI, wetsupdates, e-mail, webonderzoek, kaarten en geocodering van adressen — dossier, zoekfunctie, documenten en de lokale assistent werken volledig offline |
 
 ### Gegevens op een externe schijf opslaan (optioneel)
 

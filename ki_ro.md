@@ -25,7 +25,7 @@ IRONSTICK vă oferă două căi de a lucra cu o IA pe dosarele dumneavoastră: c
 | Licența IRONSTICK | Inclusă | [Câte un Bridge per IA de desktop sau toate patru în pachet](https://www.ironstick.legal/download_ro.html) |
 | Date trimise către IA | Pseudonimizate | — |
 | Consimțământul dumneavoastră | Înaintea primei cereri externe dintr-o sesiune de chat | Înaintea primului acces la date după fiecare pornire a programului |
-| Ideal pentru | Activitatea zilnică: întrebări despre dosar, scrisori și acte de procedură în dialog — mereu la îndemână, și pe tabletă | Munca în profunzime pe dosare mari: citirea unor dosare întregi, sute de documente, mai multe runde de redactare |
+| Ideal pentru | Activitatea zilnică: întrebări despre dosar, scrisori și acte de procedură în dialog — mereu la îndemână | Munca în profunzime pe dosare mari: citirea unor dosare întregi, sute de documente, mai multe runde de redactare |
 
 ## 2. Chatul IA din IRONSTICK
 

@@ -628,12 +628,6 @@ cifratura del disco del sistema operativo) è nelle mani dell'utente ed è
 raccomandata per i supporti portatili. Le unità di rete e le cartelle sincronizzate con il cloud
 (OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) vengono rifiutate come
 posizione dei dati. Quando la posizione di archiviazione viene cambiata nella configurazione, IRONSTICK verifica la destinazione in base a queste regole; la copia avviene con confronto dei checksum, il passaggio solo dopo una verifica riuscita, e la vecchia cartella viene conservata con un altro nome.
-- **Sincronizzazione dei dispositivi senza alcun cloud.** La sincronizzazione facoltativa
-Windows ↔ tablet Android avviene tramite un collegamento diretto con cavo
-USB — non è coinvolto alcun servizio di terzi, i trasferimenti sono
-verificati mediante somma di controllo e viene eseguito un backup obbligatorio prima che la banca dati venga
-sostituita. I documenti contrassegnati come segreti non vengono mai trasferiti al tablet in
-alcun caso.
 - **Istantanea di sicurezza all'avvio (registro locale degli accessi).** A ogni avvio
 del programma, IRONSTICK registra in background un'istantanea della macchina su cui
 è in esecuzione: nome host, sistema operativo, RAM/CPU, indirizzo IP locale, browser

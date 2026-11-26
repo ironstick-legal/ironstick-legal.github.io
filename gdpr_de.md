@@ -626,12 +626,6 @@ für tragbare Medien empfohlen. Netzlaufwerke und mit einer Cloud synchronisiert
 abgelehnt. Beim Wechsel des Speicherorts in der Konfiguration prüft
 IRONSTICK das Ziel anhand dieser Regeln; kopiert wird mit Prüfsummenvergleich, umgeschaltet
 erst nach erfolgreicher Verifikation, und der alte Ordner bleibt umbenannt erhalten.
-- **Gerätesynchronisation ohne jede Cloud.** Die optionale
-Synchronisation Windows ↔ Android-Tablet läuft über eine direkte
-USB-Kabelverbindung — kein Drittanbieterdienst ist beteiligt, Übertragungen werden
-per Prüfsumme verifiziert, und vor dem Ersetzen der Datenbank wird ein verpflichtendes Backup
-erstellt. Als geheim markierte Dokumente werden überhaupt nicht auf das Tablet
-übertragen.
 - **Sicherheits-Snapshot beim Start (lokales Anmeldeprotokoll).** Bei jedem
 Programmstart zeichnet IRONSTICK im Hintergrund einen Snapshot des Rechners auf, auf dem es
 läuft: Hostname, Betriebssystem, RAM/CPU, lokale IP-Adresse, Standard-Browser,

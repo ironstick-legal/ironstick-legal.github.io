@@ -1,6 +1,6 @@
 # El expediente que trabaja con usted
 
-> Gestión offline de casos jurídicos para Windows y Android, con una IA integrada que conoce sus expedientes: clientes, pruebas, plazos, OSINT.
+> Gestión offline de casos jurídicos para Windows, con una IA integrada que conoce sus expedientes: clientes, pruebas, plazos, OSINT.
 
 Página original: https://www.ironstick.legal/index_es.html
 

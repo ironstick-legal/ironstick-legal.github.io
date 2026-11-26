@@ -1,6 +1,6 @@
 # Die Akte, die mitarbeitet
 
-> Offline-Kanzleisoftware für Windows & Android mit integrierter KI, die Ihre Akten kennt: Mandanten, Fälle, Beweise, Fristen, Schriftsätze, OSINT.
+> Offline-Kanzleisoftware für Windows mit integrierter KI, die Ihre Akten kennt: Mandanten, Fälle, Beweise, Fristen, Schriftsätze, OSINT.
 
 Originalseite: https://www.ironstick.legal/index_de.html
 

@@ -195,7 +195,7 @@ Assim, registar um documento demora pouco mais de 20 segundos — e toda a corre
 | Armazenamento | SSD com 20 GB livres | SSD NVMe com 100+ GB livres — o arquivo de processos, a pesquisa em texto integral e a geração de PDF exigem muito do disco; um SSD rápido faz uma diferença notória |
 | Ecrã | 1920 × 1080 | 1920 × 1200 ou mais — os ecrãs dos processos aproveitam generosamente o espaço vertical |
 | Gráficos | Não é necessária placa gráfica dedicada — qualquer gráfica integrada é suficiente |
-| Conectividade | Internet apenas para IA externa, atualizações legislativas, e-mail, pesquisa na web, mapas e geocodificação de moradas — processo, pesquisa, documentos e o assistente local funcionam totalmente offline; uma porta USB livre para a sincronização com o tablet |
+| Conectividade | Internet apenas para IA externa, atualizações legislativas, e-mail, pesquisa na web, mapas e geocodificação de moradas — processo, pesquisa, documentos e o assistente local funcionam totalmente offline |
 
 ### Guardar os dados numa unidade externa (opcional)
 

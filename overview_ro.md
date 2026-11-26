@@ -195,7 +195,7 @@ Astfel, înregistrarea unui document durează abia 20 de secunde — iar întrea
 | Stocare | SSD cu 20 GB liberi | SSD NVMe cu peste 100 GB liberi — arhiva de dosare, căutarea în text integral și generarea PDF solicită intens discul; un SSD rapid face o diferență vizibilă |
 | Afișaj | 1920 × 1080 | 1920 × 1200 sau mai mult — ecranele dosarelor folosesc generos spațiul vertical |
 | Grafică | Nu este necesară o placă grafică dedicată — orice placă grafică integrată este suficientă |
-| Conectivitate | Internet doar pentru IA externă, actualizări de legi, e-mail, cercetare web, hărți și geocodarea adreselor — dosarul, căutarea, documentele și asistentul local funcționează complet offline; un port USB liber pentru sincronizarea tabletei |
+| Conectivitate | Internet doar pentru IA externă, actualizări de legi, e-mail, cercetare web, hărți și geocodarea adreselor — dosarul, căutarea, documentele și asistentul local funcționează complet offline |
 
 ### Stocarea datelor pe o unitate externă (opțional)
 

@@ -195,7 +195,7 @@ Capturing a document thus takes barely more than 20 seconds — and the entire i
 | Storage | SSD with 20 GB free | NVMe SSD with 100+ GB free — case archive, full-text search and PDF generation are disk-intensive; a fast SSD makes a noticeable difference |
 | Display | 1920 × 1080 | 1920 × 1200 or more — the case screens make generous use of vertical space |
 | Graphics | No dedicated graphics card needed — any onboard graphics will do |
-| Connectivity | Internet only for external AI, statute updates, e-mail, web research, maps and address geocoding — case file, search, documents and the local assistant run fully offline; one free USB port for tablet sync |
+| Connectivity | Internet only for external AI, statute updates, e-mail, web research, maps and address geocoding — case file, search, documents and the local assistant run fully offline |
 
 ### Storing data on an external drive (optional)
 

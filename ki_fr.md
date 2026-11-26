@@ -25,7 +25,7 @@ IRONSTICK vous offre deux façons de travailler sur vos dossiers avec une IA : l
 | Licence IRONSTICK | Incluse | [Un Bridge par IA de bureau, ou les quatre en bundle](https://www.ironstick.legal/download_fr.html) |
 | Données envoyées à l'IA | Pseudonymisées | — |
 | Votre consentement | Avant la première demande externe d'une session de chat | Avant le premier accès aux données après chaque démarrage du programme |
-| Idéal pour | Le quotidien : questions sur le dossier, courriers et actes de procédure en dialogue — toujours à portée de main, même sur la tablette | Le travail approfondi sur des dossiers volumineux : lire des affaires entières, des centaines de documents, plusieurs cycles de rédaction |
+| Idéal pour | Le quotidien : questions sur le dossier, courriers et actes de procédure en dialogue — toujours à portée de main | Le travail approfondi sur des dossiers volumineux : lire des affaires entières, des centaines de documents, plusieurs cycles de rédaction |
 
 ## 2. Le chat d'IA dans IRONSTICK
 

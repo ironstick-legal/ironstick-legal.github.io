@@ -195,7 +195,7 @@ Così l'acquisizione di un documento richiede appena 20 secondi — e tutta la p
 | Archiviazione | SSD con 20 GB liberi | SSD NVMe con oltre 100 GB liberi — archivio dei fascicoli, ricerca a testo integrale e generazione di PDF fanno un uso intensivo del disco; un SSD veloce fa una differenza percepibile |
 | Schermo | 1920 × 1080 | 1920 × 1200 o superiore — le schermate dei casi sfruttano ampiamente lo spazio verticale |
 | Grafica | Nessuna scheda grafica dedicata necessaria — è sufficiente qualsiasi grafica integrata |
-| Connettività | Internet solo per l'IA esterna, gli aggiornamenti normativi, l'e-mail, la ricerca web, le mappe e la geocodifica degli indirizzi — fascicolo, ricerca, documenti e assistente locale funzionano completamente offline; una porta USB libera per la sincronizzazione con il tablet |
+| Connettività | Internet solo per l'IA esterna, gli aggiornamenti normativi, l'e-mail, la ricerca web, le mappe e la geocodifica degli indirizzi — fascicolo, ricerca, documenti e assistente locale funzionano completamente offline |
 
 ### Salvare i dati su un'unità esterna (opzionale)
 

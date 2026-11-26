@@ -25,7 +25,7 @@ In entrambi i casi l'IA raggiunge i Suoi dati solo attraverso IRONSTICK, con gli
 - **Pseudonimizzata.** Prima che una richiesta lasci il Suo computer, nomi di persone e di società, numeri di caso e di fascicolo giudiziario, numeri di identificazione personale, IBAN, numeri di telefono, indirizzi e-mail e indirizzi delle parti [vengono sostituiti da segnaposto neutri](https://www.ironstick.legal/gdpr_it.html). La risposta viene ritradotta sul Suo computer. Date e importi restano invariati. I segnaposto sono costruiti a partire dai Suoi record; inoltre vengono riconosciuti nel testo libero numeri, indirizzi e-mail e numeri di telefono.
 - **Registrata.** Ogni chiamata a un servizio di IA esterno viene registrata localmente, nella forma con segnaposto con cui ha lasciato il Suo computer.
 - **Memoria di lavoro compatta.** A ogni turno all'IA vengono consegnati la parte recente della conversazione (circa gli ultimi 6.000 caratteri) e un breve riassunto della parte precedente. Una richiesta esegue fino a otto round di strumenti.
-- **Dove funziona.** Su Windows e sul tablet Android.
+- **Dove funziona.** Su Windows.
 
 ### Il bridge
 
@@ -50,7 +50,7 @@ In entrambi i casi l'IA raggiunge i Suoi dati solo attraverso IRONSTICK, con gli
 | Istruzioni di lavoro | Inviate con ogni richiesta | L'IA deve leggerle e confermare alla lettera una regola prima che si apra qualsiasi strumento |
 | Strumenti e gate | Lo stesso set di strumenti e gli stessi gate, più una ricerca nella cronologia propria della chat | Lo stesso set di strumenti e gli stessi gate; il controllo del programma solo con il proprio interruttore |
 | Durata di una sessione di lavoro | Conversazione recente più un breve riassunto; fino a otto round di strumenti per richiesta | La conversazione dell'app di IA desktop |
-| Piattaforme | Windows e tablet Android | Windows |
+| Piattaforme | Windows | Windows |
 
 ### Perché il bridge è adatto al lavoro esteso sui casi
 
@@ -58,7 +58,7 @@ In entrambi i casi l'IA raggiunge i Suoi dati solo attraverso IRONSTICK, con gli
 - **Sessioni di lavoro più lunghe.** L'IA desktop conserva una propria conversazione continua — ideale per lunghe sessioni di lavoro su fascicoli voluminosi.
 - **Risposte più grandi per chiamata.** Claude Desktop e ChatGPT Desktop ricevono direttamente risposte degli strumenti fino a 40.000 caratteri; Qwen Desktop, Kimi Desktop e la chat integrata ne ricevono fino a 10.000. Tutto ciò che è più grande finisce, per intero, nello scratch store cifrato e viene letto da lì parte per parte.
 - **Il set completo di strumenti, il testo integrale.** L'IA desktop lavora con il set completo di strumenti e legge i testi integrali nella propria conversazione, dietro gli stessi gate della chat.
-- **La chat mantiene il suo posto.** La chat integrata non richiede alcuna licenza aggiuntiva, è sempre a portata di mano — anche sul tablet — ed è il canale più strettamente controllato: pseudonimizzato, con richiesta di consenso e registrato.
+- **La chat mantiene il suo posto.** La chat integrata non richiede alcuna licenza aggiuntiva, è sempre a portata di mano ed è il canale più strettamente controllato: pseudonimizzato, con richiesta di consenso e registrato.
 
 ## 2. Un unico set di strumenti — all'interno dell'App client
 

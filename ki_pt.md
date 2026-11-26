@@ -25,7 +25,7 @@ O IRONSTICK oferece-lhe duas formas de trabalhar com uma IA nos seus processos: 
 | Licença IRONSTICK | Incluída | [Uma Bridge por IA de desktop ou as quatro em pacote](https://www.ironstick.legal/download_pt.html) |
 | Dados enviados à IA | Pseudonimizados | — |
 | O seu consentimento | Antes do primeiro pedido externo de cada sessão de chat | Antes do primeiro acesso aos dados após cada arranque do programa |
-| Ideal para | O dia a dia: perguntas sobre o processo, cartas e peças processuais em diálogo — sempre à mão, também no tablet | Trabalho aprofundado em autos volumosos: ler processos inteiros, centenas de documentos, várias rondas de minutas |
+| Ideal para | O dia a dia: perguntas sobre o processo, cartas e peças processuais em diálogo — sempre à mão | Trabalho aprofundado em autos volumosos: ler processos inteiros, centenas de documentos, várias rondas de minutas |
 
 ## 2. O chat de IA no IRONSTICK
 

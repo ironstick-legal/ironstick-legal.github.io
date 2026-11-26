@@ -195,7 +195,7 @@ Böylece bir belgenin kaydı 20 saniyeden pek uzun sürmez — ve gelen evrakın
 | Depolama | 20 GB boş alanlı SSD | 100+ GB boş alanlı NVMe SSD — dosya arşivi, tam metin arama ve PDF oluşturma diske yoğun yük bindirir; hızlı bir SSD hissedilir bir fark yaratır |
 | Ekran | 1920 × 1080 | 1920 × 1200 veya üzeri — dava ekranları dikey alanı cömertçe kullanır |
 | Grafik | Ayrı bir ekran kartı gerekmez — her dahili grafik birimi yeterlidir |
-| Bağlantı | İnternet yalnızca harici yapay zekâ, mevzuat güncellemeleri, e-posta, web araştırması, haritalar ve adres coğrafi kodlaması için gerekir — dosya, arama, belgeler ve yerel asistan tamamen çevrimdışı çalışır; tablet senkronizasyonu için boş bir USB bağlantı noktası |
+| Bağlantı | İnternet yalnızca harici yapay zekâ, mevzuat güncellemeleri, e-posta, web araştırması, haritalar ve adres coğrafi kodlaması için gerekir — dosya, arama, belgeler ve yerel asistan tamamen çevrimdışı çalışır |
 
 ### Verileri harici bir sürücüde saklama (isteğe bağlı)
 

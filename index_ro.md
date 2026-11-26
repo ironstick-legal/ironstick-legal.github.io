@@ -1,6 +1,6 @@
 # Dosarul care lucrează cu dumneavoastră
 
-> Gestionare offline a cazurilor juridice pentru Windows și Android, cu IA integrată care vă cunoaște dosarele: clienți, probe, termene, OSINT.
+> Gestionare offline a cazurilor juridice pentru Windows, cu IA integrată care vă cunoaște dosarele: clienți, probe, termene, OSINT.
 
 Pagina originală: https://www.ironstick.legal/index_ro.html
 

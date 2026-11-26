@@ -25,7 +25,7 @@ IRONSTICK vă oferă două moduri de a lucra cu o IA la dosarele dumneavoastră.
 - **Pseudonimizat.** Înainte ca o cerere să părăsească calculatorul dumneavoastră, numele persoanelor și ale firmelor, numerele de dosar și de dosar de instanță, codurile numerice personale, IBAN-urile, numerele de telefon, adresele de e-mail și adresele părților sunt [înlocuite cu substituenți neutri](https://www.ironstick.legal/gdpr_ro.html). Răspunsul este retradus pe calculatorul dumneavoastră. Datele calendaristice și sumele rămân neschimbate. Substituenții sunt construiți din propriile dumneavoastră înregistrări; în plus, numerele, adresele de e-mail și numerele de telefon din textul liber sunt recunoscute.
 - **Consemnat.** Fiecare apel către un serviciu IA extern este consemnat local, în forma cu substituenți în care a părăsit calculatorul dumneavoastră.
 - **Memorie de lucru compactă.** La fiecare tur, IA primește partea recentă a conversației (aproximativ ultimele 6.000 de caractere) și un rezumat scurt al părții anterioare. O cerere rulează până la opt runde de instrumente.
-- **Unde rulează.** Pe Windows și pe tableta Android.
+- **Unde rulează.** Pe Windows.
 
 ### Bridge-ul
 
@@ -50,7 +50,7 @@ IRONSTICK vă oferă două moduri de a lucra cu o IA la dosarele dumneavoastră.
 | Instrucțiuni de lucru | Trimise odată cu fiecare cerere | IA trebuie să le citească și să confirme o regulă cuvânt cu cuvânt înainte să se deschidă vreun instrument |
 | Instrumente și porți | Același set de instrumente și aceleași porți, plus o căutare în istoricul propriu al chatului | Același set de instrumente și aceleași porți; controlul programului doar cu comutatorul ei |
 | Durata unei sesiuni de lucru | Conversația recentă plus un rezumat scurt; până la opt runde de instrumente per cerere | Conversația aplicației IA de desktop |
-| Platforme | Windows și tabletă Android | Windows |
+| Platforme | Windows | Windows |
 
 ### De ce Bridge-ul se potrivește muncii ample pe dosare
 
@@ -58,7 +58,7 @@ IRONSTICK vă oferă două moduri de a lucra cu o IA la dosarele dumneavoastră.
 - **Sesiuni de lucru mai lungi.** IA de desktop își poartă propria conversație, continuă — ideală pentru sesiuni lungi de lucru pe dosare mari.
 - **Răspunsuri mai mari per apel.** Claude Desktop și ChatGPT Desktop primesc direct răspunsuri de instrument de până la 40.000 de caractere; Qwen Desktop, Kimi Desktop și chatul integrat primesc până la 10.000. Tot ce este mai mare merge, întreg, în spațiul de lucru criptat și este citit de acolo bucată cu bucată.
 - **Setul complet de instrumente, textul complet.** IA de desktop lucrează cu setul complet de instrumente și citește textele integrale în propria conversație, în spatele acelorași porți ca chatul.
-- **Chatul își păstrează locul.** Chatul integrat nu necesită licență suplimentară, este mereu la îndemână — inclusiv pe tabletă — și este canalul cel mai strict controlat: pseudonimizat, cu cerere de consimțământ și consemnat.
+- **Chatul își păstrează locul.** Chatul integrat nu necesită licență suplimentară, este mereu la îndemână și este canalul cel mai strict controlat: pseudonimizat, cu cerere de consimțământ și consemnat.
 
 ## 2. Un singur set de instrumente — în interiorul Aplicației client
 

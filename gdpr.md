@@ -635,12 +635,6 @@ operating system's disk encryption) is in the user's hands and is
 recommended for portable media. Network drives and cloud-synchronised folders
 (OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) are refused as data
 location. When the storage location is changed in the configuration, IRONSTICK checks the target against these rules; copying is done with checksum comparison, the switch happens only after successful verification, and the old folder is kept under a new name.
-- **Device synchronisation without any cloud.** The optional
-Windows ↔ Android-tablet synchronisation runs over a direct USB
-cable connection — no third-party service is involved, transfers are
-checksum-verified, and a mandatory backup is taken before the database is
-replaced. Documents marked secret are never transferred to the tablet at
-all.
 - **Start-up security snapshot (local login log).** At every program
 start, IRONSTICK records in the background a snapshot of the machine it is
 running on: host name, operating system, RAM/CPU, local IP address, default

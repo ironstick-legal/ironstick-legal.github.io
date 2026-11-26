@@ -25,7 +25,7 @@ In both cases the AI reaches your data only through IRONSTICK, through the same 
 - **Pseudonymised.** Before a request leaves your computer, names of persons and companies, case and court file numbers, personal identification numbers, IBANs, phone numbers, e-mail addresses and party addresses are [replaced by neutral placeholders](https://www.ironstick.legal/gdpr.html). The answer is translated back on your computer. Dates and amounts stay unchanged. The placeholders are built from your own records; in addition, numbers, e-mail addresses and phone numbers in free text are recognised.
 - **Logged.** Every call to an external AI service is logged locally, in the placeholder form in which it left your computer.
 - **Compact working memory.** Each turn hands the AI the recent part of the conversation (about the last 6,000 characters) and a short summary of the earlier part. One request runs up to eight tool rounds.
-- **Where it runs.** On Windows and on the Android tablet.
+- **Where it runs.** On Windows.
 
 ### The bridge
 
@@ -50,7 +50,7 @@ In both cases the AI reaches your data only through IRONSTICK, through the same 
 | Working instructions | Sent along with every request | The AI must read them and confirm a rule word for word before any tool opens |
 | Tools and gates | The same tool set and the same gates, plus a search in the chat's own history | The same tool set and the same gates; program control only with its switch |
 | Length of a working session | Recent conversation plus a short summary; up to eight tool rounds per request | The conversation of the desktop AI app |
-| Platforms | Windows and Android tablet | Windows |
+| Platforms | Windows | Windows |
 
 ### Why the bridge suits extensive case work
 
@@ -58,7 +58,7 @@ In both cases the AI reaches your data only through IRONSTICK, through the same 
 - **Longer working sessions.** The desktop AI keeps its own continuous conversation — ideal for long working sessions on large case files.
 - **Bigger answers per call.** Claude Desktop and ChatGPT Desktop receive tool answers of up to 40,000 characters directly; Qwen Desktop, Kimi Desktop and the built-in chat receive up to 10,000. Anything larger goes, complete, into the encrypted scratch store and is read from there part by part.
 - **The full toolset, the full text.** The desktop AI works with the complete tool set and reads full texts in its own conversation, behind the same gates as the chat.
-- **The chat keeps its place.** The built-in chat needs no extra licence, is always at hand — also on the tablet — and is the more tightly controlled channel: pseudonymised, asked for consent and logged.
+- **The chat keeps its place.** The built-in chat needs no extra licence, is always at hand and is the more tightly controlled channel: pseudonymised, asked for consent and logged.
 
 ## 2. One set of tools — inside the Client App
 

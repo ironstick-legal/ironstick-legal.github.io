@@ -1,6 +1,6 @@
 # IRONSTICK
 
-> IRONSTICK is legal case-management software for lawyers and jurists in civil-law jurisdictions, in productive daily use. It runs locally on the user's own Windows workstation (with an optional Android tablet and an optional Synology NAS server for teams), keeps the complete case file AES-256-encrypted on the user's own hardware, and brings leading AI models to the case file: a built-in AI chat with the firm's own API keys, and bridges (MCP servers) for the desktop apps of Claude, ChatGPT, Qwen and Kimi. Deterministic gates verify the facts and the norms of every AI result against the file and the statute library.
+> IRONSTICK is legal case-management software for lawyers and jurists in civil-law jurisdictions, in productive daily use. It runs locally on the user's own Windows workstation (with an optional Synology NAS server for teams), keeps the complete case file AES-256-encrypted on the user's own hardware, and brings leading AI models to the case file: a built-in AI chat with the firm's own API keys, and bridges (MCP servers) for the desktop apps of Claude, ChatGPT, Qwen and Kimi. Deterministic gates verify the facts and the norms of every AI result against the file and the statute library.
 
 The complete, detailed description for AI systems is in [llms-full.txt](https://www.ironstick.legal/llms-full.txt).
 

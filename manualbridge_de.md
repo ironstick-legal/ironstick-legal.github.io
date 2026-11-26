@@ -25,7 +25,7 @@ In beiden Fällen erreicht die KI Ihre Daten ausschließlich über IRONSTICK, ü
 - **Pseudonymisiert.** Bevor eine Anfrage Ihren Computer verlässt, werden Namen von Personen und Unternehmen, Fall- und Aktenzeichen, persönliche Identifikationsnummern, IBANs, Telefonnummern, E-Mail-Adressen und Parteiadressen [durch neutrale Platzhalter ersetzt](https://www.ironstick.legal/gdpr_de.html). Die Antwort wird auf Ihrem Computer zurückübersetzt. Daten und Beträge bleiben unverändert. Die Platzhalter werden aus Ihren eigenen Datensätzen gebildet; zusätzlich werden Nummern, E-Mail-Adressen und Telefonnummern im Freitext erkannt.
 - **Protokolliert.** Jeder Aufruf eines externen KI-Dienstes wird lokal protokolliert, und zwar in der Platzhalterform, in der er Ihren Computer verlassen hat.
 - **Kompaktes Arbeitsgedächtnis.** Mit jedem Zug erhält die KI den jüngsten Teil der Unterhaltung (etwa die letzten 6.000 Zeichen) und eine kurze Zusammenfassung des früheren Teils. Eine Anfrage läuft über bis zu acht Werkzeugrunden.
-- **Wo es läuft.** Unter Windows und auf dem Android-Tablet.
+- **Wo es läuft.** Unter Windows.
 
 ### Die Bridge
 
@@ -50,7 +50,7 @@ In beiden Fällen erreicht die KI Ihre Daten ausschließlich über IRONSTICK, ü
 | Arbeitsanweisungen | Werden mit jeder Anfrage mitgesendet | Die KI muss sie lesen und vor dem Öffnen eines Werkzeugs eine Regel wörtlich bestätigen |
 | Werkzeuge und Tore | Dieselben Werkzeuge und dieselben Tore, dazu eine Suche im eigenen Verlauf des Chats | Dieselben Werkzeuge und dieselben Tore; Programmsteuerung nur mit ihrem Schalter |
 | Dauer einer Arbeitssitzung | Jüngste Unterhaltung plus kurze Zusammenfassung; bis zu acht Werkzeugrunden je Anfrage | Die Unterhaltung der Desktop-KI-App |
-| Plattformen | Windows und Android-Tablet | Windows |
+| Plattformen | Windows | Windows |
 
 ### Warum sich die Bridge für umfangreiche Fallarbeit eignet
 
@@ -58,7 +58,7 @@ In beiden Fällen erreicht die KI Ihre Daten ausschließlich über IRONSTICK, ü
 - **Längere Arbeitssitzungen.** Die Desktop-KI führt ihre eigene, durchgehende Unterhaltung — ideal für lange Arbeitssitzungen an großen Akten.
 - **Größere Antworten je Aufruf.** Claude Desktop und ChatGPT Desktop erhalten Werkzeugantworten von bis zu 40.000 Zeichen direkt; Qwen Desktop, Kimi Desktop und der integrierte Chat erhalten bis zu 10.000. Alles Größere geht vollständig in den verschlüsselten Zwischenspeicher und wird von dort teilweise gelesen.
 - **Der volle Werkzeugsatz, der volle Text.** Die Desktop-KI arbeitet mit dem vollständigen Werkzeugsatz und liest Volltexte in ihrer eigenen Unterhaltung, hinter denselben Toren wie der Chat.
-- **Der Chat behält seinen Platz.** Der integrierte Chat braucht keine zusätzliche Lizenz, ist immer zur Hand – auch auf dem Tablet – und ist der strenger kontrollierte Kanal: pseudonymisiert, mit Zustimmungsabfrage und protokolliert.
+- **Der Chat behält seinen Platz.** Der integrierte Chat braucht keine zusätzliche Lizenz, ist immer zur Hand und ist der strenger kontrollierte Kanal: pseudonymisiert, mit Zustimmungsabfrage und protokolliert.
 
 ## 2. Ein Werkzeugsatz — in der Client-App
 

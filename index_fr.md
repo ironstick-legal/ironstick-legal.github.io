@@ -1,6 +1,6 @@
 # Le dossier qui travaille avec vous
 
-> Gestion de dossiers juridiques hors ligne pour Windows et Android, avec une IA intégrée qui connaît vos dossiers : clients, preuves, délais, OSINT.
+> Gestion de dossiers juridiques hors ligne pour Windows, avec une IA intégrée qui connaît vos dossiers : clients, preuves, délais, OSINT.
 
 Page originale: https://www.ironstick.legal/index_fr.html
 

@@ -666,12 +666,6 @@ criptarea de disc a sistemului de operare) este în mâinile utilizatorului și 
 recomandată pentru mediile portabile. Unitățile de rețea și folderele sincronizate
 cu cloudul (OneDrive, Google Drive, Dropbox, iCloud, Box, pCloud, MEGA) sunt refuzate
 ca locație de date. La schimbarea locației de stocare în configurație, IRONSTICK verifică ținta în raport cu aceste reguli; copierea se face cu compararea sumelor de control, comutarea doar după o verificare reușită, iar folderul vechi este păstrat sub alt nume.
-- **Sincronizarea dispozitivelor fără niciun cloud.** Sincronizarea opțională
-Windows ↔ tabletă Android se desfășoară printr-o conexiune directă prin cablu
-USB — niciun serviciu terț nu este implicat, transferurile sunt verificate prin sumă
-de control, iar o copie de rezervă obligatorie este realizată înainte de înlocuirea
-bazei de date. Documentele marcate ca secrete nu sunt transferate niciodată pe
-tabletă.
 - **Instantaneu de securitate la pornire (jurnal de conectare local).** La
 fiecare pornire a programului, IRONSTICK înregistrează în fundal un instantaneu al
 mașinii pe care rulează: numele gazdei, sistemul de operare, RAM/CPU, adresa IP

@@ -195,7 +195,7 @@ La saisie d'un document prend ainsi à peine plus de 20 secondes — et tout le 
 | Stockage | SSD avec 20 GB libres | SSD NVMe avec plus de 100 GB libres — l'archive des dossiers, la recherche plein texte et la génération de PDF sollicitent fortement le disque ; un SSD rapide fait une différence sensible |
 | Affichage | 1920 × 1080 | 1920 × 1200 ou plus — les écrans de dossier exploitent généreusement la hauteur |
 | Graphisme | Aucune carte graphique dédiée nécessaire — n'importe quelle puce graphique intégrée suffit |
-| Connectivité | Internet uniquement pour l'IA externe, les mises à jour des lois, la messagerie, la recherche web, les cartes et le géocodage des adresses — dossier, recherche, documents et assistant local fonctionnent entièrement hors ligne ; un port USB libre pour la synchronisation avec la tablette |
+| Connectivité | Internet uniquement pour l'IA externe, les mises à jour des lois, la messagerie, la recherche web, les cartes et le géocodage des adresses — dossier, recherche, documents et assistant local fonctionnent entièrement hors ligne |
 
 ### Stocker les données sur un disque externe (facultatif)
 

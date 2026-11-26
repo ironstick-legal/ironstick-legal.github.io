@@ -25,7 +25,7 @@ Em ambos os casos, a IA acede aos seus dados exclusivamente através do IRONSTIC
 - **Pseudonimizado.** Antes de um pedido sair do seu computador, os nomes de pessoas e empresas, os números de processo e de referência, os números de identificação pessoal, os IBAN, os números de telefone, os endereços de e-mail e as moradas das partes são [substituídos por marcadores neutros](https://www.ironstick.legal/gdpr_pt.html). A resposta é retraduzida no seu computador. As datas e os montantes mantêm-se inalterados. Os marcadores são gerados a partir dos seus próprios registos; além disso, são reconhecidos números, endereços de e-mail e números de telefone no texto livre.
 - **Registado.** Cada chamada a um serviço de IA externo é registada localmente, precisamente na forma com marcadores em que saiu do seu computador.
 - **Memória de trabalho compacta.** A cada interação, a IA recebe a parte mais recente da conversa (cerca dos últimos 6.000 caracteres) e um breve resumo da parte anterior. Um pedido decorre em até oito rondas de ferramentas.
-- **Onde funciona.** No Windows e no tablet Android.
+- **Onde funciona.** No Windows.
 
 ### A Bridge
 
@@ -50,7 +50,7 @@ Em ambos os casos, a IA acede aos seus dados exclusivamente através do IRONSTIC
 | Instruções de trabalho | São enviadas com cada pedido | A IA tem de as ler e confirmar textualmente uma regra antes de abrir uma ferramenta |
 | Ferramentas e barreiras | As mesmas ferramentas e as mesmas barreiras, mais uma pesquisa no próprio histórico do chat | As mesmas ferramentas e as mesmas barreiras; controlo do programa apenas com o respetivo interruptor |
 | Duração de uma sessão de trabalho | Conversa mais recente e um breve resumo; até oito rondas de ferramentas por pedido | A conversa da aplicação de IA para desktop |
-| Plataformas | Windows e tablet Android | Windows |
+| Plataformas | Windows | Windows |
 
 ### Porque é que a Bridge é indicada para trabalho processual extenso
 
@@ -58,7 +58,7 @@ Em ambos os casos, a IA acede aos seus dados exclusivamente através do IRONSTIC
 - **Sessões de trabalho mais longas.** A IA desktop mantém a sua própria conversa contínua — ideal para longas sessões de trabalho sobre processos volumosos.
 - **Respostas maiores por chamada.** O Claude Desktop e o ChatGPT Desktop recebem diretamente respostas de ferramentas até 40.000 caracteres; o Qwen Desktop, o Kimi Desktop e o chat integrado recebem até 10.000. Tudo o que for maior vai integralmente para o armazenamento intermédio encriptado e é lido a partir daí por partes.
 - **O conjunto completo de ferramentas, o texto completo.** A IA desktop trabalha com o conjunto completo de ferramentas e lê os textos integrais na sua própria conversa, por detrás das mesmas barreiras que o chat.
-- **O chat mantém o seu lugar.** O chat integrado não precisa de licença adicional, está sempre à mão – também no tablet – e é o canal mais rigorosamente controlado: pseudonimizado, com pedido de consentimento e registado.
+- **O chat mantém o seu lugar.** O chat integrado não precisa de licença adicional, está sempre à mão e é o canal mais rigorosamente controlado: pseudonimizado, com pedido de consentimento e registado.
 
 ## 2. Um conjunto de ferramentas — na aplicação cliente
 

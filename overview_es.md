@@ -195,7 +195,7 @@ Así, registrar un documento apenas lleva más de 20 segundos — y toda la band
 | Almacenamiento | SSD con 20 GB libres | SSD NVMe con más de 100 GB libres — el archivo de expedientes, la búsqueda de texto completo y la generación de PDF hacen un uso intensivo del disco; un SSD rápido marca una diferencia notable |
 | Pantalla | 1920 × 1080 | 1920 × 1200 o más — las pantallas de caso aprovechan generosamente el espacio vertical |
 | Gráficos | No se necesita tarjeta gráfica dedicada — basta cualquier gráfica integrada |
-| Conectividad | Internet solo para la IA externa, las actualizaciones legislativas, el correo electrónico, la investigación web, los mapas y la geocodificación de direcciones — el expediente, la búsqueda, los documentos y el asistente local funcionan completamente sin conexión; un puerto USB libre para la sincronización con la tableta |
+| Conectividad | Internet solo para la IA externa, las actualizaciones legislativas, el correo electrónico, la investigación web, los mapas y la geocodificación de direcciones — el expediente, la búsqueda, los documentos y el asistente local funcionan completamente sin conexión |
 
 ### Guardar los datos en una unidad externa (opcional)
 

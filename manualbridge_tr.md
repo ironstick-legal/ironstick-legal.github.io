@@ -25,7 +25,7 @@ Her iki durumda da yapay zekâ verilerinize yalnızca IRONSTICK üzerinden, ayn�
 - **Takma adlandırılmış.** Bir istek bilgisayarınızdan çıkmadan önce kişi ve şirket adları, dava ve dosya numaraları, kişisel kimlik numaraları, IBAN'lar, telefon numaraları, e-posta adresleri ve taraf adresleri [nötr yer tutucularla değiştirilir](https://www.ironstick.legal/gdpr_tr.html). Yanıt bilgisayarınızda geri çevrilir. Tarihler ve tutarlar değişmeden kalır. Yer tutucular kendi kayıtlarınızdan oluşturulur; ayrıca serbest metindeki numaralar, e-posta adresleri ve telefon numaraları da tanınır.
 - **Kayıt altında.** Harici bir yapay zekâ hizmetine yapılan her çağrı, bilgisayarınızdan çıktığı yer tutuculu biçimiyle yerel olarak kaydedilir.
 - **Kompakt çalışma belleği.** Yapay zekâ her turda sohbetin en son bölümünü (yaklaşık son 6.000 karakter) ve önceki bölümün kısa bir özetini alır. Bir istek en fazla sekiz araç turu boyunca işlenir.
-- **Nerede çalışır.** Windows'ta ve Android tablette.
+- **Nerede çalışır.** Windows'ta.
 
 ### Bridge
 
@@ -50,7 +50,7 @@ Her iki durumda da yapay zekâ verilerinize yalnızca IRONSTICK üzerinden, ayn�
 | Çalışma talimatları | Her istekle birlikte gönderilir | Yapay zekâ bunları okumalı ve bir aracı açmadan önce bir kuralı kelimesi kelimesine onaylamalıdır |
 | Araçlar ve kapılar | Aynı araçlar ve aynı kapılar, ayrıca sohbetin kendi geçmişinde arama | Aynı araçlar ve aynı kapılar; program kontrolü yalnızca kendi anahtarıyla |
 | Bir çalışma oturumunun süresi | En son sohbet artı kısa bir özet; istek başına en fazla sekiz araç turu | Masaüstü yapay zekâ uygulamasının sohbeti |
-| Platformlar | Windows ve Android tablet | Windows |
+| Platformlar | Windows | Windows |
 
 ### Bridge neden kapsamlı dava çalışmaları için uygundur
 
@@ -58,7 +58,7 @@ Her iki durumda da yapay zekâ verilerinize yalnızca IRONSTICK üzerinden, ayn�
 - **Daha uzun çalışma oturumları.** Masaüstü yapay zekâ kendi kesintisiz sohbetini yürütür — büyük dosyalar üzerinde uzun çalışma oturumları için ideal.
 - **Çağrı başına daha büyük yanıtlar.** Claude Desktop ve ChatGPT Desktop 40.000 karaktere kadar araç yanıtlarını doğrudan alır; Qwen Desktop, Kimi Desktop ve yerleşik sohbet 10.000 karaktere kadar alır. Daha büyük olan her şey eksiksiz olarak şifreli ara belleğe gider ve oradan bölüm bölüm okunur.
 - **Tam araç seti, tam metin.** Masaüstü yapay zekâ eksiksiz araç setiyle çalışır ve tam metinleri kendi sohbetinde, sohbetle aynı kapıların arkasında okur.
-- **Sohbet yerini korur.** Yerleşik sohbet ek lisans gerektirmez, her zaman elinizin altındadır – tablette de – ve daha sıkı denetlenen kanaldır: takma adlandırılmış, onay sorgulu ve kayıt altında.
+- **Sohbet yerini korur.** Yerleşik sohbet ek lisans gerektirmez, her zaman elinizin altındadır ve daha sıkı denetlenen kanaldır: takma adlandırılmış, onay sorgulu ve kayıt altında.
 
 ## 2. Tek araç seti — istemci uygulamasında
 

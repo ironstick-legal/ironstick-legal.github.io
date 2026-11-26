@@ -1,6 +1,6 @@
 # Sizinle birlikte çalışan dosya
 
-> Windows ve Android için çevrimdışı hukuk bürosu yazılımı; dosyalarınızı tanıyan yapay zekâ: müvekkiller, deliller, süreler, OSINT.
+> Windows için çevrimdışı hukuk bürosu yazılımı; dosyalarınızı tanıyan yapay zekâ: müvekkiller, deliller, süreler, OSINT.
 
 Orijinal sayfa: https://www.ironstick.legal/index_tr.html
 

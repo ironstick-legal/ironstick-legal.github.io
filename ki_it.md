@@ -25,7 +25,7 @@ IRONSTICK Le offre due modi per lavorare sui Suoi fascicoli con un'IA: la chat I
 | Licenza IRONSTICK | Inclusa | [Un Bridge per ogni IA desktop oppure tutti e quattro in un pacchetto](https://www.ironstick.legal/download_it.html) |
 | Dati inviati all'IA | Pseudonimizzati | — |
 | Il Suo consenso | Prima della prima richiesta esterna di una sessione di chat | Prima del primo accesso ai dati dopo ogni avvio del programma |
-| Ideale per | Il lavoro quotidiano: domande sul fascicolo, lettere e atti in dialogo — sempre a portata di mano, anche sul tablet | Il lavoro approfondito su fascicoli voluminosi: leggere casi interi, centinaia di documenti, più cicli di redazione |
+| Ideale per | Il lavoro quotidiano: domande sul fascicolo, lettere e atti in dialogo — sempre a portata di mano | Il lavoro approfondito su fascicoli voluminosi: leggere casi interi, centinaia di documenti, più cicli di redazione |
 
 ## 2. La chat IA in IRONSTICK
 

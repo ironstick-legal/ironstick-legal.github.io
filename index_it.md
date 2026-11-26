@@ -1,6 +1,6 @@
 # Il fascicolo che lavora con Lei
 
-> Gestione offline dei fascicoli legali per Windows e Android, con un'IA integrata che conosce i Suoi fascicoli: clienti, prove, scadenze, OSINT.
+> Gestione offline dei fascicoli legali per Windows, con un'IA integrata che conosce i Suoi fascicoli: clienti, prove, scadenze, OSINT.
 
 Pagina originale: https://www.ironstick.legal/index_it.html
 

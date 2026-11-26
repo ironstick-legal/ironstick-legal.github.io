@@ -25,7 +25,7 @@ In beide gevallen bereikt de AI uw gegevens uitsluitend via IRONSTICK, via dezel
 - **Gepseudonimiseerd.** Voordat een verzoek uw computer verlaat, worden namen van personen en ondernemingen, zaak- en zaaknummers, persoonlijke identificatienummers, IBAN's, telefoonnummers, e-mailadressen en adressen van partijen [door neutrale plaatshouders vervangen](https://www.ironstick.legal/gdpr_nl.html). Het antwoord wordt op uw computer terugvertaald. Datums en bedragen blijven ongewijzigd. De plaatshouders worden gevormd uit uw eigen gegevensrecords; daarnaast worden nummers, e-mailadressen en telefoonnummers in vrije tekst herkend.
 - **Gelogd.** Elke aanroep van een externe AI-dienst wordt lokaal gelogd, en wel in de plaatshoudervorm waarin hij uw computer heeft verlaten.
 - **Compact werkgeheugen.** Bij elke beurt ontvangt de AI het recentste deel van het gesprek (ongeveer de laatste 6.000 tekens) en een korte samenvatting van het eerdere deel. Een verzoek loopt over maximaal acht toolrondes.
-- **Waar het draait.** Onder Windows en op de Android-tablet.
+- **Waar het draait.** Onder Windows.
 
 ### De Bridge
 
@@ -50,7 +50,7 @@ In beide gevallen bereikt de AI uw gegevens uitsluitend via IRONSTICK, via dezel
 | Werkinstructies | Worden met elk verzoek meegestuurd | De AI moet ze lezen en vóór het openen van een tool een regel letterlijk bevestigen |
 | Tools en poorten | Dezelfde tools en dezelfde poorten, plus een zoekfunctie in de eigen geschiedenis van de chat | Dezelfde tools en dezelfde poorten; programmabesturing alleen met de bijbehorende schakelaar |
 | Duur van een werksessie | Recentste gesprek plus korte samenvatting; maximaal acht toolrondes per verzoek | Het gesprek van de desktop-AI-app |
-| Platforms | Windows en Android-tablet | Windows |
+| Platforms | Windows | Windows |
 
 ### Waarom de Bridge geschikt is voor omvangrijk werk aan zaken
 
@@ -58,7 +58,7 @@ In beide gevallen bereikt de AI uw gegevens uitsluitend via IRONSTICK, via dezel
 - **Langere werksessies.** De desktop-AI voert zijn eigen, doorlopende gesprek — ideaal voor lange werksessies aan grote dossiers.
 - **Grotere antwoorden per aanroep.** Claude Desktop en ChatGPT Desktop ontvangen toolantwoorden van maximaal 40.000 tekens direct; Qwen Desktop, Kimi Desktop en de geïntegreerde chat ontvangen maximaal 10.000. Alles wat groter is, gaat volledig naar de versleutelde tussenopslag en wordt daar deelsgewijs gelezen.
 - **De volledige toolset, de volledige tekst.** De desktop-AI werkt met de volledige toolset en leest volledige teksten in zijn eigen gesprek, achter dezelfde poorten als de chat.
-- **De chat behoudt zijn plaats.** De geïntegreerde chat vereist geen extra licentie, is altijd bij de hand – ook op de tablet – en is het strenger gecontroleerde kanaal: gepseudonimiseerd, met toestemmingsvraag en gelogd.
+- **De chat behoudt zijn plaats.** De geïntegreerde chat vereist geen extra licentie, is altijd bij de hand en is het strenger gecontroleerde kanaal: gepseudonimiseerd, met toestemmingsvraag en gelogd.
 
 ## 2. Eén toolset — in de client-app
 

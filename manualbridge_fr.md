@@ -25,7 +25,7 @@ Dans les deux cas, l'IA n'accède à vos données que par IRONSTICK, avec les m�
 - **Pseudonymisé.** Avant qu'une demande ne quitte votre ordinateur, les noms de personnes et de sociétés, les numéros de dossier et de dossier judiciaire, les numéros d'identification personnels, les IBAN, les numéros de téléphone, les adresses électroniques et les adresses des parties [sont remplacés par des substituts neutres](https://www.ironstick.legal/gdpr_fr.html). La réponse est retraduite sur votre ordinateur. Les dates et les montants restent inchangés. Les substituts sont construits à partir de vos propres enregistrements ; en outre, les numéros, adresses électroniques et numéros de téléphone sont reconnus dans le texte libre.
 - **Journalisé.** Chaque appel à un service d'IA externe est journalisé localement, sous la forme de substituts dans laquelle il a quitté votre ordinateur.
 - **Mémoire de travail compacte.** À chaque tour, l'IA reçoit la partie récente de la conversation (environ les 6 000 derniers caractères) et un court résumé de la partie antérieure. Une demande comporte jusqu'à huit cycles d'outils.
-- **Où il fonctionne.** Sous Windows et sur la tablette Android.
+- **Où il fonctionne.** Sous Windows.
 
 ### Le Bridge
 
@@ -50,7 +50,7 @@ Dans les deux cas, l'IA n'accède à vos données que par IRONSTICK, avec les m�
 | Instructions de travail | Envoyées avec chaque requête | L'IA doit les lire et restituer mot pour mot une règle avant l'ouverture de tout outil |
 | Outils et portes | Le même jeu d'outils et les mêmes portes, plus une recherche dans l'historique propre du chat | Le même jeu d'outils et les mêmes portes ; contrôle du programme uniquement avec son interrupteur |
 | Durée d'une session de travail | Conversation récente plus un court résumé ; jusqu'à huit cycles d'outils par requête | La conversation de l'application d'IA de bureau |
-| Plateformes | Windows et tablette Android | Windows |
+| Plateformes | Windows | Windows |
 
 ### Pourquoi le Bridge convient aux travaux de dossier de grande ampleur
 
@@ -58,7 +58,7 @@ Dans les deux cas, l'IA n'accède à vos données que par IRONSTICK, avec les m�
 - **Des sessions de travail plus longues.** L'IA de bureau mène sa propre conversation, continue — idéale pour de longues sessions de travail sur des dossiers volumineux.
 - **Des réponses plus volumineuses par appel.** Claude Desktop et ChatGPT Desktop reçoivent directement des réponses d'outils allant jusqu'à 40 000 caractères ; Qwen Desktop, Kimi Desktop et le chat intégré en reçoivent jusqu'à 10 000. Tout ce qui dépasse va, en entier, dans le brouillon chiffré et y est lu partie par partie.
 - **Tout le jeu d'outils, le texte intégral.** L'IA de bureau travaille avec le jeu d'outils complet et lit les textes intégraux dans sa propre conversation, derrière les mêmes portes que le chat.
-- **Le chat garde sa place.** Le chat intégré ne requiert aucune licence supplémentaire, est toujours à portée de main — y compris sur la tablette — et constitue le canal le plus étroitement contrôlé : pseudonymisé, soumis à consentement et journalisé.
+- **Le chat garde sa place.** Le chat intégré ne requiert aucune licence supplémentaire, est toujours à portée de main et constitue le canal le plus étroitement contrôlé : pseudonymisé, soumis à consentement et journalisé.
 
 ## 2. Un seul jeu d'outils — dans l'Application client
 

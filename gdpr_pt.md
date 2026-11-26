@@ -626,11 +626,6 @@ recomendada para suportes portáteis. Unidades de rede e pastas sincronizadas co
 armazenamento de dados. Ao mudar o local de armazenamento na configuração, o
 IRONSTICK verifica o destino segundo estas regras; a cópia é feita com comparação de somas de controlo, a mudança
 só ocorre após verificação bem-sucedida, e a pasta antiga é conservada com outro nome.
-- **Sincronização de dispositivos sem qualquer nuvem.** A
-sincronização opcional Windows ↔ tablet Android decorre através de uma ligação direta
-por cabo USB — nenhum serviço de terceiros está envolvido, as transferências são
-verificadas por soma de controlo, e antes da substituição da base de dados é criada uma cópia de segurança
-obrigatória. Os documentos marcados como secretos não são de todo transferidos para o tablet.
 - **Instantâneo de segurança no arranque (registo local de acessos).** A cada
 arranque do programa, o IRONSTICK regista em segundo plano um instantâneo do computador em que
 está a correr: nome do anfitrião, sistema operativo, RAM/CPU, endereço IP local, navegador predefinido,

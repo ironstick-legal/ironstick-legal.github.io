@@ -25,7 +25,7 @@ IRONSTICK le ofrece dos maneras de trabajar con una IA sobre sus expedientes: el
 | Licencia de IRONSTICK | Incluida | [Un Bridge por IA de escritorio o los cuatro en paquete](https://www.ironstick.legal/download_es.html) |
 | Datos enviados a la IA | Seudonimizados | — |
 | Su consentimiento | Antes de la primera solicitud externa de una sesión de chat | Antes del primer acceso a datos tras cada inicio del programa |
-| Ideal para | El día a día: preguntas sobre el expediente, cartas y escritos en diálogo — siempre a mano, también en la tableta | El trabajo en profundidad con expedientes voluminosos: leer casos completos, cientos de documentos, varias rondas de redacción |
+| Ideal para | El día a día: preguntas sobre el expediente, cartas y escritos en diálogo — siempre a mano | El trabajo en profundidad con expedientes voluminosos: leer casos completos, cientos de documentos, varias rondas de redacción |
 
 ## 2. El chat de IA en IRONSTICK
 
