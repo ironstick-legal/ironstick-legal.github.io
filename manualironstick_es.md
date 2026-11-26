@@ -26,7 +26,7 @@ Muchos símbolos aparecen solo cuando hay algo que mostrar. Un símbolo rojo ani
 5. **Informe diario (altavoz).** Abre el informe diario en cualquier momento: qué le espera hoy (plazos, audiencias, citas, correos electrónicos), qué se ha hecho ya hoy y una breve mirada atrás. Haga clic en una línea para abrir la pantalla correspondiente, por ejemplo los plazos, el calendario, el Monitor de correo o el caso. *Leer en voz alta* reproduce la versión hablada y *Detener* la finaliza. Un interruptor cambia únicamente el estilo del texto hablado. Si su última copia de seguridad tiene más de cinco días, el informe se lo advierte.
 6. **Monitor de coherencia de datos.** Abre la lista de cambios propuestos en los datos de sus clientes y contactos que IRONSTICK ha encontrado en sus correos electrónicos. Para cada propuesta elige *Aceptar* o *Rechazar*. El símbolo es gris cuando no hay nada pendiente y rojo cuando hay propuestas. También está animado cuando un portal judicial nacional ha propuesto casos nuevos (función específica de cada país).
 7. **Correo electrónico.** Visible solo cuando la comprobación de correo en segundo plano está activada en la configuración. Gris significa que no hay correos nuevos. Rojo y animado significa que han llegado correos nuevos, y la información emergente muestra cuántos. Haga clic para abrir el Monitor de correo, donde todo se da por visto.
-8. **Chat de IA (robot).** Haga clic para abrir el chat de IA. En Windows se abre en su propia ventana. Si está dentro de un caso o de un cliente, un pequeño punto violeta indica que el chat ya conoce ese caso o cliente. Haga clic con el botón derecho en él (o manténgalo pulsado en la tableta) para activar o desactivar el reconocimiento de voz. Mientras está activado, el robot se mueve y el chat escucha y responde en voz alta. El robot se oculta mientras una IA de escritorio externa está conectada a IRONSTICK. En la tableta aparece en gris cuando no hay Internet.
+8. **Chat de IA (robot).** Haga clic para abrir el chat de IA. En Windows se abre en su propia ventana. Si está dentro de un caso o de un cliente, un pequeño punto violeta indica que el chat ya conoce ese caso o cliente. Haga clic con el botón derecho en él para activar o desactivar el reconocimiento de voz. Mientras está activado, el robot se mueve y el chat escucha y responde en voz alta. El robot se oculta mientras una IA de escritorio externa está conectada a IRONSTICK.
 9. **Chat del servidor.** Aparece solo cuando hay un IRONSTICK SERVER —el servidor de despacho— conectado. Abre un chat con los demás usuarios del servidor. Un punto verde significa que el usuario está en línea y rojo que está desconectado. Puede eliminar sus propios mensajes, y un interruptor silencia el chat para que ya no aparezca por sí solo. El símbolo se vuelve rojo y está animado cuando hay un mensaje sin leer.
 10. **Campana de plazos.** Roja cuando al menos un plazo vence hoy o está vencido. Naranja cuando hay plazos que vencen en los próximos diez días. Gris cuando no hay nada pendiente. Sitúe el puntero sobre la campana para ver el número. La campana también está animada cuando una vista recuperada de un portal judicial nacional está fijada para hoy (función específica de cada país). Un clic abre siempre el resumen de plazos.
 11. **Botón de apagado.** Cierra IRONSTICK de inmediato, sin solicitar confirmación. Elimina sus archivos temporales y la caché del navegador y finaliza IRONSTICK y todos los procesos que ha iniciado.
@@ -52,7 +52,6 @@ Muchos símbolos aparecen solo cuando hay algo que mostrar. Un símbolo rojo ani
 
 - **Mover la ventana.** En el PC, arrastre cualquier zona vacía de la barra de menús para mover la ventana del programa, igual que la barra de título normal de una ventana.
 - **Bloqueada durante los guardados largos.** Mientras se ejecuta un guardado largo, la barra de menús y la ruta de navegación aparecen en gris y no reaccionan, y no es posible volver atrás. La pantalla inferior permanece visible para que pueda seguir el progreso.
-- **En la tableta Android.** El centro de la barra contiene un botón rojo *DESTROY* en lugar del nombre del programa. Tras una confirmación, elimina de forma permanente todos los datos de IRONSTICK de la tableta, inicia la desinstalación de la aplicación y la cierra. Esto no se puede deshacer. La tableta no tiene informe diario ni indicador de recursos.
 
 ## 1. Menú principal
 
@@ -76,7 +75,7 @@ y **Mapa de calor** muestra lo activo que ha estado su despacho durante los últ
 - **Ordenar los mosaicos a su manera.** Arrastre un mosaico por su asa a una nueva posición. El orden se recuerda en este ordenador.
 - **Etiquetas y seguridad.** El mosaico de etiquetas muestra sus etiquetas de colores y abre la gestión de etiquetas. El mosaico de seguridad muestra el estado de este ordenador (sistema, unidades, red) y abre la configuración.
 - **Audio.** El mosaico de audio abre el cortador de audio para grabaciones que ya tiene; su segundo enlace inicia una grabación en directo con transcripción por IA.
-- **Mosaicos que aparecen solo cuando corresponden.** *Expedientes del servidor* aparece solo cuando hay un IRONSTICK SERVER conectado. Los mosaicos específicos de cada país aparecen solo cuando esas funciones están activadas. Algunos mosaicos que necesitan un PC (por ejemplo el registro de documentos y el procesamiento de textos) no se muestran en la tableta Android.
+- **Mosaicos que aparecen solo cuando corresponden.** *Expedientes del servidor* aparece solo cuando hay un IRONSTICK SERVER conectado. Los mosaicos específicos de cada país aparecen solo cuando esas funciones están activadas.
 
 #### Pestaña Agenda
 
@@ -122,7 +121,6 @@ La versión del programa y la clave de licencia están al final de la página.
 - **En uso actualmente.** Un cuadro gris muestra la carpeta con la que IRONSTICK está trabajando ahora mismo. Todos los datos están en esta única carpeta: base de datos, licencia, configuración y todos los archivos.
 - **Cambiar la ubicación de almacenamiento (PC).** Con *Elegir carpeta* selecciona una nueva ubicación, como una memoria USB u otra unidad. La carpeta *IRONSTICK* se crea allí automáticamente. Haga clic en *Guardar* para iniciar el traslado. IRONSTICK le indica primero cuántos datos se trasladarán. Después prueba la unidad elegida (por ejemplo su velocidad, el espacio libre y la protección contra escritura) y solo continúa si la unidad lo supera. Si usted lo confirma, IRONSTICK se cierra y traslada los datos la próxima vez que se inicie.
 - **Datos ya existentes en la nueva ubicación.** Si la carpeta elegida ya contiene datos de IRONSTICK, no se sobrescribe nada sin preguntar. Se comparan ambas copias y usted elige entre utilizar la copia encontrada allí o sustituirla por sus datos actuales.
-- **En la tableta Android.** La carpeta de datos es fija (es la carpeta en la que copia la sincronización por USB), por lo que allí no hay nada que elegir.
 
 **Usuario (solo PC)**
 
@@ -217,7 +215,7 @@ En **Firmas** almacena su firma manuscrita, que IRONSTICK puede colocar en sus d
 **Registro de inicios de sesión y versión**
 
 - **Registro de inicios de sesión.** La última ficha enumera los últimos 50 inicios de sesión, los más recientes primero: hora, número de usuario, dirección IP externa e interna, lugar, país, dispositivo, sistema operativo, navegador y una valoración de seguridad. Puede seleccionar el texto o copiar toda la tabla con el símbolo de copiar.
-- **Versión.** La línea al pie de la página muestra la versión del programa de Windows y de la aplicación de Android almacenadas en su carpeta de datos.
+- **Versión.** La línea al pie de la página muestra la versión del programa de Windows.
 - **Clave de licencia (PC).** Haga clic en *Clave de licencia* para introducir una clave nueva o renovada y haga clic en *Activar*. Si la clave no es válida, ha caducado, aún no es válida o pertenece a otro usuario, se le indica el motivo. *Solicitar clave de licencia* prepara una solicitud ya redactada. Tras la activación, vuelve a configurar su aplicación de autenticación escaneando el código QR que se muestra, y los módulos con licencia se desbloquean de inmediato.
 
 ## 3. Clientes
@@ -254,7 +252,7 @@ La imagen muestra también la ventana de código QR que se abre desde el símbol
 
 - **Abrir los casos.** Haga clic en cualquier punto de una fila para abrir la lista de casos de ese cliente.
 - **Llamar, WhatsApp o correo electrónico mediante código QR.** Haga clic en el número de teléfono, en el símbolo verde de WhatsApp o en la dirección de correo electrónico. Una ventana muestra un código QR que puede escanear con su teléfono para llamar, abrir WhatsApp o escribir un correo electrónico. Un clic en el código QR abre el programa correspondiente en este ordenador; si no hay ninguno, el valor se copia al portapapeles.
-- **Redes sociales.** El símbolo azul de la columna *Social* aparece solo cuando hay perfiles registrados. Abre una ventana que enumera los perfiles de Facebook, Instagram, TikTok, LinkedIn y X. El símbolo de abrir muestra el perfil en la ventana del navegador de IRONSTICK (en la tableta: en el navegador del sistema); el botón de copiar copia la dirección.
+- **Redes sociales.** El símbolo azul de la columna *Social* aparece solo cuando hay perfiles registrados. Abre una ventana que enumera los perfiles de Facebook, Instagram, TikTok, LinkedIn y X. El símbolo de abrir muestra el perfil en la ventana del navegador de IRONSTICK; el botón de copiar copia la dirección.
 - **Copiar el número de referencia.** Un clic en el número morado *@C* lo copia, por ejemplo para pegarlo en un chat o en un documento.
 - **Eliminar un cliente.** La X abre una confirmación. Si el cliente aún tiene casos, documentos o vínculos con casos, una advertencia amarilla los enumera antes de que usted confirme. Las notas que la IA ha recordado sobre este cliente también se eliminan.
 
@@ -455,7 +453,7 @@ Cada línea de la imagen señala desde una pestaña la vista que abre.
 **Conexiones**
 
 - **Gráfico de relaciones.** Muestra las personas e instituciones del caso y cómo están vinculadas, en una o varias páginas; la cabecera cuenta las entidades y las conexiones. Cuando hay muchas, se muestran las más urgentes.
-- **Trabajar con el gráfico.** Amplíe y reduzca con los botones de lupa. Haga clic en un nombre para abrir esa persona o institución. *Wallpaper* descarga el gráfico como un póster grande en PDF; *Registrar* lo pasa al registro de documentos, donde usted lo asigna a un caso. Ningún botón de exportación está disponible en la tableta Android.
+- **Trabajar con el gráfico.** Amplíe y reduzca con los botones de lupa. Haga clic en un nombre para abrir esa persona o institución. *Wallpaper* descarga el gráfico como un póster grande en PDF; *Registrar* lo pasa al registro de documentos, donde usted lo asigna a un caso.
 
 **Mapa**
 
@@ -491,7 +489,7 @@ La fila ampliada en la parte inferior de la imagen muestra las partes de una sol
 
 1. **Notas.** Abre el tablón del caso. Sus propias notas son amarillas, las notas de los suscriptores de un caso compartido son tarjetas blancas, y las notas que la IA ha recordado para este caso aparecen sobre papel cuadriculado. Haga clic en *Nueva nota* para escribir una (hasta 1.000 caracteres, opcionalmente con una fecha), haga clic en una nota amarilla para editarla, en cualquier nota para leerla completa; cada una tiene pequeños botones de copiar y eliminar.
 2. **Dossier.** Abre el asistente de dossier, que elabora un dossier completo del caso. Aparece solo cuando la Cronología tiene entradas.
-3. **Redactar texto.** Elija *Con ayuda de la IA* para abrir el chat de IA con una petición de redactar un documento para este caso, o *Documento de texto vacío* para empezar a escribir en el procesador de textos. No se muestra en la tableta Android.
+3. **Redactar texto.** Elija *Con ayuda de la IA* para abrir el chat de IA con una petición de redactar un documento para este caso, o *Documento de texto vacío* para empezar a escribir en el procesador de textos.
 4. **Saltar a una fecha.** Elija una fecha y haga clic en la lupa para ir a la página que la contiene.
 5. **Nueva entrada.** Abre el formulario para una nueva entrada de la crónica.
 6. **Número y fecha de la entrada.** El número morado identifica la entrada; haga clic en él para copiarlo al portapapeles. Debajo están la fecha y, si se ha registrado, la hora de–a.
@@ -515,7 +513,7 @@ La fila ampliada en la parte inferior de la imagen muestra las partes de una sol
 
 - **Páginas y ordenación.** La lista muestra 20 entradas por página; los botones de página aparecen encima y debajo de la lista cuando hay más de una página. Haga clic en el encabezado de la columna *Fecha* para alternar entre las más recientes y las más antiguas primero.
 - **Qué le dice una fila.** Debajo del título se ven la descripción, las etiquetas de color (país, ámbito jurídico, fase, IN en naranja u OUT en verde, tipo de institución, idioma, tipo de documento) y las personas implicadas.
-- **Redactar un texto sobre una entrada.** El pequeño símbolo de lápiz con líneas junto al título inicia *Redactar texto* para esa entrada concreta; un número delante cuenta los textos ya redactados sobre ella. No se muestra en la tableta Android.
+- **Redactar un texto sobre una entrada.** El pequeño símbolo de lápiz con líneas junto al título inicia *Redactar texto* para esa entrada concreta; un número delante cuenta los textos ya redactados sobre ella.
 - **Columna de plazo.** Una campana naranja significa que el plazo de la entrada vence en 10 días, una campana roja que suena que está vencido. Sitúe el puntero sobre la campana para ver los días restantes o la fecha.
 - **Llegar desde la búsqueda o el radar.** Cuando abre el caso desde un resultado de búsqueda o desde el radar de relevancia, la Cronología va a la página correcta y la entrada se ilumina en amarillo durante unos segundos.
 
@@ -590,7 +588,7 @@ El botón azul a la derecha de la tarjeta abre la **cronología** — los docume
 
 **Herramientas de cada fila**
 
-- **Redactar texto.** El icono de nota junto al título abre una elección: redactar una carta con la ayuda de la IA (el chat se abre con este caso y este documento ya referenciados) o abrir un documento de texto vacío en el procesador de textos. Un número delante del icono muestra cuántos textos existen ya para esta entrada. No disponible en la tableta Android.
+- **Redactar texto.** El icono de nota junto al título abre una elección: redactar una carta con la ayuda de la IA (el chat se abre con este caso y este documento ya referenciados) o abrir un documento de texto vacío en el procesador de textos. Un número delante del icono muestra cuántos textos existen ya para esta entrada.
 - **Abrir el documento.** El clip abre el documento en la ventana del navegador de IRONSTICK; sitúe el puntero sobre él para ver el nombre del archivo. Aparece una chincheta verde cuando la entrada tiene una ubicación — haga clic en ella para ver el lugar en un mapa.
 - **Carpetas de trabajo.** El icono de carpeta archiva el documento en las carpetas de trabajo de los hechos a los que pertenece este caso: marque o desmarque una carpeta, o cree una nueva carpeta. Cuando la entrada ya está archivada, el icono muestra una carpeta rellena y su información sobre herramientas el número de carpetas.
 - **Radar de relevancia.** El icono de radar encuentra las entradas que más se parecen en contenido, en este caso y en otros casos. Haga clic en un resultado para saltar a él en la cronología.
@@ -604,7 +602,7 @@ El botón azul a la derecha de la tarjeta abre la **cronología** — los docume
 - **Leer el curso del caso.** El gráfico muestra todos los documentos PDF entrantes y salientes por orden de fecha, unidos por flechas. Los documentos que usted ha enviado tienen un encabezado negro, los documentos con un plazo abierto un marco grueso. Los anexos de una carta saliente aparecen como cuadros separados a su lado.
 - **Abrir una entrada.** Haga clic en el número de entrada subrayado de un cuadro para ir directamente a esa entrada.
 - **Zoom y desplazamiento.** Use los dos botones de lupa para ampliar y reducir; las cronologías largas ocupan varias páginas por las que se desplaza.
-- **Registrar como documento.** *Registrar* convierte el gráfico en un PDF y abre el registro de documentos, donde usted lo asigna al caso y lo guarda como cualquier otro documento. No disponible en la tableta Android, donde el gráfico solo puede verse. Cierre el gráfico con la X.
+- **Registrar como documento.** *Registrar* convierte el gráfico en un PDF y abre el registro de documentos, donde usted lo asigna al caso y lo guarda como cualquier otro documento. Cierre el gráfico con la X.
 
 ### Dossier: elegir entradas y páginas
 
@@ -762,7 +760,7 @@ y la red de relaciones que se abre desde el icono de red de una fila.
 
 - **Quién está conectado con quién.** La red muestra a la persona o empresa en el centro con sus relaciones directas y las relaciones de esos contactos (dos niveles), como un gráfico en una o varias páginas.
 - **Moverse por la red.** Haga clic en otra persona, empresa o institución del gráfico: la ventana se reconstruye en torno a esa parte. Las referencias de página del gráfico saltan a la página correspondiente; los botones de lupa amplían y reducen.
-- **Registrar.** Convierte el gráfico en un PDF y lo abre directamente en *Registrar el documento*, para que pueda archivarlo en un caso con el sello habitual. Este botón no está disponible en la tableta Android.
+- **Registrar.** Convierte el gráfico en un PDF y lo abre directamente en *Registrar el documento*, para que pueda archivarlo en un caso con el sello habitual.
 
 **Introducir o editar una persona**
 
@@ -1008,11 +1006,10 @@ Debajo de los meses se ve todo lo previsto para el día seleccionado. La imagen 
 - **Carpeta de preparación.** Una vez elegido un caso, marque las entradas de la cronología que quiere tener a mano para la cita. Aparecerán después en *Documentos preparados* y en el PDF de la cita.
 - **Guardar.** *Guardar* (o *Crear* en una entrada nueva) le devuelve al calendario en la fecha de la cita; *Cancelar* descarta los cambios.
 
-#### Exportación y sincronización
+#### Exportación
 
 - **Advertencia de privacidad.** Antes de la primera exportación .ics tras cada inicio del programa, IRONSTICK le recuerda que las entradas del calendario salen del programa protegido en este formato. Elija *Continuar* para seguir.
 - **Cuadro de diálogo de exportación.** *Descargar* guarda el archivo en su carpeta Documentos y abre esa carpeta. *Google Drive* aparece solo cuando existe una carpeta de Google Drive en este ordenador y guarda el archivo allí.
-- **Calendario de la tableta.** En la tableta Android, si existe un calendario llamado IRONSTICK en la cuenta de calendario del dispositivo, las citas se mantienen sincronizadas en ambos sentidos; los plazos y las vistas se copian a él en un solo sentido.
 
 ## 11. Plazos
 
@@ -1073,7 +1070,7 @@ La imagen muestra la lista, la ventana para una nueva entrada y un día abierto 
 
 #### Generar una nueva entrada
 
-- **Aportar el texto.** *Generar nueva entrada* abre una ventana donde arrastra un archivo .txt o .md (o hace clic para elegir uno) o pega el texto directamente. Este botón está disponible en el PC, no en la tableta Android.
+- **Aportar el texto.** *Generar nueva entrada* abre una ventana donde arrastra un archivo .txt o .md (o hace clic para elegir uno) o pega el texto directamente.
 - **Analizar.** Un texto con el formato del diario diario se divide directamente en días. Cualquier otro texto puede entregarse a la IA externa, que encuentra la fecha, el título y los casos mencionados; IRONSTICK solicita antes su consentimiento. Si lo rechaza, una indicación explica el formato esperado.
 - **Comprobar antes de importar.** Por cada día reconocido se muestra una tarjeta: márquela o desmárquela, corrija la fecha y el título del día, active o desactive los casos asignados y lea los eventos encontrados. Una insignia *Fusión* indica que ya existe un protocolo para esa fecha; el nuevo texto se añade a él y no se sobrescribe nada.
 - **Importar o volver.** El botón de importar guarda los días marcados; el botón de la izquierda le devuelve al texto. Antes de analizar, *Descartar* cierra la ventana sin guardar.
@@ -1100,7 +1097,6 @@ Un clic abre el documento en el procesador de textos, que se muestra a la derech
 - **Grupos.** Cuando un cliente, caso o entrada de la cronología tiene varios documentos, se pliegan en una sola fila con el número de documentos. Haga clic en la fila para desplegarla o plegarla. Un documento único se muestra directamente con su cliente y su caso.
 - **Llegada desde la búsqueda.** Cuando abre un texto desde los resultados de la búsqueda, su grupo se despliega y el documento se ilumina en amarillo durante unos segundos.
 - **Siempre actualizado.** Cuando vuelve del procesador de textos, la lista se recarga y muestra la nueva versión.
-- **Solo PC.** El procesador de textos funciona en el PC con Windows. En la tableta Android la lista es visible, pero al abrir un documento se muestra un aviso.
 
 ### Edición, lectura en voz alta y anexos
 

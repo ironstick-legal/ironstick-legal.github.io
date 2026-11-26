@@ -26,7 +26,7 @@ Viele Symbole erscheinen nur, wenn es etwas anzuzeigen gibt. Ein rotes, animiert
 5. **Tagesbriefing (Lautsprecher).** Öffnet jederzeit das Tagesbriefing: was heute ansteht (Fristen, Gerichtstermine, Termine, E-Mails), was heute bereits erledigt wurde und ein kurzer Rückblick. Klicken Sie auf eine Zeile, um den passenden Bildschirm zu öffnen, zum Beispiel die Fristen, den Kalender, den E-Mail-Monitor oder den Fall. *Vorlesen* spielt die gesprochene Fassung ab, und *Stopp* beendet sie. Ein Schalter ändert nur den Stil des gesprochenen Textes. Ist Ihr letztes Backup älter als fünf Tage, warnt Sie das Briefing.
 6. **Datenkonsistenz-Monitor.** Öffnet die Liste der Änderungsvorschläge zu Ihren Mandanten- und Kontaktdaten, die IRONSTICK in Ihren E-Mails gefunden hat. Bei jedem Vorschlag wählen Sie *Zulassen* oder *Ablehnen*. Das Symbol ist grau, wenn nichts wartet, und rot, wenn es Vorschläge gibt. Es ist auch animiert, wenn ein nationales Gerichtsportal neue Fälle vorgeschlagen hat (länderspezifische Funktion).
 7. **E-Mail.** Nur sichtbar, wenn die E-Mail-Prüfung im Hintergrund in der Konfiguration eingeschaltet ist. Grau bedeutet keine neuen E-Mails. Rot und animiert bedeutet, dass neue E-Mails eingegangen sind; der Tooltip zeigt, wie viele. Klicken Sie, um den E-Mail-Monitor zu öffnen, in dem alles als gesehen gilt.
-8. **KI-Chat (Roboter).** Klicken Sie, um den KI-Chat zu öffnen. Unter Windows öffnet er sich in einem eigenen Fenster. Befinden Sie sich in einem Fall oder bei einem Mandanten, zeigt ein kleiner violetter Punkt, dass der Chat diesen Fall oder Mandanten bereits kennt. Klicken Sie mit der rechten Maustaste darauf (auf dem Tablet: gedrückt halten), um die Spracherkennung ein- oder auszuschalten. Solange sie eingeschaltet ist, bewegt sich der Roboter, und der Chat hört zu und antwortet laut. Der Roboter ist ausgeblendet, solange eine externe Desktop-KI mit IRONSTICK verbunden ist. Auf dem Tablet ist er ausgegraut, wenn keine Internetverbindung besteht.
+8. **KI-Chat (Roboter).** Klicken Sie, um den KI-Chat zu öffnen. Unter Windows öffnet er sich in einem eigenen Fenster. Befinden Sie sich in einem Fall oder bei einem Mandanten, zeigt ein kleiner violetter Punkt, dass der Chat diesen Fall oder Mandanten bereits kennt. Klicken Sie mit der rechten Maustaste darauf, um die Spracherkennung ein- oder auszuschalten. Solange sie eingeschaltet ist, bewegt sich der Roboter, und der Chat hört zu und antwortet laut. Der Roboter ist ausgeblendet, solange eine externe Desktop-KI mit IRONSTICK verbunden ist.
 9. **Server-Chat.** Erscheint nur, wenn der IRONSTICK SERVER verbunden ist. Er öffnet einen Chat mit den anderen Benutzern des Servers. Ein grüner Punkt bedeutet, dass der Benutzer online ist, rot bedeutet offline. Sie können Ihre eigenen Nachrichten löschen, und ein Schalter stummt den Chat, sodass er nicht mehr von selbst aufpoppt. Das Symbol wird rot und ist animiert, wenn eine ungelesene Nachricht vorliegt.
 10. **Fristenglocke.** Rot, wenn mindestens eine Frist heute fällig oder überfällig ist. Orange, wenn Fristen in den nächsten zehn Tagen fällig werden. Grau, wenn nichts ansteht. Zeigen Sie auf die Glocke, um die Anzahl zu sehen. Die Glocke ist auch animiert, wenn eine aus einem nationalen Gerichtsportal abgerufene Sitzung für heute angesetzt ist (länderspezifische Funktion). Ein Klick öffnet immer die Fristenübersicht.
 11. **Power-Taste.** Schließt IRONSTICK sofort, ohne Bestätigungsabfrage. Sie löscht ihre temporären Dateien und den Browser-Cache und beendet IRONSTICK und alle Prozesse, die es gestartet hat.
@@ -52,7 +52,6 @@ Viele Symbole erscheinen nur, wenn es etwas anzuzeigen gibt. Ein rotes, animiert
 
 - **Das Fenster verschieben.** Ziehen Sie am PC einen beliebigen leeren Bereich der Menüleiste, um das Programmfenster zu verschieben, genau wie die normale Fenster-Titelleiste.
 - **Gesperrt bei langen Speichervorgängen.** Während ein langer Speichervorgang läuft, sind Menüleiste und Brotkrumenpfad ausgegraut und reagieren nicht, und Sie können nicht zurückgehen. Der Bildschirm darunter bleibt sichtbar, damit Sie den Fortschritt verfolgen können.
-- **Auf dem Android-Tablet.** In der Mitte der Leiste befindet sich statt des Programmnamens eine rote *DESTROY*-Schaltfläche. Nach einer Bestätigung löscht sie alle IRONSTICK-Daten dauerhaft vom Tablet, startet die Deinstallation der App und schließt sie. Das lässt sich nicht rückgängig machen. Das Tablet hat kein Tagesbriefing und keine Ressourcenanzeige.
 
 ## 1. Hauptmenü
 
@@ -76,7 +75,7 @@ und **Heatmap** zeigt, wie aktiv Ihre Kanzlei in den letzten zwölf Monaten war.
 - **Die Kacheln nach Ihren Wünschen anordnen.** Ziehen Sie eine Kachel an ihrem Griff an eine neue Position. Die Reihenfolge wird auf diesem Computer gespeichert.
 - **Tags und Sicherheit.** Die Tags-Kachel zeigt Ihre farbigen Tags und öffnet die Tag-Verwaltung. Die Sicherheitskachel zeigt den Zustand dieses Computers (System, Laufwerke, Netzwerk) und öffnet die Konfiguration.
 - **Audio.** Die Audio-Kachel öffnet den Audio-Schneider für bereits vorhandene Aufnahmen; ihr zweiter Link startet eine Live-Aufnahme mit KI-Transkription.
-- **Kacheln, die nur bei Bedarf erscheinen.** *Server-Fälle* erscheint nur, wenn der IRONSTICK SERVER verbunden ist. Länderspezifische Kacheln erscheinen nur, wenn diese Funktionen eingeschaltet sind. Einige Kacheln, die einen PC brauchen (zum Beispiel Dokumentenerfassung und Textverarbeitung), werden auf dem Android-Tablet nicht angezeigt.
+- **Kacheln, die nur bei Bedarf erscheinen.** *Server-Fälle* erscheint nur, wenn der IRONSTICK SERVER verbunden ist. Länderspezifische Kacheln erscheinen nur, wenn diese Funktionen eingeschaltet sind.
 
 #### Reiter Agenda
 
@@ -122,7 +121,6 @@ Die Programmversion und der Lizenzschlüssel stehen am Ende der Seite.
 - **Aktuell in Verwendung.** Ein graues Feld zeigt den Ordner, mit dem IRONSTICK gerade arbeitet. Alle Daten liegen in diesem einen Ordner: Datenbank, Lizenz, Konfiguration und jede Datei.
 - **Den Speicherort ändern (PC).** Mit *Ordner wählen* wählen Sie einen neuen Speicherort, etwa einen USB-Stick oder ein anderes Laufwerk. Der Ordner *IRONSTICK* wird dort automatisch angelegt. Klicken Sie auf *Speichern*, um den Umzug zu starten. IRONSTICK teilt Ihnen zuerst mit, wie viele Daten verschoben werden. Danach testet es das gewählte Laufwerk (zum Beispiel Geschwindigkeit, freien Speicherplatz und Schreibschutz) und fährt nur fort, wenn das Laufwerk den Test besteht. Wenn Sie bestätigen, schließt sich IRONSTICK und verschiebt die Daten beim nächsten Start.
 - **Daten bereits am neuen Speicherort.** Enthält der gewählte Ordner bereits IRONSTICK-Daten, wird nichts ohne Rückfrage überschrieben. Beide Kopien werden verglichen, und Sie wählen, ob die dort gefundene Kopie verwendet oder durch Ihre aktuellen Daten ersetzt wird.
-- **Auf dem Android-Tablet.** Der Datenordner ist fest vorgegeben (es ist der Ordner, in den die USB-Synchronisation kopiert), sodass dort nichts zu wählen ist.
 
 **Benutzer (nur PC)**
 
@@ -217,7 +215,7 @@ In **Unterschriften** hinterlegen Sie Ihre handschriftliche Unterschrift, die IR
 **Login-Protokoll und Version**
 
 - **Login-Protokoll.** Die letzte Karte listet die letzten 50 Logins, die neuesten zuerst: Zeit, Benutzernummer, externe und interne IP-Adresse, Ort, Land, Gerät, Betriebssystem, Browser und eine Sicherheitsbewertung. Sie können den Text markieren oder die ganze Tabelle mit dem Kopiersymbol kopieren.
-- **Version.** Die Zeile am Seitenende zeigt die Version des Windows-Programms und der Android-App, die in Ihrem Datenordner liegen.
+- **Version.** Die Zeile am Seitenende zeigt die Version des Windows-Programms.
 - **Lizenzschlüssel (PC).** Klicken Sie auf *Lizenzschlüssel*, um einen neuen oder verlängerten Schlüssel einzugeben, und klicken Sie auf *Aktivieren*. Ist der Schlüssel ungültig, abgelaufen, noch nicht gültig oder gehört er einem anderen Benutzer, wird Ihnen der Grund mitgeteilt. *Lizenzschlüssel anfordern* bereitet eine fertige Anfrage vor. Nach der Aktivierung richten Sie Ihre Authenticator-App erneut ein, indem Sie den angezeigten QR-Code scannen, und die lizenzierten Module werden sofort freigeschaltet.
 
 ## 3. Mandanten
@@ -254,7 +252,7 @@ Das Bild zeigt außerdem das QR-Code-Fenster, das sich über das WhatsApp-Symbol
 
 - **Die Fälle öffnen.** Klicken Sie irgendwo auf eine Zeile, um die Fallliste dieses Mandanten zu öffnen.
 - **Anrufen, WhatsApp oder E-Mail per QR-Code.** Klicken Sie auf die Telefonnummer, das grüne WhatsApp-Symbol oder die E-Mail-Adresse. Ein Fenster zeigt einen QR-Code, den Sie mit Ihrem Telefon scannen können, um anzurufen, WhatsApp zu öffnen oder eine E-Mail zu schreiben. Ein Klick auf den QR-Code öffnet das passende Programm auf diesem Computer; gibt es keines, wird der Wert in die Zwischenablage kopiert.
-- **Social Media.** Das blaue Symbol in der Spalte *Social* erscheint nur, wenn Profile erfasst sind. Es öffnet ein Fenster mit den Profilen bei Facebook, Instagram, TikTok, LinkedIn und X. Das Öffnen-Symbol zeigt das Profil im IRONSTICK-Browserfenster (auf dem Tablet: im System-Browser); die Kopieren-Schaltfläche kopiert die Adresse.
+- **Social Media.** Das blaue Symbol in der Spalte *Social* erscheint nur, wenn Profile erfasst sind. Es öffnet ein Fenster mit den Profilen bei Facebook, Instagram, TikTok, LinkedIn und X. Das Öffnen-Symbol zeigt das Profil im IRONSTICK-Browserfenster; die Kopieren-Schaltfläche kopiert die Adresse.
 - **Die Referenznummer kopieren.** Ein Klick auf die violette *@C*-Nummer kopiert sie, zum Beispiel um sie in einen Chat oder ein Dokument einzufügen.
 - **Einen Mandanten löschen.** Das X öffnet eine Bestätigung. Hat der Mandant noch Fälle, Dokumente oder Fall-Verknüpfungen, listet eine gelbe Warnung diese vor der Bestätigung auf. Notizen, die sich die KI zu diesem Mandanten gemerkt hat, werden ebenfalls entfernt.
 
@@ -455,7 +453,7 @@ Jede Linie im Bild führt von einer Registerkarte zur Ansicht, die sie öffnet.
 **Verbindungen**
 
 - **Beziehungsdiagramm.** Zeigt die Personen und Institutionen des Falls und wie sie verknüpft sind, auf einer oder mehreren Seiten; die Kopfzeile zählt Entitäten und Verbindungen. Wo es viele sind, werden die dringendsten angezeigt.
-- **Mit dem Diagramm arbeiten.** Zoomen Sie mit den Lupen-Schaltflächen hinein und heraus. Klicken Sie auf einen Namen, um diese Person oder Institution zu öffnen. *Wallpaper* lädt das Diagramm als großes Poster-PDF herunter; *Erfassen* übergibt es an die Dokumentenerfassung, wo Sie es einem Fall zuordnen. Keine der beiden Export-Schaltflächen ist auf dem Android-Tablet verfügbar.
+- **Mit dem Diagramm arbeiten.** Zoomen Sie mit den Lupen-Schaltflächen hinein und heraus. Klicken Sie auf einen Namen, um diese Person oder Institution zu öffnen. *Wallpaper* lädt das Diagramm als großes Poster-PDF herunter; *Erfassen* übergibt es an die Dokumentenerfassung, wo Sie es einem Fall zuordnen.
 
 **Karte**
 
@@ -491,7 +489,7 @@ Die vergrößerte Zeile unten im Bild zeigt die Teile eines einzelnen Eintrags.
 
 1. **Notizen.** Öffnet die Pinnwand des Falls. Ihre eigenen Notizen sind gelb, Notizen von Abonnenten eines geteilten Falls sind weiße Karten, und Notizen, die sich die KI für diesen Fall gemerkt hat, erscheinen auf kariertem Papier. Klicken Sie auf *Neue Notiz*, um eine zu schreiben (bis zu 1.000 Zeichen, optional mit Datum), klicken Sie auf eine gelbe Notiz, um sie zu bearbeiten, auf eine beliebige Notiz, um sie vollständig zu lesen; jede hat kleine Schaltflächen zum Kopieren und Löschen.
 2. **Dossier.** Öffnet den Dossier-Assistenten, der ein vollständiges Dossier des Falls erstellt. Er erscheint nur, wenn die Chronik Einträge hat.
-3. **Text verfassen.** Wählen Sie *Mit KI Hilfe*, um den KI-Chat mit der Bitte zu öffnen, ein Dokument für diesen Fall zu entwerfen, oder *Leeres Textdokument*, um in der Textverarbeitung zu schreiben. Auf dem Android-Tablet nicht sichtbar.
+3. **Text verfassen.** Wählen Sie *Mit KI Hilfe*, um den KI-Chat mit der Bitte zu öffnen, ein Dokument für diesen Fall zu entwerfen, oder *Leeres Textdokument*, um in der Textverarbeitung zu schreiben.
 4. **Zu einem Datum springen.** Wählen Sie ein Datum und klicken Sie auf die Lupe, um zur Seite zu gehen, die es enthält.
 5. **Neuer Eintrag.** Öffnet das Formular für einen neuen Chronik-Eintrag.
 6. **Eintragsnummer und Datum.** Die violette Nummer identifiziert den Eintrag; ein Klick darauf kopiert sie in die Zwischenablage. Darunter stehen das Datum und, falls erfasst, die Uhrzeit von–bis.
@@ -515,7 +513,7 @@ Die vergrößerte Zeile unten im Bild zeigt die Teile eines einzelnen Eintrags.
 
 - **Seiten und Sortierung.** Die Liste zeigt 20 Einträge pro Seite; Seitenschaltflächen erscheinen über und unter der Liste, wenn es mehr als eine Seite gibt. Klicken Sie auf die Spaltenüberschrift *Datum*, um zwischen neueste und älteste zuerst zu wechseln.
 - **Was eine Zeile Ihnen sagt.** Unter dem Titel sehen Sie die Beschreibung, farbige Labels (Land, Rechtsgebiet, Stadium, IN in Orange oder OUT in Grün, Institutionstyp, Sprache, Dokumenttyp) und die beteiligten Personen.
-- **Einen Text zu einem Eintrag schreiben.** Das kleine Symbol aus Stift und Zeilen neben dem Titel startet *Text verfassen* für genau diesen Eintrag; eine Zahl davor zählt die bereits dazu verfassten Texte. Auf dem Android-Tablet nicht sichtbar.
+- **Einen Text zu einem Eintrag schreiben.** Das kleine Symbol aus Stift und Zeilen neben dem Titel startet *Text verfassen* für genau diesen Eintrag; eine Zahl davor zählt die bereits dazu verfassten Texte.
 - **Fristenspalte.** Eine orange Glocke bedeutet, dass die Frist des Eintrags innerhalb von 10 Tagen fällig ist, eine rot läutende Glocke, dass sie überschritten ist. Zeigen Sie auf die Glocke, um die verbleibenden Tage oder das Datum zu sehen.
 - **Aus der Suche oder dem Radar kommend.** Öffnen Sie den Fall aus einem Suchergebnis oder dem Relevanz-Radar, geht die Chronik zur richtigen Seite, und der Eintrag leuchtet einige Sekunden gelb auf.
 
@@ -590,7 +588,7 @@ Die blaue Schaltfläche rechts auf der Karte öffnet die **Chronologie** — die
 
 **Werkzeuge in jeder Zeile**
 
-- **Text verfassen.** Das Notiz-Symbol neben dem Titel öffnet eine Auswahl: einen Brief mit Hilfe der KI schreiben (der Chat öffnet sich mit diesem Fall und diesem Dokument bereits als Bezug) oder ein leeres Textdokument in der Textverarbeitung öffnen. Eine Zahl vor dem Symbol zeigt, wie viele Texte zu diesem Eintrag bereits existieren. Auf dem Android-Tablet nicht verfügbar.
+- **Text verfassen.** Das Notiz-Symbol neben dem Titel öffnet eine Auswahl: einen Brief mit Hilfe der KI schreiben (der Chat öffnet sich mit diesem Fall und diesem Dokument bereits als Bezug) oder ein leeres Textdokument in der Textverarbeitung öffnen. Eine Zahl vor dem Symbol zeigt, wie viele Texte zu diesem Eintrag bereits existieren.
 - **Das Dokument öffnen.** Die Büroklammer öffnet das Dokument im IRONSTICK-Browserfenster; zeigen Sie darauf, um den Dateinamen zu sehen. Eine grüne Markierung erscheint, wenn der Eintrag einen Ort hat — klicken Sie darauf, um den Ort auf einer Karte zu sehen.
 - **Arbeitsmappen.** Das Mappen-Symbol legt das Dokument in den Arbeitsmappen der Sachverhalte ab, zu denen dieser Fall gehört: Haken Sie eine Mappe an oder ab, oder legen Sie eine neue Mappe an. Ist der Eintrag bereits abgelegt, zeigt das Symbol eine gefüllte Mappe und sein Tooltip die Anzahl der Mappen.
 - **Relevanz-Radar.** Das Radar-Symbol findet die inhaltlich ähnlichsten Einträge in diesem und in anderen Fällen. Klicken Sie auf einen Treffer, um in der Chronik dorthin zu springen.
@@ -604,7 +602,7 @@ Die blaue Schaltfläche rechts auf der Karte öffnet die **Chronologie** — die
 - **Den Verlauf des Falls lesen.** Das Diagramm zeigt alle eingehenden und ausgehenden PDF-Dokumente in zeitlicher Reihenfolge, durch Pfeile verbunden. Von Ihnen gesendete Dokumente haben eine schwarze Überschrift, Dokumente mit offener Frist einen dicken Rahmen. Die Beilagen eines ausgehenden Briefs erscheinen als separate Kästen daneben.
 - **Einen Eintrag öffnen.** Klicken Sie auf die unterstrichene Eintragsnummer in einem Kasten, um direkt zu diesem Eintrag zu gehen.
 - **Zoomen und scrollen.** Verwenden Sie die beiden Lupen-Schaltflächen zum Hinein- und Herauszoomen; lange Chronologien laufen über mehrere Seiten, durch die Sie scrollen.
-- **Als Dokument erfassen.** *Erfassen* macht aus dem Diagramm ein PDF und öffnet die Dokumentenerfassung, wo Sie es dem Fall zuordnen und wie jedes andere Dokument speichern. Auf dem Android-Tablet nicht verfügbar, dort kann das Diagramm nur angesehen werden. Schließen Sie das Diagramm mit dem X.
+- **Als Dokument erfassen.** *Erfassen* macht aus dem Diagramm ein PDF und öffnet die Dokumentenerfassung, wo Sie es dem Fall zuordnen und wie jedes andere Dokument speichern. Schließen Sie das Diagramm mit dem X.
 
 ### Dossier: Einträge und Seiten auswählen
 
@@ -762,7 +760,7 @@ und das Beziehungsnetzwerk, das sich über das Netzwerksymbol einer Zeile öffne
 
 - **Wer mit wem verbunden ist.** Das Netzwerk zeigt die Person oder das Unternehmen in der Mitte mit ihren direkten Beziehungen und den Beziehungen dieser Kontakte (zwei Ebenen), als Diagramm auf einer oder mehreren Seiten.
 - **Sich durch das Netzwerk bewegen.** Klicken Sie im Diagramm auf eine andere Person, ein anderes Unternehmen oder eine andere Institution: Das Fenster baut sich um diese Partei neu auf. Seitenverweise im Diagramm springen zur passenden Seite; die Lupen-Schaltflächen zoomen hinein und heraus.
-- **Erfassen.** Macht aus dem Diagramm ein PDF und öffnet es direkt in *Dokument erfassen*, sodass Sie es mit dem üblichen Stempel in einem Fall ablegen können. Diese Schaltfläche ist auf dem Android-Tablet nicht verfügbar.
+- **Erfassen.** Macht aus dem Diagramm ein PDF und öffnet es direkt in *Dokument erfassen*, sodass Sie es mit dem üblichen Stempel in einem Fall ablegen können.
 
 **Eine Person erfassen oder bearbeiten**
 
@@ -1008,11 +1006,10 @@ Unter den Monaten sehen Sie alles, was für den ausgewählten Tag geplant ist. D
 - **Vorbereitungsmappe.** Sobald ein Fall gewählt ist, haken Sie die Chronik-Einträge an, die Sie für den Termin zur Hand haben möchten. Sie erscheinen später unter *Vorbereitete Dokumente* und im Termin-PDF.
 - **Speichern.** *Speichern* (oder *Anlegen* bei einem neuen Eintrag) bringt Sie zum Kalender an dem Datum des Termins zurück; *Abbrechen* verwirft die Änderungen.
 
-#### Export und Synchronisierung
+#### Export
 
 - **Datenschutz-Warnung.** Vor dem ersten .ics-Export nach jedem Programmstart erinnert IRONSTICK Sie daran, dass Kalendereinträge in diesem Format das geschützte Programm verlassen. Wählen Sie *Weiter*, um fortzufahren.
 - **Export-Dialog.** *Download* speichert die Datei in Ihrem Ordner Dokumente und öffnet diesen Ordner. *Google Drive* erscheint nur, wenn auf diesem Computer ein Google-Drive-Ordner existiert, und speichert die Datei dort.
-- **Tablet-Kalender.** Existiert auf dem Android-Tablet im Kalenderkonto des Geräts ein Kalender namens IRONSTICK, werden Termine in beide Richtungen abgeglichen; Fristen und Sitzungen werden einseitig dorthin kopiert.
 
 ## 11. Fristen
 
@@ -1073,7 +1070,7 @@ Das Bild zeigt die Liste, das Fenster für einen neuen Eintrag und einen geöffn
 
 #### Einen neuen Eintrag generieren
 
-- **Den Text einbringen.** *Neuer Eintrag generieren* öffnet ein Fenster, in das Sie eine .txt- oder .md-Datei ablegen (oder zum Auswählen klicken) oder den Text direkt einfügen. Diese Schaltfläche ist am PC verfügbar, nicht auf dem Android-Tablet.
+- **Den Text einbringen.** *Neuer Eintrag generieren* öffnet ein Fenster, in das Sie eine .txt- oder .md-Datei ablegen (oder zum Auswählen klicken) oder den Text direkt einfügen.
 - **Analysieren.** Ein Text im Format des Tagesprotokolls wird direkt in Tage aufgeteilt. Jeder andere Text kann an die externe KI übergeben werden, die Datum, Titel und die genannten Fälle findet; IRONSTICK fragt zuvor um Ihre Zustimmung. Lehnen Sie ab, erklärt ein Hinweis das erwartete Format.
 - **Vor dem Import prüfen.** Für jeden erkannten Tag sehen Sie eine Karte: Haken Sie sie an oder ab, korrigieren Sie das Datum und den Tagestitel, schalten Sie die zugeordneten Fälle ein oder aus und lesen Sie die gefundenen Ereignisse. Ein Badge *Merge* bedeutet, dass für dieses Datum bereits ein Protokoll existiert; der neue Text wird ihm hinzugefügt, nichts wird überschrieben.
 - **Importieren oder zurückgehen.** Die Import-Schaltfläche speichert die angehakten Tage; die linke Schaltfläche bringt Sie zum Text zurück. Vor der Analyse schließt *Verwerfen* das Fenster ohne Speichern.
@@ -1100,7 +1097,6 @@ Ein Klick öffnet das Dokument in der Textverarbeitung, die auf der rechten Seit
 - **Gruppen.** Hat ein Mandant, Fall oder Chronik-Eintrag mehrere Dokumente, werden sie in einer Zeile mit der Anzahl der Dokumente zusammengefasst. Klicken Sie auf die Zeile, um sie auf- oder zuzuklappen. Ein einzelnes Dokument wird direkt mit seinem Mandanten und Fall angezeigt.
 - **Aufruf aus der Suche.** Öffnen Sie einen Text aus den Suchergebnissen, klappt seine Gruppe auf, und das Dokument leuchtet einige Sekunden lang gelb auf.
 - **Immer aktuell.** Wenn Sie aus der Textverarbeitung zurückkehren, wird die Liste neu geladen und zeigt die neue Version.
-- **Nur am PC.** Die Textverarbeitung läuft auf dem Windows-PC. Auf dem Android-Tablet ist die Liste sichtbar, aber das Öffnen eines Dokuments zeigt stattdessen einen Hinweis.
 
 ### Bearbeiten, Vorlesen und Beilagen
 

@@ -26,7 +26,7 @@ Birçok simge yalnızca gösterilecek bir şey olduğunda görünür. Kırmızı
 5. **Günlük brifing (hoparlör).** Günlük brifingi istediğiniz zaman açar: bugün neler var (süreler, duruşmalar, randevular, e-postalar), bugün neler tamamlandı ve kısa bir geriye bakış. İlgili ekranı açmak için bir satıra tıklayın, örneğin süreleri, takvimi, e-posta monitörünü veya davayı. *Sesli oku* sesli sürümü oynatır, *Durdur* ise sonlandırır. Bir anahtar yalnızca sesli metnin üslubunu değiştirir. Son yedeğiniz beş günden eskiyse brifing sizi uyarır.
 6. **Veri tutarlılığı monitörü.** IRONSTICK uygulamasının e-postalarınızda bulduğu, müvekkil ve iletişim verilerinize ilişkin değişiklik önerilerinin listesini açar. Her öneri için *İzin ver* veya *Reddet* seçeneğini belirlersiniz. Bekleyen bir şey yoksa simge gri, öneriler varsa kırmızıdır. Ulusal bir mahkeme portalı yeni davalar önerdiğinde de simge hareketlidir (ülkeye özgü işlev).
 7. **E-posta.** Yalnızca yapılandırmada arka planda e-posta denetimi açıksa görünür. Gri, yeni e-posta olmadığı anlamına gelir. Kırmızı ve hareketli olması yeni e-postaların geldiği anlamına gelir; araç ipucu kaç tane olduğunu gösterir. Her şeyin görülmüş sayıldığı e-posta monitörünü açmak için tıklayın.
-8. **Yapay zekâ sohbeti (robot).** Yapay zekâ sohbetini açmak için tıklayın. Windows'ta kendi penceresinde açılır. Bir davada veya bir müvekkilin sayfasındaysanız, küçük mor bir nokta sohbetin bu davayı veya müvekkili zaten tanıdığını gösterir. Konuşma tanımayı açmak veya kapatmak için sağ tıklayın (tablette: basılı tutun). Açık olduğu sürece robot hareket eder, sohbet sizi dinler ve sesli yanıt verir. Harici bir masaüstü yapay zekâsı IRONSTICK ile bağlı olduğu sürece robot gizlenir. Tablette internet bağlantısı yoksa soluk görünür.
+8. **Yapay zekâ sohbeti (robot).** Yapay zekâ sohbetini açmak için tıklayın. Windows'ta kendi penceresinde açılır. Bir davada veya bir müvekkilin sayfasındaysanız, küçük mor bir nokta sohbetin bu davayı veya müvekkili zaten tanıdığını gösterir. Konuşma tanımayı açmak veya kapatmak için sağ tıklayın. Açık olduğu sürece robot hareket eder, sohbet sizi dinler ve sesli yanıt verir. Harici bir masaüstü yapay zekâsı IRONSTICK ile bağlı olduğu sürece robot gizlenir.
 9. **Sunucu sohbeti.** Yalnızca IRONSTICK SERVER bağlıyken görünür. Sunucunun diğer kullanıcılarıyla bir sohbet açar. Yeşil nokta kullanıcının çevrim içi, kırmızı ise çevrim dışı olduğunu gösterir. Kendi mesajlarınızı silebilirsiniz; bir anahtar sohbetin sesini kapatır, böylece artık kendiliğinden açılmaz. Okunmamış bir mesaj olduğunda simge kırmızı olur ve hareketlenir.
 10. **Süre zili.** En az bir sürenin bugün dolduğu veya geçtiği durumlarda kırmızıdır. Önümüzdeki on gün içinde dolacak süreler varsa turuncudur. Bekleyen bir şey yoksa gridir. Sayıyı görmek için imleci zilin üzerine getirin. Ulusal bir mahkeme portalından alınan bir duruşma bugün için planlanmışsa zil de hareketlenir (ülkeye özgü işlev). Bir tıklama her zaman süre genel bakışını açar.
 11. **Güç düğmesi.** IRONSTICK uygulamasını onay sormadan anında kapatır. Geçici dosyalarını ve tarayıcı önbelleğini siler; IRONSTICK uygulamasını ve başlattığı tüm işlemleri sonlandırır.
@@ -52,7 +52,6 @@ Birçok simge yalnızca gösterilecek bir şey olduğunda görünür. Kırmızı
 
 - **Pencereyi taşıma.** PC'de, program penceresini taşımak için menü çubuğunun herhangi bir boş alanını sürükleyin; tıpkı normal pencere başlık çubuğu gibi.
 - **Uzun kaydetme işlemlerinde kilitli.** Uzun bir kaydetme işlemi sürerken menü çubuğu ve gezinti yolu soluk görünür ve tepki vermez; geri de dönemezsiniz. İlerlemeyi takip edebilmeniz için alttaki ekran görünür kalır.
-- **Android tablette.** Çubuğun ortasında program adı yerine kırmızı bir *DESTROY* düğmesi bulunur. Onaydan sonra tüm IRONSTICK verilerini tabletten kalıcı olarak siler, uygulamanın kaldırılmasını başlatır ve uygulamayı kapatır. Bu işlem geri alınamaz. Tablette günlük brifing ve kaynak göstergesi yoktur.
 
 ## 1. Ana menü
 
@@ -76,7 +75,7 @@ Ana menü, IRONSTICK kilidini açtıktan sonraki ilk ekrandır. Üstte üç sekm
 - **Kutucukları dilediğiniz gibi düzenleme.** Bir kutucuğu tutamağından tutarak yeni bir konuma sürükleyin. Sıralama bu bilgisayarda kaydedilir.
 - **Etiketler ve güvenlik.** Etiketler kutucuğu renkli etiketlerinizi gösterir ve etiket yönetimini açar. Güvenlik kutucuğu bu bilgisayarın durumunu (sistem, sürücüler, ağ) gösterir ve yapılandırmayı açar.
 - **Ses.** Ses kutucuğu, mevcut kayıtlar için ses kesme aracını açar; ikinci bağlantısı yapay zekâ transkripsiyonuyla canlı bir kayıt başlatır.
-- **Yalnızca gerektiğinde görünen kutucuklar.** *Sunucu davaları* yalnızca IRONSTICK SERVER bağlıyken görünür. Ülkeye özgü kutucuklar yalnızca bu işlevler açıksa görünür. PC gerektiren bazı kutucuklar (örneğin belge yakalama ve metin işleme) Android tablette gösterilmez.
+- **Yalnızca gerektiğinde görünen kutucuklar.** *Sunucu davaları* yalnızca IRONSTICK SERVER bağlıyken görünür. Ülkeye özgü kutucuklar yalnızca bu işlevler açıksa görünür.
 
 #### Ajanda sekmesi
 
@@ -122,7 +121,6 @@ Program sürümü ve lisans anahtarı sayfanın sonunda yer alır.
 - **Şu anda kullanılan.** Gri bir alan, IRONSTICK uygulamasının şu anda çalıştığı klasörü gösterir. Tüm veriler bu tek klasörde bulunur: veritabanı, lisans, yapılandırma ve her dosya.
 - **Depolama konumunu değiştirme (PC).** *Klasör seç* ile yeni bir depolama konumu seçersiniz; örneğin bir USB bellek veya başka bir sürücü. *IRONSTICK* klasörü orada otomatik olarak oluşturulur. Taşımayı başlatmak için *Kaydet* düğmesine tıklayın. IRONSTICK önce ne kadar verinin taşınacağını size bildirir. Ardından seçilen sürücüyü test eder (örneğin hız, boş alan ve yazma koruması) ve yalnızca sürücü testi geçerse devam eder. Onayladığınızda IRONSTICK kapanır ve verileri bir sonraki açılışta taşır.
 - **Veriler zaten yeni konumda.** Seçilen klasörde zaten IRONSTICK verileri varsa, size sorulmadan hiçbir şeyin üzerine yazılmaz. İki kopya karşılaştırılır ve orada bulunan kopyanın mı kullanılacağını yoksa mevcut verilerinizle mi değiştirileceğini siz seçersiniz.
-- **Android tablette.** Veri klasörü sabittir (USB senkronizasyonunun kopyaladığı klasördür), bu nedenle orada seçilecek bir şey yoktur.
 
 **Kullanıcı (yalnızca PC)**
 
@@ -217,7 +215,7 @@ IRONSTICK SERVER bağlantısı ve imza alanı.
 **Oturum açma günlüğü ve sürüm**
 
 - **Oturum açma günlüğü.** Son kart, en yenisi önce olmak üzere son 50 oturum açmayı listeler: zaman, kullanıcı numarası, harici ve dahili IP adresi, konum, ülke, cihaz, işletim sistemi, tarayıcı ve bir güvenlik değerlendirmesi. Metni seçebilir veya tablonun tamamını kopyalama simgesiyle kopyalayabilirsiniz.
-- **Sürüm.** Sayfanın sonundaki satır, veri klasörünüzde bulunan Windows programının ve Android uygulamasının sürümünü gösterir.
+- **Sürüm.** Sayfanın sonundaki satır, veri klasörünüzde bulunan Windows programının sürümünü gösterir.
 - **Lisans anahtarı (PC).** Yeni veya uzatılmış bir anahtar girmek için *Lisans anahtarı* seçeneğine, ardından *Etkinleştir* düğmesine tıklayın. Anahtar geçersizse, süresi dolmuşsa, henüz geçerli değilse veya başka bir kullanıcıya aitse nedeni size bildirilir. *Lisans anahtarı iste* hazır bir talep hazırlar. Etkinleştirmeden sonra, gösterilen QR kodunu tarayarak kimlik doğrulama uygulamanızı yeniden kurarsınız ve lisanslı modüller anında etkinleşir.
 
 ## 3. Müvekkiller
@@ -254,7 +252,7 @@ Görselde ayrıca WhatsApp simgesiyle açılan QR kodu penceresi ve sosyal medya
 
 - **Davaları açma.** Bu müvekkilin dava listesini açmak için bir satırın herhangi bir yerine tıklayın.
 - **QR kodu ile arama, WhatsApp veya e-posta.** Telefon numarasına, yeşil WhatsApp simgesine veya e-posta adresine tıklayın. Bir pencere, arama yapmak, WhatsApp'ı açmak veya e-posta yazmak için telefonunuzla tarayabileceğiniz bir QR kodu gösterir. QR koduna tıklamak bu bilgisayarda ilgili programı açar; böyle bir program yoksa değer panoya kopyalanır.
-- **Sosyal medya.** *Sosyal* sütunundaki mavi simge yalnızca profiller kayıtlıysa görünür. Facebook, Instagram, TikTok, LinkedIn ve X'teki profilleri içeren bir pencere açar. Açma simgesi profili IRONSTICK tarayıcı penceresinde (tablette: sistem tarayıcısında) gösterir; kopyalama düğmesi adresi kopyalar.
+- **Sosyal medya.** *Sosyal* sütunundaki mavi simge yalnızca profiller kayıtlıysa görünür. Facebook, Instagram, TikTok, LinkedIn ve X'teki profilleri içeren bir pencere açar. Açma simgesi profili IRONSTICK tarayıcı penceresinde gösterir; kopyalama düğmesi adresi kopyalar.
 - **Referans numarasını kopyalama.** Mor *@C* numarasına tıklamak onu kopyalar; örneğin bir sohbete veya belgeye yapıştırmak için.
 - **Müvekkil silme.** X bir onay penceresi açar. Müvekkilin hâlâ davaları, belgeleri veya dava bağlantıları varsa, sarı bir uyarı bunları onaydan önce listeler. Yapay zekânın bu müvekkil hakkında hafızasına aldığı notlar da kaldırılır.
 
@@ -455,7 +453,7 @@ Görseldeki her çizgi, bir sekmeden onun açtığı görünüme uzanır.
 **Bağlantılar**
 
 - **İlişki diyagramı.** Davanın kişilerini ve kurumlarını ve bunların nasıl bağlantılı olduğunu bir veya birden fazla sayfada gösterir; başlık satırı varlıkları ve bağlantıları sayar. Çok sayıda olduğunda en acil olanlar gösterilir.
-- **Diyagramla çalışma.** Büyüteç düğmeleriyle yakınlaştırıp uzaklaştırın. Bir kişiyi veya kurumu açmak için adına tıklayın. *Duvar kâğıdı* diyagramı büyük bir poster PDF'si olarak indirir; *Yakala* onu belge yakalamaya aktarır ve orada bir davaya atarsınız. Bu iki dışa aktarma düğmesinin hiçbiri Android tablette kullanılamaz.
+- **Diyagramla çalışma.** Büyüteç düğmeleriyle yakınlaştırıp uzaklaştırın. Bir kişiyi veya kurumu açmak için adına tıklayın. *Duvar kâğıdı* diyagramı büyük bir poster PDF'si olarak indirir; *Yakala* onu belge yakalamaya aktarır ve orada bir davaya atarsınız.
 
 **Harita**
 
@@ -491,7 +489,7 @@ Görselin altındaki büyütülmüş satır, tek bir kaydın bölümlerini göst
 
 1. **Notlar.** Davanın pano sayfasını açar. Kendi notlarınız sarıdır, paylaşılan bir davanın abonelerine ait notlar beyaz kartlardır ve yapay zekânın bu dava için hafızasına aldığı notlar kareli kâğıt üzerinde görünür. Not yazmak için *Yeni not* düğmesine tıklayın (en fazla 1.000 karakter, isteğe bağlı olarak tarihli); düzenlemek için sarı bir nota, tamamını okumak için herhangi bir nota tıklayın; her notta kopyalama ve silme için küçük düğmeler bulunur.
 2. **Dosya derlemesi.** Davanın eksiksiz bir dosya derlemesini oluşturan dosya derlemesi sihirbazını açar. Yalnızca kronolojide kayıt varsa görünür.
-3. **Metin yaz.** Yapay zekâ sohbetini bu dava için bir belge taslağı hazırlama isteğiyle açmak üzere *Yapay zekâ yardımıyla* seçeneğini veya metin işlemcide yazmak için *Boş metin belgesi* seçeneğini belirleyin. Android tablette görünmez.
+3. **Metin yaz.** Yapay zekâ sohbetini bu dava için bir belge taslağı hazırlama isteğiyle açmak üzere *Yapay zekâ yardımıyla* seçeneğini veya metin işlemcide yazmak için *Boş metin belgesi* seçeneğini belirleyin.
 4. **Bir tarihe atlama.** O tarihi içeren sayfaya gitmek için bir tarih seçin ve büyütece tıklayın.
 5. **Yeni kayıt.** Yeni bir kronoloji kaydı formunu açar.
 6. **Kayıt numarası ve tarih.** Mor numara kaydı tanımlar; üzerine tıklamak onu panoya kopyalar. Altında tarih ve girilmişse başlangıç–bitiş saati yer alır.
@@ -515,7 +513,7 @@ Görselin altındaki büyütülmüş satır, tek bir kaydın bölümlerini göst
 
 - **Sayfalar ve sıralama.** Liste sayfa başına 20 kayıt gösterir; birden fazla sayfa olduğunda sayfa düğmeleri listenin üstünde ve altında görünür. En yeni ve en eski önce sıralaması arasında geçiş yapmak için *Tarih* sütun başlığına tıklayın.
 - **Bir satırın size anlattıkları.** Başlığın altında açıklamayı, renkli etiketleri (ülke, hukuk alanı, aşama, turuncu IN veya yeşil OUT, kurum türü, dil, belge türü) ve ilgili kişileri görürsünüz.
-- **Bir kayıt için metin yazma.** Başlığın yanındaki kalem ve satırlardan oluşan küçük simge, tam olarak bu kayıt için *Metin yaz* işlevini başlatır; önündeki bir sayı, bu kayıt için daha önce yazılmış metinleri sayar. Android tablette görünmez.
+- **Bir kayıt için metin yazma.** Başlığın yanındaki kalem ve satırlardan oluşan küçük simge, tam olarak bu kayıt için *Metin yaz* işlevini başlatır; önündeki bir sayı, bu kayıt için daha önce yazılmış metinleri sayar.
 - **Süre sütunu.** Turuncu bir zil, kaydın süresinin 10 gün içinde dolacağını; kırmızı çalan bir zil ise sürenin geçtiğini gösterir. Kalan günleri veya tarihi görmek için imleci zilin üzerine getirin.
 - **Aramadan veya radardan gelme.** Davayı bir arama sonucundan veya ilgililik radarından açarsanız, kronoloji doğru sayfaya gider ve kayıt birkaç saniye boyunca sarı renkte parlar.
 
@@ -590,7 +588,7 @@ Kartın sağındaki mavi düğme **Kronoloji** görünümünü açar — görsel
 
 **Her satırdaki araçlar**
 
-- **Metin yaz.** Başlığın yanındaki not simgesi bir seçim açar: yapay zekâ yardımıyla bir mektup yazmak (sohbet, bu dava ve bu belge zaten referans alınmış olarak açılır) veya metin işlemcide boş bir metin belgesi açmak. Simgenin önündeki bir sayı, bu kayıt için kaç metnin zaten mevcut olduğunu gösterir. Android tablette kullanılamaz.
+- **Metin yaz.** Başlığın yanındaki not simgesi bir seçim açar: yapay zekâ yardımıyla bir mektup yazmak (sohbet, bu dava ve bu belge zaten referans alınmış olarak açılır) veya metin işlemcide boş bir metin belgesi açmak. Simgenin önündeki bir sayı, bu kayıt için kaç metnin zaten mevcut olduğunu gösterir.
 - **Belgeyi açma.** Ataş, belgeyi IRONSTICK tarayıcı penceresinde açar; dosya adını görmek için imleci üzerine getirin. Kaydın bir konumu varsa yeşil bir işaretçi görünür — konumu haritada görmek için üzerine tıklayın.
 - **Çalışma klasörleri.** Klasör simgesi belgeyi, bu davanın ait olduğu konuların çalışma klasörlerine dosyalar: bir klasörü işaretleyin veya işaretini kaldırın ya da yeni bir klasör oluşturun. Kayıt zaten dosyalanmışsa simge dolu bir klasör, araç ipucu ise klasör sayısını gösterir.
 - **İlgililik radarı.** Radar simgesi, bu davada ve diğer davalarda içerik bakımından en benzer kayıtları bulur. Kronolojide oraya gitmek için bir sonuca tıklayın.
@@ -604,7 +602,7 @@ Kartın sağındaki mavi düğme **Kronoloji** görünümünü açar — görsel
 - **Davanın seyrini okuma.** Diyagram, tüm gelen ve giden PDF belgelerini oklarla birbirine bağlı olarak zaman sırasına göre gösterir. Gönderdiğiniz belgelerin başlığı siyahtır, açık süresi olan belgelerin çerçevesi kalındır. Giden bir mektubun ekleri, yanında ayrı kutular olarak görünür.
 - **Bir kaydı açma.** Doğrudan o kayda gitmek için bir kutudaki altı çizili kayıt numarasına tıklayın.
 - **Yakınlaştırma ve kaydırma.** Yakınlaştırmak ve uzaklaştırmak için iki büyüteç düğmesini kullanın; uzun kronolojiler, aralarında kaydırarak gezindiğiniz birden fazla sayfaya yayılır.
-- **Belge olarak yakalama.** *Yakala*, diyagramdan bir PDF oluşturur ve belge yakalamayı açar; orada onu davaya atar ve diğer her belge gibi kaydedersiniz. Android tablette kullanılamaz; orada diyagram yalnızca görüntülenebilir. Diyagramı X ile kapatın.
+- **Belge olarak yakalama.** *Yakala*, diyagramdan bir PDF oluşturur ve belge yakalamayı açar; orada onu davaya atar ve diğer her belge gibi kaydedersiniz. Diyagramı X ile kapatın.
 
 ### Dosya derlemesi: kayıtları ve sayfaları seçme
 
@@ -762,7 +760,7 @@ ve bir satırın ağ simgesiyle açılan ilişki ağı görülmektedir.
 
 - **Kim kiminle bağlantılı.** Ağ, kişiyi veya şirketi ortada, doğrudan ilişkileri ve bu kişilerin ilişkileriyle (iki düzey) birlikte, bir veya birden fazla sayfada bir diyagram olarak gösterir.
 - **Ağ içinde gezinme.** Diyagramda başka bir kişiye, şirkete veya kuruma tıklayın: pencere bu tarafın çevresinde yeniden oluşturulur. Diyagramdaki sayfa referansları ilgili sayfaya atlar; büyüteç düğmeleri yakınlaştırır ve uzaklaştırır.
-- **Yakala.** Diyagramdan bir PDF oluşturur ve onu doğrudan *Belge yakala* ekranında açar; böylece olağan damgayla bir davaya dosyalayabilirsiniz. Bu düğme Android tablette kullanılamaz.
+- **Yakala.** Diyagramdan bir PDF oluşturur ve onu doğrudan *Belge yakala* ekranında açar; böylece olağan damgayla bir davaya dosyalayabilirsiniz.
 
 **Bir kişiyi kaydetme veya düzenleme**
 
@@ -1008,11 +1006,10 @@ Ayların altında seçilen gün için planlanan her şeyi görürsünüz. Görse
 - **Hazırlık klasörü.** Bir dava seçildiği anda, randevu için elinizin altında olmasını istediğiniz kronoloji kayıtlarını işaretleyin. Bunlar daha sonra *Hazırlanan belgeler* altında ve randevu PDF'sinde görünür.
 - **Kaydetme.** *Kaydet* (veya yeni bir kayıtta *Oluştur*) sizi randevunun tarihinde takvime geri götürür; *İptal* değişiklikleri atar.
 
-#### Dışa aktarma ve senkronizasyon
+#### Dışa aktarma
 
 - **Veri koruma uyarısı.** Program her başlatıldıktan sonraki ilk .ics dışa aktarmadan önce IRONSTICK, bu biçimdeki takvim kayıtlarının korumalı programdan çıktığını size hatırlatır. Devam etmek için *İleri* seçeneğini belirleyin.
 - **Dışa aktarma iletişim kutusu.** *İndir* dosyayı Belgeler klasörünüze kaydeder ve bu klasörü açar. *Google Drive* yalnızca bu bilgisayarda bir Google Drive klasörü varsa görünür ve dosyayı oraya kaydeder.
-- **Tablet takvimi.** Android tablette cihazın takvim hesabında IRONSTICK adlı bir takvim varsa, randevular iki yönlü eşitlenir; süreler ve duruşmalar oraya tek yönlü kopyalanır.
 
 ## 11. Süreler
 
@@ -1073,7 +1070,7 @@ Görselde liste, yeni bir kayıt penceresi ve o günün dava kronolojisiyle aç�
 
 #### Yeni bir kayıt oluşturma
 
-- **Metni getirme.** *Yeni kayıt oluştur*, bir .txt veya .md dosyası bıraktığınız (veya seçmek için tıkladığınız) ya da metni doğrudan yapıştırdığınız bir pencere açar. Bu düğme Android tablette değil, PC'de kullanılabilir.
+- **Metni getirme.** *Yeni kayıt oluştur*, bir .txt veya .md dosyası bıraktığınız (veya seçmek için tıkladığınız) ya da metni doğrudan yapıştırdığınız bir pencere açar.
 - **Analiz etme.** Günlük protokol biçimindeki bir metin doğrudan günlere bölünür. Diğer her metin, tarihi, başlığı ve anılan davaları bulan harici yapay zekâya aktarılabilir; IRONSTICK bundan önce onayınızı ister. Reddederseniz bir bilgi beklenen biçimi açıklar.
 - **İçe aktarmadan önce kontrol etme.** Tanınan her gün için bir kart görürsünüz: kartı işaretleyin veya işaretini kaldırın, tarihi ve gün başlığını düzeltin, atanan davaları açın veya kapatın ve bulunan olayları okuyun. *Merge* rozeti, bu tarih için zaten bir protokol bulunduğu anlamına gelir; yeni metin ona eklenir, hiçbir şeyin üzerine yazılmaz.
 - **İçe aktarma veya geri dönme.** İçe aktarma düğmesi işaretli günleri kaydeder; soldaki düğme sizi metne geri götürür. Analizden önce *Vazgeç* pencereyi kaydetmeden kapatır.
@@ -1100,7 +1097,6 @@ Bir tıklama, belgeyi görselin sağ tarafında görülen metin işlemcide açar
 - **Gruplar.** Bir müvekkilin, davanın veya kronoloji kaydının birden fazla belgesi varsa, bunlar belge sayısıyla birlikte tek bir satırda toplanır. Genişletmek veya daraltmak için satıra tıklayın. Tek bir belge, müvekkili ve davasıyla doğrudan gösterilir.
 - **Aramadan erişim.** Arama sonuçlarından bir metin açarsanız grubu genişler ve belge birkaç saniye boyunca sarı renkte parlar.
 - **Her zaman güncel.** Metin işlemciden döndüğünüzde liste yeniden yüklenir ve yeni sürümü gösterir.
-- **Yalnızca PC'de.** Metin işlemci Windows PC'de çalışır. Android tablette liste görünür, ancak bir belgeyi açmak bunun yerine bir bilgi gösterir.
 
 ### Düzenleme, sesli okuma ve ekler
 

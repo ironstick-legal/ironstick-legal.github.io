@@ -26,7 +26,7 @@ Molti simboli compaiono solo quando c'è qualcosa da mostrare. Un simbolo rosso 
 5. **Briefing giornaliero (altoparlante).** Apre il briefing giornaliero in qualsiasi momento: cosa La aspetta oggi (termini, udienze, appuntamenti, e-mail), cosa è già stato fatto oggi e una breve retrospettiva. Faccia clic su una riga per aprire la schermata corrispondente, per esempio i termini, il calendario, il Monitor e-mail o il caso. *Leggi ad alta voce* riproduce la versione parlata e *Ferma* la interrompe. Un interruttore cambia solo lo stile del testo parlato. Se l'ultimo backup risale a più di cinque giorni fa, il briefing La avverte.
 6. **Monitor di coerenza dei dati.** Apre l'elenco delle modifiche proposte ai dati dei Suoi clienti e contatti che IRONSTICK ha trovato nelle Sue e-mail. Per ogni proposta scelga *Consenti* o *Rifiuta*. Il simbolo è grigio quando nulla è in attesa e rosso quando ci sono proposte. È animato anche quando un portale giudiziario nazionale ha proposto nuovi casi (funzione specifica per paese).
 7. **E-mail.** Visibile solo quando il controllo e-mail in background è attivato nella configurazione. Grigio significa nessuna nuova e-mail. Rosso e animato significa che sono arrivate nuove e-mail, e il tooltip mostra quante. Faccia clic per aprire il Monitor e-mail, dove tutto conta come visto.
-8. **Chat IA (robot).** Faccia clic per aprire la chat IA. Su Windows si apre in una finestra propria. Se si trova all'interno di un caso o di un cliente, un piccolo punto viola indica che la chat conosce già questo caso o questo cliente. Faccia clic con il tasto destro (o tenga premuto sul tablet) per attivare o disattivare il riconoscimento vocale. Finché è attivo, il robot si muove e la chat ascolta e risponde ad alta voce. Il robot è nascosto mentre un'IA desktop esterna è collegata a IRONSTICK. Sul tablet è disattivato (grigio) quando non c'è internet.
+8. **Chat IA (robot).** Faccia clic per aprire la chat IA. Su Windows si apre in una finestra propria. Se si trova all'interno di un caso o di un cliente, un piccolo punto viola indica che la chat conosce già questo caso o questo cliente. Faccia clic con il tasto destro per attivare o disattivare il riconoscimento vocale. Finché è attivo, il robot si muove e la chat ascolta e risponde ad alta voce. Il robot è nascosto mentre un'IA desktop esterna è collegata a IRONSTICK.
 9. **Chat del server.** Compare solo quando è collegato IRONSTICK SERVER, il server di studio. Apre una chat con gli altri utenti del server. Un punto verde significa che l'utente è online e rosso che è offline. Può eliminare i Suoi messaggi e un interruttore silenzia la chat in modo che non compaia più da sola. Il simbolo diventa rosso e animato quando c'è un messaggio non letto.
 10. **Campanella dei termini.** Rossa quando almeno un termine scade oggi o è scaduto. Arancione quando ci sono termini in scadenza nei prossimi dieci giorni. Grigia quando nulla è in sospeso. Passi il puntatore sulla campanella per vedere il numero. La campanella è animata anche quando un'udienza recuperata da un portale giudiziario nazionale è fissata per oggi (funzione specifica per paese). Un clic apre sempre la panoramica dei termini.
 11. **Pulsante di spegnimento.** Chiude IRONSTICK immediatamente, senza richiesta di conferma. Elimina i propri file temporanei e la cache del browser e termina IRONSTICK e tutti i processi da esso avviati.
@@ -52,7 +52,6 @@ Molti simboli compaiono solo quando c'è qualcosa da mostrare. Un simbolo rosso 
 
 - **Spostare la finestra.** Sul PC, trascini qualsiasi area vuota della barra dei menu per spostare la finestra del programma, proprio come la normale barra del titolo della finestra.
 - **Bloccata durante i salvataggi lunghi.** Mentre è in corso un salvataggio lungo, la barra dei menu e il breadcrumb sono in grigio e non reagiscono, e non può tornare indietro. La schermata sottostante resta visibile così può seguire l'avanzamento.
-- **Sul tablet Android.** Al centro della barra c'è un pulsante rosso *DESTROY* al posto del nome del programma. Dopo una conferma elimina definitivamente tutti i dati di IRONSTICK dal tablet, avvia la disinstallazione dell'app e la chiude. Non può essere annullato. Il tablet non ha briefing giornaliero né indicatore delle risorse.
 
 ## 1. Menu principale
 
@@ -76,7 +75,7 @@ e **Heatmap** mostra quanto è stata attiva la Sua attività negli ultimi dodici
 - **Disporre i riquadri a modo Suo.** Trascini un riquadro dalla sua maniglia in una nuova posizione. L'ordine viene ricordato su questo computer.
 - **Tag e sicurezza.** Il riquadro dei tag mostra i Suoi tag colorati e apre la gestione dei tag. Il riquadro della sicurezza mostra lo stato di questo computer (sistema, unità, rete) e apre la configurazione.
 - **Audio.** Il riquadro audio apre il taglierino audio per le registrazioni che ha già; il suo secondo link avvia una registrazione dal vivo con trascrizione IA.
-- **Riquadri che compaiono solo quando pertinenti.** *Fascicoli del server* compare solo quando è collegato IRONSTICK SERVER. I riquadri specifici per paese compaiono solo quando quelle funzioni sono attivate. Alcuni riquadri che richiedono un PC (per esempio l'acquisizione dei documenti e la videoscrittura) non vengono mostrati sul tablet Android.
+- **Riquadri che compaiono solo quando pertinenti.** *Fascicoli del server* compare solo quando è collegato IRONSTICK SERVER. I riquadri specifici per paese compaiono solo quando quelle funzioni sono attivate.
 
 #### Scheda Agenda
 
@@ -122,7 +121,6 @@ La versione del programma e la chiave di licenza si trovano in fondo alla pagina
 - **Attualmente in uso.** Un riquadro grigio mostra la cartella con cui IRONSTICK sta lavorando in questo momento. Tutti i dati si trovano in quest'unica cartella: database, licenza, configurazione e ogni file.
 - **Cambiare il percorso di archiviazione (PC).** Usi *Scegli cartella* per selezionare un nuovo percorso, come una chiavetta USB o un'altra unità. La cartella *IRONSTICK* viene creata lì automaticamente. Faccia clic su *Salva* per avviare lo spostamento. IRONSTICK Le dice prima quanti dati verranno spostati. Poi verifica l'unità scelta (per esempio velocità, spazio libero e protezione da scrittura) e prosegue solo se l'unità supera il controllo. Se conferma, IRONSTICK si chiude e sposta i dati al successivo avvio.
 - **Dati già presenti nel nuovo percorso.** Se la cartella scelta contiene già dati di IRONSTICK, nulla viene sovrascritto senza chiedere. Le due copie vengono confrontate e sceglie se usare la copia trovata lì o sostituirla con i Suoi dati attuali.
-- **Sul tablet Android.** La cartella dei dati è fissa (è la cartella in cui copia la sincronizzazione USB), quindi non c'è nulla da scegliere.
 
 **Utente (solo PC)**
 
@@ -217,7 +215,7 @@ In **Firme** memorizza la Sua firma autografa, che IRONSTICK può inserire nei S
 **Registro degli accessi e versione**
 
 - **Registro degli accessi.** L'ultima scheda elenca gli ultimi 50 accessi, dal più recente: ora, numero utente, indirizzo IP esterno e interno, luogo, paese, dispositivo, sistema operativo, browser e una valutazione di sicurezza. Può selezionare il testo, oppure copiare l'intera tabella con il simbolo di copia.
-- **Versione.** La riga in fondo alla pagina mostra la versione del programma Windows e dell'app Android memorizzata nella Sua cartella dei dati.
+- **Versione.** La riga in fondo alla pagina mostra la versione del programma Windows.
 - **Chiave di licenza (PC).** Faccia clic su *Chiave di licenza* per inserire una chiave nuova o rinnovata e faccia clic su *Attiva*. Se la chiave non è valida, è scaduta, non è ancora valida o appartiene a un altro utente, Le viene detto perché. *Richiedi chiave di licenza* prepara una richiesta già pronta. Dopo l'attivazione configura di nuovo la Sua app di autenticazione scansionando il codice QR mostrato, e i moduli con licenza vengono sbloccati subito.
 
 ## 3. Clienti
@@ -254,7 +252,7 @@ L'immagine mostra anche la finestra del codice QR che si apre dal simbolo di Wha
 
 - **Aprire i casi.** Faccia clic in un punto qualsiasi di una riga per aprire l'elenco dei casi di quel cliente.
 - **Chiamare, WhatsApp o e-mail tramite codice QR.** Faccia clic sul numero di telefono, sul simbolo verde di WhatsApp o sull'indirizzo e-mail. Una finestra mostra un codice QR che può scansionare con il telefono per chiamare, aprire WhatsApp o scrivere un'e-mail. Un clic sul codice QR apre il programma corrispondente su questo computer; se non ce n'è nessuno, il valore viene copiato negli appunti.
-- **Social media.** Il simbolo blu nella colonna *Social* compare solo quando sono registrati dei profili. Apre una finestra che elenca i profili Facebook, Instagram, TikTok, LinkedIn e X. Il simbolo di apertura mostra il profilo nella finestra del browser IRONSTICK (sul tablet: nel browser di sistema); il pulsante di copia copia l'indirizzo.
+- **Social media.** Il simbolo blu nella colonna *Social* compare solo quando sono registrati dei profili. Apre una finestra che elenca i profili Facebook, Instagram, TikTok, LinkedIn e X. Il simbolo di apertura mostra il profilo nella finestra del browser IRONSTICK; il pulsante di copia copia l'indirizzo.
 - **Copiare il numero di riferimento.** Un clic sul numero viola *@C* lo copia, per esempio per incollarlo in una chat o in un documento.
 - **Eliminare un cliente.** La X apre una conferma. Se il cliente ha ancora casi, documenti o collegamenti di caso, un avviso giallo li elenca prima che Lei confermi. Anche gli appunti che l'IA ha memorizzato su questo cliente vengono rimossi.
 
@@ -455,7 +453,7 @@ Ogni linea nell'immagine rimanda da una scheda alla vista che essa apre.
 **Collegamenti**
 
 - **Grafico delle relazioni.** Mostra le persone e le istituzioni del caso e come sono collegate, su una o più pagine; l'intestazione conta entità e collegamenti. Quando sono molti, vengono mostrati i più urgenti.
-- **Lavorare con il grafico.** Ingrandisca e riduca con i pulsanti della lente. Clicchi su un nome per aprire quella persona o istituzione. *Wallpaper* scarica il grafico come PDF in formato poster; *Acquisisci* lo passa all'acquisizione dei documenti, dove lo assegna a un caso. Nessuno dei due pulsanti di esportazione è disponibile sul tablet Android.
+- **Lavorare con il grafico.** Ingrandisca e riduca con i pulsanti della lente. Clicchi su un nome per aprire quella persona o istituzione. *Wallpaper* scarica il grafico come PDF in formato poster; *Acquisisci* lo passa all'acquisizione dei documenti, dove lo assegna a un caso.
 
 **Mappa**
 
@@ -491,7 +489,7 @@ La riga ingrandita in fondo all'immagine mostra le parti di una singola voce.
 
 1. **Note.** Apre la bacheca del caso. Le Sue note sono gialle, le note degli abbonati di un caso condiviso sono schede bianche e le note che l'IA ha memorizzato per questo caso compaiono su carta quadrettata. Clicchi su *Nuova nota* per scriverne una (fino a 1.000 caratteri, facoltativamente con una data), clicchi su una nota gialla per modificarla, su qualsiasi nota per leggerla per intero; ognuna ha piccoli pulsanti per copiare ed eliminare.
 2. **Dossier.** Apre l'assistente del dossier, che crea un dossier completo del caso. Compare solo quando la Cronaca contiene voci.
-3. **Redigi testo.** Scelga *Con l'aiuto dell'IA* per aprire la chat IA con la richiesta di redigere un documento per questo caso, oppure *Documento di testo vuoto* per iniziare a scrivere nel programma di videoscrittura. Non mostrato sul tablet Android.
+3. **Redigi testo.** Scelga *Con l'aiuto dell'IA* per aprire la chat IA con la richiesta di redigere un documento per questo caso, oppure *Documento di testo vuoto* per iniziare a scrivere nel programma di videoscrittura.
 4. **Andare a una data.** Scelga una data e clicchi sulla lente per andare alla pagina che la contiene.
 5. **Nuova voce.** Apre il modulo per una nuova voce di cronaca.
 6. **Numero e data della voce.** Il numero viola identifica la voce; lo clicchi per copiarlo negli appunti. Sotto ci sono la data e, se registrato, l'orario dalle–alle.
@@ -515,7 +513,7 @@ La riga ingrandita in fondo all'immagine mostra le parti di una singola voce.
 
 - **Pagine e ordinamento.** L'elenco mostra 20 voci per pagina; i pulsanti delle pagine compaiono sopra e sotto l'elenco quando c'è più di una pagina. Clicchi sull'intestazione della colonna *Data* per passare dalle più recenti alle più vecchie per prime e viceversa.
 - **Cosa Le dice una riga.** Sotto il titolo vede la descrizione, le etichette colorate (paese, materia, stadio, IN in arancione o OUT in verde, tipo di istituzione, lingua, tipo di documento) e le persone coinvolte.
-- **Scrivere un testo su una voce.** Il piccolo simbolo matita-con-righe accanto al titolo avvia *Redigi testo* per questa voce in particolare; un numero davanti conta i testi già scritti su di essa. Non mostrato sul tablet Android.
+- **Scrivere un testo su una voce.** Il piccolo simbolo matita-con-righe accanto al titolo avvia *Redigi testo* per questa voce in particolare; un numero davanti conta i testi già scritti su di essa.
 - **Colonna dei termini.** Una campanella arancione significa che il termine della voce scade entro 10 giorni, una campanella rossa che suona che è scaduto. Puntando sulla campanella vede i giorni rimanenti o la data.
 - **Provenienza da ricerca o radar.** Quando apre il caso da un risultato di ricerca o dal radar di rilevanza, la Cronologia va alla pagina giusta e la voce si illumina di giallo per alcuni secondi.
 
@@ -590,7 +588,7 @@ Il pulsante blu a destra della scheda apre la **cronologia** — i documenti in 
 
 **Strumenti in ogni riga**
 
-- **Redigi testo.** L'icona della nota accanto al titolo apre una scelta: scrivere una lettera con l'aiuto dell'IA (la chat si apre con questo caso e questo documento già indicati) oppure aprire un documento di testo vuoto nel programma di videoscrittura. Un numero davanti all'icona mostra quanti testi esistono già per questa voce. Non disponibile sul tablet Android.
+- **Redigi testo.** L'icona della nota accanto al titolo apre una scelta: scrivere una lettera con l'aiuto dell'IA (la chat si apre con questo caso e questo documento già indicati) oppure aprire un documento di testo vuoto nel programma di videoscrittura. Un numero davanti all'icona mostra quanti testi esistono già per questa voce.
 - **Apri il documento.** La graffetta apre il documento nella finestra del browser di IRONSTICK; la punti per vedere il nome del file. Compare un segnaposto verde quando la voce ha un luogo — lo clicchi per vedere il luogo su una mappa.
 - **Cartelle di lavoro.** L'icona della cartella archivia il documento nelle cartelle di lavoro delle fattispecie a cui appartiene questo caso: spunti o tolga la spunta a una cartella, oppure crei una nuova cartella. Quando la voce è già archiviata, l'icona mostra una cartella piena e il suo tooltip il numero di cartelle.
 - **Radar di rilevanza.** L'icona del radar trova le voci più simili nel contenuto, in questo caso e in altri casi. Clicchi su un risultato per saltarvi nella cronaca.
@@ -604,7 +602,7 @@ Il pulsante blu a destra della scheda apre la **cronologia** — i documenti in 
 - **Leggere l'andamento del caso.** Il grafico mostra tutti i documenti PDF in entrata e in uscita in ordine di data, collegati da frecce. I documenti che ha inviato hanno un'intestazione nera, i documenti con un termine aperto una cornice spessa. Gli allegati di una lettera in uscita compaiono come riquadri separati accanto ad essa.
 - **Aprire una voce.** Clicchi sul numero di voce sottolineato in un riquadro per andare direttamente a quella voce.
 - **Zoom e scorrimento.** Usi i due pulsanti della lente per ingrandire e ridurre; le cronologie lunghe si estendono su più pagine che scorre.
-- **Acquisire come documento.** *Acquisisci* trasforma il grafico in un PDF e apre l'acquisizione dei documenti, dove lo assegna al caso e lo salva come qualsiasi altro documento. Non disponibile sul tablet Android, dove il grafico può solo essere visualizzato. Chiuda il grafico con la X.
+- **Acquisire come documento.** *Acquisisci* trasforma il grafico in un PDF e apre l'acquisizione dei documenti, dove lo assegna al caso e lo salva come qualsiasi altro documento. Chiuda il grafico con la X.
 
 ### Dossier: scelta di voci e pagine
 
@@ -762,7 +760,7 @@ e la rete di relazioni che si apre dall'icona della rete di una riga.
 
 - **Chi è collegato a chi.** La rete mostra la persona o società al centro con le sue relazioni dirette e le relazioni di quei contatti (due livelli), come grafico su una o più pagine.
 - **Muoversi nella rete.** Clicchi su un'altra persona, società o istituzione nel grafico: la finestra si ricostruisce attorno a quella parte. I riferimenti di pagina nel grafico saltano alla pagina corrispondente; i pulsanti della lente ingrandiscono e riducono.
-- **Acquisisci.** Trasforma il grafico in un PDF e lo apre direttamente in *Acquisisci il documento*, così può archiviarlo in un caso con il consueto timbro. Questo pulsante non è disponibile sul tablet Android.
+- **Acquisisci.** Trasforma il grafico in un PDF e lo apre direttamente in *Acquisisci il documento*, così può archiviarlo in un caso con il consueto timbro.
 
 **Inserire o modificare una persona**
 
@@ -1008,11 +1006,10 @@ Sotto i mesi vede tutto ciò che è previsto per il giorno selezionato. L'immagi
 - **Cartella di preparazione.** Una volta scelto un caso, spunti le voci della cronaca che desidera avere a portata di mano per l'appuntamento. Compaiono poi sotto *Documenti preparati* e nel PDF dell'appuntamento.
 - **Salva.** *Salva* (o *Crea* per una nuova voce) La riporta al calendario alla data dell'appuntamento; *Annulla* scarta le modifiche.
 
-#### Esportazione e sincronizzazione
+#### Esportazione
 
 - **Avviso sulla privacy.** Prima della prima esportazione .ics dopo ogni avvio del programma, IRONSTICK Le ricorda che le voci del calendario lasciano il programma protetto in questo formato. Scelga *Continua* per proseguire.
 - **Finestra di esportazione.** *Scarica* salva il file nella Sua cartella Documenti e apre quella cartella. *Google Drive* compare solo quando su questo computer esiste una cartella Google Drive e vi salva il file.
-- **Calendario del tablet.** Sul tablet Android, se nell'account di calendario del dispositivo esiste un calendario chiamato IRONSTICK, gli appuntamenti vengono mantenuti allineati in entrambe le direzioni; termini e udienze vi vengono copiati in una sola direzione.
 
 ## 11. Termini
 
@@ -1073,7 +1070,7 @@ L'immagine mostra l'elenco, la finestra per una nuova voce e un giorno aperto co
 
 #### Generare una nuova voce
 
-- **Portare il testo.** *Genera nuova voce* apre una finestra in cui trascina un file .txt o .md (o clicca per sceglierne uno) oppure incolla direttamente il testo. Questo pulsante è disponibile sul PC, non sul tablet Android.
+- **Portare il testo.** *Genera nuova voce* apre una finestra in cui trascina un file .txt o .md (o clicca per sceglierne uno) oppure incolla direttamente il testo.
 - **Analizzare.** Un testo nel formato del diario giornaliero viene suddiviso direttamente in giorni. Qualsiasi altro testo può essere affidato all'IA esterna, che individua data, titolo e casi menzionati; IRONSTICK chiede prima il Suo consenso. Se rifiuta, un suggerimento spiega il formato previsto.
 - **Controllare prima di importare.** Per ogni giorno riconosciuto vede una scheda: la spunti o la deselezioni, corregga la data e il titolo del giorno, attivi o disattivi i casi assegnati e legga gli eventi trovati. Un badge *Unione* significa che per quella data esiste già un diario; il nuovo testo vi viene aggiunto, nulla viene sovrascritto.
 - **Importare o tornare indietro.** Il pulsante di importazione salva i giorni spuntati; il pulsante di sinistra La riporta al testo. Prima dell'analisi, *Scarta* chiude la finestra senza salvare.
@@ -1100,7 +1097,6 @@ Un clic apre il documento nell'elaboratore di testi, mostrato a destra nell'imma
 - **Gruppi.** Quando un cliente, un caso o una voce della cronaca ha più documenti, essi sono racchiusi in un'unica riga con il numero di documenti. Clicchi sulla riga per aprirla o chiuderla. Un singolo documento viene mostrato direttamente con il suo cliente e caso.
 - **Arrivo dalla ricerca.** Quando apre un testo dai risultati della ricerca, il suo gruppo si apre e il documento si illumina di giallo per qualche secondo.
 - **Sempre aggiornato.** Quando torna dall'elaboratore di testi, l'elenco si ricarica e mostra la nuova versione.
-- **Solo PC.** L'elaboratore di testi funziona sul PC Windows. Sul tablet Android l'elenco è visibile, ma l'apertura di un documento mostra un avviso.
 
 ### Modifica, lettura ad alta voce e allegati
 

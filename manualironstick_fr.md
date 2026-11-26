@@ -26,7 +26,7 @@ De nombreux symboles n'apparaissent que lorsqu'il y a quelque chose à afficher.
 5. **Briefing quotidien (haut-parleur).** Ouvre à tout moment le briefing quotidien : ce qui vous attend aujourd'hui (délais, audiences, rendez-vous, e-mails), ce qui a déjà été fait aujourd'hui, et un bref regard en arrière. Cliquez sur une ligne pour ouvrir l'écran correspondant, par exemple les délais, le calendrier, le Moniteur d'e-mails ou le dossier. *Lire à voix haute* lance la version parlée et *Arrêter* l'interrompt. Un interrupteur change uniquement le style du texte parlé. Si votre dernière sauvegarde date de plus de cinq jours, le briefing vous en avertit.
 6. **Moniteur de cohérence des données.** Ouvre la liste des modifications proposées pour les données de vos clients et contacts qu'IRONSTICK a trouvées dans vos e-mails. Pour chaque proposition, vous choisissez *Accepter* ou *Rejeter*. Le symbole est gris quand rien n'attend et rouge quand il y a des propositions. Il est également animé lorsqu'un portail judiciaire national a proposé de nouveaux dossiers (fonction propre à un pays).
 7. **E-mail.** Visible uniquement lorsque la vérification des e-mails en arrière-plan est activée dans la configuration. Gris signifie aucun nouvel e-mail. Rouge et animé signifie que de nouveaux e-mails sont arrivés, et l'infobulle indique combien. Cliquez pour ouvrir le Moniteur d'e-mails, où tout est compté comme vu.
-8. **Chat IA (robot).** Cliquez pour ouvrir le chat IA. Sous Windows, il s'ouvre dans sa propre fenêtre. Si vous êtes dans un dossier ou chez un client, un petit point violet indique que le chat connaît déjà ce dossier ou ce client. Faites un clic droit dessus (ou maintenez-le sur la tablette) pour activer ou désactiver la reconnaissance vocale. Tant qu'elle est activée, le robot bouge et le chat écoute et répond à voix haute. Le robot est masqué tant qu'une IA de bureau externe est connectée à IRONSTICK. Sur la tablette, il est grisé lorsqu'il n'y a pas d'internet.
+8. **Chat IA (robot).** Cliquez pour ouvrir le chat IA. Sous Windows, il s'ouvre dans sa propre fenêtre. Si vous êtes dans un dossier ou chez un client, un petit point violet indique que le chat connaît déjà ce dossier ou ce client. Faites un clic droit dessus pour activer ou désactiver la reconnaissance vocale. Tant qu'elle est activée, le robot bouge et le chat écoute et répond à voix haute. Le robot est masqué tant qu'une IA de bureau externe est connectée à IRONSTICK.
 9. **Chat du serveur.** N'apparaît que lorsque IRONSTICK SERVER — le serveur de cabinet — est connecté. Il ouvre un chat avec les autres utilisateurs du serveur. Un point vert signifie que l'utilisateur est en ligne et rouge qu'il est hors ligne. Vous pouvez supprimer vos propres messages, et un interrupteur coupe le son du chat pour qu'il n'apparaisse plus tout seul. Le symbole devient rouge et animé en cas de message non lu.
 10. **Cloche des délais.** Rouge lorsqu'au moins un délai est échu aujourd'hui ou dépassé. Orange lorsque des délais échoient dans les dix prochains jours. Grise lorsque rien n'est en attente. Pointez la cloche pour voir le nombre. La cloche est également animée lorsqu'une audience récupérée depuis un portail judiciaire national est fixée à aujourd'hui (fonction propre à un pays). Un clic ouvre toujours l'aperçu des délais.
 11. **Bouton d'arrêt.** Ferme IRONSTICK immédiatement, sans demande de confirmation. Il supprime ses fichiers temporaires et le cache du navigateur et termine IRONSTICK ainsi que tous les processus qu'il a lancés.
@@ -52,7 +52,6 @@ De nombreux symboles n'apparaissent que lorsqu'il y a quelque chose à afficher.
 
 - **Déplacer la fenêtre.** Sur le PC, faites glisser n'importe quelle zone vide de la barre de menu pour déplacer la fenêtre du programme, comme avec la barre de titre normale d'une fenêtre.
 - **Verrouillée pendant les longues sauvegardes.** Pendant qu'une longue sauvegarde est en cours, la barre de menu et le fil d'Ariane sont grisés et ne réagissent pas, et vous ne pouvez pas revenir en arrière. L'écran en dessous reste visible afin que vous puissiez suivre la progression.
-- **Sur la tablette Android.** Le milieu de la barre contient un bouton rouge *DESTROY* à la place du nom du programme. Après confirmation, il supprime définitivement toutes les données d'IRONSTICK de la tablette, lance la désinstallation de l'application et la ferme. Cela ne peut pas être annulé. La tablette n'a ni briefing quotidien ni affichage des ressources.
 
 ## 1. Menu principal
 
@@ -76,7 +75,7 @@ et **Heatmap** montre l'activité de votre cabinet au cours des douze derniers m
 - **Disposer les tuiles à votre façon.** Faites glisser une tuile par sa poignée vers une nouvelle position. L'ordre est mémorisé sur cet ordinateur.
 - **Tags et sécurité.** La tuile des tags affiche vos tags colorés et ouvre la gestion des tags. La tuile de sécurité affiche l'état de cet ordinateur (système, lecteurs, réseau) et ouvre la configuration.
 - **Audio.** La tuile audio ouvre le découpeur audio pour les enregistrements que vous possédez déjà ; son second lien lance un enregistrement en direct avec transcription par l'IA.
-- **Tuiles qui n'apparaissent que lorsqu'elles s'appliquent.** *Dossiers du serveur* n'apparaît que lorsque IRONSTICK SERVER est connecté. Les tuiles propres à un pays n'apparaissent que lorsque ces fonctions sont activées. Quelques tuiles qui nécessitent un PC (par exemple la saisie de documents et le traitement de texte) ne sont pas affichées sur la tablette Android.
+- **Tuiles qui n'apparaissent que lorsqu'elles s'appliquent.** *Dossiers du serveur* n'apparaît que lorsque IRONSTICK SERVER est connecté. Les tuiles propres à un pays n'apparaissent que lorsque ces fonctions sont activées.
 
 #### Onglet Agenda
 
@@ -122,7 +121,6 @@ La version du programme et la clé de licence se trouvent en bas de la page.
 - **Actuellement utilisé.** Une zone grise indique le dossier avec lequel IRONSTICK travaille en ce moment. Toutes les données se trouvent dans ce seul dossier : base de données, licence, configuration et chaque fichier.
 - **Changer l'emplacement de stockage (PC).** Utilisez *Choisir un dossier* pour choisir un nouvel emplacement, par exemple une clé USB ou un autre lecteur. Le dossier *IRONSTICK* y est créé automatiquement. Cliquez sur *Enregistrer* pour lancer le déplacement. IRONSTICK vous indique d'abord le volume de données qui sera déplacé. Il teste ensuite le lecteur choisi (par exemple sa vitesse, son espace libre et la protection en écriture) et ne continue que si le lecteur réussit le test. Si vous confirmez, IRONSTICK se ferme et déplace les données au prochain démarrage.
 - **Données déjà présentes au nouvel emplacement.** Si le dossier choisi contient déjà des données IRONSTICK, rien n'est écrasé sans demander. Les deux copies sont comparées, et vous choisissez soit d'utiliser la copie trouvée là, soit de la remplacer par vos données actuelles.
-- **Sur la tablette Android.** Le dossier de données est fixe (c'est le dossier dans lequel la synchronisation USB copie), il n'y a donc rien à choisir.
 
 **Utilisateur (PC uniquement)**
 
@@ -217,7 +215,7 @@ Dans **Signatures**, vous enregistrez votre signature manuscrite, qu'IRONSTICK p
 **Journal des connexions et version**
 
 - **Journal des connexions.** La dernière carte liste les 50 dernières connexions, la plus récente en premier : heure, numéro d'utilisateur, adresse IP externe et interne, lieu, pays, appareil, système d'exploitation, navigateur et une évaluation de sécurité. Vous pouvez sélectionner le texte, ou copier tout le tableau avec le symbole de copie.
-- **Version.** La ligne en bas de la page indique la version du programme Windows et de l'application Android stockées dans votre dossier de données.
+- **Version.** La ligne en bas de la page indique la version du programme Windows.
 - **Clé de licence (PC).** Cliquez sur *Clé de licence* pour saisir une clé nouvelle ou renouvelée et cliquez sur *Activer*. Si la clé est invalide, expirée, pas encore valide ou appartient à un autre utilisateur, on vous en indique la raison. *Demander une clé de licence* prépare une demande prête à l'emploi. Après l'activation, vous configurez à nouveau votre application d'authentification en scannant le code QR affiché, et les modules sous licence sont déverrouillés immédiatement.
 
 ## 3. Clients
@@ -254,7 +252,7 @@ L'image montre aussi la fenêtre de code QR qui s'ouvre depuis le symbole WhatsA
 
 - **Ouvrir les dossiers.** Cliquez n'importe où sur une ligne pour ouvrir la liste des dossiers de ce client.
 - **Appeler, WhatsApp ou e-mail par code QR.** Cliquez sur le numéro de téléphone, le symbole WhatsApp vert ou l'adresse e-mail. Une fenêtre affiche un code QR que vous pouvez scanner avec votre téléphone pour appeler, ouvrir WhatsApp ou écrire un e-mail. Un clic sur le code QR ouvre le programme correspondant sur cet ordinateur ; s'il n'y en a pas, la valeur est copiée dans le presse-papiers.
-- **Réseaux sociaux.** Le symbole bleu dans la colonne *Social* n'apparaît que lorsque des profils sont enregistrés. Il ouvre une fenêtre listant les profils Facebook, Instagram, TikTok, LinkedIn et X. Le symbole d'ouverture affiche le profil dans la fenêtre de navigation IRONSTICK (sur la tablette : dans le navigateur du système) ; le bouton de copie copie l'adresse.
+- **Réseaux sociaux.** Le symbole bleu dans la colonne *Social* n'apparaît que lorsque des profils sont enregistrés. Il ouvre une fenêtre listant les profils Facebook, Instagram, TikTok, LinkedIn et X. Le symbole d'ouverture affiche le profil dans la fenêtre de navigation IRONSTICK ; le bouton de copie copie l'adresse.
 - **Copier le numéro de référence.** Un clic sur le numéro violet *@C* le copie, par exemple pour le coller dans un chat ou un document.
 - **Supprimer un client.** Le X ouvre une confirmation. Si le client a encore des dossiers, des documents ou des liens de dossier, un avertissement jaune les liste avant que vous ne confirmiez. Les notes que l'IA a mémorisées sur ce client sont supprimées également.
 
@@ -457,7 +455,7 @@ Chaque ligne de l'image relie un onglet à la vue qu'il ouvre.
 **Connexions**
 
 - **Graphique des relations.** Montre les personnes et institutions du dossier et leurs liens, sur une ou plusieurs pages ; l'en-tête compte les entités et les connexions. Lorsqu'il y en a beaucoup, les plus urgentes sont affichées.
-- **Travailler avec le graphique.** Zoomez avant et arrière avec les boutons loupe. Cliquez sur un nom pour ouvrir cette personne ou cette institution. *Wallpaper* télécharge le graphique sous forme de grand poster PDF ; *Saisir* le transmet à la saisie de documents, où vous l'affectez à un dossier. Aucun des deux boutons d'export n'est disponible sur la tablette Android.
+- **Travailler avec le graphique.** Zoomez avant et arrière avec les boutons loupe. Cliquez sur un nom pour ouvrir cette personne ou cette institution. *Wallpaper* télécharge le graphique sous forme de grand poster PDF ; *Saisir* le transmet à la saisie de documents, où vous l'affectez à un dossier.
 
 **Carte**
 
@@ -493,7 +491,7 @@ La ligne agrandie en bas de l'image montre les parties d'une entrée isolée.
 
 1. **Notes.** Ouvre le tableau d'affichage du dossier. Vos propres notes sont jaunes, les notes des abonnés d'un dossier partagé sont des cartes blanches, et les notes que l'IA a retenues pour ce dossier apparaissent sur du papier quadrillé. Cliquez sur *Nouvelle note* pour en écrire une (jusqu'à 1 000 caractères, éventuellement avec une date), cliquez sur une note jaune pour la modifier, sur n'importe quelle note pour la lire en entier ; chacune a de petits boutons de copie et de suppression.
 2. **Dossier.** Ouvre l'assistant de dossier, qui constitue un dossier complet de l'affaire. Il n'apparaît que lorsque la Chronologie contient des entrées.
-3. **Rédiger un texte.** Choisissez *Avec l'aide de l'IA* pour ouvrir le chat IA avec une demande de rédaction d'un document pour ce dossier, ou *Document texte vide* pour commencer à écrire dans le traitement de texte. Non affiché sur la tablette Android.
+3. **Rédiger un texte.** Choisissez *Avec l'aide de l'IA* pour ouvrir le chat IA avec une demande de rédaction d'un document pour ce dossier, ou *Document texte vide* pour commencer à écrire dans le traitement de texte.
 4. **Aller à une date.** Choisissez une date et cliquez sur la loupe pour accéder à la page qui la contient.
 5. **Nouvelle entrée.** Ouvre le formulaire d'une nouvelle entrée de la chronique.
 6. **Numéro et date de l'entrée.** Le numéro violet identifie l'entrée ; cliquez dessus pour le copier dans le presse-papiers. En dessous figurent la date et, si elle est saisie, l'heure de–à.
@@ -517,7 +515,7 @@ La ligne agrandie en bas de l'image montre les parties d'une entrée isolée.
 
 - **Pages et tri.** La liste affiche 20 entrées par page ; des boutons de page apparaissent au-dessus et au-dessous de la liste lorsqu'il y a plus d'une page. Cliquez sur l'en-tête de colonne *Date* pour passer du plus récent au plus ancien en premier, et inversement.
 - **Ce que dit une ligne.** Sous le titre, vous voyez la description, des étiquettes colorées (pays, domaine du droit, stade, IN en orange ou OUT en vert, type d'institution, langue, type de document) et les personnes impliquées.
-- **Rédiger un texte sur une entrée.** Le petit symbole crayon-et-lignes à côté du titre lance *Rédiger un texte* pour cette entrée précise ; un nombre devant lui compte les textes déjà rédigés à son sujet. Non affiché sur la tablette Android.
+- **Rédiger un texte sur une entrée.** Le petit symbole crayon-et-lignes à côté du titre lance *Rédiger un texte* pour cette entrée précise ; un nombre devant lui compte les textes déjà rédigés à son sujet.
 - **Colonne des délais.** Une cloche orange signifie que le délai de l'entrée arrive à échéance dans les 10 jours, une cloche rouge qui sonne qu'il est dépassé. Pointez la cloche pour voir les jours restants ou la date.
 - **Arrivée depuis la recherche ou le radar.** Lorsque vous ouvrez le dossier à partir d'un résultat de recherche ou du radar de pertinence, la Chronologie se rend à la bonne page et l'entrée s'illumine en jaune pendant quelques secondes.
 
@@ -592,7 +590,7 @@ Le bouton bleu à droite de la carte ouvre la **chronologie** — les documents 
 
 **Outils de chaque ligne**
 
-- **Rédiger un texte.** L'icône de note à côté du titre ouvre un choix : rédiger un courrier avec l'aide de l'IA (le chat s'ouvre avec ce dossier et ce document déjà référencés) ou ouvrir un document texte vide dans le traitement de texte. Un nombre devant l'icône indique combien de textes existent déjà pour cette entrée. Non disponible sur la tablette Android.
+- **Rédiger un texte.** L'icône de note à côté du titre ouvre un choix : rédiger un courrier avec l'aide de l'IA (le chat s'ouvre avec ce dossier et ce document déjà référencés) ou ouvrir un document texte vide dans le traitement de texte. Un nombre devant l'icône indique combien de textes existent déjà pour cette entrée.
 - **Ouvrir le document.** Le trombone ouvre le document dans la fenêtre de navigateur d'IRONSTICK ; pointez-le pour voir le nom du fichier. Une épingle verte apparaît lorsque l'entrée a un lieu — cliquez dessus pour voir l'endroit sur une carte.
 - **Classeurs de travail.** L'icône de classeur range le document dans les classeurs de travail des affaires auxquelles ce dossier appartient : cochez ou décochez un classeur, ou créez un nouveau classeur. Lorsque l'entrée est déjà rangée, l'icône affiche un classeur plein et son infobulle le nombre de classeurs.
 - **Radar de pertinence.** L'icône radar trouve les entrées dont le contenu est le plus proche, dans ce dossier et dans d'autres dossiers. Cliquez sur un résultat pour y accéder dans la chronologie.
@@ -606,7 +604,7 @@ Le bouton bleu à droite de la carte ouvre la **chronologie** — les documents 
 - **Lire le déroulement du dossier.** Le graphique montre tous les documents PDF entrants et sortants par ordre de date, reliés par des flèches. Les documents que vous avez envoyés ont un titre noir, les documents avec un délai ouvert un cadre épais. Les annexes d'un courrier sortant apparaissent dans des cases séparées à côté de celui-ci.
 - **Ouvrir une entrée.** Cliquez sur le numéro d'entrée souligné dans une case pour accéder directement à cette entrée.
 - **Zoomer et défiler.** Utilisez les deux boutons loupe pour zoomer avant et arrière ; les longues chronologies s'étendent sur plusieurs pages que vous faites défiler.
-- **Saisir comme document.** *Saisir* transforme le graphique en PDF et ouvre la saisie de documents, où vous l'affectez au dossier et l'enregistrez comme n'importe quel autre document. Non disponible sur la tablette Android, où le graphique ne peut être que consulté. Fermez le graphique avec le X.
+- **Saisir comme document.** *Saisir* transforme le graphique en PDF et ouvre la saisie de documents, où vous l'affectez au dossier et l'enregistrez comme n'importe quel autre document. Fermez le graphique avec le X.
 
 ### Dossier : choisir les entrées et les pages
 
@@ -764,7 +762,7 @@ et le réseau de relations qui s'ouvre depuis l'icône de réseau d'une ligne.
 
 - **Qui est lié à qui.** Le réseau montre la personne ou la société au centre avec ses relations directes et les relations de ces contacts (deux niveaux), sous forme de graphique sur une ou plusieurs pages.
 - **Se déplacer dans le réseau.** Cliquez sur une autre personne, société ou institution dans le graphique : la fenêtre se reconstruit autour de cette partie. Les renvois de page dans le graphique mènent à la page correspondante ; les boutons loupe zooment avant et arrière.
-- **Saisir.** Transforme le graphique en PDF et l'ouvre directement dans *Saisir le document*, afin que vous puissiez le ranger dans un dossier avec le tampon habituel. Ce bouton n'est pas disponible sur la tablette Android.
+- **Saisir.** Transforme le graphique en PDF et l'ouvre directement dans *Saisir le document*, afin que vous puissiez le ranger dans un dossier avec le tampon habituel.
 
 **Saisir ou modifier une personne**
 
@@ -1010,11 +1008,10 @@ Sous les mois, vous voyez tout ce qui est prévu pour le jour sélectionné. L'i
 - **Dossier de préparation.** Une fois un dossier choisi, cochez les entrées de chronique que vous voulez avoir sous la main pour le rendez-vous. Elles apparaissent ensuite sous *Documents préparés* et dans le PDF du rendez-vous.
 - **Enregistrer.** *Enregistrer* (ou *Créer* pour une nouvelle entrée) vous ramène au calendrier à la date du rendez-vous ; *Annuler* abandonne les modifications.
 
-#### Exportation et synchronisation
+#### Exportation
 
 - **Avertissement de confidentialité.** Avant la première exportation .ics après chaque démarrage du programme, IRONSTICK vous rappelle que les entrées du calendrier quittent le programme protégé dans ce format. Choisissez *Continuer* pour poursuivre.
 - **Boîte de dialogue d'exportation.** *Télécharger* enregistre le fichier dans votre dossier Documents et ouvre ce dossier. *Google Drive* n'apparaît que lorsqu'un dossier Google Drive existe sur cet ordinateur et y enregistre le fichier.
-- **Calendrier de la tablette.** Sur la tablette Android, si un calendrier nommé IRONSTICK existe dans le compte de calendrier de l'appareil, les rendez-vous sont tenus à jour dans les deux sens ; les délais et les audiences y sont copiés dans un seul sens.
 
 ## 11. Délais
 
@@ -1075,7 +1072,7 @@ L'image montre la liste, la fenêtre d'une nouvelle entrée et un jour ouvert av
 
 #### Générer une nouvelle entrée
 
-- **Apporter le texte.** *Générer une nouvelle entrée* ouvre une fenêtre où vous déposez un fichier .txt ou .md (ou cliquez pour en choisir un) ou collez directement le texte. Ce bouton est disponible sur le PC, pas sur la tablette Android.
+- **Apporter le texte.** *Générer une nouvelle entrée* ouvre une fenêtre où vous déposez un fichier .txt ou .md (ou cliquez pour en choisir un) ou collez directement le texte.
 - **Analyser.** Un texte au format du journal quotidien est découpé directement en jours. Tout autre texte peut être confié à l'IA externe, qui trouve la date, le titre et les dossiers mentionnés ; IRONSTICK demande d'abord votre consentement. Si vous refusez, une indication explique le format attendu.
 - **Vérifier avant d'importer.** Pour chaque jour reconnu, vous voyez une carte : cochez-la ou décochez-la, corrigez la date et le titre du jour, activez ou désactivez les dossiers affectés et lisez les événements trouvés. Un badge *Fusion* signifie qu'un journal existe déjà pour cette date ; le nouveau texte y est ajouté, rien n'est écrasé.
 - **Importer ou revenir en arrière.** Le bouton d'importation enregistre les jours cochés ; le bouton de gauche vous ramène au texte. Avant l'analyse, *Abandonner* ferme la fenêtre sans enregistrer.
@@ -1102,7 +1099,6 @@ Un clic ouvre le document dans le traitement de texte, visible à droite de l'im
 - **Groupes.** Lorsqu'un client, un dossier ou une entrée de chronique compte plusieurs documents, ils sont repliés en une seule ligne avec le nombre de documents. Cliquez sur la ligne pour la déplier ou la replier. Un document unique est affiché directement avec son client et son dossier.
 - **Arrivée depuis la recherche.** Lorsque vous ouvrez un texte depuis les résultats de recherche, son groupe se déplie et le document s'illumine en jaune pendant quelques secondes.
 - **Toujours à jour.** Lorsque vous revenez du traitement de texte, la liste se recharge et affiche la nouvelle version.
-- **PC uniquement.** Le traitement de texte fonctionne sur le PC Windows. Sur la tablette Android, la liste est visible, mais l'ouverture d'un document affiche un avis à la place.
 
 ### Modifier, lire à voix haute et annexes
 

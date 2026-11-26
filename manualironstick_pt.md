@@ -26,7 +26,7 @@ Muitos ícones só aparecem quando há algo para mostrar. Um ícone vermelho e a
 5. **Briefing diário (altifalante).** Abre o briefing diário a qualquer momento: o que está previsto para hoje (prazos, diligências judiciais, compromissos, e-mails), o que já foi tratado hoje e uma breve retrospetiva. Clique numa linha para abrir o ecrã correspondente, por exemplo os prazos, o calendário, o monitor de e-mail ou o processo. *Ler em voz alta* reproduz a versão falada e *Parar* termina-a. Um interruptor altera apenas o estilo do texto falado. Se a sua última cópia de segurança tiver mais de cinco dias, o briefing avisa-o.
 6. **Monitor de consistência de dados.** Abre a lista de propostas de alteração aos dados dos seus clientes e contactos que o IRONSTICK encontrou nos seus e-mails. Para cada proposta, escolha *Permitir* ou *Rejeitar*. O ícone fica cinzento quando não há nada pendente e vermelho quando há propostas. Fica também animado quando um portal judicial nacional sugeriu novos processos (função específica de cada país).
 7. **E-mail.** Só visível se a verificação de e-mail em segundo plano estiver ativada na configuração. Cinzento significa que não há e-mails novos. Vermelho e animado significa que chegaram novos e-mails; a dica de ferramenta mostra quantos. Clique para abrir o monitor de e-mail, onde tudo passa a contar como visto.
-8. **Chat de IA (robô).** Clique para abrir o chat de IA. No Windows, abre-se numa janela própria. Se estiver num processo ou num cliente, um pequeno ponto violeta indica que o chat já conhece esse processo ou cliente. Clique com o botão direito do rato (no tablet: mantenha premido) para ativar ou desativar o reconhecimento de voz. Enquanto estiver ativado, o robô mexe-se e o chat ouve e responde em voz alta. O robô fica oculto enquanto uma IA de ambiente de trabalho externa estiver ligada ao IRONSTICK. No tablet, fica a cinzento quando não há ligação à internet.
+8. **Chat de IA (robô).** Clique para abrir o chat de IA. No Windows, abre-se numa janela própria. Se estiver num processo ou num cliente, um pequeno ponto violeta indica que o chat já conhece esse processo ou cliente. Clique com o botão direito do rato para ativar ou desativar o reconhecimento de voz. Enquanto estiver ativado, o robô mexe-se e o chat ouve e responde em voz alta. O robô fica oculto enquanto uma IA de ambiente de trabalho externa estiver ligada ao IRONSTICK.
 9. **Chat do servidor.** Só aparece quando o IRONSTICK SERVER está ligado. Abre um chat com os outros utilizadores do servidor. Um ponto verde significa que o utilizador está online; vermelho significa offline. Pode eliminar as suas próprias mensagens, e um interruptor silencia o chat, para que deixe de aparecer sozinho. O ícone fica vermelho e animado quando há uma mensagem por ler.
 10. **Sino dos prazos.** Vermelho quando pelo menos um prazo termina hoje ou já foi ultrapassado. Laranja quando há prazos a terminar nos próximos dez dias. Cinzento quando não há nada pendente. Passe o cursor sobre o sino para ver o número. O sino fica também animado quando uma audiência obtida de um portal judicial nacional está marcada para hoje (função específica de cada país). Um clique abre sempre a vista geral dos prazos.
 11. **Botão de encerrar.** Fecha o IRONSTICK de imediato, sem pedido de confirmação. Elimina os ficheiros temporários e a cache do navegador e termina o IRONSTICK e todos os processos que este iniciou.
@@ -52,7 +52,6 @@ Muitos ícones só aparecem quando há algo para mostrar. Um ícone vermelho e a
 
 - **Mover a janela.** No PC, arraste qualquer zona vazia da barra de menus para mover a janela do programa, tal como a barra de título normal de uma janela.
 - **Bloqueada durante gravações longas.** Enquanto decorre uma gravação longa, a barra de menus e o trilho de navegação ficam a cinzento e não reagem, e não é possível voltar atrás. O ecrã por baixo continua visível, para que possa acompanhar o progresso.
-- **No tablet Android.** No centro da barra, em vez do nome do programa, encontra-se um botão vermelho *DESTROY*. Após confirmação, elimina definitivamente todos os dados do IRONSTICK do tablet, inicia a desinstalação da aplicação e fecha-a. Esta ação não pode ser anulada. O tablet não tem briefing diário nem indicador de recursos.
 
 ## 1. Menu principal
 
@@ -76,7 +75,7 @@ e **Mapa de calor** mostra quão ativo esteve o seu escritório nos últimos doz
 - **Organizar os mosaicos à sua medida.** Arraste um mosaico pela pega para uma nova posição. A ordem fica guardada neste computador.
 - **Etiquetas e segurança.** O mosaico de etiquetas mostra as suas etiquetas coloridas e abre a gestão de etiquetas. O mosaico de segurança mostra o estado deste computador (sistema, unidades, rede) e abre a configuração.
 - **Áudio.** O mosaico de áudio abre o editor de áudio para gravações já existentes; a sua segunda ligação inicia uma gravação em direto com transcrição por IA.
-- **Mosaicos que só aparecem quando necessário.** *Processos do servidor* só aparece quando o IRONSTICK SERVER está ligado. Os mosaicos específicos de cada país só aparecem quando essas funções estão ativadas. Alguns mosaicos que precisam de um PC (por exemplo, Captura de documentos e Processamento de texto) não são mostrados no tablet Android.
+- **Mosaicos que só aparecem quando necessário.** *Processos do servidor* só aparece quando o IRONSTICK SERVER está ligado. Os mosaicos específicos de cada país só aparecem quando essas funções estão ativadas.
 
 #### Separador Agenda
 
@@ -122,7 +121,6 @@ A versão do programa e a chave de licença encontram-se no fim da página.
 - **Atualmente em utilização.** Um campo cinzento mostra a pasta com que o IRONSTICK está a trabalhar. Todos os dados estão nesta única pasta: base de dados, licença, configuração e todos os ficheiros.
 - **Alterar o local de armazenamento (PC).** Com *Escolher pasta* seleciona um novo local de armazenamento, por exemplo uma pen USB ou outra unidade. A pasta *IRONSTICK* é aí criada automaticamente. Clique em *Guardar* para iniciar a mudança. O IRONSTICK indica-lhe primeiro quantos dados serão movidos. Em seguida testa a unidade escolhida (por exemplo velocidade, espaço livre e proteção contra escrita) e só prossegue se a unidade passar no teste. Se confirmar, o IRONSTICK fecha-se e move os dados no próximo arranque.
 - **Dados já existentes no novo local.** Se a pasta escolhida já contiver dados do IRONSTICK, nada é substituído sem perguntar. As duas cópias são comparadas e escolhe se pretende utilizar a cópia aí encontrada ou substituí-la pelos seus dados atuais.
-- **No tablet Android.** A pasta de dados é fixa (é a pasta para a qual a sincronização USB copia), pelo que aí não há nada a escolher.
 
 **Utilizador (apenas PC)**
 
@@ -217,7 +215,7 @@ Em **Assinaturas** regista a sua assinatura manuscrita, que o IRONSTICK pode ins
 **Registo de inícios de sessão e versão**
 
 - **Registo de inícios de sessão.** O último cartão lista os últimos 50 inícios de sessão, os mais recentes primeiro: hora, número de utilizador, endereço IP externo e interno, localidade, país, dispositivo, sistema operativo, navegador e uma avaliação de segurança. Pode selecionar o texto ou copiar a tabela inteira com o ícone de copiar.
-- **Versão.** A linha no fim da página mostra a versão do programa Windows e da aplicação Android que se encontram na sua pasta de dados.
+- **Versão.** A linha no fim da página mostra a versão do programa Windows que se encontra na sua pasta de dados.
 - **Chave de licença (PC).** Clique em *Chave de licença* para introduzir uma chave nova ou renovada e clique em *Ativar*. Se a chave for inválida, tiver expirado, ainda não for válida ou pertencer a outro utilizador, é-lhe indicado o motivo. *Pedir chave de licença* prepara um pedido pronto a enviar. Após a ativação, volte a configurar a sua aplicação de autenticação lendo o código QR apresentado, e os módulos licenciados são desbloqueados de imediato.
 
 ## 3. Clientes
@@ -254,7 +252,7 @@ A imagem mostra ainda a janela de código QR, que se abre através do ícone do 
 
 - **Abrir os processos.** Clique em qualquer ponto de uma linha para abrir a lista de processos desse cliente.
 - **Ligar, WhatsApp ou e-mail por código QR.** Clique no número de telefone, no ícone verde do WhatsApp ou no endereço de e-mail. Uma janela mostra um código QR que pode ler com o seu telemóvel para ligar, abrir o WhatsApp ou escrever um e-mail. Um clique no código QR abre o programa correspondente neste computador; se não existir nenhum, o valor é copiado para a área de transferência.
-- **Redes sociais.** O ícone azul na coluna *Social* só aparece quando há perfis registados. Abre uma janela com os perfis no Facebook, Instagram, TikTok, LinkedIn e X. O ícone de abrir mostra o perfil na janela do navegador IRONSTICK (no tablet: no navegador do sistema); o botão de copiar copia o endereço.
+- **Redes sociais.** O ícone azul na coluna *Social* só aparece quando há perfis registados. Abre uma janela com os perfis no Facebook, Instagram, TikTok, LinkedIn e X. O ícone de abrir mostra o perfil na janela do navegador IRONSTICK; o botão de copiar copia o endereço.
 - **Copiar o número de referência.** Um clique no número violeta *@C* copia-o, por exemplo para o colar num chat ou num documento.
 - **Eliminar um cliente.** O X abre uma confirmação. Se o cliente ainda tiver processos, documentos ou ligações a processos, um aviso amarelo lista-os antes da confirmação. As notas que a IA memorizou sobre este cliente são igualmente removidas.
 
@@ -455,7 +453,7 @@ Cada linha na imagem leva de um separador à vista que ele abre.
 **Ligações**
 
 - **Diagrama de relações.** Mostra as pessoas e instituições do processo e como estão interligadas, numa ou em várias páginas; o cabeçalho contabiliza entidades e ligações. Quando são muitas, são mostradas as mais urgentes.
-- **Trabalhar com o diagrama.** Aproxime e afaste com os botões da lupa. Clique num nome para abrir essa pessoa ou instituição. *Wallpaper* transfere o diagrama como um PDF em formato de cartaz grande; *Capturar* envia-o para a captura de documentos, onde o associa a um processo. Nenhum dos dois botões de exportação está disponível no tablet Android.
+- **Trabalhar com o diagrama.** Aproxime e afaste com os botões da lupa. Clique num nome para abrir essa pessoa ou instituição. *Wallpaper* transfere o diagrama como um PDF em formato de cartaz grande; *Capturar* envia-o para a captura de documentos, onde o associa a um processo.
 
 **Mapa**
 
@@ -491,7 +489,7 @@ A linha ampliada no fundo da imagem mostra as partes de uma entrada individual.
 
 1. **Notas.** Abre o quadro de notas do processo. As suas próprias notas são amarelas, as notas de subscritores de um processo partilhado são cartões brancos e as notas que a IA memorizou para este processo aparecem em papel quadriculado. Clique em *Nova nota* para escrever uma (até 1000 carateres, opcionalmente com data), clique numa nota amarela para a editar e em qualquer nota para a ler por inteiro; cada uma tem pequenos botões para copiar e eliminar.
 2. **Dossier.** Abre o assistente de dossier, que cria um dossier completo do processo. Só aparece quando a cronologia tem entradas.
-3. **Redigir texto.** Escolha *Com ajuda da IA* para abrir o chat de IA com o pedido de redigir um documento para este processo, ou *Documento de texto vazio* para escrever no processador de texto. Não visível no tablet Android.
+3. **Redigir texto.** Escolha *Com ajuda da IA* para abrir o chat de IA com o pedido de redigir um documento para este processo, ou *Documento de texto vazio* para escrever no processador de texto.
 4. **Saltar para uma data.** Escolha uma data e clique na lupa para ir para a página que a contém.
 5. **Nova entrada.** Abre o formulário para uma nova entrada da cronologia.
 6. **Número e data da entrada.** O número violeta identifica a entrada; um clique copia-o para a área de transferência. Por baixo estão a data e, se registada, a hora de início e de fim.
@@ -515,7 +513,7 @@ A linha ampliada no fundo da imagem mostra as partes de uma entrada individual.
 
 - **Páginas e ordenação.** A lista mostra 20 entradas por página; os botões de página aparecem por cima e por baixo da lista quando há mais de uma página. Clique no cabeçalho da coluna *Data* para alternar entre mais recentes e mais antigas primeiro.
 - **O que uma linha lhe diz.** Por baixo do título vê a descrição, etiquetas coloridas (país, área jurídica, fase, IN a laranja ou OUT a verde, tipo de instituição, idioma, tipo de documento) e as pessoas envolvidas.
-- **Escrever um texto sobre uma entrada.** O pequeno ícone de lápis e linhas ao lado do título inicia *Redigir texto* precisamente para esta entrada; um número à frente indica quantos textos já foram redigidos sobre ela. Não visível no tablet Android.
+- **Escrever um texto sobre uma entrada.** O pequeno ícone de lápis e linhas ao lado do título inicia *Redigir texto* precisamente para esta entrada; um número à frente indica quantos textos já foram redigidos sobre ela.
 - **Coluna de prazos.** Um sino laranja significa que o prazo da entrada termina dentro de 10 dias; um sino vermelho a tocar, que foi ultrapassado. Passe o cursor sobre o sino para ver os dias restantes ou a data.
 - **Vindo da pesquisa ou do radar.** Se abrir o processo a partir de um resultado de pesquisa ou do radar de relevância, a cronologia vai para a página certa e a entrada acende-se a amarelo durante alguns segundos.
 
@@ -590,7 +588,7 @@ O botão azul à direita no cartão abre o **Cronograma** — os documentos rece
 
 **Ferramentas em cada linha**
 
-- **Redigir texto.** O ícone de nota ao lado do título abre uma escolha: escrever uma carta com ajuda da IA (o chat abre-se já com este processo e este documento como referência) ou abrir um documento de texto vazio no processador de texto. Um número antes do ícone mostra quantos textos já existem sobre esta entrada. Não disponível no tablet Android.
+- **Redigir texto.** O ícone de nota ao lado do título abre uma escolha: escrever uma carta com ajuda da IA (o chat abre-se já com este processo e este documento como referência) ou abrir um documento de texto vazio no processador de texto. Um número antes do ícone mostra quantos textos já existem sobre esta entrada.
 - **Abrir o documento.** O clipe abre o documento na janela do navegador IRONSTICK; passe o cursor por cima para ver o nome do ficheiro. Aparece um marcador verde quando a entrada tem um local — clique nele para ver o local num mapa.
 - **Pastas de trabalho.** O ícone de pasta arquiva o documento nas pastas de trabalho das situações de facto a que este processo pertence: assinale ou desmarque uma pasta, ou crie uma nova. Se a entrada já estiver arquivada, o ícone mostra uma pasta cheia e a dica de ferramenta indica o número de pastas.
 - **Radar de relevância.** O ícone do radar encontra as entradas de conteúdo mais semelhante neste e noutros processos. Clique num resultado para saltar para ele na cronologia.
@@ -604,7 +602,7 @@ O botão azul à direita no cartão abre o **Cronograma** — os documentos rece
 - **Ler o desenrolar do processo.** O diagrama mostra todos os documentos PDF recebidos e enviados por ordem temporal, ligados por setas. Os documentos que enviou têm um cabeçalho preto, os documentos com prazo em curso uma moldura grossa. Os anexos de uma carta enviada aparecem como caixas separadas ao lado.
 - **Abrir uma entrada.** Clique no número de entrada sublinhado numa caixa para ir diretamente para essa entrada.
 - **Fazer zoom e deslocar.** Utilize os dois botões da lupa para aproximar e afastar; os cronogramas longos estendem-se por várias páginas, que percorre deslocando-se.
-- **Capturar como documento.** *Capturar* transforma o diagrama num PDF e abre a captura de documentos, onde o associa ao processo e o guarda como qualquer outro documento. Não disponível no tablet Android, onde o diagrama só pode ser visualizado. Feche o diagrama com o X.
+- **Capturar como documento.** *Capturar* transforma o diagrama num PDF e abre a captura de documentos, onde o associa ao processo e o guarda como qualquer outro documento. Feche o diagrama com o X.
 
 ### Dossier: escolher entradas e páginas
 
@@ -762,7 +760,7 @@ e a rede de relações, que se abre através do ícone de rede de uma linha.
 
 - **Quem está ligado a quem.** A rede mostra a pessoa ou a empresa no centro, com as suas relações diretas e as relações desses contactos (dois níveis), como diagrama numa ou em várias páginas.
 - **Navegar pela rede.** Clique no diagrama noutra pessoa, empresa ou instituição: a janela reconstrói-se em torno dessa parte. As referências de página no diagrama saltam para a página correspondente; os botões da lupa aproximam e afastam.
-- **Capturar.** Transforma o diagrama num PDF e abre-o diretamente em *Capturar documento*, para que o possa arquivar num processo com o carimbo habitual. Este botão não está disponível no tablet Android.
+- **Capturar.** Transforma o diagrama num PDF e abre-o diretamente em *Capturar documento*, para que o possa arquivar num processo com o carimbo habitual.
 
 **Registar ou editar uma pessoa**
 
@@ -1008,11 +1006,10 @@ Por baixo dos meses vê tudo o que está marcado para o dia selecionado. A image
 - **Pasta de preparação.** Assim que for escolhido um processo, assinale as entradas da cronologia que pretende ter à mão para o compromisso. Aparecem depois em *Documentos preparados* e no PDF do compromisso.
 - **Guardar.** *Guardar* (ou *Criar* numa nova entrada) leva-o de volta ao calendário na data do compromisso; *Cancelar* descarta as alterações.
 
-#### Exportação e sincronização
+#### Exportação
 
 - **Aviso de proteção de dados.** Antes da primeira exportação .ics após cada arranque do programa, o IRONSTICK lembra-lhe que, neste formato, as entradas do calendário saem do programa protegido. Escolha *Continuar* para prosseguir.
 - **Caixa de diálogo de exportação.** *Download* guarda o ficheiro na sua pasta Documentos e abre essa pasta. *Google Drive* só aparece se existir uma pasta do Google Drive neste computador, e guarda o ficheiro aí.
-- **Calendário do tablet.** Se no tablet Android existir, na conta de calendário do dispositivo, um calendário chamado IRONSTICK, os compromissos são sincronizados nos dois sentidos; os prazos e as audiências são copiados para lá num só sentido.
 
 ## 11. Prazos
 
@@ -1073,7 +1070,7 @@ A imagem mostra a lista, a janela para uma nova entrada e um dia aberto com a cr
 
 #### Gerar uma nova entrada
 
-- **Introduzir o texto.** *Gerar nova entrada* abre uma janela para a qual larga um ficheiro .txt ou .md (ou clica para escolher) ou cola diretamente o texto. Este botão está disponível no PC, não no tablet Android.
+- **Introduzir o texto.** *Gerar nova entrada* abre uma janela para a qual larga um ficheiro .txt ou .md (ou clica para escolher) ou cola diretamente o texto.
 - **Analisar.** Um texto no formato do diário de trabalho é dividido diretamente em dias. Qualquer outro texto pode ser entregue à IA externa, que encontra a data, o título e os processos mencionados; o IRONSTICK pede antes o seu consentimento. Se recusar, uma indicação explica o formato esperado.
 - **Verificar antes de importar.** Para cada dia reconhecido vê um cartão: assinale-o ou desmarque-o, corrija a data e o título do dia, ative ou desative os processos associados e leia os acontecimentos encontrados. Um distintivo *Merge* significa que já existe um registo para essa data; o novo texto é-lhe acrescentado e nada é substituído.
 - **Importar ou voltar atrás.** O botão de importar guarda os dias assinalados; o botão da esquerda leva-o de volta ao texto. Antes da análise, *Descartar* fecha a janela sem guardar.
@@ -1100,7 +1097,6 @@ Um clique abre o documento no processador de texto, visível no lado direito da 
 - **Grupos.** Se um cliente, processo ou entrada da cronologia tiver vários documentos, estes são reunidos numa linha com o número de documentos. Clique na linha para a expandir ou recolher. Um documento único é mostrado diretamente com o seu cliente e processo.
 - **Chegada a partir da pesquisa.** Se abrir um texto a partir dos resultados da pesquisa, o seu grupo expande-se e o documento acende-se a amarelo durante alguns segundos.
 - **Sempre atualizada.** Quando regressa do processador de texto, a lista é recarregada e mostra a nova versão.
-- **Apenas no PC.** O processador de texto funciona no PC Windows. No tablet Android a lista é visível, mas abrir um documento mostra, em vez disso, uma indicação.
 
 ### Editar, ler em voz alta e anexos
 

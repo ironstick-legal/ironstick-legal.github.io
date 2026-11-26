@@ -26,7 +26,7 @@ Veel symbolen verschijnen alleen wanneer er iets te tonen is. Een rood, geanimee
 5. **Dagbriefing (luidspreker).** Opent op elk moment de dagbriefing: wat er vandaag op het programma staat (termijnen, zittingen, afspraken, e-mails), wat er vandaag al is afgehandeld en een korte terugblik. Klik op een regel om het bijbehorende scherm te openen, bijvoorbeeld de termijnen, de agenda, de e-mailmonitor of de zaak. *Voorlezen* speelt de gesproken versie af en *Stop* beëindigt die. Een schakelaar wijzigt alleen de stijl van de gesproken tekst. Is uw laatste back-up ouder dan vijf dagen, dan waarschuwt de briefing u.
 6. **Monitor voor gegevensconsistentie.** Opent de lijst met wijzigingsvoorstellen voor uw cliënt- en contactgegevens die IRONSTICK in uw e-mails heeft gevonden. Bij elk voorstel kiest u *Toestaan* of *Afwijzen*. Het symbool is grijs als er niets wacht en rood als er voorstellen zijn. Het is ook geanimeerd wanneer een nationaal rechtbankportaal nieuwe zaken heeft voorgesteld (landspecifieke functie).
 7. **E-mail.** Alleen zichtbaar als de controle van e-mails op de achtergrond in de configuratie is ingeschakeld. Grijs betekent geen nieuwe e-mails. Rood en geanimeerd betekent dat er nieuwe e-mails zijn binnengekomen; de tooltip toont hoeveel. Klik om de e-mailmonitor te openen, waarin alles als gezien geldt.
-8. **AI-chat (robot).** Klik om de AI-chat te openen. Onder Windows opent die in een eigen venster. Bevindt u zich in een zaak of bij een cliënt, dan geeft een kleine paarse stip aan dat de chat die zaak of die cliënt al kent. Klik er met de rechtermuisknop op (op de tablet: ingedrukt houden) om de spraakherkenning in of uit te schakelen. Zolang die is ingeschakeld, beweegt de robot en luistert de chat mee en antwoordt hij hardop. De robot is verborgen zolang een externe desktop-AI met IRONSTICK is verbonden. Op de tablet is hij grijs als er geen internetverbinding is.
+8. **AI-chat (robot).** Klik om de AI-chat te openen. Onder Windows opent die in een eigen venster. Bevindt u zich in een zaak of bij een cliënt, dan geeft een kleine paarse stip aan dat de chat die zaak of die cliënt al kent. Klik er met de rechtermuisknop op om de spraakherkenning in of uit te schakelen. Zolang die is ingeschakeld, beweegt de robot en luistert de chat mee en antwoordt hij hardop. De robot is verborgen zolang een externe desktop-AI met IRONSTICK is verbonden.
 9. **Serverchat.** Verschijnt alleen als de IRONSTICK SERVER is verbonden. Hij opent een chat met de andere gebruikers van de server. Een groene stip betekent dat de gebruiker online is, rood betekent offline. U kunt uw eigen berichten verwijderen, en met een schakelaar zet u de chat op stil, zodat hij niet meer vanzelf opent. Het symbool wordt rood en is geanimeerd wanneer er een ongelezen bericht is.
 10. **Termijnenbel.** Rood als ten minste één termijn vandaag afloopt of al verstreken is. Oranje als er termijnen in de komende tien dagen aflopen. Grijs als er niets op het programma staat. Wijs de bel aan om het aantal te zien. De bel is ook geanimeerd wanneer een uit een nationaal rechtbankportaal opgehaalde zitting voor vandaag is gepland (landspecifieke functie). Een klik opent altijd het termijnenoverzicht.
 11. **Aan/uit-knop.** Sluit IRONSTICK onmiddellijk af, zonder bevestigingsvraag. De knop verwijdert de tijdelijke bestanden en de browsercache en beëindigt IRONSTICK en alle processen die het heeft gestart.
@@ -52,7 +52,6 @@ Veel symbolen verschijnen alleen wanneer er iets te tonen is. Een rood, geanimee
 
 - **Het venster verplaatsen.** Sleep op de pc een willekeurig leeg gedeelte van de menubalk om het programmavenster te verplaatsen, net als de normale titelbalk van een venster.
 - **Vergrendeld bij lange opslagprocessen.** Terwijl een lang opslagproces loopt, zijn menubalk en kruimelpad grijs en reageren ze niet, en kunt u niet teruggaan. Het scherm eronder blijft zichtbaar, zodat u de voortgang kunt volgen.
-- **Op de Android-tablet.** In het midden van de balk staat in plaats van de programmanaam een rode knop *DESTROY*. Na een bevestiging verwijdert die alle IRONSTICK-gegevens definitief van de tablet, start de de-installatie van de app en sluit deze af. Dit kan niet ongedaan worden gemaakt. De tablet heeft geen dagbriefing en geen resourceweergave.
 
 ## 1. Hoofdmenu
 
@@ -76,7 +75,7 @@ en **Heatmap** toont hoe actief uw kantoor de afgelopen twaalf maanden was.
 - **De tegels naar wens rangschikken.** Sleep een tegel aan de greep naar een nieuwe positie. De volgorde wordt op deze computer opgeslagen.
 - **Tags en beveiliging.** De tegel Tags toont uw gekleurde tags en opent het tagbeheer. De tegel Beveiliging toont de toestand van deze computer (systeem, stations, netwerk) en opent de configuratie.
 - **Audio.** De tegel Audio opent de audio-editor voor bestaande opnamen; de tweede link start een live-opname met AI-transcriptie.
-- **Tegels die alleen verschijnen wanneer nodig.** *Serverzaken* verschijnt alleen als de IRONSTICK SERVER is verbonden. Landspecifieke tegels verschijnen alleen als die functies zijn ingeschakeld. Sommige tegels die een pc nodig hebben (bijvoorbeeld documentregistratie en tekstverwerking), worden op de Android-tablet niet getoond.
+- **Tegels die alleen verschijnen wanneer nodig.** *Serverzaken* verschijnt alleen als de IRONSTICK SERVER is verbonden. Landspecifieke tegels verschijnen alleen als die functies zijn ingeschakeld.
 
 #### Tabblad Agenda
 
@@ -122,7 +121,6 @@ De programmaversie en de licentiesleutel staan onderaan de pagina.
 - **Momenteel in gebruik.** Een grijs vak toont de map waarmee IRONSTICK op dat moment werkt. Alle gegevens staan in deze ene map: database, licentie, configuratie en elk bestand.
 - **De opslaglocatie wijzigen (pc).** Met *Map kiezen* kiest u een nieuwe opslaglocatie, bijvoorbeeld een USB-stick of een ander station. De map *IRONSTICK* wordt daar automatisch aangemaakt. Klik op *Opslaan* om de verhuizing te starten. IRONSTICK laat u eerst weten hoeveel gegevens er worden verplaatst. Daarna test het het gekozen station (bijvoorbeeld snelheid, vrije ruimte en schrijfbeveiliging) en gaat het alleen verder als het station de test doorstaat. Wanneer u bevestigt, sluit IRONSTICK af en verplaatst het de gegevens bij de volgende start.
 - **Gegevens al op de nieuwe locatie.** Bevat de gekozen map al IRONSTICK-gegevens, dan wordt niets zonder bevestiging overschreven. Beide kopieën worden vergeleken, en u kiest of de daar gevonden kopie wordt gebruikt of door uw huidige gegevens wordt vervangen.
-- **Op de Android-tablet.** De gegevensmap ligt vast (het is de map waarnaar de USB-synchronisatie kopieert), zodat daar niets te kiezen valt.
 
 **Gebruiker (alleen pc)**
 
@@ -217,7 +215,7 @@ In **Handtekeningen** slaat u uw handgeschreven handtekening op, die IRONSTICK i
 **Loginlogboek en versie**
 
 - **Loginlogboek.** De laatste kaart toont de laatste 50 logins, de nieuwste eerst: tijd, gebruikersnummer, extern en intern IP-adres, plaats, land, apparaat, besturingssysteem, browser en een beveiligingsbeoordeling. U kunt de tekst selecteren of de hele tabel met het kopieersymbool kopiëren.
-- **Versie.** De regel onderaan de pagina toont de versie van het Windows-programma en van de Android-app die in uw gegevensmap staan.
+- **Versie.** De regel onderaan de pagina toont de versie van het Windows-programma.
 - **Licentiesleutel (pc).** Klik op *Licentiesleutel* om een nieuwe of verlengde sleutel in te voeren, en klik op *Activeren*. Is de sleutel ongeldig, verlopen, nog niet geldig of behoort hij toe aan een andere gebruiker, dan krijgt u de reden te zien. *Licentiesleutel aanvragen* bereidt een kant-en-klare aanvraag voor. Na de activering stelt u uw authenticator-app opnieuw in door de getoonde QR-code te scannen, en de gelicentieerde modules worden direct vrijgegeven.
 
 ## 3. Cliënten
@@ -254,7 +252,7 @@ De afbeelding toont ook het QR-codevenster, dat via het WhatsApp-symbool wordt g
 
 - **De zaken openen.** Klik ergens op een regel om de zakenlijst van die cliënt te openen.
 - **Bellen, WhatsApp of e-mail via QR-code.** Klik op het telefoonnummer, het groene WhatsApp-symbool of het e-mailadres. Een venster toont een QR-code die u met uw telefoon kunt scannen om te bellen, WhatsApp te openen of een e-mail te schrijven. Een klik op de QR-code opent het bijbehorende programma op deze computer; is er geen, dan wordt de waarde naar het klembord gekopieerd.
-- **Sociale media.** Het blauwe symbool in de kolom *Social* verschijnt alleen als er profielen zijn vastgelegd. Het opent een venster met de profielen op Facebook, Instagram, TikTok, LinkedIn en X. Het openen-symbool toont het profiel in het IRONSTICK-browservenster (op de tablet: in de systeembrowser); de kopieerknop kopieert het adres.
+- **Sociale media.** Het blauwe symbool in de kolom *Social* verschijnt alleen als er profielen zijn vastgelegd. Het opent een venster met de profielen op Facebook, Instagram, TikTok, LinkedIn en X. Het openen-symbool toont het profiel in het IRONSTICK-browservenster; de kopieerknop kopieert het adres.
 - **Het referentienummer kopiëren.** Een klik op het paarse *@C*-nummer kopieert het, bijvoorbeeld om het in een chat of een document te plakken.
 - **Een cliënt verwijderen.** Het kruisje opent een bevestiging. Heeft de cliënt nog zaken, documenten of zaakkoppelingen, dan somt een gele waarschuwing die vóór de bevestiging op. Notities die de AI over deze cliënt heeft onthouden, worden eveneens verwijderd.
 
@@ -455,7 +453,7 @@ Elke lijn in de afbeelding loopt van een tabblad naar de weergave die het opent.
 **Verbindingen**
 
 - **Relatiediagram.** Toont de personen en instanties van de zaak en hoe ze met elkaar verbonden zijn, op één of meer pagina's; de kopregel telt entiteiten en verbindingen. Waar het er veel zijn, worden de dringendste getoond.
-- **Met het diagram werken.** Zoom in en uit met de vergrootglasknoppen. Klik op een naam om die persoon of instantie te openen. *Wallpaper* downloadt het diagram als grote poster-pdf; *Registreren* geeft het door aan de documentregistratie, waar u het aan een zaak koppelt. Geen van beide exportknoppen is beschikbaar op de Android-tablet.
+- **Met het diagram werken.** Zoom in en uit met de vergrootglasknoppen. Klik op een naam om die persoon of instantie te openen. *Wallpaper* downloadt het diagram als grote poster-pdf; *Registreren* geeft het door aan de documentregistratie, waar u het aan een zaak koppelt.
 
 **Kaart**
 
@@ -491,7 +489,7 @@ De vergrote regel onderaan de afbeelding toont de onderdelen van één afzonderl
 
 1. **Notities.** Opent het prikbord van de zaak. Uw eigen notities zijn geel, notities van abonnees van een gedeelde zaak zijn witte kaarten, en notities die de AI voor deze zaak heeft onthouden, verschijnen op ruitjespapier. Klik op *Nieuwe notitie* om er een te schrijven (tot 1.000 tekens, optioneel met datum), klik op een gele notitie om die te bewerken, op een willekeurige notitie om die volledig te lezen; elke notitie heeft kleine knoppen om te kopiëren en te verwijderen.
 2. **Dossier.** Opent de dossierassistent, die een volledig pdf-dossier van de zaak samenstelt. Hij verschijnt alleen als de kroniek vermeldingen bevat.
-3. **Tekst opstellen.** Kies *Met AI-hulp* om de AI-chat te openen met het verzoek een document voor deze zaak op te stellen, of *Leeg tekstdocument* om in de tekstverwerking te schrijven. Niet zichtbaar op de Android-tablet.
+3. **Tekst opstellen.** Kies *Met AI-hulp* om de AI-chat te openen met het verzoek een document voor deze zaak op te stellen, of *Leeg tekstdocument* om in de tekstverwerking te schrijven.
 4. **Naar een datum springen.** Kies een datum en klik op het vergrootglas om naar de pagina te gaan waarop die staat.
 5. **Nieuwe vermelding.** Opent het formulier voor een nieuwe kroniekvermelding.
 6. **Vermeldingsnummer en datum.** Het paarse nummer identificeert de vermelding; een klik erop kopieert het naar het klembord. Daaronder staan de datum en, indien vastgelegd, de tijd van–tot.
@@ -515,7 +513,7 @@ De vergrote regel onderaan de afbeelding toont de onderdelen van één afzonderl
 
 - **Pagina's en sortering.** De lijst toont 20 vermeldingen per pagina; paginaknoppen verschijnen boven en onder de lijst als er meer dan één pagina is. Klik op de kolomkop *Datum* om te wisselen tussen nieuwste en oudste eerst.
 - **Wat een regel u vertelt.** Onder de titel ziet u de beschrijving, gekleurde labels (land, rechtsgebied, stadium, IN in oranje of OUT in groen, soort instantie, taal, documentsoort) en de betrokken personen.
-- **Een tekst bij een vermelding schrijven.** Het kleine symbool van een potlood met regels naast de titel start *Tekst opstellen* voor precies deze vermelding; een getal ervoor telt de teksten die er al bij zijn opgesteld. Niet zichtbaar op de Android-tablet.
+- **Een tekst bij een vermelding schrijven.** Het kleine symbool van een potlood met regels naast de titel start *Tekst opstellen* voor precies deze vermelding; een getal ervoor telt de teksten die er al bij zijn opgesteld.
 - **Termijnkolom.** Een oranje bel betekent dat de termijn van de vermelding binnen 10 dagen afloopt, een rood luidende bel dat die is verstreken. Wijs de bel aan om het aantal resterende dagen of de datum te zien.
 - **Vanuit de zoekfunctie of de radar.** Opent u de zaak vanuit een zoekresultaat of de relevantieradar, dan gaat de kroniek naar de juiste pagina en licht de vermelding enkele seconden geel op.
 
@@ -590,7 +588,7 @@ De blauwe knop rechts op de kaart opent de **Chronologie** — de inkomende en u
 
 **Hulpmiddelen in elke regel**
 
-- **Tekst opstellen.** Het notitiesymbool naast de titel opent een keuze: een brief schrijven met hulp van de AI (de chat opent met deze zaak en dit document al als referentie) of een leeg tekstdocument openen in de tekstverwerking. Een getal voor het symbool toont hoeveel teksten er bij deze vermelding al bestaan. Niet beschikbaar op de Android-tablet.
+- **Tekst opstellen.** Het notitiesymbool naast de titel opent een keuze: een brief schrijven met hulp van de AI (de chat opent met deze zaak en dit document al als referentie) of een leeg tekstdocument openen in de tekstverwerking. Een getal voor het symbool toont hoeveel teksten er bij deze vermelding al bestaan.
 - **Het document openen.** De paperclip opent het document in het IRONSTICK-browservenster; wijs hem aan om de bestandsnaam te zien. Er verschijnt een groene markering als de vermelding een locatie heeft — klik erop om de locatie op een kaart te zien.
 - **Werkmappen.** Het mapsymbool slaat het document op in de werkmappen van de feitencomplexen waartoe deze zaak behoort: vink een map aan of uit, of maak een nieuwe map aan. Is de vermelding al opgeslagen, dan toont het symbool een gevulde map en de tooltip het aantal mappen.
 - **Relevantieradar.** Het radarsymbool vindt de inhoudelijk meest vergelijkbare vermeldingen in dit en in andere zaken. Klik op een treffer om er in de kroniek naartoe te springen.
@@ -604,7 +602,7 @@ De blauwe knop rechts op de kaart opent de **Chronologie** — de inkomende en u
 - **Het verloop van de zaak lezen.** Het diagram toont alle inkomende en uitgaande pdf-documenten in chronologische volgorde, verbonden door pijlen. Door u verzonden documenten hebben een zwarte kop, documenten met een openstaande termijn een dikke rand. De producties van een uitgaande brief verschijnen als aparte vakken ernaast.
 - **Een vermelding openen.** Klik op het onderstreepte vermeldingsnummer in een vak om direct naar die vermelding te gaan.
 - **Zoomen en scrollen.** Gebruik de twee vergrootglasknoppen om in en uit te zoomen; lange chronologieën lopen over meerdere pagina's, waar u doorheen scrolt.
-- **Als document registreren.** *Registreren* maakt van het diagram een pdf en opent de documentregistratie, waar u het aan de zaak koppelt en net als elk ander document opslaat. Niet beschikbaar op de Android-tablet; daar kan het diagram alleen worden bekeken. Sluit het diagram met het kruisje.
+- **Als document registreren.** *Registreren* maakt van het diagram een pdf en opent de documentregistratie, waar u het aan de zaak koppelt en net als elk ander document opslaat. Sluit het diagram met het kruisje.
 
 ### Pdf-dossier: vermeldingen en pagina's kiezen
 
@@ -762,7 +760,7 @@ en het relatienetwerk dat via het netwerksymbool van een regel wordt geopend.
 
 - **Wie met wie verbonden is.** Het netwerk toont de persoon of de onderneming in het midden met de directe relaties en de relaties van die contacten (twee niveaus), als diagram op één of meer pagina's.
 - **Door het netwerk bewegen.** Klik in het diagram op een andere persoon, onderneming of instantie: het venster bouwt zich opnieuw op rond die partij. Paginaverwijzingen in het diagram springen naar de bijbehorende pagina; de vergrootglasknoppen zoomen in en uit.
-- **Registreren.** Maakt van het diagram een pdf en opent die direct in *Document registreren*, zodat u het met de gebruikelijke stempel in een zaak kunt opslaan. Deze knop is niet beschikbaar op de Android-tablet.
+- **Registreren.** Maakt van het diagram een pdf en opent die direct in *Document registreren*, zodat u het met de gebruikelijke stempel in een zaak kunt opslaan.
 
 **Een persoon vastleggen of bewerken**
 
@@ -1008,11 +1006,10 @@ Onder de maanden ziet u alles wat voor de geselecteerde dag gepland is. De afbee
 - **Voorbereidingsmap.** Zodra er een zaak is gekozen, vinkt u de kroniekvermeldingen aan die u voor de afspraak bij de hand wilt hebben. Ze verschijnen later onder *Voorbereide documenten* en in de pdf van de afspraak.
 - **Opslaan.** *Opslaan* (of *Aanmaken* bij een nieuwe vermelding) brengt u terug naar de agenda op de datum van de afspraak; *Annuleren* verwerpt de wijzigingen.
 
-#### Export en synchronisatie
+#### Export
 
 - **Privacywaarschuwing.** Vóór de eerste .ics-export na elke programmastart herinnert IRONSTICK u eraan dat agendavermeldingen in dit formaat het beveiligde programma verlaten. Kies *Verder* om door te gaan.
 - **Exportvenster.** *Download* slaat het bestand op in uw map Documenten en opent die map. *Google Drive* verschijnt alleen als er op deze computer een Google Drive-map bestaat, en slaat het bestand daar op.
-- **Tabletagenda.** Bestaat er op de Android-tablet in het agenda-account van het apparaat een agenda met de naam IRONSTICK, dan worden afspraken in beide richtingen gesynchroniseerd; termijnen en zittingen worden eenzijdig daarnaartoe gekopieerd.
 
 ## 11. Termijnen
 
@@ -1073,7 +1070,7 @@ De afbeelding toont de lijst, het venster voor een nieuwe vermelding en een geop
 
 #### Een nieuwe vermelding genereren
 
-- **De tekst aanleveren.** *Nieuwe vermelding genereren* opent een venster waarin u een .txt- of .md-bestand neerzet (of klikt om te kiezen) of de tekst direct plakt. Deze knop is beschikbaar op de pc, niet op de Android-tablet.
+- **De tekst aanleveren.** *Nieuwe vermelding genereren* opent een venster waarin u een .txt- of .md-bestand neerzet (of klikt om te kiezen) of de tekst direct plakt.
 - **Analyseren.** Een tekst in het formaat van het dagjournaal wordt direct in dagen opgesplitst. Elke andere tekst kan worden doorgegeven aan de externe AI, die datum, titel en de genoemde zaken vindt; IRONSTICK vraagt vooraf om uw toestemming. Weigert u, dan legt een melding het verwachte formaat uit.
 - **Controleren vóór de import.** Voor elke herkende dag ziet u een kaart: vink die aan of uit, corrigeer de datum en de titel van de dag, zet de gekoppelde zaken aan of uit en lees de gevonden gebeurtenissen. Een badge *Merge* betekent dat er voor die datum al een journaal bestaat; de nieuwe tekst wordt eraan toegevoegd, er wordt niets overschreven.
 - **Importeren of teruggaan.** De importknop slaat de aangevinkte dagen op; de linkerknop brengt u terug naar de tekst. Vóór de analyse sluit *Verwerpen* het venster zonder op te slaan.
@@ -1100,7 +1097,6 @@ Een klik opent het document in de tekstverwerking, die rechts in de afbeelding t
 - **Groepen.** Heeft een cliënt, zaak of kroniekvermelding meerdere documenten, dan worden die samengevoegd in één regel met het aantal documenten. Klik op de regel om die uit of in te klappen. Een afzonderlijk document wordt direct met de cliënt en de zaak getoond.
 - **Openen vanuit de zoekfunctie.** Opent u een tekst vanuit de zoekresultaten, dan klapt de groep ervan uit en licht het document enkele seconden geel op.
 - **Altijd actueel.** Wanneer u terugkeert uit de tekstverwerking, wordt de lijst opnieuw geladen en toont die de nieuwe versie.
-- **Alleen op de pc.** De tekstverwerking draait op de Windows-pc. Op de Android-tablet is de lijst zichtbaar, maar het openen van een document toont in plaats daarvan een melding.
 
 ### Bewerken, voorlezen en producties
 

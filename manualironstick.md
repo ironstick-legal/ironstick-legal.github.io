@@ -26,7 +26,7 @@ Many symbols appear only when there is something to show. A red, animated symbol
 5. **Daily briefing (speaker).** Opens the daily briefing at any time: what is ahead today (deadlines, court dates, appointments, e-mails), what has already been done today, and a short look back. Click a line to open the matching screen, for example the deadlines, the calendar, the E-mail Monitor or the case. *Read aloud* plays the spoken version and *Stop* ends it. A switch changes the style of the spoken text only. If your last backup is more than five days old, the briefing warns you.
 6. **Data Consistency Monitor.** Opens the list of suggested changes to your client and contact data that IRONSTICK found in your e-mails. For each suggestion you choose *Accept* or *Reject*. The symbol is grey when nothing is waiting and red when there are suggestions. It is also animated when a national court portal has suggested new cases (country-specific function).
 7. **E-mail.** Visible only when the background e-mail check is switched on in the configuration. Grey means no new e-mails. Red and animated means new e-mails have arrived, and the tooltip shows how many. Click to open the E-mail Monitor, where everything counts as seen.
-8. **AI chat (robot).** Click to open the AI chat. On Windows it opens in its own window. If you are inside a case or a client, a small violet dot shows that the chat already knows this case or client. Right-click it (or hold it on the tablet) to switch voice recognition on or off. While it is on, the robot moves and the chat listens and answers aloud. The robot is hidden while an external desktop AI is connected to IRONSTICK. On the tablet it is greyed out when there is no internet.
+8. **AI chat (robot).** Click to open the AI chat. On Windows it opens in its own window. If you are inside a case or a client, a small violet dot shows that the chat already knows this case or client. Right-click it to switch voice recognition on or off. While it is on, the robot moves and the chat listens and answers aloud. The robot is hidden while an external desktop AI is connected to IRONSTICK.
 9. **Server chat.** Appears only when IRONSTICK SERVER — the office server — is connected. It opens a chat with the other users of the server. A green dot means the user is online and red means offline. You can delete your own messages, and a switch mutes the chat so that it no longer pops up by itself. The symbol turns red and is animated when there is an unread message.
 10. **Deadline bell.** Red when at least one deadline is due today or overdue. Orange when deadlines are due in the next ten days. Grey when nothing is pending. Point at the bell to see the number. The bell is also animated when a hearing retrieved from a national court portal is scheduled for today (country-specific function). A click always opens the deadline overview.
 11. **Power button.** Closes IRONSTICK immediately, without a confirmation prompt. It deletes its temporary files and browser cache and ends IRONSTICK and all processes it started.
@@ -52,7 +52,6 @@ Many symbols appear only when there is something to show. A red, animated symbol
 
 - **Move the window.** On the PC, drag any empty area of the menu bar to move the program window, just like the normal window title bar.
 - **Locked during long saves.** While a long save is running, the menu bar and breadcrumb are greyed out and do not react, and you cannot go back. The screen below stays visible so you can follow the progress.
-- **On the Android tablet.** The middle of the bar holds a red *DESTROY* button instead of the program name. After a confirmation it permanently deletes all IRONSTICK data from the tablet, starts the uninstall of the app and closes it. This cannot be undone. The tablet has no daily briefing and no resource display.
 
 ## 1. Main menu
 
@@ -76,7 +75,7 @@ and **Heatmap** shows how active your practice was over the last twelve months.
 - **Arrange the tiles your way.** Drag a tile by its handle to a new position. The order is remembered on this computer.
 - **Tags and security.** The tags tile shows your coloured tags and opens the tag management. The security tile shows the state of this computer (system, drives, network) and opens the configuration.
 - **Audio.** The audio tile opens the audio cutter for recordings you already have; its second link starts a live recording with AI transcription.
-- **Tiles that appear only when they apply.** *Server cases* appears only when IRONSTICK SERVER is connected. Country-specific tiles appear only when those functions are switched on. A few tiles that need a PC (for example document capture and word processing) are not shown on the Android tablet.
+- **Tiles that appear only when they apply.** *Server cases* appears only when IRONSTICK SERVER is connected. Country-specific tiles appear only when those functions are switched on.
 
 #### Agenda tab
 
@@ -122,7 +121,6 @@ The program version and the licence key are at the bottom of the page.
 - **Currently in use.** A grey box shows the folder IRONSTICK is working with right now. All data is in this one folder: database, licence, configuration and every file.
 - **Change the storage location (PC).** Use *Choose folder* to pick a new location, such as a USB stick or a different drive. The *IRONSTICK* folder is created there automatically. Click *Save* to start the move. IRONSTICK first tells you how much data will be moved. It then tests the chosen drive (for example its speed, free space and write protection) and only continues if the drive passes. If you confirm, IRONSTICK closes and moves the data the next time it starts.
 - **Data already at the new location.** If the chosen folder already holds IRONSTICK data, nothing is overwritten without asking. Both copies are compared, and you choose either to use the copy found there or to replace it with your current data.
-- **On the Android tablet.** The data folder is fixed (it is the folder the USB synchronisation copies into), so there is nothing to choose there.
 
 **User (PC only)**
 
@@ -217,7 +215,7 @@ In **Signatures** you store your handwritten signature, which IRONSTICK can plac
 **Login log and version**
 
 - **Login log.** The last card lists the latest 50 logins, newest first: time, user number, external and internal IP address, place, country, device, operating system, browser and a security rating. You can select the text, or copy the whole table with the copy symbol.
-- **Version.** The line at the bottom of the page shows the version of the Windows program and of the Android app stored in your data folder.
+- **Version.** The line at the bottom of the page shows the version of the Windows program.
 - **Licence key (PC).** Click *Licence key* to enter a new or renewed key and click *Activate*. If the key is invalid, expired, not yet valid or belongs to another user, you are told why. *Request licence key* prepares a ready-made request. After activation you set up your authenticator app again by scanning the QR code shown, and the licensed modules are unlocked straight away.
 
 ## 3. Clients
@@ -254,7 +252,7 @@ The picture also shows the QR code window that opens from the WhatsApp symbol, a
 
 - **Open the cases.** Click anywhere on a row to open that client's case list.
 - **Call, WhatsApp or e-mail by QR code.** Click the phone number, the green WhatsApp symbol or the e-mail address. A window shows a QR code that you can scan with your phone to call, open WhatsApp or write an e-mail. A click on the QR code opens the matching program on this computer; if there is none, the value is copied to the clipboard.
-- **Social media.** The blue symbol in the *Social* column appears only when profiles are recorded. It opens a window listing Facebook, Instagram, TikTok, LinkedIn and X profiles. The open symbol shows the profile in the IRONSTICK browser window (on the tablet: in the system browser); the copy button copies the address.
+- **Social media.** The blue symbol in the *Social* column appears only when profiles are recorded. It opens a window listing Facebook, Instagram, TikTok, LinkedIn and X profiles. The open symbol shows the profile in the IRONSTICK browser window; the copy button copies the address.
 - **Copy the reference number.** A click on the purple *@C* number copies it, for example to paste it into a chat or a document.
 - **Delete a client.** The X opens a confirmation. If the client still has cases, documents or case links, a yellow warning lists them before you confirm. Notes that the AI has remembered about this client are removed as well.
 
@@ -455,7 +453,7 @@ Each line in the picture points from a tab to the view it opens.
 **Connections**
 
 - **Relationship chart.** Shows the persons and institutions of the case and how they are linked, over one or more pages; the header counts entities and connections. Where there are many, the most urgent are shown.
-- **Work with the chart.** Zoom in and out with the magnifier buttons. Click a name to open that person or institution. *Wallpaper* downloads the chart as a large poster PDF; *Capture* passes it to document capture, where you assign it to a case. Neither export button is available on the Android tablet.
+- **Work with the chart.** Zoom in and out with the magnifier buttons. Click a name to open that person or institution. *Wallpaper* downloads the chart as a large poster PDF; *Capture* passes it to document capture, where you assign it to a case.
 
 **Map**
 
@@ -491,7 +489,7 @@ The enlarged row at the bottom of the picture shows the parts of a single entry.
 
 1. **Notes.** Opens the case pinboard. Your own notes are yellow, notes from subscribers of a shared case are white cards, and notes the AI has remembered for this case appear on squared paper. Click *New note* to write one (up to 1,000 characters, optionally with a date), click a yellow note to edit it, any note to read it in full; each has small copy and delete buttons.
 2. **Dossier.** Opens the dossier assistant, which builds a complete dossier of the case. It appears only when the Timeline has entries.
-3. **Compose text.** Choose *With AI help* to open the AI chat with a request to draft a document for this case, or *Empty text document* to start writing in the word processor. Not shown on the Android tablet.
+3. **Compose text.** Choose *With AI help* to open the AI chat with a request to draft a document for this case, or *Empty text document* to start writing in the word processor.
 4. **Jump to a date.** Pick a date and click the magnifier to go to the page that contains it.
 5. **New entry.** Opens the form for a new chronicle entry.
 6. **Entry number and date.** The purple number identifies the entry; click it to copy it to the clipboard. Below it are the date and, if recorded, the time from–to.
@@ -515,7 +513,7 @@ The enlarged row at the bottom of the picture shows the parts of a single entry.
 
 - **Pages and sorting.** The list shows 20 entries per page; page buttons appear above and below the list when there is more than one page. Click the *Date* column header to switch between newest and oldest first.
 - **What a row tells you.** Under the title you see the description, coloured labels (country, area of law, stage, IN in orange or OUT in green, institution type, language, document type) and the persons involved.
-- **Write a text about an entry.** The small pencil-and-lines symbol next to the title starts *Compose text* for this particular entry; a number in front of it counts the texts already written about it. Not shown on the Android tablet.
+- **Write a text about an entry.** The small pencil-and-lines symbol next to the title starts *Compose text* for this particular entry; a number in front of it counts the texts already written about it.
 - **Deadline column.** An orange bell means the entry's deadline is due within 10 days, a red ringing bell that it is overdue. Point at the bell to see the days left or the date.
 - **Coming from search or the radar.** When you open the case from a search result or the relevance radar, the Timeline goes to the right page and the entry lights up yellow for a few seconds.
 
@@ -590,7 +588,7 @@ The blue button on the right of the card opens the **chronology** — the incomi
 
 **Tools in each row**
 
-- **Compose text.** The note icon next to the title opens a choice: write a letter with the help of the AI (the chat opens with this case and this document already referred to) or open an empty text document in the word processor. A number in front of the icon shows how many texts already exist for this entry. Not available on the Android tablet.
+- **Compose text.** The note icon next to the title opens a choice: write a letter with the help of the AI (the chat opens with this case and this document already referred to) or open an empty text document in the word processor. A number in front of the icon shows how many texts already exist for this entry.
 - **Open the document.** The paperclip opens the document in the IRONSTICK browser window; point at it to see the file name. A green pin appears when the entry has a location — click it to see the place on a map.
 - **Work folders.** The folder icon files the document into the work folders of the matters this case belongs to: tick or untick a folder, or create a new folder. When the entry is already filed, the icon shows a filled folder and its tooltip the number of folders.
 - **Relevance radar.** The radar icon finds the entries that are most similar in content, in this case and in other cases. Click a hit to jump to it in the timeline.
@@ -604,7 +602,7 @@ The blue button on the right of the card opens the **chronology** — the incomi
 - **Read the course of the case.** The chart shows all incoming and outgoing PDF documents in date order, linked by arrows. Documents you sent have a black heading, documents with an open deadline a thick frame. The annexes of an outgoing letter appear as separate boxes beside it.
 - **Open an entry.** Click the underlined entry number in a box to go straight to that entry.
 - **Zoom and scroll.** Use the two magnifier buttons to zoom in and out; long chronologies run over several pages that you scroll through.
-- **Capture as a document.** *Capture* turns the chart into a PDF and opens the document capture, where you assign it to the case and save it like any other document. Not available on the Android tablet, where the chart can only be viewed. Close the chart with the X.
+- **Capture as a document.** *Capture* turns the chart into a PDF and opens the document capture, where you assign it to the case and save it like any other document. Close the chart with the X.
 
 ### Dossier: choosing entries and pages
 
@@ -762,7 +760,7 @@ and the relationship network that opens from the network icon of a row.
 
 - **Who is connected to whom.** The network shows the person or company in the centre with its direct relationships and the relationships of those contacts (two levels), as a chart on one or more pages.
 - **Move through the network.** Click another person, company or institution in the chart: the window rebuilds itself around that party. Page references in the chart jump to the matching page; the magnifier buttons zoom in and out.
-- **Capture.** Turns the chart into a PDF and opens it directly in *Capture document*, so that you can file it in a case with the usual stamp. This button is not available on the Android tablet.
+- **Capture.** Turns the chart into a PDF and opens it directly in *Capture document*, so that you can file it in a case with the usual stamp.
 
 **Entering or editing a person**
 
@@ -1008,11 +1006,10 @@ Below the months you see everything planned for the selected day. The picture al
 - **Preparation folder.** Once a case is chosen, tick the chronicle entries you want to have at hand for the appointment. They appear later under *Prepared documents* and in the appointment PDF.
 - **Save.** *Save* (or *Create* for a new entry) returns you to the calendar on the date of the appointment; *Cancel* discards the changes.
 
-#### Export and synchronisation
+#### Export
 
 - **Privacy warning.** Before the first .ics export after each program start, IRONSTICK reminds you that calendar entries leave the protected program in this format. Choose *Continue* to go on.
 - **Export dialog.** *Download* saves the file in your Documents folder and opens that folder. *Google Drive* appears only when a Google Drive folder exists on this computer and saves the file there.
-- **Tablet calendar.** On the Android tablet, if a calendar named IRONSTICK exists in the device's calendar account, appointments are kept in step in both directions; deadlines and hearings are copied to it one way.
 
 ## 11. Deadlines
 
@@ -1073,7 +1070,7 @@ The picture shows the list, the window for a new entry and an opened day with th
 
 #### Generating a new entry
 
-- **Bring in the text.** *Generate new entry* opens a window where you drop a .txt or .md file (or click to choose one) or paste the text directly. This button is available on the PC, not on the Android tablet.
+- **Bring in the text.** *Generate new entry* opens a window where you drop a .txt or .md file (or click to choose one) or paste the text directly.
 - **Analyse.** A text in the daily-log format is split into days directly. Any other text can be handed to the external AI, which finds date, title and the cases mentioned; IRONSTICK asks for your consent first. If you decline, a hint explains the expected format.
 - **Check before importing.** For each recognised day you see a card: tick or untick it, correct the date and the day title, switch the assigned cases on or off and read the events found. A *Merge* badge means a log already exists for that date; the new text is added to it, nothing is overwritten.
 - **Import or go back.** The import button saves the ticked days; the left button takes you back to the text. Before analysing, *Discard* closes the window without saving.
@@ -1100,7 +1097,6 @@ A click opens the document in the word processor, shown on the right of the pict
 - **Groups.** When a client, case or chronicle entry has several documents, they are folded into one row with the number of documents. Click the row to unfold or fold it. A single document is shown directly with its client and case.
 - **Coming from the search.** When you open a text from the search results, its group unfolds and the document lights up yellow for a few seconds.
 - **Always up to date.** When you come back from the word processor, the list reloads and shows the new version.
-- **PC only.** The word processor runs on the Windows PC. On the Android tablet the list is visible, but opening a document shows a notice instead.
 
 ### Editing, read aloud and annexes
 

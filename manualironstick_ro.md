@@ -26,7 +26,7 @@ Multe simboluri apar doar când există ceva de afișat. Un simbol roșu, animat
 5. **Briefingul zilnic (difuzor).** Deschide briefingul zilnic oricând: ce vă așteaptă astăzi (termene, ședințe de judecată, programări, e-mailuri), ce s-a făcut deja astăzi și o scurtă privire în urmă. Faceți clic pe o linie pentru a deschide ecranul corespunzător, de exemplu termenele, calendarul, Monitorul de e-mail sau dosarul. *Citește cu voce tare* redă versiunea vorbită, iar *Oprește* o încheie. Un comutator schimbă doar stilul textului vorbit. Dacă ultima dumneavoastră copie de siguranță are mai mult de cinci zile, briefingul vă avertizează.
 6. **Monitorul de consistență a datelor.** Deschide lista modificărilor propuse la datele clienților și contactelor dumneavoastră pe care IRONSTICK le-a găsit în e-mailurile dumneavoastră. Pentru fiecare propunere alegeți *Permiteți* sau *Respinge*. Simbolul este gri când nu așteaptă nimic și roșu când există propuneri. Este animat și când un portal național al instanțelor a propus dosare noi (funcție specifică țării).
 7. **E-mail.** Vizibil doar când verificarea de fundal a e-mailurilor este activată în configurare. Gri înseamnă că nu există e-mailuri noi. Roșu și animat înseamnă că au sosit e-mailuri noi, iar tooltipul arată câte. Faceți clic pentru a deschide Monitorul de e-mail, unde totul se consideră văzut.
-8. **Chatul IA (robot).** Faceți clic pentru a deschide chatul IA. Pe Windows se deschide în propria fereastră. Dacă vă aflați într-un dosar sau la un client, un mic punct violet arată că chatul cunoaște deja acest dosar sau acest client. Faceți clic dreapta pe el (sau țineți apăsat pe tabletă) pentru a activa sau dezactiva recunoașterea vocală. Cât timp este activată, robotul se mișcă, iar chatul ascultă și răspunde cu voce tare. Robotul este ascuns cât timp o IA desktop externă este conectată la IRONSTICK. Pe tabletă este estompat când nu există internet.
+8. **Chatul IA (robot).** Faceți clic pentru a deschide chatul IA. Pe Windows se deschide în propria fereastră. Dacă vă aflați într-un dosar sau la un client, un mic punct violet arată că chatul cunoaște deja acest dosar sau acest client. Faceți clic dreapta pe el pentru a activa sau dezactiva recunoașterea vocală. Cât timp este activată, robotul se mișcă, iar chatul ascultă și răspunde cu voce tare. Robotul este ascuns cât timp o IA desktop externă este conectată la IRONSTICK.
 9. **Chatul serverului.** Apare doar când este conectat IRONSTICK SERVER — serverul de cabinet. Deschide un chat cu ceilalți utilizatori ai serverului. Un punct verde înseamnă că utilizatorul este online, iar roșu înseamnă offline. Vă puteți șterge propriile mesaje, iar un comutator dezactivează sunetul chatului, astfel încât să nu mai apară de la sine. Simbolul devine roșu și este animat când există un mesaj necitit.
 10. **Clopoțelul de termene.** Roșu când cel puțin un termen scade astăzi sau este depășit. Portocaliu când termene scad în următoarele zece zile. Gri când nu este nimic în așteptare. Treceți cu mouse-ul peste clopoțel pentru a vedea numărul. Clopoțelul este animat și când o ședință preluată dintr-un portal național al instanțelor este programată astăzi (funcție specifică țării). Un clic deschide întotdeauna prezentarea generală a termenelor.
 11. **Butonul de oprire.** Închide IRONSTICK imediat, fără solicitare de confirmare. Șterge fișierele sale temporare și memoria cache a browserului și încheie IRONSTICK și toate procesele pornite de acesta.
@@ -52,7 +52,6 @@ Multe simboluri apar doar când există ceva de afișat. Un simbol roșu, animat
 
 - **Mutați fereastra.** Pe PC, trageți orice zonă goală a barei de meniu pentru a muta fereastra programului, exact ca bara de titlu obișnuită a ferestrei.
 - **Blocată în timpul salvărilor lungi.** Cât timp rulează o salvare lungă, bara de meniu și breadcrumbul sunt estompate și nu reacționează, și nu puteți reveni. Ecranul de dedesubt rămâne vizibil ca să puteți urmări progresul.
-- **Pe tableta Android.** La mijlocul barei se află un buton roșu *DESTROY* în locul numelui programului. După o confirmare, șterge definitiv toate datele IRONSTICK de pe tabletă, pornește dezinstalarea aplicației și o închide. Acest lucru nu poate fi anulat. Tableta nu are briefing zilnic și nici afișaj al resurselor.
 
 ## 1. Meniul principal
 
@@ -76,7 +75,7 @@ iar **Heatmap** arată cât de activă a fost practica dumneavoastră în ultime
 - **Aranjați dalele după placul dumneavoastră.** Trageți o dală de mâner într-o poziție nouă. Ordinea este reținută pe acest calculator.
 - **Etichete și securitate.** Dala de etichete arată etichetele dumneavoastră colorate și deschide gestionarea etichetelor. Dala de securitate arată starea acestui calculator (sistem, unități, rețea) și deschide configurarea.
 - **Audio.** Dala audio deschide tăietorul audio pentru înregistrările pe care le aveți deja; al doilea link al ei pornește o înregistrare live cu transcriere IA.
-- **Dale care apar doar când se aplică.** *Dosare de pe server* apare doar când este conectat IRONSTICK SERVER. Dalele specifice țării apar doar când acele funcții sunt activate. Câteva dale care necesită un PC (de exemplu înregistrarea documentelor și procesarea de text) nu se afișează pe tableta Android.
+- **Dale care apar doar când se aplică.** *Dosare de pe server* apare doar când este conectat IRONSTICK SERVER. Dalele specifice țării apar doar când acele funcții sunt activate.
 
 #### Fila Agenda
 
@@ -122,7 +121,6 @@ Versiunea programului și cheia de licență se află în partea de jos a pagini
 - **În uz în prezent.** O casetă gri arată dosarul cu care lucrează chiar acum IRONSTICK. Toate datele se află în acest unic dosar: baza de date, licența, configurarea și fiecare fișier.
 - **Schimbați locul de stocare (PC).** Folosiți *Alege dosar* pentru a alege un loc nou, precum un stick USB sau o altă unitate. Dosarul *IRONSTICK* se creează acolo automat. Faceți clic pe *Salvează* pentru a porni mutarea. IRONSTICK vă spune mai întâi câte date vor fi mutate. Apoi testează unitatea aleasă (de exemplu viteza, spațiul liber și protecția la scriere) și continuă doar dacă unitatea trece testul. Dacă confirmați, IRONSTICK se închide și mută datele la următoarea pornire.
 - **Date deja prezente la noul loc.** Dacă dosarul ales conține deja date IRONSTICK, nimic nu se suprascrie fără a vă întreba. Ambele copii se compară, iar dumneavoastră alegeți fie să folosiți copia găsită acolo, fie să o înlocuiți cu datele dumneavoastră actuale.
-- **Pe tableta Android.** Dosarul de date este fix (este dosarul în care copiază sincronizarea USB), deci acolo nu aveți nimic de ales.
 
 **Utilizator (doar PC)**
 
@@ -217,7 +215,7 @@ Conexiunea la IRONSTICK SERVER și câmpul de semnătură.
 **Jurnalul de autentificări și versiunea**
 
 - **Jurnalul de autentificări.** Ultimul card listează ultimele 50 de autentificări, cele mai noi primele: ora, numărul de utilizator, adresa IP externă și internă, locul, țara, dispozitivul, sistemul de operare, browserul și o evaluare de securitate. Puteți selecta textul sau copia întregul tabel cu simbolul de copiere.
-- **Versiunea.** Linia din partea de jos a paginii arată versiunea programului Windows și a aplicației Android stocate în dosarul dumneavoastră de date.
+- **Versiunea.** Linia din partea de jos a paginii arată versiunea programului Windows stocat în dosarul dumneavoastră de date.
 - **Cheia de licență (PC).** Faceți clic pe *Cheie de licență* pentru a introduce o cheie nouă sau reînnoită și faceți clic pe *Activează*. Dacă cheia este invalidă, expirată, încă nevalabilă sau aparține altui utilizator, vi se spune de ce. *Solicită cheia de licență* pregătește o cerere gata făcută. După activare, vă configurați din nou aplicația de autentificare scanând codul QR afișat, iar modulele licențiate se deblochează imediat.
 
 ## 3. Clienți
@@ -254,7 +252,7 @@ Imaginea arată și fereastra cu cod QR care se deschide de la simbolul WhatsApp
 
 - **Deschideți dosarele.** Faceți clic oriunde pe un rând pentru a deschide lista de dosare a acelui client.
 - **Apelați, trimiteți pe WhatsApp sau pe e-mail prin cod QR.** Faceți clic pe numărul de telefon, pe simbolul verde WhatsApp sau pe adresa de e-mail. O fereastră arată un cod QR pe care îl puteți scana cu telefonul pentru a apela, a deschide WhatsApp sau a scrie un e-mail. Un clic pe codul QR deschide programul corespunzător de pe acest calculator; dacă nu există, valoarea se copiază în clipboard.
-- **Social media.** Simbolul albastru din coloana *Social* apare doar când sunt înregistrate profiluri. Deschide o fereastră care listează profilurile de Facebook, Instagram, TikTok, LinkedIn și X. Simbolul de deschidere afișează profilul în fereastra de browser IRONSTICK (pe tabletă: în browserul de sistem); butonul de copiere copiază adresa.
+- **Social media.** Simbolul albastru din coloana *Social* apare doar când sunt înregistrate profiluri. Deschide o fereastră care listează profilurile de Facebook, Instagram, TikTok, LinkedIn și X. Simbolul de deschidere afișează profilul în fereastra de browser IRONSTICK; butonul de copiere copiază adresa.
 - **Copiați numărul de referință.** Un clic pe numărul violet *@C* îl copiază, de exemplu pentru a-l lipi într-un chat sau într-un document.
 - **Ștergeți un client.** X-ul deschide o confirmare. Dacă clientul mai are dosare, documente sau legături de dosar, un avertisment galben le listează înainte de a confirma. Notițele pe care IA le-a reținut despre acest client sunt eliminate și ele.
 
@@ -455,7 +453,7 @@ Fiecare linie din imagine indică de la o filă către vizualizarea pe care o de
 **Conexiuni**
 
 - **Diagrama relațiilor.** Arată persoanele și instituțiile dosarului și cum sunt legate, pe una sau mai multe pagini; antetul numără entitățile și conexiunile. Când sunt multe, sunt afișate cele mai urgente.
-- **Lucrul cu diagrama.** Măriți și micșorați cu butoanele lupă. Faceți clic pe un nume pentru a deschide persoana sau instituția respectivă. *Wallpaper* descarcă diagrama ca PDF mare, în format afiș; *Înregistrează* o transmite către înregistrarea documentelor, unde o atribuiți unui dosar. Niciunul dintre butoanele de export nu este disponibil pe tableta Android.
+- **Lucrul cu diagrama.** Măriți și micșorați cu butoanele lupă. Faceți clic pe un nume pentru a deschide persoana sau instituția respectivă. *Wallpaper* descarcă diagrama ca PDF mare, în format afiș; *Înregistrează* o transmite către înregistrarea documentelor, unde o atribuiți unui dosar.
 
 **Hartă**
 
@@ -491,7 +489,7 @@ Rândul mărit din partea de jos a imaginii arată părțile unei singure înreg
 
 1. **Note.** Deschide panoul de notițe al dosarului. Notele dumneavoastră sunt galbene, notele abonaților unui dosar partajat sunt cartonașe albe, iar notele reținute de IA pentru acest dosar apar pe hârtie milimetrică. Faceți clic pe *Notă nouă* pentru a scrie una (până la 1.000 de caractere, opțional cu o dată), faceți clic pe o notă galbenă pentru a o edita, pe orice notă pentru a o citi integral; fiecare are mici butoane de copiere și ștergere.
 2. **Dosar.** Deschide asistentul de dosar, care construiește un dosar complet al cauzei. Apare numai când Cronologia are înregistrări.
-3. **Redactează text.** Alegeți *Cu ajutorul IA* pentru a deschide chatul IA cu o cerere de redactare a unui document pentru acest dosar, sau *Document text gol* pentru a începe să scrieți în procesorul de text. Nu este afișat pe tableta Android.
+3. **Redactează text.** Alegeți *Cu ajutorul IA* pentru a deschide chatul IA cu o cerere de redactare a unui document pentru acest dosar, sau *Document text gol* pentru a începe să scrieți în procesorul de text.
 4. **Salt la o dată.** Alegeți o dată și faceți clic pe lupă pentru a merge la pagina care o conține.
 5. **Înregistrare nouă.** Deschide formularul pentru o nouă înregistrare de cronologie.
 6. **Numărul și data înregistrării.** Numărul violet identifică înregistrarea; faceți clic pe el pentru a-l copia în clipboard. Dedesubt se află data și, dacă a fost înregistrată, ora de la–până la.
@@ -515,7 +513,7 @@ Rândul mărit din partea de jos a imaginii arată părțile unei singure înreg
 
 - **Pagini și sortare.** Lista afișează 20 de înregistrări pe pagină; butoanele de pagină apar deasupra și dedesubtul listei când există mai mult de o pagină. Faceți clic pe antetul coloanei *Dată* pentru a comuta între cele mai noi și cele mai vechi primele.
 - **Ce vă spune un rând.** Sub titlu vedeți descrierea, etichetele colorate (țară, domeniu juridic, stadiu, IN în portocaliu sau OUT în verde, tipul instituției, limbă, tipul documentului) și persoanele implicate.
-- **Redactați un text despre o înregistrare.** Micul simbol cu creion și linii de lângă titlu pornește *Redactează text* pentru acea înregistrare anume; un număr din fața lui numără textele deja scrise despre ea. Nu este afișat pe tableta Android.
+- **Redactați un text despre o înregistrare.** Micul simbol cu creion și linii de lângă titlu pornește *Redactează text* pentru acea înregistrare anume; un număr din fața lui numără textele deja scrise despre ea.
 - **Coloana de termen.** Un clopoțel portocaliu înseamnă că termenul înregistrării scade în 10 zile, un clopoțel roșu care sună că termenul a fost depășit. Poziționați cursorul peste clopoțel pentru a vedea zilele rămase sau data.
 - **Venind din căutare sau din radar.** Când deschideți dosarul dintr-un rezultat de căutare sau din radarul de relevanță, Cronologia merge la pagina potrivită, iar înregistrarea se luminează în galben câteva secunde.
 
@@ -590,7 +588,7 @@ Butonul albastru din dreapta cardului deschide **cronologia** — documentele pr
 
 **Instrumentele din fiecare rând**
 
-- **Redactează text.** Pictograma notă de lângă titlu deschide o alegere: scrieți o scrisoare cu ajutorul IA (chatul se deschide cu acest dosar și acest document deja menționate) sau deschideți un document text gol în procesorul de text. Un număr din fața pictogramei arată câte texte există deja pentru această înregistrare. Indisponibil pe tableta Android.
+- **Redactează text.** Pictograma notă de lângă titlu deschide o alegere: scrieți o scrisoare cu ajutorul IA (chatul se deschide cu acest dosar și acest document deja menționate) sau deschideți un document text gol în procesorul de text. Un număr din fața pictogramei arată câte texte există deja pentru această înregistrare.
 - **Deschiderea documentului.** Agrafa deschide documentul în fereastra de browser IRONSTICK; poziționați cursorul peste ea pentru a vedea numele fișierului. Un pin verde apare când înregistrarea are o locație — faceți clic pe el pentru a vedea locul pe o hartă.
 - **Mape de lucru.** Pictograma mapă clasează documentul în mapele de lucru ale cauzelor comune din care face parte acest dosar: bifați sau debifați o mapă ori creați o mapă nouă. Când înregistrarea este deja clasată, pictograma arată o mapă plină, iar sfatul ei afișează numărul de mape.
 - **Radarul de relevanță.** Pictograma radar găsește înregistrările cele mai asemănătoare ca înțeles, în acest dosar și în alte dosare. Faceți clic pe un rezultat pentru a sări la el în cronologie.
@@ -604,7 +602,7 @@ Butonul albastru din dreapta cardului deschide **cronologia** — documentele pr
 - **Citiți cursul dosarului.** Diagrama arată toate documentele PDF primite și trimise în ordine cronologică, legate prin săgeți. Documentele trimise de dumneavoastră au un titlu negru, documentele cu termen deschis un chenar gros. Anexele unei scrisori trimise apar ca casete separate lângă ea.
 - **Deschiderea unei înregistrări.** Faceți clic pe numărul subliniat al înregistrării dintr-o casetă pentru a merge direct la acea înregistrare.
 - **Zoom și derulare.** Folosiți cele două butoane lupă pentru a mări și micșora; cronologiile lungi se întind pe mai multe pagini prin care derulați.
-- **Înregistrare ca document.** *Înregistrează* transformă diagrama într-un PDF și deschide înregistrarea documentelor, unde o atribuiți dosarului și o salvați ca orice alt document. Indisponibil pe tableta Android, unde diagrama poate fi doar vizualizată. Închideți diagrama cu X.
+- **Înregistrare ca document.** *Înregistrează* transformă diagrama într-un PDF și deschide înregistrarea documentelor, unde o atribuiți dosarului și o salvați ca orice alt document. Închideți diagrama cu X.
 
 ### Dosar: alegerea înregistrărilor și a paginilor
 
@@ -762,7 +760,7 @@ Imaginea arată lista cu butoanele de filtrare și câmpul de căutare, fereastr
 
 - **Cine este legat de cine.** Rețeaua arată persoana sau firma în centru cu relațiile ei directe și relațiile acestor contacte (două niveluri), ca diagramă pe una sau mai multe pagini.
 - **Deplasarea prin rețea.** Faceți clic pe altă persoană, firmă sau instituție din diagramă: fereastra se reconstruiește în jurul acelei părți. Trimiterile la pagini din diagramă sar la pagina corespunzătoare; butoanele lupă măresc și micșorează.
-- **Înregistrează.** Transformă diagrama într-un PDF și îl deschide direct în *Înregistrează documentul*, ca să îl puteți clasa într-un dosar cu ștampila obișnuită. Acest buton nu este disponibil pe tableta Android.
+- **Înregistrează.** Transformă diagrama într-un PDF și îl deschide direct în *Înregistrează documentul*, ca să îl puteți clasa într-un dosar cu ștampila obișnuită.
 
 **Introducerea sau editarea unei persoane**
 
@@ -1008,11 +1006,10 @@ Sub luni vedeți tot ce este planificat pentru ziua selectată. Imaginea arată 
 - **Mapa de pregătire.** Odată ales un dosar, bifați înregistrările din cronologie pe care doriți să le aveți la îndemână pentru programare. Ele apar ulterior sub *Documente pregătite* și în PDF-ul programării.
 - **Salvare.** *Salvează* (sau *Creează* pentru o înregistrare nouă) vă readuce în calendar la data programării; *Anulează* renunță la modificări.
 
-#### Export și sincronizare
+#### Export
 
 - **Avertisment de confidențialitate.** Înainte de primul export .ics după fiecare pornire a programului, IRONSTICK vă reamintește că înregistrările din calendar părăsesc programul protejat în acest format. Alegeți *Continuă* pentru a merge mai departe.
 - **Dialogul de export.** *Descarcă* salvează fișierul în dosarul dumneavoastră Documente și deschide acel dosar. *Google Drive* apare doar când pe acest calculator există un dosar Google Drive și salvează fișierul acolo.
-- **Calendarul de pe tabletă.** Pe tableta Android, dacă în contul de calendar al dispozitivului există un calendar numit IRONSTICK, programările sunt păstrate sincronizate în ambele sensuri; termenele și ședințele de judecată sunt copiate acolo într-un singur sens.
 
 ## 11. Termene
 
@@ -1073,7 +1070,7 @@ Imaginea arată lista, fereastra pentru o înregistrare nouă și o zi deschisă
 
 #### Generarea unei înregistrări noi
 
-- **Aducerea textului.** *Generează înregistrare nouă* deschide o fereastră în care trageți un fișier .txt sau .md (sau faceți clic pentru a alege unul) ori lipiți direct textul. Acest buton este disponibil pe PC, nu pe tableta Android.
+- **Aducerea textului.** *Generează înregistrare nouă* deschide o fereastră în care trageți un fișier .txt sau .md (sau faceți clic pentru a alege unul) ori lipiți direct textul.
 - **Analizează.** Un text în formatul jurnalului zilnic este împărțit direct pe zile. Orice alt text poate fi predat IA externe, care găsește data, titlul și dosarele menționate; IRONSTICK vă cere mai întâi acordul. Dacă refuzați, un indiciu explică formatul așteptat.
 - **Verificare înainte de import.** Pentru fiecare zi recunoscută vedeți un card: bifați-l sau debifați-l, corectați data și titlul zilei, activați sau dezactivați dosarele atribuite și citiți evenimentele găsite. O insignă *Îmbinare* înseamnă că pentru acea dată există deja un jurnal; textul nou i se adaugă, nimic nu este suprascris.
 - **Importă sau înapoi.** Butonul de import salvează zilele bifate; butonul din stânga vă duce înapoi la text. Înainte de analiză, *Renunță* închide fereastra fără a salva.
@@ -1100,7 +1097,6 @@ Un clic deschide documentul în procesorul de text, afișat în dreapta imaginii
 - **Grupuri.** Când un client, un dosar sau o înregistrare din cronologie are mai multe documente, ele sunt strânse într-un singur rând cu numărul documentelor. Faceți clic pe rând pentru a-l desface sau strânge. Un document singur este afișat direct cu clientul și dosarul lui.
 - **Sosind din căutare.** Când deschideți un text din rezultatele căutării, grupul lui se desface, iar documentul se luminează în galben câteva secunde.
 - **Mereu la zi.** Când reveniți din procesorul de text, lista se reîncarcă și arată versiunea nouă.
-- **Doar PC.** Procesorul de text rulează pe PC-ul Windows. Pe tableta Android lista este vizibilă, dar deschiderea unui document arată în schimb o notificare.
 
 ### Editare, citire cu voce tare și anexe
 
